@@ -1,0 +1,239 @@
+<!---error checking for adding a company--->
+<cfset Variables.Errors = ArrayNew(1)>
+<cfset Proceed_OK = "Yes">
+
+<cfif isDefined("form.companyID") AND form.companyID EQ "">
+	<cfoutput>#ArrayAppend(Variables.Errors, "Please select a company.")#</cfoutput>
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfif Proceed_OK EQ "No">
+	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
+	<cfset Session.Return_Structure.Errors = Variables.Errors>
+	<cflocation addtoken="no" url="addNewUserCompany.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#">
+</cfif>
+
+<!---error checking for new profile info--->
+<cfif isDefined("form.Password2")>	
+	<cfset Variables.Errors = ArrayNew(1)>
+	<cfset Proceed_OK = "Yes">
+	
+	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+		SELECT 	Email
+		FROM	Users
+		WHERE 	EMail = '#trim(form.Email)#'
+		AND		Deleted = '0'
+	</cfquery>
+	
+	<cfif getUser.RecordCount GT 0>
+		<cfoutput>#ArrayAppend(Variables.Errors, "The e-mail address already exists in the system, please try another.")#</cfoutput>
+		<cfset Proceed_OK = "No">
+	</cfif>
+	
+	<CFIF trim(form.firstname) eq ''>
+		<cfoutput>#ArrayAppend(Variables.Errors, "Please enter a first name.")#</cfoutput>
+		<cfset Proceed_OK = "No">
+	</CFIF>
+	
+	<CFIF trim(form.lastname) eq ''>
+		<cfoutput>#ArrayAppend(Variables.Errors, "Please enter a lastname.")#</cfoutput>
+		<cfset Proceed_OK = "No">
+	</CFIF>
+	
+	<cfif Len(Form.Password1) LT 6>
+		<cfoutput>#ArrayAppend(Variables.Errors, "The password must be at least 6 characters.")#</cfoutput>
+		<cfset Proceed_OK = "No">
+	<cfelseif Form.Password1 NEQ Form.Password2>
+		<cfoutput>#ArrayAppend(Variables.Errors, "Passwords do not match, please retype.")#</cfoutput>
+		<cfset Proceed_OK = "No">
+	</cfif>
+	
+	<cfif NOT REFindNoCase("^([a-zA-Z_\.\-\']*[a-zA-Z0-9_\.\-\'])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$",#trim(Form.Email)#)>
+		<cfoutput>#ArrayAppend(Variables.Errors, "Please check that the email address is valid.")#</cfoutput>
+		<cfset Proceed_OK = "No">
+	</cfif>
+	
+	<cfif isDefined("url.companies")>
+		<cfset Variables.action = "adduser.cfm?lang=#lang#&companies=#url.companies#">
+	<cfelse>
+		<cfset Variables.action = "adduser.cfm?lang=#lang#">
+	</cfif>
+	
+	<cfif Proceed_OK EQ "No">
+		<cfinclude template="#RootDir#includes/build_return_struct.cfm">
+		<cfset Session.Return_Structure.Errors = Variables.Errors>
+		<cflocation url="#Variables.action#" addtoken="no">
+	</cfif>
+</cfif>
+
+<cfif isDefined("form.companyID") OR isDefined("form.firstname")>
+	<cfset StructDelete(Session, "Form_Structure")>
+	<cfinclude template="#RootDir#includes/build_form_struct.cfm">
+</cfif>
+<cfinclude template="#RootDir#includes/restore_params.cfm">
+
+<cfhtmlhead text="
+<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Create New User"">
+<meta name=""keywords"" lang=""eng"" content="""">
+<meta name=""description"" lang=""eng"" content="""">
+<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
+<meta name=""dc.date.published"" content=""2005-07-25"">
+<meta name=""dc.date.reviewed"" content=""2005-07-25"">
+<meta name=""dc.date.modified"" content=""2005-07-25"">
+<meta name=""dc.date.created"" content=""2005-07-25"">
+<title>PWGSC - ESQUIMALT GRAVING DOCK - Create New User</title>">
+
+<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+
+<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+	SELECT 	Companies.CompanyID, Name
+	FROM 	Companies
+	WHERE 	Companies.Deleted = '0'
+	ORDER BY Companies.Name
+</cfquery>
+
+<!-- Start JavaScript Block -->
+<script language="JavaScript" type="text/javascript">
+<!--
+function EditSubmit ( selectedform )
+{
+  document.forms[selectedform].submit() ;
+}
+//-->
+</script>
+<CFOUTPUT>
+<div class="breadcrumbs">
+	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">PWGSC</a> &gt; 
+	Pacific Region &gt; 
+	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-e.html">Esquimalt Graving Dock</a> &gt; 
+	<a href="#RootDir#text/booking-#lang#.cfm">Booking</A> &gt;
+	<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+		<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+	<CFELSE>
+		 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+	</CFIF>
+	Create New User
+</div>
+</CFOUTPUT>
+
+<div class="main">
+<H1>Create New User</H1>
+<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+<cfoutput>
+
+<!---decrpyt user info--->
+<cfif isDefined("url.info")><cfset Variables.userInfo = cfusion_decrypt(ToString(ToBinary(URLDecode(url.info))), "boingfoip")></cfif>
+
+<!---store user info--->
+<cfif isDefined("url.info")><cfset Variables.firstname = ListGetAt(userInfo, 1)><cfelseif isDefined("form.firstname")><cfset Variables.firstname = form.firstname></cfif>
+<cfif isDefined("url.info")><cfset Variables.lastname = ListGetAt(userInfo, 2)><cfelseif isDefined("form.lastname")><cfset Variables.lastname = form.lastname></cfif>
+<cfif isDefined("url.info")><cfset Variables.email = ListGetAt(userInfo, 3)><cfelseif isDefined("form.email")><cfset Variables.email = form.email></cfif>
+<cfif isDefined("url.info")><cfset Variables.password1 = ListGetAt(userInfo, 4)><cfelseif isDefined("form.password1")><cfset Variables.password1 = form.password1></cfif>
+
+<!---encrypt user info--->
+<cfset Variables.userInfo = ArrayToList(ArrayNew(1))>
+<cfset Variables.userInfo = ListAppend(Variables.userInfo, Variables.firstname)>
+<cfset Variables.userInfo = ListAppend(Variables.userInfo, Variables.lastname)>
+<cfset Variables.userInfo = ListAppend(Variables.userInfo, Variables.email)>
+<cfset Variables.userInfo = ListAppend(Variables.userInfo, Variables.password1)>
+<cfset Variables.info = URLEncodedFormat(ToBase64(cfusion_encrypt(Variables.userInfo, "boingfoip")))>
+
+<cfinclude template="#RootDir#includes/getStructure.cfm">
+
+<table align="center" width="85%">
+		<tr>
+			<td colspan="2">Requested companies: </td>
+		</tr>
+	<cfif NOT isDefined("url.companies")>
+		<tr>
+			<td width="8%">&nbsp;</td><td>No Companies</td>
+		</tr>
+		<cfset companyList = ArrayToList(ArrayNew(1))>
+	<cfelse>
+		<cfif Len(url.companies) EQ 0>
+			<cfset companyList = url.companies>
+		<cfelse>
+			<cfset companyList = cfusion_decrypt(ToString(ToBinary(URLDecode(url.companies))), "shanisnumber1")>
+		</cfif>
+		<cfif isDefined("form.companyID")>
+			<cfif ListFind(companyList, "#form.companyID#") EQ 0>
+				<cfset companyList = ListAppend(companyList, "#form.companyID#")>
+			</cfif>
+		</cfif>
+
+		<cfif Len(companyList) EQ 0>
+			<tr>
+				<td width="8%">&nbsp;</td><td>No Companies</td>
+			</tr>
+		</cfif>
+		
+		<cfset counter = 1>
+		<cfloop index = "ID" list = "#companyList#">
+			<cfif Len(companyList) EQ 0>
+				<cfset companies = companyList>
+			<cfelse>
+				<cfset companies = URLEncodedFormat(ToBase64(cfusion_encrypt(companyList, "shanisnumber1")))>
+			</cfif>
+		
+			<form method="post" action="removeNewUserCompany_confirm.cfm?lang=#lang#&companies=#companies#&amp;info=#Variables.info#" name="remCompany#ID#">
+				<input type="hidden" name="CompanyID" value="#ID#">
+			</form>
+			
+			<cfset detailsID = "companyDetails#ID#">
+			<cfquery name="detailsID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+				SELECT	Name, Approved
+				FROM	Companies
+				WHERE	CompanyID = '#ID#'
+			</cfquery>
+			<tr>
+				<td width="8%">&nbsp;</td><td>#detailsID.Name#</td>
+				<td align="left" valign="top" width="55%"><a href="javascript:EditSubmit('remCompany#ID#');" class="textbutton">Remove</a>
+				<cfif detailsID.approved EQ 0>&nbsp;<i>awaiting approval</i></cfif></td>
+			</tr>
+			<cfset counter = counter + 1>
+		</cfloop>
+	</cfif>
+</table><br>
+
+<cfif Len(companyList) EQ 0>
+	<cfset companies = companyList>
+<cfelse>
+	<cfset companies = URLEncodedFormat(ToBase64(cfusion_encrypt(companyList, "shanisnumber1")))>
+</cfif>
+
+<cfform action="addNewUserCompany.cfm?lang=#lang#&amp;companies=#companies#&amp;info=#Variables.info#" name="addUserCompanyForm" method="post">
+<table align="center" width="88%">
+	<tr>
+		<td valign="top"><label for="companies">Add Company:</label></td>
+		<td>
+			<cfselect name="companyID" id="companies" required="yes" message="Please select a company.">
+				<option value="">(Please select a company)
+				<cfloop query="getCompanies">
+					<cfif ListFind(companyList, "#companyID#") EQ 0>
+						<option value="#companyID#">#Name#
+					</cfif>
+				</cfloop>
+			</cfselect>
+			<input type="submit" name="submitCompany" value="Add" class="textbutton"><BR>
+			<font size="-2">If the desired company is not listed, click <a href="addCompany.cfm?lang=#lang#&info=#Variables.info#&amp;companies=#companies#">here</a> to create one.</font>
+		</td>
+	</tr>
+</table>
+</cfform>
+
+<!---<br><div align="center"><cfoutput><input type="button" value="Done" onClick="self.location.href='#RootDir#text/admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#'" class="textbutton"></cfoutput></div>--->
+
+<cfform name="newUserForm" action="addUser_action.cfm?lang=#lang#&amp;info=#Variables.info#">
+	<input type="hidden" name="firstname" value="#Variables.firstname#">
+	<input type="hidden" name="lastname" value="#Variables.lastname#">
+	<input type="hidden" name="email" value="#Variables.email#">
+	<input type="hidden" name="password1" value="#Variables.password1#">
+	<input type="hidden" name="companies" value="#companies#">
+	<br><div align="right"><input type="submit" onClick="javascript:EditSubmit('newUserForm');" value="Submit New User" class="textbutton">
+	<input type="button" onClick="javascript:self.location.href='addUser.cfm?lang=#lang#&amp;info=#Variables.info#&amp;companies=#companies#'" value="Edit Profile" class="textbutton">
+	<input type="button" onClick="javascript:self.location.href='../menu.cfm?lang=#lang#'" value="Cancel" class="textbutton"></div>
+</cfform>
+
+</cfoutput>
+</div>
+<cfinclude template="#RootDir#includes/footer-#lang#.cfm">

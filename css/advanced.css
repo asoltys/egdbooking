@@ -1,0 +1,84 @@
+img {
+	border: none;
+}
+
+form, textarea, .textField, select, ul, li, ol {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 100%;
+}
+
+form, hidden {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+textarea, .textField {
+	background-color: white;
+	border: 1px solid black;
+}
+
+.textbutton {
+	font-family: sans-serif, arial;
+	font-size: 85%;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: 1px solid #CCCCCC;
+	background-color: White;
+	color: #CC6600;
+	padding: 1px 2px 1px 2px;
+	white-space: nowrap;
+}
+
+/* #FFFCF0, if shown on a 256-colour screen, would be white.  No big deal. */
+.textbutton:hover {
+	background: #FFFCF0;
+	color: #FF3300;
+	text-decoration: none;
+}
+
+
+.bookingDetails {
+	border-left: 1px solid #669900;
+	border-bottom: 1px solid #669900;
+}
+
+.bookingDetails td {
+	border-top: 1px solid #669900;
+	border-right: 1px solid #669900;
+	font-family: sans-serif, arial;
+	font-size: 100%;
+	padding-left: 5px;
+}
+
+.conflictBookings {
+
+	width: 100%;
+}
+.conflictBookings th {
+	border-bottom: 1px solid #000000;
+}
+.conflictBookings td {
+	font-size: 9pt;
+}
+h2.conflict span {
+	font-size:10pt;
+	font-weight:bold;
+	color: #000000;
+	
+}
+.waitList {
+	padding: 0px 5px 4px 5px; 
+	background-color:#FFFFCC; 
+	font-size:10pt;
+	border: 1px solid #000000;
+}
+.waitlistBookings {
+	width: 100%;
+	font-size:9pt;
+}
+.waitlistBookings th {
+	border-bottom: 1px solid #000000;
+}
+.waitlistBookings td {
+	font-size: 9pt;
+}

@@ -1,0 +1,85 @@
+thead {
+	display:table-header-group;
+}
+
+tbody {
+	display:table-row-group;
+}
+
+a {
+	text-decoration: none;
+}
+
+div.domTTOverlib {
+	border: 1px solid #333366;
+	background-color: #333366;
+}
+div.domTTOverlib .caption {
+	font-family: Verdana, Helvetica;
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	cursor: move;
+}
+div.domTTOverlib .contents {
+	font-size: 10px;
+	font-family: Verdana, Helvetica;
+	padding: 2px;
+	background-color: #F1F1FF;
+}	
+
+table {
+	border-collapse: collapse;
+	empty-cells: show;
+}
+
+td {
+	empty-cells:show;
+	font-size: 12pt;
+}
+
+.day {
+	min-height: 60px;
+	vertical-align: middle;
+	border-top: 1px dashed #888888;
+	empty-cells: show;
+}
+
+.sat {
+	background-color: #EEEEEE;
+}
+
+.sun {
+	background-color: #EEEEEE;
+	border-top: 1px solid #888888;
+}
+
+.firstday {
+	border-top: 5px double #888888;
+}
+
+.text {
+	/*position: absolute;*/
+	width: 115px;
+	min-height: 60px;
+	padding: 2px 0px 2px 3px; /*white-space: nowrap;
+	overflow: hidden;*/
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	vertical-align: top;
+	color: #FFFFFF;
+	z-index: 15;
+}
+
+
+@media screen {
+	.printonly {
+		display: none;
+	}
+}
+
+@media print {
+	.screenonly {
+		display: none;
+	}
+}

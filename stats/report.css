@@ -1,0 +1,49 @@
+td {
+	font : 12px Tahoma, Arial, Helvetica, sans-serif;
+border-style: none; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px;
+	white-space : nowrap;
+}
+ body {
+	background-color:white;
+	color:#000000;
+	font : 12px Verdana,Arial,Helvetica,sans-serif;
+	}
+ h1 {
+	text-align:CENTER;
+	font: bold 20px Verdana,Arial
+}
+ th {
+	background-color: #1861BD;
+	font : bold 12px Verdana,Tahoma, Arial, Helvetica, sans-serif;
+	color : #FFFFF0;
+}
+ h2 {
+	background-color:#FAA600;
+	font-weight:bold;
+	width:95%;
+	font-size: 14px;
+	border:1px groove #000000;
+	font-family:Verdana,Tahoma,Arial,Helvetica,sans-serif;
+	padding:3pt;
+	color: #000000;
+}
+ .fineprint {
+	font-size: 9px;
+}
+ .smallfont {
+	font-size: 11px;
+}
+ td.alt1 {
+	background-color:#FFFFFF;
+	font : 12px Tahoma, Arial, Helvetica, sans-serif;
+}
+ th.total {
+	background-color:#888888;
+	font : 12px Verdana,Tahoma, Arial, Helvetica, sans-serif;
+}
+ td.alt2 {
+	background-color:#CDE4FF;
+	font : 12px Verdana,Tahoma, Arial, Helvetica, sans-serif;
+}
+ table {  border: #333333; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px}
+tr {  border-style: none}

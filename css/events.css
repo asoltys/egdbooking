@@ -1,0 +1,114 @@
+/*------- Events Page ------------*/
+div#eventmain {
+	width: 98%;
+}
+
+div#eventmain br {
+	clear: both;
+}
+
+div.EventAdd {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	float: right;
+}
+
+table.calendar {
+	font-size: 120%;
+	text-align: left;
+	border-left: 1px solid #669900;
+	border-bottom: 1px solid #669900;
+}
+
+table.calendar.small {
+	font-size: 90%;
+}
+
+table.keytable {
+	border: 1px solid #cccccc;
+	width: 100px;
+	font-size: 90%;
+}
+
+
+tr.fixedheight {
+	height: 84px;
+}
+
+tr.fixedheight.small {
+	height: 60px;
+}
+
+th.calendar {
+	text-align: center;
+	vertical-align: top;
+	width: 14%;
+	padding: 2px;
+	background-color: #CCCC99;
+	font-family: sans-serif, arial;
+	font-size: 80%;
+	font-weight: bold;
+	border-top: 1px solid #669900;
+	border-right: 1px solid #669900;
+}
+
+th.calendar.small {
+	font-size: 80%;
+}
+
+td.calendar {
+	background-color: #FFFFFF;
+	padding: 0px 3px 0px 3px;
+	font-size: 80%;
+	text-align: left;
+	vertical-align: top;
+	border-top: 1px solid #669900;
+	border-right: 1px solid #669900;
+}
+
+td.calendar.details {
+	font-size: 80%;
+}
+
+td.calendar.small {
+	height: 15px;
+	font-size: 75%;
+}
+
+
+.confirmed, .confirmed:visited, .confirmed:hover {
+	/*background-color: #CC4400; #ED1B23;*/
+	border : none;
+	color: #990000;
+}
+
+.tentative, .tentative:visited, .tentative:hover {
+	/*background-color: #0000FF; #0090DF*/
+	border: none;
+	color: #0033CC;
+}
+
+.pending, .pending:visited, .pending:hover {
+	/*background-color: #FF0000; #00A650*/
+	border: none;
+	color: #009933;
+}
+
+/* Let's play some ad lib.  Pick a verb and an adjective, then put them in the 
+  following sentence.  Say it loud and clear:
+  "Seriously, ___ you and your ___ websafe palatte." */
+.sec1 { background-color: #FFFFCC; }
+.sec2 { background-color: #FFCCFF; }
+.sec3 { background-color: #99FFFF; }
+
+/* deprecated
+.njetty { background-color: #FFECCE; }
+.sjetty { background-color: #E5FEE6; }
+*/
+
+.maintenance, a.maintenance, a.maintenance:visited {
+	background-color: #666666;
+	color: #FFFFFF;
+}
+
+.maintenance:hover { color: #FFFFFF; }
