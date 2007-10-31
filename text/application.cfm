@@ -1,5 +1,5 @@
 <cfif cgi.server_port NEQ 443 AND cgi.request_method EQ "get">
-<cflocation url="https://#cgi.server_name##cgi.script_name#?#cgi.query_string#" />
+<cflocation url="https://#cgi.server_name#:#cgi.server_port##cgi.script_name#?#cgi.query_string#" />
 </cfif>
 
 <cfapplication name="egd" sessiontimeout=#CreateTimeSpan(0, 2, 0, 0)# sessionmanagement="yes" clientmanagement="yes">

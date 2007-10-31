@@ -1,11 +1,11 @@
 <cfif cgi.server_port NEQ 443 AND cgi.request_method EQ "get">
-<cflocation url="https://#cgi.server_name##cgi.script_name#?#cgi.query_string#" />
+<cflocation url="https://#cgi.server_name#:#cgi.server_port##cgi.script_name#?#cgi.query_string#" />
 </cfif>
 
 <CFAPPLICATION NAME="EGD" Sessiontimeout=#CreateTimeSpan(0, 0, 60, 0)# SESSIONMANAGEMENT="Yes" clientmanagement="yes">
 
 <cfif cgi.server_port NEQ 443 AND cgi.request_method EQ "get">
-<cflocation url="https://#cgi.server_name##cgi.script_name#?#cgi.query_string#" />
+<cflocation url="https://#cgi.server_name#:#cgi.server_port##cgi.script_name#?#cgi.query_string#" />
 </cfif>
 
 <!--- Set a global variable for the datasource --->
