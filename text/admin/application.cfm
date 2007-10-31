@@ -6,9 +6,9 @@
 
 <!--- Set a global variable for the datasource --->
 <CFSET Foobar = SetLocale("English (Canadian)")>
-<cfset RootDir = "/">
-<cfinclude template="#RootDir#server_settings.cfm">
 
+<!--- Include the server-specific settings --->
+<cfinclude template="../../server_settings.cfm">
 
 <cfquery name="getEmail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Email

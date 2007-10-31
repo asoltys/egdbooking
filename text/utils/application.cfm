@@ -22,10 +22,9 @@
 <cfelseif lcase(url.lang) EQ "f">
 	<cfset Foobar = SetLocale("French (Canadian)")>
 </cfif>
-<cfset RootDir = "/">
-<cfinclude template="#RootDir#server_settings.cfm">
 
-
+<!--- Include the server-specific settings --->
+<cfinclude template="../../server_settings.cfm">
 
 <cfparam name="lang" default="e">
 

@@ -6,7 +6,8 @@
    
 <!--- Set a global variable for the datasource --->
 <cfset Foobar = SetLocale("English (Canadian)")>
-<cfset RootDir = "/">
-<cfinclude template="#RootDir#server_settings.cfm">
+
+<!--- Include the server-specific settings --->
+<cfinclude template="server_settings.cfm">
 
 <cfparam name="lang" default="e">

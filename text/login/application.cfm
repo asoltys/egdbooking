@@ -4,10 +4,8 @@
 
 <cfapplication name="egd" sessiontimeout=#CreateTimeSpan(0, 2, 0, 0)# sessionmanagement="yes" clientmanagement="yes">
 
-<!--- Set a global variable for the datasource --->
-<cfset RootDir = "/">
-<cfinclude template="#RootDir#server_settings.cfm">
-
+<!--- Include the server-specific settings --->
+<cfinclude template="../../server_settings.cfm">
 
 <cfquery name="getEmail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Email
