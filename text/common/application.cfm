@@ -1,5 +1,5 @@
-<cfif cgi.server_port NEQ 443 AND cgi.request_method EQ "get">
-<cflocation url="https://#cgi.server_name#:#cgi.server_port##cgi.script_name#?#cgi.query_string#" />
+<cfif cgi.server_port NEQ 443 AND cgi.server_port NEQ 8500 AND cgi.request_method EQ "get">
+<cflocation url="https://#cgi.server_name##cgi.script_name#?#cgi.query_string#" />
 </cfif>
 
 <cfapplication name="egd" sessiontimeout=#CreateTimeSpan(0, 2, 0, 0)# sessionmanagement="yes" clientmanagement="yes">
@@ -27,7 +27,7 @@
 	SELECT	Email
 	FROM	Configuration
 </cfquery>
-<cfset Variables.AdminEmail = "egdbookings@pwgsc.gc.ca">
+
 
 <cfif (NOT IsDefined("Session.LoggedIn") AND NOT IsDefined("Session.AdminLoggedIn")) AND GetFileFromPath(GetCurrentTemplatePath()) NEQ "public.cfm">
 	<cflocation url="#RootDir#text/login/login.cfm" addtoken="no">

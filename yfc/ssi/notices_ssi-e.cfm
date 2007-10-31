@@ -1,1 +1,0 @@
-<span lang="en"><a href="/site02_pub/text/notices-e.html">Important Notices</a></span>
