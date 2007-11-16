@@ -1,8 +1,11 @@
-<cfif cgi.server_port NEQ 443 AND cgi.server_port NEQ 8500 AND cgi.request_method EQ "get">
-<cflocation url="https://#cgi.server_name##cgi.script_name#?#cgi.query_string#" />
-</cfif>
-
 <cfapplication name="egd" sessiontimeout=#CreateTimeSpan(0, 2, 0, 0)# sessionmanagement="yes" clientmanagement="yes">
+
+<!--- Include the server-specific settings --->
+<cfinclude template="../../server_settings.cfm">
+
+<cfif ServerType EQ "Production" AND cgi.server_port NEQ 443 AND cgi.request_method EQ "get">
+	<cflocation url="https://#cgi.server_name##cgi.script_name#?#cgi.query_string#" />
+</cfif>
 
 <cfif NOT IsDefined("URL.lang")>
 	<cflocation url="#CGI.PATH_INFO#?lang=e" addtoken="no">
@@ -17,10 +20,6 @@
 <cfelseif lcase(url.lang) EQ "f">
 	<cfset Foobar = SetLocale("French (Canadian)")>
 </cfif>
-
-<!--- Include the server-specific settings --->
-<cfinclude template="../../server_settings.cfm">
-
 
 <cfquery name="getEmail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Email

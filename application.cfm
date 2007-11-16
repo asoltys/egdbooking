@@ -1,4 +1,4 @@
-<cfif cgi.server_port NEQ 443 AND cgi.server_port NEQ 8500 AND cgi.request_method EQ "get">
+<cfif ServerType EQ "Production" AND cgi.server_port NEQ 443 AND cgi.request_method EQ "get">
 <cflocation url="https://#cgi.server_name##cgi.script_name#?#cgi.query_string#" />
 </cfif>
 
