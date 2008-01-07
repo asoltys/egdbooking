@@ -131,16 +131,6 @@
 <cfif DateCompare(PacificNow, Variables.StartDate, 'd') EQ 1>
 	<cfoutput>#ArrayAppend(Errors, "The Start Date can not be in the past.")#</cfoutput>
 	<cfset Proceed_OK = "No">
-<!--- 06-19-2006 Changed to check status for Tentative so admin can overlap booking for that status--->
-<cfelseif isDefined("checkDblBooking.VesselID") AND checkDblBooking.VesselID NEQ "" AND (checkDblBooking.Status NEQ "T" OR form.Status NEQ "T")>
-	<cfoutput>#ArrayAppend(Errors, "#checkDblBooking.Name# has already been booked from #dateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# to #dateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
-	<cfset Proceed_OK = "No">
-<cfelseif getNumStartDateBookings.recordCount GTE 1 AND (getNumStartDateBookings.Status NEQ "T" OR form.Status NEQ "T")>
-	<cfoutput>#ArrayAppend(Errors, "#getNumStartDateBookings.Name# already has a booking for #LSdateFormat(getNumStartDateBookings.StartDate, 'mm/dd/yyy')#.")#</cfoutput>
-	<cfset Proceed_OK = "No">
-<cfelseif getNumEndDateBookings.recordCount GTE 1 AND (getNumStartDateBookings.Status NEQ "T" OR form.Status NEQ "T")>
-	<cfoutput>#ArrayAppend(Errors, "#getNumEndDateBookings.Name# already has a booking for #LSdateFormat(getNumEndDateBookings.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
-	<cfset Proceed_OK = "No">
 </cfif>
 
 <cfif Proceed_OK EQ "No">
