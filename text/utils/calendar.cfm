@@ -93,8 +93,8 @@
 
 <!--- Set the month and year parameters to equal the current values 
   if they do not exist. --->	
-<cfparam name="month" default="#DatePart("m", Now())#">
-<cfparam name="year" default="#DatePart("yyyy", Now())#">
+<cfparam name="month" default="#DatePart("m", PacificNow)#">
+<cfparam name="year" default="#DatePart("yyyy", PacificNow)#">
 
 
 <!--- Set the requested (or current) month/year date and determine the 
@@ -233,7 +233,7 @@ function setDate(day) {
 			   <td>
 					<select name="selYear" onChange="go('calendar')">
 						<CFLOOP index="i" from="-5" to="25">
-							<option><CFOUTPUT>#DateFormat(DateAdd('yyyy', i, Now()), 'yyyy')#</CFOUTPUT></option>
+							<option><CFOUTPUT>#DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')#</CFOUTPUT></option>
 						</CFLOOP>
 					</select>
 				</td>

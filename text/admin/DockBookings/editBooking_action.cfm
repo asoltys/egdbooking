@@ -43,10 +43,10 @@
 	AND		Deleted = 0
 </cfquery>
 
-<cfif DateCompare(Now(), Form.StartDate, 'd') EQ 1>
+<cfif DateCompare(PacificNow, Form.StartDate, 'd') EQ 1>
 	<cfoutput>#ArrayAppend(Errors, "The Start Date can not be in the past.")#</cfoutput>
 	<cfset Proceed_OK = "No">
-<cfelseif DateCompare(Now(), Form.StartDate, 'd') EQ 0>
+<cfelseif DateCompare(PacificNow, Form.StartDate, 'd') EQ 0>
 	<cfoutput>#ArrayAppend(Errors, "The start date can not be set for today.")#</cfoutput>
 	<cfset Proceed_OK = "No">n
 <cfelseif NOT isDefined("checkDblBooking.VesselID") OR checkDblBooking.VesselID NEQ "">
@@ -76,7 +76,7 @@
 			EndDate = <cfqueryparam value="#CreateODBCDate(Form.EndDate)#" cfsqltype="cf_sql_date">, 
 			UserID = '#Form.UserID#',
 			BookingTime = #CreateODBCDateTime(Variables.BookingDateTime)#,
-			BookingTimeChange = #Now()#,
+			BookingTimeChange = #PacificNow#,
 			BookingTimeChangeStatus = 'Edited at'
 	WHERE	BookingID = '#Form.BookingID#'
 	</cfquery>

@@ -67,7 +67,7 @@
 	#language.bookingsSummary#
 </div>
 
-<cfparam name="Variables.startDate" default="#Now()#">
+<cfparam name="Variables.startDate" default="#PacificNow#">
 <cfparam name="Variables.endDate" default="">
 
 <div class="main">

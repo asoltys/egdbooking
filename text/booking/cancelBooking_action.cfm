@@ -34,7 +34,7 @@
 
 <cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE  Bookings
-	SET		BookingTimeChange = #Now()#,
+	SET		BookingTimeChange = #PacificNow#,
 			BookingTimeChangeStatus = '#getUser.UserName# requested to cancel at'
 	WHERE	BookingID = '#Form.BookingID#'
 </cfquery>

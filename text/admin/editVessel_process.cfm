@@ -71,9 +71,9 @@
 <cfset Variables.Tonnage = Form.Tonnage>
 
 <!---
-<cfset Form.EndHighlight = DateAdd("d", Form.EndHighlight, Now()) >
+<cfset Form.EndHighlight = DateAdd("d", Form.EndHighlight, PacificNow) >
 <cfelse>
-<cfset Form.EndHighlight = DateAdd("yyyy", "-100", Now()) >
+<cfset Form.EndHighlight = DateAdd("yyyy", "-100", PacificNow) >
 </cfif>
 <cfset Variables.EndHighlight = Form.EndHighlight>
 --->
@@ -132,7 +132,7 @@
 		</tr>
 		<!---<tr>
 			<td id="EndHighlight">Highlight until:</td>
-			<td headers="EndHighlight"><input type="hidden" name="EndHighlight" value="#Variables.EndHighlight#"><cfif Variables.EndHighlight GTE Now()>#DateFormat(Variables.EndHighlight, "mmm dd, yyyy")#<cfelse>-</cfif></td>
+			<td headers="EndHighlight"><input type="hidden" name="EndHighlight" value="#Variables.EndHighlight#"><cfif Variables.EndHighlight GTE PacificNow>#DateFormat(Variables.EndHighlight, "mmm dd, yyyy")#<cfelse>-</cfif></td>
 		</tr>--->
 		<tr>
 			<td colspan="2" align="center" style="padding-top:20px;">

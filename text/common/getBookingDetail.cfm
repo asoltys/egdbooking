@@ -176,7 +176,7 @@
 <CFOUTPUT query="getBookingDetail">
 
 <DIV style="font-weight: bold; min-height: 20px; padding-left: 5px; ">
-	<cfif #EndHighlight# GTE Now()>* </cfif>
+	<cfif #EndHighlight# GTE PacificNow>* </cfif>
 	<CFIF Anonymous AND userVessel.recordCount EQ 0 AND (NOT IsDefined('Session.AdminLoggedIn') OR Session.AdminLoggedIn eq false) AND ((isDock AND DStatus neq 'c') OR (NOT isDock AND JStatus neq 'c'))>
 		#language.Deepsea#
 	<CFELSE>
@@ -279,13 +279,13 @@
 <!--- 		<cfif getBookingDetail.DStatus EQ 'C' OR getBookingDetail.JStatus EQ 'C'>
 			<a href="mailto:egd?subject=#emailSubject#" class="textbutton">#language.CancelBooking#</a>
 		<cfelse> --->
-			<cfif isDock AND (DateCompare(Now(), getBookingDetail.startDate, 'd') NEQ 1 OR (DateCompare(Now(), getBookingDetail.startDate, 'd') EQ 1 AND DateCompare(Now(), getBookingDetail.endDate, 'd') NEQ 1))>
+			<cfif isDock AND (DateCompare(PacificNow, getBookingDetail.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBookingDetail.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBookingDetail.endDate, 'd') NEQ 1))>
 				<a href="#RootDir#text/admin/DockBookings/deleteBooking_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;CompanyID=#getBookingDetail.CompanyID#&referrer=Booking%20Details&date=#url.date#" class="textbutton">#language.CancelBooking#</a>
-			<cfelseif isDock AND DateCompare(Now(), getBookingDetail.endDate, 'd') EQ 1>
+			<cfelseif isDock AND DateCompare(PacificNow, getBookingDetail.endDate, 'd') EQ 1>
 				<a href="#RootDir#text/admin/DockBookings/deleteBooking_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;CompanyID=#getBookingDetail.CompanyID#&referrer=Booking%20Details&date=#url.date#" class="textbutton">#language.DeleteBooking#</a>
-			<cfelseif NOT isDock AND (DateCompare(Now(), getBookingDetail.startDate, 'd') NEQ 1 OR (DateCompare(Now(), getBookingDetail.startDate, 'd') EQ 1 AND DateCompare(Now(), getBookingDetail.endDate, 'd') NEQ 1))>
+			<cfelseif NOT isDock AND (DateCompare(PacificNow, getBookingDetail.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBookingDetail.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBookingDetail.endDate, 'd') NEQ 1))>
 				<a href="#RootDir#text/admin/JettyBookings/deleteJettyBooking_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;CompanyID=#getBookingDetail.CompanyID#&referrer=Booking%20Details&date=#url.date#" class="textbutton">#language.CancelBooking#</a>
-			<cfelseif NOT isDock AND DateCompare(Now(), getBookingDetail.endDate, 'd') EQ 1>
+			<cfelseif NOT isDock AND DateCompare(PacificNow, getBookingDetail.endDate, 'd') EQ 1>
 				<a href="#RootDir#text/admin/JettyBookings/deleteJettyBooking_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;CompanyID=#getBookingDetail.CompanyID#&referrer=Booking%20Details&date=#url.date#" class="textbutton">#language.DeleteBooking#</a>
 			</cfif>
 <!--- 		</cfif> --->
@@ -295,7 +295,7 @@
 <CFELSE>
 	<div align="center">
 		<CFIF isUsers.RecordCount neq 0>
-			<cfif DateCompare(Now(), getBookingDetail.startDate, 'd') EQ -1 AND (getBookingDetail.DStatus NEQ 'C' AND getBookingDetail.JStatus NEQ 'C') AND userVessel.recordCount GT 0>
+			<cfif DateCompare(PacificNow, getBookingDetail.startDate, 'd') EQ -1 AND (getBookingDetail.DStatus NEQ 'C' AND getBookingDetail.JStatus NEQ 'C') AND userVessel.recordCount GT 0>
 				<CFIF (isDefined("DStatus") AND DStatus eq 't') OR (isDefined("JStatus") AND JStatus eq 't')>
 					<CFIF isDock>
 						<a href="#RootDir#text/booking/confirmBooking_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)#&date=#url.date#&jetty=0" class="textbutton">#language.confirmbooking#</a>
@@ -309,7 +309,7 @@
 				<CFELSE>
 					<a href="#RootDir#text/booking/cancelBooking_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)#&date=#url.date#&jetty=1" class="textbutton">#language.requestCancelBooking#</a>
 				</CFIF>
-			<cfelseif (getBookingDetail.DStatus EQ 'C' OR getBookingDetail.JStatus EQ 'C' OR DateCompare(Now(), getBookingDetail.StartDate, 'd') NEQ -1) AND DateCompare(Now(), getBookingDetail.endDate, 'd') NEQ 1 AND userVessel.recordCount GT 0>
+			<cfelseif (getBookingDetail.DStatus EQ 'C' OR getBookingDetail.JStatus EQ 'C' OR DateCompare(PacificNow, getBookingDetail.StartDate, 'd') NEQ -1) AND DateCompare(PacificNow, getBookingDetail.endDate, 'd') NEQ 1 AND userVessel.recordCount GT 0>
 				<CFIF isDock>
 					<a href="#RootDir#text/booking/cancelBooking_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)#&date=#url.date#&jetty=0" class="textbutton">#language.requestCancelBooking#</a>
 				<CFELSE>

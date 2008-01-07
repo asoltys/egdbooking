@@ -25,8 +25,8 @@
 <cfset Variables.MaxLength = 347.67>
 <cfset Variables.MaxWidth = 45.40>
 
-<!--- <cfparam name="url.StartDate" default="#now()#">
-<cfparam name="url.EndDate" default="#DateAdd('d', 30, Now())#">
+<!--- <cfparam name="url.StartDate" default="#PacificNow#">
+<cfparam name="url.EndDate" default="#DateAdd('d', 30, PacificNow)#">
 <cfparam name="url.showConfirmed" default="off">
 <cfparam name="url.showPending" default="off"> --->
 <!--- <cfparam name="url.userID" default="#session.userID#"> --->

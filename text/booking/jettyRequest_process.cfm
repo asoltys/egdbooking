@@ -135,7 +135,7 @@
 </cfquery>
 
 <!--- Validate the form data --->
-<cfif DateCompare(DateAdd('d', 1, Now()), Form.StartDate, 'd') EQ 1>
+<cfif DateCompare(DateAdd('d', 1, PacificNow), Form.StartDate, 'd') EQ 1>
 	<cfoutput>#ArrayAppend(Errors, "#language.futureStartError#")#</cfoutput>
 	<cfset Proceed_OK = "No">
 

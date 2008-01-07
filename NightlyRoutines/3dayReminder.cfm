@@ -17,8 +17,8 @@
 			AND Bookings.VesselID=Vessels.VesselID
 			AND Users.UserID=Bookings.UserID
 			AND Docks.Status='C'
-			AND Bookings.EndDate>=#CreateODBCDate(DateAdd("d",3,now()))# 
-			AND Bookings.EndDate < #CreateODBCDate(DateAdd("d",4,now()))#
+			AND Bookings.EndDate>=#CreateODBCDate(DateAdd("d",3,PacificNow))# 
+			AND Bookings.EndDate < #CreateODBCDate(DateAdd("d",4,PacificNow))#
 			AND Bookings.Deleted=0
 		</CFQUERY>
 		
@@ -42,8 +42,8 @@
 			AND Bookings.VesselID=Vessels.VesselID
 			AND Users.UserID=Bookings.UserID
 			AND Jetties.Status='C'
-			AND Bookings.EndDate>=#CreateODBCDate(DateAdd("d",3,now()))# 
-			AND Bookings.EndDate < #CreateODBCDate(DateAdd("d",4,now()))#
+			AND Bookings.EndDate>=#CreateODBCDate(DateAdd("d",3,PacificNow))# 
+			AND Bookings.EndDate < #CreateODBCDate(DateAdd("d",4,PacificNow))#
 			AND Bookings.Deleted=0
 		</CFQUERY>
 		

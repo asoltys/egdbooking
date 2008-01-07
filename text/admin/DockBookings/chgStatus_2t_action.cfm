@@ -28,7 +28,7 @@
 <cfif getDetails.Status EQ 'C'>
 <cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE  Bookings
-	SET		BookingTimeChange = #Now()#,
+	SET		BookingTimeChange = #PacificNow#,
 			BookingTimeChangeStatus = 'Set tentative at'
 	WHERE	BookingID = '#Form.BookingID#'
 </cfquery>
@@ -46,7 +46,7 @@
 <cfelseif getDetails.Status EQ 'P'>
 <cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE  Bookings
-	SET		BookingTimeChange = #Now()#,
+	SET		BookingTimeChange = #PacificNow#,
 			BookingTimeChangeStatus = 'Set tentative at'
 	WHERE	BookingID = '#Form.BookingID#'
 </cfquery>

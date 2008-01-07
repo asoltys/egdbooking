@@ -156,7 +156,7 @@ function EditSubmit ( selectedform )
 				AND Bookings.Deleted = 0
 </cfquery>
 
-<cfif DateCompare(Now(), Form.StartDate, 'd') NEQ -1>
+<cfif DateCompare(PacificNow, Form.StartDate, 'd') NEQ -1>
 	<cfoutput>#ArrayAppend(Errors, "#language.futureStartError#")#</cfoutput>
 	<cfset Proceed_OK = "No">
 <cfelseif (isDefined("checkDblBooking.VesselID") AND checkDblBooking.VesselID NEQ "")>

@@ -18,7 +18,7 @@
 		VALUES		('#Form.VesselID#',
 					#Form.StartDate#,
 					#Form.EndDate#,
-					#CreateODBCDateTime(Now())#,
+					#CreateODBCDateTime(PacificNow)#,
 					#session.userID#)
 	</cfquery>
 

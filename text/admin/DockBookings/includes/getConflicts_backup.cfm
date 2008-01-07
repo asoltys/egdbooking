@@ -17,7 +17,7 @@
 		<cfset Variables.EndDate = CreateODBCDate(theBooking.EndDate)>
 		<cfset Variables.BookingID = theBooking.BookingID>
 	<cfelseif isDefined("form.startDate")>
-		<cfset Variables.BookingTime = Now()>
+		<cfset Variables.BookingTime = PacificNow>
 		<cfset Variables.StartDate = CreateODBCDate(form.StartDate)>
 		<cfset Variables.EndDate = CreateODBCDate(form.EndDate)>
 		<cfset Variables.BookingID = arguments.BookingID>
@@ -224,7 +224,7 @@
 				BookingTower.addMaint(#GetMaintenance.BookingID#, #GetMaintenance.StartDate#, #GetMaintenance.EndDate#, #GetMaintenance.Section1#, #GetMaintenance.Section2#, #GetMaintenance.Section3#);
 			</cfscript>
 		</cfloop>
-		<cfif NOT BookingTower.reorderTower() AND DateCompare(Now(), getConflicts.startDate, 'd') EQ -1>
+		<cfif NOT BookingTower.reorderTower() AND DateCompare(PacificNow, getConflicts.startDate, 'd') EQ -1>
 			<cfscript>ArrayAppend(returnArray,getConflicts.BookingID);</cfscript>
 		</cfif>
 	</cfloop>

@@ -155,7 +155,7 @@
 				</select>
 				<select name="selYear">
 					<CFLOOP index="i" from="-5" to="25">
-						<CFOUTPUT><option>#DateFormat(DateAdd('yyyy', i, Now()), 'yyyy')#</option></CFOUTPUT>
+						<CFOUTPUT><option>#DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')#</option></CFOUTPUT>
 					</CFLOOP>
 				</select>
 					<a href="javascript:go('jettyCalendar')" class="textbutton"><cfoutput>#language.Go#</cfoutput></a>

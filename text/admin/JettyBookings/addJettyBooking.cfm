@@ -53,15 +53,15 @@ function EditSubmit ( selectedform )
 <cfparam name="Variables.compID" default="#form.compID#">
 <cfparam name="Variables.vesselID" default="">
 <cfparam name="Variables.userID" default="">
-<cfparam name="form.StartDate" default="#DateAdd('d', 1, Now())#">
-<cfparam name="form.EndDate" default="#DateAdd('d', 1, Now())#">
+<cfparam name="form.StartDate" default="#DateAdd('d', 1, PacificNow)#">
+<cfparam name="form.EndDate" default="#DateAdd('d', 1, PacificNow)#">
 <cfparam name="Variables.StartDate" default="#form.StartDate#">
 <cfparam name="Variables.EndDate" default="#form.endDate#">
 <cfparam name="Variables.NorthJetty" default="0">
 <cfparam name="Variables.SouthJetty" default="0">
 <cfparam name="Variables.Status" default="P">
-<cfparam name="Variables.TheBookingDate" default="#CreateODBCDate(now())#">
-<cfparam name="Variables.TheBookingTime" default="#CreateODBCTime(now())#">
+<cfparam name="Variables.TheBookingDate" default="#CreateODBCDate(PacificNow)#">
+<cfparam name="Variables.TheBookingTime" default="#CreateODBCTime(PacificNow)#">
 	<cfset override="0">
 <cfif IsDefined("Session.Return_Structure")>
 	<cfinclude template="#RootDir#includes/getStructure.cfm">

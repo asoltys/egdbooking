@@ -19,7 +19,7 @@ AND 	(Companies.Approved = 1)
 AND 	(UserCompanies.Approved = 1)
 </cfquery>
 
-<cfif DateCompare(Now(), getBooking.startDate, 'd') NEQ 1 OR (DateCompare(Now(), getBooking.startDate, 'd') EQ 1 AND DateCompare(Now(), getBooking.endDate, 'd') NEQ 1)>
+<cfif DateCompare(PacificNow, getBooking.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBooking.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1)>
 	<cfset variables.actionCap = "Cancel">
 	<cfset variables.actionPast = "cancelled">
 <cfelse>
@@ -76,7 +76,7 @@ AND 	(UserCompanies.Approved = 1)
 	<cfset Session.Success.Back = "Back to #url.referrer#">
 	<cfset Session.Success.Link = "#returnTo#?#urltoken#&bookingid=#form.bookingID##variables.dateValue#">
 <cfelse>
-	<cfif DateCompare(Now(), getBooking.EndDate, 'd') EQ -1>
+	<cfif DateCompare(PacificNow, getBooking.EndDate, 'd') EQ -1>
 	<cflock throwontimeout="no" scope="session" timeout="30" type="readonly">
 		<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	Email
@@ -99,7 +99,7 @@ AND 	(UserCompanies.Approved = 1)
 	<!--- create structure for sending to mothership/success page. --->
 	<cfset Session.Success.Breadcrumb = "<A href='..admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#'>Jetty Management</A> &gt; <cfoutput>#variables.actionCap#</cfoutput> Jetty Booking">
 	<cfset Session.Success.Title = "<cfoutput>#variables.actionCap#</cfoutput> Jetty Booking">
-	<cfif DateCompare(Now(), getBooking.EndDate, 'd') EQ -1>
+	<cfif DateCompare(PacificNow, getBooking.EndDate, 'd') EQ -1>
 		<cfset Session.Success.Message = "Booking for <b>#getBooking.vesselName#</b> from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')# has been <cfoutput>#variables.actionPast#</cfoutput>.  Email notification of this cancellation has been sent to the agent.">
 	<cfelse>
 		<cfset Session.Success.Message = "Booking for <b>#getBooking.vesselName#</b> from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')# has been <cfoutput>#variables.actionPast#</cfoutput>.">

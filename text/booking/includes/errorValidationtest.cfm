@@ -21,7 +21,7 @@
 			<cfset Proceed_OK = false>
 		</cfif>
 		<!--- Start Date can't be before Today --->
-		<cfif DateCompare(Now(), Variables.StartDate, 'd') NEQ -1>
+		<cfif DateCompare(PacificNow, Variables.StartDate, 'd') NEQ -1>
 			<cfoutput>#ArrayAppend(Errors, "language.futureStartError")#</cfoutput>
 			<cfset Proceed_OK = false>
 		</cfif>

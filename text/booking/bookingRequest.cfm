@@ -60,8 +60,8 @@
 
 <cfparam name="Variables.CompanyID" default="">
 <cfparam name="Variables.VesselID" default="">
-<cfparam name="Variables.startDate" default="#DateAdd('d', 1, Now())#">
-<cfparam name="Variables.endDate" default="#DateAdd('d', 3, Now())#">
+<cfparam name="Variables.startDate" default="#DateAdd('d', 1, PacificNow)#">
+<cfparam name="Variables.endDate" default="#DateAdd('d', 3, PacificNow)#">
 <cfparam name="Variables.numDays" default="">
 <cfparam name="Variables.status" default="">
 

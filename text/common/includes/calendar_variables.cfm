@@ -19,11 +19,11 @@
 <cfset magicnum = 7>
 
 <cfif NOT IsDefined("url.month")>
-	<cfset url.month = DateFormat(Now(), "M")>
+	<cfset url.month = DateFormat(PacificNow, "M")>
 </cfif>
 
 <cfif NOT IsDefined("url.year")>
-	<cfset url.year = DateFormat(Now(), "YYYY")>
+	<cfset url.year = DateFormat(PacificNow, "YYYY")>
 </cfif>
 
 <!--- Create an array for the days of the week --->

@@ -48,7 +48,7 @@ so the users who belong to that current company can choose another company--->
 	FROM Vessels INNER JOIN Bookings ON Vessels.VesselID = Bookings.VesselID 
 			INNER JOIN Docks ON Bookings.BookingId = Docks.BookingId
 	WHERE companyID = #form.companyID# AND Docks.Status = 'c' AND Bookings.Deleted = 0
-			AND EndDate >= #CreateODBCDate(Now())#
+			AND EndDate >= #CreateODBCDate(PacificNow)#
 </cfquery>
 
 <cfquery name="getJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -56,7 +56,7 @@ so the users who belong to that current company can choose another company--->
 	FROM Vessels INNER JOIN Bookings ON Vessels.VesselID = Bookings.VesselID 
 			INNER JOIN Jetties ON Bookings.BookingId = Jetties.BookingId
 	WHERE companyID = #form.companyID# AND Jetties.Status = 'c' AND Bookings.Deleted = 0
-			AND EndDate >= #CreateODBCDate(Now())#
+			AND EndDate >= #CreateODBCDate(PacificNow)#
 </cfquery>
 
 <cfquery name="getVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">

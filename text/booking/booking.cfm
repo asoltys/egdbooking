@@ -70,7 +70,7 @@
 </cfquery>
 
 
-<cfset variables.today = CreateODBCDate(Now())>
+<cfset variables.today = CreateODBCDate(PacificNow)>
 <cfquery name="getDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Bookings.*, Vessels.Name, Docks.*, FirstName, LastName, Users.FirstName + ' ' + Users.LastName AS AgentName
 	FROM Bookings INNER JOIN
@@ -342,7 +342,7 @@
 			  	<!---form method="post" action="editFeesForm.cfm?lang=#lang#&amp;BookingID=#BookingID#" name="editForm#bookingID#"></form>
 				<form method="post" action="viewFeesForm.cfm?lang=#lang#&amp;BookingID=#BookingID#" name="viewForm#bookingID#"></form--->
 				<tr class="#rowClass#" valign="top">
-					<td width="60%" valign="top"><a href="#RootDir#text/common/getBookingDetail.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE Now()>* </cfif>#Name#</a></td>
+					<td width="60%" valign="top"><a href="#RootDir#text/common/getBookingDetail.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 					<td width="15%" valign="top">
 						<cfif status EQ "P"><i class="pendingColour">#language.pending#</i>
 						<cfelseif status EQ "C"><i class="confirmedColour">#language.confirmed#</i>
@@ -406,7 +406,7 @@
 					<cfset rowClass = "">
 				</cfif>
 				<tr class="#rowClass#" valign="top">
-					<td width="60%" colspan="2"><a href="#RootDir#text/common/getBookingDetail.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE Now()>* </cfif>#Name#</a></td>
+					<td width="60%" colspan="2"><a href="#RootDir#text/common/getBookingDetail.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 					<td width="40%" align="left">
 						<!---
 						<cfif NOT status eq 'C'><i class="pendingColour">#language.pending#</i>
@@ -476,7 +476,7 @@
 					<cfset rowClass = "">
 				</cfif>
 				<tr class="#rowClass#" valign="top">
-					<td width="60%" colspan="2"><a href="#RootDir#text/common/getBookingDetail.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE Now()>* </cfif>#Name#</a></td>					<td width="40%" align="left">
+					<td width="60%" colspan="2"><a href="#RootDir#text/common/getBookingDetail.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>					<td width="40%" align="left">
 						<!---
 						<cfif NOT status eq 'C'><i class="pendingColour">#language.pending#</i>
 						<cfelseif status eq 'X'><i class="cancelledColour">#language.cancelling#</i>

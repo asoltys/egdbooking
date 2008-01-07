@@ -136,7 +136,7 @@ function EditSubmit ( selectedform )
 	<cfset Proceed_OK = "No">
 </cfif>
 
-<cfif DateCompare(Now(), Variables.StartDate, 'd') EQ 1 AND DateCompare(Now(), Variables.EndDate, 'd') EQ 1>
+<cfif DateCompare(PacificNow, Variables.StartDate, 'd') EQ 1 AND DateCompare(PacificNow, Variables.EndDate, 'd') EQ 1>
 	<cfoutput>#ArrayAppend(Errors, "This maintenance period has ended. Please create a new block.")#</cfoutput>
 	<cfset Proceed_OK = "No">
 <!--- <cfelseif checkDblBooking.RecordCound GT 0>

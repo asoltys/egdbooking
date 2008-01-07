@@ -22,14 +22,6 @@
 
 <cfinclude template="#RootDir#includes/calendar_js.cfm">
 
-<!--- useless as far as I can tell.  Lois Chan, July 2005 --->
-<!---cfif IsDefined("form.startDate")>
-	<cfset url.StartDate = "#form.StartDate#">
-</cfif>
-<cfif IsDefined("form.EndDate")>
-	<cfset url.EndDate = "#form.EndDate#">
-</cfif--->
-
 <!--checking if enddate is defined instead of showConf is not a mistake!-->
 <cfif IsDefined("form.EndDate")>
 	<cfif IsDefined("form.show")>
@@ -51,8 +43,8 @@
 	<cfset form.endDate = "12/31/2031">
 </cfif>
 
-<cfparam name="form.startDate" default="#DateFormat(Now(), 'mm/dd/yyyy')#">
-<cfparam name="form.endDate" default="#DateFormat(DateAdd('d', 30, Now()), 'mm/dd/yyyy')#">
+<cfparam name="form.startDate" default="#DateFormat(PacificNow, 'mm/dd/yyyy')#">
+<cfparam name="form.endDate" default="#DateFormat(DateAdd('d', 30, PacificNow), 'mm/dd/yyyy')#">
 <cfparam name="Variables.startDate" default="#form.startDate#">
 <cfparam name="Variables.endDate" default="#form.endDate#">
 <cfparam name="form.show" default="c,t,p">
@@ -69,7 +61,7 @@
 				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#') 				
 				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')	
 			)
-		AND Jetties.BookingID = Bookings.BookingID AND (Status = 'P' OR Status = 'X' OR Status = 'Y') AND NorthJetty = '1' AND Bookings.Deleted = '0'
+		AND Jetties.BookingID = Bookings.BookingID AND (Status = 'P' OR Status = 'X' OR Status = 'Y') AND NorthJetty = '1' AND Bookings.Deleted = 0
 </cfquery>
 <cfquery name="countConfirmedNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT count(*) as numConfNJ
@@ -80,7 +72,7 @@
 				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#') 				
 				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')	
 			)
-		AND Jetties.BookingID = Bookings.BookingID AND Status = 'C' AND NorthJetty = '1' AND Bookings.Deleted = '0'
+		AND Jetties.BookingID = Bookings.BookingID AND Status = 'C' AND NorthJetty = '1' AND Bookings.Deleted = 0
 </cfquery>
 <cfquery name="countTentativeNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT count(*) as numTentNJ
@@ -91,9 +83,9 @@
 				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#') 				
 				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')	
 			)
-		AND Jetties.BookingID = Bookings.BookingID AND Status = 'T' AND NorthJetty = '1' AND Bookings.Deleted = '0'
+		AND Jetties.BookingID = Bookings.BookingID AND Status = 'T' AND NorthJetty = '1' AND Bookings.Deleted = 0
 					<!--- Eliminates any Tentative bookings with a start date before today --->
-			AND ((Jetties.status <> 'T') OR (Jetties.status = 'T' AND Bookings.startDate >= #now()#))
+			AND ((Jetties.status <> 'T') OR (Jetties.status = 'T' AND Bookings.startDate >= #PacificNow#))
 </cfquery>
 <!---South Jetty Status--->
 <cfquery name="countPendingSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -105,7 +97,7 @@
 				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#') 				
 				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')	
 			)
-		AND Jetties.BookingID = Bookings.BookingID AND (Status = 'P' OR Status = 'X' OR Status = 'Y') AND SouthJetty = '1' AND Bookings.Deleted = '0' 
+		AND Jetties.BookingID = Bookings.BookingID AND (Status = 'P' OR Status = 'X' OR Status = 'Y') AND SouthJetty = '1' AND Bookings.Deleted = 0 
 		
 </cfquery>
 <cfquery name="countConfirmedSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -117,7 +109,7 @@
 				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#') 				
 				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')	
 			)
-		AND Jetties.BookingID = Bookings.BookingID AND Status = 'C' AND SouthJetty = '1' AND Bookings.Deleted = '0'
+		AND Jetties.BookingID = Bookings.BookingID AND Status = 'C' AND SouthJetty = '1' AND Bookings.Deleted = 0
 </cfquery>
 <cfquery name="countTentativeSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT count(*) as numTentSJ
@@ -128,9 +120,9 @@
 				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#') 				
 				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')	
 			)
-		AND Jetties.BookingID = Bookings.BookingID AND Status = 'T' AND SouthJetty = '1' AND Bookings.Deleted = '0'
+		AND Jetties.BookingID = Bookings.BookingID AND Status = 'T' AND SouthJetty = '1' AND Bookings.Deleted = 0
 					<!--- Eliminates any Tentative bookings with a start date before today --->
-			AND ((Jetties.status <> 'T') OR (Jetties.status = 'T' AND Bookings.startDate >= #now()#))
+			AND ((Jetties.status <> 'T') OR (Jetties.status = 'T' AND Bookings.startDate >= #PacificNow#))
 </cfquery>
 <cfset showPend = false>
 <cfset showTent = false>
@@ -286,9 +278,9 @@ function EditSubmit ( selectedform )
 				AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#') 
 			OR (Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'
 				AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')) 
-			AND Bookings.Deleted = '0'
+			AND Bookings.Deleted = 0
 			<!--- Eliminates any Tentative bookings with a start date before today --->
-			AND ((Jetties.status <> 'T') OR (Jetties.status = 'T' AND Bookings.startDate >= #dateformat(now(), "mm/dd/yyyy")#))
+			AND (((Jetties.status <> 'T') OR (Jetties.status = 'T' AND Bookings.startDate >= #dateformat(PacificNow, "mm/dd/yyyy")#))
 			<cfif variables.showPend EQ true AND variables.showTent EQ false AND variables.showConf EQ false>
 				AND Jetties.Status = 'P' OR Jetties.Status = 'X' OR Jetties.Status = 'Y'
 			</cfif>
@@ -311,7 +303,7 @@ function EditSubmit ( selectedform )
 			AND Jetties.NorthJetty = '1'
 		<cfelseif jetty EQ 2>
 			AND Jetties.SouthJetty = '1'
-		</cfif>
+		</cfif>)
 		ORDER BY Bookings.startDate, Bookings.endDate, Vessels.Name
 	</cfquery>
 	<cfif getBookings.recordCount GT 0>
@@ -371,7 +363,7 @@ function EditSubmit ( selectedform )
 			<tr>
 				<td headers="Start" class="calendar" nowrap>#LSdateformat(startDate, 'mmm d, yyyy')#</td>
 				<td headers="End" class="calendar" nowrap>#LSdateformat(endDate, 'mmm d, yyyy')#</td>
-				<td headers="Vessel" class="calendar"><a href="javascript:EditSubmit('booking#id#');" name="#id#"><cfif #EndHighlight# GTE Now()>* </cfif>#VesselName#</a></td>
+				<td headers="Vessel" class="calendar"><a href="javascript:EditSubmit('booking#id#');" name="#id#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#VesselName#</a></td>
 				<td headers="Status" class="calendar"><cfif getBookings.Status EQ "C"><div class="confirmedColour">Confirmed</div><cfelseif getBookings.Status EQ "P"><div class="pendingColour">Pending T</div><cfelseif getBookings.Status EQ "Y"><div class="pendingColour">Pending C</div><cfelseif getBookings.Status EQ "X"><div class="pendingColour">Pending X</div><cfelseif getBookings.Status EQ "T"><div class="tentativeColour">Tentative</div></cfif></td>
 			</tr>
 			
@@ -388,6 +380,7 @@ function EditSubmit ( selectedform )
 					AND		Bookings.UserID = Users.UserID
 					AND		Bookings.BookingID = '#ID#'
 					AND		Jetties.BookingID = Bookings.BookingID
+					AND   Bookings.Deleted = 0
 				</cfquery>
 				
 				<form method="post" action="jettyBookingManage_action.cfm?#urltoken#" name="confBooking#ID#">
@@ -445,7 +438,7 @@ function EditSubmit ( selectedform )
 						</tr>
 						<tr>
 							<td id="Vessel">Vessel:</td>
-							<td headers="Vessel"><cfif #EndHighlight# GTE Now()>* </cfif>#getData.name#</td>
+							<td headers="Vessel"><cfif #EndHighlight# GTE PacificNow>* </cfif>#getData.name#</td>
 						</tr>
 							<tr>
 								<td id="Length">&nbsp;&nbsp;&nbsp;<i>Length:</i></td>
@@ -480,7 +473,7 @@ function EditSubmit ( selectedform )
 							<td> 
 							<cfform action="highlight_action.cfm?BookingID=#BookingID#" method="post" name="updateHighlight">
 							<cfif EndHighlight NEQ "">
-							<cfset datediffhighlight = DateDiff("d", Now(), EndHighlight)>
+							<cfset datediffhighlight = DateDiff("d", PacificNow, EndHighlight)>
 							<cfset datediffhighlight = datediffhighlight+"1">
 							<cfif datediffhighlight LTE "0"><cfset datediffhighlight = "0"></cfif>
 							<cfelse>
@@ -529,7 +522,7 @@ function EditSubmit ( selectedform )
 							</td>
 						</tr>
 						
-						<cfif DateCompare(Now(), getData.startDate, 'd') NEQ 1 OR (DateCompare(Now(), getData.startDate, 'd') EQ 1 AND DateCompare(Now(), getData.endDate, 'd') NEQ 1)>
+						<cfif DateCompare(PacificNow, getData.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getData.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getData.endDate, 'd') NEQ 1)>
 							<cfset variables.actionCap = "Cancel Booking">
 						<cfelse>
 							<cfset variables.actionCap = "Delete Booking">
@@ -611,7 +604,7 @@ function EditSubmit ( selectedform )
 		</tr>	
 	<cfif getMaintenance.RecordCount GT 0>
 		<cfoutput query="getMaintenance">
-			<cfif DateCompare(Now(), getMaintenance.startDate, 'd') NEQ 1 OR (DateCompare(Now(), getMaintenance.startDate, 'd') EQ 1 AND DateCompare(Now(), getMaintenance.endDate, 'd') NEQ 1)>
+			<cfif DateCompare(PacificNow, getMaintenance.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getMaintenance.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getMaintenance.endDate, 'd') NEQ 1)>
 				<cfset variables.actionCap = "Cancel">
 			<cfelse>
 				<cfset variables.actionCap = "Delete">

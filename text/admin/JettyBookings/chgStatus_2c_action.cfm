@@ -67,7 +67,7 @@
 </cflock>
 <cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE  Bookings
-	SET		BookingTimeChange = #Now()#,
+	SET		BookingTimeChange = #PacificNow#,
 			BookingTimeChangeStatus = 'Confirmed at'
 	WHERE	BookingID = '#Form.BookingID#'
 </cfquery>

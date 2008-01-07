@@ -1,7 +1,7 @@
 <cfif Form.EndHighlight GTE "1">
-<cfset Form.EndHighlight = DateAdd("d", Form.EndHighlight, Now()) >
+<cfset Form.EndHighlight = DateAdd("d", Form.EndHighlight, PacificNow) >
 <cfelse>
-<cfset Form.EndHighlight = DateAdd("yyyy", "-100", Now()) >
+<cfset Form.EndHighlight = DateAdd("yyyy", "-100", PacificNow) >
 </cfif>
 <cfset Variables.EndHighlight = Form.EndHighlight>
 	

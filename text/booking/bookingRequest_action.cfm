@@ -52,7 +52,7 @@
 	AND		Bookings.Deleted = 0
 </cfquery>
 
-<cfif DateCompare(Now(), Form.StartDate, 'd') NEQ -1>
+<cfif DateCompare(PacificNow, Form.StartDate, 'd') NEQ -1>
 	<cfoutput>#ArrayAppend(Errors, "#language.futureStartError#")#</cfoutput>
 	<cfset Proceed_OK = "No">
 <cfelseif NOT isDefined("checkDblBooking.VesselID") OR checkDblBooking.VesselID NEQ "">
@@ -86,7 +86,7 @@
 			VALUES	('#Form.VesselID#',
 					<cfqueryparam value="#CreateODBCDate(Form.StartDate)#" cfsqltype="cf_sql_date">,
 					<cfqueryparam value="#CreateODBCDate(Form.EndDate)#" cfsqltype="cf_sql_date">,
-					<cfqueryparam value="#CreateODBCDateTime(now())#" cfsqltype="cf_sql_timestamp">,
+					<cfqueryparam value="#CreateODBCDateTime(PacificNow)#" cfsqltype="cf_sql_timestamp">,
 					'#Session.UserID#')
 		</cfquery>
 		<cfquery name="getID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">

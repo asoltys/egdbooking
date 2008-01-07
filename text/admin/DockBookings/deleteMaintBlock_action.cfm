@@ -29,7 +29,7 @@
 	<CFSET variables.urltoken = variables.urltoken & "&show=#url.show#">
 </CFIF>
 
-<cfif DateCompare(Now(), getBooking.startDate, 'd') NEQ 1 OR (DateCompare(Now(), getBooking.startDate, 'd') EQ 1 AND DateCompare(Now(), getBooking.endDate, 'd') NEQ 1)>
+<cfif DateCompare(PacificNow, getBooking.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBooking.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1)>
 	<cfset variables.actionCap = "Cancel">
 	<cfset variables.actionPast = "cancelled">
 <cfelse>

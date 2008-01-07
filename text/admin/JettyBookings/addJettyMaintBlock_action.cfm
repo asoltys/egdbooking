@@ -4,7 +4,7 @@
 	VALUES	(
 			<cfqueryparam value="#CreateODBCDate(Form.StartDate)#" cfsqltype="cf_sql_date">,
 			<cfqueryparam value="#CreateODBCDate(Form.EndDate)#" cfsqltype="cf_sql_date">,
-			<cfqueryparam value="#CreateODBCDateTime(now())#" cfsqltype="cf_sql_timestamp">, 
+			<cfqueryparam value="#CreateODBCDateTime(PacificNow)#" cfsqltype="cf_sql_timestamp">, 
 			'#Session.UserID#'
 			)
 	</cfquery>

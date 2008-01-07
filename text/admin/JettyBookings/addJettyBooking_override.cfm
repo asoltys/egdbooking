@@ -84,7 +84,7 @@
 <cfset Proceed_OK = "Yes">
 
 <!--- Validate the form data --->
-<cfif DateCompare(Now(), Form.StartDate, 'd') EQ 1>
+<cfif DateCompare(PacificNow, Form.StartDate, 'd') EQ 1>
 	<cfoutput>#ArrayAppend(Errors, "The Start Date cannot be in the past.")#</cfoutput>
 	<cfset Proceed_OK = "No">
 <cfelseif isDefined("checkDblBooking.VesselID") AND checkDblBooking.VesselID NEQ "">

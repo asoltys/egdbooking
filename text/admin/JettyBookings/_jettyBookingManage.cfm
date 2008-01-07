@@ -57,8 +57,8 @@
 </cfif>
 
 
-<cfparam name="form.startDate" default="#Now()#">
-<cfparam name="form.endDate" default="#DateAdd('d', 30, Now())#">
+<cfparam name="form.startDate" default="#PacificNow#">
+<cfparam name="form.endDate" default="#DateAdd('d', 30, PacificNow)#">
 <cfparam name="Variables.startDate" default="#form.startDate#">
 <cfparam name="Variables.endDate" default="#form.endDate#">
 <cfparam name="url.startDate" default="#Variables.startDate#">

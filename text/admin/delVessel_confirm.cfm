@@ -53,14 +53,14 @@
 	SELECT	*
 	FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID 
 			INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
-	WHERE	EndDate >= #CreateODBCDate(Now())# AND Vessels.VesselID = #form.VesselID# AND Bookings.Deleted = 0
+	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #form.VesselID# AND Bookings.Deleted = 0
 </CFQUERY>
 
 <CFQUERY name="getVesselJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
 	FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID 
 			INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
-	WHERE	EndDate >= #CreateODBCDate(Now())# AND Vessels.VesselID = #form.VesselID# AND Bookings.Deleted = 0
+	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #form.VesselID# AND Bookings.Deleted = 0
 </CFQUERY>
 
 

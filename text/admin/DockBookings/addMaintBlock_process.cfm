@@ -135,7 +135,7 @@ function EditSubmit ( selectedform )
 	<cfset Proceed_OK = "No">
 </cfif>
 
-<cfif DateCompare(Now(), Variables.StartDate, 'd') EQ 1>
+<cfif DateCompare(PacificNow, Variables.StartDate, 'd') EQ 1>
 	<cfoutput>#ArrayAppend(Errors, "The Start Date can not be in the past.")#</cfoutput>
 	<cfset Proceed_OK = "No">
 <!--- <cfelseif checkDblBooking.RecordCound GT 0>

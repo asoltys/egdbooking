@@ -48,8 +48,8 @@
 	<cfset form.endDate = "12/31/2031">
 </cfif>
 
-<cfparam name="form.startDate" default="#DateFormat(Now(), 'mm/dd/yyyy')#">
-<cfparam name="form.endDate" default="#DateFormat(DateAdd('d', 30, Now()), 'mm/dd/yyyy')#">
+<cfparam name="form.startDate" default="#DateFormat(PacificNow, 'mm/dd/yyyy')#">
+<cfparam name="form.endDate" default="#DateFormat(DateAdd('d', 30, PacificNow), 'mm/dd/yyyy')#">
 <cfparam name="Variables.startDate" default="#form.startDate#">
 <cfparam name="Variables.endDate" default="#form.endDate#">
 
@@ -77,7 +77,7 @@
 			)
 		AND Docks.BookingID = Bookings.BookingID AND Status = 'T' AND Bookings.Deleted = '0'
 		<!--- Eliminates any Tentative bookings with a start date before today --->
-		AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= #now()#))
+		AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= #PacificNow#))
 </cfquery>
 <cfquery name="countConfirmed" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT count(*) as numConf
@@ -276,7 +276,7 @@ function EditSubmit ( selectedform )
 				AND Bookings.Deleted = 0
 				AND Vessels.Deleted = 0
 				<!--- Eliminates any Tentative bookings with a start date before today --->
-				AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= #now()#))
+				AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= #PacificNow#))
 					
 			<cfif variables.showPend EQ true AND variables.showTent EQ false AND variables.showConf EQ false>
 				AND (Docks.Status = 'P' OR Docks.Status = 'Y' OR Docks.Status = 'X' OR Docks.Status = 'Z')
@@ -367,7 +367,7 @@ function EditSubmit ( selectedform )
 				<tr>
 					<td headers="start" class="calendar" nowrap>#LSdateformat(startDate, "mmm d, yyyy")#</td>
 					<td headers="end" class="calendar" nowrap>#LSdateformat(endDate, "mmm d, yyyy")#</td>
-					<td headers="vessel" class="calendar"><a href="javascript:EditSubmit('booking#id#');" name="id#id#" id="id#id#"><cfif #EndHighlight# GTE Now()>* </cfif>#VesselName#</a></td>
+					<td headers="vessel" class="calendar"><a href="javascript:EditSubmit('booking#id#');" name="id#id#" id="id#id#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#VesselName#</a></td>
 					<td headers="status" class="calendar"><cfif status EQ "C"><div class="confirmedColour">Confirmed</div><cfelseif status EQ "T"><div class="tentativeColour">Tentative</div><cfelseif status EQ "P"><div class="pendingColour">Pending T</div><cfelseif status EQ "Y" OR status EQ "Z"><div class="pendingColour">Pending C</div><cfelseif status EQ "X"><a href="javascript:EditSubmit('delete#ID#');"><div class="pendingColour">Pending X</div></a></cfif></td>
 				</tr>
 				
@@ -422,7 +422,7 @@ function EditSubmit ( selectedform )
 							</tr>
 							<tr>
 								<td id="Vessel">Vessel:</td>
-								<td headers="Vessel"><cfif #EndHighlight# GTE Now()>* </cfif>#getData.vesselName#</td>
+								<td headers="Vessel"><cfif #EndHighlight# GTE PacificNow>* </cfif>#getData.vesselName#</td>
 							</tr>
 								<tr>
 									<td id="">&nbsp;&nbsp;&nbsp;<i>Length:</i></td>
@@ -469,7 +469,7 @@ function EditSubmit ( selectedform )
 							<td> 
 							<cfform action="highlight_action.cfm?BookingID=#BookingID#" method="post" name="updateHighlight">
 							<cfif EndHighlight NEQ "">
-							<cfset datediffhighlight = DateDiff("d", Now(), EndHighlight)>
+							<cfset datediffhighlight = DateDiff("d", PacificNow, EndHighlight)>
 							<cfset datediffhighlight = datediffhighlight+"1">
 							<cfif datediffhighlight LTE "0"><cfset datediffhighlight = "0"></cfif>
 							<cfelse>
@@ -517,7 +517,7 @@ function EditSubmit ( selectedform )
 								</td>
 							</tr>
 							
-							<cfif DateCompare(Now(), getData.startDate, 'd') NEQ 1 OR (DateCompare(Now(), getData.startDate, 'd') EQ 1 AND DateCompare(Now(), getData.endDate, 'd') NEQ 1)>
+							<cfif DateCompare(PacificNow, getData.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getData.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getData.endDate, 'd') NEQ 1)>
 								<cfset variables.actionCap = "Cancel Booking">
 							<cfelse>
 								<cfset variables.actionCap = "Delete Booking">
@@ -597,7 +597,7 @@ function EditSubmit ( selectedform )
 		</tr>
 		<cfif getMaintenance.RecordCount GT 0>
 			<cfoutput query="getMaintenance">
-				<cfif DateCompare(Now(), getMaintenance.startDate, 'd') NEQ 1 OR (DateCompare(Now(), getMaintenance.startDate, 'd') EQ 1 AND DateCompare(Now(), getMaintenance.endDate, 'd') NEQ 1)>
+				<cfif DateCompare(PacificNow, getMaintenance.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getMaintenance.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getMaintenance.endDate, 'd') NEQ 1)>
 					<cfset variables.actionCap = "Cancel">
 				<cfelse>
 					<cfset variables.actionCap = "Delete">

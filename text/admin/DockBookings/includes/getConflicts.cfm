@@ -223,7 +223,7 @@
 				BookingTower.addMaint(#GetMaintenance.BookingID#, #GetMaintenance.StartDate#, #GetMaintenance.EndDate#, #GetMaintenance.Section1#, #GetMaintenance.Section2#, #GetMaintenance.Section3#);
 			</cfscript>
 		</cfloop>
-		<cfif NOT BookingTower.reorderTower() AND DateCompare(Now(), getConflicts.startDate, 'd') EQ -1>
+		<cfif NOT BookingTower.reorderTower() AND DateCompare(PacificNow, getConflicts.startDate, 'd') EQ -1>
 			<cfscript>ArrayAppend(returnArray,getConflicts.BookingID);</cfscript>
 		</cfif>
 	</cfloop>

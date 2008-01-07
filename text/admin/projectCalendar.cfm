@@ -509,7 +509,7 @@ function foo(e, msg, title) {
 						<CFIF StructFind(nevermore, "isYours" & ok) eq true>
 							<CFSET snowflakes = snowflakes & '<i>'>
 						</CFIF>
-						<cfif structfind(nevermore, "h" & ok) GTE Now()>
+						<cfif structfind(nevermore, "h" & ok) GTE PacificNow>
 							<cfset snowflakes = snowflakes & '<b>*</b>'>
 						</cfif> 
 						<CFSET snowflakes = snowflakes & '<b>#StructFind(nevermore, "vesselName" & ok)#</b> <BR>'>

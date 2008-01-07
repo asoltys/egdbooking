@@ -190,7 +190,7 @@
 			<td id="Highlight_Header"><label for="Anonymous">Highlight for this many days:</label></td>
 			<td headers="Highlight_Header">
 			<cfif variables.EndHighlight NEQ "">
-			<cfset datediffhighlight = DateDiff("d", Now(), variables.EndHighlight)>
+			<cfset datediffhighlight = DateDiff("d", PacificNow, variables.EndHighlight)>
 			<cfset datediffhighlight = datediffhighlight+"1">
 			<cfif datediffhighlight LTE "0"><cfset datediffhighlight = "0"></cfif>
 			<cfelse>

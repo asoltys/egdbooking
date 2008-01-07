@@ -196,7 +196,7 @@ WHERE	SouthJetty = 1
 			<cfset Variables.count = EVALUATE(countQName)>
 
 		<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
-			<TD headers="vessel" class="calendar small"><cfif #EndHighlight# GTE Now()>* </cfif><ABBR title="#CompanyName#">#Abbreviation#</ABBR> #VesselLength#M 
+			<TD headers="vessel" class="calendar small"><cfif #EndHighlight# GTE PacificNow>* </cfif><ABBR title="#CompanyName#">#Abbreviation#</ABBR> #VesselLength#M 
 				<CFIF Anonymous 
 					AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
 					AND Variables.count eq 0 
@@ -259,7 +259,7 @@ WHERE	SouthJetty = 1
 			<cfset Variables.count = EVALUATE(countQName)>
 
 		<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
-			<TD headers="vessel2" class="calendar small"><cfif #EndHighlight# GTE Now()>* </cfif><ABBR title="#CompanyName#">#Abbreviation#</ABBR> #VesselLength#M 
+			<TD headers="vessel2" class="calendar small"><cfif #EndHighlight# GTE PacificNow>* </cfif><ABBR title="#CompanyName#">#Abbreviation#</ABBR> #VesselLength#M 
 				<CFIF Anonymous 
 					AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
 					AND Variables.count eq 0 
@@ -309,7 +309,7 @@ WHERE	SouthJetty = 1
 			<cfset Variables.count = EVALUATE(countQName)>
 
 		<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
-			<TD headers="vessel3" class="calendar small"><cfif #EndHighlight# GTE Now()>* </cfif><ABBR title="#CompanyName#">#Abbreviation#</ABBR> #VesselLength#M 
+			<TD headers="vessel3" class="calendar small"><cfif #EndHighlight# GTE PacificNow>* </cfif><ABBR title="#CompanyName#">#Abbreviation#</ABBR> #VesselLength#M 
 				<CFIF Anonymous 
 					AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
 					AND Variables.count eq 0 

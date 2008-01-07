@@ -72,7 +72,7 @@ WHERE	(Status = 'c' OR Status = 't')
 	AND	Bookings.Deleted = '0'
 	AND	Vessels.Deleted = '0'
 	<!--- Eliminates any Tentative bookings with a start date before today --->
-	AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= #now()#))
+	AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= #PacificNow#))
 	<CFIF IsDefined('Variables.CalStartDate') and Variables.CalStartDate neq ''>AND EndDate >= '#Variables.CalStartDate#'</CFIF>
 	<CFIF IsDefined('Variables.CalEndDate') and Variables.CalEndDate neq ''>AND StartDate <= '#Variables.CalEndDate#'</CFIF>
 	
@@ -100,7 +100,7 @@ WHERE	Bookings.Deleted = '0'
 	<CFIF IsDefined('Variables.CalStartDate') and Variables.CalStartDate neq ''>AND EndDate >= '#Variables.CalStartDate#'</CFIF>
 	<CFIF IsDefined('Variables.CalEndDate') and Variables.CalEndDate neq ''>AND StartDate <= '#Variables.CalEndDate#'</CFIF>
 	<!--- Eliminates any Tentative bookings with a start date before today --->
-	AND ((Jetties.status <> 'T') OR (Jetties.status = 'T' AND Bookings.startDate >= #now()#))
+	AND ((Jetties.status <> 'T') OR (Jetties.status = 'T' AND Bookings.startDate >= #PacificNow#))
 
 ORDER BY	StartDate, EndDate, VesselName
 </CFQUERY>

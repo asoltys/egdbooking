@@ -29,7 +29,7 @@
 	WHERE	Bookings.BookingID = '#Variables.BookingID#'
 </cfquery>
 
-<cfif DateCompare(Now(), getBooking.startDate, 'd') NEQ 1 OR (DateCompare(Now(), getBooking.startDate, 'd') EQ 1 AND DateCompare(Now(), getBooking.endDate, 'd') NEQ 1)>
+<cfif DateCompare(PacificNow, getBooking.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBooking.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1)>
 	<cfset variables.actionCap = "Cancel">
 	<cfset variables.action = "cancel">
 <cfelse>
@@ -71,7 +71,7 @@
 <CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
 
 
-<cfif getBooking.Status EQ 'c' AND DateCompare(Now(), getBooking.endDate, 'd') NEQ 1>
+<cfif getBooking.Status EQ 'c' AND DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1>
 	<cfinclude template="includes/getConflicts.cfm">
 	<cfset conflictArray = getConflicts_remConf(Variables.BookingID)>
 	<cfif ArrayLen(conflictArray) GT 0>

@@ -20,7 +20,7 @@ AND 	(UserCompanies.Approved = 1)
 </cfquery>
 
 <cfif getBooking.RecordCount NEQ 0>
-	<cfif DateCompare(Now(), getBooking.startDate, 'd') NEQ 1 OR (DateCompare(Now(), getBooking.startDate, 'd') EQ 1 AND DateCompare(Now(), getBooking.endDate, 'd') NEQ 1)>
+	<cfif DateCompare(PacificNow, getBooking.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBooking.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1)>
 		<cfset variables.actionCap = "Cancel">
 		<cfset variables.actionPastCap = "Cancelled">
 		<cfset variables.actionPast = "cancelled">
@@ -64,7 +64,7 @@ AND 	(UserCompanies.Approved = 1)
 </cfif>
 
 
-<cfif getBooking.RecordCount EQ 0 AND DateCompare(Now(), getBooking.EndDate, 'd') NEQ -1>
+<cfif getBooking.RecordCount EQ 0 AND DateCompare(PacificNow, getBooking.EndDate, 'd') NEQ -1>
 	<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Companies.Name AS CompanyName, StartDate, EndDate, Vessels.Name AS VesselName
 		FROM	Bookings INNER JOIN Vessels ON 
@@ -75,7 +75,7 @@ AND 	(UserCompanies.Approved = 1)
 		AND		(Bookings.BookingID = '#Form.BookingID#')
 	</cfquery>
 	
-	<cfif DateCompare(Now(), getCompany.startDate, 'd') NEQ 1 OR (DateCompare(Now(), getCompany.startDate, 'd') EQ 1 AND DateCompare(Now(), getCompany.endDate, 'd') NEQ 1)>
+	<cfif DateCompare(PacificNow, getCompany.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getCompany.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getCompany.endDate, 'd') NEQ 1)>
 		<cfset variables.actionCap = "Cancel">
 		<cfset variables.actionPastCap = "Cancelled">
 		<cfset variables.actionPast = "cancelled">
@@ -98,7 +98,7 @@ AND 	(UserCompanies.Approved = 1)
 		<cfset language.subject = "Réservation supprimée">
 	</cfif> 
 	
-	<cfif DateCompare(Now(), getBooking.EndDate, 'd') EQ -1>
+	<cfif DateCompare(PacificNow, getBooking.EndDate, 'd') EQ -1>
 		<cflock throwontimeout="no" scope="session" timeout="30" type="readonly">
 			<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT	Email
@@ -125,7 +125,7 @@ AND 	(UserCompanies.Approved = 1)
 	<!--- create structure for sending to mothership/success page. --->
 	<cfset Session.Success.Breadcrumb = "<a href='../admin/DockBookings/bookingmanage.cfm?lang=#lang#'>Drydock Management</A> &gt; <cfoutput>#variables.actionCap#</cfoutput> Drydock Booking">
 	<cfset Session.Success.Title = "<cfoutput>#variables.actionCap#</cfoutput> Drydock Booking">
-	<cfif DateCompare(Now(), getBooking.EndDate, 'd') EQ -1>
+	<cfif DateCompare(PacificNow, getBooking.EndDate, 'd') EQ -1>
 		<cfset Session.Success.Message = "Booking for <b>#getBooking.vesselName#</b> from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')# has been <cfoutput>#variables.actionPast#</cfoutput>.  Email notification of this cancellation has been sent to the agent.">
 	<cfelse>
 		<cfset Session.Success.Message = "Booking for <b>#getBooking.vesselName#</b> from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')# has been <cfoutput>#variables.actionPast#</cfoutput>.">

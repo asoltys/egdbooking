@@ -69,8 +69,8 @@
 </cflock--->
 
 <!---cfparam name="Variables.VesselID" default=""--->
-	<cfparam name="Variables.startDate" default="#Now()#">
-	<cfparam name="Variables.endDate" default="#DateAdd('m', 3, Now())#">
+	<cfparam name="Variables.startDate" default="#PacificNow#">
+	<cfparam name="Variables.endDate" default="#DateAdd('m', 3, PacificNow)#">
 	<cfset Variables.BookingLen = Variables.endDate - Variables.startDate>
 
 	<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">

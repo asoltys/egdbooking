@@ -41,7 +41,7 @@ function checkIt() {
 <cfelseif IsDefined("URL.CompanyID")>
 	<cfset Variables.BookingRequestString = "&CompanyID=#URL.CompanyID#">
 </cfif>
-<cfif IsDefined("URL.Date") AND DateCompare(#url.date#, #Now()#, 'd') EQ 1>
+<cfif IsDefined("URL.Date") AND DateCompare(#url.date#, #PacificNow#, 'd') EQ 1>
 	<cfset Variables.BookingRequestString = "#Variables.BookingRequestString#&Date=#URL.Date#">
 </cfif>
 

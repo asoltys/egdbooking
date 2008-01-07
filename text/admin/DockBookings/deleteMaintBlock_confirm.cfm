@@ -7,7 +7,7 @@
 	WHERE	Bookings.BookingID = '#Form.BookingID#'
 </cfquery>
 
-<cfif DateCompare(Now(), getBooking.startDate, 'd') NEQ 1 OR (DateCompare(Now(), getBooking.startDate, 'd') EQ 1 AND DateCompare(Now(), getBooking.endDate, 'd') NEQ 1)>
+<cfif DateCompare(PacificNow, getBooking.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBooking.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1)>
 	<cfset variables.actionCap = "Cancel">
 	<cfset variables.actionPast = "cancelled">
 <cfelse>
@@ -66,7 +66,7 @@ function EditSubmit ( selectedform )
 <H1>Confirm <cfoutput>#variables.actionCap#</cfoutput> Maintenance Block</H1>
 <cfinclude template="#RootDir#includes/admin_menu.cfm"><br>
 
-<cfif DateCompare(Now(), getBooking.endDate, 'd') NEQ 1>
+<cfif DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1>
 	<cfinclude template="includes/getConflicts.cfm">
 	<cfset conflictArray = getConflicts_remConf(Variables.BookingID)>
 	<cfif ArrayLen(conflictArray) GT 0>

@@ -190,8 +190,8 @@ function getCalendar(formName, fieldName) {
 				yearValue = startYear;
 				monthValue = startMonth;
 			} else {
-				yearValue = <cfoutput>#DatePart("yyyy", Now())#</cfoutput>;
-				monthValue = <cfoutput>#DatePart("m", Now())#</cfoutput>
+				yearValue = <cfoutput>#DatePart("yyyy", PacificNow)#</cfoutput>;
+				monthValue = <cfoutput>#DatePart("m", PacificNow)#</cfoutput>
 			}
 		//} else {
 			//alert ("please specify a year first");
@@ -205,8 +205,8 @@ function getCalendar(formName, fieldName) {
 				yearValue = endYear;
 				monthValue = endMonth;
 			} else {
-				yearValue = <cfoutput>#DatePart("yyyy", Now())#</cfoutput>;
-				monthValue = <cfoutput>#DatePart("m", Now())#</cfoutput>;
+				yearValue = <cfoutput>#DatePart("yyyy", PacificNow)#</cfoutput>;
+				monthValue = <cfoutput>#DatePart("m", PacificNow)#</cfoutput>;
 			}
 		//} else {
 			//alert ("please specify a year first");
@@ -220,8 +220,8 @@ function getCalendar(formName, fieldName) {
 			yearValue = genDate[0];
 			monthValue = genDate[1];
 		} else {
-			yearValue = <cfoutput>#DatePart("yyyy",Now())#</cfoutput>;
-			monthValue = <cfoutput>#DatePart("m", Now())#</cfoutput>;
+			yearValue = <cfoutput>#DatePart("yyyy",PacificNow)#</cfoutput>;
+			monthValue = <cfoutput>#DatePart("m", PacificNow)#</cfoutput>;
 		}
 	}
 

@@ -102,7 +102,7 @@
 		   <td>
 				<select name="selYear">
 					<CFLOOP index="i" from="-5" to="5">
-						<option><CFOUTPUT>#DateFormat(DateAdd('yyyy', i, Now()), 'yyyy')#</CFOUTPUT></option>
+						<option><CFOUTPUT>#DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')#</CFOUTPUT></option>
 					</CFLOOP>
 				</select>
 		  </td>

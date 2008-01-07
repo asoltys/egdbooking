@@ -8,7 +8,7 @@
 			EndDate = #Variables.End#,
 			BookingTime = #CreateODBCDateTime(Variables.BookingDateTime)#,
 			UserID = #Form.UserID#,
-			BookingTimeChange = #Now()#,
+			BookingTimeChange = #PacificNow#,
 			BookingTimeChangeStatus = 'Edited at'
 	WHERE	BookingID = '#url.BookingID#'
 </CFQUERY>

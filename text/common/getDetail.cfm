@@ -205,7 +205,7 @@
 <p>variables.count = #Variables.count#</p> --->
 <table cellpadding="2" cellspacing="0" width="400" class="bookingDetails" align="center"<CFIF EVALUATE(Variables.count) GT 0> bgcolor="##E0E6CF"</CFIF>>
 	<TR>
-		<td colspan="2" <CFIF Status eq 'c'>style="font-weight: bold;"</CFIF> ><cfif #EndHighlight# GTE Now()>* </cfif>
+		<td colspan="2" <CFIF Status eq 'c'>style="font-weight: bold;"</CFIF> ><cfif #EndHighlight# GTE PacificNow>* </cfif>
 			<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
 				#language.Deepsea#
 			<CFELSE>#VesselName#</CFIF>
@@ -287,7 +287,7 @@
 
 <table cellpadding="2" cellspacing="0" width="400" class="bookingDetails" align="center"<CFIF EVALUATE(Variables.count) GT 0> bgcolor="##E0E6CF"</CFIF>>
 	<TR>
-		<td colspan="2" <CFIF Status eq 'c'>style="font-weight: bold;"</CFIF> ><cfif #EndHighlight# GTE Now()>* </cfif><CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND NOT IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
+		<td colspan="2" <CFIF Status eq 'c'>style="font-weight: bold;"</CFIF> ><cfif #EndHighlight# GTE PacificNow>* </cfif><CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND NOT IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
 		#language.Deepsea#<CFELSE>#VesselName#</CFIF></td>
 	</TR>
 	<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR IsDefined('session.AdminLoggedIn')>
