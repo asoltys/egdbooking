@@ -22,11 +22,7 @@
 	<H1>IMPORTANT: Server Maintenance</H1>
 
 	<p>
-	The EGD Booking Application is currently unavailable as it is being transferred to new server hardware.  We expect the site to be available again by 08:00 PST Monday Oct. 29 or possibly sooner.
-	<p>In the meantime, you may direct questions or concerns to <a href="mailto:pacificweb.services@pwgsc.gc.ca">Pacific Web Services</a>.  
-	</p>
-	<p>
-		We apologize for this interruption in service.
+	<strong>Monday January 7, 2008, 17:00 PST:</strong> The EGD Booking Application is currently undergoing scheduled maintenance and will be available again shortly.  Thank you for your patience.
 	</p>
 
 </div>
