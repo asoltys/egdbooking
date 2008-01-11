@@ -133,6 +133,7 @@ function EditSubmit ( selectedform )
 					OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate)))
 			)
 	AND		Bookings.Deleted = 0
+	AND Docks.Status = 'C'
 </cfquery>
 
 <!--- 25 October 2005: The next two queries have been modified to only get results from the drydock bookings --->

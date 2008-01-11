@@ -68,54 +68,6 @@
 	<cfoutput>#StructDelete(Session, "Return_Structure")#</cfoutput>
 </cfif>
 
-<!---Check to see that vessel hasn't already been booked during this time--->
-<!--- 25 October 2005: This query now only looks at the drydock bookings --->
-<cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	Bookings.VesselID, Vessels.Name, Bookings.StartDate, Bookings.EndDate, Docks.Status
-	FROM 	Bookings
-				INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-				INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
-	WHERE 	Bookings.VesselID = '#Variables.VesselID#'
-	AND 	
-	<!---Explanation of hellishly long condition statement: The client wants to be able to overlap the start and end dates 
-		of bookings, so if a booking ends on May 6, another one can start on May 6.  This created problems with single day 
-		bookings, so if you are changing this query...watch out for them.  The first 3 lines check for any bookings longer than 
-		a day that overlaps with the new booking if it is more than a day.  The next 4 lines check for single day bookings that 
-		fall within a booking that is more than one day.--->
-			(
-				(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# < Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
-			OR 	(	Bookings.StartDate < #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
-			OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
-			OR  (	(Bookings.StartDate = Bookings.EndDate OR #Variables.StartDate# = #Variables.EndDate#) AND Bookings.StartDate <> #Variables.StartDate# AND Bookings.EndDate <> #Variables.EndDate# AND 
-						((	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# < Bookings.EndDate)
-					OR 	(	Bookings.StartDate < #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate)
-					OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate)))
-			)
-	AND		Bookings.Deleted = 0
-	ORDER BY StartDate, EndDate DESC
-</cfquery>
-
-<!--- 25 October 2005: The next two queries have been modified to only get results from the drydock bookings --->
-<cfquery name="getNumStartDateBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Bookings.BookingID, Vessels.Name, Bookings.StartDate, Docks.Status
-	FROM	Bookings
-				INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
-				INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-	WHERE	StartDate = #Variables.StartDate# 
-				AND Bookings.VesselID = '#Variables.VesselID#'
-				AND Bookings.Deleted = 0
-</cfquery>
-
-<cfquery name="getNumEndDateBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Bookings.BookingID, Vessels.Name, Bookings.EndDate, Docks.Status
-	FROM	Bookings
-				INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
-				INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-	WHERE	EndDate = #Variables.EndDate#
-				AND Bookings.VesselID = '#Variables.VesselID#' 
-				AND Bookings.Deleted = 0
-</cfquery>
-
 <cfset Variables.StartDate = DateFormat(Variables.StartDate, 'mm/dd/yyy')>
 <cfset Variables.EndDate = DateFormat(Variables.EndDate, 'mm/dd/yyy')>
 
