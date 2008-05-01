@@ -43,7 +43,7 @@ function popUp(pageID) {
   Dock, please proceed to the <a href="<cfoutput>#RootDir#</cfoutput>text/booking/booking.cfm?lang=e">Booking 
   Application.</a>  If you experience any problems with the booking application, please
   use the <a href="http://www.pwgsc.gc.ca/pacific/egd/text/contact_us-e.html">contact us</a> page.</p>
-<p>The Esquimalt Graving Dock booking fee is $3,500 Cdn. plus $175.00 Goods &amp; Services Tax (GST) for a total of $3675.00 payable in cash, certified cheque drawn on a Canadian bank or by an international money order. Reservation requests are tentative until the booking fee is paid. Booking fees are non-refundable.</p>
+<p>The Esquimalt Graving Dock booking fee is $3,500 Cdn. plus $175.00 Goods &amp; Services Tax (GST) for a total of $3675.00 payable in cash, certified cheque drawn on a Canadian bank or by an international money order. Effective April 01, 2008, interest will be applied on any account outstanding over 30 days.  Reservation requests are tentative until the booking fee is paid. Booking fees are non-refundable.</p>
 <p><a href="<cfoutput>#RootDir#</cfoutput>text/booking/booking.cfm?lang=e">Booking Application</a> - Book drydock and jetty space online.</p>
 <p><a href="<cfoutput>#RootDir#</cfoutput>text/utils/bookingsSummary_choose.cfm?lang=e">Booking Summary</a> - View all bookings.</p>
 <p><i>The following links will direct you to an external site:</i><BR>
