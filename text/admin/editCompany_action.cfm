@@ -70,7 +70,8 @@
 			phone = '#trim(form.phone)#',
 			abbreviation = '#trim(ucase(form.abbr))#',
 			Deleted = 0, 
-			fax = '#trim(form.fax)#'
+			fax = '#trim(form.fax)#',
+			approved = 1
 		WHERE companyid = #form.companyID#
 	</cfquery>
 
