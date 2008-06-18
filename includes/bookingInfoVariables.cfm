@@ -1,4 +1,4 @@
-<cfif lang EQ "e" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
+<cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
 	<cfset language.Agent = "Agent">
 	<cfset language.startDate = "Start Date">
 	<cfset language.endDate = "End Date">
@@ -20,9 +20,10 @@
 	<cfset language.vessel = "Navire">
 	<cfset language.bookingRequest = "Demande de r&eacute;servation">
 	<cfset language.enterInfo = "Veuillez entrer les dates de votre r&eacute;servation.">
-	<cfset language.dateInclusive = "Nota : les dates des réservations sont inclusives; une réservation de trois jours couvrira la période du 1er mai au 3 mai, par exemple.">
+	<cfset language.dateInclusive = "Nota : les dates des r&eacute;servations sont inclusives; une r&eacute;servation de trois jours couvrira la p&eacute;riode du 1er mai au 3 mai, par exemple.">
 	<cfset language.chooseCompany = "s&eacute;lectionner une entreprise">
 	<cfset language.chooseVessel = "s&eacute;lectionner un navire">
 	<!---cfset language.startError = "">
 	<cfset language.endError = ""--->
 </cfif>
+

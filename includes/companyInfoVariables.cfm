@@ -1,4 +1,4 @@
-<cfif lang EQ "e" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
+<cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
 	<cfset language.companyName = "Company Name">
 	<cfset language.address = "Address">
 	<cfset language.optional = "(optional)">
@@ -30,7 +30,7 @@
 	<cfset language.province = "Province">
 	<cfset language.country = "Pays">
 	<cfset language.phone = "T&eacute;l&eacute;phone">
-	<cfset language.abbreviation = "Abréviation">
+	<cfset language.abbreviation = "Abr&eacute;viation">
 	<cfset language.fax = "fax">
 	<cfset language.nameError = "Veuillez entrer la raison sociale.">
 	<cfset language.addressError = "Veuillez entrer l'adresse.">
@@ -40,6 +40,7 @@
 	<cfset language.zipError = "Veuillez entrer le code postal.">
 	<cfset language.phoneError = "Veuillez v&eacute;rifier la validit&eacute; de votre num&eacute;ro de t&eacute;l&eacute;phone.">
 	<cfset language.abbrevError = "">
-	<cfset language.blankWarning = "Vous avez laissé le ou les champs suivants vides :">
-	<cfset language.continueWarning = "Êtes-vous certain que vous voulez continuer?">
+	<cfset language.blankWarning = "Vous avez laiss&eacute; le ou les champs suivants vides :">
+	<cfset language.continueWarning = "&Ecirc;tes-vous certain que vous voulez continuer?">
 </cfif>
+

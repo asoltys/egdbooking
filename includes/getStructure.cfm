@@ -1,4 +1,4 @@
-<cfif lang EQ 'e' OR isDefined("session.AdminLoggedIn")>
+<cfif lang EQ 'eng' OR isDefined("session.AdminLoggedIn")>
 	<cfset language.formProblemError = "There was a problem submitting the form.">
 <cfelse>
 	<cfset language.formProblemError = "Il y a eu un probl&egrave;me lors de la pr&eacute;sentation du formulaire.">

@@ -25,7 +25,7 @@
 	AND		Deleted = '0'
 </cfquery>
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.bookings = "Booking(s) in Conflict">
 	<cfset language.maintenance = "Maintenance Block(s) in Conflict">
 	<cfset language.period = "Period">
@@ -43,7 +43,7 @@
 
 <cfif currentBookings.RecordCount GT 0>
 	<cfoutput>
-	<h2 class="conflict"><span>#language.Bookings#:</span></h2>
+	<h2 class="conflict">#language.Bookings#:</h2>
 	<table class="conflictBookings">
 	<tr>
 		<th align="left">#language.Period#</th>
@@ -55,7 +55,7 @@
 	<cfset counter = 0>
 	<cfoutput query="currentBookings">
 		<CFIF counter mod 2 eq 1>
-			<CFSET rowClass = "altYellow">
+			<CFSET rowClass = "highlight">
 		<CFELSE>
 			<CFSET rowClass = "">
 		</CFIF>
@@ -75,7 +75,7 @@
 </cfif>
 <cfif currentMaintenance.RecordCount GT 0>
 	<cfoutput>
-	<h2 class="conflict"><span>#language.Maintenance#:</span></h2>
+	<h2 class="conflict">#language.Maintenance#:</h2>
 	<cfset counter = 0>
 	<table class="conflictBookings">
 	<tr>
@@ -85,11 +85,11 @@
 	</cfoutput>
 	<cfoutput query="currentMaintenance">
 		<cfif counter mod 2 EQ 1>
-			<cfset backColor = "##FFFFFF">
+			<cfset rowClass = "highlight">
 		<cfelse>
-			<cfset backColor = "##FFF8DC">
+			<cfset rowClass = "">
 		</cfif>
-		<tr bgcolor="#backcolor#">
+		<tr class="rowClass">
 			<td valign="top">#LSdateformat(startDate, 'mmm d, yyyy')# - #LSdateformat(endDate, 'mmm d, yyyy')#</td>
 			<td align="center">
 				<cfif Section1 EQ 1>1 </cfif>

@@ -1,11 +1,11 @@
-<cfif lang EQ "e" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
+<cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
 	<cfset language.warning = "Your browser is not capable of displaying this portion of the application properly.  Please upgrade your browser before proceeding.">
 	<cfset language.1monthCal = "1 month calendar">
 	<cfset language.3monthCal = "3 month calendar">
 	<cfset language.projectCal = "project calendar">
 	<cfset language.bookingsSummary = "bookings summary">
 <cfelse>
-	<cfset language.warning = "Votre navigateur ne peut afficher cette partie de l'application correctement. Veuillez mettre votre navigateur à niveau avant de continuer.">
+	<cfset language.warning = "Votre navigateur ne peut afficher cette partie de l'application correctement. Veuillez mettre votre navigateur &agrave; niveau avant de continuer.">
 	<cfset language.1monthCal = "calendrier pour 1 mois">
 	<cfset language.3monthCal = "calendrier pour 3 mois">
 	<cfset language.projectCal = "calendrier de projet">
@@ -44,3 +44,4 @@ function popUp(pageID) {
 	<A href="bookingsSummary_choose.cfm?lang=#lang#">#language.bookingsSummary#</A>
 </div>
 </CFOUTPUT>
+

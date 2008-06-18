@@ -1,4 +1,4 @@
-<cfif lang EQ "e" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
+<cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
 	<cfset language.PWGSC = "PWGSC">
 	<cfset language.pacificRegion = "Pacific Region">
 	<cfset language.esqGravingDock = "Esquimalt Graving Dock">
@@ -42,7 +42,7 @@
 	<cfset language.southJetty = "Jet&eacute;e sud">
 	<cfset language.back = "Retour">
 	<cfset language.vessel = "Navire">
-	<cfset language.status = "État">
+	<cfset language.status = "&Eacute;tat">
 	<cfset language.tentative = "provisoire">
 	<cfset language.pending = "en traitement">
 	<cfset language.confirmed = "confirm&eacute;">
@@ -57,3 +57,4 @@
 	<cfset language.masterSubjects = "Quai, Transport maritime, Navire, Traversier, Bateau de plaisance, Embarcation, Repair, Entretien, Gestion">
 
 </cfif>
+

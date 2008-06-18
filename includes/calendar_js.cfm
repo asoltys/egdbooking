@@ -1,7 +1,7 @@
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.endBeforeStartError = "End date should be no earlier than start date.">
 <cfelse>
-	<cfset language.endBeforeStartError = "La date de la fin de la période ne peut être antérieure à la date du début.">
+	<cfset language.endBeforeStartError = "La date de la fin de la p&eacute;riode ne peut &ecirc;tre ant&eacute;rieure &agrave; la date du d&eacute;but.">
 </cfif>
 
 <CFIF IsDefined('Variables.EndDate') AND Variables.EndDate neq "" AND IsDefined('Variables.StartDate') AND Variables.EndDate neq "">
@@ -268,3 +268,4 @@ function setCalendar() {
 }
 
 </script>
+

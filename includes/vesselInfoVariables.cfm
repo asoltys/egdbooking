@@ -1,4 +1,4 @@
-<cfif lang EQ "e" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
+<cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
 	<cfset language.vesselName = "Name">
 	<cfset language.lloydsID = "International Maritime Organization (I.M.O.) Number">
 	<cfset language.length = "Length (m)">

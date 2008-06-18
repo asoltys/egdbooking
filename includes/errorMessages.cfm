@@ -1,4 +1,4 @@
-<cfif lang EQ "e" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
+<cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
 	<cfset language.invalidEmailError = "Please check that the email address is valid.">
 	<cfset language.unapprovedEmailError = "Your login has not yet been approved.  Please wait until you receive an approval email.">
 	<cfset language.incorrectPasswordError = "The password that was entered is incorrect.  Please try again.">
@@ -28,6 +28,7 @@
 	<cfset language.invalidStartError = "Veuillez entrer une date de d&eacute;but valide.">
 	<cfset language.invalidEndError = "Veuillez entrer une date de fin valide.">
 	<cfset language.noVesselError = "Veuillez pr&eacute;ciser un navire.">
-	<cfset language.emailExistsError = "L'adresse de courriel existe déjà dans le système; veuillez en utiliser une autre.">
+	<cfset language.emailExistsError = "L'adresse de courriel existe d&eacute;j&agrave; dans le syst&egrave;me; veuillez en utiliser une autre.">
 	<cfset language.bookingTooShortErrorB = "La diff&eacute;rence entre la date de d&eacute;but et la date de fin doit au moins &eacute;quivaloir au nombre de jours indiqu&eacute;s.">
 </cfif>
+
