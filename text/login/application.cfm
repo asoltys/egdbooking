@@ -23,8 +23,8 @@
 		<cfset url.lang = session.lang>
 		<cfoutput>Is Defined session.lang</cfoutput>
 	<cfelse>
-		<cfset url.lang = "e">
-		<cfset session.lang = "e">
+		<cfset url.lang = "eng">
+		<cfset session.lang = "eng">
 		<cfoutput>Nothing defined</cfoutput>
 	</cfif>
 </cfif>
@@ -32,10 +32,10 @@
 </cflock> --->
 
 <cfif NOT IsDefined("URL.lang")>
-	<cflocation url="#CGI.PATH_INFO#?lang=e" addtoken="no">
+	<cflocation url="#CGI.PATH_INFO#?lang=eng" addtoken="no">
 </cfif>
-<cfif lcase(url.lang) NEQ "e" AND lcase(url.lang) NEQ "f">
-	<cflocation url="#CGI.PATH_INFO#?lang=e" addtoken="no">
+<cfif lcase(url.lang) NEQ "eng" AND lcase(url.lang) NEQ "fra">
+	<cflocation url="#CGI.PATH_INFO#?lang=eng" addtoken="no">
 </cfif>
 
 <cfinclude template="#RootDir#includes/generalLanguageVariables.cfm">

@@ -15,7 +15,7 @@
 <meta name=""dc.date.created"" content=""2005-07-25"">
 <title>PWGSC - ESQUIMALT GRAVING DOCK - Create New Company</title>">
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 <CFINCLUDE template="#RootDir#includes/checkFilledIn_js.cfm">
 
 <div class="breadcrumbs">
@@ -104,4 +104,4 @@
 </CFOUTPUT>
 
 </div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">

@@ -61,7 +61,7 @@
 <cflock scope="session" throwontimeout="no" timeout="30" type="READONLY">
 	<cfif form.UserID NEQ "#session.userID#">
 		<cfoutput>
-			<cfmail to="#getUser.Email#" from="#Session.AdminEmail#" subject="Company Added - Entreprise ajoutée" type="html">
+			<cfmail to="#getUser.Email#" from="#Session.AdminEmail#" subject="Company Added - Entreprise ajout&eacute;e" type="html">
 				<p>#getUser.firstName# #getUser.lastName#,</p>
 				<p>You have been given booking access for #getCompany.companyName# for the Esquimalt Graving Dock Online Booking System.</p>
 				<p>Esquimalt Graving Dock</p>
@@ -81,7 +81,7 @@
 		AND	UserCompanies.CompanyID = '#form.companyID#'
 </CFQUERY>
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset Session.Success.Title = "Add User to Company">
 	<cfset Session.Success.Message = "<b>#getDetails.FirstName# #getDetails.LastName#</b> now represents <b>#getDetails.CompanyName#</b>.">
 	<cfset Session.Success.Back = "Back to Admin Functions Home">
@@ -97,3 +97,4 @@
 	the new info on it.  It really should be painfully obvious. --->
 
 <cflocation addtoken="no" url="editUser.cfm?lang=#lang#&userID=#form.userID#">
+

@@ -20,7 +20,7 @@
 	<CFLOCATION URL="#RootDir#text/Login/login.cfm" addtoken="no">
 </CFIF>
 
-<cfparam name="lang" default="e">
+<cfparam name="lang" default="eng">
 
 <cfset Variables.MaxLength = 347.67>
 <cfset Variables.MaxWidth = 45.40>
@@ -32,11 +32,11 @@
 <!--- <cfparam name="url.userID" default="#session.userID#"> --->
 
 <cfif NOT IsDefined("URL.lang")>
-	<cfparam name="url.lang" default="e">
+	<cfparam name="url.lang" default="eng">
 	<!--- <cflocation url="#CGI.PATH_INFO#?lang=e" addtoken="no"> --->
 </cfif>
-<cfif lcase(url.lang) NEQ "e">
-	<cfparam name="url.lang" default="e">
+<cfif lcase(url.lang) NEQ "eng">
+	<cfparam name="url.lang" default="eng">
 	<!--- <cflocation url="#CGI.PATH_INFO#?lang=e" addtoken="no"> --->
 </cfif>
 

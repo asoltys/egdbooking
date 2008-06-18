@@ -151,7 +151,7 @@
 </cflock>
 	
 <cfoutput>
-	<cfmail to="#form.Email#" from="#Session.AdminEmail#" subject="Account Created for EGD - Compte crée pour la CSE" type="html">
+	<cfmail to="#form.Email#" from="#Session.AdminEmail#" subject="Account Created for EGD - Compte cr&eacute;e pour la CSE" type="html">
 <p>#form.firstname# #form.lastname#,</p>
 <p>An account has been created for you for the Esquimalt Graving Dock Online Booking System.</p>
 <p>Username: #form.email#<br>Password: #form.password1#</p>
@@ -166,9 +166,7 @@
 	<!---<cflocation addtoken="no" url="addNewUserCompany.cfm?userID=#getID2.UserID#">--->
 </cfif>
 
-
-<cfoutput>
-	<cfhtmlhead text="
+<cfhtmlhead text="
 	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Create New User"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content="""">
@@ -178,32 +176,38 @@
 	<meta name=""dc.date.modified"" content=""2005-07-25"">
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Create New User</title>">
-</cfoutput>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
-<cfoutput>
-<div class="breadcrumbs">
-	<a href="<cfoutput>http://www.pwgsc.gc.ca/text/home-#lang#.html</cfoutput>">PWGSC</a> &gt;
-	Pacific Region &gt;
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-e.html">Esquimalt Graving Dock</a> &gt;
-	<a href="#RootDir#text/booking-#lang#.cfm">Booking</A> &gt;<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-			<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
-		<CFELSE>
-			 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
-		</CFIF>
-	Create New User
-</div>
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#ssi/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+			<CFELSE>
+				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+			</CFIF>
+			Create New User</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#ssi/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					Create New User
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
-<div class="main">
-<H1>Create New User</H1>
+				<cfoutput>
+				<p>You have successfully created a new account for #form.firstname# #form.lastname#.  Email notification has been sent to the user.</p>
+					
+				<div align="center"><a href="../menu.cfm?lang=#lang#" class="textbutton">Return to Main Menu</a></div>
+				</cfoutput>
 
-<div align="left">You have successfully created a new account for #form.firstname# #form.lastname#.  Email notification has been sent to the user.</div>
-
-<br><br>	
-<div align="center"><a href="../menu.cfm?lang=#lang#" class="textbutton">Return to Main Menu</a></div>
-<div style="height:0;"></div>
-
-</div>
-</cfoutput>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+			</div>
+		<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">

@@ -26,17 +26,15 @@
 </cfif>
 
 <cfhtmlhead text="
-<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Confirm Delete User"">
-<meta name=""keywords"" lang=""eng"" content="""">
-<meta name=""description"" lang=""eng"" content="""">
-<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-<meta name=""dc.date.published"" content=""2005-07-25"">
-<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-<meta name=""dc.date.modified"" content=""2005-07-25"">
-<meta name=""dc.date.created"" content=""2005-07-25"">
-<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm Delete User</title>">
-
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Confirm Delete User"">
+	<meta name=""keywords"" lang=""eng"" content="""">
+	<meta name=""description"" lang=""eng"" content="""">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
+	<meta name=""dc.date.published"" content=""2005-07-25"">
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
+	<meta name=""dc.date.modified"" content=""2005-07-25"">
+	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm Delete User</title>">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -60,100 +58,108 @@
 	</cfquery>
 </cflock>
 
-
 <!-- Start JavaScript Block -->
 <script language="JavaScript" type="text/javascript">
-<!--
-function EditSubmit ( selectedform )
-{
-  document.forms[selectedform].submit() ;
-}
-//-->
+	<!--
+	function EditSubmit ( selectedform )
+	{
+	  document.forms[selectedform].submit() ;
+	}
+	//-->
 </script>
 
-<div class="breadcrumbs">
-	<a href="<cfoutput>http://www.pwgsc.gc.ca/text/home-#lang#.html</cfoutput>">PWGSC</a> &gt; 
-	Pacific Region &gt; 
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-e.html">Esquimalt Graving Dock</a> &gt; 
-  <CFOUTPUT>
-		<a href="#RootDir#text/booking-#lang#.cfm">Booking</A> &gt;<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-			<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
-		<CFELSE>
-			 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
-		</CFIF>
-	</CFOUTPUT>
-	Confirm Delete User
-</div>
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
-<div class="main">
-<H1>Confirm Delete User</H1>
-<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#ssi/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+			<CFELSE>
+				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+			</CFIF>
+			Confirm Delete User</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#ssi/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					Confirm Delete User
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
-<cfif IsDefined("Session.Return_Structure")>
-	<!--- Populate the Variables Structure with the Return Structure.
-			Also display any errors returned --->
-	<cfinclude template="#RootDir#includes/getStructure.cfm">
-</cfif>
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+				
+				<cfif IsDefined("Session.Return_Structure")>
+					<!--- Populate the Variables Structure with the Return Structure.
+							Also display any errors returned --->
+					<cfinclude template="#RootDir#includes/getStructure.cfm">
+				</cfif>
+				
+				Are you sure you want to delete <cfoutput><strong>#getUser.UserName#</strong></cfoutput>?
+				<!---All vessels associated with this user will also be deleted, along with all bookings associated with those vessels.--->
+				
+				<BR><BR>
+				<cfoutput query="getUser">
+					<table align="center">
+						<tr>
+							<td colspan="2"><strong>User Profile:</strong></td>
+						</tr>
+						<tr>
+							<td id="Name">Name:</td>
+							<td headers="Name">#UserName#</td>
+						</tr>
+						<!---<tr>
+							<td>Login Name:</td>
+							<td>#loginID#</td>
+						</tr>--->
+						<tr>
+							<td id="Email">Email:</td>
+							<td headers="Email">#email#</td>
+						</tr>
+						<tr>
+							<td><cfif getCompanies.recordCount EQ 1>Company:<cfelseif getCompanies.recordCount GT 1>Companies:<cfelse>&nbsp;</cfif></td>
+							<cfloop query="getCompanies" endrow="1"><td>#CompanyName#</td></cfloop>
+						</tr>
+						<cfloop query="getCompanies" startRow="2">
+							<tr>
+								<td>&nbsp;</td>
+								<td>#CompanyName#</td>
+							</tr>
+						</cfloop>
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+						<!---<tr>
+							<td colspan="2"><strong>User Vessels:</strong></td>
+						</tr>
+						<cfloop query="getUserVessels">
+							<tr>
+								<td colspan="2">#Name#</td>
+							</tr>
+						</cfloop>--->
+					</table>
+				</cfoutput>
+				
+				<cfform action="delUser_action.cfm?lang=#lang#" method="post" name="delUserConfirmForm">
+					<div align="center">
+						<!---a href="javascript:EditSubmit('delUserConfirmForm');" class="textbutton">Delete</a>
+						<a href="delUser.cfm" class="textbutton">Back</a>
+						<a href="<cfoutput>#RootDir#</cfoutput>text/admin/menu.cfm?lang=#lang#" class="textbutton">Cancel</a--->
+						<cfif getCompanies.recordCount GT 1><cfoutput><input type="button" value="remove user from #getCompany.companyName#" onClick="self.location.href='removeUserCompany_action.cfm?userID=#form.userID#&amp;companyID=#form.companyID#'" class="textbutton"></cfoutput><br><br></cfif>
+						<input type="submit" value="Delete user account" class="textbutton"><br><br>
+						<cfoutput><input type="button" value="Back" onClick="self.location.href='delUser.cfm?lang=#lang#'" class="textbutton"></cfoutput>
+						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#RootDir#text/admin/menu.cfm?lang=#lang#'" class="textbutton"></cfoutput>
+					</div>
+					
+					<input type="hidden" name="userID" value="<cfoutput>#form.UserID#</cfoutput>">
+				</cfform>
 
-Are you sure you want to delete <cfoutput><strong>#getUser.UserName#</strong></cfoutput>?
-<!---All vessels associated with this user will also be deleted, along with all bookings associated with those vessels.--->
-
-<BR><BR>
-<cfoutput query="getUser">
-	<table align="center">
-		<tr>
-			<td colspan="2"><strong>User Profile:</strong></td>
-		</tr>
-		<tr>
-			<td id="Name">Name:</td>
-			<td headers="Name">#UserName#</td>
-		</tr>
-		<!---<tr>
-			<td>Login Name:</td>
-			<td>#loginID#</td>
-		</tr>--->
-		<tr>
-			<td id="Email">Email:</td>
-			<td headers="Email">#email#</td>
-		</tr>
-		<tr>
-			<td><cfif getCompanies.recordCount EQ 1>Company:<cfelseif getCompanies.recordCount GT 1>Companies:<cfelse>&nbsp;</cfif></td>
-			<cfloop query="getCompanies" endrow="1"><td>#CompanyName#</td></cfloop>
-		</tr>
-		<cfloop query="getCompanies" startRow="2">
-			<tr>
-				<td>&nbsp;</td>
-				<td>#CompanyName#</td>
-			</tr>
-		</cfloop>
-		<tr>
-			<td>&nbsp;</td>
-		</tr>
-		<!---<tr>
-			<td colspan="2"><strong>User Vessels:</strong></td>
-		</tr>
-		<cfloop query="getUserVessels">
-			<tr>
-				<td colspan="2">#Name#</td>
-			</tr>
-		</cfloop>--->
-	</table>
-</cfoutput>
-
-<cfform action="delUser_action.cfm?lang=#lang#" method="post" name="delUserConfirmForm">
-	<div align="center">
-		<!---a href="javascript:EditSubmit('delUserConfirmForm');" class="textbutton">Delete</a>
-		<a href="delUser.cfm" class="textbutton">Back</a>
-		<a href="<cfoutput>#RootDir#</cfoutput>text/admin/menu.cfm?lang=#lang#" class="textbutton">Cancel</a--->
-		<cfif getCompanies.recordCount GT 1><cfoutput><input type="button" value="remove user from #getCompany.companyName#" onClick="self.location.href='removeUserCompany_action.cfm?userID=#form.userID#&amp;companyID=#form.companyID#'" class="textbutton"></cfoutput><br><br></cfif>
-		<input type="submit" value="Delete user account" class="textbutton"><br><br>
-		<cfoutput><input type="button" value="Back" onClick="self.location.href='delUser.cfm?lang=#lang#'" class="textbutton"></cfoutput>
-		<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#RootDir#text/admin/menu.cfm?lang=#lang#'" class="textbutton"></cfoutput>
-	</div>
-	
-	<input type="hidden" name="userID" value="<cfoutput>#form.UserID#</cfoutput>">
-</cfform>
-	
-
-</div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+			</div>
+		<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">

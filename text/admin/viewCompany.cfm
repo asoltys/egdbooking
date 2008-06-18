@@ -1,61 +1,74 @@
 <CFINCLUDE template="#RootDir#includes/companyInfoVariables.cfm">
 
-<!doctype HTML public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
-<head>
-<!--- 	<meta name="dc.title" lang="eng" content="PWGSC - ESQUIMALT GRAVING DOCK - Welcome">
-	<meta name="keywords" lang="eng" content="Ship Repair, Boats, Ship Maintenance, Dry dock, drydock, marine, iso14001, iso-14001">
-	<meta name="description" lang="eng" content="The Esquimalt Graving Dock, or EGD, is proud to be federally owned, operated, and maintained. EGD is the largest solid-bottom commercial drydock on the West Coast of the Americas. We are located in an ice free harbour on Vancouver Island near gateways to Alaska and the Pacific Rim.">
-	<meta name="dc.subject" scheme="gccore" lang="eng" content="Ship; Wharf; Dock; Boat">
-	<meta name="dc.date.created" lang="eng" content="2002-11-29">
-	<meta name="dc.date.modified" content="<!--#config timefmt='%Y-%m-%d'--><!--#echo var='LAST_MODIFIED'-->">
-	<meta name="dc.date.published" content="2002-12-30">
-	<meta name="dc.date.reviewed" content="2004-07-27">
-	<title>PWGSC - ESQUIMALT GRAVING DOCK - Booking</title> --->
-	<!--INTERNET TEMPLATE VERSION 2.1-->
-	
-	<!--METADATA PROFILE START-->
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-	<meta name="MSSmartTagsPreventParsing" content="True">
-	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1">
-	<meta name="dc.language" scheme="IS0639-2" content="eng">
-	<meta name="dc.creator" lang="eng" content="Government of Canada, Public Works and Government Services Canada, Esquimalt Graving Dock">
-	<meta name="dc.publisher" lang="eng" content="Public Works and Government Services Canada">
-	<meta name="pwgsc.contact.email" content="egd@pwgsc.gc.ca">
-	<meta name="dc.rights" lang="eng" content="<cfoutput>http://www.pwgsc.gc.ca/text/home-#lang#.html</cfoutput>/text/generic/copyright-e.html">
-	<meta name="robots" content="noindex,nofollow">
+<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
+<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,"\"), "\")>
+<cfdirectory action="LIST" directory="#PageDir#" name="GetFile" filter="#PageFileName#">
+<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
 
-	<meta name="dc.title" lang="eng" content="PWGSC - ESQUIMALT GRAVING DOCK - View Company Details">
-	<meta name="keywords" lang="eng" content="">
-	<meta name="description" lang="eng" content="Allows user to view information on a company.">
-	<meta name="dc.subject" scheme="gccore" lang="eng" content="">
-	<meta name="dc.date.published" content="2005-07-25">
-	<meta name="dc.date.reviewed" content="2005-07-25">
-	<meta name="dc.date.modified" content="2005-07-25">
-	<meta name="dc.date.created" content="2005-07-25">
+<HEAD>
+<!-- CLF 2.0 TEMPLATE VERSION 1.04 | VERSION 1.04 DU GABARIT NSI 2.0 -->
+<!-- PWGSC TEMPLATE VERSION 1.0 | VERSION 1.0 DU GABARIT TPSGC -->
+<!-- HEADER BEGINS | DEBUT DE L'EN-TETE -->
+<!-- TITLE BEGINS | DEBUT DU TITRE -->
+<title>PWGSC - ESQUIMALT GRAVING DOCK - View Company Details</title>
+<!-- TITLE ENDS | FIN DU TITRE -->
+<!-- METADATA BEGINS | DEBUT DES METADONNEES -->
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<LINK rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+<LINK rel="schema.dc" href="http://purl.org/dc/terms/" />
+<META name="dc.title" content="PWGSC - ESQUIMALT GRAVING DOCK - View Company Details">
+<META name="dc.subject" SCHEME="gccore" content="ship, wharf">
+<META name="dc.language" SCHEME="ISO639-2/T" content="eng" />
+<META name="dc.creator" content="Government of Canada, Public Works and Government Services Canada" />
+<META name="dc.publisher" content="Government of Canada, Public Works and Government Services Canada" />
+<META name="dc.audience" content=" " />
+<META name="dc.contributor" content=" " />
+<META name="dc.coverage" content=" " />
+<META name="dc.format" content=" " />
+<META name="dc.identifier" content=" " />
+<META name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html" />
+<META name="dcterms.issued" SCHEME="W3CDTF" content="2007-09-20" />
+<META name="dcterms.modified" SCHEME="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
+<META name="description" content="Allows user to view information on a company.">
+<META name="keywords" content="">
+<META name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
+<!-- METADATA ENDS | FIN DES METADONNEES -->
+<!-- TEMPLATE SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS DU GABARIT -->
+<cfoutput>
+<LINK href="/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
+<LINK href="/clf20/css/2col.css" media="screen, print" rel="stylesheet" type="text/css" />
+<STYLE type="text/css" media="all">@import url(/clf20/css/base2.css);</STYLE>
+</cfoutput>
+<!-- TEMPLATE SCRIPTS/CSS END | FIN DES SCRIPTS/CSS DU GABARIT -->
+<!-- PROGRESSIVE ENHANCEMENT BEGINS | DEBUT DE L'AMELIORATION PROGRESSIVE -->
+<SCRIPT src="/clf20/scripts/pe-ap.js" type="text/javascript"></SCRIPT>
+<SCRIPT type="text/javascript">
+	/* <![CDATA[ */
+		var params = {
+			lng:"eng",
+			pngfix:"/clf20/images/inv.gif"
+		};
+		PE.progress(params);
+	/* ]]> */
+</SCRIPT>
+<!-- PROGRESSIVE ENHANCEMENT ENDS | FIN DE L'AMELIORATION PROGRESSIVE -->
+<!-- CUSTOM SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS PERSONNALISES -->
+<cfoutput>
+<LINK href="/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+<LINK href="/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+<STYLE type="text/css" media="screen,print">@import url(#RootDir#css/advanced.css);</STYLE>
+</cfoutput>
+<!-- CUSTOM SCRIPTS/CSS END | FIN DES SCRIPTS/CSS PERSONNALISES -->
+<!-- TEMPLATE PRINT CSS BEGINS | DEBUT DU CSS DU GABARIT POUR L'IMPRESSION -->
+<LINK href="/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
+<!-- TEMPLATE PRINT CSS ENDS | FIN DU CSS DU GABARIT POUR L'IMPRESSION -->
+</HEAD>
 
-	<meta name="pwgsc.date.retention" content="">
-	<!-- leave blank -->
-	<meta name="dc.contributor" lang="eng" content="">
-	<meta name="dc.identifier" lang="eng" content="">
-	<meta name="dc.audience" lang="eng" content="">
-	<meta name="dc.type" lang="eng" content="">
-	<meta name="dc.format" lang="eng" content="">
-	<meta name="dc.coverage" lang="eng" content="">
-	<!--METADATA PROFILE END-->
-
-	<title>PWGSC - ESQUIMALT GRAVING DOCK - View Company Details</title>
 
 <!--cfinclude template="#RootDir#includes/header-#lang#.cfm"-->
-
-<cfoutput>
-	<LINK rel="stylesheet" href="#RootDir#css/default.css">
-	<style type="text/css" media="screen, print">
-		@import url(#RootDir#css/advanced.css);
-		@import url(#RootDir#css/events.css);
-	</style>
-</cfoutput>
 
 <cfset language.PageTitle = "View Company">
 <cfset language.ScreenMessage = ''>
@@ -87,27 +100,29 @@
 
 </HEAD>
 
-<BODY bgcolor="#FFFFFF">
+<BODY>
 
-<!--begin clf fip-e.html--> 
-<table width="480" border="0" cellpadding="0" cellspacing="0">
-	<tr>
-		<td colspan="4"><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="1" height="10" alt=""></td>
-	</tr>
-	<tr> 
-		<td><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></td>
-		<td align="left" valign="top"><img src="<cfoutput>#RootDir#</cfoutput>images/pwgsc-e.gif" width="364" height="33" alt="Public Works and Government Services Canada" title="Public Works and Government Services Canada" border="0"></td>
-		<td align="right" valign="top"><img src="<cfoutput>#RootDir#</cfoutput>images/wordmark.gif" width="83" height="21" alt="Canada wordmark" border="0" align="top"></td>
-		<td><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></td>
-	</tr>
-</table>
-<!--end clf fip-e.html-->
-
-<h2 style="padding-left: 10px; "><CFOUTPUT>#getCompany.Name# <CFIF IsDefined('getCompany.Approved') AND getCompany.Approved neq '' AND getCompany.Approved>(#getCompany.Abbreviation#)</CFIF></CFOUTPUT></h2>
-<TABLE width="80%" class="calendar" align="center" border="0" cellpadding="0" cellspacing="0">
+<div style="width:480px; background-color:#FFFFFF;">
+	<div class="core">
+		<!-- FIP HEADER BEGINS | DEBUT DE L'EN-TETE PCIM --> 
+		<div class="fip">
+		<a name="tphp" id="tphp"><img src="/egd_internet_clf2/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></a>
+		</div>
+		<div class="cwm">
+			<img src="/egd_internet_clf2/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
+		</div>
+		<!-- FIP HEADER ENDS | FIN DE L'EN-TETE PCIM --> 
+		
+		<div class="center" style="margin-left:-10px;">
+				<H1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					<CFOUTPUT>#getCompany.Name# <CFIF IsDefined('getCompany.Approved') AND getCompany.Approved neq '' AND getCompany.Approved>(#getCompany.Abbreviation#)</CFIF></CFOUTPUT>
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></H1>
+<TABLE width="80%" align="center" border="0" cellpadding="0" cellspacing="0">
 	<TR>
-		<CFOUTPUT><TD id="addy1" class="calendar" width="30%" valign="top">#language.address#:</TD>
-		<TD headers="addy1" class="calendar">
+		<CFOUTPUT><TD id="addy1" width="30%" valign="top">#language.address#:</TD>
+		<TD headers="addy1">
 			#getCompany.Address1#<CFIF getCompany.Address2 neq ""><BR>
 			#getCompany.Address2#</CFIF><BR>
 			#getCompany.City#<BR>
@@ -117,63 +132,48 @@
 	</TR>
 	</TR>
 	<TR>
-		<CFOUTPUT><TD id="phone" class="calendar" valign="top">#language.phone#:</TD>
-		<TD headers="phone" class="calendar">#getCompany.phone#</TD></CFOUTPUT>
+		<CFOUTPUT><TD id="phone" valign="top">#language.phone#:</TD>
+		<TD headers="phone">#getCompany.phone#</TD></CFOUTPUT>
 	</TR>
 	<TR>
-		<CFOUTPUT><TD id="status" class="calendar" valign="top">#language.status#:</TD>
-		<TD headers="status" class="calendar"><CFIF IsDefined('getCompany.Approved') AND getCompany.Approved neq '' AND getCompany.approved>Approved<CFELSE>Awaiting Approval</CFIF></TD></CFOUTPUT>
+		<CFOUTPUT><TD id="status" valign="top">#language.status#:</TD>
+		<TD headers="status"><CFIF IsDefined('getCompany.Approved') AND getCompany.Approved neq '' AND getCompany.approved>Approved<CFELSE>Awaiting Approval</CFIF></TD></CFOUTPUT>
 	</TR>
 	<CFIF IsDefined('getCompany.Approved') AND getCompany.Approved neq '' AND getCompany.approved>
 	<TR>
-		<TD id="Agents" class="calendar" valign="top">Other Approved Agents:</TD>
-		<TD headers="Agents" class="calendar"><CFOUTPUT query="getAgents">#FirstName# #LastName#<BR></CFOUTPUT><CFIF getAgents.recordCount eq 0>None</CFIF></TD>
+		<TD id="Agents" valign="top">Other Approved Agents:</TD>
+		<TD headers="Agents"><CFOUTPUT query="getAgents">#FirstName# #LastName#<BR></CFOUTPUT><CFIF getAgents.recordCount eq 0>None</CFIF></TD>
 	</TR>
 	</CFIF>
 </TABLE>
 <BR>
-<div align="center"><A href="javascript: self.close();" class="textbutton">close</A></div>
+<DIV align="center"><A href="javascript: self.close();" class="textbutton">close</A></DIV>
 
 <BR>
-<!--BEGIN FOOTER-->
-<table width="480" border="0" cellspacing="0" cellpadding="0">
-<TR>
-	<TD width="10"><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></TD>
-	<TD colspan="2" width="460"><hr noshade size="1" width="100%"></TD>
-	<TD width="10"><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></TD>	
-</TR>
-<tr>
-	<td>&nbsp;</td>
-	<td align="left" class="footertext" colspan="2">
-		Maintained by <a href="<cfoutput>#RootDir#</cfoutput>text/contact_us-e.cfm">PWGSC</a></div> <!--- This option is recommended. --->
-	</td>
-</tr>
-<tr>
-	<td>&nbsp;</td>
-	<td align="left" class="footertext">
-		<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
-		<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,"\"), "\")>
-		<cfdirectory action="LIST" directory="#PageDir#" name="GetFile" filter="#PageFileName#">
-		<cfif #GetFile.recordcount# is 1>Last Updated:
-		<cfoutput query="GetFile">
-			#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")# 
-			<!---#TimeFormat(parseDateTime(GetFile.DateLastModified, "h:mm tt"))#--->
-		</cfoutput>
-		</cfif>
-	</td>
-	<td align="right" class="footertext">
-		<cfoutput>
-		<span lang="en"><a href="http://www.pwgsc.gc.ca/text/generic/copyright-e.html">Important Notices</a></span>
-		</cfoutput>
-	</td>
-	<td><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></td>
-</tr>
-
-<tr>
-	<td colspan="4"><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="1" height="10" alt=""></td>
-</tr>
-</table>
-<!--END FOOTER-->
-
-</BODY>
-</HTML>
+			<!-- FOOTER BEGINS | DEBUT DU PIED DE LA PAGE -->
+			<div class="footer">
+				<div class="footerline"></div>
+				<div class="foot1">
+					<!-- DATE MODIFIED BEGINS | DEBUT DE LA DATE DE MODIFICATION -->
+					Date Modified: <span class="date">
+						<!--- the query is set up in tete-header --->
+						<cfoutput query="GetFile">	#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>
+					</span>
+					<!-- DATE MODIFIED ENDS | FIN DE LA DATE DE MODIFICATION -->
+				</div>
+				<!-- ====== /CLF20/SSI/FOOT-PIED-ENG.HTML ====== -->
+				<div class="foot2">
+					<a href="#tphp" title="Return to Top of Page"><img class="uparrow" src="/egd_internet_clf2/clf20/images/tphp.gif" width="19" height="12" alt="" /><br />Top of Page</a>
+				</div>
+				<div class="foot3">
+					<a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html">Important Notices</a>
+				</div>
+				<!-- ====== /CLF20/SSI/FOOT-PIED-ENG.HTML ====== -->
+				
+			</div>
+			<!-- FOOTER ENDS | FIN DU PIED DE LA PAGE -->
+		</div>
+	</div>
+</div>
+</body>
+</html>

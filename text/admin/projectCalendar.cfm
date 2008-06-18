@@ -12,61 +12,61 @@
 <cfset language.text3 = 'docks'>
 
 <!doctype HTML public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
-<html lang="en">
+<HTML lang="en">
 
-<head>
+<HEAD>
 <!--- 	<meta name="dc.title" lang="eng" content="PWGSC - ESQUIMALT GRAVING DOCK - Welcome">
 	<meta name="keywords" lang="eng" content="Ship Repair, Boats, Ship Maintenance, Dry dock, drydock, marine, iso14001, iso-14001">
 	<meta name="description" lang="eng" content="The Esquimalt Graving Dock, or EGD, is proud to be federally owned, operated, and maintained. EGD is the largest solid-bottom commercial drydock on the West Coast of the Americas. We are located in an ice free harbour on Vancouver Island near gateways to Alaska and the Pacific Rim.">
 	<meta name="dc.subject" scheme="gccore" lang="eng" content="Ship; Wharf; Dock; Boat">
 	<meta name="dc.date.created" lang="eng" content="2002-11-29">
 	<meta name="dc.date.modified" content="<!--#config timefmt='%Y-%m-%d'--><!--#echo var='LAST_MODIFIED'-->">
-	<meta name="dc.date.published" content="2002-12-30">
-	<meta name="dc.date.reviewed" content="2004-07-27">
-	<title>PWGSC - ESQUIMALT GRAVING DOCK - Booking</title> --->
+	<META name="dc.date.published" content="2002-12-30">
+	<META name="dc.date.reviewed" content="2004-07-27">
+	<TITLE>PWGSC - ESQUIMALT GRAVING DOCK - Booking</TITLE> --->
 	<!--INTERNET TEMPLATE VERSION 2.1-->
 	
 	<!--METADATA PROFILE START-->
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-	<meta name="MSSmartTagsPreventParsing" content="True">
-	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1">
-	<meta name="dc.language" scheme="IS0639-2" content="eng">
-	<meta name="dc.creator" lang="eng" content="Government of Canada, Public Works and Government Services Canada, Esquimalt Graving Dock">
-	<meta name="dc.publisher" lang="eng" content="Public Works and Government Services Canada">
-	<meta name="pwgsc.contact.email" content="egd@pwgsc.gc.ca">
-	<meta name="dc.rights" lang="eng" content="<cfoutput>http://www.pwgsc.gc.ca/text/home-#lang#.html</cfoutput>/text/generic/copyright-e.html">
-	<meta name="robots" content="noindex,nofollow">
+	<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<META name="MSSmartTagsPreventParsing" content="True">
+	<LINK rel="schema.dc" href="http://purl.org/dc/elements/1.1">
+	<META name="dc.language" SCHEME="IS0639-2" content="eng">
+	<META name="dc.creator" LANG="eng" content="Government of Canada, Public Works and Government Services Canada, Esquimalt Graving Dock">
+	<META name="dc.publisher" LANG="eng" content="Public Works and Government Services Canada">
+	<META name="pwgsc.contact.email" content="egd@pwgsc.gc.ca">
+	<META name="dc.rights" LANG="eng" content="<cfoutput>http://www.pwgsc.gc.ca/text/home-#lang#.html</cfoutput>/text/generic/copyright-e.html">
+	<META name="robots" content="noindex,nofollow">
 
-	<meta name="dc.title" lang="eng" content="PWGSC - ESQUIMALT GRAVING DOCK - Project Calendar">
-	<meta name="keywords" lang="eng" content="">
-	<meta name="description" lang="eng" content="Allows user to view bookings in a given range in MS Project style.">
-	<meta name="dc.subject" scheme="gccore" lang="eng" content="">
-	<meta name="dc.date.published" content="2005-07-25">
-	<meta name="dc.date.reviewed" content="2005-07-25">
-	<meta name="dc.date.modified" content="2005-07-25">
-	<meta name="dc.date.created" content="2005-07-25">
+	<META name="dc.title" LANG="eng" content="PWGSC - ESQUIMALT GRAVING DOCK - Project Calendar">
+	<META name="keywords" LANG="eng" content="">
+	<META name="description" LANG="eng" content="Allows user to view bookings in a given range in MS Project style.">
+	<META name="dc.subject" SCHEME="gccore" LANG="eng" content="">
+	<META name="dc.date.published" content="2005-07-25">
+	<META name="dc.date.reviewed" content="2005-07-25">
+	<META name="dc.date.modified" content="2005-07-25">
+	<META name="dc.date.created" content="2005-07-25">
 
-	<meta name="pwgsc.date.retention" content="">
+	<META name="pwgsc.date.retention" content="">
 	<!-- leave blank -->
-	<meta name="dc.contributor" lang="eng" content="">
-	<meta name="dc.identifier" lang="eng" content="">
-	<meta name="dc.audience" lang="eng" content="">
-	<meta name="dc.type" lang="eng" content="">
-	<meta name="dc.format" lang="eng" content="">
-	<meta name="dc.coverage" lang="eng" content="">
+	<META name="dc.contributor" LANG="eng" content="">
+	<META name="dc.identifier" LANG="eng" content="">
+	<META name="dc.audience" LANG="eng" content="">
+	<META name="dc.type" LANG="eng" content="">
+	<META name="dc.format" LANG="eng" content="">
+	<META name="dc.coverage" LANG="eng" content="">
 	<!--METADATA PROFILE END-->
 
-	<title>PWGSC - ESQUIMALT GRAVING DOCK - Project Calendar</title>
+	<TITLE>PWGSC - ESQUIMALT GRAVING DOCK - Project Calendar</TITLE>
 
 <!--cfinclude template="#RootDir#includes/header-#lang#.cfm"-->
 
 <cfoutput>
 	<LINK rel="stylesheet" href="#RootDir#css/default.css">
-	<style type="text/css" media="screen, print">
+	<STYLE type="text/css" media="screen, print">
 		@import url(#RootDir#css/advanced.css);
 		@import url(#RootDir#css/events.css);
 		@import url(#RootDir#css/projectcalendar.css);
-	</style>
+	</STYLE>
 </cfoutput>
 
 <!-- Start JavaScript Block -->
@@ -116,7 +116,7 @@ function foo(e, msg, title) {
 	<CFSET "CalEndDate" = Form.endDate>
 </CFIF>
 
-<!--- Goes through the db once and gets all the bookings that fall between the dates wanted. --->
+<!--- Goes through the db once and gets all the bookings that fall between the dates wanted. Second query finds all maintenance blocks and labels them with the 'lol' identifier, because when a booking overlaps with a maintenance block, it is very lol. Wouldn't you agree? --->
 <CFQUERY name="megaquery" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT 	Status,
 			Section1, Section2, Section3,
@@ -207,8 +207,8 @@ function foo(e, msg, title) {
 
 
 <CFOUTPUT query="megaquery" maxrows="1">
-	<CFIF NOT IsDefined("CalStartDate") OR CalStartDate eq ""><CFSET CalStartDate = "#StartDate#"></CFIF>
-	<CFIF NOT IsDefined("CalEndDate") OR CalEndDate eq ""><CFSET CalEndDate = "#EndDate#"></CFIF>
+	<!---CFIF NOT IsDefined("CalStartDate") OR CalStartDate eq ""><CFSET CalStartDate = "#StartDate#"></CFIF>
+	<CFIF NOT IsDefined("CalEndDate") OR CalEndDate eq ""><CFSET CalEndDate = "#EndDate#"></CFIF--->
 	<CFSCRIPT>
 		// Creates a string to be printed.  This function is used to avoid a lengthy if/else block inside the CFSET for the string "snowflakes."
 		function foo() {	
@@ -263,9 +263,9 @@ function foo(e, msg, title) {
 
 			cc = "colourCode";
 			if (Status eq 'm') {
-				StructInsert(n, Evaluate("cc"), 99, true);
+				StructInsert(n, Evaluate("cc"), 99, true); // maintenance blocks are black
 			} else {
-				StructInsert(n, Evaluate("cc"), Right(Hash(VesselName), 1), true);
+				StructInsert(n, Evaluate("cc"), Right(Hash(VesselName), 1), true); // other blocks are coloured by the hashed names
 			}
 
 			if (i eq f or i eq 1) {
@@ -355,7 +355,7 @@ function foo(e, msg, title) {
 
 <!--- Populate the structs.  If toDate is not given, then keep increasing the size of the calendar to contain all bookings. --->
 <CFOUTPUT query="megaquery">
-	<CFIF (NOT IsDefined("CalEndDate") OR CalEndDate eq "") AND (#EndDate# GT #CalEndDate#)>
+	<CFIF (NOT IsDefined("CalEndDate") OR CalEndDate eq "")<!--- AND (#EndDate# GT #CalEndDate#) wtf is this doing here--->>
 		<CFSET CalEndDate = '#EndDate#'>
 	</CFIF>
 	
@@ -434,32 +434,34 @@ function foo(e, msg, title) {
 <CFPARAM name="CalStartDate" type="date">
 <CFPARAM name="CalEndDate" type="date">
 
+
 <CFSET #CalSize# = #CalEndDate# - #CalStartDate# + 1>
 
 <BODY bgcolor="#FFFFFF">
 
 <!---CFDUMP var="#megastruct#"--->
-
+<cfdump var="#EndDate#">
+<CFDUMP var="#CalEndDate#">
 <!--begin clf fip-e.html--> 
-<table width="700" border="0" cellpadding="0" cellspacing="0">
-	<tr>
-		<td colspan="4"><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="1" height="10" alt=""></td>
-	</tr>
-	<tr> 
-		<td><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></td>
-		<td align="left" valign="top"><img src="<cfoutput>#RootDir#</cfoutput>images/pwgsc-e.gif" width="364" height="33" alt="Public Works and Government Services Canada" title="Public Works and Government Services Canada" border="0"></td>
-		<td align="right" valign="top"><img src="<cfoutput>#RootDir#</cfoutput>images/wordmark.gif" width="83" height="21" alt="Canada wordmark" border="0" align="top"></td>
-		<td><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></td>
-	</tr>
-</table>
+<TABLE width="700" border="0" cellpadding="0" cellspacing="0">
+	<TR>
+		<TD colspan="4"><IMG src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="1" height="10" alt=""></TD>
+	</TR>
+	<TR> 
+		<TD><IMG src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></TD>
+		<TD align="left" valign="top"><IMG src="<cfoutput>#RootDir#</cfoutput>images/pwgsc-e.gif" width="364" height="33" alt="Public Works and Government Services Canada" title="Public Works and Government Services Canada" border="0"></TD>
+		<TD align="right" valign="top"><IMG src="<cfoutput>#RootDir#</cfoutput>images/wordmark.gif" width="83" height="21" alt="Canada wordmark" border="0" align="top"></TD>
+		<TD><IMG src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></TD>
+	</TR>
+</TABLE>
 <!--end clf fip-e.html-->
 
 <H1 style="padding-left: 10px; "><cfoutput>#Language.PageTitle#</cfoutput></H1>
 
 <DIV class="screenonly" style="width: 700px; padding-left: 10px; ">
 	<CFOUTPUT>#Language.ScreenMessage#</CFOUTPUT>
-	<p align="center"><A href="javascript:history.go(-1);" class="textbutton">Back to Date Selection</A> &nbsp;
-	<A href="javascript:self.close();" class="textbutton">Close this Window</A></p>
+	<P align="center"><A href="javascript:history.go(-1);" class="textbutton">Back to Date Selection</A> &nbsp;
+	<A href="javascript:self.close();" class="textbutton">Close this Window</A></P>
 </DIV>
 
 
@@ -554,21 +556,21 @@ function foo(e, msg, title) {
 <BR><BR>
 
 <!--BEGIN FOOTER-->
-<table width="700" border="0" cellspacing="0" cellpadding="0">
+<TABLE width="700" border="0" cellspacing="0" cellpadding="0">
 <TR>
-	<TD width="10"><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></TD>
-	<TD colspan="2" width="680"><hr noshade size="1" width="100%"></TD>
-	<TD width="10"><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></TD>	
+	<TD width="10"><IMG src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></TD>
+	<TD colspan="2" width="680"><HR noshade size="1" width="100%"></TD>
+	<TD width="10"><IMG src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></TD>	
 </TR>
-<tr>
-	<td>&nbsp;</td>
-	<td align="left" class="footertext" colspan="2">
-		Maintained by <a href="<cfoutput>#RootDir#</cfoutput>text/contact_us-e.cfm">PWGSC</a></div> <!--- This option is recommended. --->
-	</td>
-</tr>
-<tr>
-	<td>&nbsp;</td>
-	<td align="left" class="footertext">
+<TR>
+	<TD>&nbsp;</TD>
+	<TD align="left" class="footertext" colspan="2">
+		Maintained by <A href="<cfoutput>#RootDir#</cfoutput>text/contact_us-e.cfm">PWGSC</A></div> <!--- This option is recommended. --->
+	</TD>
+</TR>
+<TR>
+	<TD>&nbsp;</TD>
+	<TD align="left" class="footertext">
 		<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
 		<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,"\"), "\")>
 		<cfdirectory action="LIST" directory="#PageDir#" name="GetFile" filter="#PageFileName#">
@@ -578,18 +580,18 @@ function foo(e, msg, title) {
 			<!---#TimeFormat(parseDateTime(GetFile.DateLastModified, "h:mm tt"))#--->
 		</cfoutput>
 		</cfif>
-	</td>
-	<td align="right" class="footertext">
+	</TD>
+	<TD align="right" class="footertext">
 		<cfoutput>
-		<span lang="en"><a href="http://www.pwgsc.gc.ca/text/generic/copyright-e.html">Important Notices</a></span>
+		<SPAN lang="en"><A href="http://www.pwgsc.gc.ca/text/generic/copyright-e.html">Important Notices</A></SPAN>
 		</cfoutput>
-	</td>
-	<td><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></td>
-</tr>
-<tr>
-	<td colspan="4"><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="1" height="10" alt=""></td>
-</tr>
-</table>
+	</TD>
+	<TD><IMG src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></TD>
+</TR>
+<TR>
+	<TD colspan="4"><IMG src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="1" height="10" alt=""></TD>
+</TR>
+</TABLE>
 <!--END FOOTER-->
 
 </BODY>

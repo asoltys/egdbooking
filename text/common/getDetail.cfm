@@ -1,6 +1,6 @@
 <cfinclude template="#RootDir#includes/bookingInfoVariables.cfm">
 <cfinclude template="#RootDir#includes/vesselInfoVariables.cfm">
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.bookingDetail = "Booking Details">
 	<cfset language.description = "Retrieves information for all bookings on a given day.">
 	<cfset language.detailsFor = "Details for">
@@ -28,7 +28,7 @@
 	<cfset language.drydockBookings = "R&eacute;servations de cale s&egrave;che">
 	<cfset language.dates = "Dates">
 	<cfset language.MaintenanceBlock = "P&eacute;riode de maintenance">
-	<cfset language.closedForMaint = "Les &eacute;l&eacute;ments suivants sont ferm&eacute;s aux fins de maintenance et ne peuvent pas être r&eacute;serv&eacute;s.">
+	<cfset language.closedForMaint = "Les &eacute;l&eacute;ments suivants sont ferm&eacute;s aux fins de maintenance et ne peuvent pas &ecirc;tre r&eacute;serv&eacute;s.">
 	<cfset language.moreInfo = "renseignements suppl&eacute;mentaires sur cette r&eacute;servation">
 	<cfset language.JettyBookings = "R&eacute;servations de jet&eacute;e">
 	<cfset language.noBookings = "Il n'existe aucune r&eacute;servation pour cette p&eacute;riode.">
@@ -40,8 +40,8 @@
 	<cfset language.drydock2 = "Section 2">
 	<cfset language.drydock3 = "Section 3">
 	<cfset language.deepsea = "Navire oc&eacute;anique">
-	<cfset language.drydockCalButton = "Calendrier de la cale sèche">
-	<cfset language.jettyCalButton = "Calendrier des jetées">
+	<cfset language.drydockCalButton = "Calendrier de la cale s&egrave;che">
+	<cfset language.jettyCalButton = "Calendrier des jet&eacute;es">
 	<cfset language.yourbookings = "Les r&eacute;servations ombrag&eacute;es ci-dessous appartiennent &agrave; votre entreprise.">
 </cfif>
 
@@ -64,7 +64,7 @@
 	<CFSET returnTo = "#RootDir#text/booking/booking.cfm">
 </CFIF>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
 <div class="breadcrumbs">
 	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
@@ -327,4 +327,5 @@
 <div align="center"><a href="jettyCalendar.cfm?lang=#lang#&month=#moonth#&year=#yeaar#" class="textbutton">#language.jettyCalButton#</a></div><DIV style="height:0;">&nbsp;</DIV>
 </cfoutput>
 </div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
+

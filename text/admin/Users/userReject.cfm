@@ -11,7 +11,7 @@
 <meta name=""dc.date.modified"" content=""2005-07-25"">
 <meta name=""dc.date.created"" content=""2005-07-25"">
 <title>PWGSC - ESQUIMALT GRAVING DOCK - Reject User</title>">
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
 <CFSET This_Page = "../admin/userReject.cfm">
 
@@ -77,4 +77,4 @@ function EditSubmit ( selectedform )
 </div>
 </cfoutput>
 </div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">

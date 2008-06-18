@@ -1,6 +1,6 @@
 <cfinclude template="#RootDir#includes/bookingInfoVariables.cfm">
 <cfinclude template="#RootDir#includes/vesselInfoVariables.cfm">
-<cfif lang EQ "e" OR (IsDefined("Session.AdminLoggedIn") AND Session.AdminLoggedIn neq "")>
+<cfif lang eq "eng" OR (IsDefined("Session.AdminLoggedIn") AND Session.AdminLoggedIn neq "")>
 	<cfset language.bookingDetail = "Booking Details">
 	<cfset language.description = "Retrieves information for a booking.">
 	<cfset language.company = "Company">
@@ -66,7 +66,7 @@
 	">
 </cfoutput>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
 <cfif NOT IsDefined('url.bookingid') OR NOT IsNumeric(url.bookingid)>
 	<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
@@ -328,4 +328,4 @@
 </CFIF>
 </cfif>
 </CFOUTPUT>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">

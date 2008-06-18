@@ -1,4 +1,4 @@
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.title = "Booking Application Login">
 	<cfset language.login = "Login">
 	<cfset language.description ="Login page for the booking application.">
@@ -38,7 +38,6 @@
 	<cfset StructDelete(Session, "Form_Structure")>
 </cfif>
 
-<cfoutput>
 <cfhtmlhead text="
 <meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#"">
 <meta name=""keywords"" lang=""eng"" content=""#language.masterKeywords# #language.Login#"">
@@ -62,67 +61,70 @@
 	<CFSET email = "">
 </CFIF>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
-
 <cfheader name="Pragma" value="no-cache"> 
 <cfheader name="cache-control" value="no-cache, no-store, must-revalidate">
 <cfcookie name="CFID" value="empty" expires="NOW">
 <cfcookie name="CFTOKEN" value="empty" expires="NOW">
 
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#ssi/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>#language.title#</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#ssi/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					<CFOUTPUT>#language.title#</CFOUTPUT>
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
-<div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt; 
-	#language.PacificRegion# &gt; 
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.EsqGravingDock#</a> &gt; 
-	<a href="#RootDir#text/booking-#lang#.cfm">#language.Booking#</A> &gt; #language.title#
-</div>
+				<CFOUTPUT>
+					<!--- If the last login failed, show error message --->
+					<cfif IsDefined("Session.Return_Structure")>
+						<cfinclude template="#RootDir#includes/getStructure.cfm">
+						<br />
+					</cfif>
+					<p>#language.browser#</p>
+					<ul>
+						#language.criteria#
+					</ul>
+					<p>#language.displayproblem#</p>
+					<noscript>
+					<b style="color: ##FF0000; ">#language.jserror#</b>
+					</noscript>
+					
+					<h2>#language.login#</h2>
+					<!-- Display the login form and pass contents to login_action.cfm -->
+					<form action="login_action.cfm?lang=<cfoutput>#lang#</cfoutput>" method="post" id="login_form">
+						<table border="0" cellspacing="2" cellpadding="2" align="center">
+							<tr>
+								<td align="right"><label for="email">#language.Email#:</label></td>
+								<td><input type="text" name="email" id="email" size="40" maxlength="100" class="textField" value="<CFOUTPUT>#email#</CFOUTPUT>" /></td>
+							</tr>
+							<tr>
+								<td align="right"><label for="password">#language.Password#:</label></td>
+								<td><input type="password" name="Password" id="password" size="25" maxlength="40" class="textField" /></td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td align="right"><input type="submit" name="submitForm" value="#language.Login#" class="textbutton" />								</td>
+							</tr>
+						</table>
+						<div align="center">#language.Remember#
+								<input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked</CFIF>/>
+						</div>
+					</form>
+					<div align="center"><a href="adduser.cfm?lang=<cfoutput>#lang#</cfoutput>">#language.addUser#</a></div>
+					<div align="center"><a href="forgotPassword.cfm?lang=<cfoutput>#lang#</cfoutput>">#language.Forgot#</a></div>
+				</CFOUTPUT>
+				</div>
+			<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
 
-<div class="main">
-
-<H1>#language.title#</H1>
-
-<!--- If the last login failed, show error message --->
-<cfif IsDefined("Session.Return_Structure")>
-	<cfinclude template="#RootDir#includes/getStructure.cfm">
-	<br>
-</cfif>
-
-<p>#language.browser#</p>
-<UL>#language.criteria#</UL>
-<p>#language.displayproblem#</p>
-
-<noscript>
-<b style="color: ##FF0000; ">#language.jserror#</b>
-</noscript>
-<h2>#language.login#</h2>
-
-<!-- Display the login form and pass contents to login_action.cfm -->
-<form name="login_form" action="login_action.cfm?lang=<cfoutput>#lang#</cfoutput>" method="post">
-<table border="0" cellspacing="2" cellpadding="2" align="center">
-
-	<tr>
-		<td align="right"><label for="email">#language.Email#:</label></td>
-		<td><input type="text" name="email" id="email" size="40" maxlength="100" class="textField" value="<CFOUTPUT>#email#</CFOUTPUT>"></td>
-	</tr>
-	<tr>
-		<td align="right"><label for="password">#language.Password#:</label></td>
-		<td><input type="password" name="Password" id="password" size="25" maxlength="40" class="textField"></td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td align="right"><INPUT type="Submit" name="submitForm" value="#language.Login#" class="textbutton">
-	</tr>
-</table>
-<div align="center">#language.Remember#
-  <input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked</CFIF>/>
-</div>
-</form>
-<div align="center"><a href="adduser.cfm?lang=<cfoutput>#lang#</cfoutput>">#language.addUser#</a></div>
-<div align="center"><a href="forgotPassword.cfm?lang=<cfoutput>#lang#</cfoutput>">#language.Forgot#</a></div>
-
-
-</div>
-</cfoutput>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
-
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">

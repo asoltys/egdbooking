@@ -44,12 +44,12 @@
 
 <cfoutput>
 
-	<cfmail to="#getUser.Email#" from="#Session.AdminEmail#" subject="Company Request Rejected - Demande de l'entreprise rejetée" type="html">
+	<cfmail to="#getUser.Email#" from="#Session.AdminEmail#" subject="Company Request Rejected - Demande de l'entreprise rejet&eacute;e" type="html">
 <p>#getUser.UserName#,</p>
 <p>Your request to be added to #getCompany.CompanyName#'s user list has been rejected.  Please contact the Esquimalt Graving Dock administration for details by replying to this email.</p>
 <p>Esquimalt Graving Dock</p>
 <br>
-<p>La demande d'ajout de votre nom &agrave; la liste d'utilisateurs de #getCompany.CompanyName#'s a &eacute;t&eacute; rejet&eacute;e. Veuillez communiquer avec l'administration de la Cale sèche d'Esquimalt pour de plus amples renseignements en répondant à ce courriel.
+<p>La demande d'ajout de votre nom &agrave; la liste d'utilisateurs de #getCompany.CompanyName#'s a &eacute;t&eacute; rejet&eacute;e. Veuillez communiquer avec l'administration de la Cale s&egrave;che d'Esquimalt pour de plus amples renseignements en r&eacute;pondant &agrave; ce courriel.
 </p>
 <p>Cale s&egrave;che d'Esquimalt</p>
 	</cfmail>
@@ -59,3 +59,4 @@
 	the new info on it.  It really should be painfully obvious. --->
 
 <cflocation url="userApprove.cfm?lang=#lang#" addtoken="no">
+

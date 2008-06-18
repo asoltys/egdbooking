@@ -33,11 +33,11 @@
 	WHERE	BookingID = '#Form.BookingID#'
 </cfquery>
 <cfoutput>
-	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Unconfirmed - Réservation non confirmée" type="html">
+	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Unconfirmed - R&eacute;servation non confirm&eacute;e" type="html">
 <p>The confirmation on your dock booking for #getDetails.VesselName# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# has been removed.  The booking status is now tentative.</p>
 <p>Esquimalt Graving Dock</p>
 <br>
-<p>La confirmation de votre r&eacute;servation de la cale s&egrave;che pour #getDetails.VesselName# du #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# au #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# a &eacute;t&eacute; supprim&eacute;e.  La réservation est maintenant provisoire.
+<p>La confirmation de votre r&eacute;servation de la cale s&egrave;che pour #getDetails.VesselName# du #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# au #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# a &eacute;t&eacute; supprim&eacute;e.  La r&eacute;servation est maintenant provisoire.
 </p>
 <p>Cale s&egrave;che d'Esquimalt</p>
 	</cfmail>
@@ -51,11 +51,11 @@
 	WHERE	BookingID = '#Form.BookingID#'
 </cfquery>
 <cfoutput>
-	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Approved - Réservation approuvé" type="html">
+	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Approved - R&eacute;servation approuv&eacute;" type="html">
 <p>Your dock booking for #getDetails.VesselName# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# has been approved.  The booking status is now tentative.  You will receive further notification on confirmation.</p>
 <p>Esquimalt Graving Dock</p>
 <br>
-<p>Votre r&eacute;servation de cale s&egrave;che pour #getDetails.VesselName# du #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# au #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# a &eacute;t&eacute; approuv&eacute;e.  La réservation est maintenant provisoire.
+<p>Votre r&eacute;servation de cale s&egrave;che pour #getDetails.VesselName# du #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# au #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# a &eacute;t&eacute; approuv&eacute;e.  La r&eacute;servation est maintenant provisoire.
   Vous recevrez un nouvel avis apr&egrave;s confirmation.</p>
 <p>Cale s&egrave;che d'Esquimalt</p>
 	</cfmail>
@@ -107,3 +107,4 @@
 </cfif>
 
 <!---cflocation addtoken="no" url="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.bookingID#"--->
+

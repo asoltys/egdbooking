@@ -32,12 +32,12 @@
 
 <cfoutput>
 	<cfloop query="getCompanyAgents">
-	<cfif lang EQ "e">
-		<cfmail to="#Email#" from="#Session.AdminEmail#" subject="Company Rejected - Entreprise rejetée" type="html">
+	<cfif lang EQ "eng">
+		<cfmail to="#Email#" from="#Session.AdminEmail#" subject="Company Rejected - Entreprise rejet&eacute;e" type="html">
 <p>Your requested company, #companyName.Name#, has been rejected.  Please contact the Esquimalt Graving Dock administration for details by replying to this email.</p>
 <p>Esquimalt Graving Dock</p>
 <br>
-<p>L'entreprise que vous avez demand&eacute;e, #companyName.Name#, a &eacute;t&eacute; rejet&eacute;e.  Veuillez communiquer avec l'administration de la Cale sèche d'Esquimalt pour de plus amples renseignements en répondant à ce courriel.</p>
+<p>L'entreprise que vous avez demand&eacute;e, #companyName.Name#, a &eacute;t&eacute; rejet&eacute;e.  Veuillez communiquer avec l'administration de la Cale s&egrave;che d'Esquimalt pour de plus amples renseignements en r&eacute;pondant &agrave; ce courriel.</p>
 <p>Cale s&egrave;che d'Esquimalt</p>
 		</cfmail>
 	</cfif>
@@ -45,3 +45,4 @@
 </cfoutput>
 
 <cflocation url="companyApprove.cfm?lang=#lang#" addtoken="no">
+

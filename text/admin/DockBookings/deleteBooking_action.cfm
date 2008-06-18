@@ -93,9 +93,9 @@ AND 	(UserCompanies.Approved = 1)
 	<cfset Session.Success.Link = "#returnTo#?#urltoken##variables.dateValue#">
 <cfelse>	
 	<cfif variables.actionPastCap eq "Cancelled">
-		<cfset language.subject = "Réservation annulée">
+		<cfset language.subject = "R&eacute;servation annul&eacute;e">
 	<cfelse>
-		<cfset language.subject = "Réservation supprimée">
+		<cfset language.subject = "R&eacute;servation supprim&eacute;e">
 	</cfif> 
 	
 	<cfif DateCompare(PacificNow, getBooking.EndDate, 'd') EQ -1>
@@ -137,3 +137,4 @@ AND 	(UserCompanies.Approved = 1)
 <cflocation addtoken="no" url="#RootDir#text/common/success.cfm?lang=#lang#">
 
 <!---cflocation addToken="no" url="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.bookingID#"--->
+

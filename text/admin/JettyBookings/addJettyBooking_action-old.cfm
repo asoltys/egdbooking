@@ -62,7 +62,7 @@
 		</cfquery>
 	</cflock>
 	
-	<cfmail to="#getDetails.Email#" from="#getAdmin.email#" subject="New Booking - Nouvelle réservation" type="html">
+	<cfmail to="#getDetails.Email#" from="#getAdmin.email#" subject="New Booking - Nouvelle r&eacute;servation" type="html">
 <p>#getDetails.Vesselname# has been booked on the #jetty# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#.</p>
 <p>Esquimalt Graving Dock</p>
 <br>
@@ -104,5 +104,6 @@
 <cflocation addtoken="no" url="#RootDir#text/common/success.cfm?lang=#lang#">
 
 <!---cflocation url="jettyBookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" addToken="no"--->
+
 
 

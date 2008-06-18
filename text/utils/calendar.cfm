@@ -4,7 +4,7 @@
 
 <html lang="en">
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.calendar = "Calendar">
 	<cfset language.description = "A mini calendar that allows user to choose a date interactively.">
 	<cfset language.PWGSC = "PWGSC">
@@ -256,7 +256,7 @@ function setDate(day) {
 </TR>
 <tr>
 	<td align="left" class="footertext" colspan="2"> 
-		<CFIF lang EQ 'e' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
+		<CFIF lang EQ 'eng' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
 			Maintained by <a href="<cfoutput>#RootDir#</cfoutput>text/contact_us-e.cfm">PWGSC</a> <!--- This option is recommended. --->
 		<CFELSE>
 			Mise &agrave; jour par <a href="<cfoutput>#RootDir#</cfoutput>text/contact_us-f.cfm">TPSGC</a> <!--- This option is recommended. --->
@@ -269,7 +269,7 @@ function setDate(day) {
 		<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,"\"), "\")>
 		<cfdirectory action="LIST" directory="#PageDir#" name="GetFile" filter="#PageFileName#">
 		<cfif #GetFile.recordcount# is 1>
-			<CFIF lang EQ 'e' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>Last Updated:
+			<CFIF lang EQ 'eng' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>Last Updated:
 			<CFELSE>Derni&egrave;re mise &agrave; jour&nbsp;:
 			</CFIF>
 		<cfoutput query="GetFile">
@@ -280,7 +280,7 @@ function setDate(day) {
 	</td>
 	<td align="right" class="footertext">
 		<cfoutput>
-		<CFIF lang EQ 'e' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)><span lang="en"><a href="http://www.pwgsc.gc.ca/text/generic/copyright-e.html">Important Notices</a></span>
+		<CFIF lang EQ 'eng' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)><span lang="en"><a href="http://www.pwgsc.gc.ca/text/generic/copyright-e.html">Important Notices</a></span>
 		<CFELSE><span lang="en"><a href="http://www.pwgsc.gc.ca/text/generic/copyright-f.html">Avis Importants</a></span>
 		</CFIF>
 		</cfoutput>

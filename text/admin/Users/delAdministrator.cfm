@@ -1,15 +1,13 @@
 <cfhtmlhead text="
-<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Delete Administrator"">
-<meta name=""keywords"" lang=""eng"" content="""">
-<meta name=""description"" lang=""eng"" content="""">
-<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-<meta name=""dc.date.published"" content=""2005-07-25"">
-<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-<meta name=""dc.date.modified"" content=""2005-07-25"">
-<meta name=""dc.date.created"" content=""2005-07-25"">
-<title>PWGSC - ESQUIMALT GRAVING DOCK - Delete Administrator</title>">
-
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Delete Administrator"">
+	<meta name=""keywords"" lang=""eng"" content="""">
+	<meta name=""description"" lang=""eng"" content="""">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
+	<meta name=""dc.date.published"" content=""2005-07-25"">
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
+	<meta name=""dc.date.modified"" content=""2005-07-25"">
+	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<title>PWGSC - ESQUIMALT GRAVING DOCK - Delete Administrator</title>">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="getAdminList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -21,24 +19,31 @@
 	</cfquery>
 </cflock>
 
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#ssi/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+			<CFELSE>
+				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+			</CFIF>
+			Remove Administrator
+			</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#ssi/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					Remove Administrator
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
-<div class="breadcrumbs">
-	<a href="<cfoutput>http://www.pwgsc.gc.ca/text/home-#lang#.html</cfoutput>">PWGSC</a> &gt; 
-	Pacific Region &gt; 
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-e.html">Esquimalt Graving Dock</a> &gt; 
-  <CFOUTPUT>
-		<a href="#RootDir#text/booking-#lang#.cfm">Booking</A> &gt;<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-			<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
-		<CFELSE>
-			 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
-		</CFIF>
-	</CFOUTPUT>
-	Remove Administrator
-</div>
-
-<div class="main">
-<H1>Remove Administrator</H1>
 <CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
 
 <cfif IsDefined("Session.Return_Structure")>
@@ -63,4 +68,4 @@
 	</cfform>
 </DIV>
 </div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">

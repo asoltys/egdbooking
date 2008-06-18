@@ -8,7 +8,7 @@
 <meta name=""dc.date.modified"" content=""2005-07-25"">
 <meta name=""dc.date.created"" content=""2005-07-25"">
 <title>PWGSC - ESQUIMALT GRAVING DOCK - Approve User</title>">
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
 <CFSET This_Page = "../admin/userApprove.cfm">
 
@@ -93,10 +93,10 @@ function popUp(pageID) {
 		<table id="listManage" cellpadding="2" cellspacing="0" width="100%">
 		
 		<tr>
-			<th class="listmanage" id="name">Name</th>
-			<th class="listmanage" id="emailANDcompanies">E-Mail</th>
-			<th class="listmanage" id="edit" width="60">&nbsp;</th>
-			<th class="listmanage" id="delete" width="50">&nbsp;</th>
+			<th id="name">Name</th>
+			<th id="emailANDcompanies">E-Mail</th>
+			<th id="edit" width="60">&nbsp;</th>
+			<th id="delete" width="50">&nbsp;</th>
 		</tr>
 
 		<cfset prevID = 0>
@@ -150,4 +150,4 @@ function popUp(pageID) {
 </div>
 
 </div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">

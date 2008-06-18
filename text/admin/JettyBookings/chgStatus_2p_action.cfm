@@ -71,11 +71,11 @@
 	WHERE	BookingID = '#Form.BookingID#'
 </cfquery>
 <cfoutput>
-<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Unapproved - Réservation non approuvée" type="html">
+<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Unapproved - R&eacute;servation non approuv&eacute;e" type="html">
 <p>The approval on your jetty booking for #getDetails.VesselName# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# has been removed.  The booking status is now pending.</p>
 <p>Esquimalt Graving Dock</p>
 <br>
-<p>L'approbation de votre réservation du #getDetails.VesselName# au #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# pour le #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# a été résiliée. Votre réservation est maintenant en cours de traitement.</p>
+<p>L'approbation de votre r&eacute;servation du #getDetails.VesselName# au #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# pour le #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# a &eacute;t&eacute; r&eacute;sili&eacute;e. Votre r&eacute;servation est maintenant en cours de traitement.</p>
 <p>Cale s&egrave;che d'Esquimalt</p>
 </cfmail>
 </cfoutput>
@@ -90,7 +90,7 @@
 	WHERE	BookingID = '#Form.BookingID#'
 </cfquery>
 <cfoutput>
-<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Unconfirmed - Réservation non confirmée" type="html">
+<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Unconfirmed - R&eacute;servation non confirm&eacute;e" type="html">
 <p>The confirmation on your jetty booking for #getDetails.VesselName# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# has been removed.  The booking status is now pending.</p>
 <p>Esquimalt Graving Dock</p>
 <br>
@@ -111,3 +111,4 @@
 <cfelse>
 	<cflocation addtoken="no" url="#returnTo#?#urltoken##dateValue#&bookingID=#Form.BookingId#">
 </cfif>
+

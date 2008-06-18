@@ -2,7 +2,7 @@
 	<cfset StructDelete(Session, "Form_Structure")>
 </cfif>
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.drydockCalendar = "Drydock Calendar">
 	<cfset language.description = "Allows user to view all bookings in the drydock in a given month.">
 	<cfset language.keywords = "calendar, 1 month view, one month view, drydock side">
@@ -55,7 +55,7 @@
 
 <CFSET Variables.onLoad="setCalendar()">
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
 <cfoutput>
 <div class="breadcrumbs">
@@ -192,4 +192,4 @@
 
 </div>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">

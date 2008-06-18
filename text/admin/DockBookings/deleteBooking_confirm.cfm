@@ -47,7 +47,7 @@
 <meta name=""dc.date.modified"" content=""2005-07-25"">
 <meta name=""dc.date.created"" content=""2005-07-25"">
 <title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm #variables.actionCap# Booking</title>">
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
 
 <div class="breadcrumbs">
@@ -149,4 +149,4 @@
 </cfform>
 
 </div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">

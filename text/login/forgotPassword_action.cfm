@@ -1,4 +1,4 @@
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.subject = "EGD Password">
 	<cfset language.email = "Your password for the Esquimalt Graving Dock Online Booking System is">
 	<cfset language.address = "The email address">

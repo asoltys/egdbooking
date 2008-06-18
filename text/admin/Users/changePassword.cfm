@@ -43,7 +43,7 @@
 <cflock scope="session" throwontimeout="no" timeout="30" type="READONLY">
 	<cfif form.UserID NEQ "#session.userID#">
 		<cfoutput>
-			<cfmail to="#getUser.Email#" from="#Session.AdminEmail#" subject="Password Changed - Mot de passe changé" type="html">
+			<cfmail to="#getUser.Email#" from="#Session.AdminEmail#" subject="Password Changed - Mot de passe chang&eacute;" type="html">
 				<p>#getUser.firstName# #getUser.lastName#,</p>
 				<p>Your password for the Esquimalt Graving Dock Online Booking System has been changed to <strong>#getUser.password#</strong>.</p>
 				<p>Esquimalt Graving Dock</p>
@@ -63,3 +63,4 @@
 <cfset Session.Success.Back = "Back to Edit User Profile">
 <cfset Session.Success.Link = "#RootDir#text/admin/Users/editUser.cfm?lang=#lang#&userID=#form.userID#">
 <cflocation addtoken="no" url="#RootDir#text/common/success.cfm?lang=#lang#">
+

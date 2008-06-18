@@ -1,7 +1,7 @@
 <!doctype HTML public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
 <html lang="en">
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.calendar = "Calendar">
 	<cfset language.description = "A mini calendar that allows user to choose a date interactively.">
 	<cfset language.PWGSC = "PWGSC">

@@ -2,7 +2,7 @@
 <cfinclude template="#RootDir#includes/build_form_struct.cfm">
 
 <CFINCLUDE template="#RootDir#includes/generalLanguageVariables.cfm">
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<CFSET langVar = "eng">
 	<cfset language.bookingsSummary = "Bookings Summary">
 	<cfset language.description = "Allows user to view a summary of all bookings from present onward.">
@@ -16,15 +16,15 @@
 	<cfset language.printable = "VIEW PRINTABLE VERSION">
 <cfelse>
 	<CFSET langVar = "fre">
-	<cfset language.bookingsSummary = "Résumé des réservations">
-	<cfset language.description = "Permet à l'utilisateur de voir un sommaire de toutes les réservations à partir de maintenant.">
+	<cfset language.bookingsSummary = "R&eacute;sum&eacute; des r&eacute;servations">
+	<cfset language.description = "Permet &agrave; l'utilisateur de voir un sommaire de toutes les r&eacute;servations &agrave; partir de maintenant.">
 	<cfset language.vesselCaps = "NAVIRE">
 	<cfset language.dockingCaps = "DATES D'AMARRAGE">
-	<cfset language.bookingDateCaps = "DATE DE LA RÉSERVATION">
+	<cfset language.bookingDateCaps = "DATE DE LA R&Eacute;SERVATION">
 	<cfset language.sectionCaps = "SECTION">
 	<cfset language.deepsea = "Navire oc&eacute;anique">
 	<cfset language.noBookings = "Il n'existe aucune r&eacute;servation &agrave; afficher.">
-	<cfset language.booked = "Réservé">
+	<cfset language.booked = "R&eacute;serv&eacute;">
 	<cfset language.printable = "VOIR LA VERSION IMPRIMABLE">
 </cfif>
 
@@ -41,7 +41,7 @@
 <style type=""text/css"" media=""screen,print"">@import url(#RootDir#css/events.css);</style>
 ">
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
 <!-- Start JavaScript Block -->
 <!-- End JavaScript Block -->
@@ -247,4 +247,5 @@ function popUp(pageID) {
 
 </div>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
+

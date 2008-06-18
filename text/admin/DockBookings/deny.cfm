@@ -14,8 +14,6 @@
 	<cfset variables.dateValue = "">
 </cfif>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
-
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Docks.Status, Bookings.BookingID, StartDate, EndDate,
 			Vessels.Name AS VesselName, Companies.Name AS CompanyName,
@@ -35,24 +33,43 @@
 	<cfset Variables.End = CreateODBCDate(getBooking.EndDate)>
 </cfif>
 
-<cfoutput>
-<div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">PWGSC</a> &gt; 
-	Pacific Region &gt; 
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-e.html">Esquimalt Graving Dock</a> &gt; 
-	<a href="#RootDir#text/booking-#lang#.cfm">Booking</A> &gt;
-	<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-		<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
-	<CFELSE>
-		 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
-	</CFIF>
-	<A href="bookingmanage.cfm?lang=#lang#">Drydock Management</A> &gt;
-	Change Booking Status
-</div>
-</cfoutput>
+<cfhtmlhead text="
+	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Deny Request"">
+	<meta name=""keywords"" lang=""eng"" content="""">
+	<meta name=""description"" lang=""eng"" content="""">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
+	<meta name=""dc.date.published"" content=""2005-07-25"">
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
+	<meta name=""dc.date.modified"" content=""2005-07-25"">
+	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<title>PWGSC - ESQUIMALT GRAVING DOCK - Deny Request</title>">
 
-<div class="main">
-<H1>Change Booking Status</H1>
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
+
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#ssi/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+			<CFELSE>
+				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+			</CFIF>
+			<A href="bookingmanage.cfm?lang=#lang#">Drydock Management</A> &gt;
+			Change Booking Status
+			</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#ssi/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					Change Booking Status
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
+					
 <CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
 
 <cfif getBooking.Status EQ "C">
@@ -123,4 +140,4 @@
 
 </div>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">

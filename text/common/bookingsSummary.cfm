@@ -1,7 +1,7 @@
 <cfif isDefined("form.todate")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.bookingsSummary = "Bookings Summary">
 	<cfset language.description = "Allows user to view a summary of all bookings from present onward.">
 	<cfset language.vesselCaps = "VESSEL">
@@ -24,7 +24,7 @@
 	<cfset language.noBookings = "Il n'existe aucune r&eacute;servation &agrave; afficher.">
 	<cfset language.booked = "R&eacute;serv&eacute;">
 	<cfset language.printable = "VOIR LA VERSION IMPRIMABLE">
-	<cfset language.legend = "Légende">
+	<cfset language.legend = "L&eacute;gende">
 </cfif>
 
 
@@ -41,7 +41,7 @@
 <style type=""text/css"" media=""screen,print"">@import url(#RootDir#css/events.css);</style>
 ">
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
 <!-- Start JavaScript Block -->
 <!-- End JavaScript Block -->
@@ -354,4 +354,5 @@ WHERE	SouthJetty = 1
 
 </div>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
+

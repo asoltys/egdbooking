@@ -1,4 +1,4 @@
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.ScreenMessage = "There are no events available for display">
 	<cfset language.drydockCalendar = "Drydock Calendar">
 	<cfset language.description = "Allows user to view all bookings in the drydock in a given three-month period.">
@@ -18,7 +18,7 @@
 	<cfset language.next = "next">
 <cfelse>
 	<cfset language.ScreenMessage = "Il n'existe aucune activit&eacute; &agrave; afficher.">
-	<cfset language.drydockCalendar = "Calendrier de la cale sèche">
+	<cfset language.drydockCalendar = "Calendrier de la cale s&egrave;che">
 	<cfset language.description = "Permet &agrave; l'utilisateur de voir toutes les r&eacute;servations concernant la cale s&egrave;che pour une p&eacute;riode donn&eacute;e de trois mois.">
 	<cfset language.keywords = "Calendrier, visualisation de trois mois, visualisation de 3 mois, secteur de la cale s&egrave;che">
 	<cfset language.go = "Afficher">
@@ -53,7 +53,7 @@
 
 <CFSET Variables.onLoad="setCalendar()">
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
 <cfoutput>
 <div class="breadcrumbs">
@@ -206,4 +206,5 @@
 
 </div>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
+

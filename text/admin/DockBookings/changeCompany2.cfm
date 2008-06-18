@@ -9,7 +9,7 @@
 <meta name=""dc.date.created"" content=""2005-07-25"">
 <title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Booking</title>
 ">
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 <cfoutput>
   <div class="breadcrumbs"> <a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">PWGSC</a> &gt; 
     Pacific Region &gt; <a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-e.html">Esquimalt Graving Dock</a> &gt; <a href="#RootDir#text/booking-#lang#.cfm">Booking</A> &gt;
@@ -63,4 +63,4 @@ Original Company: <cfinput type="Text" style="border:0;" value="#CompanyURL#" na
     </table>
   </cfform>
 </div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">

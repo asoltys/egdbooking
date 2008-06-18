@@ -1,7 +1,7 @@
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 <cfinclude template="#RootDir#includes/build_form_struct.cfm">
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.noCompaniesError = "You must select at least one company.">
 	<cfset language.firstNameError = "Please enter your first name.">
 	<cfset language.lastNameError = "Please enter your last name.">
@@ -11,8 +11,8 @@
 	<cfset language.noCompaniesError = "Vous devez choisir au moins une entreprise.">
 	<cfset language.firstNameError = "Veuillez entrer votre pr&eacute;nom.">
 	<cfset language.lastNameError = "Veuillez entrer votre nom de famille.">
-	<cfset language.mismatchedPassError = "Votre mot de passe ne correspond pas à votre adresse de courriel.">
-	<cfset language.pass1ShortError = "Votre mot de passe doit être compos&eacute; d'au moins six caract&egrave;res.">
+	<cfset language.mismatchedPassError = "Votre mot de passe ne correspond pas &agrave; votre adresse de courriel.">
+	<cfset language.pass1ShortError = "Votre mot de passe doit &ecirc;tre compos&eacute; d'au moins six caract&egrave;res.">
 </cfif>
 
 <cfif Len(form.companies) EQ 0>
@@ -156,7 +156,7 @@
 </cfif>
 
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.title = "Create New User">
 	<cfset language.keywords = "#language.masterKeywords#" & " Add New User Account">
 	<cfset language.description = "Notifies user that their account has been created successfully.">
@@ -174,8 +174,7 @@
 	<cfset language.password = "Mot de passe">
 </cfif>
 
-<cfoutput>
-	<cfhtmlhead text="
+<cfhtmlhead text="
 	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.title#"">
 	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
@@ -185,31 +184,37 @@
 	<meta name=""dc.date.modified"" content=""2005-07-25"">
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.title#</title>">
-</cfoutput>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
-<cfoutput>
-<div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
-	#language.PacificRegion# &gt;
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.EsqGravingDock#</a> &gt; 
-	<a href="#RootDir#text/booking-#lang#.cfm">#language.Booking#</A> &gt; 
-	<a href="#RootDir#text/login/login.cfm?lang=#lang#">#language.login#</a> &gt; 
-	#language.title#
-</div>
-
-<div class="main">
-<H1>#language.title#</H1>
-
-<div align="left">#language.message#</div>
-<div align="center">
-	<br>#language.Username#: #form.email#<br>#language.Password#: #form.password1#
-</div>
-
-<br><br>	
-<div align="center"><a href="login.cfm?lang=#lang#" class="textbutton">#language.login#</a></div>
-
-</div>
-</cfoutput>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#ssi/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<a href="#RootDir#text/login/login.cfm?lang=#lang#">#language.login#</a> &gt; 
+			#language.title#
+			</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#ssi/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					<CFOUTPUT>#language.title#</CFOUTPUT>
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
+				<cfoutput>
+					<p>#language.message#</p>
+					<div align="center">
+						<br>#language.Username#: #form.email#<br>#language.Password#: #form.password1#
+					</div>
+					
+					<br><br>	
+					<div align="center"><a href="login.cfm?lang=#lang#" class="textbutton">#language.login#</a></div>
+				</cfoutput>
+			</div>
+			<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">

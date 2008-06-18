@@ -157,7 +157,7 @@
 </cfquery>
 
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 <cfhtmlhead text="
 <meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add Jetty Booking"">
 <meta name=""keywords"" lang=""eng"" content="""">
@@ -275,4 +275,4 @@ function EditSubmit ( selectedform )
 </cfform>
 </div>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">

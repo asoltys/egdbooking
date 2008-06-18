@@ -1,6 +1,6 @@
 <cfinclude template="#RootDir#includes/build_form_struct.cfm">
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.phoneShortError = "Please enter a valid phone number.">
 	<cfset language.zipShortError = "Please enter a valid postal / zip code.">
 	<cfset language.companyError = "A company with that name already exists.">
@@ -8,7 +8,7 @@
 <cfelse>
 	<cfset language.phoneShortError = "Veuillez entrer un num&eacute;ro de t&eacute;l&eacute;phone valide.">
 	<cfset language.zipShortError = "Veuillez entrer un code postal valide.">
-	<cfset language.companyError = "Une entreprise du même nom existe d&eacute;j&agrave;.">
+	<cfset language.companyError = "Une entreprise du m&ecirc;me nom existe d&eacute;j&agrave;.">
 	<cfset language.enterName = "Veuillez entrer la raison sociale.">
 </cfif>
 
@@ -145,3 +145,4 @@
 <cfset companies = URLEncodedFormat(ToBase64(cfusion_encrypt(companyList, "shanisnumber1")))>
 
 <cflocation addtoken="no" url="addUserCompanies.cfm?lang=#lang#&info=#url.info#&companies=#companies#">
+

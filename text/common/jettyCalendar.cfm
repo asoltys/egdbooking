@@ -2,7 +2,7 @@
 	<cfset StructDelete(Session, "Form_Structure")>
 </cfif>
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.ScreenMessage = "There are no events available for display">
 	<cfset language.jettyCalendar = "North Landing Wharf/South Jetty Calendar">
 	<cfset language.description = "Allows user to view all bookings in the jetties in a given month.">
@@ -20,7 +20,7 @@
 	<!--- <cfset language.viewInfo = "Click on a date to view booking information."> --->
 <cfelse>
 	<cfset language.ScreenMessage = "Il n'existe aucune activit&eacute; &agrave; afficher.">
-	<cfset language.jettyCalendar = "Calendrier de la Quai de débarquement nord et la jetée sud">
+	<cfset language.jettyCalendar = "Calendrier de la Quai de d&eacute;barquement nord et la jet&eacute;e sud">
 	<cfset language.description = "Permet &agrave; l'utilisateur de voir toutes les r&eacute;servations concernant les jet&eacute;es pour un mois donn&eacute;.">
 	<cfset language.keywords = "Calendrier,  visualisation d'un mois, visualisation de 3 mois, secteur de la jet&eacute;e">
 	<cfset language.go = "Afficher">
@@ -52,7 +52,7 @@
 
 <CFSET Variables.onLoad="setCalendar()">
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
 <cfoutput>
 <div class="breadcrumbs">
@@ -192,4 +192,5 @@
 
 </div>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
+

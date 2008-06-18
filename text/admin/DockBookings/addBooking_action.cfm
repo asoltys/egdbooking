@@ -1,4 +1,4 @@
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
 
 <cfif IsDefined("Session.Return_Structure")>
@@ -105,7 +105,7 @@
 	</cflock>
 		
 	<cfoutput>
-	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="New Booking - Nouvelle réservation" type="html">
+	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="New Booking - Nouvelle r&eacute;servation" type="html">
 <p>#getDetails.Vesselname# has been booked in the dock from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#.</p>
 <p>Esquimalt Graving Dock</p>
 <br>
@@ -144,4 +144,5 @@
 	<!---cflocation url="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" addtoken="no"--->
 </CFIF>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
+

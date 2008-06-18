@@ -1,7 +1,7 @@
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 <cfinclude template="#RootDir#includes/build_form_struct.cfm">
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.confirmRem = "Confirm Remove Company">
 	<cfset language.keywords = "#language.masterKeywords#" & " Remove Company User Represent">
 	<cfset language.description = "Confirms that user no longer represents a company.">
@@ -12,13 +12,12 @@
 	<cfset language.confirmRem = "Confirmation de la suppression d'une entreprise">
 	<cfset language.keywords = "#language.masterKeywords#" & " Suppression de l'utilisateur-repr&eacute;sentant de l'entreprise">
 	<cfset language.description = "Confirme que l'utilisateur ne repr&eacute;sente plus une entreprise.">
-	<cfset language.areYouSure = "Êtes-vous certain de vouloir vous retirer de l'&eacute;l&eacute;ment suivant">
+	<cfset language.areYouSure = "&Ecirc;tes-vous certain de vouloir vous retirer de l'&eacute;l&eacute;ment suivant">
 	<cfset language.remove = "Supprimer">
 	<cfset language.createUser = "Cr&eacute;er un nouvel utilisateur">
 </cfif>
 
-<cfoutput>
-	<cfhtmlhead text="
+<cfhtmlhead text="
 	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.confirmRem#"">
 	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
@@ -28,9 +27,6 @@
 	<meta name=""dc.date.modified"" content=""2005-07-25"">
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.confirmRem#</title>">
-</cfoutput>
-
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
 
 <cfif NOT IsDefined('form.companyID')>
 	<cflocation addtoken="no" url="addUserCompanies.cfm?lang=#lang#&amp;info=#url.info#">
@@ -53,41 +49,52 @@ function EditSubmit ( selectedform )
 </script>
 <!-- End JavaScript Block -->
 
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
-<cfoutput>
-<div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
-	#language.PacificRegion# &gt;
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.EsqGravingDock#</a> &gt; 
-	<a href="#RootDir#text/booking-#lang#.cfm">#language.Booking#</A> &gt; 
-	<a href="#RootDir#text/login/login.cfm?lang=#lang#">#language.login#</a> &gt; 
-	<a href="#RootDir#text/login/addUserCompanies.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#">#language.createUser#</a> &gt; 
-	#language.confirmRem#
-</div>
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#ssi/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<a href="#RootDir#text/login/login.cfm?lang=#lang#">#language.login#</a> &gt; 
+			<a href="#RootDir#text/login/addUserCompanies.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#">#language.createUser#</a> &gt; 
+			#language.confirmRem#
+			</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#ssi/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					<CFOUTPUT>#language.confirmRem#</CFOUTPUT>
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
-<div class="main">
-<H1>#language.confirmRem#</H1>
+			<cfoutput>
+				<cfif IsDefined("Session.Return_Structure")>
+					<!--- Populate the Variables Structure with the Return Structure.
+							Also display any errors returned --->
+					<cfinclude template="#RootDir#includes/getStructure.cfm">
+				</cfif>
+				
+				<cfform action="removeUserCompany_action.cfm?lang=#lang#&amp;companies=#companies#&amp;info=#url.info#" method="post" name="remCompanyConfirmForm">
+					<div align="center">#language.areYouSure# <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
+				
+					<p><div align="center">
+						<!---a href="javascript:EditSubmit('remCompanyConfirmForm');" class="textbutton">#language.Remove#</a>
+						<a href="addUserCompanies.cfm?lang=#lang#&amp;companies=#companies#&amp;info=#url.info#" class="textbutton">#language.Cancel#</a--->
+						<input type="submit" value="#language.Remove#" class="textbutton">
+						<input type="button" value="#language.Cancel#" onClick="javascript:self.location.href='addUserCompanies.cfm?lang=#lang#&amp;companies=#companies#&amp;info=#url.info#'" class="textbutton">
+					</div></p>
+				
+					<input type="hidden" name="CompanyID" value="#form.CompanyID#">
+				</cfform>
+				</cfoutput>
 
+			</div>
+		<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
 
-<cfif IsDefined("Session.Return_Structure")>
-	<!--- Populate the Variables Structure with the Return Structure.
-			Also display any errors returned --->
-	<cfinclude template="#RootDir#includes/getStructure.cfm">
-</cfif>
+<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
 
-<cfform action="removeUserCompany_action.cfm?lang=#lang#&amp;companies=#companies#&amp;info=#url.info#" method="post" name="remCompanyConfirmForm">
-	<div align="center">#language.areYouSure# <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
-
-	<p><div align="center">
-		<!---a href="javascript:EditSubmit('remCompanyConfirmForm');" class="textbutton">#language.Remove#</a>
-		<a href="addUserCompanies.cfm?lang=#lang#&amp;companies=#companies#&amp;info=#url.info#" class="textbutton">#language.Cancel#</a--->
-		<input type="submit" value="#language.Remove#" class="textbutton">
-		<input type="button" value="#language.Cancel#" onClick="javascript:self.location.href='addUserCompanies.cfm?lang=#lang#&amp;companies=#companies#&amp;info=#url.info#'" class="textbutton">
-	</div></p>
-
-	<input type="hidden" name="CompanyID" value="#form.CompanyID#">
-</cfform>
-
-</div>
-</cfoutput>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">

@@ -28,7 +28,7 @@
 </cflock>
 
 <cfoutput>
-	<cfmail to="#getUser.Email#" from="#Session.AdminEmail#" subject="Company Request Approved - Demande de l'entreprise approuvée" type="html">
+	<cfmail to="#getUser.Email#" from="#Session.AdminEmail#" subject="Company Request Approved - Demande de l'entreprise approuv&eacute;e" type="html">
 <p>#getUser.UserName#,</p>
 	<p>Your request to be added to #getCompany.CompanyName#'s user list has been approved.</p>
 <p>Esquimalt Graving Dock</p>
@@ -42,3 +42,4 @@
 	the new info on it.  It really should be painfully obvious. --->
 
 <cflocation url="userApprove.cfm?lang=#lang#" addtoken="no">
+

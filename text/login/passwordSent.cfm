@@ -1,4 +1,4 @@
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.title = "Password Sent">
 	<cfset language.description = "Notifies user that their password has been emailed to them.">
 	<cfset language.keywords = "#language.masterKeywords#" & " Retrieve Forget Lost Password">
@@ -26,27 +26,38 @@
 
 <cfset Variables.onLoad = "javascript:document.forgotForm.email.focus();">
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
-<div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt; 
-	#language.PacificRegion# &gt; 
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.EsqGravingDock#</a> &gt; <a href="#RootDir#text/booking-#lang#.cfm">#language.Booking#</A> &gt; <a href="#RootDir#text/login/login.cfm?lang=#lang#">#language.login#</a> &gt; #language.title#
-</div>
-
-<div class="main">
-<H1>#language.title#</H1>
-<BR>
-
-<cfif IsDefined("Session.Return_Structure")>
-	<cfinclude template="#RootDir#includes/getStructure.cfm">
-	<br>
-</cfif>
-
-<div align="center">#language.sentPassword#</div><br>
-
-<div align="center"><a href="login.cfm?lang=#lang#" class="textbutton">#language.returnlogin#</a></div>
-
-</div>
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#ssi/bread-pain-#lang#.cfm"> &gt; 
+			<cfoutput>
+			<a href="#RootDir#text/login/login.cfm?lang=#lang#">#language.login#</a> &gt; 
+			#language.title#
+			</cfoutput>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#ssi/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					#language.title#
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
+				<cfoutput>
+					<cfif IsDefined("Session.Return_Structure")>
+						<cfinclude template="#RootDir#includes/getStructure.cfm">
+						<br />
+					</cfif>
+					
+					<div align="center">#language.sentPassword#</div><br>
+					
+					<div align="center"><a href="login.cfm?lang=#lang#" class="textbutton">#language.returnlogin#</a></div>
+				</cfoutput>					
+			</div>
+			<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
+		<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
 </cfoutput>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">

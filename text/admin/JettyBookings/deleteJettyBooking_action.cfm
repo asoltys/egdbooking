@@ -86,7 +86,7 @@ AND 	(UserCompanies.Approved = 1)
 	</cflock>
 	
 	<cfoutput>
-		<cfmail to="#getBooking.Email#" from="#Session.AdminEmail#" subject="Booking Cancelled - Réservation annulée" type="html">
+		<cfmail to="#getBooking.Email#" from="#Session.AdminEmail#" subject="Booking Cancelled - R&eacute;servation annul&eacute;e" type="html">
 <p>Your jetty booking for #getBooking.VesselName# from #LSDateFormat(getBooking.startDate, 'mmm d, yyyy')# to #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')# has been cancelled.</p>
 <p>Esquimalt Graving Dock</p>
 <br>
@@ -109,3 +109,4 @@ AND 	(UserCompanies.Approved = 1)
 	
 </cfif>
 <cflocation addtoken="no" url="#RootDir#text/common/success.cfm?lang=#lang#">
+

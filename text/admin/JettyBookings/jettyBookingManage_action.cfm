@@ -33,7 +33,7 @@
 	</cfquery>
 	
 	<cfoutput>
-	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Confirmed - Réservation confirmée" type="html">
+	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Confirmed - R&eacute;servation confirm&eacute;e" type="html">
 <p>Your requested jetty booking for #getDetails.VesselName# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# has been confirmed.</p>
 <p>Esquimalt Graving Dock</p>
 <br>
@@ -55,7 +55,7 @@
 	
 	
 	<cfoutput>
-	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Unconfirmed - Réservation confirmée" type="html">
+	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Unconfirmed - R&eacute;servation confirm&eacute;e" type="html">
 <p>The confirmation on your jetty booking for #getDetails.VesselName# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# has been removed.  The booking status is now pending.</p>
 <p>Esquimalt Graving Dock</p>
 <br>
@@ -122,3 +122,4 @@
 </cfif>
 
 <!---cflocation addtoken="no" url="jettyBookingmanage.cfm?lang=#lang#&id=#form.id#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#"--->
+
