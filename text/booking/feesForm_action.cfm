@@ -1,7 +1,7 @@
 <cfif lang EQ 'e'>
 	<cfset language.lengthError = "The 'Misc' text has exceeded the maximum alotted number of 150 words.">
 <cfelse>
-	<cfset language.lengthError = "Vous avez dépassé le nombre maximum permis de 150 mots dans la boîte de texte « Divers »">
+	<cfset language.lengthError = "Vous avez d&eacute;pass&eacute; le nombre maximum permis de 150 mots dans la boîte de texte &laquo; Divers &raquo;">
 </cfif>
 
 <cfset Errors = ArrayNew(1)>
@@ -190,3 +190,4 @@ WHERE     (BookingID = '#form.BookingID#')
 	</cfoutput>
 
 <cflocation addtoken="no" url="otherForms.cfm?lang=#lang#&BookingID=#url.BookingID#">
+

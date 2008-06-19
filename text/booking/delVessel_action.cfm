@@ -9,7 +9,7 @@
 	WHERE VesselID = #Form.VesselID#
 </cfquery>
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset Session.Success.Breadcrumb = "Delete Vessel">
 	<cfset Session.Success.Title = "Delete Vessel">
 	<cfset Session.Success.Message = "The vessel, <b>#getVessel.Name#</b>, has been deleted.">

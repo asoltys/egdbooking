@@ -33,17 +33,17 @@
 
 <cfelse>
 	<cfset language.keywords = language.masterKeywords & "">
-	<cfset language.description = "Permet aux utilisateurs de voir toutes les réservations pour une entreprise.">
+	<cfset language.description = "Permet aux utilisateurs de voir toutes les r&eacute;servations pour une entreprise.">
 	<cfset language.subjects = language.masterSubjects & "">
-	<cfset language.followingbooking = "Vos réservations au nom de #getcompany.companyName# sont les suivantes :">
-	<cfset language.requestBooking = "Demande d'une nouvelle réservation">
+	<cfset language.followingbooking = "Vos r&eacute;servations au nom de #getcompany.companyName# sont les suivantes :">
+	<cfset language.requestBooking = "Demande d'une nouvelle r&eacute;servation">
 	<cfset language.bookingForms = "Formulaires de r&eacute;servation">
 	<cfset language.editTariff = "Modification du formulaire de tarif">
 	<cfset language.viewTariff = "Consulter le formulaire de tarif">
 	<cfset language.agent = "Agent">
 	<cfset language.administrator = "Administrateur">
 	<cfset language.none = "Aucun">
-	<cfset language.archivedBookings = "Archives des réservations">
+	<cfset language.archivedBookings = "Archives des r&eacute;servations">
 	<cfset language.returnTo = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
 </cfif>
 
@@ -59,7 +59,7 @@
 <meta name=""dc.date.created"" content=""2005-07-25"">
 <title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.archivedBookings#</title>">
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 
 <cfquery name="getDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -273,4 +273,5 @@
 </div>
 </div>
 </cfoutput>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

@@ -1,9 +1,9 @@
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.unmatchedPasswordsError = "Passwords do not match, please retype.">
 	<cfset language.pass1ShortError = "Your password must be at least 6 characters.">
 <cfelse>
 	<cfset language.unmatchedPasswordsError = "Les mots de passe ne concordent pas, veuillez les retaper.">
-	<cfset language.pass1ShortError = "Votre mot de passe doit être compos&eacute; d'au moins six caract&egrave;res.">
+	<cfset language.pass1ShortError = "Votre mot de passe doit &ecirc;tre compos&eacute; d'au moins six caract&egrave;res.">
 </cfif>
 
 <cfset Variables.Errors = ArrayNew(1)>
@@ -34,7 +34,7 @@
 
 </cflock>
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset Session.Success.Breadcrumb = "Edit Profile">
 	<cfset Session.Success.Title = "Edit Profile">
 	<cfset Session.Success.Message = "Your password for the Esquimalt Graving Dock Online Booking System has been changed to ""#form.password1#"".">
@@ -47,3 +47,4 @@
 </cfif>
 <cfset Session.Success.Link = "#RootDir#text/booking/editUser.cfm?lang=#lang#">
 <cflocation addtoken="no" url="#RootDir#text/common/success.cfm?lang=#lang#">
+

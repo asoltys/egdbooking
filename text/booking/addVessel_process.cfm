@@ -2,7 +2,7 @@
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfinclude template="#RootDir#includes/vesselInfoVariables.cfm">
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.addVessel = "Add New Vessel">
 	<cfset language.keywords = language.masterKeywords & ", Add New Vessel">
 	<cfset language.description = "Allows user to create a new vessel.">
@@ -53,7 +53,7 @@
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.AddVessel#</title>">
 
 
-	<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+	<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 	<div class="breadcrumbs">
 		<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
@@ -164,4 +164,4 @@
 </cfoutput>
 
 </div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

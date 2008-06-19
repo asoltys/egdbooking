@@ -39,15 +39,15 @@
 </cfif>
 
 <cfhtmlhead text="
-<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#"">
-<meta name=""keywords"" lang=""eng"" content=""#language.masterKeywords# #language.Login#"">
-<meta name=""description"" lang=""eng"" content=""#language.description#"">
-<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.masterSubjects#"">
-<meta name=""dc.date.published"" content=""2005-07-25"">
-<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-<meta name=""dc.date.modified"" content=""2005-07-25"">
-<meta name=""dc.date.created"" content=""2005-07-25"">
-<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#</title>">
+	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#"">
+	<meta name=""keywords"" lang=""eng"" content=""#language.masterKeywords# #language.Login#"">
+	<meta name=""description"" lang=""eng"" content=""#language.description#"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.masterSubjects#"">
+	<meta name=""dc.date.published"" content=""2005-07-25"">
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
+	<meta name=""dc.date.modified"" content=""2005-07-25"">
+	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#</title>">
 
 <cfif IsDefined("Session.Return_Structure") AND isDefined("url.pass") AND url.pass EQ "true">
 	<cfset Variables.onLoad = "javascript:document.login_form.Password.focus();">
@@ -66,16 +66,16 @@
 <cfcookie name="CFID" value="empty" expires="NOW">
 <cfcookie name="CFTOKEN" value="empty" expires="NOW">
 
-<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
-			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#ssi/bread-pain-#lang#.cfm">&gt;
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>#language.title#</CFOUTPUT>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
-		<cfinclude template="#RootDir#ssi/left-menu-gauche-eng.cfm">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
 			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
 			<div class="center">
 				<h1><a name="cont" id="cont">
@@ -127,4 +127,4 @@
 			<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 
-<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

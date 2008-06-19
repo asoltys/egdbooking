@@ -78,7 +78,7 @@
 	</cfmail>
 </cfoutput>
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset Session.Success.Breadcrumb = "Submit Jetty Booking Request">
 	<cfset Session.Success.Title = "Create New Jetty Booking">
 	<cfset Session.Success.Message = "A new booking for <b>#getDetails.vesselName#</b> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been successfully created.">

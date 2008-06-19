@@ -25,7 +25,7 @@
 	<cfset variables.dateValue = "">
 </cfif>
 
-<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfoutput>
 <div class="breadcrumbs">
@@ -267,4 +267,4 @@
 
 
 </div>
-<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

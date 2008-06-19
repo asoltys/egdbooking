@@ -1,4 +1,4 @@
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.noFirstName = "Please enter a first name.">
 	<cfset language.noLastName = "Please enter a last name.">
 <cfelse>
@@ -38,7 +38,7 @@
 </cflock>
 
 <!--- create structure for sending to mothership/success page. --->
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset Session.Success.Breadcrumb = "Edit Profile">
 	<cfset Session.Success.Title = "Edit Profile">
 	<cfset Session.Success.Message = "Your profile has been updated.">

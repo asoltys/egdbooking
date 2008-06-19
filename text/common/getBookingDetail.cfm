@@ -51,8 +51,7 @@
 <cfoutput query="readonlycheck">	
 	<cfset Session.ReadOnly = #ReadOnly#>
 </cfoutput>
-<cfoutput>
-	<cfhtmlhead text="
+<cfhtmlhead text="
 	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDock# - #language.bookingDetail#"">
 	<meta name=""keywords"" lang=""eng"" content=""#Language.masterKeywords#, #language.bookingDetail#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
@@ -63,10 +62,7 @@
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.bookingDetail#</title>
 	<link rel=""STYLESHEET"" type=""text/css"" href=""#RootDir#css/events.css"">
-	">
-</cfoutput>
-
-<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
+">
 
 <cfif NOT IsDefined('url.bookingid') OR NOT IsNumeric(url.bookingid)>
 	<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
@@ -137,23 +133,30 @@
 
 <CFPARAM name="url.date" default="#DateFormat(getBookingDetail.startDate, 'mm/dd/yyyy')#">
 
-<cfoutput>
-<div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
-	#language.PacificRegion# &gt;
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.EsqGravingDock#</a> &gt;
-	<a href="#RootDir#text/booking-#lang#.cfm">#language.Booking#</A> &gt; 
-		<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-		<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
-	<CFELSE>
-		<a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
-	</CFIF>
-	#language.bookingDetail#
-</div>
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<div class="main">
-<H1>#language.bookingDetail#</H1>
-</cfoutput>
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+			<CFELSE>
+				<a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+			</CFIF>
+			#language.bookingDetail#
+			</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					<CFOUTPUT>#language.bookingDetail#</CFOUTPUT>
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
 <CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 	<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
@@ -328,4 +331,4 @@
 </CFIF>
 </cfif>
 </CFOUTPUT>
-<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

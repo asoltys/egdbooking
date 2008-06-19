@@ -1,7 +1,7 @@
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfinclude template="#RootDir#includes/vesselInfoVariables.cfm">
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.editVessel = "Edit Vessel">
 	<cfset language.keywords = language.masterKeywords & ", Edit Vessel">
 	<cfset language.description = "Allows user to edit the details of a vessel.">
@@ -18,7 +18,7 @@
 	<cfset language.companyName = "Raison sociale">
 	<cfset language.reset = "R&eacute;initialiser">
 	<cfset language.anonymousWarning = "Les navires anonymes ne sont anonymes qu'aux utilisateurs d'autres entreprises. Les administrateurs de la cale s&egrave;che d'Esquimalt ont acc&egrave;s &agrave; la totalit&eacute; de l'information concernant les navires, peu importe l'anonymat.">
-	<cfset language.notEditVesselDimensions = "Vous ne pouvez pas modifier les dimensions du navire, parce que ce dernier fait l'objet de réservations confirmées. Pour apporter des changements aux dimensions, prière de communiquer avec l'administration de la CSE."> 
+	<cfset language.notEditVesselDimensions = "Vous ne pouvez pas modifier les dimensions du navire, parce que ce dernier fait l'objet de r&eacute;servations confirm&eacute;es. Pour apporter des changements aux dimensions, pri&egrave;re de communiquer avec l'administration de la CSE."> 
 
 </cfif>
 
@@ -34,7 +34,7 @@
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.editVessel#</title>">
 
-	<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+	<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 	<div class="breadcrumbs">
 		<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
@@ -190,4 +190,5 @@
 </cfform>
 </cfoutput>
 </div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

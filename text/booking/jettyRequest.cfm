@@ -1,6 +1,6 @@
 <cfinclude template="#RootDir#includes/bookingInfoVariables.cfm">
 <cfinclude template="#RootDir#includes/errorMessages.cfm">
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.submitJettyBooking = "Submit Jetty Booking Request">
 	<cfset language.keywords = language.masterKeywords & ", Jetty Booking Request">
 	<cfset language.description = "Allows user to submit a new booking request, jetties section.">
@@ -21,7 +21,7 @@
 	<cfset language.Company = "Entreprise">
 	<cfset language.warning = "*Une fois la r&eacute;servation confirm&eacute;e, votre entreprise devra payer des frais de r&eacute;servation si le navire indiqu&eacute; n'arrive pas au moment pr&eacute;vu.">
 	<cfset language.chooseCompany = "s&eacute;lectionner une entreprise">
-	<cfset language.requestedStatus = "État demandé">
+	<cfset language.requestedStatus = "&Eacute;tat demand&eacute;">
 </cfif>
 
 <cfoutput>
@@ -37,7 +37,7 @@
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.submitJettyBooking#</title>">
 </cfoutput>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="companyVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -208,4 +208,5 @@
 <br><br>
 </div>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

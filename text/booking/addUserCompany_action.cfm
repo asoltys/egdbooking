@@ -1,5 +1,5 @@
 <!---error checking for adding a company--->
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.selectCompany = "Please select a company.">
 <cfelse>
 	<cfset language.selectCompany = "Veuillez s&eacute;lectionner une entreprise.">

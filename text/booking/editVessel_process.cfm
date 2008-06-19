@@ -3,7 +3,7 @@
 
 
 <cfinclude template="#RootDir#includes/vesselInfoVariables.cfm">
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.editVessel = "Edit Vessel">
 	<cfset language.keywords = language.masterKeywords & ", Edit Vessel">
 	<cfset language.description = "Allows user to edit the details of a vessel.">
@@ -25,7 +25,7 @@
 	<cfset language.companyName = "Raison sociale">
 	<cfset language.reset = "R&eacute;initialiser">
 	<cfset language.confirmInfo = "Veuillez confirmer l'information suivante&nbsp;: ">
-	<cfset language.note = "Nota : les dimensions du navire dépassent la capacité maximale du navire">
+	<cfset language.note = "Nota : les dimensions du navire d&eacute;passent la capacit&eacute; maximale du navire">
 	<cfset language.nameError = "Veuillez entrer le nom du navire.">
 	<cfset language.days = "jours">
 	<cfset language.yes = "Oui">
@@ -59,7 +59,7 @@
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.EditVessel#</title>">
 
-	<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+	<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 	<div class="breadcrumbs">
 		<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
@@ -162,4 +162,5 @@
 </cfform>
 
 </div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

@@ -1,5 +1,5 @@
 <cfinclude template="#RootDir#includes/bookingInfoVariables.cfm">
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.bookingForms = "Booking Forms">
 	<cfset language.keywords = language.masterKeywords & ", Booking Forms">
 	<cfset language.description = "Contains informaiton on available forms.">
@@ -19,8 +19,8 @@
 	<cfset language.schedule = "Tableau 1">
 	<cfset language.indemnification = "Clause d'indemnit&eacute;">
 	<cfset language.changeForm = "Formulaire de r&eacute;servation provisoire pour les navires et les modifications">
-	<cfset language.acrobatrequired = 'Vous pourriez avoir besoin d''<A href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</A> pour les fichiers suivants. Les liens ouvriront une nouvelle fenêtre.'>	
-	<cfset language.formExplanation = "Les formulaires suivants (en format PDF) servent aux réservations de la cale sèche. <br><br>Le <em>Tableau 1</em> et la <em>Clause d'indemnisation</em> doivent être soumis pour que la réservation puisse être confirmée. Le <em>Tableau 1 - Formulaire de demande de réservation</em> donne à la CSE les renseignements nécessaires sur le navire et sert d'entente de réservation formelle entre vous et la CSE. La <em>Clause d'indemnisation</em> est un document juridique qui dégage la Couronne de toute responsabilité en cas de blessures ou de dommages.<br><br>Vous aurez besoin du formulaire de modification d'une réservation si vous voulez apporte un changement après avoir soumis une demande de réservation.">
+	<cfset language.acrobatrequired = 'Vous pourriez avoir besoin d''<A href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</A> pour les fichiers suivants. Les liens ouvriront une nouvelle fen&ecirc;tre.'>	
+	<cfset language.formExplanation = "Les formulaires suivants (en format PDF) servent aux r&eacute;servations de la cale s&egrave;che. <br><br>Le <em>Tableau 1</em> et la <em>Clause d'indemnisation</em> doivent &ecirc;tre soumis pour que la r&eacute;servation puisse &ecirc;tre confirm&eacute;e. Le <em>Tableau 1 - Formulaire de demande de r&eacute;servation</em> donne &agrave; la CSE les renseignements n&eacute;cessaires sur le navire et sert d'entente de r&eacute;servation formelle entre vous et la CSE. La <em>Clause d'indemnisation</em> est un document juridique qui d&eacute;gage la Couronne de toute responsabilit&eacute; en cas de blessures ou de dommages.<br><br>Vous aurez besoin du formulaire de modification d'une r&eacute;servation si vous voulez apporte un changement apr&egrave;s avoir soumis une demande de r&eacute;servation.">
 
 </cfif>
 
@@ -35,7 +35,7 @@
 	<meta name=""dc.date.modified"" content=""2005-07-25"">
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.bookingForms#</title>">
-	<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+	<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 	<div class="breadcrumbs">
 		<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
@@ -70,4 +70,5 @@
 
 	</div>
 </cfoutput>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

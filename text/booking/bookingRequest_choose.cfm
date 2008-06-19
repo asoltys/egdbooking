@@ -2,7 +2,7 @@
 	<cfset StructDelete(Session, "Form_Structure")>
 </cfif>
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.requestBooking = "Request New Booking">
 	<cfset language.keywords = language.masterKeywords & ", Booking Request">
 	<cfset language.description = "User must choose between the two types of booking request to be made.">
@@ -21,8 +21,8 @@
 	<cfset language.subjects = language.masterSubjects & "">
 	<!--- <cfset language.drydockBooking = "Si vous souhaitez pr&eacute;senter une demande de r&eacute;servation de cale s&egrave;che, veuillez ">
 	<cfset language.jettyBooking = "Si vous souhaitez pr&eacute;senter une demande de r&eacute;servation de la jet&eacute;e sud ou du quai de d&eacute;barquement nord, veuillez ">
-	<cfset language.mainPage = "pour retourner à la page principale de l'application des réservations "> --->
-	<cfset language.choose = "Veuillez choisir la partie de la cale sèche que vous voulez réserver :">
+	<cfset language.mainPage = "pour retourner &agrave; la page principale de l'application des r&eacute;servations "> --->
+	<cfset language.choose = "Veuillez choisir la partie de la cale s&egrave;che que vous voulez r&eacute;server :">
 	<cfset language.drydockBooking = "de la cale s&egrave;che">
 	<cfset language.jettyBooking = "de la jet&eacute;e sud ou du quai de d&eacute;barquement nord">
 	<cfset language.mainPage = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
@@ -44,7 +44,7 @@
 	">
 </cfoutput>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 
 
@@ -99,4 +99,5 @@
 </div>
 </cfoutput>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

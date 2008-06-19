@@ -1,7 +1,7 @@
 <cfif lang EQ 'e'>
 	<cfset language.lengthError = "The 'Misc' text has exceeded the maximum alotted number of 150 words.">
 <cfelse>
-	<cfset language.lengthError = "Vous avez dépassé le nombre maximum permis de 150 mots dans la boîte de texte « Divers »">
+	<cfset language.lengthError = "Vous avez d&eacute;pass&eacute; le nombre maximum permis de 150 mots dans la boîte de texte &laquo; Divers &raquo;">
 </cfif>
 
 <cfset Errors = ArrayNew(1)>
@@ -177,7 +177,7 @@
 </CFIF>
 
 <!--- create structure for sending to mothership/success page. --->
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset Session.Success.Breadcrumb = "Tariff of Dock Charges">
 	<cfset Session.Success.Title = "Tariff of Dock Charges">
 	<cfset Session.Success.Message = "Tariff form for <b>#getBooking.vesselName#</b>, booked from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')#, has been updated.">
@@ -186,7 +186,8 @@
 	<cfset Session.Success.Breadcrumb = "Tarif des droits de cale s&egrave;che">
 	<cfset Session.Success.Title = "Tarif des droits de cale s&egrave;che">
 	<cfset Session.Success.Message = "Le formulaire de tarif pour <b>#getBooking.vesselName#</b>, qui fait l'objet d'une r&eacute;servation du #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')#, a &eacute;t&eacute; mis &agrave; jour.">
-	<cfif url.referrer eq "archive"><cfset Session.Success.Back = "Retour aux archives des réservations "><cfelse><cfset Session.Success.Back = "Retour &agrave; Accueil&nbsp;- R&eacute;servation"></cfif>
+	<cfif url.referrer eq "archive"><cfset Session.Success.Back = "Retour aux archives des r&eacute;servations "><cfelse><cfset Session.Success.Back = "Retour &agrave; Accueil&nbsp;- R&eacute;servation"></cfif>
 </cfif>
 <cfset Session.Success.Link = "#returnTo#?lang=#lang#&CompanyID=#FORM.CompanyID#">
 <cflocation addtoken="no" url="#RootDir#text/common/success.cfm?lang=#lang#">
+

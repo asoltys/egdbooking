@@ -9,7 +9,7 @@
 <meta name=""dc.date.created"" content=""2005-07-25"">
 <title>PWGSC - ESQUIMALT GRAVING DOCK - Create New Company</title>">
 
-<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <CFIF NOT IsDefined('url.userID')>
 	<cflocation addtoken="no" url="#RootDir#text/admin/menu.cfm?lang=#lang#">
@@ -102,4 +102,4 @@
 </CFOUTPUT>
 
 </div>
-<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

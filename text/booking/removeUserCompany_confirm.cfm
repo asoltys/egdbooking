@@ -1,4 +1,4 @@
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.removeComp = "Confirm Remove Company">
 	<cfset language.keywords = language.masterKeywords & ", Remove company">
 	<cfset language.description = "Allows user to remove oneself from representing a company.">
@@ -11,7 +11,7 @@
 	<cfset language.keywords = language.masterKeywords & ", Suppression d'une entreprise">
 	<cfset language.description = "Permet &agrave; l'utilisateur de supprimer son titre de repr&eacute;sentant d'une entreprise.">
 	<cfset language.subjects = language.masterSubjects & "">
-	<cfset language.areYouSure = "Êtes-vous certain de vouloir vous retirer de l'&eacute;l&eacute;ment suivant">
+	<cfset language.areYouSure = "&Ecirc;tes-vous certain de vouloir vous retirer de l'&eacute;l&eacute;ment suivant">
 	<cfset language.remove = "Supprimer">
 	<cfset language.editProfile = "Modifier le profil">
 </cfif>
@@ -29,7 +29,7 @@
 	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.RemoveComp#</title>">
 </cfoutput>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfif isDefined("form.companyID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
@@ -83,4 +83,5 @@
 
 </div>
 </cfoutput>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

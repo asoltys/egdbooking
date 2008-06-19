@@ -11,7 +11,7 @@
 <style type=""text/css"" media=""screen,print"">@import url(#RootDir#css/events.css);</style>
 ">
 
-<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 
@@ -479,4 +479,4 @@
 <br>
 
 </div>
-<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

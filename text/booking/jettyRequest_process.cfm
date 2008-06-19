@@ -3,7 +3,7 @@
 
 <cfinclude template="#RootDir#includes/errorMessages.cfm">
 <cfinclude template="#RootDir#includes/bookingInfoVariables.cfm">
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.submitJettyBooking = "Submit Jetty Booking Information">
 	<cfset language.keywords = language.masterKeywords & ", Jetty Booking Information">
 	<cfset language.description = "Allows user to submit a new booking request, jetties section.">
@@ -20,7 +20,7 @@
 <cfelse>
 	<cfset language.submitJettyBooking = "Pr&eacute;sentation des renseignements pour la r&eacute;servation de jet&eacute;e">
 	<cfset language.keywords = language.masterKeywords & ", renseignements pour la r&eacute;servation de jet&eacute;e">
-	<cfset language.description = "Permet à l'utilisateur de soumettre une nouvelle demande de réservation - section de jetée">
+	<cfset language.description = "Permet &agrave; l'utilisateur de soumettre une nouvelle demande de r&eacute;servation - section de jet&eacute;e">
 	<cfset language.subjects = language.masterSubjects & "">
 	<cfset language.newBooking = "Pr&eacute;sentation de nouveaux renseignements pour la r&eacute;servation">
 	<cfset language.dblBookingError = "fait d&eacute;j&agrave; l'objet d'une r&eacute;servation du">
@@ -29,8 +29,8 @@
 	<cfset language.bookingAvailable = "Veuillez confirmer l'information suivante&nbsp;.">
 	<cfset language.northJetty = "Quai de d&eacute;barquement nord">
 	<cfset language.southJetty = "Jet&eacute;e sud">
-	<cfset language.tplbookingError = "a déjà une réservation pour le">
-	<cfset language.requestedStatus = "État demandé">
+	<cfset language.tplbookingError = "a d&eacute;j&agrave; une r&eacute;servation pour le">
+	<cfset language.requestedStatus = "&Eacute;tat demand&eacute;">
 </cfif>
 
 
@@ -44,7 +44,7 @@
 	<meta name=""dc.date.modified"" content=""2005-07-25"">
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.NewBooking#</title>">
-	<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+	<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfif IsDefined("Session.Return_Structure")>
 	<cfoutput>#StructDelete(Session, "Return_Structure")#</cfoutput>
@@ -274,4 +274,5 @@
 
 </div>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

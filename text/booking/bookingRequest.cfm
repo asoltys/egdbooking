@@ -1,6 +1,6 @@
 <cfinclude template="#RootDir#includes/bookingInfoVariables.cfm">
 <cfinclude template="#RootDir#includes/errorMessages.cfm">
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.drydockRequest = "Submit Drydock Booking Request">
 	<cfset language.keywords = language.masterKeywords & ", Drydock Booking Request">
 	<cfset language.description = "Allows user to submit a new booking request, drydock section.">
@@ -24,7 +24,7 @@
 	<cfset language.or = "ou">
 	<cfset language.numDaysError = "Veuillez entrer le nombre de jours voulus.">
 	<cfset language.dateRange = "P&eacute;riode&nbsp;">
-	<cfset language.requestedStatus = "État demandé">
+	<cfset language.requestedStatus = "&Eacute;tat demand&eacute;">
 </cfif>
 
 <cfoutput>
@@ -40,7 +40,7 @@
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.drydockRequest#</title>">
 </cfoutput>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="companyVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -281,4 +281,5 @@ function EditSubmit ( selectedform )
 </cfoutput>
 </div>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

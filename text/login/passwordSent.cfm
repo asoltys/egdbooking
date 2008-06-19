@@ -12,25 +12,24 @@
 	<cfset language.returnlogin = "Retourner &agrave; l'ouverture d'une session">
 </cfif>
 
-<cfoutput>
 <cfhtmlhead text="
-<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#"">
-<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
-<meta name=""description"" lang=""eng"" content=""#language.description#"">
-<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.masterSubjects#"">
-<meta name=""dc.date.published"" content=""2005-07-25"">
-<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-<meta name=""dc.date.modified"" content=""2005-07-25"">
-<meta name=""dc.date.created"" content=""2005-07-25"">
-<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#</title>">
+	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#"">
+	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
+	<meta name=""description"" lang=""eng"" content=""#language.description#"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.masterSubjects#"">
+	<meta name=""dc.date.published"" content=""2005-07-25"">
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
+	<meta name=""dc.date.modified"" content=""2005-07-25"">
+	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#</title>">
 
 <cfset Variables.onLoad = "javascript:document.forgotForm.email.focus();">
 
-<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
-			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#ssi/bread-pain-#lang#.cfm"> &gt; 
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm"> &gt; 
 			<cfoutput>
 			<a href="#RootDir#text/login/login.cfm?lang=#lang#">#language.login#</a> &gt; 
 			#language.title#
@@ -38,7 +37,7 @@
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
-		<cfinclude template="#RootDir#ssi/left-menu-gauche-eng.cfm">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
 			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
 			<div class="center">
 				<h1><a name="cont" id="cont">
@@ -59,5 +58,4 @@
 			</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
-		<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
-</cfoutput>
+		<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

@@ -2,7 +2,7 @@
 <cfset language.ScreenMessage = '<P><b>This calendar contains information for the drydock only.</b> Bookings belonging to your company are <i>italicised</i>.</P>'
 
 & '<P>Printing instructions:</P>'
-& '<BLOCKQUOTE>Before you print, go to <b>Print Preview</b> and make sure that none of your tooltips are so low on the page that they get cut off.</BLOCKQUOTE>'
+& '<DIV class="critical"><P>Before you print, go to <b>Print Preview</b> and make sure that none of your tooltips are so low on the page that they get cut off.</P></DIV>'
 & '<UL>'
 & '	<LI>Internet Explorer: Go to <b>Tools</b> &gt; <b>Internet Options</b> &gt; <b>Advanced</b>; make sure <i>Print background colors and images</i> under <b>Printing</b> is checked</LI>'
 & '	<LI>Netscape Navigator, Mozilla &amp; Firefox: Go to <b>Page Setup</b>; make sure <i>Print background (colors &amp; images)</i> is checked</LI>'
@@ -11,101 +11,76 @@
 <cfset language.text2 = 'to'>
 <cfset language.text3 = 'docks'>
 
-<!doctype HTML public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
-<HTML lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<CFINCLUDE template="#RootDir#includes/companyInfoVariables.cfm">
+
+<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
+<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,"\"), "\")>
+<cfdirectory action="LIST" directory="#PageDir#" name="GetFile" filter="#PageFileName#">
+<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
 
 <HEAD>
-<!--- 	<meta name="dc.title" lang="eng" content="PWGSC - ESQUIMALT GRAVING DOCK - Welcome">
-	<meta name="keywords" lang="eng" content="Ship Repair, Boats, Ship Maintenance, Dry dock, drydock, marine, iso14001, iso-14001">
-	<meta name="description" lang="eng" content="The Esquimalt Graving Dock, or EGD, is proud to be federally owned, operated, and maintained. EGD is the largest solid-bottom commercial drydock on the West Coast of the Americas. We are located in an ice free harbour on Vancouver Island near gateways to Alaska and the Pacific Rim.">
-	<meta name="dc.subject" scheme="gccore" lang="eng" content="Ship; Wharf; Dock; Boat">
-	<meta name="dc.date.created" lang="eng" content="2002-11-29">
-	<meta name="dc.date.modified" content="<!--#config timefmt='%Y-%m-%d'--><!--#echo var='LAST_MODIFIED'-->">
-	<META name="dc.date.published" content="2002-12-30">
-	<META name="dc.date.reviewed" content="2004-07-27">
-	<TITLE>PWGSC - ESQUIMALT GRAVING DOCK - Booking</TITLE> --->
-	<!--INTERNET TEMPLATE VERSION 2.1-->
-	
-	<!--METADATA PROFILE START-->
-	<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-	<META name="MSSmartTagsPreventParsing" content="True">
-	<LINK rel="schema.dc" href="http://purl.org/dc/elements/1.1">
-	<META name="dc.language" SCHEME="IS0639-2" content="eng">
-	<META name="dc.creator" LANG="eng" content="Government of Canada, Public Works and Government Services Canada, Esquimalt Graving Dock">
-	<META name="dc.publisher" LANG="eng" content="Public Works and Government Services Canada">
-	<META name="pwgsc.contact.email" content="egd@pwgsc.gc.ca">
-	<META name="dc.rights" LANG="eng" content="<cfoutput>http://www.pwgsc.gc.ca/text/home-#lang#.html</cfoutput>/text/generic/copyright-e.html">
-	<META name="robots" content="noindex,nofollow">
-
-	<META name="dc.title" LANG="eng" content="PWGSC - ESQUIMALT GRAVING DOCK - Project Calendar">
-	<META name="keywords" LANG="eng" content="">
-	<META name="description" LANG="eng" content="Allows user to view bookings in a given range in MS Project style.">
-	<META name="dc.subject" SCHEME="gccore" LANG="eng" content="">
-	<META name="dc.date.published" content="2005-07-25">
-	<META name="dc.date.reviewed" content="2005-07-25">
-	<META name="dc.date.modified" content="2005-07-25">
-	<META name="dc.date.created" content="2005-07-25">
-
-	<META name="pwgsc.date.retention" content="">
-	<!-- leave blank -->
-	<META name="dc.contributor" LANG="eng" content="">
-	<META name="dc.identifier" LANG="eng" content="">
-	<META name="dc.audience" LANG="eng" content="">
-	<META name="dc.type" LANG="eng" content="">
-	<META name="dc.format" LANG="eng" content="">
-	<META name="dc.coverage" LANG="eng" content="">
-	<!--METADATA PROFILE END-->
-
-	<TITLE>PWGSC - ESQUIMALT GRAVING DOCK - Project Calendar</TITLE>
-
-<!--cfinclude template="#RootDir#includes/header-#lang#.cfm"-->
-
+<!-- CLF 2.0 TEMPLATE VERSION 1.04 | VERSION 1.04 DU GABARIT NSI 2.0 -->
+<!-- PWGSC TEMPLATE VERSION 1.0 | VERSION 1.0 DU GABARIT TPSGC -->
+<!-- HEADER BEGINS | DEBUT DE L'EN-TETE -->
+<!-- TITLE BEGINS | DEBUT DU TITRE -->
+<title>PWGSC - ESQUIMALT GRAVING DOCK - View Company Details</title>
+<!-- TITLE ENDS | FIN DU TITRE -->
+<!-- METADATA BEGINS | DEBUT DES METADONNEES -->
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<LINK rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+<LINK rel="schema.dc" href="http://purl.org/dc/terms/" />
+<META name="dc.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Project Calendar">
+<META name="dc.subject" SCHEME="gccore" content="ship, wharf">
+<META name="dc.language" SCHEME="ISO639-2/T" content="eng" />
+<META name="dc.creator" content="Government of Canada, Public Works and Government Services Canada" />
+<META name="dc.publisher" content="Government of Canada, Public Works and Government Services Canada" />
+<META name="dc.audience" content=" " />
+<META name="dc.contributor" content=" " />
+<META name="dc.coverage" content=" " />
+<META name="dc.format" content=" " />
+<META name="dc.identifier" content=" " />
+<META name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html" />
+<META name="dcterms.issued" SCHEME="W3CDTF" content="2007-09-20" />
+<META name="dcterms.modified" SCHEME="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
+<META name="description" content="Allows user to view bookings in a given range in MS Project style.">
+<META name="keywords" content="">
+<META name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
+<!-- METADATA ENDS | FIN DES METADONNEES -->
+<!-- TEMPLATE SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS DU GABARIT -->
 <cfoutput>
-	<LINK rel="stylesheet" href="#RootDir#css/default.css">
-	<STYLE type="text/css" media="screen, print">
-		@import url(#RootDir#css/advanced.css);
-		@import url(#RootDir#css/events.css);
-		@import url(#RootDir#css/projectcalendar.css);
-	</STYLE>
+<LINK href="/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
+<LINK href="/clf20/css/1col.css" media="screen, print" rel="stylesheet" type="text/css" />
+<STYLE type="text/css" media="all">@import url(/clf20/css/base2.css);</STYLE>
 </cfoutput>
-
-<!-- Start JavaScript Block -->
-<!--SCRIPT type="text/javascript" language="javascript" src="#RootDir#scripts/domLib.js"></script>
-<SCRIPT type="text/javascript" language="javascript" src="#RootDir#scripts/domTT.js"></script>
-<SCRIPT type="text/javascript" language="javascript" src="#RootDir#scripts/domTT_drag.js"></script>
-
-<SCRIPT type="text/javascript" language="javascript">
-var domTT_styleClass = 'domTTOverlib';
-
-function foo(e, msg, title) {
-
-	if (!e) var e = window.event;
-
-	// next 5 lines taken from http://www.quirksmode.org
-	var targ;
-	if (e.target) targ = e.target;
-	else if (e.srcElement) targ = e.srcElement;
-	if (targ.nodeType == 3) // defeat Safari bug
-		targ = targ.parentNode;
-
-	//alert(e.type);
-
-	switch(e.type) {
-		case 'mouseover':
-			domTT_activate(targ, e, 'trail', false, 'content', msg);
-			break;
-		case 'mouseout':
-			domTT_mouseout(targ, e);
-			break;
-		case 'click':
-			domTT_activate(targ, e, 'caption', title, 'content', msg, 'type', 'sticky', 'draggable', true);
-			break;
-	}
-}
-
-</SCRIPT-->
-
+<!-- TEMPLATE SCRIPTS/CSS END | FIN DES SCRIPTS/CSS DU GABARIT -->
+<!-- PROGRESSIVE ENHANCEMENT BEGINS | DEBUT DE L'AMELIORATION PROGRESSIVE -->
+<SCRIPT src="/clf20/scripts/pe-ap.js" type="text/javascript"></SCRIPT>
+<SCRIPT type="text/javascript">
+	/* <![CDATA[ */
+		var params = {
+			lng:"eng",
+			pngfix:"/clf20/images/inv.gif"
+		};
+		PE.progress(params);
+	/* ]]> */
+</SCRIPT>
+<!-- PROGRESSIVE ENHANCEMENT ENDS | FIN DE L'AMELIORATION PROGRESSIVE -->
+<!-- CUSTOM SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS PERSONNALISES -->
+<cfoutput>
+<LINK href="/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+<LINK href="/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+<STYLE type="text/css" media="screen,print">@import url(#RootDir#css/advanced.css);</STYLE>
+<STYLE type="text/css" media="screen,print">@import url(#RootDir#css/projectcalendar.css);</STYLE>
+</cfoutput>
+<!-- CUSTOM SCRIPTS/CSS END | FIN DES SCRIPTS/CSS PERSONNALISES -->
+<!-- TEMPLATE PRINT CSS BEGINS | DEBUT DU CSS DU GABARIT POUR L'IMPRESSION -->
+<LINK href="/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
+<!-- TEMPLATE PRINT CSS ENDS | FIN DU CSS DU GABARIT POUR L'IMPRESSION -->
 </HEAD>
+
 
 <!--- If the FROM and TO dates are set, use them; otherwise the megaquery grabs all bookings. --->
 <CFIF IsDefined("Form.startDate") AND Form.startDate neq "">
@@ -437,162 +412,114 @@ function foo(e, msg, title) {
 
 <CFSET #CalSize# = #CalEndDate# - #CalStartDate# + 1>
 
-<BODY bgcolor="#FFFFFF">
+<BODY>
+<div class="page">
+	<div class="core">
+		<!-- FIP HEADER BEGINS | DEBUT DE L'EN-TETE PCIM -->
+		<div class="fip">
+		<a name="tphp" id="tphp"><img src="/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></a>
+		</div>
+		<div class="cwm">
+			<img src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
+		</div>
+		<!-- FIP HEADER ENDS | FIN DE L'EN-TETE PCIM -->
 
-<!---CFDUMP var="#megastruct#"--->
-<cfdump var="#EndDate#">
-<CFDUMP var="#CalEndDate#">
-<!--begin clf fip-e.html--> 
-<TABLE width="700" border="0" cellpadding="0" cellspacing="0">
-	<TR>
-		<TD colspan="4"><IMG src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="1" height="10" alt=""></TD>
-	</TR>
-	<TR> 
-		<TD><IMG src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></TD>
-		<TD align="left" valign="top"><IMG src="<cfoutput>#RootDir#</cfoutput>images/pwgsc-e.gif" width="364" height="33" alt="Public Works and Government Services Canada" title="Public Works and Government Services Canada" border="0"></TD>
-		<TD align="right" valign="top"><IMG src="<cfoutput>#RootDir#</cfoutput>images/wordmark.gif" width="83" height="21" alt="Canada wordmark" border="0" align="top"></TD>
-		<TD><IMG src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></TD>
-	</TR>
-</TABLE>
-<!--end clf fip-e.html-->
+		<div class="center">
+			<H1><a name="cont" id="cont">
+				<cfoutput>#Language.PageTitle#</cfoutput>
+				</a></H1>
 
-<H1 style="padding-left: 10px; "><cfoutput>#Language.PageTitle#</cfoutput></H1>
-
-<DIV class="screenonly" style="width: 700px; padding-left: 10px; ">
-	<CFOUTPUT>#Language.ScreenMessage#</CFOUTPUT>
-	<P align="center"><A href="javascript:history.go(-1);" class="textbutton">Back to Date Selection</A> &nbsp;
-	<A href="javascript:self.close();" class="textbutton">Close this Window</A></P>
-</DIV>
-
-
-
-<CFOUTPUT>
-
-<TABLE cellpadding="0" cellspacing="0" width="700" style="font-size: 10pt; ">
-	<THEAD><TR style="border-bottom: 1px solid ##888888; ">
-		<TH style="background: White; border-right: 1px solid ##888888" colspan="2">&nbsp;</TH>
-		<TH id="1_header" axis="assignment_axis" class="sec1 confirmed" width="120" align="center">DRYDOCK 1</TH>
-		<TH id="2_header" axis="assignment_axis" class="sec2 confirmed" width="120" align="center">DRYDOCK 2</TH>
-		<TH id="3_header" axis="assignment_axis" class="sec3 confirmed" width="120" align="center">DRYDOCK 3</TH>
-		<TH id="4_header" axis="assignment_axis" class="tentative" width="120">TENTATIVE</TH>
-		<TH id="5_header" axis="assignment_axis" class="pending" width="120">PENDING</TH>
-	</TR></THEAD>
+			<DIV class="screenonly" style="width: 700px; padding-left: 10px; ">
+				<CFOUTPUT>#Language.ScreenMessage#</CFOUTPUT>
+				<P align="center"><A href="javascript:history.go(-1);" class="textbutton">Back to Date Selection</A> &nbsp;
+				<A href="javascript:self.close();" class="textbutton">Close this Window</A></P>
+			</DIV>
 	
-	<TBODY>
-	<!--- This loops through every day of the calendar requested and creates a new row for each one.  --->
-	<CFLOOP index="offset" from="1" to="#CalSize#">
-	<CFSET taday = DateAdd('d', offset - 1, CalStartDate)>
-	<TR style="text-align: left;">
-		<TD class="<CFIF Day(taday) eq 1>firstday</CFIF>" style="border-right: 1px solid ##888888; text-align: right;">
-			<CFIF Day(taday) eq 1 OR offset eq 1>
-				#DateFormat(taday, "mmm")# '#DateFormat(taday, "yy")# &nbsp;
-			<CFELSE>
-				&nbsp;
-			</CFIF>
-		</TD>
-		<TD id="date#offset#_header" axis="date" class="day<CFIF DayofWeek(taday) eq 7> sat<CFELSEIF DayofWeek(taday) eq 1> sun</CFIF><CFIF Day(taday) eq 1> firstday</CFIF>" style="border-right: 1px solid ##888888; text-align: center;">
-			<A href="javascript:window.opener.location.href='#RootDir#text/common/getDetail.cfm?lang=#lang#&date=#DateFormat(taday, 'm/d/yyyy')#'; void(0);">#DateFormat(taday, "d")#</A>
-		</TD>
-
-		<!--- This part loops over the five columns of the calendar: dock 1, 2, 3, tentative, and pending.  --->
-		<CFLOOP index="d" from="1" to="5">
-			<CFTRY>
-				<!--- If this day&section of the megaStruct exists... --->
-				<CFSET nevermore = megaStruct[d][offset]>
-				<CFSET tadaysDate = "#DateFormat(taday, 'yyyy')#" & "/" & "#DateFormat(taday, 'm')#" & "/" & "#DateFormat(taday, 'd')#">
-				<CFSET snowflakes = ''>
-				<CFSET boatCount = StructFind(nevermore, 'boatCount')>
-				<CFIF StructFind(nevermore, 'firstday') eq true>
-					<CFSET boatCountToday = StructFind(nevermore, 'lol')>
-					<CFLOOP index="ok" from="1" to="#boatCountToday#" step="1">
-						<CFIF ok neq 1>
-							<CFSET snowflakes = snowflakes & '<BR>'>
+			<CFOUTPUT>
+			
+			<TABLE cellpadding="0" cellspacing="0" width="700" style="font-size: 10pt; ">
+				<THEAD><TR style="border-bottom: 1px solid ##888888; ">
+					<TH style="background: White; border-right: 1px solid ##888888" colspan="2">&nbsp;</TH>
+					<TH id="1_header" axis="assignment_axis" class="sec1 confirmed" width="120" align="center">DRYDOCK 1</TH>
+					<TH id="2_header" axis="assignment_axis" class="sec2 confirmed" width="120" align="center">DRYDOCK 2</TH>
+					<TH id="3_header" axis="assignment_axis" class="sec3 confirmed" width="120" align="center">DRYDOCK 3</TH>
+					<TH id="4_header" axis="assignment_axis" class="tentative" width="120">TENTATIVE</TH>
+					<TH id="5_header" axis="assignment_axis" class="pending" width="120">PENDING</TH>
+				</TR></THEAD>
+				
+				<TBODY>
+				<!--- This loops through every day of the calendar requested and creates a new row for each one.  --->
+				<CFLOOP index="offset" from="1" to="#CalSize#">
+				<CFSET taday = DateAdd('d', offset - 1, CalStartDate)>
+				<TR style="text-align: left;">
+					<TD class="<CFIF Day(taday) eq 1>firstday</CFIF>" style="border-right: 1px solid ##888888; text-align: right;">
+						<CFIF Day(taday) eq 1 OR offset eq 1>
+							#DateFormat(taday, "mmm")# '#DateFormat(taday, "yy")# &nbsp;
+						<CFELSE>
+							&nbsp;
 						</CFIF>
-						<CFIF StructFind(nevermore, "isYours" & ok) eq true>
-							<CFSET snowflakes = snowflakes & '<i>'>
-						</CFIF>
-						<cfif structfind(nevermore, "h" & ok) GTE PacificNow>
-							<cfset snowflakes = snowflakes & '<b>*</b>'>
-						</cfif> 
-						<CFSET snowflakes = snowflakes & '<b>#StructFind(nevermore, "vesselName" & ok)#</b> <BR>'>
-						<CFSET snowflakes = snowflakes & '#language.text1#: #DateFormat(StructFind(nevermore, "startDate" & ok), "mm/dd/yyyy")# <BR>'
-							& '#language.text2#: #DateFormat(StructFind(nevermore, "endDate" & ok), "mm/dd/yyyy")# <BR>'
-							& '#language.text3#: #StructFind(nevermore, "allSections" & ok)# <BR>'>
-						<CFIF StructFind(nevermore, "isYours" & ok) eq true>
-							<CFSET snowflakes = snowflakes & '</i>'>
-						</CFIF>
+					</TD>
+					<TD id="date#offset#_header" axis="date" class="day<CFIF DayofWeek(taday) eq 7> sat<CFELSEIF DayofWeek(taday) eq 1> sun</CFIF><CFIF Day(taday) eq 1> firstday</CFIF>" style="border-right: 1px solid ##888888; text-align: center;">
+						<A href="javascript:window.opener.location.href='#RootDir#text/common/getDetail.cfm?lang=#lang#&date=#DateFormat(taday, 'm/d/yyyy')#'; void(0);">#DateFormat(taday, "d")#</A>
+					</TD>
+			
+					<!--- This part loops over the five columns of the calendar: dock 1, 2, 3, tentative, and pending.  --->
+					<CFLOOP index="d" from="1" to="5">
+						<CFTRY>
+							<!--- If this day&section of the megaStruct exists... --->
+							<CFSET nevermore = megaStruct[d][offset]>
+							<CFSET tadaysDate = "#DateFormat(taday, 'yyyy')#" & "/" & "#DateFormat(taday, 'm')#" & "/" & "#DateFormat(taday, 'd')#">
+							<CFSET snowflakes = ''>
+							<CFSET boatCount = StructFind(nevermore, 'boatCount')>
+							<CFIF StructFind(nevermore, 'firstday') eq true>
+								<CFSET boatCountToday = StructFind(nevermore, 'lol')>
+								<CFLOOP index="ok" from="1" to="#boatCountToday#" step="1">
+									<CFIF ok neq 1>
+										<CFSET snowflakes = snowflakes & '<BR>'>
+									</CFIF>
+									<CFIF StructFind(nevermore, "isYours" & ok) eq true>
+										<CFSET snowflakes = snowflakes & '<i>'>
+									</CFIF>
+									<cfif structfind(nevermore, "h" & ok) GTE PacificNow>
+										<cfset snowflakes = snowflakes & '<b>*</b>'>
+									</cfif> 
+									<CFSET snowflakes = snowflakes & '<b>#StructFind(nevermore, "vesselName" & ok)#</b> <BR>'>
+									<CFSET snowflakes = snowflakes & '#language.text1#: #DateFormat(StructFind(nevermore, "startDate" & ok), "mm/dd/yyyy")# <BR>'
+										& '#language.text2#: #DateFormat(StructFind(nevermore, "endDate" & ok), "mm/dd/yyyy")# <BR>'
+										& '#language.text3#: #StructFind(nevermore, "allSections" & ok)# <BR>'>
+									<CFIF StructFind(nevermore, "isYours" & ok) eq true>
+										<CFSET snowflakes = snowflakes & '</i>'>
+									</CFIF>
+								</CFLOOP>
+							</CFIF>
+							<TD headers="#d#_header month#offset#_header" class="day<CFIF DayofWeek(taday) eq 7> sat<CFELSEIF DayofWeek(taday) eq 1> sun</CFIF>
+											<CFIF Day(taday) eq 1> firstday</CFIF>"
+									style="background: ###getColour(StructFind(nevermore, 'colourCode'))#; ">
+								<CFIF StructFind(nevermore, "firstday") AND StructFind(nevermore, "firstdock") eq true>
+									<!--- The first day of the booking can have custom text --->
+									<!---A href="javascript:void(0)" onClick="foo(event, '#snowflakes#', '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOver="foo(event, '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOut="foo(event);">
+										<DIV class="text">#Left(StructFind(nevermore, "vesselName" & StructFind(nevermore, "boatCount")), 10)#...</DIV>
+									</A--->
+									<DIV class="text">#snowflakes#</DIV>
+								<CFELSE>
+									<!---A href="javascript:void(0)" onClick="foo(event, '#snowflakes#', '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOver="foo(event, '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOut="foo(event);"--->
+										<DIV class="text">&nbsp;<BR>&nbsp;<BR>&nbsp;<BR>&nbsp;<!---CFIF StructFind(nevermore, "yours") eq true>?<CFELSE>#StructFind(nevermore, "boatCount")#</CFIF---></DIV>
+									<!---/A--->
+								</CFIF>
+							</TD>
+						<CFCATCH type="coldfusion.runtime.UndefinedElementException">
+							<!--- If this day&section of the megaStruct DOESN'T exist, it throws this exception... --->
+							<TD headers="#d#_header month#offset#_header" class="day<CFIF DayofWeek(taday) eq 7> sat<CFELSEIF DayofWeek(taday) eq 1> sun</CFIF><CFIF Day(taday) eq 1> firstday</CFIF>">
+								<DIV class="text">&nbsp;<BR>&nbsp;<BR>&nbsp;<BR>&nbsp;</DIV>
+						</CFCATCH>
+						</CFTRY>
 					</CFLOOP>
-				</CFIF>
-				<TD headers="#d#_header month#offset#_header" class="day<CFIF DayofWeek(taday) eq 7> sat<CFELSEIF DayofWeek(taday) eq 1> sun</CFIF>
-								<CFIF Day(taday) eq 1> firstday</CFIF>"
-						style="background: ###getColour(StructFind(nevermore, 'colourCode'))#; ">
-					<CFIF StructFind(nevermore, "firstday") AND StructFind(nevermore, "firstdock") eq true>
-						<!--- The first day of the booking can have custom text --->
-						<!---A href="javascript:void(0)" onClick="foo(event, '#snowflakes#', '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOver="foo(event, '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOut="foo(event);">
-							<DIV class="text">#Left(StructFind(nevermore, "vesselName" & StructFind(nevermore, "boatCount")), 10)#...</DIV>
-						</A--->
-						<DIV class="text">#snowflakes#</DIV>
-					<CFELSE>
-						<!---A href="javascript:void(0)" onClick="foo(event, '#snowflakes#', '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOver="foo(event, '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOut="foo(event);"--->
-							<DIV class="text">&nbsp;<BR>&nbsp;<BR>&nbsp;<BR>&nbsp;<!---CFIF StructFind(nevermore, "yours") eq true>?<CFELSE>#StructFind(nevermore, "boatCount")#</CFIF---></DIV>
-						<!---/A--->
-					</CFIF>
-				</TD>
-			<CFCATCH type="coldfusion.runtime.UndefinedElementException">
-				<!--- If this day&section of the megaStruct DOESN'T exist, it throws this exception... --->
-				<TD headers="#d#_header month#offset#_header" class="day<CFIF DayofWeek(taday) eq 7> sat<CFELSEIF DayofWeek(taday) eq 1> sun</CFIF><CFIF Day(taday) eq 1> firstday</CFIF>">
-					<DIV class="text">&nbsp;<BR>&nbsp;<BR>&nbsp;<BR>&nbsp;</DIV>
-			</CFCATCH>
-			</CFTRY>
-		</CFLOOP>
+			
+				</TR>
+			
+				</CFLOOP></TBODY>
+			</TABLE>
+			</CFOUTPUT>
+		</div>
 
-	</TR>
-
-	</CFLOOP></TBODY>
-</TABLE>
-
-</CFOUTPUT>
-
-<BR><BR>
-
-<!--BEGIN FOOTER-->
-<TABLE width="700" border="0" cellspacing="0" cellpadding="0">
-<TR>
-	<TD width="10"><IMG src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></TD>
-	<TD colspan="2" width="680"><HR noshade size="1" width="100%"></TD>
-	<TD width="10"><IMG src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></TD>	
-</TR>
-<TR>
-	<TD>&nbsp;</TD>
-	<TD align="left" class="footertext" colspan="2">
-		Maintained by <A href="<cfoutput>#RootDir#</cfoutput>text/contact_us-e.cfm">PWGSC</A></div> <!--- This option is recommended. --->
-	</TD>
-</TR>
-<TR>
-	<TD>&nbsp;</TD>
-	<TD align="left" class="footertext">
-		<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
-		<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,"\"), "\")>
-		<cfdirectory action="LIST" directory="#PageDir#" name="GetFile" filter="#PageFileName#">
-		<cfif #GetFile.recordcount# is 1>Last Updated:
-		<cfoutput query="GetFile">
-			#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")# 
-			<!---#TimeFormat(parseDateTime(GetFile.DateLastModified, "h:mm tt"))#--->
-		</cfoutput>
-		</cfif>
-	</TD>
-	<TD align="right" class="footertext">
-		<cfoutput>
-		<SPAN lang="en"><A href="http://www.pwgsc.gc.ca/text/generic/copyright-e.html">Important Notices</A></SPAN>
-		</cfoutput>
-	</TD>
-	<TD><IMG src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></TD>
-</TR>
-<TR>
-	<TD colspan="4"><IMG src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="1" height="10" alt=""></TD>
-</TR>
-</TABLE>
-<!--END FOOTER-->
-
-</BODY>
-</HTML>
+<CFINCLUDE template="#RootDir#includes/foot-pied-eng.cfm">

@@ -24,7 +24,7 @@
 <meta name=""dc.date.created"" content=""2005-07-25"">
 <title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.Booking#</title>">
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cflock scope="session" throwontimeout="no" timeout="60" type="readonly">
 	<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -256,15 +256,25 @@
 	<cfset language.confirming = "confirmation ">
 </cfif>
 
-<cfoutput>
-<div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
-	#language.PacificRegion# &gt;
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.EsqGravingDock#</a> &gt;
-	<a href="../booking-#lang#.cfm">#language.Booking#</a> &gt;
-	#language.welcomePage#
-</div>
-</cfoutput>
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-eng.html">&gt; <a href="../booking-#lang#.cfm">#language.Booking#</a> &gt; #language.welcomePage#
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+			<!-- THREE COLUMN LAYOUT BEGINS | DEBUT DE LA MISE EN PAGE DE TROIS COLONNES -->
+			<!-- LEFT SIDE MENU BEGINS | DEBUT DU MENU LATERAL GAUCHE -->
+			<div class="left">
+				<cfinclude template="/clf20/ssi/left-menu-gauche1-eng.html">
+				<cfinclude template="#RootDir#includes/menu-mi-eng.html">
+				<cfinclude template="/clf20/ssi/left-menu-gauche-proactive-eng.html">
+			</div>
+			<!-- LEFT SIDE MENU ENDS | FIN DU MENU LATERAL GAUCHE -->
+			<!-- RIGHT SIDE MENU BEGINS | DEBUT DU MENU LATERAL DROIT -->
+			<div class="right">
+				<cfinclude template="#RootDir#includes/right-menu-droite-eng.html">
+			</div>
+			<!-- RIGHT SIDE MENU ENDS | FIN DU MENU LATERAL DROIT -->
+
 
 <div class="main">
 <cfoutput><h1>#getCompany.CompanyName# #language.Booking#</h1></cfoutput>
@@ -537,4 +547,4 @@
 </div>
 </div>
 </cfoutput>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#pied-footer-#lang#.cfm">

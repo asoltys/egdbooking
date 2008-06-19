@@ -1,7 +1,11 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
-<html lang="en">
+<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
+<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,"\"), "\")>
+<cfdirectory action="LIST" directory="#PageDir#" name="GetFile" filter="#PageFileName#">
+<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
+
 
 <cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
 	<cfset language.bookingsSummary = "Bookings Summary">
@@ -29,7 +33,6 @@
 	<cfset language.legend = "Légende">
 </cfif>
 
-<cfoutput>
 <head>
 	<!--INTERNET TEMPLATE VERSION 2.1-->
 	<!--METADATA PROFILE START-->
@@ -50,7 +53,8 @@
 	<meta name="dc.publisher" lang="fre" content="Travaux publics et Services gouvernementaux Canada ">
 	</CFIF>
 	
-	<meta name="pwgsc.contact.email" content="egd@pwgsc.gc.ca">
+<cfoutput>
+	<meta name="pwgsc.contact.email" content="egd@tpsgc-pwgsc.gc.ca">
 	<meta name="dc.rights" lang="#langVar#" content="http://www.pwgsc.gc.ca/text/generic/copyright-e.html">
 	<meta name="robots" content="noindex,nofollow">
 
@@ -79,23 +83,10 @@
 	<!-- CSS needed for correct printout of table headers in IE 6.0 -->
 	<style type='text/css'>
         thead{display:table-header-group}
-	</style> 
+	</style>
+</cfoutput> 
 </head>
-</cfoutput>
 <body>
-
-<!-- Start JavaScript Block -->
-<!-- End JavaScript Block -->
-
-<!--- <cfoutput>
-<div class="main">
-<div id="title">#language.PageTitle#</div>
-
-<div class="subnav">
-	<a href="#RootDir#community-#lang#.cfm" class="subnav">#Language.SubNav1#</a> | 
-	<a href="#RootDir#app/events.cfm?lang=#lang#" class="subnav">#language.PageTitle#</a>
-</div>
-</cfoutput> --->
 
 <CFIF IsDefined('form.fromDate')>
 	<CFSET Variables.fromDate = form.fromdate>
@@ -182,21 +173,19 @@ WHERE	SouthJetty = 1
 
 <cfoutput>
 
-<!--begin clf fip-#lang#.html--> 
-<table width="600" border="0" cellpadding="0" cellspacing="0">
-	<tr> 
-		<td><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="10" border="0" align="top" alt=""></td>
-	</tr>
-	<tr> 
-	<CFIF lang eq 'e'>
-		<td><img src="<cfoutput>#RootDir#images/pwgsc-e.gif</cfoutput>" width="364" height="33" alt="Public Works and Government Services Canada" border="0"><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="61" height="1" border="0" align="top" alt=""><img src="<cfoutput>#RootDir#</cfoutput>images/wordmark.gif" width="83" height="21" alt="Canada wordmark" border="0" align="top"></td>
-	<CFELSE>
-		<td><img src="<cfoutput>#RootDir#images/pwgsc-f.gif</cfoutput>" width="364" height="33" alt="Travaux publics et Services gouvernementaux Canada" border="0"><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="61" height="1" border="0" align="top" alt=""><img src="<cfoutput>#RootDir#</cfoutput>images/wordmark.gif" width="83" height="21" alt="Mot-symbole Canada" border="0" align="top"></td>
-	</CFIF>
-	</tr>
-</table>
-<!--end clf fip-#lang#.html-->
-
+<!-- FIP HEADER BEGINS | DEBUT DE L'EN-TETE PCIM -->
+<CFIF lang EQ "eng">
+<div style="float:right; position:relative; z-index:1; height:33px;">
+	<img src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
+</div>
+<a name="tphp" id="tphp"><img src="/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></a>
+<CFELSE>
+<div style="float:right; position:relative; z-index:1; height:33px;">
+	<img src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbole du gouvernement du Canada" />
+</div>
+<a name="tphp" id="tphp"><img src="/clf20/images/sig-fra.gif" width="364" height="33" alt="Travaux publics et Services gouvernementaux Canada" /></a>
+</CFIF>
+<!-- FIP HEADER ENDS | FIN DE L'EN-TETE PCIM -->
 
 <H1>#language.EsqGravingDock# #language.BookingsSummary#</H1>
 
@@ -392,45 +381,30 @@ WHERE	SouthJetty = 1
 
 <p class="screenonly"><A href="javascript:self.close()"><cfoutput>#language.closeme#</cfoutput></A></p>
 
-<!--BEGIN FOOTER-->
-<table width="90%" border="0" cellspacing="0" cellpadding="0">
-<TR>
-	<TD colspan="2"><hr noshade size="1" width="100%"></TD>
-</TR>
-<tr>
-	<td align="left" class="footertext" colspan="2"> 
-		<CFIF lang EQ 'eng' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
-			Maintained by <a href="<cfoutput>#RootDir#</cfoutput>text/contact_us-#lang#.cfm">PWGSC</a> <!--- This option is recommended. --->
-		<CFELSE>
-			Mise &agrave; jour par <a href="<cfoutput>#RootDir#</cfoutput>text/contact_us-f.cfm">TPSGC</a> <!--- This option is recommended. --->
-		</CFIF>
-	</td>
-</tr>
-<tr>
-	<td align="left" class="footertext">
-		<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
-		<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,"\"), "\")>
-		<cfdirectory action="LIST" directory="#PageDir#" name="GetFile" filter="#PageFileName#">
-		<cfif #GetFile.recordcount# is 1>
-			<CFIF lang EQ 'eng' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>Last Updated:
-			<CFELSE>Derni&egrave;re mise &agrave; jour&nbsp;:
-			</CFIF>
-		<cfoutput query="GetFile">
-			#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")# 
-			<!---#TimeFormat(parseDateTime(GetFile.DateLastModified, "h:mm tt"))#--->
-		</cfoutput>
-		</cfif>
-	</td>
-	<td align="right" class="footertext">
-		<cfoutput>
-		<CFIF lang EQ 'eng' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)><span lang="en"><a href="http://www.pwgsc.gc.ca/text/generic/copyright-e.html">Important Notices</a></span>
-		<CFELSE><span lang="en"><a href="http://www.pwgsc.gc.ca/text/generic/copyright-f.html">Avis Importants</a></span>
-		</CFIF>
-		</cfoutput>
-	</td>
-</tr>
-</table>
-<!--END FOOTER-->
+			<!-- FOOTER BEGINS | DEBUT DU PIED DE LA PAGE -->
+			<div class="footer">
+				<HR />
+				<div style="float:left; width:33.25%; text-align:left;">
+					<!-- DATE MODIFIED BEGINS | DEBUT DE LA DATE DE MODIFICATION -->
+					<CFIF lang EQ 'eng' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>Date Modified:
+					<CFELSE>Date de modification&nbsp;:
+					</CFIF>
+						<span class="date">
+						<cfoutput query="GetFile">	#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>
+					</span>
+					<!-- DATE MODIFIED ENDS | FIN DE LA DATE DE MODIFICATION -->
+				</div>
+				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.HTML ====== -->
+				<div class="screenonly" style="float:left; width:33.25%; text-align:center">
+					<a href="#tphp" title="Return to Top of Page"><img class="uparrow" src="/egd_internet_clf2/clf20/images/tphp.gif" width="19" height="12" alt="" /><br />Top of Page</a>
+				</div>
+				<div style="float:left; width:33.25%; text-align:right">
+					<a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html">Important Notices</a>
+				</div>
+				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.HTML ====== -->
+				
+			</div>
+			<!-- FOOTER ENDS | FIN DU PIED DE LA PAGE -->
 
 </body>
 </HTML>

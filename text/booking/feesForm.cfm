@@ -1,4 +1,4 @@
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.tariffHeading = "Tariff of Dock Charges">
 	<cfset language.keywords = language.masterKeywords & ", Tariff of Dock Charges">
 	<cfset language.description = "Allows user to provide information on services requested for a booking and the fees associated with them.">
@@ -22,9 +22,9 @@
 	<cfset language.item = "Article">
 	<cfset language.services = "Services et installations">
 	<cfset language.fees = "frais">
-	<cfset language.tableSummary = "Ce tableau affiche les services choisis pour la réservation.">
+	<cfset language.tableSummary = "Ce tableau affiche les services choisis pour la r&eacute;servation.">
 	<cfset language.misc = "Divers">
-	<cfset language.miscText = "Veuillez inclure l'&eacute;tendue des travaux et les services qui seront peut-être requis.">
+	<cfset language.miscText = "Veuillez inclure l'&eacute;tendue des travaux et les services qui seront peut-&ecirc;tre requis.">
 	<cfset language.miscText2 = "Tous les services, y  compris les frais de r&eacute;servation, feront l&rsquo;objet d&rsquo;une taxe sur les produits et  services&nbsp;(TPS) de 6&nbsp;%.">
 	<cfset language.pricesVary = "les prix varient">
 	<cfset language.later = "pr&eacute;ciser les services plus tard">
@@ -45,7 +45,7 @@
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.tariffHeading#</title>">
 </cfoutput>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 <cfinclude template="#RootDir#includes/build_form_struct.cfm">
@@ -186,4 +186,5 @@
 <br>
 
 </cfform>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

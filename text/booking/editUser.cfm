@@ -1,4 +1,4 @@
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.editProfile = "Edit Profile">
 	<cfset language.keywords = language.masterKeywords & ", Edit Profile">
 	<cfset language.description = "Allows user to edit his profile.">
@@ -39,7 +39,7 @@
 	<cfset language.changePassword = "Changement de mot de passe">
 	<cfset language.repeatPassword = "Retaper le mot de passe">
 	<cfset language.add = "Ajouter">
-	<cfset language.characters = "caractères">
+	<cfset language.characters = "caract&egrave;res">
 	<cfset language.firstNameError = "Veuillez entrer votre pr&eacute;nom.">
 	<cfset language.lastNameError = "Veuillez entrer votre nom de famille.">
 	<cfset language.password1Error = "Veuillez entrer votre mot de passe.">
@@ -68,7 +68,7 @@
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.EditProfile#</title>">
 </cfoutput>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -248,4 +248,5 @@ function EditSubmit ( selectedform )
 <!--- <cfoutput><div align="right"><input type="button" value="#language.Cancel#" onClick="self.location.href='booking.cfm?lang=#lang#'" class="textbutton"></DIV></cfoutput> --->
 
 </div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

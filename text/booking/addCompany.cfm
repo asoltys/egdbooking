@@ -1,6 +1,6 @@
 <cfinclude template="#RootDir#includes/companyInfoVariables.cfm">
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.createComp = "Create New Company">
 	<cfset language.keywords = language.masterKeywords & ", Add New Company">
 	<cfset language.description = "Allows user to create a new account for a company.">
@@ -29,7 +29,7 @@
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.CreateComp#</title>">
 </cfoutput>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 <cfinclude template="#RootDir#includes/checkFilledIn_js.cfm">
 
 <cfparam name="variables.name" default="">
@@ -130,4 +130,4 @@
 </cfoutput>
 
 </div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

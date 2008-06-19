@@ -87,7 +87,7 @@
 
  --->
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset Session.Success.Breadcrumb = "Add New Vessel">
 	<cfset Session.Success.Title = "Add New Vessel">
 	<cfset Session.Success.Message = "The vessel, <b>#form.Name#</b>, has been added.">

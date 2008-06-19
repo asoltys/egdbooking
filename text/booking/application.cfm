@@ -8,16 +8,16 @@
 </cfif>
 
 <cfif NOT IsDefined("URL.lang")>
-	<cflocation url="#CGI.PATH_INFO#?lang=e" addtoken="no">
+	<cflocation url="#CGI.PATH_INFO#?lang=eng" addtoken="no">
 </cfif>
-<cfif lcase(url.lang) NEQ "e" AND lcase(url.lang) NEQ "f">
-	<cflocation url="#CGI.PATH_INFO#?lang=e" addtoken="no">
+<cfif lcase(url.lang) NEQ "eng" AND lcase(url.lang) NEQ "fra">
+	<cflocation url="#CGI.PATH_INFO#?lang=eng" addtoken="no">
 </cfif>
 
 <!--- Set a global variable for the datasource --->
-<cfif lcase(url.lang) EQ "e">
+<cfif lcase(url.lang) EQ "eng">
 	<cfset Foobar = SetLocale("English (Canadian)")>
-<cfelseif lcase(url.lang) EQ "f">
+<cfelseif lcase(url.lang) EQ "fra">
 	<cfset Foobar = SetLocale("French (Canadian)")>
 </cfif>
 

@@ -1,5 +1,5 @@
 <cfinclude template="#RootDir#includes/bookingInfoVariables.cfm">
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.deleteVessel = "Delete Vessel">
 	<cfset language.keywords = language.masterKeywords & ", Delete Vessel">
 	<cfset language.description = "Allows user to delete a vessel.">
@@ -14,9 +14,9 @@
 	<cfset language.keywords = language.masterKeywords & ", Suppression de navire">
 	<cfset language.description = "Permet &agrave; l'utilisateur de supprimer un navire.">
 	<cfset language.subjects = language.masterSubjects & "">
-	<cfset language.areYouSure = "Êtes-vous certain de vouloir supprimer ">
+	<cfset language.areYouSure = "&Ecirc;tes-vous certain de vouloir supprimer ">
 	<cfset language.delete = "Supprimer">
-	<cfset language.cannotDelete = "ne peut pas être supprim&eacute; puisqu'il fait l'objet d'une r&eacute;servation pour les dates suivantes. Veuillez annuler toutes les r&eacute;servations avant de supprimer le navire.">
+	<cfset language.cannotDelete = "ne peut pas &ecirc;tre supprim&eacute; puisqu'il fait l'objet d'une r&eacute;servation pour les dates suivantes. Veuillez annuler toutes les r&eacute;servations avant de supprimer le navire.">
 	<cfset language.ok = "OK">
 
 </cfif>
@@ -34,7 +34,7 @@
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.DeleteVessel#</title>">
 </cfoutput>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <script language="JavaScript" type="text/javascript">
 	function SubmitForm(selectedForm) {
@@ -167,4 +167,5 @@
 		<br><cfoutput><div align="center"><a href="#RootDir#text/booking/booking.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#" class="textbutton">#language.OK#</a></div></cfoutput><br>
 </cfif>
 </div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

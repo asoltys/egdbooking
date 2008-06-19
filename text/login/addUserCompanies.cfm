@@ -150,11 +150,11 @@
 </script>
 <!-- End JavaScript Block -->
 
-<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
-			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#ssi/bread-pain-#lang#.cfm">&gt;
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<a href="#RootDir#text/login/login.cfm?lang=#lang#">#language.login#</a> &gt;
 			#language.CreateUser#
@@ -162,7 +162,7 @@
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 <div class="colLayout">
-		<cfinclude template="#RootDir#ssi/left-menu-gauche-eng.cfm">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
 			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
 			<div class="center">
 				<h1><a name="cont" id="cont">
@@ -284,7 +284,7 @@
 						<input type="hidden" name="companies" value="#companies#" />
 						<br />
 						<div align="right"><input type="submit" value="#language.SubmitUserRequest#" class="textbutton" />
-						<cfif lang EQ 'f'></div><br />
+						<cfif lang EQ 'fra'></div><br />
 						<div align="right"></cfif>
 						<input type="button" onclick="self.location.href='addUser.cfm?lang=#lang#&amp;info=#Variables.info#&amp;companies=#companies#'" value="#language.editProfile#" class="textbutton" />
 						<input type="button" onclick="self.location.href='login.cfm?lang=#lang#'" value="#language.cancel#" class="textbutton" />
@@ -294,6 +294,6 @@
 			</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
-<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 		
 

@@ -3,7 +3,7 @@
 
 <cfinclude template="#RootDir#includes/bookingInfoVariables.cfm">
 <cfinclude template="#RootDir#includes/errorMessages.cfm">
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.newBooking = "Submit Drydock Booking Information">
 	<cfset language.keywords = language.masterKeywords & ", Drydock Booking Information">
 	<cfset language.description = "Allows user to submit a new booking request, drydock section.">
@@ -29,8 +29,8 @@
 	<cfset language.bookingConflicts = "La demande de r&eacute;servation pr&eacute;sent&eacute;e entre en conflit avec d'autres r&eacute;servations. La demande sera inscrite sur une liste d'attente si vous d&eacute;cidez de continuer. Veuillez confirmer les renseignements suivants.">
 	<cfset language.bookingAvailable = "La p&eacute;riode demand&eacute;e est libre. Veuillez confirmer les renseignements suivants.">
 	<cfset language.new = "Nouvelle r&eacute;servation">
-	<cfset language.requestedStatus = "État demandé">
-	<cfset language.tplbookingError = "a déjà une réservation pour :">
+	<cfset language.requestedStatus = "&Eacute;tat demand&eacute;">
+	<cfset language.tplbookingError = "a d&eacute;j&agrave; une r&eacute;servation pour :">
 </cfif>
 
 <cfoutput>
@@ -44,7 +44,7 @@
 	<meta name=""dc.date.modified"" content=""2005-07-25"">
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.NewBooking#</title>">
-	<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+	<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 </cfoutput>
 
 <!-- Start JavaScript Block -->
@@ -262,4 +262,5 @@ function EditSubmit ( selectedform )
 
 </div>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

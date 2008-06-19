@@ -161,14 +161,14 @@
 					</span>
 					<!-- DATE MODIFIED ENDS | FIN DE LA DATE DE MODIFICATION -->
 				</div>
-				<!-- ====== /CLF20/SSI/FOOT-PIED-ENG.HTML ====== -->
+				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.HTML ====== -->
 				<div class="foot2">
 					<a href="#tphp" title="Return to Top of Page"><img class="uparrow" src="/egd_internet_clf2/clf20/images/tphp.gif" width="19" height="12" alt="" /><br />Top of Page</a>
 				</div>
 				<div class="foot3">
 					<a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html">Important Notices</a>
 				</div>
-				<!-- ====== /CLF20/SSI/FOOT-PIED-ENG.HTML ====== -->
+				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.HTML ====== -->
 				
 			</div>
 			<!-- FOOTER ENDS | FIN DU PIED DE LA PAGE -->

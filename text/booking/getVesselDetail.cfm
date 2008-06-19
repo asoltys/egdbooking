@@ -1,5 +1,5 @@
 <cfinclude template="#RootDir#includes/vesselInfoVariables.cfm">
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.vesselDetail = "Vessel Details">
 	<cfset language.keywords = language.masterKeywords & ", Vessel details">
 	<cfset language.description = "Retrieves information for a given vessel.">
@@ -50,7 +50,7 @@
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.vesselDetail#</title>">
 </cfoutput>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfif isDefined("form.vesselID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
@@ -154,4 +154,4 @@
 
 </div>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

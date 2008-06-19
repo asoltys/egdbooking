@@ -1,11 +1,11 @@
-<CFIF url.lang EQ 'eng' OR url.lang eq 'j'>
+<CFIF url.lang EQ 'eng'>
 	<CFSET language.maintenance = "Maintenace Block">
 	<cfset language.bookings = "bookings">
 	<cfset language.pending = "pending bookings">
 	<cfset language.tentative = "tentative bookings">
 	<cfset language.deepsea = "Deepsea Vessel">
 	<cfset language.detailsFor = "Details For">
-<CFELSEIF url.lang eq 'f'>
+<CFELSEIF url.lang eq 'fra'>
 	<CFSET language.maintenance = "P&eacute;riode de maintenance">
 	<cfset language.bookings = "r&eacute;servations">
 	<cfset language.pending = "r&eacute;servations en traitement">
@@ -15,8 +15,8 @@
 </CFIF>
 
 <!--- Magic number used to determine maximum length of vessel name displayed in calendar.
-	This prevets long names from breaking the pretty calendar table.  Lois Chan, June 2005 --->
-<cfset magicnum = 7>
+	This prevents long names from breaking the pretty calendar table.  Lois Chan, June 2005 --->
+<cfset magicnum = 8>
 
 <cfif NOT IsDefined("url.month")>
 	<cfset url.month = DateFormat(PacificNow, "M")>

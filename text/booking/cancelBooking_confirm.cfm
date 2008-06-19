@@ -1,7 +1,7 @@
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 <cfinclude template="#RootDir#includes/build_form_struct.cfm">
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.cancelBooking = "Confirm Cancel Booking">
 	<cfset language.keywords = language.masterKeywords & ", Cancel Booking">
 	<cfset language.description = "Allows user to cancel a booking.">
@@ -16,7 +16,7 @@
 	<cfset language.keywords = language.masterKeywords & ", Annulation de la r&eacute;servation">
 	<cfset language.description = "Permet &agrave; l'utilisateur d'annuler une r&eacute;servation.">
 	<cfset language.subjects = language.masterSubjects & "">
-	<cfset language.areYouSure = "Êtes-vous certain de vouloir annuler votre r&eacute;servation pour ">
+	<cfset language.areYouSure = "&Ecirc;tes-vous certain de vouloir annuler votre r&eacute;servation pour ">
 	<cfset language.from = "du">
 	<cfset language.to = "au">
 	<cfset language.continue = "Continuer">
@@ -38,7 +38,7 @@
 ">
 </cfoutput>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <CFPARAM name="url.referrer" default="Booking Home">
 <CFIF url.referrer eq "Details For">
@@ -100,4 +100,5 @@
 </div>
 </cfoutput>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

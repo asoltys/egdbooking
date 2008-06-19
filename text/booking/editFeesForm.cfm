@@ -1,4 +1,4 @@
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.editTariffHeading = "Edit Tariff of Dock Charges">
 	<cfset language.keywords = language.masterKeywords & ", Edit Tariff of Dock Charges">
 	<cfset language.description = "Allows user to change the services requested for a booking and see the fees associated with them.">
@@ -18,9 +18,9 @@
 	<cfset language.item = "Article">
 	<cfset language.services = "Services et installations">
 	<cfset language.fees = "frais">
-	<cfset language.tableSummary = "Ce tableau affiche les services choisis pour la réservation et permet à l'utilisateur de modifier l'information.">
+	<cfset language.tableSummary = "Ce tableau affiche les services choisis pour la r&eacute;servation et permet &agrave; l'utilisateur de modifier l'information.">
 	<cfset language.misc = "Divers">
-	<cfset language.miscText = "Veuillez inclure l'&eacute;tendue des travaux et les services qui seront peut-être requis.">
+	<cfset language.miscText = "Veuillez inclure l'&eacute;tendue des travaux et les services qui seront peut-&ecirc;tre requis.">
 	<cfset language.pricesVary = "les prix varient">
 </cfif>
 
@@ -37,7 +37,7 @@
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.editTariffHeading#</title>">
 </cfoutput>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 <cfinclude template="#RootDir#includes/build_form_struct.cfm">
@@ -217,4 +217,5 @@ function EditSubmit ( selectedform )
 </cfform>
 
 </div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

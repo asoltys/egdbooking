@@ -11,7 +11,7 @@
 
 <CFSET Variables.onLoad="setCalendar()">
 
-<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfoutput>
 	<style type="text/css" media="screen,print">@import url(#RootDir#css/events.css);</style>
@@ -189,4 +189,4 @@ function setCalendar() {
 
 </div>
 
-<!--- <cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm"> --->
+<!--- <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm"> --->

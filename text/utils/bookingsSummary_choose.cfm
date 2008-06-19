@@ -41,8 +41,7 @@
 
 </cfif>
 
-<cfoutput>
-	<cfhtmlhead text="
+<cfhtmlhead text="
 	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
@@ -54,71 +53,75 @@
 	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#</title>
 	<style type=""text/css"" media=""screen,print"">@import url(#RootDir#css/events.css);</style>
 	">
-</cfoutput>
 
-<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<cfoutput>
-<div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.cfm">#language.PWGSC#</a> &gt; 
-	Pacific Region &gt; 
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.esqGravingDock#</a> &gt; 
-	<a href="../booking-#lang#.cfm">#language.booking#</a> &gt;
-	#language.bookingsSummary#
-</div>
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<a href="../booking-#lang#.cfm">#language.booking#</a> &gt;
+			#language.bookingsSummary#
+			</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					<CFOUTPUT>#language.bookingsSummary#</CFOUTPUT>
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
-<cfparam name="Variables.startDate" default="#PacificNow#">
-<cfparam name="Variables.endDate" default="">
+				<cfparam name="Variables.startDate" default="#PacificNow#">
+				<cfparam name="Variables.endDate" default="">
 
-<div class="main">
+				<cfinclude template="#RootDir#includes/getStructure.cfm">
+				
+				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
+				<CFOUTPUT>
+				#Language.ScreenMessage#
+				
+				<cfform action="bookingsSummary-public.cfm?lang=#lang#" method="POST" enablecab="No" name="bookSum" preservedata="Yes">
+					<table width="100%">
+						<tr>
+							<td id="startCell"><label for="start">&nbsp; #language.fromDate#</label></td>
+							<td headers="startCell">
+								<!---input type="Text" class="textField" name="startDateShow" value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17" maxlength="12" validate="date" message="Please enter a valid Start Date." disabled--->
+								<cfinput id="start" type="text" name="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="#language.invalidfromDate#" onChange="setLaterDate('self', 'bookSum', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookSum', #Variables.bookingLen#)"> <font class="light">#Language.dateform#</font>
+								<a href="javascript:void(0);" onclick="javascript:getCalendar('bookSum', 'start');" class="textbutton">calendar</a>
+								<a href="javascript:document.bookSum.startDate.value=''; void(0);" class="textbutton">clear</a>
+							</td>
+						</tr>
+						<tr>
+							<td id="endCell"><label for="end">&nbsp; #language.toDate#</label></td>
+							<td headers="endCell">
+								<!---input type="Text" class="textField" name="endDateShow" value="#DateFormat(endDate, 'mmm d, yyyy')#" size="17" maxlength="12" validate="date" message="Please enter a valid End Date." disabled--->
+								<cfinput id="end" type="text" name="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="#language.invalidtoDate#" onChange="setLaterDate('self', 'bookSum', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookSum', #Variables.bookingLen#)"> <font class="light">#Language.dateform#</font>
+								<a href="javascript:void(0);" onclick="javascript:getCalendar('bookSum', 'end');" class="textbutton">calendar</a>
+								<a href="javascript:document.bookSum.toDate.value=''; void(0);" class="textbutton">clear</a>
+							</td>
+						</tr>
+						<tr><td colspan="2">&nbsp;</td></tr>		
+						<tr>
+							<td>&nbsp;</td>
+							<td>
+								<!---a href="javascript:validate('bookSum');" class="textbutton">Submit</a>
+								<a href="javascript:document.bookSum.reset();" class="textbutton">Reset</a>
+								<a href="javascript:window.close()" class="textbutton">Cancel</a>
+								<br--->
+								<input type="Submit" value="#language.submit#" class="textbutton">
+								<input type="Reset" value="#language.reset#" class="textbutton">
+							</td>
+						</tr>
+					</table>
+				
+				</cfform>
+				</CFOUTPUT>
+			</div>
 
-<h1>#language.bookingsSummary#</h1>
-
-<cfinclude template="#RootDir#includes/getStructure.cfm">
-
-<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
-
-#Language.ScreenMessage#
-
-<cfform action="bookingsSummary-public.cfm?lang=#lang#" method="POST" enablecab="No" name="bookSum" preservedata="Yes">
-	<table width="100%">
-		<tr>
-			<td id="startCell"><label for="start">&nbsp; #language.fromDate#</label></td>
-			<td headers="startCell">
-				<!---input type="Text" class="textField" name="startDateShow" value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17" maxlength="12" validate="date" message="Please enter a valid Start Date." disabled--->
-				<cfinput id="start" type="text" name="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="#language.invalidfromDate#" onChange="setLaterDate('self', 'bookSum', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookSum', #Variables.bookingLen#)"> <font class="light">#Language.dateform#</font>
-				<a href="javascript:void(0);" onclick="javascript:getCalendar('bookSum', 'start');" class="textbutton">calendar</a>
-				<a href="javascript:document.bookSum.startDate.value=''; void(0);" class="textbutton">clear</a>
-			</td>
-		</tr>
-		<tr>
-			<td id="endCell"><label for="end">&nbsp; #language.toDate#</label></td>
-			<td headers="endCell">
-				<!---input type="Text" class="textField" name="endDateShow" value="#DateFormat(endDate, 'mmm d, yyyy')#" size="17" maxlength="12" validate="date" message="Please enter a valid End Date." disabled--->
-				<cfinput id="end" type="text" name="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="#language.invalidtoDate#" onChange="setLaterDate('self', 'bookSum', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookSum', #Variables.bookingLen#)"> <font class="light">#Language.dateform#</font>
-				<a href="javascript:void(0);" onclick="javascript:getCalendar('bookSum', 'end');" class="textbutton">calendar</a>
-				<a href="javascript:document.bookSum.toDate.value=''; void(0);" class="textbutton">clear</a>
-			</td>
-		</tr>
-		<tr><td colspan="2">&nbsp;</td></tr>		
-		<tr>
-			<td>&nbsp;</td>
-			<td>
-				<!---a href="javascript:validate('bookSum');" class="textbutton">Submit</a>
-				<a href="javascript:document.bookSum.reset();" class="textbutton">Reset</a>
-				<a href="javascript:window.close()" class="textbutton">Cancel</a>
-				<br--->
-				<input type="Submit" value="#language.submit#" class="textbutton">
-				<input type="Reset" value="#language.reset#" class="textbutton">
-			</td>
-		</tr>
-	</table>
-
-</cfform>
-</div>
-
-</cfoutput>
-</body>
-</HTML>
-<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
-
+		<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

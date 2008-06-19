@@ -43,10 +43,10 @@
 <p>#getUser.UserName# has requested to cancel the booking for #getBooking.VesselName# from #DateFormat(getBooking.StartDate, 'mmm d, yyyy')# to #DateFormat(getBooking.EndDate, 'mmm d, yyyy')#.</p>
 	</cfmail>
 	
-	<cfmail to="#getUser.email#" from="#Variables.AdminEmail#" subject="Booking Cancellation Request - Demande d'annulation de réservation" type="html">
+	<cfmail to="#getUser.email#" from="#Variables.AdminEmail#" subject="Booking Cancellation Request - Demande d'annulation de r&eacute;servation" type="html">
 <p>Your cancellation request for the booking for #getBooking.VesselName# from #DateFormat(getBooking.StartDate, 'mmm d, yyyy')# to #DateFormat(getBooking.EndDate, 'mmm d, yyyy')# is now pending.  EGD administration has been notified of your request.  You will receive a follow-up email responding to your request shortly.</p>
 <p>&nbsp;</p>
-<p>Votre demande d'annulation de la réservation pour le #getBooking.VesselName# du #DateFormat(getBooking.StartDate, 'mmm d, yyyy')# au #DateFormat(getBooking.EndDate, 'mmm d, yyyy')# est en cours de traitement. L'administration de la CSE a été avisée de votre demande. Vous recevrez sous peu un courriel de suivi en réponse à votre demande. D'ici là, votre place est considérée comme réservée pour les dates indiquées.</p>
+<p>Votre demande d'annulation de la r&eacute;servation pour le #getBooking.VesselName# du #DateFormat(getBooking.StartDate, 'mmm d, yyyy')# au #DateFormat(getBooking.EndDate, 'mmm d, yyyy')# est en cours de traitement. L'administration de la CSE a &eacute;t&eacute; avis&eacute;e de votre demande. Vous recevrez sous peu un courriel de suivi en r&eacute;ponse &agrave; votre demande. D'ici l&agrave;, votre place est consid&eacute;r&eacute;e comme r&eacute;serv&eacute;e pour les dates indiqu&eacute;es.</p>
 	</cfmail>
 </cfoutput>
 
@@ -83,16 +83,17 @@
 </CFIF>
 
 <!--- create structure for sending to mothership/success page. --->
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset Session.Success.Breadcrumb = "Booking Cancellation Request">
 	<cfset Session.Success.Title = "Booking Cancellation Request">
 	<cfset Session.Success.Message = "<div align='left'>Your cancellation request for the booking for <b>#getBooking.vesselName#</b> from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')# is now pending.  EGD administration has been notified of your request.  You will receive a follow-up email responding to your request shortly.</div>">
 	<cfset Session.Success.Back = "Back to #url.referrer#">
 <cfelse>
-	<cfset Session.Success.Breadcrumb = "Demande d'annulation de réservation">
-	<cfset Session.Success.Title = "Demande d'annulation de réservation">
-	<cfset Session.Success.Message = "<div align='left'>Votre demande d'annulation de la réservation pour le <b>#getBooking.vesselName#</b> du #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')#  est en cours de traitement. L'administration de la CSE a été avisée de votre demande. Vous recevrez sous peu un courriel de suivi en réponse à votre demande.</div>">
+	<cfset Session.Success.Breadcrumb = "Demande d'annulation de r&eacute;servation">
+	<cfset Session.Success.Title = "Demande d'annulation de r&eacute;servation">
+	<cfset Session.Success.Message = "<div align='left'>Votre demande d'annulation de la r&eacute;servation pour le <b>#getBooking.vesselName#</b> du #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')#  est en cours de traitement. L'administration de la CSE a &eacute;t&eacute; avis&eacute;e de votre demande. Vous recevrez sous peu un courriel de suivi en r&eacute;ponse &agrave; votre demande.</div>">
 	<cfset Session.Success.Back = "Retour &agrave;">
 </cfif>
 <cfset Session.Success.Link = "#returnTo#?#urltoken#&CompanyID=#url.CompanyID##variables.dateValue#">
 <cflocation addtoken="no" url="#RootDir#text/common/success.cfm?lang=#lang#">
+

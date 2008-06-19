@@ -9,7 +9,7 @@
 <meta name=""dc.date.created"" content=""2005-07-25"">
 <title>PWGSC - ESQUIMALT GRAVING DOCK - View Tariff Form of Dock Charges</title>">
 
-<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 
 <cfquery name="getFees" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -20,7 +20,7 @@
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
-			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#ssi/bread-pain-#lang#.cfm"> &gt; <CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm"> &gt; <CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 			<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 		<CFELSE>
 			 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
@@ -28,7 +28,7 @@
 		View Tariff Form of Dock Charges</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
-		<cfinclude template="#RootDir#ssi/left-menu-gauche-eng.cfm">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
 			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
 			<div class="center">
 				<h1><a name="cont" id="cont">
@@ -118,4 +118,4 @@
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
-		<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
+		<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

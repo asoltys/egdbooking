@@ -1,6 +1,6 @@
 <cfinclude template="#RootDir#includes/vesselInfoVariables.cfm">
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.addVessel = "Add New Vessel">
 	<cfset language.keywords = language.masterKeywords & ", Add New Vessel">
 	<cfset language.description = "Allows user to create a new vessel.">
@@ -28,7 +28,7 @@
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.AddVessel#</title>">
 </cfoutput>
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -143,4 +143,4 @@
 </CFOUTPUT>
 
 </div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

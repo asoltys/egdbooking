@@ -13,7 +13,7 @@
 	WHERE Name = '#trim(form.Name)#'
 </cfquery>
 
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.phoneShortError = "Please enter a valid phone number.">
 	<cfset language.zipShortError = "Please enter a valid postal / zip code.">
 	<cfset language.enterName = "Please enter the company name.">
@@ -22,7 +22,7 @@
 	<cfset language.phoneShortError = "Veuillez entrer un num&eacute;ro de t&eacute;l&eacute;phone valide.">
 	<cfset language.zipShortError = "Veuillez entrer un code postal valide.">
 	<cfset language.enterName = "Veuillez entrer la raison sociale.">
-	<cfset language.nameExists = "Une entreprise du même nom existe d&eacute;j&agrave;.">
+	<cfset language.nameExists = "Une entreprise du m&ecirc;me nom existe d&eacute;j&agrave;.">
 </cfif>
 
 <cfset Variables.Errors = ArrayNew(1)>
@@ -145,3 +145,4 @@
 </cfoutput>
 
 <cflocation addtoken="no" url="editUser.cfm?lang=#lang#">
+

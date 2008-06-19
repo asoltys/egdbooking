@@ -3,7 +3,7 @@
 
 <cfinclude template="#RootDir#includes/bookingInfoVariables.cfm">
 <cfinclude template="#RootDir#includes/errorMessages.cfm">
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.newBooking = "Submit Drydock Booking Information">
 	<cfset language.keywords = language.masterKeywords & ", Drydock Booking Information">
 	<cfset language.description = "Allows user to submit a new booking request, drydock section.">
@@ -23,8 +23,8 @@
 	<cfset language.tooLarge = "sont sup&eacute;rieures &agrave; celles de la cale s&egrave;che.">
 	<cfset language.requestBooking = "Pr&eacute;senter la r&eacute;servation">
 	<cfset language.bookingFound = "Une r&eacute;servation a &eacute;t&eacute; trouv&eacute;e pour ">
-	<cfset language.requestedStatus = "État demandé">
-	<cfset language.tplbookingError = "a déjà une réservation pour :">
+	<cfset language.requestedStatus = "&Eacute;tat demand&eacute;">
+	<cfset language.tplbookingError = "a d&eacute;j&agrave; une r&eacute;servation pour :">
 </cfif>
 
 <cfoutput>
@@ -38,7 +38,7 @@
 	<meta name=""dc.date.modified"" content=""2005-07-25"">
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.NewBooking#</title>">
-	<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+	<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 </cfoutput>
 
 <!--- Query to get Vessel Information --->
@@ -255,4 +255,5 @@
 </cfoutput>
 </div>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

@@ -29,19 +29,17 @@
 </cfif>
 
 <cfhtmlhead text="
-<meta name=""dc.title"" lang=""#langVar#"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.bookingsSummary#"">
-<meta name=""keywords"" lang=""#langVar#"" content="""">
-<meta name=""description"" lang=""#langVar#"" content="""">
-<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-<meta name=""dc.date.published"" content=""2005-07-25"">
-<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-<meta name=""dc.date.modified"" content=""2005-07-25"">
-<meta name=""dc.date.created"" content=""2005-07-25"">
-<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.bookingsSummary#</title>
-<style type=""text/css"" media=""screen,print"">@import url(#RootDir#css/events.css);</style>
+	<meta name=""dc.title"" lang=""#langVar#"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.bookingsSummary#"">
+	<meta name=""keywords"" lang=""#langVar#"" content="""">
+	<meta name=""description"" lang=""#langVar#"" content="""">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
+	<meta name=""dc.date.published"" content=""2005-07-25"">
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
+	<meta name=""dc.date.modified"" content=""2005-07-25"">
+	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.bookingsSummary#</title>
+	<style type=""text/css"" media=""screen,print"">@import url(#RootDir#css/events.css);</style>
 ">
-
-<cfinclude template="#RootDir#ssi/tete-header-#lang#.cfm">
 
 <!-- Start JavaScript Block -->
 <!-- End JavaScript Block -->
@@ -123,129 +121,128 @@ function popUp(pageID) {
 }
 </script>
 
-<cfoutput>
-<div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.cfm">#language.PWGSC#</a> &gt; 
-	Pacific Region &gt; 
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.esqGravingDock#</a> &gt;
-	<a href="../booking-#lang#.cfm">#language.booking#</a> &gt;
-	#language.bookingsSummary#
-</div>
-</cfoutput>
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<div class="main">
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<a href="../booking-#lang#.cfm">#language.booking#</a> &gt;
+			#language.bookingsSummary#
+			</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					<CFOUTPUT>#language.bookingsSummary#</CFOUTPUT>
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
-<!--div style="text-align: right; font-size: 10pt;"><a href="booking.cfm?lang=#lang#">Back</a></div-->
+				<H2><cfoutput>#language.Drydock#</cfoutput></H2>
+				<!-- Begin Dry Docks table -->
+				<TABLE class="calendar" cellpadding="0" cellspacing="0" width="100%">
+					<cfoutput>
+					<TR>
+						<!---TH id="company" class="calendar" style="font-size: 12px; width: 10%;">#language.COMPANYCaps#</TH--->
+						<TH id="section" class="calendar small" style="width: 20%;">#language.SECTIONCaps#</TH>
+						<TH id="docking" class="calendar small" style="width: 40%;">#language.DOCKINGCaps#</TH>
+						<TH id="booking" class="calendar small" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
+					</TR>
+					</cfoutput>
+					<CFIF getDockBookings.RecordCount neq 0>
+						<CFOUTPUT query="getDockBookings">
+						<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
+							<!---TD class="calendar">#VesselLength#M <CFIF Anonymous>Deapsea Vessel<CFELSE>#VesselName#</CFIF></TD--->
+							<!---TD headers="company" class="calendar">#abbreviation#</TD--->
+							<TD headers="section" class="calendar small"><DIV align="center"><DIV align="center"><CFIF Status eq 'c'>
+													<CFIF Section1 eq true>1</CFIF>
+													<CFIF Section2 eq true>
+														<CFIF Section1> &amp; </CFIF>
+													2</CFIF>
+													<CFIF Section3 eq true>
+														<CFIF Section1 OR Section2> &amp; </CFIF>
+													3</CFIF>
+												<CFELSE>#language.tentative#
+												</CFIF>
+												</DIV></TD>
+							<TD headers="docking" class="calendar small">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
+							<TD headers="booking" class="calendar small">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></TD>
+						</TR>
+						</CFOUTPUT>
+					</TABLE>
+				<CFELSE>
+				</TABLE>
+				<!-- End Dry Docks table -->
+				<cfoutput>#language.noBookings#</cfoutput>
+				</CFIF>
+				
+				<h2><cfoutput>#language.northLandingWharf#</cfoutput></h2>
+				<!-- Begin North Jetty table -->
+				<TABLE class="calendar" cellpadding="0" cellspacing="0" width="100%">
+					<cfoutput>
+					<TR>
+						<!---TH id="company2" class="calendar" style="font-size: 12px; width: 10%;">#language.COMPANYCaps#</TH--->
+						<TH id="section2" class="calendar small" style="width: 20%;">#language.SECTIONCaps#</TH>
+						<TH id="docking2" class="calendar small" style="width: 40%;">#language.DOCKINGCaps#</TH>
+						<TH id="booking2" class="calendar small" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
+					</TR>
+					</cfoutput>
+					<CFIF getNJBookings.RecordCount neq 0>
+						<CFOUTPUT query="getNJBookings">
+						<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
+							<!---TD class="calendar">#VesselLength#M <CFIF Anonymous eq true>Deapsea Vessel<CFELSE>#VesselName#</CFIF></TD--->
+							<!---TD headers="company2" class="calendar">#abbreviation#</TD--->
+							<TD headers="section2" class="calendar small"><DIV align="center"><CFIF Status eq 'c'>#language.booked#
+														<CFELSEIF Status eq 't'>#language.tentative#
+														</CFIF></DIV></TD>
+							<TD headers="docking2" class="calendar small">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
+							<TD headers="booking2" class="calendar small">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></TD>
+						</TR>
+						</CFOUTPUT>
+					</TABLE>
+				<CFELSE>
+				</TABLE>
+				<!-- End North Jetty table -->
+				<cfoutput>#language.noBookings#</cfoutput>
+				</CFIF>
+				
+				<h2><cfoutput>#language.southJetty#</cfoutput></h2>
+				<!-- Begin South Jetty table -->
+				<TABLE class="calendar" cellpadding="0" cellspacing="0" width="100%">
+					<cfoutput>
+					<TR>
+						<!---TH id="company3" class="calendar" style="font-size: 12px; width: 10%;">#language.COMPANYCaps#</TH--->
+						<TH id="section3" class="calendar small" style="width: 20%;">#language.SECTIONCaps#</TH>
+						<TH id="docking3" class="calendar small" style="width: 40%;">#language.DOCKINGCaps#</TH>
+						<TH id="booking3" class="calendar small" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
+					</TR>
+					</cfoutput>
+					<CFIF getSJBookings.RecordCount neq 0>
+						<CFOUTPUT query="getSJBookings">
+						<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
+							<!---TD class="calendar">#VesselLength#M <CFIF Anonymous eq true>Deapsea Vessel<CFELSE>#VesselName#</CFIF></TD--->
+							<!---TD headers="company3" class="calendar">#abbreviation#</TD--->
+							<TD headers="section3" class="calendar small"><DIV align="center"><CFIF Status eq 'c'>#language.booked#
+														<CFELSEIF Status eq 't'>#language.tentative#
+														<CFELSE>#language.pending#
+														</CFIF></DIV></TD>
+							<TD headers="docking3" class="calendar small">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
+							<TD headers="booking3" class="calendar small">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></TD>
+						</TR>
+						</CFOUTPUT>
+					</TABLE>
+				<!-- End South Jetty table -->
+				<CFELSE>
+				</TABLE>
+				<cfoutput>#language.noBookings#</cfoutput>
+				</CFIF>
+								
+			</div>
 
-<H1><cfoutput>#language.bookingsSummary#</cfoutput></H1>
-
-<!---CFINCLUDE template="#RootDir#includes/dock_calendar_menu.cfm"--->
-<!--A href="javascript:window.open('bookingsSummary-printable.cfm'); void(0);" class="textbutton">VIEW PRINTABLE VERSION</A>
-<BR><BR-->
-
-<H2><cfoutput>#language.Drydock#</cfoutput></H2>
-<!-- Begin Dry Docks table -->
-<TABLE class="calendar" cellpadding="0" cellspacing="0" width="100%">
-	<cfoutput>
-	<TR>
-		<!---TH id="company" class="calendar" style="font-size: 12px; width: 10%;">#language.COMPANYCaps#</TH--->
-		<TH id="section" class="calendar small" style="width: 20%;">#language.SECTIONCaps#</TH>
-		<TH id="docking" class="calendar small" style="width: 40%;">#language.DOCKINGCaps#</TH>
-		<TH id="booking" class="calendar small" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
-	</TR>
-	</cfoutput>
-	<CFIF getDockBookings.RecordCount neq 0>
-		<CFOUTPUT query="getDockBookings">
-		<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
-			<!---TD class="calendar">#VesselLength#M <CFIF Anonymous>Deapsea Vessel<CFELSE>#VesselName#</CFIF></TD--->
-			<!---TD headers="company" class="calendar">#abbreviation#</TD--->
-			<TD headers="section" class="calendar small"><DIV align="center"><DIV align="center"><CFIF Status eq 'c'>
-									<CFIF Section1 eq true>1</CFIF>
-									<CFIF Section2 eq true>
-										<CFIF Section1> &amp; </CFIF>
-									2</CFIF>
-									<CFIF Section3 eq true>
-										<CFIF Section1 OR Section2> &amp; </CFIF>
-									3</CFIF>
-								<CFELSE>#language.tentative#
-								</CFIF>
-								</DIV></TD>
-			<TD headers="docking" class="calendar small">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
-			<TD headers="booking" class="calendar small">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></TD>
-		</TR>
-		</CFOUTPUT>
-	</TABLE>
-<CFELSE>
-</TABLE>
-<!-- End Dry Docks table -->
-<cfoutput>#language.noBookings#</cfoutput>
-</CFIF>
-
-<h2><cfoutput>#language.northLandingWharf#</cfoutput></h2>
-<!-- Begin North Jetty table -->
-<TABLE class="calendar" cellpadding="0" cellspacing="0" width="100%">
-	<cfoutput>
-	<TR>
-		<!---TH id="company2" class="calendar" style="font-size: 12px; width: 10%;">#language.COMPANYCaps#</TH--->
-		<TH id="section2" class="calendar small" style="width: 20%;">#language.SECTIONCaps#</TH>
-		<TH id="docking2" class="calendar small" style="width: 40%;">#language.DOCKINGCaps#</TH>
-		<TH id="booking2" class="calendar small" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
-	</TR>
-	</cfoutput>
-	<CFIF getNJBookings.RecordCount neq 0>
-		<CFOUTPUT query="getNJBookings">
-		<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
-			<!---TD class="calendar">#VesselLength#M <CFIF Anonymous eq true>Deapsea Vessel<CFELSE>#VesselName#</CFIF></TD--->
-			<!---TD headers="company2" class="calendar">#abbreviation#</TD--->
-			<TD headers="section2" class="calendar small"><DIV align="center"><CFIF Status eq 'c'>#language.booked#
-										<CFELSEIF Status eq 't'>#language.tentative#
-										</CFIF></DIV></TD>
-			<TD headers="docking2" class="calendar small">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
-			<TD headers="booking2" class="calendar small">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></TD>
-		</TR>
-		</CFOUTPUT>
-	</TABLE>
-<CFELSE>
-</TABLE>
-<!-- End North Jetty table -->
-<cfoutput>#language.noBookings#</cfoutput>
-</CFIF>
-
-<h2><cfoutput>#language.southJetty#</cfoutput></h2>
-<!-- Begin South Jetty table -->
-<TABLE class="calendar" cellpadding="0" cellspacing="0" width="100%">
-	<cfoutput>
-	<TR>
-		<!---TH id="company3" class="calendar" style="font-size: 12px; width: 10%;">#language.COMPANYCaps#</TH--->
-		<TH id="section3" class="calendar small" style="width: 20%;">#language.SECTIONCaps#</TH>
-		<TH id="docking3" class="calendar small" style="width: 40%;">#language.DOCKINGCaps#</TH>
-		<TH id="booking3" class="calendar small" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
-	</TR>
-	</cfoutput>
-	<CFIF getSJBookings.RecordCount neq 0>
-		<CFOUTPUT query="getSJBookings">
-		<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
-			<!---TD class="calendar">#VesselLength#M <CFIF Anonymous eq true>Deapsea Vessel<CFELSE>#VesselName#</CFIF></TD--->
-			<!---TD headers="company3" class="calendar">#abbreviation#</TD--->
-			<TD headers="section3" class="calendar small"><DIV align="center"><CFIF Status eq 'c'>#language.booked#
-										<CFELSEIF Status eq 't'>#language.tentative#
-										<CFELSE>#language.pending#
-										</CFIF></DIV></TD>
-			<TD headers="docking3" class="calendar small">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
-			<TD headers="booking3" class="calendar small">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></TD>
-		</TR>
-		</CFOUTPUT>
-	</TABLE>
-<!-- End South Jetty table -->
-<CFELSE>
-</TABLE>
-<cfoutput>#language.noBookings#</cfoutput>
-</CFIF>
-<BR><BR>
-
-</div>
-
-</div>
-
-<cfinclude template="#RootDir#ssi/foot-pied-#lang#.cfm">
-
+		<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

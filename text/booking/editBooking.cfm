@@ -1,5 +1,5 @@
 <cfinclude template="#RootDir#includes/bookingInfoVariables.cfm">
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.title = "Edit Booking">
 	<cfset language.keywords = language.masterKeywords & ", Edit Booking">
 	<cfset language.description = "Refers user to contact the administration for editing a booking.">
@@ -16,15 +16,15 @@
 <cfelse>
 	<cfset language.title = "Modification de r&eacute;servation">
 	<cfset language.keywords = language.masterKeywords & ", Modification de r&eacute;servation">
-	<cfset language.description = "Invite l'utilisateur à communiquer avec l'administration pour modifier une réservation.">
+	<cfset language.description = "Invite l'utilisateur &agrave; communiquer avec l'administration pour modifier une r&eacute;servation.">
 	<cfset language.subjects = language.masterSubjects & "">
 	<cfset language.changeForm = "Formulaire de r&eacute;servation provisoire pour les navires et les modifications">
-	<cfset language.explanation = "Les réservations ne peuvent être modifiées en ligne. Si vous voulez modifier les renseignements de votre demande de réservation, veuillez en aviser la Cale sèche d'Esquimalt par téléphone, fax ou courriel, puis faites parvenir par courrier traditionnel ou par fax une copie papier du formulaire de modification d'une réservation.">
+	<cfset language.explanation = "Les r&eacute;servations ne peuvent &ecirc;tre modifi&eacute;es en ligne. Si vous voulez modifier les renseignements de votre demande de r&eacute;servation, veuillez en aviser la Cale s&egrave;che d'Esquimalt par t&eacute;l&eacute;phone, fax ou courriel, puis faites parvenir par courrier traditionnel ou par fax une copie papier du formulaire de modification d'une r&eacute;servation.">
 	<cfset language.phone = "T&eacute;l&eacute;phone">
 	<cfset language.fax = "Fac-simil&eacute;">
 	<cfset language.emailAddress = "Adresse de courriel">
 	<cfset language.or = "ou">
-	<cfset language.acrobatrequired = 'Il faut le logiciel <A href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</A> pour le fichier suivant. Le lien ouvrira une nouvelle fenêtre.'>
+	<cfset language.acrobatrequired = 'Il faut le logiciel <A href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</A> pour le fichier suivant. Le lien ouvrira une nouvelle fen&ecirc;tre.'>
 	<cfset language.mail = "Adresse postale">
 	<cfset language.mailing = "Directeur des op&eacute;rations<br>Cale s&egrave;che d'Esquimalt<br>825 Admirals Road<br>Esquimalt (C.-B.)<br>V9A 2P1<br>Canada">
 </cfif>
@@ -72,7 +72,7 @@
 			AND Vessels.Deleted = '0'
 </cfquery>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <div class="breadcrumbs">
 	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
@@ -124,4 +124,5 @@
 </cfoutput>
 </div>
 
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

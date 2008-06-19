@@ -1,5 +1,5 @@
 <cfinclude template="#RootDir#includes/generalLanguageVariables.cfm">
-<cfif lang EQ "e">
+<cfif lang EQ "eng">
 	<cfset language.viewTariffHeading = "View Tariff of Dock Charges">
 	<cfset language.keywords = language.masterKeywords & ", View of Tariff od Dock Charges">
 	<cfset language.description = "Allows user to view information on services requested for a booking and the fees associated with them.">
@@ -21,7 +21,7 @@
 	<cfset language.fees = "frais">
 	<cfset language.tableSummary = "">
 	<cfset language.misc = "Divers&nbsp;">
-	<cfset language.miscText = "Veuillez inclure l'&eacute;tendue des travaux et les services qui seront peut-être requis.">
+	<cfset language.miscText = "Veuillez inclure l'&eacute;tendue des travaux et les services qui seront peut-&ecirc;tre requis.">
 	<cfset language.pricesVary = "les prix varient">
 </cfif>
 
@@ -38,7 +38,7 @@
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.ViewTariffHeading#</title>">
 </cfoutput>
 
-<cfinclude template="#RootDir#includes/header-#lang#.cfm">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="getForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
@@ -189,4 +189,5 @@
 </div>
 
 </div>
-<cfinclude template="#RootDir#includes/footer-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+
