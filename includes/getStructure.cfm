@@ -25,24 +25,13 @@
 <!--- Displaying error information --->
 
 <cfif IsDefined("Session.Return_Structure.Errors") AND ArrayLen(Session.Return_Structure.Errors) GT 0>
-<table width="100%" cellspacing="0" cellpadding="1" border="0">
-  <tr> 
-	<td bgcolor="#8CA2C0"> 
-	  <table width="100%" cellspacing="0" cellpadding="10" border="0">
-		<tr> 
-		  <td bgcolor="#F6F6F6"> 
-			<div class="error_message"><cfoutput>#language.formProblemError#</cfoutput></div>
-					
-			<cfloop index="i" from="1" to="#ArrayLen(Session.Return_Structure.Errors)#" step="1">
-				<cfoutput>#Session.Return_Structure.Errors[i]#<br></cfoutput>
-			</cfloop>
-			<cfset overwrite = '1'>
- 			</td>
-		</tr>
-	  </table>
-	</td>
-  </tr>
-</table>
+<div id="actionErrors"><cfoutput>#language.formProblemError#</cfoutput><br />
+				
+<cfloop index="i" from="1" to="#ArrayLen(Session.Return_Structure.Errors)#" step="1">
+	<cfoutput>#Session.Return_Structure.Errors[i]#<br></cfoutput>
+</cfloop>
+<cfset overwrite = '1'>
+</div>
 </cfif>
 <cfif IsDefined("Session.Return_Structure")>
 	<cfset StructDelete(Session, "Return_Structure")>
