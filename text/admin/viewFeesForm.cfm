@@ -68,12 +68,12 @@
 			
 			<cfoutput query="getFees">
 				<cfif item NEQ "" AND item mod 2>
-					<cfset backColor = "##FFF8DC">
+					<cfset rowClass = "highlight">
 				<cfelseif item NEQ "">
-					<cfset backColor = "##FFFFFF">
+					<cfset rowClass = "">
 				</cfif>
 			
-				<tr bgcolor="#backColor#">
+				<tr class="#rowClass#">
 					<td headers="checkHeader" align="right" valign="top">
 						<cfif fee NEQ "">
 							<input name="#abbreviation#" id="#abbreviation#" type="Checkbox" disabled>		
@@ -109,7 +109,8 @@
 				</tr>
 			</cfoutput>
 			</table>
-			<br>
+			
+			<br />
 			<div align="right">
 				<a class="textbutton" href="<cfoutput>updateFees.cfm?lang=#lang#</cfoutput>">update fees</a>
 				<a href="otherForms.cfm?lang=#lang#" class="textbutton">Back</a>

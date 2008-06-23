@@ -55,8 +55,7 @@
 	<cfset StructDelete(Session, "Form_Structure")>
 </cfif>
 
-<cfoutput>
-	<cfhtmlhead text="
+<cfhtmlhead text="
 	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.EditProfile#"">
 	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
@@ -66,9 +65,6 @@
 	<meta name=""dc.date.modified"" content=""2005-07-25"">
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.EditProfile#</title>">
-</cfoutput>
-
-<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -102,151 +98,124 @@
 
 <cfparam name="variables.FirstName" default="#getUser.FirstName#">
 <cfparam name="variables.LastName" default="#getUser.LastName#">
-<!---<cfparam name="variables.loginID" default="#getUser.loginID#">--->
 <cfparam name="variables.email" default="#getUser.Email#">
-<!---<cfparam name="variables.companyID" default="#getUser.CompanyID#">--->
 
 <!-- Start JavaScript Block -->
 <script language="JavaScript" type="text/javascript">
-<!--
-function EditSubmit ( selectedform )
-{
-  document.forms[selectedform].submit() ;
-}
-//-->
+	<!--
+	function EditSubmit ( selectedform )
+	{
+	  document.forms[selectedform].submit() ;
+	}
+	//-->
 </script>
 <!-- End JavaScript Block -->
 
-<cfoutput>
-<div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
-	#language.PacificRegion# &gt;
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.EsqGravingDock#</a> &gt;
-	<a href="#RootDir#text/booking-#lang#.cfm">#language.Booking#</A> &gt;
-		<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-		<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
-	<CFELSE>
-		<a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
-	</CFIF>
-	#language.EditProfile#
-</div>
-</cfoutput>
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<div class="main">
-<H1><cfoutput>#language.EditProfile#</cfoutput></H1>
-<cfinclude template="#RootDir#includes/user_menu.cfm"><br>
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+			<CFELSE>
+				<a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+			</CFIF>
+			#language.EditProfile#
+			</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					<CFOUTPUT>#language.EditProfile#</CFOUTPUT>
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
-
-<cfif IsDefined("Session.Return_Structure")>
-	<!--- Populate the Variables Structure with the Return Structure.
-			Also display any errors returned --->
-	<cfinclude template="#RootDir#includes/getStructure.cfm">
-</cfif>
-
-<cfoutput>
-	<cfform action="editUser_action.cfm?lang=#lang#" name="editUserForm" method="post">
-	<table align="center" width="81%">
-	<tr>
-		<td colspan="2"><strong>#language.EditProfile#:</strong></td>
-	</tr>
-	<tr>
-		<td id="first"><label for="firstName">#language.FirstName#:</label></td>
-		<td headers="first"><cfinput name="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40" required="yes" id="firstName" CLASS="textField" message="#language.firstNameError#"></td>
-	</tr>
-	<tr>
-		<td id="last"><label for="lastName">#language.LastName#:</label></td>
-		<td headers="last"><cfinput name="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40" required="yes" id="lastName" CLASS="textField" message="#language.lastNameError#"></td>
-	</tr>
-	<tr>
-		<td id="email">#language.Email#:</td>
-		<td headers="email">#variables.email#</td>
-	</tr>
-	<tr>
-		<td colspan="2" align="center"><input type="submit" name="submitForm" value="#language.saveName#" class="textbutton">
-	</tr>
-	</table>
-	</cfform>
-</cfoutput>
-
-<hr width="65%" align="center"><br>
-
-<!---clearly this is useless....
-<cfoutput query="getUserCompanies">
-</cfoutput>--->
-
-
-<table align="center" width="81%">
-<tr>
-	<cfoutput><td valign="top"colspan="2"><cfif getUserCompanies.recordCount GT 1><strong>#language.yourCompanies#:</strong><cfelse><strong>#language.yourCompany#:</strong></cfif></td></cfoutput>
-</tr>
-<cfoutput query="getUserCompanies">
-	<tr>
-		<td width="3%">&nbsp;</td><td width="50%" valign="top">#name#</td>
-		<td align="right" valign="top" width="17%">
-			<form method="post" action="removeUserCompany_confirm.cfm?lang=#lang#" name="remCompany#CompanyID#" id="remCompany#CompanyID#">
-				<input type="hidden" name="CompanyID" value="#CompanyID#">
-				<cfif getUserCompanies.recordCount GT 1>
-					<a href="javascript:EditSubmit('remCompany#CompanyID#');" class="textbutton">#language.Remove#</a>
+				<cfinclude template="#RootDir#includes/user_menu.cfm"><br>
+				
+				<cfif IsDefined("Session.Return_Structure")>
+					<!--- Populate the Variables Structure with the Return Structure.
+							Also display any errors returned --->
+					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				</cfif>
-			</form>
-		</td>
-		<td style="font-size:10pt;" align="right" valign="top" width="30%"><cfif approved EQ 0><i>#language.awaitingApproval#</i><cfelse>&nbsp;</cfif></td>
-	</tr>
-</cfoutput>
-</table>
-<!---
-<cfoutput>
-	<cfform action="addUserCompany_action.cfm?lang=#lang#" name="addUserCompanyForm" method="post">
-	<table align="center" width="81%">
-	<tr><td>&nbsp;</td></tr>
-	<tr>
-		<td colspan="2"><label for="companySelect">#language.AddCompany#:</label></td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td colspan="3">
-			<!---<cfselect name="companyID" id="companySelect" query="getCompanies" value="companyID" display="Name" />--->
-			<cfselect name="companyID" id="companySelect" required="yes" message="#language.selectCompany#">
-				<option value="">(#language.selectCompany#)
-				<cfloop query="getCompanies">
-					<option value="#companyID#">#Name#
-				</cfloop>
-			</cfselect>
-			<!--a href="javascript:document.addUserCompanyForm.submitForm.click();" class="textbutton">Add</a>
-			<br-->
-			<input type="submit" name="submitForm" value="#language.add#" class="textbutton">
-			<BR>
-			<font size="-2">#language.createCompany#</font>
-		</td>
-	</tr>
-	</table>
-	</cfform>
-</cfoutput>
---->
-<hr width="65%" align="center"><br>
+				
+				<cfoutput>
+				<cfform action="editUser_action.cfm?lang=#lang#" name="editUserForm" method="post">
+				<table align="center" width="81%">
+				<tr>
+					<td colspan="2"><strong>#language.EditProfile#:</strong></td>
+				</tr>
+				<tr>
+					<td id="first"><label for="firstName">#language.FirstName#:</label></td>
+					<td headers="first"><cfinput name="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40" required="yes" id="firstName" CLASS="textField" message="#language.firstNameError#"></td>
+				</tr>
+				<tr>
+					<td id="last"><label for="lastName">#language.LastName#:</label></td>
+					<td headers="last"><cfinput name="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40" required="yes" id="lastName" CLASS="textField" message="#language.lastNameError#"></td>
+				</tr>
+				<tr>
+					<td id="email">#language.Email#:</td>
+					<td headers="email">#variables.email#</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" name="submitForm" value="#language.saveName#" class="textbutton">
+				</tr>
+				</table>
+				</cfform>
+				</cfoutput>
+				
+				<hr width="65%" align="center"><br>
+				
+				<table align="center" width="81%">
+				<tr>
+					<cfoutput><td valign="top"colspan="2"><cfif getUserCompanies.recordCount GT 1><strong>#language.yourCompanies#:</strong><cfelse><strong>#language.yourCompany#:</strong></cfif></td></cfoutput>
+				</tr>
+				<cfoutput query="getUserCompanies">
+					<tr>
+						<td width="3%">&nbsp;</td><td width="50%" valign="top">#name#</td>
+						<td align="right" valign="top" width="17%">
+							<form method="post" action="removeUserCompany_confirm.cfm?lang=#lang#" name="remCompany#CompanyID#" id="remCompany#CompanyID#">
+								<input type="hidden" name="CompanyID" value="#CompanyID#">
+								<cfif getUserCompanies.recordCount GT 1>
+									<a href="javascript:EditSubmit('remCompany#CompanyID#');" class="textbutton">#language.Remove#</a>
+								</cfif>
+							</form>
+						</td>
+						<td align="right" valign="top" width="30%"><cfif approved EQ 0><em class="smallFont">#language.awaitingApproval#</em><cfelse>&nbsp;</cfif></td>
+					</tr>
+				</cfoutput>
+				</table>
 
-<cfoutput>
-	<cfform action="changePassword.cfm?lang=e" method="post" name="changePassForm">
-	<table align="center" width="81%">
-	<tr>
-		<td colspan="2"><strong>#language.ChangePassword#:</strong></td>
-	</tr>
-	<tr>
-		<td id="pass1"><label for="password">#language.Password# <span style="font-size: 9pt;">(*6 - 10 #language.characters#)</span>:</label></td>
-		<td headers="pass1"><cfinput type="password" id="password" name="password1" required="yes" size="25" maxlength="10" class="textField" message="#language.password1Error#"></td>
-	</tr>
-	<tr>
-		<td id="pass2"><label for="password2">#language.RepeatPassword#:</label></td>
-		<td headers="pass2"><cfinput type="password" id="password2" name="password2" required="yes" size="25" maxlength="10" class="textField" message="#language.password2Error#"></td>
-	</tr>
-	<tr>
-		<td colspan="2" align="center"><input type="submit" name="submitForm" value="#language.ChangePassword#" class="textbutton">
-	</tr>
-	</table>
-	</cfform>
-</cfoutput>
-<!--- <cfoutput><div align="right"><input type="button" value="#language.Cancel#" onClick="self.location.href='booking.cfm?lang=#lang#'" class="textbutton"></DIV></cfoutput> --->
+				<hr width="65%" align="center"><br>
+				
+				<cfoutput>
+					<cfform action="changePassword.cfm?lang=eng" method="post" name="changePassForm">
+					<table align="center" width="81%">
+					<tr>
+						<td colspan="2"><strong>#language.ChangePassword#:</strong></td>
+					</tr>
+					<tr>
+						<td id="pass1"><label for="password">#language.Password# <span style="font-size: 9pt;">(*6 - 10 #language.characters#)</span>:</label></td>
+						<td headers="pass1"><cfinput type="password" id="password" name="password1" required="yes" size="25" maxlength="10" class="textField" message="#language.password1Error#"></td>
+					</tr>
+					<tr>
+						<td id="pass2"><label for="password2">#language.RepeatPassword#:</label></td>
+						<td headers="pass2"><cfinput type="password" id="password2" name="password2" required="yes" size="25" maxlength="10" class="textField" message="#language.password2Error#"></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><input type="submit" name="submitForm" value="#language.ChangePassword#" class="textbutton">
+					</tr>
+					</table>
+					</cfform>
+				</cfoutput>
 
-</div>
+			</div>
+		<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 

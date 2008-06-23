@@ -27,8 +27,7 @@
 	<cfset language.tplbookingError = "a d&eacute;j&agrave; une r&eacute;servation pour :">
 </cfif>
 
-<cfoutput>
-	<cfhtmlhead text="
+<cfhtmlhead text="
 	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.NewBooking#"">
 	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
@@ -38,8 +37,6 @@
 	<meta name=""dc.date.modified"" content=""2005-07-25"">
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.NewBooking#</title>">
-	<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
-</cfoutput>
 
 <!--- Query to get Vessel Information --->
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -192,68 +189,78 @@
 
 <!--- Gets all Bookings that would be affected by the requested booking --->
 
-<cfoutput>
-<div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
-	#language.pacificRegion# &gt;
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.EsqGravingDock#</a> &gt;
-	<A href="booking.cfm?lang=<cfoutput>#lang#</cfoutput>">#language.booking#</A> &gt;
-	<A href="bookingRequest_choose.cfm?lang=<cfoutput>#lang#</cfoutput>">#language.bookingRequest#</A> &gt;
-	#language.NewBooking#
-</div>
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<div class="main">
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<A href="bookingRequest_choose.cfm?lang=#lang#">#language.bookingRequest#</A> &gt;
+			#language.NewBooking#
+			</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					<CFOUTPUT>#language.NewBooking#</CFOUTPUT>
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
-<h1>#language.NewBooking#</h1>
+				<cfinclude template="#RootDir#includes/user_menu.cfm"><br>
+				
+				<cfoutput>
+				<cfform action="bookingRequest_actionB.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
+				<p>#language.bookingFound# #LSDateFormat(Variables.FoundStartDate, 'mmm d, yyyy')# - #LSDateFormat(Variables.FoundEndDate, 'mmm d, yyyy')#.</p>
+				<table width="100%">
+					<tr>
+						<td width="30%" id="Agent">#language.Agent#:</td>
+						<td width="70%" headers="Agent">
+							<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
+								#session.lastName#, #session.firstName#
+							</cflock>
+						</td>
+					</tr>
+					<tr>
+						<td id="vessel">#language.vessel#:</td>
+						<td headers="vessel"><input type="hidden" name="vesselID" value="#Form.VesselID#" />#getVessel.VesselName#</td>
+					</tr>
+					<tr>
+						<td id="Company">#language.Company#:</td>
+						<td headers="Company">#getVessel.CompanyName#</td>
+					</tr>
+					<tr>
+						<td id="StartDate">#language.StartDate#:</td>
+						<td headers="StartDate"><input type="hidden" name="startDate" value="#Variables.FoundStartDate#" />#LSDateFormat(CreateODBCDate(Variables.StartDate), 'mmm d, yyyy')#</td>
+					</tr>
+				
+					<tr>
+						<td id="EndDate">#language.EndDate#:</td>
+						<td headers="EndDate"><input type="hidden" name="EndDate" value="#Variables.FoundEndDate#" />#LSDateFormat(Variables.EndDate, 'mmm d, yyyy')#</td>
+					</tr>
+					<tr>
+						<td align="left" id="Status">#language.requestedStatus#:</td>
+						<td headers="Status"><input type="hidden" name="Status" value="<cfoutput>#Form.Status#</cfoutput>"><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></td>
+					</tr>
+					<tr><td>&nbsp;</td></tr>
+					<tr>
+						<td colspan="2" align="center">
+							<input type="Submit" value="#language.requestBooking#" class="textbutton">
+							<input type="button" value="#language.Back#" class="textbutton" onClick="history.go(-1);">
+							<input type="button" value="#language.Cancel#" class="textbutton" onClick="self.location.href='bookingRequest_choose.cfm?lang=<cfoutput>#lang#</cfoutput>';">
+							<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
+						</td>
+					</tr>
+				</table>
+				
+				</cfform>
+				</cfoutput>
+			</div>
 
-<cfinclude template="#RootDir#includes/user_menu.cfm"><br>
-
-<cfform action="bookingRequest_actionB.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
-<p>#language.bookingFound# #LSDateFormat(Variables.FoundStartDate, 'mmm d, yyyy')# - #LSDateFormat(Variables.FoundEndDate, 'mmm d, yyyy')#.</p>
-<table width="100%">
-	<tr>
-		<td width="30%" id="Agent">#language.Agent#:</td>
-		<td width="70%" headers="Agent">
-			<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
-				#session.lastName#, #session.firstName#
-			</cflock>
-		</td>
-	</tr>
-	<tr>
-		<td id="vessel">#language.vessel#:</td>
-		<td headers="vessel"><input type="hidden" name="vesselID" value="#Form.VesselID#" />#getVessel.VesselName#</td>
-	</tr>
-	<tr>
-		<td id="Company">#language.Company#:</td>
-		<td headers="Company">#getVessel.CompanyName#</td>
-	</tr>
-	<tr>
-		<td id="StartDate">#language.StartDate#:</td>
-		<td headers="StartDate"><input type="hidden" name="startDate" value="#Variables.FoundStartDate#" />#LSDateFormat(CreateODBCDate(Variables.StartDate), 'mmm d, yyyy')#</td>
-	</tr>
-
-	<tr>
-		<td id="EndDate">#language.EndDate#:</td>
-		<td headers="EndDate"><input type="hidden" name="EndDate" value="#Variables.FoundEndDate#" />#LSDateFormat(Variables.EndDate, 'mmm d, yyyy')#</td>
-	</tr>
-	<tr>
-		<td align="left" id="Status">#language.requestedStatus#:</td>
-		<td headers="Status"><input type="hidden" name="Status" value="<cfoutput>#Form.Status#</cfoutput>"><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></td>
-	</tr>
-	<tr><td>&nbsp;</td></tr>
-	<tr>
-		<td colspan="2" align="center">
-			<input type="Submit" value="#language.requestBooking#" class="textbutton">
-			<input type="button" value="#language.Back#" class="textbutton" onClick="history.go(-1);">
-			<input type="button" value="#language.Cancel#" class="textbutton" onClick="self.location.href='bookingRequest_choose.cfm?lang=<cfoutput>#lang#</cfoutput>';">
-			<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
-		</td>
-	</tr>
-</table>
-
-</cfform>
-</cfoutput>
-</div>
-
+		<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 

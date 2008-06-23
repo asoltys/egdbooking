@@ -105,15 +105,13 @@
 					</cfoutput>
 				</table>
 				
-				<p align="right">
+				<br />
+				<div align="right">
 					<!--a href="javascript:EditSubmit('serviceSelect');" class="textbutton">Submit</a-->
 					<input type="submit" name="submitForm" class="textbutton" value="submit">
 					<cfoutput><input type="button" value="Cancel" onClick="self.location.href='otherForms.cfm?lang=#lang#'" class="textbutton"></cfoutput>
-				</div></p>
-				
-				
+				</div>
 				</cfform>
-
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

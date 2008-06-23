@@ -431,8 +431,8 @@
 
 			<DIV class="screenonly" style="width: 700px; padding-left: 10px; ">
 				<CFOUTPUT>#Language.ScreenMessage#</CFOUTPUT>
-				<P align="center"><A href="javascript:history.go(-1);" class="textbutton">Back to Date Selection</A> &nbsp;
-				<A href="javascript:self.close();" class="textbutton">Close this Window</A></P>
+				<div align="center"><A href="javascript:history.go(-1);" class="textbutton">Back to Date Selection</A> &nbsp;
+				<A href="javascript:self.close();" class="textbutton">Close this Window</A></div>
 			</DIV>
 	
 			<CFOUTPUT>

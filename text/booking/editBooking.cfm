@@ -29,17 +29,16 @@
 	<cfset language.mailing = "Directeur des op&eacute;rations<br>Cale s&egrave;che d'Esquimalt<br>825 Admirals Road<br>Esquimalt (C.-B.)<br>V9A 2P1<br>Canada">
 </cfif>
 
-<cfoutput>
 <cfhtmlhead text="
-<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#"">
-<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
-<meta name=""description"" lang=""eng"" content=""#language.description#"">
-<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
-<meta name=""dc.date.published"" content=""2005-07-25"">
-<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-<meta name=""dc.date.modified"" content=""2005-07-25"">
-<meta name=""dc.date.created"" content=""2005-07-25"">
-<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#</title>
+	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#"">
+	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
+	<meta name=""description"" lang=""eng"" content=""#language.description#"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
+	<meta name=""dc.date.published"" content=""2005-07-25"">
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
+	<meta name=""dc.date.modified"" content=""2005-07-25"">
+	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#</title>
 ">
 
 <CFPARAM name="url.referrer" default="Booking Home">
@@ -74,55 +73,61 @@
 
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
-	#language.PacificRegion# &gt;
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.EsqGravingDock#</a> &gt;
-	<a href="#RootDir#text/booking-#lang#.cfm">#language.Booking#</A> &gt;
-		<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-		<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
-	<CFELSE>
-		<a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
-	</CFIF>
-	#language.title#
-</div>
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+			<CFELSE>
+				<a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+			</CFIF>
+			#language.title#
+			</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					<CFOUTPUT>#language.title#</CFOUTPUT>
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
-<div class="main">
+				<cfinclude template="#RootDir#includes/user_menu.cfm">
+				<!------------------------------------------------------------------------------------------------------------>
+				<cfoutput>
+				<p align="left">#language.explanation#</p>
+				<p align="left">#language.acrobatRequired#</p>
+				<ul>
+					<li><a href="../forms/Tentative_ChangeForm.pdf" target="pdf" title="#language.changeForm#">#language.changeForm# [PDF 5.51 KB]</a></li>
+				</ul>
+				<cfset emailSubject = "#getbooking.CompanyName# editing booking for #trim(getbooking.VesselName)# from #LSDateFormat(getbooking.StartDate, 'mmm d, yyyy')# to #LSDateFormat(getbooking.EndDate, 'mmm d, yyyy')#">
+				<p>
+					#language.phone#: (250) 363-3879  #language.or#  (250) 363-8056<br />
+					#language.fax#: (250) 363-8059<br />
+					<cfif ListLen(#variables.adminEmail#) EQ 1>#language.emailAddress#:  <a href="mailto:#Variables.AdminEmail#?subject=#emailSubject#">#Variables.AdminEmail#</a>
+					<cfelse>
+					<table cellpadding="0" cellspacing="0">
+						<tr><td align="left">#language.emailAddress#:&nbsp;</td><td><a href="mailto:#ListGetAt(variables.adminEmail, 1)#?subject=#emailSubject#">#ListGetAt(variables.adminEmail, 1)#</a></td></tr>
+						<cfset variables.emailList = ListDeleteAt(#variables.adminEmail#, 1)>
+						<cfloop list="#Variables.emailList#" index="email"><tr><td>&nbsp;</td><td><a href="mailto:#email#?subject=#emailSubject#">#email#</a></td></tr></cfloop>
+					</table>
+					</cfif>
+					<p>#language.mail#:<br>
+					<div style="padding-left:25px">#language.mailing#</div></p>
+				</div>
+				<br>
+				<div align="center">
+					<input type="button" onClick="self.location.href='#RootDir#text/common/getBookingDetail.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#">
+				</div>
+				
+				</cfoutput>
+			</div>
 
-<h1>#language.title#</h1>
-</cfoutput>
-<cfinclude template="#RootDir#includes/user_menu.cfm"><br>
-
-<!------------------------------------------------------------------------------------------------------------>
-<cfoutput>
-<div align="left">#language.explanation#</div>
-<br>
-<div align="left">#language.acrobatRequired#</div>
-<br>
-<a href="../forms/Tentative_ChangeForm.pdf" target="pdf" title="#language.changeForm#">#language.changeForm# [PDF 5.51 KB]</a>
-<br>
-<cfset emailSubject = "#getbooking.CompanyName# editing booking for #trim(getbooking.VesselName)# from #LSDateFormat(getbooking.StartDate, 'mmm d, yyyy')# to #LSDateFormat(getbooking.EndDate, 'mmm d, yyyy')#">
-<div align="left">
-	<br>#language.phone#: (250) 363-3879  #language.or#  (250) 363-8056
-	<br>#language.fax#: (250) 363-8059
-	<cfif ListLen(#variables.adminEmail#) EQ 1><br>#language.emailAddress#:  <a href="mailto:#Variables.AdminEmail#?subject=#emailSubject#">#Variables.AdminEmail#</a>
-	<cfelse>
-	<table>
-		<tr><td align="left">#language.emailAddress#:</td><td><a href="mailto:#ListGetAt(variables.adminEmail, 1)#?subject=#emailSubject#">#ListGetAt(variables.adminEmail, 1)#</a></td></tr>
-		<cfset variables.emailList = ListDeleteAt(#variables.adminEmail#, 1)>
-		<cfloop list="#Variables.emailList#" index="email"><tr><td>&nbsp;</td><td><a href="mailto:#email#?subject=#emailSubject#">#email#</a></td></tr></cfloop>
-	</table>
-	</cfif>
-	<br>#language.mail#:
-	<br><div style="padding-left:25px">#language.mailing#</div>
-</div>
-<br>
-<div align="center">
-	<input type="button" onClick="self.location.href='#RootDir#text/common/getBookingDetail.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#">
-</div>
-
-</cfoutput>
-</div>
-
+		<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 

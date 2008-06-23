@@ -97,7 +97,7 @@ a:hover {
         <tr>
           <td width="100%">
             <p><a name="Top"></a><h1>Cale s√®che d'Esquimalt (CSE)</h1>       
-            <h1>Syst√®me de r√©servation en ligne : Guide de l'utilisateur</h1>       
+            <h1>Syst√®me de r√&copy;servation en ligne : Guide de l'utilisateur</h1>       
             <p class="style1">Table des mati√®res</p>       
             <p align="left"><span class="style2"><strong><a href="#Overview">1.        
             Aper√ßu</a></strong></span></p>
@@ -105,27 +105,27 @@ a:hover {
               Introduction</a></strong><br>
             </div>
             <div style="padding-left:20px;"><em><a href="#SystemReqs">2.1        
-              Configuration exig√©e</a><br>       
-              <a href="#CreateAccount">2.2 Cr√©er un compte d'utilisateur</a></em><br>       
+              Configuration exig√&copy;e</a><br>       
+              <a href="#CreateAccount">2.2 Cr√&copy;er un compte d'utilisateur</a></em><br>       
             </div>
             <div style="padding-left:40px;">2.2.1 Par o√π commencer<br>       
 			  2.2.2 Compagnie(s) de l'utilisateur<br>       
-			  2.2.3 Cr√©er un compte de compagnie<br>       
+			  2.2.3 Cr√&copy;er un compte de compagnie<br>       
 			  2.2.4 Activer un compte d'utilisateur <br>       
             </div>
-            <div style="padding-left:20px;"><em><a href="#LoggingIn">2.3 Entr√©e        
+            <div style="padding-left:20px;"><em><a href="#LoggingIn">2.3 Entr√&copy;e        
               dans le syst√®me</a><br>       
-              <a href="#GetPassword">2.4 R√©cup√©ration du mot de passe</a></em><br>       
+              <a href="#GetPassword">2.4 R√&copy;cup√&copy;ration du mot de passe</a></em><br>       
                   <br>
             </div>
             <span class="style2">
             <div style="padding-left:0px;"><strong><a href="#UsingApp">3.  
-              Utilisation du syst√®me de r√©servation en ligne de la CSE</a></strong></div>       
+              Utilisation du syst√®me de r√&copy;servation en ligne de la CSE</a></strong></div>       
             </span>
             <div style="padding-left:20px;"><em><a href="#HomePage">3.1 Page de 
               bienvenue</a></em><br></div>
 			 <div style="padding-left:40px;">3.1.1 Entreprises<br>      
- 				 3.1.2 R√©servations       
+ 				 3.1.2 R√&copy;servations       
             </div>
              <div style="padding-left:20px;"><em><a href="#EditProfile">3.2 
               Modifier le profil d'utilisateur</a></em><br>
@@ -140,33 +140,33 @@ a:hover {
 			  3.3.2 Modifier le profil de navires<br> 
 			  3.3.3 Supprimer des navires<br> 
             </div>
-            <div style="padding-left:20px;"><em><a href="#Bookings">3.4 R√©servations</a></em><br>       
+            <div style="padding-left:20px;"><em><a href="#Bookings">3.4 R√&copy;servations</a></em><br>       
             </div>
-            <div style="padding-left:40px;">3.4.1 R√©server une cale s√®che<br></div>       
+            <div style="padding-left:40px;">3.4.1 R√&copy;server une cale s√®che<br></div>       
 			<div style="padding-left:60px;"><span class="style8">3.4.1.1 Demande        
-              de dates pr√©cises<br>       
-				3.4.1.1 Demande de la prochaine p√©riode disponible</span><br></div>       
+              de dates pr√&copy;cises<br>       
+				3.4.1.1 Demande de la prochaine p√&copy;riode disponible</span><br></div>       
 			<div style="padding-left:40px;">
-			  3.4.2 R√©server une jet√©e<br>       
-			  3.4.3 Modifier une r√©servation<br>       
-			  3.4.4 Annuler une r√©servation<br>       
+			  3.4.2 R√&copy;server une jet√&copy;e<br>       
+			  3.4.3 Modifier une r√&copy;servation<br>       
+			  3.4.4 Annuler une r√&copy;servation<br>       
 			  3.4.5 Annulations et suppressions pour des raisons administratives<br>       
-			  3.4.6 Pr√©avis de 24 heures<br>       
+			  3.4.6 Pr√&copy;avis de 24 heures<br>       
             </div>
-            <div style="padding-left:20px;"><em><a href="#Overviews">3.5 R√©servations        
+            <div style="padding-left:20px;"><em><a href="#Overviews">3.5 R√&copy;servations        
               - Vues d'ensemble</a></em><br>       
             </div>
             <div style="padding-left:40px;">3.5.1 Calendriers<br>       
- 				 3.5.2 Sommaire des r√©servations<br>       
+ 				 3.5.2 Sommaire des r√&copy;servations<br>       
             </div>
             <div style="padding-left:20px;"> <em><a href="#Forms">3.6        
-              Formulaires pour les r√©servation</a>s</em><br>      
+              Formulaires pour les r√&copy;servation</a>s</em><br>      
             </div>
             <div style="padding-left:40px;">
   				3.6.1 Tarifs de droit de cale s√®che<br>     
   				3.6.2 Tableau 1<br>       
   				3.6.3 Clause d'indemnisation<br>       
-  				3.6.4 Formulaire de modification d'une r√©servation<br>      
+  				3.6.4 Formulaire de modification d'une r√&copy;servation<br>      
             </div>
             <div style="padding-left:20px;"><em><a href="#LoggingOut">3.7 Sortie        
               du syst√®me</a></em><br>       
@@ -178,11 +178,11 @@ a:hover {
               <br>
             <a name="Overview"></a><span class="style10">1. Aper√ßu</span></strong><br>       
             <div style="padding-left:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le        
-              syst√®me de r√©servation en ligne de la Cale s√®che d'Esquimalt        
-              (CSE) est une fa√ßon pratique de r√©server √©lectroniquement des        
+              syst√®me de r√&copy;servation en ligne de la Cale s√®che d'Esquimalt        
+              (CSE) est une fa√ßon pratique de r√&copy;server √&copy;lectroniquement des        
               installations de la CSE. Le syst√®me permet aux utilisateurs        
-              d'observer l'√©tat des r√©servations qu'ils ont fait pour retenir  
-              la cale s√®che ou une jet√©e, et donne acc√®s √† toutes les activit√©s        
+              d'observer l'√&copy;tat des r√&copy;servations qu'ils ont fait pour retenir  
+              la cale s√®che ou une jet√&copy;e, et donne acc√®s √† toutes les activit√&copy;s        
               connexes.</div>
             <br>
             <a href="#Top">Retour √† la table des mati√®res</a>       
@@ -191,58 +191,58 @@ a:hover {
                   <a name="GettingStarted"></a><span class="style10">2. 
             Introduction</span></strong><br> 
             <div style="padding-left:20px;"><em><a name="SystemReqs"></a><strong class="style11">2.1     
-              Configuration exig√©e</strong></em></div>    
+              Configuration exig√&copy;e</strong></em></div>    
             <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Avant     
-              d'entrer dans le syst√®me¬∏ veillez √† ce que votre navigateur     
+              d'entrer dans le syst√®me&Acirc;∏ veillez √† ce que votre navigateur     
               respecte les param√®tres de configuration suivants :       
                 <ul>
                   <li><a href="http://browser.netscape.com/ns8/" target="_blank">Netscape 4+</a> (<a href="http://browser.netscape.com/ns8/download/archive72x.jsp" target="_blank">liens 
                     vers de plus vieilles versions</a>), <a href="http://www.microsoft.com/windows/ie/downloads/critical/ie6sp1/default.mspx" target="_blank">Internet Explorer 4+</a>, 
                     ou <a href="http://www.mozilla.org/products/firefox/" target="_blank">Mozilla Firefox</a></li> 
-                  <li>JavaScript activ√©</li>    
-                  <li>T√©moins (cookies) activ√©s</li>   
+                  <li>JavaScript activ√&copy;</li>    
+                  <li>T√&copy;moins (cookies) activ√&copy;s</li>   
                   <li><a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</a>  
-                    install√©</li>    
+                    install√&copy;</li>    
                 </ul>
               Pour installer l'un ou l'autre des logiciels requis, cliquez sur     
-              les liens ci-dessus. Si vous avez des difficult√©s √† activer le JavaScript     
-              ou les t√©moins, suivez les instructions suivantes :      
+              les liens ci-dessus. Si vous avez des difficult√&copy;s √† activer le JavaScript     
+              ou les t√&copy;moins, suivez les instructions suivantes :      
                 <ul>
-                  <li>Netscape 4 : Allez √† √âdition &gt; Pr√©f√©rences &gt;   
-                    Avanc√© pour activer les deux fonctions. </li>    
-                  <li>Netscape 7 ou 8 : Allez √† √âdition &gt; Pr√©f√©rences.   
-                    Vous trouverez les fonctions JavaScript sous Avanc√©, et   
-                    Cookies sous Confidentialit√© et s√©curit√©.</li>  
+                  <li>Netscape 4 : Allez √† √âdition &gt; Pr√&copy;f√&copy;rences &gt;   
+                    Avanc√&copy; pour activer les deux fonctions. </li>    
+                  <li>Netscape 7 ou 8 : Allez √† √âdition &gt; Pr√&copy;f√&copy;rences.   
+                    Vous trouverez les fonctions JavaScript sous Avanc√&copy;, et   
+                    Cookies sous Confidentialit√&copy; et s√&copy;curit√&copy;.</li>  
                   <li>Internet Explorer 6 : Allez √† Outils &gt; Options Internet.   
                     Vous trouverez JavaScript sous Advanced, et Cookies sous   
-                    Confidentialit√©.</li>
+                    Confidentialit√&copy;.</li>
                   <li>Mozilla Firefox : Allez √† Outils &gt; Options. Vous trouverez   
-                    JavaScript sous Fonctionnalit√©s Web, et Cookies sous   
-                    Confidentialit√©.</li>
+                    JavaScript sous Fonctionnalit√&copy;s Web, et Cookies sous   
+                    Confidentialit√&copy;.</li>
                 </ul>
             </div>
             <a href="#Top">Retour √† la table des mati√®res</a>    
             <p></p>
             <p>            
             <div style="padding-left:20px;"> <em><a name="CreateAccount"></a><span class="style11"><strong>2.2     
-              Cr√©er un compte d'utilisateur</strong></span></em>    
+              Cr√&copy;er un compte d'utilisateur</strong></span></em>    
             </div>
             <div style="padding-left:40px;"><strong>2.2.1 Par o√π commencer</strong><br>    
             </div>
             <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Allez     
               √† la page principale du site de la CSE : <a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-f.html">http://www.pwgsc.gc.ca/pacific/egd/text/index-f.html</a>     
-              et cliquez sur ¬´&nbsp;R√©servations&nbsp;¬ª dans le menu lat√©ral.     
-              Cliquez sur le lien ¬´ application des r√©servations ¬ª, puis     
-              cliquez sur ¬´ ajouter un nouveau compte d'utilisateur ¬ª. Entrez     
-              vos coordonn√©es, y compris votre pr√©nom, votre nom de famille,     
+              et cliquez sur &Acirc;&laquo;&nbsp;R√&copy;servations&nbsp;&Acirc;&raquo; dans le menu lat√&copy;ral.     
+              Cliquez sur le lien &Acirc;&laquo; application des r√&copy;servations &Acirc;&raquo;, puis     
+              cliquez sur &Acirc;&laquo; ajouter un nouveau compte d'utilisateur &Acirc;&raquo;. Entrez     
+              vos coordonn√&copy;es, y compris votre pr√&copy;nom, votre nom de famille,     
               un mot de passe de 6 √† 10 caract√®res et votre adresse de     
               courriel, lesquels sont tous des renseignements obligatoires.     
-              L'adresse de courriel que vous donnerez sera utilis√©e pour l'entr√©e     
+              L'adresse de courriel que vous donnerez sera utilis√&copy;e pour l'entr√&copy;e     
               dans le syst√®me et les avis que la CSE vous enverra par courriel.     
               Le syst√®me ne fait pas la distinction entre les majuscules et les     
               minuscules pour les mots de passe, donc vous pouvez utiliser aussi     
-              bien les unes que les autres. Pour un mot de passe plus s√©curitaire,     
-              nous vous sugg√©rons d'utiliser des lettres et des chiffres.       
+              bien les unes que les autres. Pour un mot de passe plus s√&copy;curitaire,     
+              nous vous sugg√&copy;rons d'utiliser des lettres et des chiffres.       
               <br>
               <br>
             </div>
@@ -251,24 +251,24 @@ a:hover {
             </div>
             <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;√Ä     
               la prochaine page, ajoutez √† votre profil la ou les entreprises que     
-              vous repr√©sentez. Choisissez votre entreprise dans le menu d√©roulant     
-              et cliquez sur ¬´&nbsp;Ajouter&nbsp;¬ª. Vous pouvez le refaire     
-              autant de fois qu'il le faut. Si l'entreprise que vous repr√©sentez     
-              n'est pas √©num√©r√©e, voir le paragraphe 2.2.3.<br>       
+              vous repr√&copy;sentez. Choisissez votre entreprise dans le menu d√&copy;roulant     
+              et cliquez sur &Acirc;&laquo;&nbsp;Ajouter&nbsp;&Acirc;&raquo;. Vous pouvez le refaire     
+              autant de fois qu'il le faut. Si l'entreprise que vous repr√&copy;sentez     
+              n'est pas √&copy;num√&copy;r√&copy;e, voir le paragraphe 2.2.3.<br>       
               <br>
             </div>
-            <div style="padding-left:40px;"><strong>2.2.3 Cr√©er un compte  
+            <div style="padding-left:40px;"><strong>2.2.3 Cr√&copy;er un compte  
               d'entreprise</strong><br>
             </div>
             <div style="padding-left:60px;">
               <div align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cliquez sur     
-                le lien ¬´ ici&nbsp;¬ª sous le menu d√©roulant (figure 1)     
-                pour cr√©er un profil d'entreprise. Tous les champs sont     
-                obligatoires, sauf ¬´ Adresse 2&nbsp;¬ª et ¬´&nbsp;Fax&nbsp;¬ª.     
-                En cliquant sur le bouton ¬´&nbsp;soumettre&nbsp;¬ª, vous cr√©erez     
-                le compte d'entreprise et aviserez la CSE de la demande de cr√©ation     
+                le lien &Acirc;&laquo; ici&nbsp;&Acirc;&raquo; sous le menu d√&copy;roulant (figure 1)     
+                pour cr√&copy;er un profil d'entreprise. Tous les champs sont     
+                obligatoires, sauf &Acirc;&laquo; Adresse 2&nbsp;&Acirc;&raquo; et &Acirc;&laquo;&nbsp;Fax&nbsp;&Acirc;&raquo;.     
+                En cliquant sur le bouton &Acirc;&laquo;&nbsp;soumettre&nbsp;&Acirc;&raquo;, vous cr√&copy;erez     
+                le compte d'entreprise et aviserez la CSE de la demande de cr√&copy;ation     
                 d'un nouveau profil d'entreprise. Le profil d'entreprise devra     
-                √™tre approuv√© avant que l'on ne puisse l'activer.<br>       
+                √™tre approuv√&copy; avant que l'on ne puisse l'activer.<br>       
               </div>
             </div>
 				<br>
@@ -279,42 +279,42 @@ a:hover {
             <div style="padding-left:40px;"><br>
             <strong>2.2.4 Activer un compte d'utilisateur</strong>            </div>
             <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorsque     
-              votre ou vos entreprises ont √©t√© ajout√©es, cliquez sur ¬´     
-              Soumettre une demande d'ajout d'un nouvel utilisateur ¬ª. Cela     
+              votre ou vos entreprises ont √&copy;t√&copy; ajout√&copy;es, cliquez sur &Acirc;&laquo;     
+              Soumettre une demande d'ajout d'un nouvel utilisateur &Acirc;&raquo;. Cela     
               aura pour effet de transmettre votre demande de compte et d'en     
-              aviser l'administration de la CSE. Votre compte doit √™tre approuv√©     
+              aviser l'administration de la CSE. Votre compte doit √™tre approuv√&copy;     
               avant que l'on ne puisse l'activer. Si vous ajoutez plusieurs  
-              entreprises √† votre profil, il n'est pas n√©cessaire qu'elles     
-              soient toutes approuv√©es pour que votre compte soit activ√©. Vous     
+              entreprises √† votre profil, il n'est pas n√&copy;cessaire qu'elles     
+              soient toutes approuv√&copy;es pour que votre compte soit activ√&copy;. Vous     
               recevrez un avis par courriel lorsqu'une affiliation  
-              utilisateur-entreprise est approuv√©e ou rejet√©e.       
+              utilisateur-entreprise est approuv√&copy;e ou rejet√&copy;e.       
               <p></p>
             </div>
             <p><a href="#Top">Retour √† la table des mati√®res</a> </p>    
             <p>
             <div style="padding-left:20px;"><em><a name="LoggingIn"></a><strong class="style11">2.3     
-              Entr√©e dans le syst√®me</strong><br>    
+              Entr√&copy;e dans le syst√®me</strong><br>    
             </em></div>
             <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L'approbation     
-              d'une seule affiliation utilisateur-entreprise est n√©cessaire     
-              pour que le compte soit activ√©. Lorsque vous recevez un courriel     
+              d'une seule affiliation utilisateur-entreprise est n√&copy;cessaire     
+              pour que le compte soit activ√&copy;. Lorsque vous recevez un courriel     
               vous avisant que l'une de vos affiliations utilisateur-entreprise     
-              est approuv√©e, entrez dans le syst√®me avec l'adresse de courriel     
-              et le mot de passe que vous avez indiqu√©s lors de la cr√©ation de     
+              est approuv√&copy;e, entrez dans le syst√®me avec l'adresse de courriel     
+              et le mot de passe que vous avez indiqu√&copy;s lors de la cr√&copy;ation de     
               votre compte. Allez √†&nbsp; <a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-f.html">http://www.pwgsc.gc.ca/pacific/egd/text/index-f.html</a>     
-              et cliquez sur ¬´ R√©servations ¬ª dans le menu lat√©ral. Cliquez     
-              ensuite sur le lien ¬´ Application des r√©servations&nbsp;¬ª. Cela     
-              vous m√®nera √† la page d'entr√©e dans le syst√®me.</div>       
+              et cliquez sur &Acirc;&laquo; R√&copy;servations &Acirc;&raquo; dans le menu lat√&copy;ral. Cliquez     
+              ensuite sur le lien &Acirc;&laquo; Application des r√&copy;servations&nbsp;&Acirc;&raquo;. Cela     
+              vous m√®nera √† la page d'entr√&copy;e dans le syst√®me.</div>       
             <p></p>
             <a href="#Top">Retour √† la table des mati√®res</a> <br>    
             <p>            
             <div style="padding-left:20px;"><em><a name="GetPassword"></a><strong class="style11">2.4     
-              R√©cup√©ration du mot de passe</strong><br>    
+              R√&copy;cup√&copy;ration du mot de passe</strong><br>    
             </em></div>
             <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si     
-              vous avez oubli√© votre mot de passe, cliquez sur le lien ¬´ Oubli  
-              du mot de passe ¬ª de la page d'entr√©e. Entrez l'adresse     
-              de courriel que vous utilisez pour l'entr√©e dans le syst√®me, et     
+              vous avez oubli√&copy; votre mot de passe, cliquez sur le lien &Acirc;&laquo; Oubli  
+              du mot de passe &Acirc;&raquo; de la page d'entr√&copy;e. Entrez l'adresse     
+              de courriel que vous utilisez pour l'entr√&copy;e dans le syst√®me, et     
               votre mot de passe vous sera transmis par courriel.<br>       
             </div>
             <br>
@@ -323,15 +323,15 @@ a:hover {
             <p>     <br>       
             <strong><a name="UsingApp"></a><span class="style10">3. Utilisation  
             du     
-            syst√®me de r√©servation en ligne de la CSE</span></strong>    
+            syst√®me de r√&copy;servation en ligne de la CSE</span></strong>    
             
             <div style="padding-left:20px;"><em><a name="HomePage"></a><span class="style11"><strong>3.1 
               Page de bienvenue</strong></span></em><br>
             </div>
             <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorsque     
-              vous entrez dans l'application, vous arrivez √† la ¬´ page de     
-              bienvenue ¬ª du syst√®me de r√©servation. Vous avez acc√®s √†     
-              toutes les fonctions du syst√®me de r√©servation √† partir de     
+              vous entrez dans l'application, vous arrivez √† la &Acirc;&laquo; page de     
+              bienvenue &Acirc;&raquo; du syst√®me de r√&copy;servation. Vous avez acc√®s √†     
+              toutes les fonctions du syst√®me de r√&copy;servation √† partir de     
               cette page. Toutes les principales fonctions sont disponibles √†     
               partir de la barre de menus sous le titre de la page (figure 2).     
               Vous pouvez aussi naviguer dans le site au moyen de la piste de     
@@ -351,13 +351,13 @@ a:hover {
 			<div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La     
               page de bienvenue affiche des renseignements sur une entreprise √†     
               la fois. Le nom de l'entreprise dont on voit les renseignements     
-              est affich√© dans le titre. Si vous √™tes autoris√© √† repr√©senter     
+              est affich√&copy; dans le titre. Si vous √™tes autoris√&copy; √† repr√&copy;senter     
               plus d'une entreprise, l'affichage des renseignements de  
-              l'entreprise pr√©cis√©e se fera sous la barre de menus, et les noms     
-              des autres entreprises seront affich√©s tout juste en dessous     
+              l'entreprise pr√&copy;cis√&copy;e se fera sous la barre de menus, et les noms     
+              des autres entreprises seront affich√&copy;s tout juste en dessous     
               (figure&nbsp;4). Vous pouvez passer d'une entreprise √† une autre     
               en cliquant sur leur nom. Le nom de toute entreprise pour laquelle     
-              vous attendez l'approbation de repr√©sentation appara√Ætra tout juste     
+              vous attendez l'approbation de repr√&copy;sentation appara√&reg;tra tout juste     
               en dessous de votre liste d'entreprises.<br>      
 			  <br>
                 <div align="center"><img src="../../images/userCompanies-f.gif" alt="Figure 4 : vos entreprises"></div>
@@ -365,22 +365,22 @@ a:hover {
                 </div>
 			</div>
 			<br>
-			<div style="padding-left:40px;"><strong>3.1.2 R√©servations</strong></div>    
+			<div style="padding-left:40px;"><strong>3.1.2 R√&copy;servations</strong></div>    
 			<div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Toutes     
-              les r√©servations pour l'entreprise que vous choisissez&nbsp; sont     
-              affich√©es sur la page de bienvenue. Pour une liste compl√®te de     
-              toutes les r√©servations, y compris les r√©servations pass√©es,     
-              cliquez sur le bouton ¬´&nbsp;Toutes les r√©servations ¬ª.<br>       
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Les r√©servations sont ainsi     
-              divis√©es : ¬´ Cale s√®che&nbsp;¬ª, ¬´&nbsp;Quai de d√©barquement nord ¬ª et ¬´ Jet√©e     
-              sud ¬ª. Seuls les renseignements essentiels sont affich√©s : nom     
-              du navire, dates au bassin, √©tat de la r√©servation et agent     
-              responsable de la r√©servation. En cliquant sur le nom du navire,     
-              vous pouvez voir d'autres renseignements sur la r√©servation, et     
-              vous avez l'option de la modifier ou de l'annuler. Pour les r√©servations     
-              de la cale s√®che, il y a aussi un lien menant qui permet de ¬´  
-              Consulter le formulaire de tarif&nbsp;¬ª ou d'apporter une ¬´  
-              Modification au&nbsp; formulaire de tarif ¬ª. Veuillez consulter le paragraphe 3.6.1     
+              les r√&copy;servations pour l'entreprise que vous choisissez&nbsp; sont     
+              affich√&copy;es sur la page de bienvenue. Pour une liste compl√®te de     
+              toutes les r√&copy;servations, y compris les r√&copy;servations pass√&copy;es,     
+              cliquez sur le bouton &Acirc;&laquo;&nbsp;Toutes les r√&copy;servations &Acirc;&raquo;.<br>       
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Les r√&copy;servations sont ainsi     
+              divis√&copy;es : &Acirc;&laquo; Cale s√®che&nbsp;&Acirc;&raquo;, &Acirc;&laquo;&nbsp;Quai de d√&copy;barquement nord &Acirc;&raquo; et &Acirc;&laquo; Jet√&copy;e     
+              sud &Acirc;&raquo;. Seuls les renseignements essentiels sont affich√&copy;s : nom     
+              du navire, dates au bassin, √&copy;tat de la r√&copy;servation et agent     
+              responsable de la r√&copy;servation. En cliquant sur le nom du navire,     
+              vous pouvez voir d'autres renseignements sur la r√&copy;servation, et     
+              vous avez l'option de la modifier ou de l'annuler. Pour les r√&copy;servations     
+              de la cale s√®che, il y a aussi un lien menant qui permet de &Acirc;&laquo;  
+              Consulter le formulaire de tarif&nbsp;&Acirc;&raquo; ou d'apporter une &Acirc;&laquo;  
+              Modification au&nbsp; formulaire de tarif &Acirc;&raquo;. Veuillez consulter le paragraphe 3.6.1     
               pour de plus amples renseignements sur les formulaires de tarif.</div>      
 		   
             <p><a href="#Top">Retour √† la table des mati√®res</a> </p>    
@@ -388,18 +388,18 @@ a:hover {
 <div style="padding-left:20px;"><em><a name="EditProfile"></a><span class="style11"><strong>3.2 
   Modifier le profil d'utilisateur</strong></span></em><br></div>
   <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pour     
-    modifier votre profil, cliquez sur ¬´&nbsp;Modifier le profil&nbsp;¬ª dans     
-    la barre de menus. La page ¬´&nbsp;Modifier le profil&nbsp;¬ª est divis√©e     
+    modifier votre profil, cliquez sur &Acirc;&laquo;&nbsp;Modifier le profil&nbsp;&Acirc;&raquo; dans     
+    la barre de menus. La page &Acirc;&laquo;&nbsp;Modifier le profil&nbsp;&Acirc;&raquo; est divis√&copy;e     
     en trois sections, et chacune d'entre elles a son bouton de soumission.<br>       
     <br>
   </div>
   <div style="padding-left:40px;"><strong>3.2.1 Modifier les renseignements 
     personnels</strong><br></div>
   <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La premi√®re     
-    section vous permet de modifier votre pr√©nom et votre nom. L'adresse de     
-    courriel ne peut pas √™tre modifi√©e, √©tant donn√© qu'il s'agit de votre     
-    code d'identification pour l'entr√©e dans le syst√®me. Pour utiliser une     
-    adresse de courriel diff√©rente, vous devez cr√©er un nouveau compte     
+    section vous permet de modifier votre pr√&copy;nom et votre nom. L'adresse de     
+    courriel ne peut pas √™tre modifi√&copy;e, √&copy;tant donn√&copy; qu'il s'agit de votre     
+    code d'identification pour l'entr√&copy;e dans le syst√®me. Pour utiliser une     
+    adresse de courriel diff√&copy;rente, vous devez cr√&copy;er un nouveau compte     
     d'utilisateur.<br>   
     <br>
   </div>
@@ -412,9 +412,9 @@ a:hover {
     section vous permet de changer votre mot de passe, qui doit compter de 6 √†     
     10 caract√®res.&nbsp; Le syst√®me ne fait pas la distinction entre les     
     majuscules et les minuscules pour les mots de passe, donc vous pouvez     
-    utiliser aussi bien les unes que les autres. Pour des raisons de s√©curit√©,     
-    nous vous sugg√©rons d'utiliser des lettres et des chiffres dans votre mot     
-    de passe, et de le changer fr√©quemment.</div>       
+    utiliser aussi bien les unes que les autres. Pour des raisons de s√&copy;curit√&copy;,     
+    nous vous sugg√&copy;rons d'utiliser des lettres et des chiffres dans votre mot     
+    de passe, et de le changer fr√&copy;quemment.</div>       
   <br><div align="center"><img src="../../images/editUserPassword-f.gif" alt="Figure 7 : modifier votre mot de passe"></div>
 	<div align="center">Figure 7: modifier votre mot de passe <br>
   </div>
@@ -423,310 +423,311 @@ a:hover {
   <p> <div style="padding-left:20px;"><em><a name="Vessels"></a><span class="style11"><strong>3.3 
               Navires</strong></span></em><br></div>
     <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Les     
-      navires d'une entreprise sont √©num√©r√©s dans la page de bienvenue sous la     
-      rubrique ¬´&nbsp;Navire(s)&nbsp;¬ª. Si le navire que vous cherchez n'est     
-      pas dans la liste, v√©rifiez si vous avez bien les renseignements pour la     
+      navires d'une entreprise sont √&copy;num√&copy;r√&copy;s dans la page de bienvenue sous la     
+      rubrique &Acirc;&laquo;&nbsp;Navire(s)&nbsp;&Acirc;&raquo;. Si le navire que vous cherchez n'est     
+      pas dans la liste, v√&copy;rifiez si vous avez bien les renseignements pour la     
       bonne entreprise. Pour voir les renseignement sur le navire, cliquez sur     
       son nom.<br>       
       <br>
     </div>
 	<div style="padding-left:40px;"><strong>3.3.1 Ajouter des navires</strong><br></div>
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cliquez     
-      ¬´&nbsp;Ajout d'un navire&nbsp;¬ª sous la liste des navires de  
+      &Acirc;&laquo;&nbsp;Ajout d'un navire&nbsp;&Acirc;&raquo; sous la liste des navires de  
       l'entreprise. Tous les champs sont obligatoires. Les longueurs et les     
       largeurs sont en m√®tres, et les temps d'installation et de retrait des  
-      tins sont en jours. Le temps d'installation des tins est le nombre de jours n√©cessaires     
-      pour installer les tins de soutien avant que l'eau ne puisse √™tre enlev√©e     
-      de la cale, et le temps de retrait des tins est le nombre de jours n√©cessaires     
+      tins sont en jours. Le temps d'installation des tins est le nombre de jours n√&copy;cessaires     
+      pour installer les tins de soutien avant que l'eau ne puisse √™tre enlev√&copy;e     
+      de la cale, et le temps de retrait des tins est le nombre de jours n√&copy;cessaires     
       pour faire l'inverse. Il faut inclure ces temps dans le nombre de jours     
-      demand√©s pour la r√©servation.<br>       
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si un navire est anonyme, toutes les r√©servations     
-      pour ce navire seront affich√©es sans nom dans les calendriers et les     
-      sommaires des r√©servations. Ainsi, seules les dates et l'√©tat de la r√©servation     
-      sont affich√©s pendant que celle-ci est en traitement attente de confirmation ou     
-      provisoire. Lorsque la confirmation est donn√©e, l'information     
-      additionnelle suivante est affich√©e&nbsp;: l'entreprise, le nom du navire     
-      et sa longueur, les sections r√©serv√©es ainsi que les dates de la r√©servation.     
-      Tout autre renseignement sur le navire ou la r√©servation ne peut √™tre vu     
+      demand√&copy;s pour la r√&copy;servation.<br>       
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si un navire est anonyme, toutes les r√&copy;servations     
+      pour ce navire seront affich√&copy;es sans nom dans les calendriers et les     
+      sommaires des r√&copy;servations. Ainsi, seules les dates et l'√&copy;tat de la r√&copy;servation     
+      sont affich√&copy;s pendant que celle-ci est en traitement attente de confirmation ou     
+      provisoire. Lorsque la confirmation est donn√&copy;e, l'information     
+      additionnelle suivante est affich√&copy;e&nbsp;: l'entreprise, le nom du navire     
+      et sa longueur, les sections r√&copy;serv√&copy;es ainsi que les dates de la r√&copy;servation.     
+      Tout autre renseignement sur le navire ou la r√&copy;servation ne peut √™tre vu     
       par les utilisateurs d'autres entreprises. Les administrateurs ont acc√®s     
-      √† toute l'information sur les r√©servations et les navires, peu importe  
+      √† toute l'information sur les r√&copy;servations et les navires, peu importe  
       si ces derniers sont anonymes ou non.<br>      
     <br></div>
     <div style="padding-left:40px;"><strong>3.3.2 Modifier le profil de navires</strong></div>
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cliquez     
-      sur le nom du navire dans la rubrique ¬´&nbsp;Navire(s) ¬ª, puis cliquez     
-      sur le bouton ¬´&nbsp;Modifier le navire ¬ª. Vous pouvez     
+      sur le nom du navire dans la rubrique &Acirc;&laquo;&nbsp;Navire(s) &Acirc;&raquo;, puis cliquez     
+      sur le bouton &Acirc;&laquo;&nbsp;Modifier le navire &Acirc;&raquo;. Vous pouvez     
       modifier tous les renseignements sur le navire, √† l'exception de  
-      l'entreprise, √† condition que le navire n'ait pas de r√©servation confirm√©e.     
+      l'entreprise, √† condition que le navire n'ait pas de r√&copy;servation confirm√&copy;e.     
       Dans le cas contraire, vous ne pourrez pas modifier les dimensions du     
       navire. Pour ce faire, vous devrez communiquer avec l'administration du     
-      CSE. L'administration est avis√©e lorsque les renseignements sur un navire     
-      sont modifi√©s.<br>       
+      CSE. L'administration est avis√&copy;e lorsque les renseignements sur un navire     
+      sont modifi√&copy;s.<br>       
       <br></div>
     <div style="padding-left:40px;"><strong>3.3.3 Supprimer des navires</strong></div>
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cliquez     
-      sur le nom du navire dans la rubrique ¬´&nbsp;Navire(s), puis cliquez sur     
-      le bouton ¬´ Supprimer le navire&nbsp;¬ª. Les navires ne peuvent √™tre supprim√©s     
-      que s'il ne font l'objet d'aucune demande de r√©servation. Dans le cas     
-      contraire, vous recevrez un message affichant les r√©servations pour le     
-      navire qui doivent √™tre annul√©es avant que le navire ne puisse √™tre     
-      supprim√©. Si vous arrivez √† supprimer le navire, vous recevrez un avis     
+      sur le nom du navire dans la rubrique &Acirc;&laquo;&nbsp;Navire(s), puis cliquez sur     
+      le bouton &Acirc;&laquo; Supprimer le navire&nbsp;&Acirc;&raquo;. Les navires ne peuvent √™tre supprim√&copy;s     
+      que s'il ne font l'objet d'aucune demande de r√&copy;servation. Dans le cas     
+      contraire, vous recevrez un message affichant les r√&copy;servations pour le     
+      navire qui doivent √™tre annul√&copy;es avant que le navire ne puisse √™tre     
+      supprim√&copy;. Si vous arrivez √† supprimer le navire, vous recevrez un avis     
       de confirmation.</div>       
             <p><a href="#Top">Retour √† la table des mati√®res</a> </p>    
   <p> <div style="padding-left:20px;"><em><a name="Bookings"></a><span class="style11"><strong>3.4     
-              R√©servations</strong></span></em></div>
-    <div style="padding-left:40px;"><strong>3.4.1 R√©server la cale s√®che</strong></div>   
+              R√&copy;servations</strong></span></em></div>
+    <div style="padding-left:40px;"><strong>3.4.1 R√&copy;server la cale s√®che</strong></div>   
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cliquez    
-      sur ¬´&nbsp;Pr√©senter une r√©servation&nbsp;¬ª sous vos r√©servations&nbsp;  
-      ou sur ¬´&nbsp;Pr√©senter une r√©servation&nbsp;¬ª    
-      dans la barre de menus, puis choisissez l'option de r√©servation de la    
-      cale s√®che. Il y a deux fa√ßons de r√©server la cale s√®che : indiquer des    
-      dates pr√©cises, ou demander le nombre de jours voulus dans la prochaine p√©riode    
-      libre (p. ex. demander la&nbsp; prochaine p√©riode de 10 jours dans l'ann√©e    
+      sur &Acirc;&laquo;&nbsp;Pr√&copy;senter une r√&copy;servation&nbsp;&Acirc;&raquo; sous vos r√&copy;servations&nbsp;  
+      ou sur &Acirc;&laquo;&nbsp;Pr√&copy;senter une r√&copy;servation&nbsp;&Acirc;&raquo;    
+      dans la barre de menus, puis choisissez l'option de r√&copy;servation de la    
+      cale s√®che. Il y a deux fa√ßons de r√&copy;server la cale s√®che : indiquer des    
+      dates pr√&copy;cises, ou demander le nombre de jours voulus dans la prochaine p√&copy;riode    
+      libre (p. ex. demander la&nbsp; prochaine p√&copy;riode de 10 jours dans l'ann√&copy;e    
       qui vient.).<br>       
       <br>
     </div>
 	<div style="padding-left:60px;"><span class="style12">3.4.1.1 Demande de    
-      dates pr√©cises</span><br></div>   
+      dates pr√&copy;cises</span><br></div>   
 	  <div style="padding-left:80px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tous    
-        les champs sont obligatoires pour la r√©servation. Il faut choisir  
-        l'entreprise et le navire au moyen des menus d√©roulants, et il faut pr√©ciser    
-        les dates du d√©but et de la fin de la p√©riode r√©serv√©e. Vous pouvez    
-        entrer manuellement les dates ¬´&nbsp;mm/jj/aaaa&nbsp;¬ª ou utiliser les    
+        les champs sont obligatoires pour la r√&copy;servation. Il faut choisir  
+        l'entreprise et le navire au moyen des menus d√&copy;roulants, et il faut pr√&copy;ciser    
+        les dates du d√&copy;but et de la fin de la p√&copy;riode r√&copy;serv√&copy;e. Vous pouvez    
+        entrer manuellement les dates &Acirc;&laquo;&nbsp;mm/jj/aaaa&nbsp;&Acirc;&raquo; ou utiliser les    
         boutons calendriers. Lorsque vous cliquez sur l'un de ces boutons, un    
-        petit calendrier appara√Æt, dans lequel vous pouvez cliquer sur la date    
-        choisie. Cette date sera entr√©e dans la bo√Æte de date correspondante.    
+        petit calendrier appara√&reg;t, dans lequel vous pouvez cliquer sur la date    
+        choisie. Cette date sera entr√&copy;e dans la bo√&reg;te de date correspondante.    
         Lorsque vous choisissez des dates de bassin, veuillez vous assurer de    
-        tenir compte du temps n√©cessaire pour installer et retirer les tins.  (<em>Nota    
-        </em>: les dates de bassin sont inclusives, p.&nbsp;ex. une r√©servation    
+        tenir compte du temps n√&copy;cessaire pour installer et retirer les tins.  (<em>Nota    
+        </em>: les dates de bassin sont inclusives, p.&nbsp;ex. une r√&copy;servation    
         de trois jours se fera du 1<sup>er</sup> mai au 3 mai.)<br>       
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si la cale s√®che est disponible pour les    
-        dates demand√©es, vote demande sera soumise. Si rien n'est disponible    
-        pour les dates pr√©cis√©es, vous avez le choix d'essayer de nouvelles    
+        dates demand√&copy;es, vote demande sera soumise. Si rien n'est disponible    
+        pour les dates pr√&copy;cis√&copy;es, vous avez le choix d'essayer de nouvelles    
         dates, ou de maintenir votre demande dans l'espoir d'une annulation.    
         Veuillez consulter le paragraphe 3.4.6 pour de plus amples    
-        renseignements sur le processus de pr√©avis de 24&nbsp;heures pour les    
+        renseignements sur le processus de pr√&copy;avis de 24&nbsp;heures pour les    
         annulations.<br>    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorsque votre r√©servation est soumise, un    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorsque votre r√&copy;servation est soumise, un    
         avis est transmis par courriel √† l'administration de la CSE, et vous    
         recevez un formulaire de tarif des droits de cale s√®che. Il s'agit d'un formulaire    
         facultatif; pour de plus amples renseignements, voir le paragraphe 3.6.1.<br>       
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Il incombe √† l'administration de la CSE    
-        d'approuver la r√©servation; toutefois, lorsque vous avez re√ßu l'avis    
-        de confirmation de la r√©servation par courriel, vous devez envoyer les    
-        formulaires appropri√©es - le tableau 1 et la clause d'indemnisation -    
-        ainsi que les frais de r√©servation de 3 500 $ avant que la r√©servation    
-        ne puisse √™tre confirm√©e. Pri√®re de consulter la section 3.6 pour de    
+        d'approuver la r√&copy;servation; toutefois, lorsque vous avez re√ßu l'avis    
+        de confirmation de la r√&copy;servation par courriel, vous devez envoyer les    
+        formulaires appropri√&copy;es - le tableau 1 et la clause d'indemnisation -    
+        ainsi que les frais de r√&copy;servation de 3 500 $ avant que la r√&copy;servation    
+        ne puisse √™tre confirm√&copy;e. Pri√®re de consulter la section 3.6 pour de    
         plus amples renseignements sur les formulaires requis.<br>       
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si votre r√©servation est approuv√©e et que    
-        d'autres r√©servations provisoires sont faites pour la m√™me p√©riode,    
-        la politique de pr√©avis de 24 heures sera appliqu√©e (section 3.4.6).    
-        Vous serez avis√© par courriel de la confirmation √©ventuelle de votre r√©servation.<br>       
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si votre r√&copy;servation est approuv√&copy;e et que    
+        d'autres r√&copy;servations provisoires sont faites pour la m√™me p√&copy;riode,    
+        la politique de pr√&copy;avis de 24 heures sera appliqu√&copy;e (section 3.4.6).    
+        Vous serez avis√&copy; par courriel de la confirmation √&copy;ventuelle de votre r√&copy;servation.<br>       
         <br>
         </div>
     <div style="padding-left:60px;"><span class="style12">3.4.1.2 Demande de la    
-      prochaine p√©riode disponible</span></div>   
+      prochaine p√&copy;riode disponible</span></div>   
 	<div style="padding-left:80px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tous les    
       champs sont obligatoires; il faut donc choisir l'entreprise et le navire    
-      au moyen de menus d√©roulants, une p√©riode doit √™tre pr√©cis√©e de la fa√ßon    
-      d√©crite au paragraphe 3.4.1.1, et le nombre de jours requis pour la r√©servation    
-      doit √™tre pr√©cis√©. Le nombre de jours pour la r√©servation doit √™tre    
-      inf√©rieur ou √©gal √† la dur√©e de la p√©riode pr√©cis√©e.<br>       
+      au moyen de menus d√&copy;roulants, une p√&copy;riode doit √™tre pr√&copy;cis√&copy;e de la fa√ßon    
+      d√&copy;crite au paragraphe 3.4.1.1, et le nombre de jours requis pour la r√&copy;servation    
+      doit √™tre pr√&copy;cis√&copy;. Le nombre de jours pour la r√&copy;servation doit √™tre    
+      inf√&copy;rieur ou √&copy;gal √† la dur√&copy;e de la p√&copy;riode pr√&copy;cis√&copy;e.<br>       
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorsque vous soumettez une demande, on    
-      vous donnera la prochaine p√©riode disponible pour la dur√©e de la r√©servation    
-      pr√©cis√©e. Si c'est acceptable, vous pouvez faire la r√©servation; sinon,    
-      vous pouvez essayer une autre p√©riode. (<em>Nota </em>: Lorsque vous    
-      utilisez l'autre m√©thode de r√©servation qui prend les dates pr√©cises,    
-      si votre p√©riode pr√©cis√©e n'est pas disponible, votre r√©servation sera    
-      approuv√©e et vous serez mis sur une liste d'attente au cas o√π une    
-      annulations surviendrait, et la politique de pr√©avis de 24 heures sera    
-      appliqu√©e. Pri√®re de consulter le paragraphe 3.4.6 pour de plus amples    
-      renseignements. (La m√©thode qui consiste √† demander la prochaine p√©riode    
+      vous donnera la prochaine p√&copy;riode disponible pour la dur√&copy;e de la r√&copy;servation    
+      pr√&copy;cis√&copy;e. Si c'est acceptable, vous pouvez faire la r√&copy;servation; sinon,    
+      vous pouvez essayer une autre p√&copy;riode. (<em>Nota </em>: Lorsque vous    
+      utilisez l'autre m√&copy;thode de r√&copy;servation qui prend les dates pr√&copy;cises,    
+      si votre p√&copy;riode pr√&copy;cis√&copy;e n'est pas disponible, votre r√&copy;servation sera    
+      approuv√&copy;e et vous serez mis sur une liste d'attente au cas o√π une    
+      annulations surviendrait, et la politique de pr√&copy;avis de 24 heures sera    
+      appliqu√&copy;e. Pri√®re de consulter le paragraphe 3.4.6 pour de plus amples    
+      renseignements. (La m√&copy;thode qui consiste √† demander la prochaine p√&copy;riode    
       disponible n'offre pas cette option.)<br>       
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorsque vous soumettez une demande de r√©servation,    
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorsque vous soumettez une demande de r√&copy;servation,    
       un avis est transmis par courriel √† l'administration de la CSE, et vous    
-      voyez appara√Ætre le formulaire des tarifs de radoub. Il s'agit d'un    
+      voyez appara√&reg;tre le formulaire des tarifs de radoub. Il s'agit d'un    
       formulaire optionnel; pour de plus amples renseignements, voir le    
       paragraphe 3.6.1.<br>       
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Il incombe √†    
-      l'administration de la CSE d'approuver la r√©servation; toutefois, lorsque    
-      vous avez re√ßu l'avis de confirmation de la r√©servation par courriel,    
-      vous devez envoyer les formulaires appropri√©es - le tableau 1 et la    
-      clause d'indemnisation - ainsi que les frais de r√©servation de 3 500 $    
-      avant que la r√©servation ne puisse √™tre confirm√©e. Pri√®re de consulter    
+      l'administration de la CSE d'approuver la r√&copy;servation; toutefois, lorsque    
+      vous avez re√ßu l'avis de confirmation de la r√&copy;servation par courriel,    
+      vous devez envoyer les formulaires appropri√&copy;es - le tableau 1 et la    
+      clause d'indemnisation - ainsi que les frais de r√&copy;servation de 3 500 $    
+      avant que la r√&copy;servation ne puisse √™tre confirm√&copy;e. Pri√®re de consulter    
       la section 3.6 pour de plus amples renseignements sur les formulaires    
       requis.<br>    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si votre r√©servation est approuv√©e et que    
-      d'autres r√©servations provisoires sont faites pour la m√™me p√©riode, la    
-      politique de pr√©avis de 24 heures sera appliqu√©e (section 3.4.6). Vous    
-      serez avis√© par courriel de la confirmation √©ventuelle de votre r√©servation.<br>       
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si votre r√&copy;servation est approuv√&copy;e et que    
+      d'autres r√&copy;servations provisoires sont faites pour la m√™me p√&copy;riode, la    
+      politique de pr√&copy;avis de 24 heures sera appliqu√&copy;e (section 3.4.6). Vous    
+      serez avis√&copy; par courriel de la confirmation √&copy;ventuelle de votre r√&copy;servation.<br>       
 	</div>
-	<div style="padding-left:40px;"><strong>3.4.2 R√©server une jet√©e</strong></div>   
+	<div style="padding-left:40px;"><strong>3.4.2 R√&copy;server une jet√&copy;e</strong></div>   
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cliquez    
-      sur ¬´ Pr√©senter une r√©servation ¬ª sous vos r√©servations ou dans la barre des menus, et choisissez l'option de r√©servation    
-      d'une jet√©e. Tous les champs sont obligatoires pour la r√©servation d'une    
-      jet√©e. Vous pouvez choisir l'entreprise, le navire et la jet√©e au moyen    
-      des menus d√©roulants. Les dates du d√©but et de la fin de p√©riode voulue    
-      peuvent √™tre pr√©cis√©es de la fa√ßon d√©crite au paragraphe 3.4.1.1.<br>       
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorsque vous soumettez une demande de r√©servation,    
-      l'administration de la CSE en est avis√©e. Pour que la r√©servation soit    
-      confirm√©e, vous devez faire parvenir les formulaires du tableau 1 et de    
+      sur &Acirc;&laquo; Pr√&copy;senter une r√&copy;servation &Acirc;&raquo; sous vos r√&copy;servations ou dans la barre des menus, et choisissez l'option de r√&copy;servation    
+      d'une jet√&copy;e. Tous les champs sont obligatoires pour la r√&copy;servation d'une    
+      jet√&copy;e. Vous pouvez choisir l'entreprise, le navire et la jet√&copy;e au moyen    
+      des menus d√&copy;roulants. Les dates du d√&copy;but et de la fin de p√&copy;riode voulue    
+      peuvent √™tre pr√&copy;cis√&copy;es de la fa√ßon d√&copy;crite au paragraphe 3.4.1.1.<br>       
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorsque vous soumettez une demande de r√&copy;servation,    
+      l'administration de la CSE en est avis√&copy;e. Pour que la r√&copy;servation soit    
+      confirm√&copy;e, vous devez faire parvenir les formulaires du tableau 1 et de    
       la clause d'indemnisation. Pri√®re de consulter le paragraphe 3.6 pour de    
-      plus amples renseignements sur les formulaires demand√©s. Vous serez avis√©    
-      par courriel de la confirmation √©ventuelle de votre r√©servation. Il n'y    
-      a pas de frais pour la r√©servation d'une jet√©e, mais si le navire    
-      n'arrive pas aux dates indiqu√©es, l'entreprise se verra facturer des    
-      frais de r√©servation.<br>       
+      plus amples renseignements sur les formulaires demand√&copy;s. Vous serez avis√&copy;    
+      par courriel de la confirmation √&copy;ventuelle de votre r√&copy;servation. Il n'y    
+      a pas de frais pour la r√&copy;servation d'une jet√&copy;e, mais si le navire    
+      n'arrive pas aux dates indiqu√&copy;es, l'entreprise se verra facturer des    
+      frais de r√&copy;servation.<br>       
 	<br>
     </div>
-    <div style="padding-left:40px;"><strong>3.4.3 Modifier des r√©servations</strong><br></div>   
-    <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Les r√©servations    
-      ne peuvent √™tre modifi√©es en ligne. Si vous souhaitez modifier une r√©servation,    
+    <div style="padding-left:40px;"><strong>3.4.3 Modifier des r√&copy;servations</strong><br></div>   
+    <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Les r√&copy;servations    
+      ne peuvent √™tre modifi√&copy;es en ligne. Si vous souhaitez modifier une r√&copy;servation,    
       vous devez communiquer avec l'administration de la CSE et transmettre par    
-      courrier ou par fax une copie papier du formulaire de modification d'une r√©servation.    
+      courrier ou par fax une copie papier du formulaire de modification d'une r√&copy;servation.    
       Une version PDF de ce formulaire est disponible en ligne. Pour l'ouvrir,    
-      allez √† la page de bienvenue et cliquez sur ¬´ Formulaires de r√©servation&nbsp;¬ª    
-      en haut de la liste de vos r√©servations.<br>       
+      allez √† la page de bienvenue et cliquez sur &Acirc;&laquo; Formulaires de r√&copy;servation&nbsp;&Acirc;&raquo;    
+      en haut de la liste de vos r√&copy;servations.<br>       
       <br>
     </div>
-    <div style="padding-left:40px;"><strong>3.4.4 Annuler des r√©servations</strong><br></div>   
+    <div style="padding-left:40px;"><strong>3.4.4 Annuler des r√&copy;servations</strong><br></div>   
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Il est    
-      possible d'annuler des r√©servations. Pour ce faire, cliquez sur le nom du    
-      navire dans la liste des r√©servations sur la page de bienvenue ou la page    
-      des r√©servations archiv√©es, puis cliquez sur le bouton ¬´&nbsp;Demander    
-      l'annulation&nbsp;¬ª. Lorsque vous demandez une annulation,    
-      l'administration de la CSE sera avis√©e de la demande, et votre annulation    
-      sera consid√©r√©e comme en traitement jusqu'√† ce que vous receviez un autre    
-      avis. Si vous ne recevez pas d'avis d'annulation de votre r√©servation,    
+      possible d'annuler des r√&copy;servations. Pour ce faire, cliquez sur le nom du    
+      navire dans la liste des r√&copy;servations sur la page de bienvenue ou la page    
+      des r√&copy;servations archiv√&copy;es, puis cliquez sur le bouton &Acirc;&laquo;&nbsp;Demander    
+      l'annulation&nbsp;&Acirc;&raquo;. Lorsque vous demandez une annulation,    
+      l'administration de la CSE sera avis√&copy;e de la demande, et votre annulation    
+      sera consid√&copy;r√&copy;e comme en traitement jusqu'√† ce que vous receviez un autre    
+      avis. Si vous ne recevez pas d'avis d'annulation de votre r√&copy;servation,    
       cela veut dire que celle-ci est maintenue.<br>       
 	<br>
     </div>
     <div style="padding-left:40px;"><strong>3.4.5 Annulations et suppressions 
       administratives</strong><br></div>
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L'administration    
-      de la CSE a la capacit√© d'annuler les r√©servations actuelles, ainsi que    
-      de supprimer les r√©servations pass√©es. Vous serez avis√© par courriel si    
-      l'une de vos r√©servations est annul√©e. Si l'administration supprime une r√©servation    
-      pass√©e, vous ne serez pas avis√©, mais vous remarquerez toutefois    
-      qu'elle n'est plus affich√©e dans la liste de vos r√©servations archiv√©es.<br>       
+      de la CSE a la capacit√&copy; d'annuler les r√&copy;servations actuelles, ainsi que    
+      de supprimer les r√&copy;servations pass√&copy;es. Vous serez avis√&copy; par courriel si    
+      l'une de vos r√&copy;servations est annul√&copy;e. Si l'administration supprime une r√&copy;servation    
+      pass√&copy;e, vous ne serez pas avis√&copy;, mais vous remarquerez toutefois    
+      qu'elle n'est plus affich√&copy;e dans la liste de vos r√&copy;servations archiv√&copy;es.<br>       
       <br>
     </div>
-  	<div style="padding-left:40px;"><strong>3.4.6 Pr√©avis de 24 heures</strong><br></div>   
+  	<div style="padding-left:40px;"><strong>3.4.6 Pr√&copy;avis de 24 heures</strong><br></div>   
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La CSE    
-      maintient une politique de pr√©avis de 24&nbsp;heures en ce qui concerne les    
-      listes d'attente. Si plusieurs r√©servations provisoires indiquent la m√™me    
-      p√©riode de cale s√®che, la politique veut que le principe du premier    
-      arriv√©, premier servi s'applique. Par cons√©quent, la premi√®re  
+      maintient une politique de pr√&copy;avis de 24&nbsp;heures en ce qui concerne les    
+      listes d'attente. Si plusieurs r√&copy;servations provisoires indiquent la m√™me    
+      p√&copy;riode de cale s√®che, la politique veut que le principe du premier    
+      arriv√&copy;, premier servi s'applique. Par cons√&copy;quent, la premi√®re  
       entreprise    
-      qui a demand√© la p√©riode la re√ßoit, √† condition qu'elle paye les frais    
-      de r√©servation et soumette les formulaires requis.<br>       
+      qui a demand√&copy; la p√&copy;riode la re√ßoit, √† condition qu'elle paye les frais    
+      de r√&copy;servation et soumette les formulaires requis.<br>       
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cependant, si une autre entreprise plus    
-      bas dans la liste paye les frais de r√©servation et fournit les    
-      formulaires en premier, toutes les entreprises ayant des demandes de r√©servation    
-      provisoires faites ant√©rieurement auront 24 heures de pr√©avis pour payer    
-      les frais de r√©servation, en commen√ßant par le d√©but de la liste. 
-      L'entreprise en haut de la liste sera avis√©e la premi√®re. Si elle choisit de    
-      ne pas prendre la p√©riode, la prochaine entreprise sera avis√©e, et ainsi    
-      de suite. Si aucune de ces entreprises ne paye les frais de r√©servation    
-      dans le d√©lai allou√©, l'entreprise originale qui fait la demande de    
-      confirmation re√ßoit la p√©riode. La m√™me politique s'applique lorsque    
-      des p√©riodes deviennent disponibles en raison d'annulations.<br>       
+      bas dans la liste paye les frais de r√&copy;servation et fournit les    
+      formulaires en premier, toutes les entreprises ayant des demandes de r√&copy;servation    
+      provisoires faites ant√&copy;rieurement auront 24 heures de pr√&copy;avis pour payer    
+      les frais de r√&copy;servation, en commen√ßant par le d√&copy;but de la liste. 
+      L'entreprise en haut de la liste sera avis√&copy;e la premi√®re. Si elle choisit de    
+      ne pas prendre la p√&copy;riode, la prochaine entreprise sera avis√&copy;e, et ainsi    
+      de suite. Si aucune de ces entreprises ne paye les frais de r√&copy;servation    
+      dans le d√&copy;lai allou√&copy;, l'entreprise originale qui fait la demande de    
+      confirmation re√ßoit la p√&copy;riode. La m√™me politique s'applique lorsque    
+      des p√&copy;riodes deviennent disponibles en raison d'annulations.<br>       
     </div>
             <p><a href="#Top">Retour √† la table des mati√®res</a> </p>   
      
   <p> <div style="padding-left:20px;"><em><a name="Overviews"></a><span class="style11"><strong>3.5    
-              R√©servations - Vue d'ensemble</strong></span></em></div>   
+              R√&copy;servations - Vue d'ensemble</strong></span></em></div>   
     <div style="padding-left:40px;"><strong>3.5.1 Calendriers</strong><br></div>
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La barre    
-      de menus du haut donne acc√®s aux calendriers de la cale s√®che et des jet√©es.    
+      de menus du haut donne acc√®s aux calendriers de la cale s√®che et des jet√&copy;es.    
       Des tableaux mensuels et trimestriels sont disponibles (figure 8). Les    
-      calendriers affichent par d√©faut le mois en cours, mais on peut voir    
-      d'autres mois au moyen des menus d√©roulants. Chaque jour affiche un    
-      sommaire des r√©servations confirm√©es pour chaque section ou chaque jet√©e,    
-      ainsi que le nombre de r√©servations en traitement ou provisoires pour cette    
-      journ√©e. En cliquant sur une date, vous voyez un sommaire plus d√©taill√©    
-      des r√©servations pour la journ√©e en question.<br>       
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si un navire est anonyme et si la r√©servation    
-      n'est pas confirm√©e, le calendrier indiquera ¬´ Navire de haute mer&nbsp;¬ª,    
-      et ne donnera que l'√©tat de la r√©servation et les dates d'amarrage.    
-      Lorsque la r√©servation est confirm√©e, quelques renseignements    
-      additionnels limit√©s sont affich√©s. Pour les navires que tous peuvent    
-      voir, un lien m√®nent √† des renseignements plus d√©taill√©s sur la r√©servation    
+      calendriers affichent par d√&copy;faut le mois en cours, mais on peut voir    
+      d'autres mois au moyen des menus d√&copy;roulants. Chaque jour affiche un    
+      sommaire des r√&copy;servations confirm√&copy;es pour chaque section ou chaque jet√&copy;e,    
+      ainsi que le nombre de r√&copy;servations en traitement ou provisoires pour cette    
+      journ√&copy;e. En cliquant sur une date, vous voyez un sommaire plus d√&copy;taill√&copy;    
+      des r√&copy;servations pour la journ√&copy;e en question.<br>       
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si un navire est anonyme et si la r√&copy;servation    
+      n'est pas confirm√&copy;e, le calendrier indiquera &Acirc;&laquo; Navire de haute mer&nbsp;&Acirc;&raquo;,    
+      et ne donnera que l'√&copy;tat de la r√&copy;servation et les dates d'amarrage.    
+      Lorsque la r√&copy;servation est confirm√&copy;e, quelques renseignements    
+      additionnels limit√&copy;s sont affich√&copy;s. Pour les navires que tous peuvent    
+      voir, un lien m√®nent √† des renseignements plus d√&copy;taill√&copy;s sur la r√&copy;servation    
       et le navire.<br>        
 	<br>
     </div>
-    <div style="padding-left:40px;"><strong>3.5.2 Sommaire des r√©servations</strong><br></div>   
+    <div style="padding-left:40px;"><strong>3.5.2 Sommaire des r√&copy;servations</strong><br></div>   
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;√Ä    
-      partir de toutes les pages du calendrier, vous avez acc√®s √† un lien ¬´ R√©sum√© des r√©servations ¬ª tout juste sous la barre de menus du haut    
-      (figure 8). Le r√©sum√© des r√©servations est un tableau regroupant    
-      l'information donn√©e dans les calendriers. Il affiche le nom et la    
-      longueur du navire, l'√©tat de la r√©servation, la ou les sections ou la    
-      jet√©e r√©serv√©es, les dates d'amarrage et la date o√π la demande de r√©servation    
-      a √©t√© soumise. On peut faire afficher une version facile √† imprimer en    
-      cliquant sur le bouton ¬´&nbsp;Voir la version imprimable&nbsp;¬ª.<br>       
+      partir de toutes les pages du calendrier, vous avez acc√®s √† un lien &Acirc;&laquo; R√&copy;sum√&copy; des r√&copy;servations &Acirc;&raquo; tout juste sous la barre de menus du haut    
+      (figure 8). Le r√&copy;sum√&copy; des r√&copy;servations est un tableau regroupant    
+      l'information donn√&copy;e dans les calendriers. Il affiche le nom et la    
+      longueur du navire, l'√&copy;tat de la r√&copy;servation, la ou les sections ou la    
+      jet√&copy;e r√&copy;serv√&copy;es, les dates d'amarrage et la date o√π la demande de r√&copy;servation    
+      a √&copy;t√&copy; soumise. On peut faire afficher une version facile √† imprimer en    
+      cliquant sur le bouton &Acirc;&laquo;&nbsp;Voir la version imprimable&nbsp;&Acirc;&raquo;.<br>       
     </div>
 	<div align="center"><img src="../../images/userCalMenu-f.gif" alt="Figure 8 : Vue d'ensemble des r&eacute;servations"></div>
-	<div align="center">Figure 8 : Vue d'ensemble des r√©servations <br><br>   
+	<div align="center">Figure 8 : Vue d'ensemble des r√&copy;servations <br><br>   
  	 </div>
             <a href="#Top">Retour √† la table des mati√®res</a> <br>   
     <br>
     <div style="padding-left:20px;"><em><a name="Forms"></a><span class="style11">3.6    
-      Formulaires pour les r√©servations</span></em></div>   
+      Formulaires pour les r√&copy;servations</span></em></div>   
     <div style="padding-left:40px;"><strong>3.6.1 Tarifs des droits de cale s√®che</strong><br></div>
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le    
       formulaire des tarifs de droits de cale s√®che est un formulaire optionnel qui vous    
-      permet de pr√©ciser les services et les installations dont vous aurez    
+      permet de pr√&copy;ciser les services et les installations dont vous aurez    
       besoin, et qui permettra ainsi √† la CSE d'avoir les ressources dont vous 
-      aurez besoin durant la p√©riode que vous r√©servez. Lorsque votre r√©servation    
-      est confirm√©e, vous devriez confirmer √©galement vos besoins exacts    
+      aurez besoin durant la p√&copy;riode que vous r√&copy;servez. Lorsque votre r√&copy;servation    
+      est confirm√&copy;e, vous devriez confirmer √&copy;galement vos besoins exacts    
       directement avec la CSE. <br>       
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le formulaire s'affichera apr√®s que   
-      vous aurez demand√© une r√©servation. Vous pouvez le remplir √† ce   
-      moment-l√†, ou d√©cider de le faire plus tard. Si vous voulez modifier vos   
-      entr√©es ou remplir le formulaire plus tard, vous pourrez le faire √†   
+      vous aurez demand√&copy; une r√&copy;servation. Vous pouvez le remplir √† ce   
+      moment-l√†, ou d√&copy;cider de le faire plus tard. Si vous voulez modifier vos   
+      entr√&copy;es ou remplir le formulaire plus tard, vous pourrez le faire √†   
       partir de la page de bienvenue. Les formulaires des tarifs peuvent √™tre   
-      modifi√©s pour les r√©servations en traitement et provisoire. Cliquez sur le   
-      lien ¬´ Modification du formulaire de tarif&nbsp;¬ª dans la liste des r√©servations   
+      modifi√&copy;s pour les r√&copy;servations en traitement et provisoire. Cliquez sur le   
+      lien &Acirc;&laquo; Modification du formulaire de tarif&nbsp;&Acirc;&raquo; dans la liste des r√&copy;servations   
       pour apporter des changements ou remplir le formulaire pour la premi√®re   
-      fois. Si une r√©servation est confirm√©e, vous pouvez faire afficher le   
-      formulaire des tarifs en cliquant sur&nbsp; ¬´&nbsp;Consulter le formulaire 
-      de tarif&nbsp;¬ª. Pour faire apporter des changements au formulaire de 
-      tarif d'une r√©servation confirm√©e, pri√®re de communiquer avec la CSE.<br>       
+      fois. Si une r√&copy;servation est confirm√&copy;e, vous pouvez faire afficher le   
+      formulaire des tarifs en cliquant sur&nbsp; &Acirc;&laquo;&nbsp;Consulter le formulaire 
+      de tarif&nbsp;&Acirc;&raquo;. Pour faire apporter des changements au formulaire de 
+      tarif d'une r√&copy;servation confirm√&copy;e, pri√®re de communiquer avec la CSE.<br>       
 	<br>
     </div>
     <div style="padding-left:40px;"><strong>3.6.2 Tableau 1</strong><br></div> 
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le   
       tableau 1 donne des renseignements sur le navire, et sert d'entente entre   
-      l'agent qui fait la r√©servation et la CSE. La CSE doit recevoir le   
-      tableau 1 avant que la r√©servation ne puisse √™tre confirm√©e.<br>       
+      l'agent qui fait la r√&copy;servation et la CSE. La CSE doit recevoir le   
+      tableau 1 avant que la r√&copy;servation ne puisse √™tre confirm√&copy;e.<br>       
       <br>
     </div>
     <div style="padding-left:40px;"><strong>3.6.3 Clause d'indemnisation</strong><br></div>
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La   
-      clause d'indemnisation est une stipulation d'exon√©ration de responsabilit√©   
-      juridique qui&nbsp; d√©gage la Couronne de toute responsabilit√© en ce qui   
+      clause d'indemnisation est une stipulation d'exon√&copy;ration de responsabilit√&copy;   
+      juridique qui&nbsp; d√&copy;gage la Couronne de toute responsabilit√&copy; en ce qui   
       concerne les blessures et les dommages qui pourraient √™tre subis durant   
-      tout le s√©jour du navire √† la CSE. la CSE doit recevoir ce formulaire   
-      avant qu'une r√©servation ne puisse √™tre confirm√©e.<br>       
+      tout le s√&copy;jour du navire √† la CSE. la CSE doit recevoir ce formulaire   
+      avant qu'une r√&copy;servation ne puisse √™tre confirm√&copy;e.<br>       
       <br>
     </div>
     <div style="padding-left:40px;"><strong>3.6.4 Formulaire de modification   
-      d'une r√©servation</strong><br></div>  
+      d'une r√&copy;servation</strong><br></div>  
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pour   
-      faire une demande de changement des dates d'une r√©servation, il faut   
-      transmettre le formulaire de modification d'une r√©servation √† la CSE.<br>       
+      faire une demande de changement des dates d'une r√&copy;servation, il faut   
+      transmettre le formulaire de modification d'une r√&copy;servation √† la CSE.<br>       
     </div>
             <p align="left"><a href="#Top">Retour √† la table des mati√®res</a> </p>  
     <p align="left"><div style="padding-left:20px;"><em><a name="LoggingOut" id="LoggingOut"></a><span class="style11">3.7  
               Sortir du syst√®me</span></em><br></div> 
     <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pour  
-      sortir du syst√®me, cliquez sur le bouton ¬´&nbsp;Fermer la session&nbsp;¬ª, dans la  
+      sortir du syst√®me, cliquez sur le bouton &Acirc;&laquo;&nbsp;Fermer la session&nbsp;&Acirc;&raquo;, dans la  
       barre de menus du haut. Il faut toujours sortir du syst√®me pour mettre  
       fin √† votre session, afin d'emp√™cher que d'autres personnes n'entrent  
-      dans votre compte sur des ordinateurs partag√©s.<br>  
+      dans votre compte sur des ordinateurs partag√&copy;s.<br>  
     </div>
             <a href="#Top">Retour √† la table des mati√®res</a> </td>
         </tr>
       </table>
 	<a href="file:///H|/EGDBooking/text/booking/egd_userdoc-e.html">egd_userdoc-e</a></BODY>
 </HTML>
+

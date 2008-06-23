@@ -70,14 +70,14 @@
 				
 				<!---cfform action="intromsgaction.cfm" method="POST"--->
 					<!---<cffile action="read" file="D:\Web\EGDBooking\text\intromsg.txt" variable="intromsg">--->
-					<cffile action="read" file="#FileDir#text\intromsg.txt" variable="intromsg">
-					<cfif #Trim(intromsg)# EQ "">
-					<cfelse>
-						<DIV class="notice">
-						<H2>Notice</H2>
-						<cfoutput>#paragraphformat(intromsg)#</cfoutput>
-						</DIV>
-					</cfif>
+				<cffile action="read" file="#FileDir#text\intromsg.txt" variable="intromsg">
+				<cfif #Trim(intromsg)# EQ "">
+				<cfelse>
+					<DIV class="notice">
+					<H2>Notice</H2>
+					<cfoutput>#paragraphformat(intromsg)#</cfoutput>
+					</DIV>
+				</cfif>
 				<!---/cfform--->
 			
 				<div style="font-size:10pt;padding-left:10px;">

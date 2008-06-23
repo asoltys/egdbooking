@@ -23,8 +23,7 @@
 
 </cfif>
 
-<cfoutput>
-	<cfhtmlhead text="
+<cfhtmlhead text="
 	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.ConfirmBooking#"">
 	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
@@ -36,9 +35,6 @@
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.ConfirmBooking#</title>
 	<link rel=""STYLESHEET"" type=""text/css"" href=""#RootDir#css/booking.css"">
 ">
-</cfoutput>
- 
-<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <CFPARAM name="url.referrer" default="Booking Home">
 <CFIF url.referrer eq "Details For">
@@ -70,35 +66,45 @@
 			AND Vessels.Deleted = '0'
 </cfquery>
 
-<cfoutput>
-<div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
-	#language.PacificRegion# &gt;
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.EsqGravingDock#</a> &gt;
-	<a href="#RootDir#text/booking-#lang#.cfm">#language.Booking#</A> &gt;
-		<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-		<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
-	<CFELSE>
-		<a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
-	</CFIF>
-	#language.ConfirmBooking#
-</div>
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<div class="main">
-<H1>#language.ConfirmBooking#</H1>
-<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-<BR><br>
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+			<CFELSE>
+				<a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+			</CFIF>
+			#language.ConfirmBooking#
+			</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					<CFOUTPUT>#language.ConfirmBooking#</CFOUTPUT>
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
-<div align="center">#language.areYouSure# <strong>#getBooking.VesselName#</strong> #language.from# #LSDateFormat(getBooking.StartDate, 'mmm d, yyyy')# #language.to# #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')#?</div><br>
-<div align="center">
-	<CFFORM action="confirmBooking_action.cfm?lang=#lang#&CompanyID=#getBooking.CompanyID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#&jetty=#URL.jetty#" name="ConfirmBooking">
-		<INPUT type="hidden" name="BookingID" value="#url.bookingID#">
-		<input type="submit" value="#language.Continue#" class="textbutton">
-		<input type="button" onClick="self.location.href='#RootDir#text/common/getBookingDetail.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#">
-	</CFFORM>
-</div>
-</div>
-</cfoutput>
+				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
+				<cfoutput>
+				<p align="center">#language.areYouSure# <strong>#getBooking.VesselName#</strong> #language.from# #LSDateFormat(getBooking.StartDate, 'mmm d, yyyy')# #language.to# #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')#?</p>
+				<div align="center">
+					<CFFORM action="confirmBooking_action.cfm?lang=#lang#&CompanyID=#getBooking.CompanyID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#&jetty=#URL.jetty#" name="ConfirmBooking">
+						<INPUT type="hidden" name="BookingID" value="#url.bookingID#">
+						<input type="submit" value="#language.Continue#" class="textbutton">
+						<input type="button" onClick="self.location.href='#RootDir#text/common/getBookingDetail.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#">
+					</CFFORM>
+				</div>
+				</cfoutput>
 
+			</div>
+		<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 

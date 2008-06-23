@@ -21,7 +21,6 @@
 
 </cfif>
 
-<cfoutput>
 	<cfhtmlhead text="
 	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.DeleteVessel#"">
 	<meta name=""keywords"" lang=""eng"" content=""#language.DeleteVessel#"">
@@ -32,9 +31,6 @@
 	<meta name=""dc.date.modified"" content=""2005-07-25"">
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.DeleteVessel#</title>">
-</cfoutput>
-
-<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <script language="JavaScript" type="text/javascript">
 	function SubmitForm(selectedForm) {
@@ -71,101 +67,108 @@
 	<cflocation addtoken="no" url="booking.cfm?lang=#lang#">
 </cfif>
 
-<cfoutput>
-	<div class="breadcrumbs">
-		<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
-		#language.PacificRegion# &gt;
-		<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.EsqGravingDock#</a> &gt;
-		<a href="#RootDir#text/booking-#lang#.cfm">#language.Booking#</A> &gt;
-		<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-		<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
-	<CFELSE>
-		<a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
-	</CFIF>
-		#language.DeleteVessel#
-	</div>
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-	<H1>#language.DeleteVessel#</H1>
-</cfoutput>
-<CFINCLUDE template="#RootDir#includes/user_menu.cfm"><br><br>
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+			<CFELSE>
+				<a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+			</CFIF>
+			#language.DeleteVessel#
+			</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					<CFOUTPUT>#language.DeleteVessel#</CFOUTPUT>
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
-<div class="main">
-
-<cfif getVesselDockBookings.recordCount EQ 0 AND getVesselJettyBookings.recordCount EQ 0>
-		<cfoutput query="getVesselDetail">
-			<div align="center">
-			#language.areYouSure# <strong>#name#</strong>?
-
-			<form name="DelVessel" action="delVessel_action.cfm?lang=#lang#&CompanyID=#CompanyID#" method="post">
-				<input type="hidden" name="VesselID" value="#vesselID#">
-				<BR>
-				<input type="submit" value="#language.Delete#" class="textbutton">
-				<input type="button" value="#language.Cancel#" onClick="history.go(-1);" class="textbutton">
-			</form>
+				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
+				
+				<cfif getVesselDockBookings.recordCount EQ 0 AND getVesselJettyBookings.recordCount EQ 0>
+						<cfoutput query="getVesselDetail">
+							<p align="center">#language.areYouSure# <strong>#name#</strong>?</p>
+							<div align="center">
+							<form name="DelVessel" action="delVessel_action.cfm?lang=#lang#&CompanyID=#CompanyID#" method="post">
+								<input type="hidden" name="VesselID" value="#vesselID#">
+								<input type="submit" value="#language.Delete#" class="textbutton">
+								<input type="button" value="#language.Cancel#" onClick="history.go(-1);" class="textbutton">
+							</form>
+							</div>
+						</cfoutput>
+				<cfelse>
+						<P><cfoutput><strong>#getVesselDetail.name#</strong> #language.cannotDelete#</cfoutput></p>
+				
+						<cfif getVesselDockBookings.recordCount GT 0>
+							<cfoutput>
+							<table style="padding-left:20px;font-size:10pt;" width="100%">
+								<tr><td><h2>#language.Drydock#</i></strong></h2>
+								<tr>
+									<td width="25%" id="start"><strong>#language.StartDate#</strong></td>
+									<td width="60%" id="end"><strong>#language.EndDate#</strong></td>
+									<td width="15%" id="status"><strong>#language.Status#</strong></td>
+								</tr>
+							</cfoutput>
+							<cfoutput query="getVesselDockBookings">
+								<tr>
+									<td valign="top" headers="start">#LSdateformat(startDate, "mmm d, yyyy")#</td>
+									<td valign="top" headers="end">#LSdateformat(endDate, "mmm d, yyyy")#</td>
+									<td valign="top" headers="status">
+										<cfif status EQ "P"><i>#language.pending#</i>
+										<cfelseif status EQ "T"><i>#language.tentative#</i>
+										<cfelseif status EQ "C"><i>#language.confirmed#</i></cfif>
+									</td>
+								</tr>
+							</cfoutput>
+							</table>
+						</cfif>
+				
+						<cfif getVesselJettyBookings.recordCount GT 0>
+							<cfoutput>
+							<table style="padding-left:20px;font-size:10pt;" width="100%">
+								<tr><td><h2>#language.Jetty#</i></strong></h2>
+								<tr>
+									<td width="25%" id="start"><strong>#language.StartDate#</strong></td>
+									<td width="25%" id="end"><strong>#language.EndDate#</strong></td>
+									<td width="35%" id="jetty"><strong>#language.Jetty#</strong></td>
+									<td width="15%" id="status"><strong>#language.Status#</strong></td>
+								</tr>
+							</cfoutput>
+							<cfoutput query="getVesselJettyBookings">
+								<tr>
+									<td valign="top" headers="start">#LSdateformat(startDate, "mmm d, yyyy")#</td>
+									<td valign="top" headers="end">#LSdateformat(endDate, "mmm d, yyyy")#</td>
+									<td valign="top" headers="jetty">
+										<cfif getVesselJettyBookings.NorthJetty EQ 1>
+											#language.NorthLandingWharf#
+										<cfelseif getVesselJettyBookings.SouthJetty EQ 1>
+											#language.SouthJetty#
+										</cfif>
+									</td>
+									<td valign="top" headers="status">
+										<cfif status EQ "P"><i>#language.pending#</i>
+										<cfelseif status EQ "C"><i>#language.confirmed#</i></cfif>
+									</td>
+								</tr>
+							</cfoutput>
+							</table>
+						</cfif>
+						<br />
+						<cfoutput>
+						<div align="center"><a href="#RootDir#text/booking/booking.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#" class="textbutton">#language.OK#</a></div></cfoutput>
+				</cfif>
 			</div>
-		</cfoutput>
-<cfelse>
-		<cfoutput><strong>#getVesselDetail.name#</strong> #language.cannotDelete#</cfoutput><br>
 
-		<cfif getVesselDockBookings.recordCount GT 0>
-			<br><br>
-			<cfoutput>
-			<table style="padding-left:20px;font-size:10pt;" width="100%">
-				<tr><td><strong><i>#language.Drydock#</i></strong></td></tr>
-				<tr>
-					<td width="25%" id="start"><strong>#language.StartDate#</strong></td>
-					<td width="60%" id="end"><strong>#language.EndDate#</strong></td>
-					<td width="15%" id="status"><strong>#language.Status#</strong></td>
-				</tr>
-			</cfoutput>
-				<cfoutput query="getVesselDockBookings">
-					<tr>
-						<td valign="top" headers="start">#LSdateformat(startDate, "mmm d, yyyy")#</td>
-						<td valign="top" headers="end">#LSdateformat(endDate, "mmm d, yyyy")#</td>
-						<td valign="top" headers="status">
-							<cfif status EQ "P"><i>#language.pending#</i>
-							<cfelseif status EQ "T"><i>#language.tentative#</i>
-							<cfelseif status EQ "C"><i>#language.confirmed#</i></cfif>
-						</td>
-					</tr>
-				</cfoutput>
-			</table>
-		</cfif>
-
-		<cfif getVesselJettyBookings.recordCount GT 0>
-			<br>
-			<cfoutput>
-			<table style="padding-left:20px;font-size:10pt;" width="100%">
-				<tr><td><strong><i>#language.Jetty#</i></strong></td></tr>
-				<tr>
-					<td width="25%" id="start"><strong>#language.StartDate#</strong></td>
-					<td width="25%" id="end"><strong>#language.EndDate#</strong></td>
-					<td width="35%" id="jetty"><strong>#language.Jetty#</strong></td>
-					<td width="15%" id="status"><strong>#language.Status#</strong></td>
-				</tr>
-			</cfoutput>
-				<cfoutput query="getVesselJettyBookings">
-					<tr>
-						<td valign="top" headers="start">#LSdateformat(startDate, "mmm d, yyyy")#</td>
-						<td valign="top" headers="end">#LSdateformat(endDate, "mmm d, yyyy")#</td>
-						<td valign="top" headers="jetty">
-							<cfif getVesselJettyBookings.NorthJetty EQ 1>
-								#language.NorthLandingWharf#
-							<cfelseif getVesselJettyBookings.SouthJetty EQ 1>
-								#language.SouthJetty#
-							</cfif>
-						</td>
-						<td valign="top" headers="status">
-							<cfif status EQ "P"><i>#language.pending#</i>
-							<cfelseif status EQ "C"><i>#language.confirmed#</i></cfif>
-						</td>
-					</tr>
-				</cfoutput>
-			</table>
-		</cfif>
-
-		<br><cfoutput><div align="center"><a href="#RootDir#text/booking/booking.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#" class="textbutton">#language.OK#</a></div></cfoutput><br>
-</cfif>
-</div>
+		<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 

@@ -29,8 +29,7 @@
 
 </cfif>
 
-<cfoutput>
-	<cfhtmlhead text="
+<cfhtmlhead text="
 	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.RequestBooking#"">
 	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
@@ -41,63 +40,54 @@
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.RequestBooking#</title>
 	<style type=""text/css"" media=""screen,print"">@import url(#RootDir#css/events.css);</style>
-	">
-</cfoutput>
+">
 
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+			#language.RequestBooking#
+			</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					<CFOUTPUT>#language.RequestBooking#</CFOUTPUT>
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
-
-<!-- Start JavaScript Block -->
-<!-- End JavaScript Block -->
-
-<!--- <cfoutput>
-<div class="main">
-<div id="title">#language.PageTitle#</div>
-
-<div class="subnav">
-	<a href="#RootDir#community-#lang#.cfm" class="subnav">#Language.SubNav1#</a> |
-	<a href="#RootDir#app/events.cfm?lang=#lang#" class="subnav">#language.PageTitle#</a>
-</div>
-</cfoutput> --->
-
-<cfoutput>
-<div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt; #language.PacificRegion# &gt;
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.EsqGravingDock#</a> &gt;
-	<A href="../booking-#lang#.cfm">#language.booking#</A> &gt;
-	<a href="booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
-	#language.RequestBooking#
-</div>
-
-<div class="main">
-
-<!--- <!--div style="text-align: right; font-size: 10pt;"><a href="booking.cfm?lang=#lang#">Back</a></div--> --->
-
-<H1>#language.RequestBooking#</H1>
-<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-<BR>
-
-<cfset Variables.BookingRequestString = "">
-<cfif IsDefined("URL.VesselID")>
-	<cfset Variables.BookingRequestString = "&VesselID=#URL.VesselID#">
-<cfelseif IsDefined("URL.CompanyID")>
-	<cfset Variables.BookingRequestString = "&CompanyID=#URL.CompanyID#">
-</cfif>
-<cfif IsDefined("URL.Date")>
-	<cfset Variables.BookingRequestString = "#Variables.BookingRequestString#&Date=#URL.Date#">
-</cfif>
-
-<p>#language.choose#</p>
-<UL>
-	<LI><a href="bookingRequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.drydockBooking#</a></LI>
-	<LI><a href="jettyRequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.jettyBooking#</a></LI>
-</UL>
-<BR>
-<P><A href="booking.cfm?lang=<cfoutput>#lang#</cfoutput>" class="textbutton">#language.mainPage#</a></P>
-
-</div>
-</cfoutput>
-
+				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
+				<cfoutput>
+	
+				<cfset Variables.BookingRequestString = "">
+				<cfif IsDefined("URL.VesselID")>
+					<cfset Variables.BookingRequestString = "&VesselID=#URL.VesselID#">
+				<cfelseif IsDefined("URL.CompanyID")>
+					<cfset Variables.BookingRequestString = "&CompanyID=#URL.CompanyID#">
+				</cfif>
+				<cfif IsDefined("URL.Date")>
+					<cfset Variables.BookingRequestString = "#Variables.BookingRequestString#&Date=#URL.Date#">
+				</cfif>
+				
+				<p>#language.choose#</p>
+				<UL>
+					<LI><a href="bookingRequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.drydockBooking#</a></LI>
+					<LI><a href="jettyRequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.jettyBooking#</a></LI>
+				</UL>
+				<BR>
+				<P><A href="booking.cfm?lang=<cfoutput>#lang#</cfoutput>" class="textbutton">#language.mainPage#</a></P>
+				
+				</cfoutput>
+			
+			</div>
+		<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 

@@ -32,8 +32,7 @@
 	<cfset language.bookingRequest = "Demande de r&eacute;servation">
 </cfif>
 
-<cfoutput>
-	<cfhtmlhead text="
+<cfhtmlhead text="
 	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.tariffHeading#"">
 	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
@@ -43,9 +42,6 @@
 	<meta name=""dc.date.modified"" content=""2005-07-25"">
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.tariffHeading#</title>">
-</cfoutput>
-
-<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 <cfinclude template="#RootDir#includes/build_form_struct.cfm">
@@ -73,118 +69,123 @@
 	</cfquery>
 </cfif>
 
-<CFOUTPUT>
-	<div class="breadcrumbs">
-		<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
-		#language.PacificRegion# &gt;
-		<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.EsqGravingDock#</a> &gt;
-		<a href="#RootDir#text/booking-#lang#.cfm">#language.Booking#</A> &gt;
-		<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-		<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
-	<CFELSE>
-		<a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
-	</CFIF>
-		<A href="bookingRequest_choose.cfm?lang=<cfoutput>#lang#</cfoutput>">#language.bookingRequest#</A> &gt;
-		#language.tariffHeading#
-	</div>
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-	<div class="main">
-	<H1>#language.tariffHeading#</H1>
-</cfoutput>
-<CFINCLUDE template="#RootDir#includes/user_menu.cfm"><br>
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+			<CFELSE>
+				<a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+			</CFIF>
+			<A href="bookingRequest_choose.cfm?lang=<cfoutput>#lang#</cfoutput>">#language.bookingRequest#</A> &gt;
+			#language.tariffHeading#
+			</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					<CFOUTPUT>#language.tariffHeading#</CFOUTPUT>
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
-<cfinclude template="#RootDir#includes/getStructure.cfm">
-
-<br>
-<cfoutput><div align="center" style="font-weight:bold;">#getDetails.CompanyName#: #getDetails.VesselName#</div></cfoutput>
-<cfoutput><div align="center" style="font-weight:bold;">#DateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#</div></cfoutput>
-<br>
-<cfoutput>
-
-	<div align="left">#language.optional#</div>
-	<div align="center">
-		<br><input type="button" value="#language.later#" class="textbutton" onClick="javascript:self.location.href='otherForms.cfm?lang=#lang#';">
-	</div>
-</cfoutput>
-<br>
-<cfform name="serviceSelect" action="feesForm_action.cfm?lang=#lang#&BookingID=#url.BookingID#">
-<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the available services for a booking and allows the user to select the desired services.">
-<cfoutput>
-	<tr>
-		<th id="checkHeader" class="feesformheader" width="5%">&nbsp;</th>
-		<th id="itemHeader" class="feesformheader" width="4%"><strong>#language.Item#</strong></th>
-		<th id="serviceHeader" class="feesformheader"><strong>#language.Services#</strong></th>
-		<th id="feeHeader" class="feesformheader" width="19%"><strong>#language.Fees#</strong></th>
-	</tr>
-
-	<tr>
-		<td id="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="Checkbox" onClick="if (this.checked) this.form.otherBox.focus();"></td>
-		<td id="itemHeader" align="center" valign="top">&nbsp;</td>
-		<td id="serviceHeader" align="left" valign="top">
-			<table>
-				<tr>
-					<td valign="top"><label for="otherBox">#language.Misc#:</label></td>
-					<td><textarea name="otherText" id="otherBox" cols="32" rows="3" onFocus="this.form.otherCheck.checked = true;"></textarea></td>
-				</tr>
-				<tr><td colspan="2">#language.miscText2#<br /><br />(#language.miscText#)</td></tr>
-			</table>
-		</td>
-		<td id="feeHeader" align="right" valign="top">&nbsp;</td>
-	</tr>
-</cfoutput>
-
-	<cfoutput query="getFees">
-		<cfif item NEQ "" AND item mod 2>
-			<cfset backColor = "##FFF8DC">
-		<cfelseif item NEQ "">
-			<cfset backColor = "##FFFFFF">
-		</cfif>
-
-		<tr bgcolor="#backColor#">
-			<td id="checkHeader" align="right" valign="top">
-				<cfif fee NEQ "">
-					<input name="#abbreviation#" id="#abbreviation#" type="Checkbox">
-				</cfif>
-			</td>
-			<td headers="itemHeader" align="center" valign="top">
-			 	<strong>
-					<cfif fee NEQ "">
-						<label for="#abbreviation#">#item#</label>
-					<cfelse>
-						#item#
+				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
+				
+				<cfinclude template="#RootDir#includes/getStructure.cfm">
+				
+				<cfoutput>
+				<p align="center" style="font-weight:bold;">#getDetails.CompanyName#: #getDetails.VesselName#<br />
+				#DateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#</p>
+					<p align="left">#language.optional#</p>
+					<div align="center">
+						<input type="button" value="#language.later#" class="textbutton" onClick="javascript:self.location.href='otherForms.cfm?lang=#lang#';">
+					</div>
+				</cfoutput>
+				<br>
+				<cfform name="serviceSelect" action="feesForm_action.cfm?lang=#lang#&BookingID=#url.BookingID#">
+				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the available services for a booking and allows the user to select the desired services.">
+				<cfoutput>
+					<tr>
+						<th id="checkHeader" class="feesformheader" width="5%">&nbsp;</th>
+						<th id="itemHeader" class="feesformheader" width="4%"><strong>#language.Item#</strong></th>
+						<th id="serviceHeader" class="feesformheader"><strong>#language.Services#</strong></th>
+						<th id="feeHeader" class="feesformheader" width="19%"><strong>#language.Fees#</strong></th>
+					</tr>
+				
+					<tr>
+						<td id="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="Checkbox" onClick="if (this.checked) this.form.otherBox.focus();"></td>
+						<td id="itemHeader" align="center" valign="top">&nbsp;</td>
+						<td id="serviceHeader" align="left" valign="top">
+							<table>
+								<tr>
+									<td valign="top"><label for="otherBox">#language.Misc#:</label></td>
+									<td><textarea name="otherText" id="otherBox" cols="32" rows="3" onFocus="this.form.otherCheck.checked = true;"></textarea></td>
+								</tr>
+								<tr><td colspan="2">#language.miscText2#<br /><br />(#language.miscText#)</td></tr>
+							</table>
+						</td>
+						<td id="feeHeader" align="right" valign="top">&nbsp;</td>
+					</tr>
+				</cfoutput>
+				
+				<cfoutput query="getFees">
+					<cfif item NEQ "" AND item mod 2>
+						<cfset rowClass = "highlight">
+					<cfelseif item NEQ "">
+						<cfset rowClass = "">
 					</cfif>
-				</strong>
-			</td>
-			<td headers="serviceHeader" align="left" valign="top">
-				<cfif fee NEQ "">
-					<label for="#abbreviation#">#service#</label>
-				<cfelse>
-					#service#
-				</cfif>
-			</td>
-			<cfif fee NEQ "">
-				<cfif flex EQ 0>
-			<td headers="feeHeader" align="right" valign="top" nowrap><label for="#abbreviation#"><STRONG>#LSCurrencyFormat(fee)#</STRONG></label></td>
-				<cfelse>
-			<td headers="feeHeader" align="right" valign="top"><label for="#abbreviation#"><STRONG>#language.pricesVary#</STRONG></label></td>
-				</cfif>
-			<cfelse>
-			<td headers="feeHeader">&nbsp;</td>
-			</cfif>
-		</tr>
-	</cfoutput>
-</table>
+			
+					<tr class="#rowClass#">
+						<td id="checkHeader" align="right" valign="top">
+							<cfif fee NEQ "">
+								<input name="#abbreviation#" id="#abbreviation#" type="Checkbox">
+							</cfif>
+						</td>
+						<td headers="itemHeader" align="center" valign="top">
+							<strong>
+								<cfif fee NEQ "">
+									<label for="#abbreviation#">#item#</label>
+								<cfelse>
+									#item#
+								</cfif>
+							</strong>
+						</td>
+						<td headers="serviceHeader" align="left" valign="top">
+							<cfif fee NEQ "">
+								<label for="#abbreviation#">#service#</label>
+							<cfelse>
+								#service#
+							</cfif>
+						</td>
+						<cfif fee NEQ "">
+							<cfif flex EQ 0>
+						<td headers="feeHeader" align="right" valign="top" nowrap><label for="#abbreviation#"><STRONG>#LSCurrencyFormat(fee)#</STRONG></label></td>
+							<cfelse>
+						<td headers="feeHeader" align="right" valign="top"><label for="#abbreviation#"><STRONG>#language.pricesVary#</STRONG></label></td>
+							</cfif>
+						<cfelse>
+						<td headers="feeHeader">&nbsp;</td>
+						</cfif>
+					</tr>
+				</cfoutput>
+				</table>
+				
+				<cfoutput>
+				<input type="hidden" name="bookingID" value="#url.bookingID#">
+				<p><div align="right">
+					<input type="submit" value="#language.Submit#" class="textbutton">
+					<!---<input type="button" onClick="javascript:self.location.href='javascript:history.go(-1);'" value="#language.Back#" class="textbutton">--->
+				</div></p>
+				</cfoutput>
+				</cfform>
+			</div>
 
-<cfoutput>
-<input type="hidden" name="bookingID" value="#url.bookingID#">
-<p><div align="right">
-	<input type="submit" value="#language.Submit#" class="textbutton">
-	<!---<input type="button" onClick="javascript:self.location.href='javascript:history.go(-1);'" value="#language.Back#" class="textbutton">--->
-</div></p>
-</cfoutput>
-
-<br>
-
-</cfform>
+		<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
-

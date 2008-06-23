@@ -40,8 +40,7 @@
 	<cflocation url="addVessel.cfm?lang=#lang#&CompanyID=#CompanyID#" addtoken="no">
 </cfif>
 
-<cfoutput>
-	<cfhtmlhead text="
+<cfhtmlhead text="
 	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.AddVessel#"">
 	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
@@ -53,21 +52,6 @@
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.AddVessel#</title>">
 
 
-	<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
-
-	<div class="breadcrumbs">
-		<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
-		#language.PacificRegion# &gt;
-		<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.EsqGravingDock#</a> &gt;
-		<a href="#RootDir#text/booking-#lang#.cfm">#language.Booking#</A> &gt;
-		<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-		<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
-	<CFELSE>
-		<a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
-	</CFIF>
-		#language.AddVessel#
-	</div>
-</cfoutput>
 
 <cfif isDefined("form.companyID")>
 	<cfset url.companyID = #form.companyID#>
@@ -99,69 +83,94 @@
 <cfif IsDefined("Form.Anonymous")>
 	<cfset Variables.Anonymous = 1>
 </cfif>
+	
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<cfoutput>
-	<div class="main">
-	<H1>#language.AddVessel#</H1>
-	<cfinclude template="#RootDir#includes/user_menu.cfm"><br>
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+			<CFELSE>
+				<a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+			</CFIF>
+			#language.AddVessel#
+			</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					<CFOUTPUT>#language.AddVessel#</CFOUTPUT>
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
-	<p>#language.confirmInfo#</p>
-	<cfif Variables.Width GT Variables.MaxWidth OR Variables.Length GT Variables.MaxLength>
-		<p><span class="red"><strong>#language.boatTooBig# (<cfoutput>#Variables.MaxLength#m x #Variables.MaxWidth#m</cfoutput>).</strong></span></p>
-	</cfif>
-	<cfform name="addVessel" action="addVessel_action.cfm?lang=#lang#&CompanyID=#url.companyID#" method="post">
+				<cfinclude template="#RootDir#includes/user_menu.cfm"><br>
+				<cfoutput>
+				<p>#language.confirmInfo#</p>
+				<cfif Variables.Width GT Variables.MaxWidth OR Variables.Length GT Variables.MaxLength>
+					<p><span class="red"><strong>#language.boatTooBig# (#Variables.MaxLength#m x #Variables.MaxWidth#m).</strong></span></p>
+				</cfif>
+				
+				<cfform name="addVessel" action="addVessel_action.cfm?lang=#lang#&CompanyID=#url.companyID#" method="post">
+			
+				<table align="center">
+					<tr>
+						<td id="CompanyName">#language.CompanyName#:</td>
+						<td headers="CompanyName"><input type="hidden" name="CompanyID" value="#Variables.CompanyID#">#Variables.CompanyName#</td>
+					</tr>
+					<tr>
+						<td id="vesselName">#language.vesselName#:</td>
+						<td headers="vesselName"><input type="hidden" name="name" value="#Variables.Name#">#Variables.Name#</td>
+					</tr>
+					<tr>
+						<td id="Length">#language.Length#:</td>
+						<td headers="Length"><input type="hidden" name="length" value="#Variables.Length#">#Variables.Length# m</td>
+					</tr>
+					<tr>
+						<td id="Width">#language.Width#:</td>
+						<td headers="Width"><input type="hidden" name="width" value="#Variables.Width#">#Variables.Width# m</td>
+					</tr>
+					<tr>
+						<td id="BlockSetup">#language.BlockSetup# #language.days#:</td>
+						<td headers="BlockSetup"><input type="hidden" name="blocksetuptime" value="#Variables.BlockSetuptime#">#Variables.Blocksetuptime#</td>
+					</tr>
+					<tr>
+						<td id="BlockTeardown">#language.BlockTeardown# #language.days#:</td>
+						<td headers="BlockTeardown"><input type="hidden" name="blockteardowntime" value="#Variables.Blockteardowntime#">#Variables.Blockteardowntime#</td>
+					</tr>
+					<tr>
+						<td id="LloydsID">#language.LloydsID#:</td>
+						<td headers="LloydsID"><input type="hidden" name="LloydsID" value="#Variables.LloydsID#">#Variables.LloydsID#</td>
+					</tr>
+					<tr>
+						<td id="Tonnage">#language.Tonnage#:</td>
+						<td headers="Tonnage"><input type="hidden" name="tonnage" value="#Variables.Tonnage#">#Variables.Tonnage#</td>
+					</tr>
+					<tr>
+						<td id="anonymous">#language.anonymous#:</td>
+						<td headers="anonymous"><input type="hidden" name="Anonymous" value="#Variables.Anonymous#"><cfif Variables.Anonymous EQ 1>#language.Yes#<cfelse>#language.No#</cfif></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center" style="padding-top:20px;">
+							<!---a href="javascript:document.addVessel.submitForm.click();" class="textbutton">#language.Submit#</a>
+							<a href="javascript:history.go(-1);" class="textbutton">#language.Back#</a>
+							<a href="booking.cfm?lang=#lang#&CompanyID=#CompanyID#" class="textbutton">#language.Cancel#</a>
+							<br--->
+							<input type="submit" name="submitForm" value="#language.Submit#" class="textbutton">
+							<input type="button" name="back" value="#language.Back#" onClick="self.location.href='addVessel.cfm?lang=#lang#&CompanyID=#CompanyID#'" class="textbutton">
+							<input type="button" name="cancel" value="#language.Cancel#" onClick="self.location.href='booking.cfm?lang=#lang#&CompanyID=#CompanyID#'" class="textbutton">
+						</td>
+					</tr>
+				</table>
+				</cfform>
+				</cfoutput>
 
-		<table align="center">
-			<tr>
-			<td id="CompanyName">#language.CompanyName#:</td>
-			<td headers="CompanyName"><input type="hidden" name="CompanyID" value="#Variables.CompanyID#">#Variables.CompanyName#</td>
-		</tr>
-		<tr>
-			<td id="vesselName">#language.vesselName#:</td>
-			<td headers="vesselName"><input type="hidden" name="name" value="#Variables.Name#">#Variables.Name#</td>
-		</tr>
-		<tr>
-			<td id="Length">#language.Length#:</td>
-			<td headers="Length"><input type="hidden" name="length" value="#Variables.Length#">#Variables.Length# m</td>
-		</tr>
-		<tr>
-			<td id="Width">#language.Width#:</td>
-			<td headers="Width"><input type="hidden" name="width" value="#Variables.Width#">#Variables.Width# m</td>
-		</tr>
-		<tr>
-			<td id="BlockSetup">#language.BlockSetup# #language.days#:</td>
-			<td headers="BlockSetup"><input type="hidden" name="blocksetuptime" value="#Variables.BlockSetuptime#">#Variables.Blocksetuptime#</td>
-		</tr>
-		<tr>
-			<td id="BlockTeardown">#language.BlockTeardown# #language.days#:</td>
-			<td headers="BlockTeardown"><input type="hidden" name="blockteardowntime" value="#Variables.Blockteardowntime#">#Variables.Blockteardowntime#</td>
-		</tr>
-		<tr>
-			<td id="LloydsID">#language.LloydsID#:</td>
-			<td headers="LloydsID"><input type="hidden" name="LloydsID" value="#Variables.LloydsID#">#Variables.LloydsID#</td>
-		</tr>
-		<tr>
-			<td id="Tonnage">#language.Tonnage#:</td>
-			<td headers="Tonnage"><input type="hidden" name="tonnage" value="#Variables.Tonnage#">#Variables.Tonnage#</td>
-		</tr>
-		<tr>
-			<td id="anonymous">#language.anonymous#:</td>
-			<td headers="anonymous"><input type="hidden" name="Anonymous" value="#Variables.Anonymous#"><cfif Variables.Anonymous EQ 1>#language.Yes#<cfelse>#language.No#</cfif></td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center" style="padding-top:20px;">
-				<!---a href="javascript:document.addVessel.submitForm.click();" class="textbutton">#language.Submit#</a>
-				<a href="javascript:history.go(-1);" class="textbutton">#language.Back#</a>
-				<a href="booking.cfm?lang=#lang#&CompanyID=#CompanyID#" class="textbutton">#language.Cancel#</a>
-				<br--->
-				<input type="submit" name="submitForm" value="#language.Submit#" class="textbutton">
-				<input type="button" name="back" value="#language.Back#" onClick="self.location.href='addVessel.cfm?lang=#lang#&CompanyID=#CompanyID#'" class="textbutton">
-				<input type="button" name="cancel" value="#language.Cancel#" onClick="self.location.href='booking.cfm?lang=#lang#&CompanyID=#CompanyID#'" class="textbutton">
-			</td>
-		</tr>
-	</table>
-</cfform>
-</cfoutput>
-
-</div>
+			</div>
+		<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

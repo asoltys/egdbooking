@@ -33,11 +33,9 @@
 
 <cfif NOT IsDefined("URL.lang")>
 	<cfparam name="url.lang" default="eng">
-	<!--- <cflocation url="#CGI.PATH_INFO#?lang=e" addtoken="no"> --->
 </cfif>
 <cfif lcase(url.lang) NEQ "eng">
 	<cfparam name="url.lang" default="eng">
-	<!--- <cflocation url="#CGI.PATH_INFO#?lang=e" addtoken="no"> --->
 </cfif>
 
 <cfinclude template="#RootDir#includes/generalLanguageVariables.cfm">

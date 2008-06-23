@@ -43,8 +43,7 @@
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
 	<meta name=""dc.date.modified"" content=""2005-07-25"">
 	<meta name=""dc.date.created"" content=""2005-07-25"">
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.NewBooking#</title>">
-	<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
+	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.NewBooking#</title>"> 
 
 <cfif IsDefined("Session.Return_Structure")>
 	<cfoutput>#StructDelete(Session, "Return_Structure")#</cfoutput>
@@ -184,95 +183,97 @@
 	AND		Vessels.Deleted = 0
 </cfquery>
 
-<cfoutput>
-<div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-#lang#.html">#language.PWGSC#</a> &gt;
-	#language.PacificRegion# &gt;
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.EsqGravingDock#</a> &gt;
-	<a href="#RootDir#text/booking-#lang#.cfm">#language.Booking#</A> &gt; <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
-	<A href="bookingRequest_choose.cfm?lang=<cfoutput>#lang#</cfoutput>">#language.bookingRequest#</A> &gt;
-	#language.submitJettyBooking#
-</div>
-</cfoutput>
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
+		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+		<p class="breadcrumb">
+			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
+			<CFOUTPUT>
+			<a href="#RootDir#text/booking/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+			<A href="bookingRequest_choose.cfm?lang=#lang#">#language.bookingRequest#</A> &gt;
+			#language.submitJettyBooking#
+			</CFOUTPUT>
+		</p>
+		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
+		<div class="colLayout">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
+			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+			<div class="center">
+				<h1><a name="cont" id="cont">
+					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+					<CFOUTPUT>#language.submitJettyBooking#</CFOUTPUT>
+					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+					</a></h1>
 
-<div class="main">
+				<CFOUTPUT>
+				
+				<p>#language.bookingAvailable#</p>
+				
+				<cfform action="jettyRequest_action.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
+				<table width="100%" style="padding-left:10px;">
+					<tr>
+						<td width="30%" id="Agent">
+							#language.Agent#:
+						</td>
+						<td width="70%" headers="Agent">
+							<!---<cfinput class="textField" type="Text" name="Name" value="#Variables.Name#" message="Name is a mandatory field" required="Yes" size="65">--->
+							<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
+								#session.lastName#, #session.firstName#
+							</cflock>
+						</td>
+					</tr>
+					<tr>
+						<td id="Company">
+							#language.Company#:
+						</td>
+						<td headers="Company"><input type="hidden" name="CompanyID" value="#getInfo.CompanyID#">#getInfo.CompanyName#</td>
+					</tr>
+					<tr>
+						<td id="vessel">#language.vessel#:</td>
+						<td headers="vessel"><input type="hidden" name="VesselID" value="#getInfo.VesselID#">#getInfo.VesselName#</td>
+					</tr>
+					<tr>
+						<td id="StartDate">
+							#language.StartDate#:
+						</td>
+						<td headers="StartDate"><input type="hidden" name="startDate" value="#CreateODBCDate(startDate)#">#LSDateFormat(CreateODBCDate(startDate), 'mmm d, yyyy')#</td>
+					</tr>
+					<tr>
+						<td id="EndDate">#language.EndDate#:</td>
+						<td headers="EndDate"><input type="hidden" name="endDate" value="#CreateODBCDate(endDate)#">#LSDateFormat(CreateODBCDate(endDate), 'mmm d, yyyy')#</td>
+					</tr>
+					<tr id="ReqStatus">
+						<td headers="ReqStatus">#language.requestedStatus#:</td>
+						<td headers="Status"><input type="hidden" name="Status" value="<cfoutput>#Form.Status#</cfoutput>"><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></td>
+					</tr>
+					<tr>
+						<td id="RequestedJetty">
+							<label for="jettySelect">#language.RequestedJetty#:</label>
+						</td>
+						<td headers="RequestedJetty"><input id="jettySelect" type="hidden" name="jetty" value="#Form.Jetty#">
+							<cfif Form.Jetty EQ "north">
+								#language.northJetty#
+							<cfelse>
+								#language.southJetty#
+							</cfif>
+						</td>
+					</tr>
+					<tr><td>&nbsp;</td></tr>
+					<tr>
+						<td colspan="2" align="center">
+							<input type="Submit" value="#language.confirm#" class="textbutton">
+							<input type="button" value="#language.Back#" class="textbutton" onClick="self.location.href='jettyRequest.cfm?lang=#lang#&amp;companyID=#url.companyID#'">
+						</td>
+					</tr>
+				</table>
+				
+				
+				</cfform>
+				</CFOUTPUT>
 
-<cfoutput><h1>#language.submitJettyBooking#</h1></cfoutput>
+			</div>
 
-<br>
-<table width="100%" cellspacing="0" cellpadding="0" border="0">
-<tr>
-	<td>
-		<cfoutput>#language.bookingAvailable#</cfoutput>
-	</td>
-</tr>
-</table>
-<br>
-<cfform  action="jettyRequest_action.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
-<CFOUTPUT>
-<table width="100%" style="padding-left:10px;">
-	<tr>
-		<td width="30%" id="Agent">
-			#language.Agent#:
-		</td>
-		<td width="70%" headers="Agent">
-			<!---<cfinput class="textField" type="Text" name="Name" value="#Variables.Name#" message="Name is a mandatory field" required="Yes" size="65">--->
-			<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
-				#session.lastName#, #session.firstName#
-			</cflock>
-		</td>
-	</tr>
-	<tr>
-		<td id="Company">
-			#language.Company#:
-		</td>
-		<td headers="Company"><input type="hidden" name="CompanyID" value="#getInfo.CompanyID#">#getInfo.CompanyName#</td>
-	</tr>
-	<tr>
-		<td id="vessel">#language.vessel#:</td>
-		<td headers="vessel"><input type="hidden" name="VesselID" value="#getInfo.VesselID#">#getInfo.VesselName#</td>
-	</tr>
-	<tr>
-		<td id="StartDate">
-			#language.StartDate#:
-		</td>
-		<td headers="StartDate"><input type="hidden" name="startDate" value="#CreateODBCDate(startDate)#">#LSDateFormat(CreateODBCDate(startDate), 'mmm d, yyyy')#</td>
-	</tr>
-	<tr>
-		<td id="EndDate">#language.EndDate#:</td>
-		<td headers="EndDate"><input type="hidden" name="endDate" value="#CreateODBCDate(endDate)#">#LSDateFormat(CreateODBCDate(endDate), 'mmm d, yyyy')#</td>
-	</tr>
-	<tr id="ReqStatus">
-		<td headers="ReqStatus">#language.requestedStatus#:</td>
-		<td headers="Status"><input type="hidden" name="Status" value="<cfoutput>#Form.Status#</cfoutput>"><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></td>
-	</tr>
-	<tr>
-		<td id="RequestedJetty">
-			<label for="jettySelect">#language.RequestedJetty#:</label>
-		</td>
-		<td headers="RequestedJetty"><input id="jettySelect" type="hidden" name="jetty" value="#Form.Jetty#">
-			<cfif Form.Jetty EQ "north">
-				#language.northJetty#
-			<cfelse>
-				#language.southJetty#
-			</cfif>
-		</td>
-	</tr>
-	<tr><td>&nbsp;</td></tr>
-	<tr>
-		<td colspan="2" align="center">
-			<input type="Submit" value="#language.confirm#" class="textbutton">
-			<input type="button" value="#language.Back#" class="textbutton" onClick="self.location.href='jettyRequest.cfm?lang=#lang#&amp;companyID=#url.companyID#'">
-		</td>
-	</tr>
-</table>
-</CFOUTPUT>
-
-
-</cfform>
-
-</div>
-
+		<!-- CONTENT ENDS | FIN DU CONTENU -->
+		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 
