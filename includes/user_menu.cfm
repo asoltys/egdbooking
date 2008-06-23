@@ -17,7 +17,7 @@ function checkIt() {
 <cfoutput query="readonlycheck">	
 	<cfset Session.ReadOnly = #ReadOnly#>
 </cfoutput>
-<cfif lang EQ 'e'>
+<cfif lang EQ 'eng'>
 	<cfset language.bookingHomeButton = "Booking Home">
 	<cfset language.drydockCalButton = "Drydock Calendar">
 	<cfset language.jettyCalButton = "Jetties Calendar">
@@ -54,22 +54,15 @@ function checkIt() {
 </CFIF>
 
 
-    <cfform action="intromsgaction.cfm" method="POST">
-	
-      <!---<cffile action="read" file="D:\Web\EGDBooking\text\intromsg.txt" variable="intromsg">--->
-      <cffile action="read" file="#FileDir#text\intromsg.txt" variable="intromsg">
-      <cfif #Trim(intromsg)# EQ "">
-        <cfelse>
-		<DIV align="center" style="min-height: 30px; ">
-        <table width="100%" border="0" cellpadding="8" bgcolor="#fedf68">
-          <tr>
-            <td><font face="Verdana, Arial, Helvetica, sans-serif"> <cfoutput>#paragraphformat(intromsg)#</cfoutput> </font> </td>
-          </tr>
-        </table>
-        <br />
-		  </DIV>
-      </cfif>
-    </cfform>
+<cffile action="read" file="#FileDir#text\intromsg.txt" variable="intromsg">
+<cfif #Trim(intromsg)# EQ "">
+<cfelse>
+	<DIV class="notice">
+	<H2>Notice</H2>
+	<cfoutput>#paragraphformat(intromsg)#</cfoutput>
+	</DIV>
+</cfif>
+
 
   
 <DIV align="center" style="min-height: 30px; ">
