@@ -3,9 +3,9 @@
 
 <CFPARAM name="url.referrer" default="Booking Management">
 <CFIF url.referrer eq "Edit Booking" OR url.referrer eq "Booking Details">
-	<CFSET returnTo = "#RootDir#text/admin/DockBookings/editBooking.cfm">
+	<CFSET returnTo = "#RootDir#text/admin/JettyBookings/editJettyBooking.cfm">
 <CFELSE>
-	<CFSET returnTo = "#RootDir#text/admin/DockBookings/bookingManage.cfm">
+	<CFSET returnTo = "#RootDir#text/admin/JettyBookings/jettyBookingManage.cfm">
 </CFIF>
 
 <cfif isDefined("url.date")>
