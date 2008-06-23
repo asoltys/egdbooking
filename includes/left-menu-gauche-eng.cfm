@@ -1,4 +1,4 @@
-			<!-- THREE COLUMN LAYOUT BEGINS | DEBUT DE LA MISE EN PAGE DE TROIS COLONNES -->
+			<!-- TWO COLUMN LAYOUT BEGINS | DEBUT DE LA MISE EN PAGE DE DEUX COLONNES -->
 			<!-- LEFT SIDE MENU BEGINS | DEBUT DU MENU LATERAL GAUCHE -->
 			<div class="left">
 				<cfinclude template="/clf20/ssi/left-menu-gauche1-eng.html">

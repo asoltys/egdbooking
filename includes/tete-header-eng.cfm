@@ -26,7 +26,7 @@
 <META name="dcterms.issued" SCHEME="W3CDTF" content="2007-09-20" />
 <META name="dcterms.modified" SCHEME="W3CDTF" content="<cfoutput query="GetFile">	#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
 
-<META name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
+<META name="pwgsc.contact.email" content="questions@pwgsc-tpgsc.gc.ca" />
 
 <!-- TEMPLATE SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS DU GABARIT -->
 <LINK href="/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
