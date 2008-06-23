@@ -144,11 +144,12 @@
 				
 				<cfoutput><input type="hidden" name="bookingID" value=#Variables.bookingID#></cfoutput>
 				
-				<p align="right">
+				<br />
+				<div align="right">
 					<!--a href="javascript:EditSubmit('serviceSelect');" class="textbutton">Submit</a-->
 					<input type="submit" name="submitForm" class="textbutton" value="submit">
 					<cfoutput><input type="button" value="Back" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" class="textbutton"></cfoutput>
-				</p>
+				</div>
 								
 				</cfform>
 			</div>

@@ -22,7 +22,7 @@
 			AND		Vessels.Deleted = 0
 		</cfquery>
 		<CFIF count mod 2 eq 0>
-			<CFSET rowClass = "altYellow">
+			<CFSET rowClass = "highlight">
 		<CFELSE>
 			<CFSET rowClass = "">
 		</CFIF>

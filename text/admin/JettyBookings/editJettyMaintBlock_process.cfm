@@ -186,7 +186,7 @@
 					<cfset counter = 0>
 					<cfoutput query="checkConflicts">
 						<CFIF counter mod 2 eq 1>
-							<CFSET rowClass = "altYellow">
+							<CFSET rowClass = "highlight">
 						<CFELSE>
 							<CFSET rowClass = "">
 						</CFIF>

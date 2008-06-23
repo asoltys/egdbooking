@@ -77,8 +77,9 @@
 					</cfloop>
 				</table>
 				
-				<br><div align="right"><input type="submit" value="submit" class="textbutton">
-				<input type="button" onClick="javascript:self.location.href='menu.cfm?lang=#lang#'" value="Cancel" class="textbutton"></div>
+				<br />
+				<div align="right"><input type="submit" value="submit" class="textbutton">
+				<input type="button" onClick="javascript:self.location.href='menu.cfm?lang=#lang#'" value="Cancel" class="textbutton"></br>
 				</cfform>
 				
 				</cfoutput>
