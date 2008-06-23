@@ -23,4 +23,4 @@
 <cfset Session.Success.Message = "<b>#form.Name#</b>'s information has been updated.">
 <cfset Session.Success.Back = "Back to Edit Vessel">
 <cfset Session.Success.Link = "#RootDir#text/admin/editVessel.cfm?lang=#lang#">
-<cflocation addtoken="no" url="#RootDir#text/common/success.cfm?lang=#lang#">--->
+<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">--->

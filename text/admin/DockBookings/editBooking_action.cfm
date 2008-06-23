@@ -65,7 +65,7 @@
 	<cfset Session.Return_Structure.BookingID = Form.BookingID>	
 	<cfset Session.Return_Structure.Errors = Errors>
 	
- 	<cflocation url="editbooking.cfm?lang=#lang#" addtoken="no">
+ 	<cflocation url="editBooking.cfm?lang=#lang#" addtoken="no">
 <cfelse> --->
 
 <cfset Variables.BookingDateTime = #CreateDateTime(DatePart('yyyy',Form.bookingDate), DatePart('m',Form.bookingDate), DatePart('d',Form.bookingDate), DatePart('h',Form.bookingTime), DatePart('n',Form.bookingTime), DatePart('s',Form.bookingTime))#>
@@ -120,7 +120,7 @@
 <CFPARAM name="url.referrer" default="Drydock Booking Management">
 <cfif url.referrer EQ "Edit Booking"><cfset url.referrer = "Drydock Booking Management"></cfif>
 <CFIF url.referrer eq "Booking Details">
-	<CFSET returnTo = "#RootDir#text/common/getBookingDetail.cfm">
+	<CFSET returnTo = "#RootDir#text/comm/getBookingDetail.cfm">
 <CFELSE>
 	<CFSET returnTo = "#RootDir#text/admin/DockBookings/bookingManage.cfm">
 </CFIF>
@@ -137,6 +137,6 @@
 <cfset Session.Success.Back = "Back to #url.referrer#">
 
 <cfset Session.Success.Link = "#returnTo#?#urltoken#&bookingid=#form.bookingid#&#variables.dateValue###id#form.bookingid#">
-<cflocation addtoken="no" url="#RootDir#text/common/success.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
 
 <!---CFLOCATION addtoken="no" url="#RootDir#text/admin/DockBookings/bookingManage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.bookingID#"--->

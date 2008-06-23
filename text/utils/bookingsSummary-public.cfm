@@ -127,7 +127,7 @@ function popUp(pageID) {
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
-			<a href="../booking-#lang#.cfm">#language.booking#</a> &gt;
+			<a href="#RootDir#text/reserve-book-#lang#.cfm">#language.booking#</a> &gt;
 			#language.bookingsSummary#
 			</CFOUTPUT>
 		</p>

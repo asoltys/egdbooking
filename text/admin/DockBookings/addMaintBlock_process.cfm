@@ -32,9 +32,9 @@
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<A href="bookingmanage.cfm?lang=#lang#">Drydock Management</A> &gt;
+			<A href="bookingManage.cfm?lang=#lang#">Drydock Management</A> &gt;
 			Create Maintenance Block
 			</CFOUTPUT>
 		</p>
@@ -70,7 +70,7 @@
 			</cfif>
 			
 			<cfif Variables.StartDate EQ "">
-				<cflocation addtoken="no" url="editbooking.cfm?lang=#lang#">
+				<cflocation addtoken="no" url="editBooking.cfm?lang=#lang#">
 			</cfif>
 			
 			<!--- <cfset Variables.StartDate = CreateODBCDate(#Variables.StartDate#)>

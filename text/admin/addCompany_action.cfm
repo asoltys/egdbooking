@@ -128,4 +128,4 @@
 <cfset Session.Success.Message = "<b>#form.Name#</b> has been created.">
 <cfset Session.Success.Back = "Back to Admin Functions Home">
 <cfset Session.Success.Link = "#RootDir#text/admin/menu.cfm?lang=#lang#">
-<cflocation addtoken="no" url="#RootDir#text/common/success.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">

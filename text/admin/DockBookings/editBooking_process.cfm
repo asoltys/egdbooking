@@ -14,7 +14,7 @@
 
 <CFPARAM name="url.referrer" default="Drydock Booking Management">
 <CFIF url.referrer eq "Booking Details">
-	<CFSET returnTo = "#RootDir#text/common/getBookingDetail.cfm">
+	<CFSET returnTo = "#RootDir#text/comm/getBookingDetail.cfm">
 <CFELSE>
 	<CFSET returnTo = "#RootDir#text/admin/DockBookings/bookingManage.cfm">
 </CFIF>
@@ -45,9 +45,9 @@
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 			<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<A href="bookingmanage.cfm?lang=#lang#">Drydock Management</A> &gt;
+			<A href="bookingManage.cfm?lang=#lang#">Drydock Management</A> &gt;
 			Edit Dock Booking
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
@@ -98,7 +98,7 @@
 			</cfif>
 			
 			<cfif Variables.StartDate EQ "">
-				<cflocation addtoken="no" url="editbooking.cfm?lang=#lang##variables.dateValue#">
+				<cflocation addtoken="no" url="editBooking.cfm?lang=#lang##variables.dateValue#">
 			</cfif>
 			
 			<cfset Variables.StartDate = CreateODBCDate(#Variables.StartDate#)>
@@ -190,7 +190,7 @@
 						
 				<cfset Session.Return_Structure.Errors = Errors>
 				
-				<cflocation url="editbooking.cfm?#urltoken##variables.dateValue#" addToken="no"> 
+				<cflocation url="editBooking.cfm?#urltoken##variables.dateValue#" addToken="no"> 
 			</CFIF>
 				
 			<!--- <cfif IsDefined("Form.Section1")>

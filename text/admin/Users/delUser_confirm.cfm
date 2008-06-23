@@ -77,7 +77,7 @@
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
 			Confirm Delete User</CFOUTPUT>
 		</p>
@@ -150,7 +150,7 @@
 						<!---a href="javascript:EditSubmit('delUserConfirmForm');" class="textbutton">Delete</a>
 						<a href="delUser.cfm" class="textbutton">Back</a>
 						<a href="<cfoutput>#RootDir#</cfoutput>text/admin/menu.cfm?lang=#lang#" class="textbutton">Cancel</a--->
-						<cfif getCompanies.recordCount GT 1><cfoutput><input type="button" value="remove user from #getCompany.companyName#" onClick="self.location.href='removeUserCompany_action.cfm?userID=#form.userID#&amp;companyID=#form.companyID#'" class="textbutton"></cfoutput><br><br></cfif>
+						<cfif getCompanies.recordCount GT 1><cfoutput><input type="button" value="remove user from #getCompany.companyName#" onClick="self.location.href='removeUserCompany_action.cfm?userID=#form.userID#&companyID=#form.companyID#'" class="textbutton"></cfoutput><br><br></cfif>
 						<input type="submit" value="Delete user account" class="textbutton"><br><br>
 						<cfoutput><input type="button" value="Back" onClick="self.location.href='delUser.cfm?lang=#lang#'" class="textbutton"></cfoutput>
 						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#RootDir#text/admin/menu.cfm?lang=#lang#'" class="textbutton"></cfoutput>

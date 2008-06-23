@@ -17,7 +17,7 @@
 
 
 <CFIF NOT IsDefined("Session.AdminLoggedIn")>
-	<CFLOCATION URL="#RootDir#text/Login/login.cfm" addtoken="no">
+	<CFLOCATION URL="#RootDir#text/ols-login/login.cfm" addtoken="no">
 </CFIF>
 
 <cfparam name="lang" default="eng">

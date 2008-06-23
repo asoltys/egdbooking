@@ -43,9 +43,9 @@
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<a href="#RootDir#text/admin/users/editUser.cfm?lang=#lang#&userID=#form.userID#">Edit User Profile</A> &gt; 
+			<a href="#RootDir#text/admin/Users/editUser.cfm?lang=#lang#&userID=#form.userID#">Edit User Profile</A> &gt; 
 			Confirm Remove Company</CFOUTPUT>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
@@ -68,7 +68,7 @@
 				</cfif>
 
 				<cfoutput>
-				<cfform action="removeUserCompany_action.cfm?lang=#lang#&amp;userID=#form.userID#" method="post" name="remCompanyConfirmForm">
+				<cfform action="removeUserCompany_action.cfm?lang=#lang#&userID=#form.userID#" method="post" name="remCompanyConfirmForm">
 					<div align="center">Are you sure you want to remove <STRONG>#getUser.UserName#</STRONG> from <strong>#getCompany.Name#</strong>?</div>
 					
 					<p><div align="center">

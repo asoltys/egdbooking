@@ -11,7 +11,7 @@
 
 <CFPARAM name="url.referrer" default="Drydock Booking Management">
 <CFIF url.referrer eq "Booking Details">
-	<CFSET returnTo = "#RootDir#text/common/getBookingDetail.cfm">
+	<CFSET returnTo = "#RootDir#text/comm/getBookingDetail.cfm">
 <CFELSE>
 	<CFSET returnTo = "#RootDir#text/admin/DockBookings/bookingManage.cfm">
 </CFIF>
@@ -57,9 +57,9 @@
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<a href="bookingmanage.cfm?lang=#lang#">Drydock Management</A> &gt;
+			<a href="bookingManage.cfm?lang=#lang#">Drydock Management</A> &gt;
 			Confirm #variables.actionCap# Booking
 			</CFOUTPUT>
 		</p>

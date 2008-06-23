@@ -42,9 +42,9 @@
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<A href="jettyBookingmanage.cfm?lang=#lang#">Jetty Management</A> &gt;
+			<A href="jettyBookingManage.cfm?lang=#lang#">Jetty Management</A> &gt;
 			Confirm #variables.actionCap# Maintenance Block
 			</CFOUTPUT>
 		</p>

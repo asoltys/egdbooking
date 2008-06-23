@@ -147,7 +147,7 @@ function EditSubmit ( selectedform )
 				<cfinclude template="#RootDir#includes/calendar_js.cfm">
 				
 				<p>Please enter a range of dates for which you would like to see the bookings:</p>
-				<form action="bookingmanage.cfm?lang=#lang#" method="get" name="dateSelect">
+				<form action="bookingManage.cfm?lang=#lang#" method="get" name="dateSelect">
 					<input type="hidden" name="lang" value="<cfoutput>#lang#</cfoutput>">
 					<table align="center" style="width: 100%;" >
 						<tr>
@@ -209,7 +209,7 @@ function EditSubmit ( selectedform )
 				<cfif isdefined('proceed') and proceed EQ "yes">
 					
 					<cfparam name="form.expandAll" default="">
-					<cfoutput><form action="bookingmanage.cfm?#urltoken#" method="post" name="expandAll">
+					<cfoutput><form action="bookingManage.cfm?#urltoken#" method="post" name="expandAll">
 						<input type="hidden" name="startDate" value="#variables.startdate#">
 						<input type="hidden" name="endDate" value="#variables.endDate#">
 						<cfif form.expandAll NEQ "yes">
@@ -243,7 +243,7 @@ function EditSubmit ( selectedform )
 					
 					<table width="100%" cellspacing="0" cellpadding="0" style="padding-bottom: 5px; ">
 						<tr>
-							<cfoutput><td align="left" width="50%"><a href="addbooking.cfm?#urltoken#" class="textbutton">Add New Drydock Booking</a></td></cfoutput>
+							<cfoutput><td align="left" width="50%"><a href="addBooking.cfm?#urltoken#" class="textbutton">Add New Drydock Booking</a></td></cfoutput>
 							<cfif form.expandAll NEQ "yes">
 								<td align="right" width="50%"><a href="javascript:EditSubmit('expandAll');">Expand All</a></td>
 							<cfelse>
@@ -298,7 +298,7 @@ function EditSubmit ( selectedform )
 					<cfif getBookings.RecordCount GT 0>
 						<cfoutput query="getBookings">
 						<cfset Variables.id = #BookingID#>
-							<form name="booking#id#" action="bookingmanage.cfm?#urltoken###id#id#" method="post">
+							<form name="booking#id#" action="bookingManage.cfm?#urltoken###id#id#" method="post">
 								<input type="hidden" name="startDate" value="#form.startDate#">
 								<input type="hidden" name="endDate" value="#form.endDate#">
 								<cfif (isDefined("form.ID") AND form.ID EQ #id#) OR (isDefined('url.bookingid') AND url.bookingid EQ id)>
@@ -351,7 +351,7 @@ function EditSubmit ( selectedform )
 										<input type="hidden" name="BookingID" value="#id#">
 									</form>
 					
-									<form method="post" action="editbooking.cfm?#urltoken#" name="editBooking#ID#">
+									<form method="post" action="editBooking.cfm?#urltoken#" name="editBooking#ID#">
 										<input type="hidden" name="BookingID" value="#id#">
 									</form>
 									
@@ -532,7 +532,7 @@ function EditSubmit ( selectedform )
 					</table>
 					<table width="100%" cellspacing="0" cellpadding="0" style="padding-top: 5px; ">
 						<tr>
-							<cfoutput><td align="left" width="50%"><a href="addbooking.cfm?#urltoken#" class="textbutton">Add New Drydock Booking</a><div style="height:0;">&nbsp;</div></td></cfoutput>
+							<cfoutput><td align="left" width="50%"><a href="addBooking.cfm?#urltoken#" class="textbutton">Add New Drydock Booking</a><div style="height:0;">&nbsp;</div></td></cfoutput>
 							<cfif form.expandAll NEQ "yes">
 								<td align="right" width="50%"><a href="javascript:EditSubmit('expandAll');">Expand All</a><div style="height:0;">&nbsp;</div></td>
 							<cfelse>

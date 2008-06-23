@@ -95,19 +95,19 @@
 					<cfelseif GetNewCompanies.NumFound GT 1>
 						<br>You have <a href="companyApprove.cfm?lang=#lang#">#GetNewCompanies.NumFound# companies</a> that need to be approved.
 					</cfif>
-					<p>&nbsp;&nbsp;&nbsp;<a href="#RootDir#text/admin/intromsg.cfm" class="textbutton">Edit Intro Message</a>&nbsp;<a href="#RootDir#text/admin/egd_admindoc-e.html" class="textbutton" target="_blank">Help</a>&nbsp;<a href="#RootDir#text/login/logout.cfm?lang=#lang#" class="textbutton">Logout</a></p>
+					<p>&nbsp;&nbsp;&nbsp;<a href="#RootDir#text/admin/intromsg.cfm" class="textbutton">Edit Intro Message</a>&nbsp;<a href="#RootDir#text/admin/egd_admindoc-e.html" class="textbutton" target="_blank">Help</a>&nbsp;<a href="#RootDir#text/ols-login/logout.cfm?lang=#lang#" class="textbutton">Logout</a></p>
 					
 					<p>Bookings<br>
 					<!---<a href="#RootDir#text/admin/DockBookings/addbooking.cfm?lang=#lang#" class="textbutton">Add</a>--->
-					<!---<a href="#RootDir#text/booking/admin/editBooking-e.cfm?lang=#lang#">Edit</a> |--->
+					<!---<a href="#RootDir#text/reserve-book/admin/editBooking-e.cfm?lang=#lang#">Edit</a> |--->
 					&nbsp;&nbsp;&nbsp;<a href="#RootDir#text/admin/DockBookings/bookingmanage.cfm?lang=#lang#" class="textbutton">Drydock Booking Management</a>
-					<a href="#RootDir#text/common/dockCalendar.cfm?lang=#lang#" class="textbutton">Calendar</a>
+					<a href="#RootDir#text/comm/dockCalendar.cfm?lang=#lang#" class="textbutton">Calendar</a>
 					
 					<!---<p>Jetty Bookings<br>--->
 					<!---<a href="#RootDir#text/admin/JettyBookings/addJettybooking.cfm?lang=#lang#" class="textbutton">Add</a>--->
-					<!---<a href="#RootDir#text/booking/admin/editBooking-e.cfm?lang=#lang#">Edit</a> |--->
+					<!---<a href="#RootDir#text/reserve-book/admin/editBooking-e.cfm?lang=#lang#">Edit</a> |--->
 					<p>&nbsp;&nbsp;&nbsp;<a href="#RootDir#text/admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#" class="textbutton">Jetty Booking Management</a>
-					<a href="#RootDir#text/common/jettyCalendar.cfm?lang=#lang#" class="textbutton">Calendar</a></p>
+					<a href="#RootDir#text/comm/jettyCalendar.cfm?lang=#lang#" class="textbutton">Calendar</a></p>
 					<p>&nbsp;&nbsp;&nbsp;<a href="#RootDir#text/admin/otherForms.cfm?lang=#lang#" class="textbutton">Booking Forms</a></p>
 				
 					<p>Users<br>

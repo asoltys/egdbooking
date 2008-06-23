@@ -363,4 +363,4 @@
 <cfset Session.Success.Message = "Tariff Form has been updated.">
 <cfset Session.Success.Back = "Back to Dock Booking Forms">
 <cfset Session.Success.Link = "#RootDir#text/admin/otherForms.cfm?lang=#lang#">
-<cflocation addtoken="no" url="#RootDir#text/common/success.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">

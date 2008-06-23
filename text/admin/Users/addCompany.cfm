@@ -23,12 +23,12 @@
 	Pacific Region &gt; 
 	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-e.html">Esquimalt Graving Dock</a> &gt; 
   <CFOUTPUT>
-		<a href="#RootDir#text/booking-#lang#.cfm">Booking</A> &gt;<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+		<a href="#RootDir#text/reserve-book-#lang#.cfm">Booking</A> &gt;<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 			<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 		<CFELSE>
-			 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+			 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 		</CFIF>
-	<a href="#RootDir#text/admin/users/addNewUserCompany.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#">Create New User</A> &gt; 
+	<a href="#RootDir#text/admin/Users/addNewUserCompany.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#">Create New User</A> &gt; 
 	</CFOUTPUT>
 	Create New Company
 </div>
@@ -51,7 +51,7 @@
 <cfinclude template="#RootDir#includes/getStructure.cfm">
 
 <CFOUTPUT>
-<cfform action="addCompany_action.cfm?lang=#lang#&info=#url.info#&amp;companies=#url.companies#" name="addCompanyForm" method="post" onSubmit="if(!checkFilledIn('addCompanyForm')) { return false; }">
+<cfform action="addCompany_action.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#" name="addCompanyForm" method="post" onSubmit="if(!checkFilledIn('addCompanyForm')) { return false; }">
 	<table align="center">
 		<tr>
 			<td id="companyName"><label for="name">Name:</label></td>
@@ -96,7 +96,7 @@
 		<tr>
 			<td colspan="2" align="center" style="padding-top:20px;">
 				<input type="submit" name="submitForm" value="Submit" class="textbutton">
-				<input type="button" name="cancel" value="Cancel" class="textbutton" onClick="self.location.href='addNewUserCompany.cfm?lang=#lang#&info=#url.info#&amp;companies=#url.companies#'">
+				<input type="button" name="cancel" value="Cancel" class="textbutton" onClick="self.location.href='addNewUserCompany.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#'">
 			</td>
 		</tr>
 	</table>

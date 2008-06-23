@@ -14,7 +14,7 @@
 
 <CFPARAM name="url.referrer" default="Booking Management">
 <CFIF url.referrer eq "Booking Details">
-	<CFSET returnTo = "#RootDir#text/common/getBookingDetail.cfm">
+	<CFSET returnTo = "#RootDir#text/comm/getBookingDetail.cfm">
 <CFELSE>
 	<CFSET returnTo = "#RootDir#text/admin/JettyBookings/jettybookingManage.cfm">
 </CFIF>
@@ -34,9 +34,9 @@
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<a href="jettyBookingmanage.cfm?lang=#lang#">Jetty Management</A> &gt;
+			<a href="jettyBookingManage.cfm?lang=#lang#">Jetty Management</A> &gt;
 			Edit Booking
 			</CFOUTPUT>
 		</p>
@@ -169,7 +169,7 @@
 					<cfset Session.Return_Structure.Submitted = Form.Submitted>
 					<cfset Session.Return_Structure.Errors = Errors>
 					<cfif #Form.submitForm# neq 'overwrite'>
-					<cflocation url="editJettybooking.cfm?#urltoken##variables.dateValue#" addToken="no"> 
+					<cflocation url="editJettyBooking.cfm?#urltoken##variables.dateValue#" addToken="no"> 
 					</cfif>
 				</cfif>
 				

@@ -291,14 +291,14 @@ a:hover {
             <p>
             <div style="padding-left:20px;"><em><a name="LoggingIn"></a><strong class="style11">2.3 Logging In</strong><br>
             </em></div>
-            <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Once you have received email notification that one of your user-company associations has been approved, you may login as a general user at <a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-e.html">http://www.pwgsc.gc.ca/pacific/egd/text/login/login.cfm</a> using the email address and password that you specified upon creating your account.<br>
+            <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Once you have received email notification that one of your user-company associations has been approved, you may login as a general user at <a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-e.html">http://www.pwgsc.gc.ca/pacific/egd/text/ols-login/login.cfm</a> using the email address and password that you specified upon creating your account.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;However, you will not have administrative access until your account has been converted to an administration account by an existing administrator. Once you have been approved as an administrator, you will be automatically taken to the administration home page upon logging in.</div>
             <p></p>
             <a href="#Top">return to index</a> <br>
             <p>            
             <div style="padding-left:20px;"><em><a name="GetPassword"></a><strong class="style11">2.4 Password Retrieval</strong><br>
             </em></div>
-            <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you have forgotten your password, click on the &quot;Forgot password&quot; link at http://www.pwgsc.gc.ca/pacific/egd/text/login/login.cfm . Enter the email address that you use to login, and your password will be emailed to you promptly.<br>
+            <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you have forgotten your password, click on the &quot;Forgot password&quot; link at http://www.pwgsc.gc.ca/pacific/egd/text/ols-login/login.cfm . Enter the email address that you use to login, and your password will be emailed to you promptly.<br>
             </div>
             <br>
             <a href="#Top">return to index</a>

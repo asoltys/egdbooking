@@ -185,12 +185,12 @@ function EditSubmit ( selectedform )
 	Pacific Region &gt; 
 	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-e.html">Esquimalt Graving Dock</a> &gt; 
 	<CFOUTPUT>
-		<a href="#RootDir#text/booking-#lang#.cfm">Booking</A> &gt;<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+		<a href="#RootDir#text/reserve-book-#lang#.cfm">Booking</A> &gt;<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 			<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 		<CFELSE>
-			 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+			 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 		</CFIF>
-		<A href="jettyBookingmanage.cfm?lang=#lang#">Jetty Management</A> &gt;
+		<A href="jettyBookingManage.cfm?lang=#lang#">Jetty Management</A> &gt;
 	</CFOUTPUT>
 	Add Jetty Booking
 </div>

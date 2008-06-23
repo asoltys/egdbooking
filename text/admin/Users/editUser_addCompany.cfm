@@ -20,12 +20,12 @@
 	Pacific Region &gt; 
 	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-e.html">Esquimalt Graving Dock</a> &gt; 
   <CFOUTPUT>
-		<a href="#RootDir#text/booking-#lang#.cfm">Booking</A> &gt;<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+		<a href="#RootDir#text/reserve-book-#lang#.cfm">Booking</A> &gt;<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 			<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 		<CFELSE>
-			 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+			 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 		</CFIF>
-	<a href="#RootDir#text/admin/users/editUser.cfm?lang=#lang#&userID=#url.userID#">Edit User Profile</A> &gt; 
+	<a href="#RootDir#text/admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#">Edit User Profile</A> &gt; 
 	</CFOUTPUT>
 	Create New Company
 </div>
@@ -49,7 +49,7 @@
 <cfset Variables.onLoad = "javascript:document.addCompanyForm.name.focus();">
 
 <CFOUTPUT>
-<cfform action="editUser_addCompany_action.cfm?lang=#lang#&amp;userID=#url.userID#" name="addCompanyForm" method="post">
+<cfform action="editUser_addCompany_action.cfm?lang=#lang#&userID=#url.userID#" name="addCompanyForm" method="post">
 	<table align="center">
 		<tr>
 			<td id="companyName"><label for="name">Company Name:</label></td>
@@ -94,7 +94,7 @@
 		<tr>
 			<td colspan="2" align="center" style="padding-top:20px;">
 				<input type="submit" class="textbutton" value="Submit">
-				<input type="button" value="Cancel" onClick="self.location.href='editUser.cfm?lang=#lang#&amp;userID=#url.userID#'" class="textbutton">
+				<input type="button" value="Cancel" onClick="self.location.href='editUser.cfm?lang=#lang#&userID=#url.userID#'" class="textbutton">
 			</td>
 		</tr>
 	</table>

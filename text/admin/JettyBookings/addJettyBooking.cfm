@@ -37,9 +37,9 @@
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<A href="jettyBookingmanage.cfm?lang=#lang#">Jetty Management</A> &gt;
+			<A href="jettyBookingManage.cfm?lang=#lang#">Jetty Management</A> &gt;
 			Create Booking
 			</CFOUTPUT>
 		</p>
@@ -99,7 +99,7 @@
 				</cfif>
 				
 				
-				<cfform action="addJettybooking.cfm?#urltoken#" method="post" name="chooseUserForm">
+				<cfform action="addJettyBooking.cfm?#urltoken#" method="post" name="chooseUserForm">
 					<p><label for="selectCompany">Select Company:</label> <cfselect query="getCompanies" id="selectCompany" name="compID" value="CompanyID" display="Name" selected="#Variables.compID#" />
 					&nbsp;&nbsp;&nbsp;
 					<!--a href="javascript:EditSubmit('chooseUserForm');" class="textbutton">Submit</a-->

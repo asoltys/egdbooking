@@ -159,7 +159,7 @@
 			<cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<cfelse>
-				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</cfif>
 			Jetty Booking Management
 			</CFOUTPUT>
@@ -178,7 +178,7 @@
 				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br>
 				
 				<P>Please enter a range of dates for which you would like to see the bookings:</p>
-				<form action="jettyBookingmanage.cfm?lang=<cfoutput>#lang#</cfoutput>" method="get" name="dateSelect">
+				<form action="jettyBookingManage.cfm?lang=<cfoutput>#lang#</cfoutput>" method="get" name="dateSelect">
 					<input type="hidden" name="lang" value="<cfoutput>#lang#</cfoutput>">
 					<table align="center" style="width: 100%;">
 						<tr>
@@ -235,7 +235,7 @@
 					
 					<cfoutput>
 						<cfparam name="form.expandAll" default="">
-						<form action="jettyBookingmanage.cfm?#urltoken#" method="post" name="expandAll">
+						<form action="jettyBookingManage.cfm?#urltoken#" method="post" name="expandAll">
 							<input type="hidden" name="startDate" value="#variables.startDate#">
 							<input type="hidden" name="endDate" value="#variables.endDate#">
 							<cfif form.expandAll NEQ "yes">
@@ -250,7 +250,7 @@
 					<br>
 					<table width="100%" cellspacing="0" cellpadding="0" style="padding-bottom: 5px; ">
 						<tr>
-							<cfoutput><td align="left" width="80%"><div style="height:0;">&nbsp;</div><a href="addJettybooking.cfm?#urltoken#" class="textbutton">Add New South Jetty / North Landing Wharf Booking</a></td></cfoutput>
+							<cfoutput><td align="left" width="80%"><div style="height:0;">&nbsp;</div><a href="addJettyBooking.cfm?#urltoken#" class="textbutton">Add New South Jetty / North Landing Wharf Booking</a></td></cfoutput>
 							<td>&nbsp;</td><td>&nbsp;</td>
 							<cfif form.expandAll NEQ "yes">
 								<td align="right" width="20%"><div style="height:0;">&nbsp;</div><a href="javascript:EditSubmit('expandAll');">Expand All</a></td>
@@ -305,7 +305,7 @@
 					<cfif getBookings.recordCount GT 0>
 						<cfoutput query="getBookings">
 							<cfset Variables.id = #BookingID#>
-							<form name="booking#id#" action="jettyBookingmanage.cfm?#urltoken####id#" method="post">
+							<form name="booking#id#" action="jettyBookingManage.cfm?#urltoken####id#" method="post">
 								<input type="hidden" name="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#">
 								<input type="hidden" name="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#">
 								<cfif (isDefined("form.ID") AND form.ID EQ #id#) OR (isDefined('url.bookingid') AND url.bookingid EQ id)>
@@ -397,7 +397,7 @@
 								<input type="hidden" name="BookingID" value="#id#">
 							</form>
 							
-							<form method="post" action="editJettybooking.cfm?#urltoken#" name="editBooking#ID#">
+							<form method="post" action="editJettyBooking.cfm?#urltoken#" name="editBooking#ID#">
 								<input type="hidden" name="BookingID" value="#id#">
 							</form>
 							
@@ -530,7 +530,7 @@
 				
 				<table width="100%" cellspacing="0" cellpadding="0" style="padding-top: 5px; ">
 					<tr>
-						<cfoutput><td align="left" width="80%"><a href="addJettybooking.cfm?#urltoken#" class="textbutton">Add New South Jetty / North Landing Wharf Booking</a><div style="height:0;">&nbsp;</div></td></cfoutput>
+						<cfoutput><td align="left" width="80%"><a href="addJettyBooking.cfm?#urltoken#" class="textbutton">Add New South Jetty / North Landing Wharf Booking</a><div style="height:0;">&nbsp;</div></td></cfoutput>
 						<td>&nbsp;</td><td>&nbsp;</td>
 						<cfif form.expandAll NEQ "yes">
 							<td align="right" width="20%"><a href="javascript:EditSubmit('expandAll');">Expand All</a><div style="height:0;">&nbsp;</div></td>

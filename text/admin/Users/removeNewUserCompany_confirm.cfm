@@ -41,9 +41,9 @@
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<a href="#RootDir#text/admin/users/addUser.cfm?lang=#lang#">Create New User</A> &gt; 
+			<a href="#RootDir#text/admin/Users/addUser.cfm?lang=#lang#">Create New User</A> &gt; 
 			Confirm Remove Company
 			</CFOUTPUT>
 		</p>
@@ -66,12 +66,12 @@
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				</cfif>
 				
-				<cfform action="removeNewUserCompany_action.cfm?info=#url.info#&amp;companies=#url.companies#" method="post" name="remCompanyConfirmForm">
+				<cfform action="removeNewUserCompany_action.cfm?info=#url.info#&companies=#url.companies#" method="post" name="remCompanyConfirmForm">
 					<div align="center">Are you sure you want to remove <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
 					
 					<p><div align="center">
 						<input type="button" value="Remove" onClick="document.remCompanyConfirmForm.submit();" class="textbutton">
-						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='addNewUserCompany.cfm?info=#url.info#&amp;companies=#url.companies#'" class="textbutton"></cfoutput>
+						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='addNewUserCompany.cfm?info=#url.info#&companies=#url.companies#'" class="textbutton"></cfoutput>
 					<!---<input type="submit" value="Delete" class="button">
 					<input type="button" value="Cancel" onClick="javascript:location.href='delVessel.cfm'" class="button">--->
 					</div></p>

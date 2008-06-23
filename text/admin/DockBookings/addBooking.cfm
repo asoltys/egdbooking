@@ -37,9 +37,9 @@
 			<cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<cfelse>
-				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</cfif>
-			<a href="bookingmanage.cfm?lang=#lang#">Drydock Management</a> &gt;
+			<a href="bookingManage.cfm?lang=#lang#">Drydock Management</a> &gt;
 			Create Booking
 			</CFOUTPUT>
 		</p>
@@ -86,7 +86,7 @@
 					</cfif>
 				</cfif>
 				
-				<cfform action="addbooking.cfm?#urltoken#" method="post" name="chooseUserForm">
+				<cfform action="addBooking.cfm?#urltoken#" method="post" name="chooseUserForm">
 					<p><label for="selectCompany">Select Company:</label> <cfselect query="getCompanies" id="selectCompany" name="compID" value="CompanyID" display="Name" selected="#Variables.compID#" />
 					&nbsp;&nbsp;&nbsp;
 					<!--a href="javascript:EditSubmit('chooseUserForm');" class="textbutton">Submit</a-->

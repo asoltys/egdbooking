@@ -18,7 +18,7 @@
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
 			Dock Booking Forms
 			</CFOUTPUT>
@@ -39,10 +39,10 @@
 			<p>The following files may require <A href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</A> to be installed.</p>
 			<cfoutput>
 			<ul>
-				<li><a href="../forms/DockBookingApplication.pdf" target="_blank" title="Schedule 1">Schedule 1 (#LSDateFormat(CreateDate(2004, 7, 14), 'long')#) [PDF 55.8 KB]</a></li>
-				<li><a href="../forms/indemnificationClause.pdf" target="_blank" title="Indemnification Clause">Indemnification Clause (#LSDateFormat(CreateDate(2002, 6, 18), 'long')#) [PDF 5.58 KB]</a></li>
+				<li><a href="../formes-forms/DockBookingApplication.pdf" target="_blank" title="Schedule 1">Schedule 1 (#LSDateFormat(CreateDate(2004, 7, 14), 'long')#) [PDF 55.8 KB]</a></li>
+				<li><a href="../formes-forms/indemnificationClause.pdf" target="_blank" title="Indemnification Clause">Indemnification Clause (#LSDateFormat(CreateDate(2002, 6, 18), 'long')#) [PDF 5.58 KB]</a></li>
 				<li><a href="../admin/viewFeesForm.cfm?<cfoutput>lang=#lang#</cfoutput>" title="Tariff of Dock Charges">Tariff of Dock Charges [HTML]</a>&nbsp;&nbsp;<a class="textbutton" href="updateFees.cfm?lang=#lang#">update fees</a></li>
-				<li><a href="../forms/Tentative_ChangeForm.pdf" target="_blank" title="Tentative Vessel and Change Booking Form">Tentative Vessel and Change Booking Form [PDF 5.51 KB]</a></li>
+				<li><a href="../formes-forms/Tentative_ChangeForm.pdf" target="_blank" title="Tentative Vessel and Change Booking Form">Tentative Vessel and Change Booking Form [PDF 5.51 KB]</a></li>
 			</ul>
 			</cfoutput>
 			

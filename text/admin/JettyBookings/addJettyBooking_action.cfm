@@ -107,7 +107,7 @@
 <cfset Session.Success.Message = "A new booking for <b>#getDetails.vesselName#</b> from #LSDateFormat(CreateODBCDate(getDetails.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getDetails.endDate), 'mmm d, yyyy')# has been successfully created.  Email notification of this new booking has been sent to the agent.">
 <cfset Session.Success.Back = "Back to Jetty Bookings Management">
 <cfset Session.Success.Link = "#RootDir#text/admin/JettyBookings/jettybookingmanage.cfm?#urltoken#">
-<cflocation addtoken="no" url="#RootDir#text/common/success.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
 
 <!---cflocation url="jettyBookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" addToken="no"--->
 

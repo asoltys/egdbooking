@@ -84,7 +84,7 @@
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/booking/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
 			Edit User Profile</CFOUTPUT>
 		</p>
@@ -195,7 +195,7 @@
 								<input type="submit" name="submitForm" value="Add" class="textbutton">
 								<cfoutput><input type="hidden" name="userID" value="#form.userID#"></cfoutput>
 								<BR>
-								<cfoutput><font size="-2">If the desired company is not listed, click <a href="editUser_addCompany.cfm?lang=#lang#&amp;userID=#form.userID#">here</a> to create one.</font></cfoutput>
+								<cfoutput><font size="-2">If the desired company is not listed, click <a href="editUser_addCompany.cfm?lang=#lang#&userID=#form.userID#">here</a> to create one.</font></cfoutput>
 							</td>
 						</tr>	
 					</table>
@@ -222,7 +222,7 @@
 								<br-->
 								<input type="submit" value="Change Password" class="textbutton">
 								<cfoutput><input type="hidden" name="userID" value="#form.userID#"></cfoutput>
-								<!---<input type="button" value="Cancel" class="button" onClick="javascript:location.href='../booking-e.cfm'">--->
+								<!---<input type="button" value="Cancel" class="button" onClick="javascript:location.href='#RootDir#text/reserve-book-e.cfm'">--->
 							</td>
 						</tr>
 					</table>

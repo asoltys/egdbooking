@@ -91,7 +91,7 @@
 	<cfset Session.Success.Back = "">
 </cfif>
 <cfset Session.Success.Link = "addNewUserCompany.cfm?userID=#url.userID#">
-<cflocation addtoken="no" url="#RootDir#text/common/success.cfm?lang=#lang#"--->
+<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#"--->
 
 <!--- doesn't seem to need a success notice since it gets sent back to the same page with 
 	the new info on it.  It really should be painfully obvious. --->
