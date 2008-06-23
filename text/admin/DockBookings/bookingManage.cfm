@@ -175,17 +175,17 @@ function EditSubmit ( selectedform )
 						<tr>
 							<td>Show only:</td>
 							<td headers="Pending" align="right" width="15%"><input type="checkbox" id="showPend" name="show" value="p"<cfif showPend eq true> checked</cfif>></td>
-							<td id="Pending" align="left"><label for="showPend" class="pendingColour">Pending</label></td>
+							<td id="Pending" align="left"><label for="showPend" class="pending">Pending</label></td>
 						</tr>
 						<tr>
 							<td>&nbsp;</td>
 							<td headers="Tentative" align="right"><input type="checkbox" id="showTent" name="show" value="t"<cfif showTent eq true> checked</cfif>></td>
-							<td id="Tentative" align="left"><label for="showTent" class="tentativeColour">Tentative</label></td>
+							<td id="Tentative" align="left"><label for="showTent" class="tentative">Tentative</label></td>
 						</tr>
 						<tr>
 							<td>&nbsp;</td>
 							<td headers="Confirmed" align="right"><input type="checkbox" id="showConf" name="show" value="c"<cfif showConf eq true> checked</cfif>></td>
-							<td id="Confirmed" align="left"><label for="showConf" class="confirmedColour">Confirmed</label></td>
+							<td id="Confirmed" align="left"><label for="showConf" class="confirmed">Confirmed</label></td>
 						</tr>
 						<tr>
 							<td colspan="3" align="right"><!--a href="javascript:validate('dateSelect');" class="textbutton">Submit</a--><input type="submit" class="textbutton" value="submit"></td>
@@ -253,9 +253,9 @@ function EditSubmit ( selectedform )
 					</table>
 					<P align="center">Total:&nbsp;&nbsp;
 						<cfoutput>
-						<i class="pendingColour">Pending - #countPending.numPend#</i>&nbsp;&nbsp;
-						<i class="tentativeColour">Tentative - #countTentative.numTent#</i>&nbsp;&nbsp;
-						<i class="confirmedColour">Confirmed - #countConfirmed.numConf#</i>
+						<i class="pending">Pending - #countPending.numPend#</i>&nbsp;&nbsp;
+						<i class="tentative">Tentative - #countTentative.numTent#</i>&nbsp;&nbsp;
+						<i class="confirmed">Confirmed - #countConfirmed.numConf#</i>
 						</cfoutput>
 					</p>
 						
@@ -364,7 +364,7 @@ function EditSubmit ( selectedform )
 							<td headers="start" class="calendar" nowrap>#LSdateformat(startDate, "mmm d, yyyy")#</td>
 							<td headers="end" class="calendar" nowrap>#LSdateformat(endDate, "mmm d, yyyy")#</td>
 							<td headers="vessel" class="calendar"><a href="javascript:EditSubmit('booking#id#');" name="id#id#" id="id#id#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#VesselName#</a></td>
-							<td headers="status" class="calendar"><cfif status EQ "C"><div class="confirmedColour">Confirmed</div><cfelseif status EQ "T"><div class="tentativeColour">Tentative</div><cfelseif status EQ "P"><div class="pendingColour">Pending T</div><cfelseif status EQ "Y" OR status EQ "Z"><div class="pendingColour">Pending C</div><cfelseif status EQ "X"><a href="javascript:EditSubmit('delete#ID#');"><div class="pendingColour">Pending X</div></a></cfif></td>
+							<td headers="status" class="calendar"><cfif status EQ "C"><div class="confirmed">Confirmed</div><cfelseif status EQ "T"><div class="tentative">Tentative</div><cfelseif status EQ "P"><div class="pending">Pending T</div><cfelseif status EQ "Y" OR status EQ "Z"><div class="pending">Pending C</div><cfelseif status EQ "X"><a href="javascript:EditSubmit('delete#ID#');"><div class="pending">Pending X</div></a></cfif></td>
 						</tr>
 								
 						<cfif (isDefined('form.id') AND form.id EQ id) OR (isDefined('url.bookingid') AND url.bookingid EQ id) OR form.expandAll EQ "yes">

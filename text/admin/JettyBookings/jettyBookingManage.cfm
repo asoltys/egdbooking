@@ -204,18 +204,18 @@
 						<tr>
 							<td>Show only:</td>	
 							<td headers="Pending" align="right" width="15%"><input type="checkbox" name="show" value="p" id="showPend"<cfif showPend EQ true> checked="true"</cfif>></td>
-							<td id="Pending" align="left"><label for="showPend" class="pendingColour">Pending</label></td>	
+							<td id="Pending" align="left"><label for="showPend" class="pending">Pending</label></td>	
 						</tr>
 						<tr>
 							<td>&nbsp;</td>
 							<td headers="Tentative" align="right"><input type="checkbox" id="showTent" name="show" value="t"<cfif showTent eq true> checked</cfif>></td>
-							<td id="Tentative" align="left"><label for="showTent" class="tentativeColour">Tentative</label></td>
+							<td id="Tentative" align="left"><label for="showTent" class="tentative">Tentative</label></td>
 						</tr>
 				
 						<tr>
 							<td>&nbsp;</td>
 							<td headers="Confirmed" align="right"><input type="checkbox" name="show" value="c" id="showConf" <cfif showConf EQ true>checked="true"</cfif>></td>
-							<td id="Confirmed" align="left"><label for="showConf" class="confirmedColour">Confirmed</label></td>
+							<td id="Confirmed" align="left"><label for="showConf" class="confirmed">Confirmed</label></td>
 						</tr>
 						<tr>
 							<td colspan="3" align="right"><input type="submit" value="Submit" class="textbutton"></td>
@@ -321,9 +321,9 @@
 						<H2>North Landing Wharf</H2>
 						<P align="center"><b>Total:&nbsp;&nbsp;</b>
 							<cfoutput>
-							<i class="pendingColour">Pending - #countPendingNJ.numPendNJ#</i>&nbsp;&nbsp;
-							<i class="tentativeColour">Tentative - #countTentativeNJ.numTentNJ#</i>&nbsp;&nbsp;
-							<i class="confirmedColour">Confirmed - #countConfirmedNJ.numConfNJ#</i>&nbsp;&nbsp;
+							<i class="pending">Pending - #countPendingNJ.numPendNJ#</i>&nbsp;&nbsp;
+							<i class="tentative">Tentative - #countTentativeNJ.numTentNJ#</i>&nbsp;&nbsp;
+							<i class="confirmed">Confirmed - #countConfirmedNJ.numConfNJ#</i>&nbsp;&nbsp;
 							</cfoutput>
 						</P>
 					<cfelseif jetty EQ 2>
@@ -331,9 +331,9 @@
 						<H2>South Jetty</H2>
 						<P align="center"><b>Total:&nbsp;&nbsp;</b>
 							<cfoutput>
-							<i class="pendingColour">Pending - #countPendingSJ.numPendSJ#</i>&nbsp;&nbsp;
-							<i class="tentativeColour">Tentative - #countTentativeSJ.numTentSJ#</i>&nbsp;&nbsp;
-							<i class="confirmedColour">Confirmed - #countConfirmedSJ.numConfSJ#</i>&nbsp;&nbsp;
+							<i class="pending">Pending - #countPendingSJ.numPendSJ#</i>&nbsp;&nbsp;
+							<i class="tentative">Tentative - #countTentativeSJ.numTentSJ#</i>&nbsp;&nbsp;
+							<i class="confirmed">Confirmed - #countConfirmedSJ.numConfSJ#</i>&nbsp;&nbsp;
 							</cfoutput>
 						</P>
 					</cfif>
@@ -352,7 +352,7 @@
 							<td headers="Start" class="calendar" nowrap>#LSdateformat(startDate, 'mmm d, yyyy')#</td>
 							<td headers="End" class="calendar" nowrap>#LSdateformat(endDate, 'mmm d, yyyy')#</td>
 							<td headers="Vessel" class="calendar"><a href="javascript:EditSubmit('booking#id#');" name="#id#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#VesselName#</a></td>
-							<td headers="Status" class="calendar"><cfif getBookings.Status EQ "C"><div class="confirmedColour">Confirmed</div><cfelseif getBookings.Status EQ "P"><div class="pendingColour">Pending T</div><cfelseif getBookings.Status EQ "Y"><div class="pendingColour">Pending C</div><cfelseif getBookings.Status EQ "X"><div class="pendingColour">Pending X</div><cfelseif getBookings.Status EQ "T"><div class="tentativeColour">Tentative</div></cfif></td>
+							<td headers="Status" class="calendar"><cfif getBookings.Status EQ "C"><div class="confirmed">Confirmed</div><cfelseif getBookings.Status EQ "P"><div class="pending">Pending T</div><cfelseif getBookings.Status EQ "Y"><div class="pending">Pending C</div><cfelseif getBookings.Status EQ "X"><div class="pending">Pending X</div><cfelseif getBookings.Status EQ "T"><div class="tentative">Tentative</div></cfif></td>
 						</tr>
 							
 						<cfif (isDefined('form.id') AND form.id EQ id) OR (isDefined('url.bookingid') AND url.bookingid EQ id) OR form.expandAll EQ "yes">

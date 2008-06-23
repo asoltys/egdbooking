@@ -23,7 +23,8 @@
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
 	<meta name=""dc.date.modified"" content=""2005-07-25"">
 	<meta name=""dc.date.created"" content=""2005-07-25"">
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.Booking#</title>">
+	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.Booking#</title>
+	<STYLE type=""text/css"" media=""all"">@import url(#RootDir#css/events.css);</STYLE>">
 
 <cflock scope="session" throwontimeout="no" timeout="60" type="readonly">
 	<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -345,12 +346,12 @@
 								<tr class="#rowClass#" valign="top">
 									<td width="60%" valign="top"><a href="#RootDir#text/common/getBookingDetail.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 									<td width="15%" valign="top">
-										<cfif status EQ "P"><i class="pendingColour">#language.pending#</i>
-										<cfelseif status EQ "C"><i class="confirmedColour">#language.confirmed#</i>
-										<cfelseif status EQ "T"><i class="tentativeColour">#language.tentative#</i>
-										<cfelseif status EQ "Y"><i class="pendingColour">#language.confirming#</i>
-										<cfelseif status EQ "Z"><i class="pendingColour">#language.confirming#</i>
-										<cfelseif status EQ "X"><i class="cancelledColour">#language.cancelling#</i>
+										<cfif status EQ "P"><i class="pending">#language.pending#</i>
+										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
+										<cfelseif status EQ "T"><i class="tentative">#language.tentative#</i>
+										<cfelseif status EQ "Y"><i class="pending">#language.confirming#</i>
+										<cfelseif status EQ "Z"><i class="pending">#language.confirming#</i>
+										<cfelseif status EQ "X"><i class="cancelled">#language.cancelling#</i>
 										</cfif>
 									</td>
 									<td align="right" width="25%" valign="top">
@@ -377,10 +378,10 @@
 							<tr>
 								<td align="center"><b>Total:&nbsp;&nbsp;</b>
 								<cfoutput>
-								<i class="pendingColour">#language.pending# - #countPending.numPend#</i>&nbsp;&nbsp;
-								<i class="tentativeColour">#language.tentative# - #countTentative.numTent#</i>&nbsp;&nbsp;
-								<i class="confirmedColour">#language.confirmed# - #countConfirmed.numConf#</i>&nbsp;&nbsp;
-								<i class="cancelledColour">#language.cancelling# - #countCancelled.numCanc#</i>
+								<i class="pending">#language.pending# - #countPending.numPend#</i>&nbsp;&nbsp;
+								<i class="tentative">#language.tentative# - #countTentative.numTent#</i>&nbsp;&nbsp;
+								<i class="confirmed">#language.confirmed# - #countConfirmed.numConf#</i>&nbsp;&nbsp;
+								<i class="cancelled">#language.cancelling# - #countCancelled.numCanc#</i>
 								</cfoutput>
 								</td>
 							</tr>
@@ -410,17 +411,17 @@
 									<td width="60%" colspan="2"><a href="#RootDir#text/common/getBookingDetail.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 									<td width="40%" align="left">
 										<!---
-										<cfif NOT status eq 'C'><i class="pendingColour">#language.pending#</i>
-										<cfelseif status eq 'X'><i class="cancelledColour">#language.cancelling#</i>
-										<cfelse><i class="confirmedColour">#language.confirmed#</i></cfif>
+										<cfif NOT status eq 'C'><i class="pending">#language.pending#</i>
+										<cfelseif status eq 'X'><i class="cancelled">#language.cancelling#</i>
+										<cfelse><i class="confirmed">#language.confirmed#</i></cfif>
 										--->
 										
-										<cfif status EQ "P"><i class="pendingColour">#language.pending#</i>
-										<cfelseif status EQ "C"><i class="confirmedColour">#language.confirmed#</i>
-										<cfelseif status EQ "T"><i class="tentativeColour">#language.tentative#</i>
-										<cfelseif status EQ "Y"><i class="pendingColour">#language.confirming#</i>
-										<cfelseif status EQ "Z"><i class="pendingColour">#language.confirming#</i>
-										<cfelseif status EQ "X"><i class="cancelledColour">#language.cancelling#</i>
+										<cfif status EQ "P"><i class="pending">#language.pending#</i>
+										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
+										<cfelseif status EQ "T"><i class="tentative">#language.tentative#</i>
+										<cfelseif status EQ "Y"><i class="pending">#language.confirming#</i>
+										<cfelseif status EQ "Z"><i class="pending">#language.confirming#</i>
+										<cfelseif status EQ "X"><i class="cancelled">#language.cancelling#</i>
 										</cfif>
 									</td>
 								</tr>
@@ -448,9 +449,9 @@
 							<tr>
 								<td align="center"><b>Total:&nbsp;&nbsp;</b>
 								<cfoutput>
-								<i class="pendingColour">#language.pending# - #countPendingNJ.numPendNJ#</i>&nbsp;&nbsp;
-								<i class="confirmedColour">#language.confirmed# - #countConfirmedNJ.numConfNJ#</i>&nbsp;&nbsp;
-								<i class="cancelledColour">#language.cancelling# - #countCancelledNJ.numCancNJ#</i>
+								<i class="pending">#language.pending# - #countPendingNJ.numPendNJ#</i>&nbsp;&nbsp;
+								<i class="confirmed">#language.confirmed# - #countConfirmedNJ.numConfNJ#</i>&nbsp;&nbsp;
+								<i class="cancelled">#language.cancelling# - #countCancelledNJ.numCancNJ#</i>
 								</cfoutput>
 								</td>
 							</tr>
@@ -479,17 +480,17 @@
 								<tr class="#rowClass#" valign="top">
 									<td width="60%" colspan="2"><a href="#RootDir#text/common/getBookingDetail.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>					<td width="40%" align="left">
 										<!---
-										<cfif NOT status eq 'C'><i class="pendingColour">#language.pending#</i>
-										<cfelseif status eq 'X'><i class="cancelledColour">#language.cancelling#</i>
-										<cfelse><i class="confirmedColour">#language.confirmed#</i></cfif>
+										<cfif NOT status eq 'C'><i class="pending">#language.pending#</i>
+										<cfelseif status eq 'X'><i class="cancelled">#language.cancelling#</i>
+										<cfelse><i class="confirmed">#language.confirmed#</i></cfif>
 										--->
 										
-										<cfif status EQ "P"><i class="pendingColour">#language.pending#</i>
-										<cfelseif status EQ "C"><i class="confirmedColour">#language.confirmed#</i>
-										<cfelseif status EQ "T"><i class="tentativeColour">#language.tentative#</i>
-										<cfelseif status EQ "Y"><i class="pendingColour">#language.confirming#</i>
-										<cfelseif status EQ "Z"><i class="pendingColour">#language.confirming#</i>
-										<cfelseif status EQ "X"><i class="cancelledColour">#language.cancelling#</i>
+										<cfif status EQ "P"><i class="pending">#language.pending#</i>
+										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
+										<cfelseif status EQ "T"><i class="tentative">#language.tentative#</i>
+										<cfelseif status EQ "Y"><i class="pending">#language.confirming#</i>
+										<cfelseif status EQ "Z"><i class="pending">#language.confirming#</i>
+										<cfelseif status EQ "X"><i class="cancelled">#language.cancelling#</i>
 										</cfif>
 									</td>
 								</tr>
@@ -517,9 +518,9 @@
 							<tr>
 								<td align="center"><b>Total:&nbsp;&nbsp;</b>
 								<cfoutput>
-								<i class="pendingColour">#language.pending# - #countPendingSJ.numPendSJ#</i>&nbsp;&nbsp;
-								<i class="confirmedColour">#language.confirmed# - #countConfirmedSJ.numConfSJ#</i>&nbsp;&nbsp;
-								<i class="cancelledColour">#language.cancelling# - #countCancelledSJ.numCancSJ#</i>
+								<i class="pending">#language.pending# - #countPendingSJ.numPendSJ#</i>&nbsp;&nbsp;
+								<i class="confirmed">#language.confirmed# - #countConfirmedSJ.numConfSJ#</i>&nbsp;&nbsp;
+								<i class="cancelled">#language.cancelling# - #countCancelledSJ.numCancSJ#</i>
 								</cfoutput>
 							</tr>
 						</table>
