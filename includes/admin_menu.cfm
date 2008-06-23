@@ -22,13 +22,13 @@ function checkIt() {
 <DIV align="center" style="min-height: 30px;">
 <CFOUTPUT>
 <a href="#RootDir#text/admin/menu.cfm?lang=#lang#" class="textbutton">Admin Home</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
-<a href="#RootDir#text/common/dockCalendar.cfm?lang=#lang##datetoken#" class="textbutton">Drydock Calendar</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
-<a href="#RootDir#text/common/jettyCalendar.cfm?lang=#lang##datetoken#" class="textbutton">Jetty Calendar</a>
+<a href="#RootDir#text/comm/dockCalendar.cfm?lang=#lang##datetoken#" class="textbutton">Drydock Calendar</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
+<a href="#RootDir#text/comm/jettyCalendar.cfm?lang=#lang##datetoken#" class="textbutton">Jetty Calendar</a>
 <DIV style="height: 5px; ">&nbsp;</DIV>
 <a href="#RootDir#text/admin/DockBookings/bookingmanage.cfm?lang=#lang#" class="textbutton">Drydock Bookings</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
 <a href="#RootDir#text/admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#" class="textbutton">Jetty Bookings</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
 <a href="#RootDir#text/admin/egd_admindoc-e.html" class="textbutton" target="_blank">Help</a>
-<a href="#RootDir#text/login/logout.cfm?lang=#lang#" class="textbutton">Logout</a>
+<a href="#RootDir#text/ols-login/logout.cfm?lang=#lang#" class="textbutton">Logout</a>
 </CFOUTPUT>
 </DIV>
 
