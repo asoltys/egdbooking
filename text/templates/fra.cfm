@@ -13,12 +13,12 @@
 
 		<!-- DEBUT DE LA PISTE DE NAVIGATION | BREAD CRUMB BEGINS -->
 		<p class="breadcrumb">
-			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-fra.cfm">&gt;
+			<cfinclude template="/clf20/ssi/bread-pain-fra.html"><cfinclude template="#RootDir#includes/bread-pain-fra.cfm">&gt;
 			<CFOUTPUT>#language.title#</CFOUTPUT>
 		</p>
 		<!-- FIN DE LA PISTE DE NAVIGATION | BREAD CRUMB ENDS -->
 		<div class="colLayout">
-		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
+		<cfinclude template="#RootDir#includes/left-menu-gauche-fra.cfm">
 			<!-- DEBUT DU CONTENU | CONTENT BEGINS -->
 			<div class="center">
 				<h1><a name="cont" id="cont">
