@@ -24,15 +24,14 @@ textarea, .textField {
 	text-decoration: none;
 	border: 1px solid #CCCCCC;
 	background-color: White;
-	color: #CC6600;
+	color: #369;
 	padding: 1px 2px 1px 2px;
 	white-space: nowrap;
 }
 
-/* #FFFCF0, if shown on a 256-colour screen, would be white.  No big deal. */
+/* #FFFCFC, if shown on a 256-colour screen, would be white.  No big deal. */
 .textbutton:hover {
-	background: #FFFCF0;
-	color: #FF3300;
+	background: #FFFCFC;
 	text-decoration: none;
 }
 
