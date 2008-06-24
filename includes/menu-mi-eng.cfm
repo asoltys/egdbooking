@@ -11,7 +11,7 @@
 			<li><a href="/egd_internet_clf2/cse-egd/dimensions-eng.html" title="About the Dock">About the Dock</a></li>
 			<li><a href="/egd_internet_clf2/cse-egd/victoria-eng.html" title="Victoria">Victoria</a></li>
 			<li><a href="/egd_internet_clf2/cse-egd/historique-history-eng.html" title="History">History</a></li>
-			<li><a href="<cfoutput>#RootDir#</cfoutput>text/reserve-book-eng.cfm" title="Booking">Booking</a></li>
+			<li><a href="<cfoutput>#RootDir#</cfoutput>reserve-book-eng.cfm" title="Booking">Booking</a></li>
 			<li><a href="/egd_internet_clf2/cse-egd/rendement-performance-eng.html" title="Performance Standard">Performance Standard</a></li>
 		</ul>
 	<h2><acronym title="Esquimalt Graving Dock">EGD</acronym> Resources</h2>

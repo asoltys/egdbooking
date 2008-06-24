@@ -18,5 +18,5 @@
 <cfset Session.Success.Title = "Remove Administrator">
 <cfset Session.Success.Message = "<b>#getUser.FirstName# #getUser.LastName#</b> is no longer an administrator.">
 <cfset Session.Success.Back = "Back to Remove Administrator">
-<cfset Session.Success.Link = "#RootDir#text/admin/Users/delAdministrator.cfm?lang=#lang#">
-<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
+<cfset Session.Success.Link = "#RootDir#admin/Users/delAdministrator.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">

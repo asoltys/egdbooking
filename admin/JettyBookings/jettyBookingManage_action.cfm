@@ -77,11 +77,11 @@
 
 <CFPARAM name="url.referrer" default="Jetty Booking Management">
 <CFIF url.referrer eq "Booking Details">
-	<CFSET returnTo = "#RootDir#text/comm/getBookingDetail.cfm">
+	<CFSET returnTo = "#RootDir#comm/getBookingDetail.cfm">
 <CFELSEIF url.referrer eq "Edit Jetty Booking">
-	<CFSET returnTo = "#RootDir#text/admin/JettyBookings/editJettyBooking.cfm">
+	<CFSET returnTo = "#RootDir#admin/JettyBookings/editJettyBooking.cfm">
 <CFELSE>
-	<CFSET returnTo = "#RootDir#text/admin/JettyBookings/jettyBookingManage.cfm">
+	<CFSET returnTo = "#RootDir#admin/JettyBookings/jettyBookingManage.cfm">
 </CFIF>
 
 <cfif isDefined("url.date")>
@@ -116,7 +116,7 @@
 	<cfset Session.Success.Message = "Booking status for <b>#getDetails.vesselName#</b> from #LSDateFormat(CreateODBCDate(getDetails.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getDetails.endDate), 'mmm d, yyyy')# is now <b>#newStatus#</b>.  Email notification of this change has been sent to the agent.">
 	<cfset Session.Success.Back = "Back to #url.referrer#">
 	<cfset Session.Success.Link = "#returnTo#?#urltoken##dateValue#&bookingID=#Form.ID####form.id#">
-	<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
+	<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">
 <cfelse>
 	<cflocation addtoken="no" url="#returnTo#?#urltoken##dateValue#&bookingID=#Form.ID#">
 </cfif>

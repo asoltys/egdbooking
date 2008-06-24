@@ -42,9 +42,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
 			<CFELSE>
-				<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+				<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.bookingForms#
 			</CFOUTPUT>
@@ -70,7 +70,7 @@
 					<li><a href="../formes-forms/DockBookingApplication.pdf" target="pdf" title="#language.schedule#">#language.schedule# (#LSDateFormat(CreateDate(2004, 7, 14), 'long')#) [PDF 55.8 KB]</a></li>
 					<li><a href="../formes-forms/indemnificationClause.pdf" target="pdf" title="#language.Indemnification#">#language.Indemnification# (#LSDateFormat(CreateDate(2002, 6, 18), 'long')#) [PDF 5.58 KB]</a></li>
 					<li><a href="../formes-forms/Tentative_ChangeForm.pdf" target="pdf" title="#language.changeForm#">#language.changeForm# [PDF 5.51 KB]</a></li>
-					<li><a href="#RootDir#text/reserve-book/viewFeesForm.cfm?<cfoutput>lang=#lang#</cfoutput>" title="Tariff of Dock Charges">Tariff of Dock Charges [HTML]</a></li>
+					<li><a href="#RootDir#reserve-book/viewFeesForm.cfm?<cfoutput>lang=#lang#</cfoutput>" title="Tariff of Dock Charges">Tariff of Dock Charges [HTML]</a></li>
 				</ul>
 				</cfoutput>
 			</div>

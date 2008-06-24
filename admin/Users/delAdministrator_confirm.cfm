@@ -37,9 +37,9 @@ function EditSubmit ( selectedform )
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
 			Confirm Remove Administrator
 			</CFOUTPUT>
@@ -72,7 +72,7 @@ function EditSubmit ( selectedform )
 						<a href="../menu.cfm?lang=#lang#" class="textbutton">Cancel</a--->
 						<input type="submit" value="Remove" class="textbutton">
 						<cfoutput><input type="button" value="Back" onClick="self.location.href='delAdministrator.cfm?lang=#lang#'" class="textbutton"></cfoutput>
-						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#RootDir#text/admin/menu.cfm?lang=#lang#'" class="textbutton"></cfoutput>
+						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton"></cfoutput>
 				
 					</div>
 					

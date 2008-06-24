@@ -16,7 +16,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation addtoken="no" url="#RootDir#text/reserve-book/editUser.cfm?lang=#lang#">
+	<cflocation addtoken="no" url="#RootDir#reserve-book/editUser.cfm?lang=#lang#">
 </cfif>
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
@@ -71,4 +71,4 @@
 	</cfif>
 </cfoutput>
 
-<cflocation addtoken="no" url="#RootDir#text/reserve-book/editUser.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#reserve-book/editUser.cfm?lang=#lang#">

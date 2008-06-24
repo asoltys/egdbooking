@@ -52,9 +52,9 @@
 
 <CFPARAM name="url.referrer" default="Booking Home">
 <CFIF url.referrer eq "Details For">
-	<CFSET returnTo = "#RootDir#text/comm/getDetail.cfm">
+	<CFSET returnTo = "#RootDir#comm/getDetail.cfm">
 <CFELSE>
-	<CFSET returnTo = "#RootDir#text/reserve-book/booking.cfm">
+	<CFSET returnTo = "#RootDir#reserve-book/booking.cfm">
 </CFIF>
 
 <cfif isDefined("url.date")>
@@ -95,5 +95,5 @@
 	<cfset Session.Success.Back = "Retour &agrave;">
 </cfif>
 <cfset Session.Success.Link = "#returnTo#?#urltoken#&CompanyID=#url.CompanyID##variables.dateValue#">
-<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">
 

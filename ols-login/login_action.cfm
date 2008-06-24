@@ -133,13 +133,13 @@
 		<!--- change this back to EGDBooking@pwgsc.gc.ca when done --->
 	</CFLOCK>
 	<CFHEADER STATUSCODE="302" STATUSTEXT="Object Temporarily Moved">
-	<CFHEADER NAME="location" VALUE="#RootDir#text/admin/menu.cfm?lang=#lang#">
+	<CFHEADER NAME="location" VALUE="#RootDir#admin/menu.cfm?lang=#lang#">
 <cfelse>
 	<CFLOCK TIMEOUT="60" THROWONTIMEOUT="No" TYPE="EXCLUSIVE" SCOPE="SESSION"> 
 		<CFSET Session.LoggedIn = "1">
 	</CFLOCK>
 	<CFHEADER STATUSCODE="302" STATUSTEXT="Object Temporarily Moved">
-	<CFHEADER NAME="location" VALUE="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">
+	<CFHEADER NAME="location" VALUE="#RootDir#reserve-book/booking.cfm?lang=#lang#">
 </cfif>
 
 

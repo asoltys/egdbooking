@@ -11,7 +11,7 @@
 	<meta name="dc.creator" lang="fre" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada, Cale s&egrave;che d'Esquimalt">
 	<meta name="dc.publisher" lang="fre" content="Travaux publics et Services gouvernementaux Canada ">
 	<meta name="pwgsc.contact.email" content="egd@pwgsc.gc.ca">
-	<meta name="dc.rights" lang="fre" content="http://www.pwgsc.gc.ca/text/generic/copyright-f.html">
+	<meta name="dc.rights" lang="fre" content="http://www.pwgsc.gc.ca/generic/copyright-f.html">
 	<meta name="robots" content="noindex,nofollow">
 
 	<meta name="dc.title" lang="fre" content="TPSGC - CALE S&Egrave;CHE D'ESQUIMALT - french">
@@ -79,7 +79,7 @@
 <tr>
 	<td><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></td>
 	<td align="left" class="footertext"> 
-		<div>Mise &agrave; jour par <a href="<cfoutput>#RootDir#</cfoutput>text/contact_us-f.cfm">TPSGC</a></div> <!--- This option is recommended. --->
+		<div>Mise &agrave; jour par <a href="<cfoutput>#RootDir#</cfoutput>contact_us-f.cfm">TPSGC</a></div> <!--- This option is recommended. --->
 		<div>
 			<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
 			<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,"\"), "\")>
@@ -94,7 +94,7 @@
 	</td>
 	<td align="right" class="footertext"> 
 		<div> 
-			<span lang="en"><a href="http://www.pwgsc.gc.ca/text/generic/copyright-f.html">Avis Importants</a></span>
+			<span lang="en"><a href="http://www.pwgsc.gc.ca/generic/copyright-f.html">Avis Importants</a></span>
 		</div>
 	</td>
 	<td><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></td>

@@ -30,7 +30,7 @@
 <cfif isDefined("form.companyID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 <cfif NOT IsDefined('form.companyID')>
-	<cflocation addtoken="no" url="#RootDir#text/reserve-book/editUser.cfm?lang=#lang#">
+	<cflocation addtoken="no" url="#RootDir#reserve-book/editUser.cfm?lang=#lang#">
 </cfif>
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -43,14 +43,14 @@
 <div class="breadcrumbs">
 	<a href="http://www.pwgsc.gc.ca">#language.PWGSC#</a> &gt;
 	#language.PacificRegion# &gt;
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-#lang#.html">#language.esqGravingDock#</a> &gt;
-	<a href="#RootDir#text/reserve-book-#lang#.cfm">#language.Booking#</A> &gt;
+	<a href="http://www.pwgsc.gc.ca/pacific/egd/index-#lang#.html">#language.esqGravingDock#</a> &gt;
+	<a href="#RootDir#reserve-book-#lang#.cfm">#language.Booking#</A> &gt;
 		<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-		<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+		<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
 	<CFELSE>
-		<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+		<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 	</CFIF>
-	<a href="#RootDir#text/reserve-book/editUser.cfm?lang=#lang#">#language.editProfile#</A>
+	<a href="#RootDir#reserve-book/editUser.cfm?lang=#lang#">#language.editProfile#</A>
 	#language.RemoveComp#
 </div>
 
@@ -64,7 +64,7 @@
 	<cfinclude template="#RootDir#includes/getStructure.cfm">
 </cfif>
 
-<cfform action="#RootDir#text/reserve-book/removeUserCompany_action.cfm?lang=#lang#" method="post" name="remCompanyConfirmForm">
+<cfform action="#RootDir#reserve-book/removeUserCompany_action.cfm?lang=#lang#" method="post" name="remCompanyConfirmForm">
 	<div align="center">#language.AreYouSure# <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
 
 	<p><div align="center">

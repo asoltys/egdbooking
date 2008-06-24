@@ -82,9 +82,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
 			Edit User Profile</CFOUTPUT>
 		</p>
@@ -222,7 +222,7 @@
 								<br-->
 								<input type="submit" value="Change Password" class="textbutton">
 								<cfoutput><input type="hidden" name="userID" value="#form.userID#"></cfoutput>
-								<!---<input type="button" value="Cancel" class="button" onClick="javascript:location.href='#RootDir#text/reserve-book-e.cfm'">--->
+								<!---<input type="button" value="Cancel" class="button" onClick="javascript:location.href='#RootDir#reserve-book-e.cfm'">--->
 							</td>
 						</tr>
 					</table>

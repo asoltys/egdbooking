@@ -39,7 +39,7 @@ function MM_validateForm() { //v3.0
 </script>
 
 <div class="breadcrumbs"> 
-	<a href="http://www.pwgsc.gc.ca/text/home-e.html">PWGSC</a> &gt; 
+	<a href="http://www.pwgsc.gc.ca/home-e.html">PWGSC</a> &gt; 
 	Pacific Region &gt; 
 	<a href="index-e.cfm">Esquimalt Graving Dock</a> &gt; 
 	Contact Us
@@ -55,7 +55,7 @@ function MM_validateForm() { //v3.0
 	<form method="POST" action="http://www.pwgsc.gc.ca/cgi-bin/generic_email.pl">
 	
 		<!-- une adresse est requise pour afficher la page de confirmation/an actual address will be required in order to display this formsent confirmation page -->
-		<cfoutput><input type="hidden" name="redirect" value="#RootDir#text/thank_you-e.cfm"></cfoutput>
+		<cfoutput><input type="hidden" name="redirect" value="#RootDir#thank_you-e.cfm"></cfoutput>
 		<!--modifier les 3 type=hidden avec l'information de votre site et votre courriel/modify these 3 hidden fields to reflect content and email address for your site-->
 		<input type="hidden" name="Title" value="PWGSC - Esquimalt Graving Dock - Contact Us">
 		<input type="hidden" name="subject" value="Comments from the EGD Internet Site">
@@ -121,7 +121,7 @@ function MM_validateForm() { //v3.0
 
 	<p><a href="#top"><img src="<cfoutput>#RootDir#</cfoutput>images/up_arrow.gif" alt="Back to top" border="0"></a></p>
 	
-	<p>For other enquiries dealing with PWGSC, visit our corporate <a href="http://www.pwgsc.gc.ca/text/generic/contact_us-e.html">Contact Us</a> page.</p>
+	<p>For other enquiries dealing with PWGSC, visit our corporate <a href="http://www.pwgsc.gc.ca/generic/contact_us-e.html">Contact Us</a> page.</p>
 	
 	<a name="find_us"></a><h2>Where to find us....</h2>
 	

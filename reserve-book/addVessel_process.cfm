@@ -37,7 +37,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="#RootDir#text/reserve-book/addVessel.cfm?lang=#lang#&CompanyID=#CompanyID#" addtoken="no">
+	<cflocation url="#RootDir#reserve-book/addVessel.cfm?lang=#lang#&CompanyID=#CompanyID#" addtoken="no">
 </cfif>
 
 <cfhtmlhead text="
@@ -56,7 +56,7 @@
 <cfif isDefined("form.companyID")>
 	<cfset url.companyID = #form.companyID#>
 <cfelse>
-	<cflocation addtoken="no" url="#RootDir#text/reserve-book/addVessel.cfm?lang=#lang#">
+	<cflocation addtoken="no" url="#RootDir#reserve-book/addVessel.cfm?lang=#lang#">
 </cfif>
 
 <CFQUERY name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -67,7 +67,7 @@
 </CFQUERY>
 
 <cfif getCompany.recordCount EQ 0>
-	<cflocation addtoken="no" url="#RootDir#text/reserve-book/booking.cfm?lang=#lang#&CompanyID=#url.companyID#">
+	<cflocation addtoken="no" url="#RootDir#reserve-book/booking.cfm?lang=#lang#&CompanyID=#url.companyID#">
 </cfif>
 
 <cfset Variables.CompanyID = getCompany.CompanyID>
@@ -91,9 +91,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
 			<CFELSE>
-				<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+				<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.AddVessel#
 			</CFOUTPUT>
@@ -116,7 +116,7 @@
 					<p><span class="red"><strong>#language.boatTooBig# (#Variables.MaxLength#m x #Variables.MaxWidth#m).</strong></span></p>
 				</cfif>
 				
-				<cfform name="addVessel" action="#RootDir#text/reserve-book/addVessel_action.cfm?lang=#lang#&CompanyID=#url.companyID#" method="post">
+				<cfform name="addVessel" action="#RootDir#reserve-book/addVessel_action.cfm?lang=#lang#&CompanyID=#url.companyID#" method="post">
 			
 				<table align="center">
 					<tr>

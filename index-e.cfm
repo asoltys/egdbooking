@@ -12,7 +12,7 @@
 <cfinclude template="#RootDir#includes/header-e.cfm">
 
 <div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-e.html">PWGSC</a> &gt; 
+	<a href="http://www.pwgsc.gc.ca/home-e.html">PWGSC</a> &gt; 
 	Pacific Region &gt; 
 	<a href="index-e.cfm">Esquimalt Graving Dock</a> &gt; 
 	Welcome
@@ -33,7 +33,7 @@
 	lift cranes</a> up to 150 tonnes/165 tons. The Dock can accommodate 
 	vessels up to 100,000 DWT or about 90% of the world's ships.<img src="<cfoutput>#RootDir#</cfoutput>images/fulldock1.jpg" width="250" height="194" alt="Esquimalt Graving Dock facing East" align="right" hspace="5"></p>
 
-	<p>The EGD is an open public facility <a href="booking-e.cfm">available 
+	<p>The EGD is an open public facility <a href="reserve-book-eng.cfm">available 
 	to any company or individual</a> on a first-come first-serve basis. 
 	All work is carried out by private sector <a href="shiprepairfirms-e.cfm">ship 
 	repair firms</a>.</p>

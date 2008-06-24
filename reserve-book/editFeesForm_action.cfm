@@ -17,7 +17,7 @@
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Errors>
- 	<cflocation url="#RootDir#text/reserve-book/editFeesForm.cfm?lang=#lang#&bookingID=#url.bookingId#" addtoken="no">
+ 	<cflocation url="#RootDir#reserve-book/editFeesForm.cfm?lang=#lang#&bookingID=#url.bookingId#" addtoken="no">
 </cfif>
 
 <cfquery name="submitTariffForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -171,9 +171,9 @@
 
 <CFPARAM name="url.referrer" default="Booking Home">
 <CFIF url.referrer eq "Archive">
-	<CFSET returnTo = "#RootDir#text/reserve-book/bookingArchives.cfm">
+	<CFSET returnTo = "#RootDir#reserve-book/bookingArchives.cfm">
 <CFELSE>
-	<CFSET returnTo = "#RootDir#text/reserve-book/booking.cfm">
+	<CFSET returnTo = "#RootDir#reserve-book/booking.cfm">
 </CFIF>
 
 <!--- create structure for sending to mothership/success page. --->
@@ -189,5 +189,5 @@
 	<cfif url.referrer eq "archive"><cfset Session.Success.Back = "Retour aux archives des r&eacute;servations "><cfelse><cfset Session.Success.Back = "Retour &agrave; Accueil&nbsp;- R&eacute;servation"></cfif>
 </cfif>
 <cfset Session.Success.Link = "#returnTo#?lang=#lang#&CompanyID=#FORM.CompanyID#">
-<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">
 

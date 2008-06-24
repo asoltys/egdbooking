@@ -59,11 +59,11 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
 			<CFELSE>
-				<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+				<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
-			<a href="#RootDir#text/reserve-book/editUser.cfm?lang=#lang#">#language.editProfile#</A> &gt;
+			<a href="#RootDir#reserve-book/editUser.cfm?lang=#lang#">#language.editProfile#</A> &gt;
 			#language.CreateComp#
 			</CFOUTPUT>
 		</p>
@@ -87,7 +87,7 @@
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 
 				<cfoutput>
-				<cfform action="#RootDir#text/reserve-book/addCompany_action.cfm?lang=#lang#" name="addCompanyForm" method="post" onSubmit="if(!checkFilledIn('addCompanyForm')) { return false; }">
+				<cfform action="#RootDir#reserve-book/addCompany_action.cfm?lang=#lang#" name="addCompanyForm" method="post" onSubmit="if(!checkFilledIn('addCompanyForm')) { return false; }">
 					<table align="center">
 						<tr>
 							<td id="companyName_header"><label for="name">#language.companyName#:</label></td>

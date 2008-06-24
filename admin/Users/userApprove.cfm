@@ -77,9 +77,9 @@
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 		<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-			<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+			<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 		<CFELSE>
-			<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+			<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 		</CFIF>
 			User Approvals
 		</p>
@@ -118,7 +118,7 @@
 							</CFIF>
 							<TABLE id="listManage" border="0" cellspacing="0" cellpadding="2" width="100%">
 								<TR bgcolor="##FFFFFF">
-									<TD colspan="3" width="50%"><i><A href="javascript:void(0);" onClick="popUp('text/admin/viewCompany.cfm?lang=#lang#&companyID=#CompanyID#');">#CompanyName#</A></i></TD>
+									<TD colspan="3" width="50%"><i><A href="javascript:void(0);" onClick="popUp('admin/viewCompany.cfm?lang=#lang#&companyID=#CompanyID#');">#CompanyName#</A></i></TD>
 									<TD colspan="3" align="right" width="50%"><CFIF CompApproved eq 0><i><A href="../CompanyApprove.cfm?lang=#lang#">awaiting company approval</A></i><CFELSE>&nbsp;</CFIF></TD>
 								</TR>
 				

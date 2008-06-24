@@ -39,7 +39,7 @@ function MM_validateForm() { //v3.0
 </script>
 
 <div class="breadcrumbs"> 
-	<a href="http://www.pwgsc.gc.ca/text/home-f.html">TPSGC</a> &gt; 
+	<a href="http://www.pwgsc.gc.ca/home-f.html">TPSGC</a> &gt; 
 	R&eacute;gion du Pacifique &gt;
 	<a href="index-f.cfm">Cale s&egrave;che d'Esquimalt</a> &gt; 
 	Contactez-nous
@@ -54,7 +54,7 @@ function MM_validateForm() { //v3.0
 	
 	<form method="POST" action="http://www.pwgsc.gc.ca/cgi-bin/generic_email.pl">
 		<!-- une adresse est requise pour afficher la page de confirmation/an actual address will be required in order to display this formsent confirmation page -->
-		<cfoutput><input type="hidden" name="redirect" value="#RootDir#text/thank_you-f.cfm"></cfoutput>
+		<cfoutput><input type="hidden" name="redirect" value="#RootDir#thank_you-f.cfm"></cfoutput>
 		<!--modifier les 3 type=hidden avec l'information de votre site et votre courriel/modify these 3 hidden fields to reflect content and email address for your site-->
 		<input type="hidden" name="Title" value="TPSGC - Cale s&egrave;che d'Esquimalt - Nous contacter">
 		<input type="hidden" name="subject" value="Commentaires sur le site internet de la CSE">
@@ -118,7 +118,7 @@ function MM_validateForm() { //v3.0
 	</form>
 	
 	<p><a href="contact_us-f.cfm#top"><img src="<cfoutput>#RootDir#</cfoutput>images/up_arrow.gif" alt="Retour haut de page" border="0"></a></p>
-	<p>Pour tout autre renseignement concernant TPSGC, visitez la page &laquo;<a href="http://www.tpsgc.gc.ca/text/generic/contact_us-f.html"> nous contacter</a> &raquo; de notre site minist&eacute;riel.</p>
+	<p>Pour tout autre renseignement concernant TPSGC, visitez la page &laquo;<a href="http://www.tpsgc.gc.ca/generic/contact_us-f.html"> nous contacter</a> &raquo; de notre site minist&eacute;riel.</p>
 	
 	<a name="find_us"></a><h2>Pour nous trouver....</h2>
 	

@@ -14,9 +14,9 @@
 
 <CFPARAM name="url.referrer" default="Booking Management">
 <CFIF url.referrer eq "Edit Booking" OR url.referrer eq "Booking Details">
-	<CFSET returnTo = "#RootDir#text/admin/DockBookings/editBooking.cfm">
+	<CFSET returnTo = "#RootDir#admin/DockBookings/editBooking.cfm">
 <CFELSE>
-	<CFSET returnTo = "#RootDir#text/admin/DockBookings/bookingManage.cfm">
+	<CFSET returnTo = "#RootDir#admin/DockBookings/bookingManage.cfm">
 </CFIF>
 <cfif isDefined("url.date")>
 	<cfset variables.dateValue = "&date=#url.date#">
@@ -31,9 +31,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
 				<A href="bookingManage.cfm?lang=#lang#">Drydock Management</A> &gt;
 				Confirm Booking

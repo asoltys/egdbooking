@@ -11,7 +11,7 @@
 			<li><a href="/egd_internet_clf2/cse-egd/dimensions-fra.html" title="Renseignements g&eacute;n&eacute;raux">Renseignements g&eacute;n&eacute;raux</a></li>
 			<li><a href="/egd_internet_clf2/cse-egd/victoria-fra.html" title="Victoria">Victoria</a></li>
 			<li><a href="/egd_internet_clf2/cse-egd/historique-history-fra.html" title="Historique">Historique</a></li>
-			<li><a href="<cfoutput>#RootDir#</cfoutput>text/reserve-book-fra.cfm" title="R&eacute;servation">R&eacute;servation</a></li>
+			<li><a href="<cfoutput>#RootDir#</cfoutput>reserve-book-fra.cfm" title="R&eacute;servation">R&eacute;servation</a></li>
 			<li><a href="/egd_internet_clf2/cse-egd/rendement-performance-fra.html" title="Norme de rendement">Norme de rendement</a></li>
 		</ul>
 	<h2>Ressources <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym></h2>

@@ -11,7 +11,7 @@
 
 <cfinclude template="#RootDir#includes/header-f.cfm">
 <div class="breadcrumbs"> 
-	<a href="http://www.tpsgc.gc.ca/text/home-f.html">TPSGC</a> &gt; 
+	<a href="http://www.tpsgc.gc.ca/home-f.html">TPSGC</a> &gt; 
 	R&eacute;gion du Pacifique &gt;
 	<a href="index-f.cfm">Cale s&egrave;che d'Esquimalt</a> &gt; 
 	Article paru dans <i>Ensemble</i>
@@ -105,7 +105,7 @@
 		<td width="37%"><div align="center"><img src="<cfoutput>#RootDir#</cfoutput>images/ensemble/13.jpg" width="155" height="118" alt="Merci!"></div></td>
 	  </tr>
 	</table>
-	<p align="left"><a href="../text/history-f.cfm"><img src="<cfoutput>#RootDir#</cfoutput>images/back_arrow.gif" alt="Retour &agrave; l'historique" border=0></a></p>
+	<p align="left"><a href="../history-f.cfm"><img src="<cfoutput>#RootDir#</cfoutput>images/back_arrow.gif" alt="Retour &agrave; l'historique" border=0></a></p>
 	
 	<p align="left"><i>Source&nbsp;: &nbsp;Harbour &amp; Shipping Journal, Juillet 2002, Volume 85, No. 7</i></p>
 

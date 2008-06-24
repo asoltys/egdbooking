@@ -45,7 +45,7 @@
 <cfset Session.Success.Title = "Edit Maintenance Block">
 <cfset Session.Success.Message = "Maintenance block is now from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')#.">
 <cfset Session.Success.Back = "Back to Dock Bookings Management">
-<cfset Session.Success.Link = "#RootDir#text/admin/DockBookings/bookingmanage.cfm?#urltoken###id#form.bookingid#">
-<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
+<cfset Session.Success.Link = "#RootDir#admin/DockBookings/bookingmanage.cfm?#urltoken###id#form.bookingid#">
+<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">
 
 <!---cflocation addtoken="no" url="Bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#"--->

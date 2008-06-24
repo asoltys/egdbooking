@@ -31,6 +31,6 @@ SET
 WHERE BookingID = #BookingIDURL#
 </cfquery>
 
-<!---<cflocation url="#RootDir#text/admin/DockBookings/bookingmanage.cfm">--->
-<cflocation url="https://www.egdbooking.gc.ca/text/admin/DockBookings/bookingmanage.cfm">
+<!---<cflocation url="#RootDir#admin/DockBookings/bookingmanage.cfm">--->
+<cflocation url="https://www.egdbooking.gc.ca/admin/DockBookings/bookingmanage.cfm">
 

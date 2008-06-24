@@ -11,7 +11,7 @@
 
 <cfinclude template="#RootDir#includes/header-e.cfm">
 <div class="breadcrumbs"> 
-	<a href="http://www.pwgsc.gc.ca/text/home-e.html">PWGSC</a> &gt; 
+	<a href="http://www.pwgsc.gc.ca/home-e.html">PWGSC</a> &gt; 
 	Pacific Region &gt; 
 	<a href="index-e.cfm">Esquimalt Graving Dock</a> &gt; 
 	EGD Ensemble Article
@@ -137,7 +137,7 @@
 		</tr>
 	</table>
 
-	<p><a href="../text/history-e.cfm"><img src="<cfoutput>#RootDir#</cfoutput>images/back_arrow.gif" border="0" alt="Back to History"></a></p>
+	<p><a href="../history-e.cfm"><img src="<cfoutput>#RootDir#</cfoutput>images/back_arrow.gif" border="0" alt="Back to History"></a></p>
 
 	<p align="left"><i>Source: &nbsp;Harbour &amp; Shipping Journal, July 2002, Volume 85, No. 7</i></p>
 </div>

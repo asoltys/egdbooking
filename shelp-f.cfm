@@ -14,7 +14,7 @@
 <cfinclude template="#RootDir#includes/header-f.cfm">
 
 <div class="breadcrumbs"> 
-	<a href="http://www.pwgsc.gc.ca/text/home-f.html">TPSGC</a> &gt; 
+	<a href="http://www.pwgsc.gc.ca/home-f.html">TPSGC</a> &gt; 
 	R&eacute;gion du Pacifique &gt; 
 	<a href="index-f.cfm">Cale s&egrave;che d'Esquimalt</a> &gt; 
 	Aide &agrave; la recherche

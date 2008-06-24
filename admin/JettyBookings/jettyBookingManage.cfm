@@ -157,9 +157,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<cfelse>
-				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</cfif>
 			Jetty Booking Management
 			</CFOUTPUT>
@@ -262,7 +262,7 @@
 				
 					
 				<cfloop index="jetty" from="1" to="2" step="1">	
-					<!---<div align="left"><a href="#RootDir#text/admin/JettyBookings/addJettybooking.cfm?lang=#lang#" class="textbutton">Add New Jetty Booking</a></div>
+					<!---<div align="left"><a href="#RootDir#admin/JettyBookings/addJettybooking.cfm?lang=#lang#" class="textbutton">Add New Jetty Booking</a></div>
 					<div align="right"><a href="javascript:EditSubmit('expandAll');">Expand All</a></div>--->			
 					<cfquery name="getBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT Bookings.*, Vessels.Name AS VesselName, Vessels.EndHighlight AS EndHighlight, Jetties.*

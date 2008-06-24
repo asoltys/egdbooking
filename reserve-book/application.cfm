@@ -1,7 +1,7 @@
 <cfapplication name="egd" sessiontimeout=#CreateTimeSpan(0, 2, 0, 0)# sessionmanagement="yes" clientmanagement="yes">
 
 <!--- Include the server-specific settings --->
-<cfinclude template="../../server_settings.cfm">
+<cfinclude template="../server_settings.cfm">
 
 <cfif ServerType EQ "Production" AND cgi.server_port NEQ 443 AND cgi.request_method EQ "get">
 	<cflocation url="https://#cgi.server_name##cgi.script_name#?#cgi.query_string#" />
@@ -29,10 +29,10 @@
 
 <cflock scope="session" throwontimeout="no" timeout="60" type="readonly">
 <cfif IsDefined("Session.AdminLoggedIn")>
-	<cflocation url="#RootDir#text/admin/menu.cfm?lang=#lang#" addtoken="no">
+	<cflocation url="#RootDir#admin/menu.cfm?lang=#lang#" addtoken="no">
 </cfif>
 <cfif NOT IsDefined("Session.LoggedIn") AND GetFileFromPath(GetCurrentTemplatePath()) NEQ "public.cfm">
-	<cflocation url="#RootDir#text/ols-login/login.cfm?lang=#lang#" addtoken="no">
+	<cflocation url="#RootDir#ols-login/login.cfm?lang=#lang#" addtoken="no">
 </cfif>
 
 </cflock>

@@ -60,8 +60,8 @@
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
-			<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
-			<A href="#RootDir#text/reserve-book/bookingRequest_choose.cfm?lang=#lang#">#language.bookingRequest#</A> &gt;
+			<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+			<A href="#RootDir#reserve-book/bookingRequest_choose.cfm?lang=#lang#">#language.bookingRequest#</A> &gt;
 			#language.newBooking#
 			</CFOUTPUT>
 		</p>
@@ -195,12 +195,12 @@
 					<cfset Session.Return_Structure.Status = Form.Status>
 					<cfset Session.Return_Structure.Errors = Errors>
 				
-					<cflocation url="#RootDir#text/reserve-book/bookingRequest.cfm?lang=#lang#" addtoken="no">
+					<cflocation url="#RootDir#reserve-book/bookingRequest.cfm?lang=#lang#" addtoken="no">
 				</cfif>
 				
 				
 				<!--- Gets all Bookings that would be affected by the requested booking --->
-				<cfinclude template="#RootDir#text/reserve-book/includes/towerCheck.cfm">
+				<cfinclude template="#RootDir#reserve-book/includes/towerCheck.cfm">
 				<cfset Variables.spaceFound = findSpace(-1, #Variables.StartDate#, #Variables.EndDate#, #getVessel.Length#, #getVessel.Width#)>
 				<cfoutput>
 				<table width="100%" cellspacing="0" cellpadding="1" border="0">
@@ -218,7 +218,7 @@
 					</td>
 				</tr>
 				</table>
-				<cfform action="#RootDir#text/reserve-book/bookingRequest_action.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/bookingRequest_action.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
 				<table align="center" style="font-size:10pt;">
 					<tr><td align="right" width="40%"><div style="font-size:10pt;font-weight:bold;">#language.new#:</div></td></tr>
 					<tr>

@@ -11,7 +11,7 @@
 
 <cfinclude template="#RootDir#includes/header-f.cfm">
 <div class="breadcrumbs"> 
-	<a href="http://www.tpsgc.gc.ca/text/home-f.html">TPSGC</a> &gt; 
+	<a href="http://www.tpsgc.gc.ca/home-f.html">TPSGC</a> &gt; 
 	R&eacute;gion du Pacifique &gt; 
 	<a href="index-f.cfm">Cale s&egrave;che d'Esquimalt </a> &gt; 
 	<a href="history-f.cfm">Historique</a> &gt; 
@@ -46,7 +46,7 @@
 	<p>Les mesures de s&eacute;curit&eacute; furent efficaces&nbsp;: apr&egrave;s treize jours de travaux 24 heures sur 24, le QE repartit transform&eacute; en navire de transport militaire - et tout Victoria poussa un soupir de soulagement. </p>
 
 	<DIV align="center"><img src="<cfoutput>#RootDir#</cfoutput>images/historical_pics/feb1924.jpg" alt="S.S. Queen Elizabeth, 1942" title="S.S. Queen Elizabeth, 1942" width="359" height="428"></DIV>
-	<p><a href="../text/history-f.cfm"><img src="<cfoutput>#RootDir#</cfoutput>images/back_arrow.gif" border="0" alt="Retour &agrave; l'historique"></a></p>
+	<p><a href="../history-f.cfm"><img src="<cfoutput>#RootDir#</cfoutput>images/back_arrow.gif" border="0" alt="Retour &agrave; l'historique"></a></p>
 
 </div>
 <cfinclude template="#RootDir#includes/footer-f.cfm">

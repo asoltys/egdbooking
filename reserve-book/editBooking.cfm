@@ -43,9 +43,9 @@
 
 <CFPARAM name="url.referrer" default="Booking Home">
 <CFIF url.referrer eq "Details For">
-	<CFSET returnTo = "#RootDir#text/comm/getDetail.cfm">
+	<CFSET returnTo = "#RootDir#comm/getDetail.cfm">
 <CFELSE>
-	<CFSET returnTo = "#RootDir#text/reserve-book/booking.cfm">
+	<CFSET returnTo = "#RootDir#reserve-book/booking.cfm">
 </CFIF>
 
 <cfif isDefined("url.date")>
@@ -78,9 +78,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
 			<CFELSE>
-				<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+				<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.title#
 			</CFOUTPUT>
@@ -121,7 +121,7 @@
 				</div>
 				<br>
 				<div align="center">
-					<input type="button" onClick="self.location.href='#RootDir#text/comm/getBookingDetail.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#">
+					<input type="button" onClick="self.location.href='#RootDir#comm/getBookingDetail.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#">
 				</div>
 				
 				</cfoutput>

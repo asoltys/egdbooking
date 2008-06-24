@@ -84,8 +84,8 @@
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
-			<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
-			<A href="#RootDir#text/reserve-book/bookingRequest_choose.cfm?lang=#lang#">#language.bookingRequest#</A> &gt;
+			<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+			<A href="#RootDir#reserve-book/bookingRequest_choose.cfm?lang=#lang#">#language.bookingRequest#</A> &gt;
 			#language.submitJettyBooking#
 			</CFOUTPUT>
 		</p>
@@ -118,7 +118,7 @@
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 				
-				<cfform action="#RootDir#text/reserve-book/jettyRequest_process.cfm?lang=#lang#&companyID=#variables.companyID#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/jettyRequest_process.cfm?lang=#lang#&companyID=#variables.companyID#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
 				<table width="100%" style="padding-left:10px;">
 					<tr>
 						<td width="30%" id="Agent">

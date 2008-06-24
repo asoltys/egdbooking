@@ -48,7 +48,7 @@
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
-			<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+			<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			#language.RequestBooking#
 			</CFOUTPUT>
 		</p>
@@ -78,11 +78,11 @@
 				
 				<p>#language.choose#</p>
 				<UL>
-					<LI><a href="#RootDir#text/reserve-book/bookingRequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.drydockBooking#</a></LI>
-					<LI><a href="#RootDir#text/reserve-book/jettyRequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.jettyBooking#</a></LI>
+					<LI><a href="#RootDir#reserve-book/bookingRequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.drydockBooking#</a></LI>
+					<LI><a href="#RootDir#reserve-book/jettyRequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.jettyBooking#</a></LI>
 				</UL>
 				<BR>
-				<P><A href="#RootDir#text/reserve-book/booking.cfm?lang=<cfoutput>#lang#</cfoutput>" class="textbutton">#language.mainPage#</a></P>
+				<P><A href="#RootDir#reserve-book/booking.cfm?lang=<cfoutput>#lang#</cfoutput>" class="textbutton">#language.mainPage#</a></P>
 				
 				</cfoutput>
 			

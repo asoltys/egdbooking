@@ -127,5 +127,5 @@
 <cfset Session.Success.Title = "Create New Company">
 <cfset Session.Success.Message = "<b>#form.Name#</b> has been created.">
 <cfset Session.Success.Back = "Back to Admin Functions Home">
-<cfset Session.Success.Link = "#RootDir#text/admin/menu.cfm?lang=#lang#">
-<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
+<cfset Session.Success.Link = "#RootDir#admin/menu.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">

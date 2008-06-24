@@ -40,7 +40,7 @@
 	</CFIF>
 	
 	<meta name="pwgsc.contact.email" content="egd@pwgsc.gc.ca">
-	<meta name="dc.rights" lang="#langVar#" content="http://www.pwgsc.gc.ca/text/generic/copyright-e.html">
+	<meta name="dc.rights" lang="#langVar#" content="http://www.pwgsc.gc.ca/generic/copyright-e.html">
 	<meta name="robots" content="noindex,nofollow">
 
 	<meta name="dc.title" lang="#langVar#" content="#language.PWGSC# - #language.esqGravingDockCaps# - #language.calendar#">
@@ -257,9 +257,9 @@ function setDate(day) {
 <tr>
 	<td align="left" class="footertext" colspan="2"> 
 		<CFIF lang EQ 'eng' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
-			Maintained by <a href="<cfoutput>#RootDir#</cfoutput>text/contact_us-e.cfm">PWGSC</a> <!--- This option is recommended. --->
+			Maintained by <a href="<cfoutput>#RootDir#</cfoutput>contact_us-e.cfm">PWGSC</a> <!--- This option is recommended. --->
 		<CFELSE>
-			Mise &agrave; jour par <a href="<cfoutput>#RootDir#</cfoutput>text/contact_us-f.cfm">TPSGC</a> <!--- This option is recommended. --->
+			Mise &agrave; jour par <a href="<cfoutput>#RootDir#</cfoutput>contact_us-f.cfm">TPSGC</a> <!--- This option is recommended. --->
 		</CFIF>
 	</td>
 </tr>
@@ -280,8 +280,8 @@ function setDate(day) {
 	</td>
 	<td align="right" class="footertext">
 		<cfoutput>
-		<CFIF lang EQ 'eng' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)><span lang="en"><a href="http://www.pwgsc.gc.ca/text/generic/copyright-e.html">Important Notices</a></span>
-		<CFELSE><span lang="en"><a href="http://www.pwgsc.gc.ca/text/generic/copyright-f.html">Avis Importants</a></span>
+		<CFIF lang EQ 'eng' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)><span lang="en"><a href="http://www.pwgsc.gc.ca/generic/copyright-e.html">Important Notices</a></span>
+		<CFELSE><span lang="en"><a href="http://www.pwgsc.gc.ca/generic/copyright-f.html">Avis Importants</a></span>
 		</CFIF>
 		</cfoutput>
 	</td>

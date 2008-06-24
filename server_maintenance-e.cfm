@@ -11,9 +11,9 @@
 
 <cfinclude template="#RootDir#includes/header-e.cfm">
 <div class="breadcrumbs"> 
-	<a href="http://www.pwgsc.gc.ca/text/home-e.html">PWGSC</a> &gt; 
+	<a href="http://www.pwgsc.gc.ca/home-e.html">PWGSC</a> &gt; 
 	Pacific Region &gt; 
-	<a href="..<cfoutput>#Web_URL#</cfoutput>/text/index-e.cfm">Esquimalt Graving Dock</a> &gt; 
+	<a href="..<cfoutput>#Web_URL#</cfoutput>/index-e.cfm">Esquimalt Graving Dock</a> &gt; 
 	Server Maintenance
 </div>
 

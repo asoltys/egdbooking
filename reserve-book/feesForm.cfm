@@ -76,11 +76,11 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
 			<CFELSE>
-				<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+				<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
-			<A href="#RootDir#text/reserve-book/bookingRequest_choose.cfm?lang=<cfoutput>#lang#</cfoutput>">#language.bookingRequest#</A> &gt;
+			<A href="#RootDir#reserve-book/bookingRequest_choose.cfm?lang=<cfoutput>#lang#</cfoutput>">#language.bookingRequest#</A> &gt;
 			#language.tariffHeading#
 			</CFOUTPUT>
 		</p>
@@ -108,7 +108,7 @@
 					</div>
 				</cfoutput>
 				<br>
-				<cfform name="serviceSelect" action="#RootDir#text/reserve-book/feesForm_action.cfm?lang=#lang#&BookingID=#url.BookingID#">
+				<cfform name="serviceSelect" action="#RootDir#reserve-book/feesForm_action.cfm?lang=#lang#&BookingID=#url.BookingID#">
 				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the available services for a booking and allows the user to select the desired services.">
 				<cfoutput>
 					<tr>

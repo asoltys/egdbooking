@@ -36,7 +36,7 @@
 </cflock>
 
 <cfparam name="variables.companyID" default="#getCompanies.CompanyID#">
-<cfif trim(#variables.companyID#) EQ ""><cflocation url="#RootDir#text/ols-login/logout.cfm?lang=#lang#"></cfif>
+<cfif trim(#variables.companyID#) EQ ""><cflocation url="#RootDir#ols-login/logout.cfm?lang=#lang#"></cfif>
 
 <cflock timeout="60" throwontimeout="No" type="exclusive" scope="session">
 	<cfif isDefined("URL.CompanyID")>
@@ -44,9 +44,9 @@
 			<cfif URL.CompanyID eq CompanyID><cfset Variables.CompanyID = #URL.CompanyID#></cfif>
 		</cfoutput>
 	<cfelseif IsDefined("Session.LastChoice.CompanyID")>
-		<cflocation url="#RootDir#text/reserve-book/booking.cfm?lang=#lang#&CompanyID=#Session.LastChoice.CompanyID#" addtoken="no">
+		<cflocation url="#RootDir#reserve-book/booking.cfm?lang=#lang#&CompanyID=#Session.LastChoice.CompanyID#" addtoken="no">
 	<cfelse>
-		<cflocation url="#RootDir#text/reserve-book/booking.cfm?lang=#lang#&CompanyID=#Variables.CompanyID#" addtoken="no">
+		<cflocation url="#RootDir#reserve-book/booking.cfm?lang=#lang#&CompanyID=#Variables.CompanyID#" addtoken="no">
 	</cfif>
 	<cfset Session.LastChoice.CompanyID = Variables.CompanyID>
 	<cfset Session.Flow.CompanyID = Variables.CompanyID>
@@ -286,7 +286,7 @@
 							<cfif getCompanies.RecordCount GT 1><p>#language.otherCompanies#<br></cfif>
 						</cfoutput>
 						<cfoutput query="getCompanies">
-							<cfif getCompanies.CompanyID NEQ #variables.CompanyID# AND approved eq 1><span style="white-space: nowrap; "><a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#&CompanyID=#CompanyID#" style="font-size:10pt;">#CompanyName#</a></span>&nbsp;&nbsp;</cfif>
+							<cfif getCompanies.CompanyID NEQ #variables.CompanyID# AND approved eq 1><span style="white-space: nowrap; "><a href="#RootDir#reserve-book/booking.cfm?lang=#lang#&CompanyID=#CompanyID#" style="font-size:10pt;">#CompanyName#</a></span>&nbsp;&nbsp;</cfif>
 						</cfoutput></p>
 						<cfoutput><cfif unapprovedCompany.RecordCount GTE 1><p>#language.awaitingApproval#<br></cfif></cfoutput>
 						<cfoutput query="unapprovedCompany">
@@ -306,11 +306,11 @@
 							<tr><td width="33%" align="left">#language.None#</td></tr>
 						<cfelse>
 							<cfloop query="getVessels">
-								<tr><td width="33%" align="left"><a href="#RootDir#text/reserve-book/getVesselDetail.cfm?lang=#lang#&VesselID=#VesselID#" style="font-size:10pt;">#Name#</a></td></tr>
+								<tr><td width="33%" align="left"><a href="#RootDir#reserve-book/getVesselDetail.cfm?lang=#lang#&VesselID=#VesselID#" style="font-size:10pt;">#Name#</a></td></tr>
 							</cfloop>
 						</cfif>
 						<cfif #Session.ReadOnly# EQ "1"><cfelse>
-						<tr><td><div style="min-height:20px;">&nbsp;</div><cfoutput><a href="#RootDir#text/reserve-book/addVessel.cfm?lang=#lang#&CompanyID=#CompanyID#" class="textbutton">#Language.addVessel#</a></cfoutput></td></tr>
+						<tr><td><div style="min-height:20px;">&nbsp;</div><cfoutput><a href="#RootDir#reserve-book/addVessel.cfm?lang=#lang#&CompanyID=#CompanyID#" class="textbutton">#Language.addVessel#</a></cfoutput></td></tr>
 						</cfif>
 					</table>
 				
@@ -318,10 +318,10 @@
 				
 				<p>#language.followingbooking#</p>
 				<cfif #Session.ReadOnly# EQ "1"><cfelse>
-				<a href="#RootDir#text/reserve-book/bookingRequest_choose.cfm?lang=#lang#&companyID=#variables.companyID#" class="textbutton"><cfoutput>#language.requestBooking#</cfoutput></a>&nbsp;
+				<a href="#RootDir#reserve-book/bookingRequest_choose.cfm?lang=#lang#&companyID=#variables.companyID#" class="textbutton"><cfoutput>#language.requestBooking#</cfoutput></a>&nbsp;
 				</cfif>
-				<a href="#RootDir#text/reserve-book/otherForms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a>&nbsp;
-				<a href="#RootDir#text/reserve-book/bookingArchives.cfm?lang=#lang#&companyID=#variables.companyID#" class="textbutton">#language.allBookings#</a><br><br>
+				<a href="#RootDir#reserve-book/otherForms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a>&nbsp;
+				<a href="#RootDir#reserve-book/bookingArchives.cfm?lang=#lang#&companyID=#variables.companyID#" class="textbutton">#language.allBookings#</a><br><br>
 				
 					<cfset counter = 0>
 					<h2>#language.Drydock#</h2>
@@ -344,7 +344,7 @@
 								<!---form method="post" action="editFeesForm.cfm?lang=#lang#&BookingID=#BookingID#" name="editForm#bookingID#"></form>
 								<form method="post" action="viewFeesForm.cfm?lang=#lang#&BookingID=#BookingID#" name="viewForm#bookingID#"></form--->
 								<tr class="#rowClass#" valign="top">
-									<td width="60%" valign="top"><a href="#RootDir#text/comm/getBookingDetail.cfm?lang=#lang#&bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+									<td width="60%" valign="top"><a href="#RootDir#comm/getBookingDetail.cfm?lang=#lang#&bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 									<td width="15%" valign="top">
 										<cfif status EQ "P"><i class="pending">#language.pending#</i>
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
@@ -355,8 +355,8 @@
 										</cfif>
 									</td>
 									<td align="right" width="25%" valign="top">
-										<cfif status EQ "P" OR status eq "T"><div style="font-size:8pt;"><a href="#RootDir#text/reserve-book/editFeesForm.cfm?lang=#lang#&BookingID=#BookingID#">#language.editTariff#</a></div>
-										<cfelse><div style="font-size:8pt;"><a href="#RootDir#text/reserve-book/viewFeesForm.cfm?lang=#lang#&BookingID=#BookingID#">#language.viewTariff#</a></div></cfif>
+										<cfif status EQ "P" OR status eq "T"><div style="font-size:8pt;"><a href="#RootDir#reserve-book/editFeesForm.cfm?lang=#lang#&BookingID=#BookingID#">#language.editTariff#</a></div>
+										<cfelse><div style="font-size:8pt;"><a href="#RootDir#reserve-book/viewFeesForm.cfm?lang=#lang#&BookingID=#BookingID#">#language.viewTariff#</a></div></cfif>
 									</td>
 								</tr>
 								<tr class="#rowClass#"><td colspan="3" valign="top">
@@ -408,7 +408,7 @@
 									<cfset rowClass = "">
 								</cfif>
 								<tr class="#rowClass#" valign="top">
-									<td width="60%" colspan="2"><a href="#RootDir#text/comm/getBookingDetail.cfm?lang=#lang#&bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+									<td width="60%" colspan="2"><a href="#RootDir#comm/getBookingDetail.cfm?lang=#lang#&bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 									<td width="40%" align="left">
 										<!---
 										<cfif NOT status eq 'C'><i class="pending">#language.pending#</i>
@@ -478,7 +478,7 @@
 									<cfset rowClass = "">
 								</cfif>
 								<tr class="#rowClass#" valign="top">
-									<td width="60%" colspan="2"><a href="#RootDir#text/comm/getBookingDetail.cfm?lang=#lang#&bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>					<td width="40%" align="left">
+									<td width="60%" colspan="2"><a href="#RootDir#comm/getBookingDetail.cfm?lang=#lang#&bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>					<td width="40%" align="left">
 										<!---
 										<cfif NOT status eq 'C'><i class="pending">#language.pending#</i>
 										<cfelseif status eq 'X'><i class="cancelled">#language.cancelling#</i>
@@ -529,10 +529,10 @@
 					</cfif>
 				<br>
 				<cfif #Session.ReadOnly# EQ "1"><cfelse>
-				<a href="#RootDir#text/reserve-book/bookingRequest_choose.cfm?lang=#lang#&companyID=#variables.companyID#" class="textbutton"><cfoutput>#language.requestBooking#</cfoutput></a>&nbsp;
+				<a href="#RootDir#reserve-book/bookingRequest_choose.cfm?lang=#lang#&companyID=#variables.companyID#" class="textbutton"><cfoutput>#language.requestBooking#</cfoutput></a>&nbsp;
 				</cfif>
-				<a href="#RootDir#text/reserve-book/otherForms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a>&nbsp;
-				<a href="#RootDir#text/reserve-book/bookingArchives.cfm?lang=#lang#&companyID=#variables.companyID#" class="textbutton">#language.allBookings#</a>
+				<a href="#RootDir#reserve-book/otherForms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a>&nbsp;
+				<a href="#RootDir#reserve-book/bookingArchives.cfm?lang=#lang#&companyID=#variables.companyID#" class="textbutton">#language.allBookings#</a>
 							
 				</div>
 				</cfoutput>

@@ -11,7 +11,7 @@
 	<meta name="dc.creator" lang="eng" content="Government of Canada, Public Works and Government Services Canada, Esquimalt Graving Dock">
 	<meta name="dc.publisher" lang="eng" content="Public Works and Government Services Canada">
 	<meta name="pwgsc.contact.email" content="egd@pwgsc.gc.ca">
-	<meta name="dc.rights" lang="eng" content="<cfoutput>http://www.pwgsc.gc.ca/text/home-#lang#.html</cfoutput>/text/generic/copyright-e.html">
+	<meta name="dc.rights" lang="eng" content="<cfoutput>http://www.pwgsc.gc.ca/home-#lang#.html</cfoutput>/generic/copyright-e.html">
 	<meta name="robots" content="noindex,nofollow">
 
 	<meta name="dc.title" lang="eng" content="PWGSC - ESQUIMALT GRAVING DOCK - Aerial View">
@@ -79,7 +79,7 @@
 <tr>
 	<td><img src="<cfoutput>#RootDir#</cfoutput>images/spacer.gif" width="10" height="1" alt=""></td>
 	<td align="left" class="footertext"> 
-		<div>Maintained by <a href="<cfoutput>#RootDir#</cfoutput>text/contact_us-e.cfm">PWGSC</a></div> <!--- This option is recommended. --->
+		<div>Maintained by <a href="<cfoutput>#RootDir#</cfoutput>contact_us-e.cfm">PWGSC</a></div> <!--- This option is recommended. --->
 		<div>
 			<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
 			<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,"\"), "\")>
@@ -95,7 +95,7 @@
 	<td align="right" class="footertext"> 
 		<div> 
 			<cfoutput>
-			<span lang="en"><a href="http://www.pwgsc.gc.ca/text/generic/copyright-e.html">Important Notices</a></span>
+			<span lang="en"><a href="http://www.pwgsc.gc.ca/generic/copyright-e.html">Important Notices</a></span>
 			</cfoutput>
 		</div>
 	</td>

@@ -120,9 +120,9 @@
 <CFPARAM name="url.referrer" default="Drydock Booking Management">
 <cfif url.referrer EQ "Edit Booking"><cfset url.referrer = "Drydock Booking Management"></cfif>
 <CFIF url.referrer eq "Booking Details">
-	<CFSET returnTo = "#RootDir#text/comm/getBookingDetail.cfm">
+	<CFSET returnTo = "#RootDir#comm/getBookingDetail.cfm">
 <CFELSE>
-	<CFSET returnTo = "#RootDir#text/admin/DockBookings/bookingManage.cfm">
+	<CFSET returnTo = "#RootDir#admin/DockBookings/bookingManage.cfm">
 </CFIF>
 
 <cfif isDefined("url.date")>
@@ -137,6 +137,6 @@
 <cfset Session.Success.Back = "Back to #url.referrer#">
 
 <cfset Session.Success.Link = "#returnTo#?#urltoken#&bookingid=#form.bookingid#&#variables.dateValue###id#form.bookingid#">
-<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">
 
-<!---CFLOCATION addtoken="no" url="#RootDir#text/admin/DockBookings/bookingManage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.bookingID#"--->
+<!---CFLOCATION addtoken="no" url="#RootDir#admin/DockBookings/bookingManage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.bookingID#"--->

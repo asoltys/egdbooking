@@ -20,7 +20,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="#RootDir#text/reserve-book/editUser.cfm?lang=#lang#" addtoken="no">
+	<cflocation url="#RootDir#reserve-book/editUser.cfm?lang=#lang#" addtoken="no">
 </cfif>
 
 
@@ -45,6 +45,6 @@
 	<cfset Session.Success.Message = "Votre mot de passe pour le syst&egrave;me de r&eacute;servation en ligne de la cale s&egrave;che d'Esquimalt est ""#form.password1#"".">
 	<cfset Session.Success.Back = "Retour &agrave; modifier le profil">
 </cfif>
-<cfset Session.Success.Link = "#RootDir#text/reserve-book/editUser.cfm?lang=#lang#">
-<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
+<cfset Session.Success.Link = "#RootDir#reserve-book/editUser.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">
 

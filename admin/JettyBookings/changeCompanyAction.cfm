@@ -31,5 +31,5 @@ SET
 WHERE BookingID = #BookingIDURL#
 </cfquery>
 
-<!---<cflocation url="#RootDir#text/admin/JettyBookings/jettyBookingmanage.cfm">--->
-<cflocation url="https://www.egdbooking.gc.ca/text/admin/JettyBookings/jettyBookingmanage.cfm">
+<!---<cflocation url="#RootDir#admin/JettyBookings/jettyBookingmanage.cfm">--->
+<cflocation url="https://www.egdbooking.gc.ca/admin/JettyBookings/jettyBookingmanage.cfm">

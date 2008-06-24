@@ -40,4 +40,4 @@
 
 <!--- Clear Form Structure --->
 <cfset StructDelete(Session, "Form_Structure")>
-<cflocation addtoken="no" url="#RootDir#text/reserve-book/getVesselDetail.cfm?lang=#lang#&vesselID=#form.vesselID#&CompanyID=#url.companyID#">
+<cflocation addtoken="no" url="#RootDir#reserve-book/getVesselDetail.cfm?lang=#lang#&vesselID=#form.vesselID#&CompanyID=#url.companyID#">

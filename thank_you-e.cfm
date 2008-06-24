@@ -11,9 +11,9 @@
 
 <cfinclude template="#RootDir#includes/header-e.cfm">
 <div class="breadcrumbs"> 
-	<a href="http://www.pwgsc.gc.ca/text/home-e.html">PWGSC</a> &gt; 
+	<a href="http://www.pwgsc.gc.ca/home-e.html">PWGSC</a> &gt; 
 	Pacific Region &gt; 
-	<a href="..<cfoutput>#RootDir#</cfoutput>text/index-e.cfm">Esquimalt Graving Dock</a> &gt; 
+	<a href="..<cfoutput>#RootDir#</cfoutput>index-e.cfm">Esquimalt Graving Dock</a> &gt; 
 	Thank You
 </div>
 
@@ -22,7 +22,7 @@
 	<H1>Thank You</H1>
 
 	<p>Your comments have been sent.</p>
-	<p>Thank you for contacting <cfoutput><a href="#RootDir#text/index-e.cfm"></cfoutput>the Esquimalt Graving Dock</a> at Public Works and Government Services Canada. We 
+	<p>Thank you for contacting <cfoutput><a href="#RootDir#index-e.cfm"></cfoutput>the Esquimalt Graving Dock</a> at Public Works and Government Services Canada. We 
 	  will respond as soon as possible.</p>
 
 </div>

@@ -25,7 +25,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="#RootDir#text/reserve-book/addVessel.cfm?lang=#lang#&CompanyID=#CompanyID#" addtoken="no">
+	<cflocation url="#RootDir#reserve-book/addVessel.cfm?lang=#lang#&CompanyID=#CompanyID#" addtoken="no">
 </cfif>
 <!--- 
 <cfif getDeletedVessel.recordcount GT 0>
@@ -98,5 +98,5 @@
 	<cfset Session.Success.Message = "Le navire, <b>#form.Name#</b>, a &eacute;t&eacute; ajout&eacute;.">
 	<cfset Session.Success.Back = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
 </cfif>
-<cfset Session.Success.Link = "#RootDir#text/reserve-book/booking.cfm?lang=#lang#&CompanyID=#CompanyID#">
-<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
+<cfset Session.Success.Link = "#RootDir#reserve-book/booking.cfm?lang=#lang#&CompanyID=#CompanyID#">
+<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">

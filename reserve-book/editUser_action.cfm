@@ -22,7 +22,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="#RootDir#text/reserve-book/editUser.cfm?lang=#lang#" addtoken="no">
+	<cflocation url="#RootDir#reserve-book/editUser.cfm?lang=#lang#" addtoken="no">
 </cfif>
 
 
@@ -49,5 +49,5 @@
 	<cfset Session.Success.Message = "Votre profil a &eacute;t&eacute; mis &agrave; jour.">
 	<cfset Session.Success.Back = "Retour &agrave; modifier le profil">
 </cfif>
-<cfset Session.Success.Link = "#RootDir#text/reserve-book/editUser.cfm?lang=#lang#">
-<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
+<cfset Session.Success.Link = "#RootDir#reserve-book/editUser.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">

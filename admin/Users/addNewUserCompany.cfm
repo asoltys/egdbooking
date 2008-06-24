@@ -107,9 +107,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
 			Create New User
 			</CFOUTPUT>
@@ -228,7 +228,7 @@
 				</table>
 				</cfform>
 				
-				<!---<br><div align="center"><cfoutput><input type="button" value="Done" onClick="self.location.href='#RootDir#text/admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#'" class="textbutton"></cfoutput></div>--->
+				<!---<br><div align="center"><cfoutput><input type="button" value="Done" onClick="self.location.href='#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#'" class="textbutton"></cfoutput></div>--->
 				
 				<cfform name="newUserForm" action="addUser_action.cfm?lang=#lang#&info=#Variables.info#">
 					<input type="hidden" name="firstname" value="#Variables.firstname#">

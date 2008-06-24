@@ -16,5 +16,5 @@
 <cfset Session.Success.Title = "Delete Vessel">
 <cfset Session.Success.Message = "<b>#getVessel.Name#</b> has been deleted.">
 <cfset Session.Success.Back = "Back to Delete Vessels">
-<cfset Session.Success.Link = "#RootDir#text/admin/delVessel.cfm?lang=#lang#">
-<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
+<cfset Session.Success.Link = "#RootDir#admin/delVessel.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">

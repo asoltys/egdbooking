@@ -14,9 +14,9 @@
 
 <CFPARAM name="url.referrer" default="Drydock Booking Management">
 <CFIF url.referrer eq "Booking Details">
-	<CFSET returnTo = "#RootDir#text/comm/getBookingDetail.cfm">
+	<CFSET returnTo = "#RootDir#comm/getBookingDetail.cfm">
 <CFELSE>
-	<CFSET returnTo = "#RootDir#text/admin/DockBookings/bookingManage.cfm">
+	<CFSET returnTo = "#RootDir#admin/DockBookings/bookingManage.cfm">
 </CFIF>
 
 <cfif isDefined("url.date")>
@@ -43,9 +43,9 @@
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-			<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+			<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
 			<A href="bookingManage.cfm?lang=#lang#">Drydock Management</A> &gt;
 			Edit Dock Booking
@@ -83,7 +83,7 @@
 			<cfparam name = "Variables.Section3" default = 0>
 			
 			<cfif (NOT IsDefined("Form.BookingID") OR Form.BookingID eq '') AND (NOT IsDefined("URL.BookingID") OR URL.BookingID eq '')>
-				<cflocation addtoken="no" url="#RootDir#text/admin/DockBookings/bookingManage.cfm?#urltoken#">
+				<cflocation addtoken="no" url="#RootDir#admin/DockBookings/bookingManage.cfm?#urltoken#">
 			</cfif>
 			
 			

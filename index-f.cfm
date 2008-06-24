@@ -12,7 +12,7 @@
 <cfinclude template="#RootDir#includes/header-f.cfm">
 
 <div class="breadcrumbs">
-	<a href="http://www.pwgsc.gc.ca/text/home-f.html">TPSGC</a> &gt; 
+	<a href="http://www.pwgsc.gc.ca/home-f.html">TPSGC</a> &gt; 
 	R&eacute;gion du Pacifique &gt; 
 	<a href="index-f.cfm">Cale s&egrave;che d'Esquimalt</a> &gt; 
 	Bienvenue
@@ -31,7 +31,7 @@
 	<p>Nos installations de calibre mondial sont &eacute;quip&eacute;es notamment de <a href="services_main-f.cfm#top">logements pour stabilisateurs</a> et <a href="services-f.cfm#crane">d'appareils de levage haute vitesse pour charges lourdes</a> (capacit&eacute; de 150-165 
 	tonnes). La cale s&egrave;che peut recevoir des navires de 100&nbsp;000 TPL, soit environ 90&nbsp;% des navires du monde.<img src="<cfoutput>#RootDir#</cfoutput>images/fulldock1.jpg" width="250" height="194" alt="Cale s&egrave;che d'Esquimalt vue est" align="right" hspace="5"></p>
 	
-	<p>La CSE est une installation d'int&eacute;rêt public qui <a href="booking-f.cfm">offre des services de r&eacute;paration et d'entretien naval aux entreprises commerciales et aux particuliers</a>,  sur commande (premier arriv&eacute;, premier servi). 
+	<p>La CSE est une installation d'int&eacute;rêt public qui <a href="reserve-book-fra.cfm">offre des services de r&eacute;paration et d'entretien naval aux entreprises commerciales et aux particuliers</a>,  sur commande (premier arriv&eacute;, premier servi). 
 	Tout le travail est assur&eacute; par des <a href="shiprepairfirms-f.cfm">entreprises de r&eacute;paration navale</a> du secteur priv&eacute;.</p> 
 	
 	<br>

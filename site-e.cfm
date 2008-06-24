@@ -12,7 +12,7 @@
 <cfinclude template="#RootDir#includes/header-e.cfm">
 
 <div class="breadcrumbs"> 
-	<a href="http://www.pwgsc.gc.ca/text/home-e.html">PWGSC</a> &gt; 
+	<a href="http://www.pwgsc.gc.ca/home-e.html">PWGSC</a> &gt; 
 	Pacific Region &gt; 
 	<a href="index-e.cfm">Esquimalt Graving Dock</a> &gt; 
 	Site Map
@@ -47,11 +47,11 @@
 				<li><a href="ensemble-e.cfm">EGD Ensemble Article</a></li>
 			</ul>
 		</li>
-		<li><a href="booking-e.cfm">Booking</a></li>
+		<li><a href="reserve-book-eng.cfm">Booking</a></li>
 		<li><a href="contact_us-e.cfm">Contact Us</a></li>
 	</ul>
 	<!--#include virtual="<cfoutput>#RootDir#</cfoutput>ssi/sitemap_content-e.html"-->
-	<!--a href="index-e.cfm"><img src="<cfoutput>#RootDir#</cfoutput>images/back_arrow.gif" border="0" alt="Back to Home"--></a><a href="../text/site-e.cfm#top"><img height=20 alt="Back to top" src="<cfoutput>#RootDir#</cfoutput>images/up_arrow.gif" width=25 border=0></a>
+	<!--a href="index-e.cfm"><img src="<cfoutput>#RootDir#</cfoutput>images/back_arrow.gif" border="0" alt="Back to Home"--></a><a href="../site-e.cfm#top"><img height=20 alt="Back to top" src="<cfoutput>#RootDir#</cfoutput>images/up_arrow.gif" width=25 border=0></a>
 	
 </div>
 <cfinclude template="#RootDir#includes/footer-e.cfm">

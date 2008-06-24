@@ -12,7 +12,7 @@
 <cfinclude template="#RootDir#includes/header-e.cfm">
 
 <div class="breadcrumbs"> 
-	<a href="http://www.pwgsc.gc.ca/text/home-e.html">PWGSC</a> &gt; 
+	<a href="http://www.pwgsc.gc.ca/home-e.html">PWGSC</a> &gt; 
 	Pacific Region &gt; 
 	<a href="index-e.cfm">Esquimalt Graving Dock</a> &gt; 
 	Search
@@ -31,7 +31,7 @@
 		<select name=url id="section">
 			<!--- modify option value="http://www.pwgsc.gc.ca<cfoutput>#RootDir#</cfoutput>" --->
 			<option value="<cfoutput>#RootDir#</cfoutput>" selected>this section</option>
-			<option value="http://www.pwgsc.gc.ca/text/home-e.html">all of PWGSC</option>
+			<option value="http://www.pwgsc.gc.ca/home-e.html">all of PWGSC</option>
 		</select>
 		<br><br>
 		<label for="search">Search For:</label>
@@ -41,10 +41,10 @@
 		<br><br>
 		<input type="submit" name="Submit" value="Search" class="textbutton">
 		<input type="button" value="Reset" name="Button" onClick="document.mfrm.q.value=''" class="textbutton">
-		<!-- modify formloc value="http://www.pwgsc.gc.ca/site02/text/search-e.html" -->
-		<!--- modify formloc value="http://www.pwgsc.gc.ca<cfoutput>#RootDir#</cfoutput>text/search-e.html" --->
+		<!-- modify formloc value="http://www.pwgsc.gc.ca/site02/search-e.html" -->
+		<!--- modify formloc value="http://www.pwgsc.gc.ca<cfoutput>#RootDir#</cfoutput>search-e.html" --->
 		<!-- ********** this value is used for the results page ********** -->  
-		<input type=hidden name="formloc" value="<cfoutput>#RootDir#</cfoutput>text/search-e.cfm">
+		<input type=hidden name="formloc" value="<cfoutput>#RootDir#</cfoutput>search-e.cfm">
 		<input type=hidden name="tablewidth" value="450">
 		<input type=hidden name="align" value="left">
 		<input type=hidden name="bordersize" value="0">

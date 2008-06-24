@@ -52,7 +52,7 @@
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfif NOT IsDefined('url.vesselID') OR NOT IsNumeric(url.vesselID)>
-	<cflocation addtoken="no" url="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">
+	<cflocation addtoken="no" url="#RootDir#reserve-book/booking.cfm?lang=#lang#">
 </cfif>
 
 <cflock timeout="60" throwontimeout="No" type="exclusive" scope="session">
@@ -67,7 +67,7 @@
 </cfquery>
 
 <cfif getVesselDetail.recordCount EQ 0>
-	<cflocation addtoken="no" url="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">
+	<cflocation addtoken="no" url="#RootDir#reserve-book/booking.cfm?lang=#lang#">
 </cfif>
 
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
@@ -77,9 +77,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
 			<CFELSE>
-				<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+				<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.vesselDetail#
 			</CFOUTPUT>
@@ -144,8 +144,8 @@
 					<BR>
 					<div align="center">
 						<cfif #Session.ReadOnly# EQ "1"><cfelse>
-						<a href="#RootDir#text/reserve-book/editVessel.cfm?lang=#lang#&vesselID=#url.vesselID#" class="textbutton">#language.EditVessel#</a>
-						<a href="#RootDir#text/reserve-book/delVessel.cfm?lang=#lang#&vesselID=#url.vesselID#" class="textbutton">#language.DeleteVessel#</a>
+						<a href="#RootDir#reserve-book/editVessel.cfm?lang=#lang#&vesselID=#url.vesselID#" class="textbutton">#language.EditVessel#</a>
+						<a href="#RootDir#reserve-book/delVessel.cfm?lang=#lang#&vesselID=#url.vesselID#" class="textbutton">#language.DeleteVessel#</a>
 						</cfif>
 						<!---<a href="booking.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#" class="textbutton">#language.Back#</a>--->
 					</div>

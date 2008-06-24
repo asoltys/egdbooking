@@ -17,7 +17,7 @@
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Errors>
- 	<cflocation url="#RootDir#text/reserve-book/feesForm.cfm?lang=#lang#&bookingID=#url.bookingId#" addtoken="no">
+ 	<cflocation url="#RootDir#reserve-book/feesForm.cfm?lang=#lang#&bookingID=#url.bookingId#" addtoken="no">
 </cfif>
 
 <cfquery name="submitTariffForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -189,5 +189,5 @@ WHERE     (BookingID = '#form.BookingID#')
 		</cfmail>
 	</cfoutput>
 
-<cflocation addtoken="no" url="#RootDir#text/reserve-book/otherForms.cfm?lang=#lang#&BookingID=#url.BookingID#">
+<cflocation addtoken="no" url="#RootDir#reserve-book/otherForms.cfm?lang=#lang#&BookingID=#url.BookingID#">
 

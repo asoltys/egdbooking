@@ -1,5 +1,5 @@
 <cfif NOT IsDefined("Session.Success")>
-	<cflocation addtoken="no" url="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">
+	<cflocation addtoken="no" url="#RootDir#reserve-book/booking.cfm?lang=#lang#">
 <cfelse>
 	<cfset Variables.Success.Breadcrumb = Session.Success.Breadcrumb>
 	<cfset Variables.Success.Title = Session.Success.Title>
@@ -32,9 +32,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
 			<CFELSE>
-				<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+				<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 				#Variables.Success.Breadcrumb#
 			</CFOUTPUT>

@@ -41,10 +41,10 @@
 
 <CFPARAM name="url.referrer" default="Booking Home">
 <CFIF url.referrer eq "Archive">
-	<CFSET returnTo = "#RootDir#text/reserve-book/bookingArchives.cfm">
+	<CFSET returnTo = "#RootDir#reserve-book/bookingArchives.cfm">
 	<CFSET referrer = "Archive">
 <CFELSE>
-	<CFSET returnTo = "#RootDir#text/reserve-book/booking.cfm">
+	<CFSET returnTo = "#RootDir#reserve-book/booking.cfm">
 </CFIF>
 
 
@@ -112,9 +112,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
 			<CFELSE>
-				<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+				<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.editTariffHeading#
 			</CFOUTPUT>
@@ -140,7 +140,7 @@
 				#LSDateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #LSDateFormat(getDetails.EndDate, 'mmm d, yyyy')#</p></cfoutput>
 				
 				
-				<cfform name="serviceSelect" action="#RootDir#text/reserve-book/editFeesForm_action.cfm?lang=#lang#&BookingID=#url.BookingID#&referrer=#url.referrer#">
+				<cfform name="serviceSelect" action="#RootDir#reserve-book/editFeesForm_action.cfm?lang=#lang#&BookingID=#url.BookingID#&referrer=#url.referrer#">
 				<cfoutput>
 				<table border="0" cellpadding="3" cellspacing="0" summary="#language.tableSummary#">
 					<tr>

@@ -12,14 +12,14 @@
 <cfinclude template="#RootDir#includes/header-f.cfm">
 
 <div class="breadcrumbs"> 
-	<a href="http://www.tpsgc.gc.ca/text/home-f.html">TPSGC</a> &gt; 
+	<a href="http://www.tpsgc.gc.ca/home-f.html">TPSGC</a> &gt; 
 	R&eacute;gion du Pacifique &gt;
-	<a href="../text/index-f.cfm">Cale s&egrave;che d'Esquimalt</a> &gt; 
+	<a href="../index-f.cfm">Cale s&egrave;che d'Esquimalt</a> &gt; 
 	Aide
 </div>
 
 <div class="main">
 	<H1>Aide</H1>
-	<P>Pour de plus amples renseignements sur le Minist&egrave;re, cliquez sur <a href="http://www.tpsgc.gc.ca/text/generic/help-f.html">Aide</a>.</P>
+	<P>Pour de plus amples renseignements sur le Minist&egrave;re, cliquez sur <a href="http://www.tpsgc.gc.ca/generic/help-f.html">Aide</a>.</P>
 </div>
 <cfinclude template="#RootDir#includes/footer-f.cfm">

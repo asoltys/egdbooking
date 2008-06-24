@@ -1,7 +1,7 @@
 <CFAPPLICATION NAME="EGD" Sessiontimeout=#CreateTimeSpan(0, 0, 60, 0)# SESSIONMANAGEMENT="Yes" clientmanagement="yes">
 
 <!--- Include the server-specific settings --->
-<cfinclude template="../../server_settings.cfm">
+<cfinclude template="../server_settings.cfm">
 
 <cfif ServerType EQ "Production" AND cgi.server_port NEQ 443 AND cgi.request_method EQ "get">
 <cflocation url="https://#cgi.server_name##cgi.script_name#?#cgi.query_string#" />

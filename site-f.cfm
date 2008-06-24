@@ -12,7 +12,7 @@
 <cfinclude template="#RootDir#includes/header-f.cfm">
 
 <div class="breadcrumbs"> 
-	<a href="http://www.tpsgc.gc.ca/text/home-f.html">TPSGC</a> &gt; 
+	<a href="http://www.tpsgc.gc.ca/home-f.html">TPSGC</a> &gt; 
 	R&eacute;gion du Pacifique &gt; 
 	<a href="index-f.cfm">Cale s&egrave;che d'Esquimalt</a> &gt; 
 	Carte du site
@@ -47,12 +47,12 @@
 				<li><a href="article-f.cfm">Article QE II</a></li>
 				<li><a href="ensemble-f.cfm">Article d'<i>Ensemble</i></a></li>
 			</ul>
-		<li><a href="booking-f.cfm">R&eacute;servation</a></li>
+		<li><a href="reserve-book-fra.cfm">R&eacute;servation</a></li>
 		
 		<li><a href="contact_us-f.cfm">Contactez-nous</a></li>
 	</ul> 
 	<!--#include virtual="<cfoutput>#RootDir#</cfoutput>ssi/sitemap_content-f.html"-->
-	<!--a href="index-f.cfm"><img src="<cfoutput>#RootDir#</cfoutput>images/back_arrow.gif" border="0" alt="Retour page d'accueil"></a--><a href="../text/site-f.cfm#top"><img height=20 alt="Retour haut de page" src="<cfoutput>#RootDir#</cfoutput>images/up_arrow.gif" width=25 border=0></a>
+	<!--a href="index-f.cfm"><img src="<cfoutput>#RootDir#</cfoutput>images/back_arrow.gif" border="0" alt="Retour page d'accueil"></a--><a href="../site-f.cfm#top"><img height=20 alt="Retour haut de page" src="<cfoutput>#RootDir#</cfoutput>images/up_arrow.gif" width=25 border=0></a>
 
 </div>
 <cfinclude template="#RootDir#includes/footer-f.cfm">

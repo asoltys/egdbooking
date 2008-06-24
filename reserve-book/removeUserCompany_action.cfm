@@ -15,4 +15,4 @@
 <!--- CLEAR FORM STRUCTURE --->
 <cfset StructDelete(Session, "Form_Structure")>
 
-<cflocation addtoken="no" url="#RootDir#text/reserve-book/editUser.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#reserve-book/editUser.cfm?lang=#lang#">

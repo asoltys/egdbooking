@@ -42,7 +42,7 @@
 <cfset Session.Success.Title = "<cfoutput>#variables.actionCap#</cfoutput> Drydock Maintenance Block">
 <cfset Session.Success.Message = "Maintenance block from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')# has been <cfoutput>#variables.actionPast#</cfoutput>.">
 <cfset Session.Success.Back = "Back to Dock Bookings Management">
-<cfset Session.Success.Link = "#RootDir#text/admin/DockBookings/bookingmanage.cfm?#urltoken#">
-<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
+<cfset Session.Success.Link = "#RootDir#admin/DockBookings/bookingmanage.cfm?#urltoken#">
+<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">
 
 <!---cflocation addToken="no" url="Bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#"--->

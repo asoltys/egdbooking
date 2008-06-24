@@ -76,9 +76,9 @@
 <cfif getCompanies.recordCount EQ 0 OR getDetails.recordCount EQ 0>
 	<cfif isDefined("url.bookingID")>
 		<cfif isDefined("url.referrer") AND url.referrer eq "archive">
-			<cflocation addtoken="no" url="#RootDir#text/reserve-book/bookingArchives.cfm?lang=#lang#&companyId=#url.companyID#">
+			<cflocation addtoken="no" url="#RootDir#reserve-book/bookingArchives.cfm?lang=#lang#&companyId=#url.companyID#">
 		<cfelse>
-			<cflocation addtoken="no" url="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">
+			<cflocation addtoken="no" url="#RootDir#reserve-book/booking.cfm?lang=#lang#">
 		</cfif>
 	</cfif>
 </cfif>
@@ -90,9 +90,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
 			<CFELSE>
-				<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+				<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.ViewTariffHeading#
 			</CFOUTPUT>
@@ -185,9 +185,9 @@
 				<br>
 				<div align="right">
 					<cfif isDefined("url.referrer") AND url.referrer eq "archive">
-						<cfoutput><a href="#RootDir#text/reserve-book/bookingArchives.cfm?lang=#lang#&CompanyID=#url.CompanyID#" class="textbutton">#language.Back#</a></cfoutput>
+						<cfoutput><a href="#RootDir#reserve-book/bookingArchives.cfm?lang=#lang#&CompanyID=#url.CompanyID#" class="textbutton">#language.Back#</a></cfoutput>
 					<cfelse>
-						<cfoutput><a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#&CompanyID=#getDetails.CompanyID#" class="textbutton">#language.Back#</a></cfoutput>
+						<cfoutput><a href="#RootDir#reserve-book/booking.cfm?lang=#lang#&CompanyID=#getDetails.CompanyID#" class="textbutton">#language.Back#</a></cfoutput>
 					</cfif>
 				</div>
 

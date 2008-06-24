@@ -40,9 +40,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
 			<CFELSE>
-				<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+				<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.editVessel#
 			</CFOUTPUT>
@@ -59,7 +59,7 @@
 					</a></h1>
 
 				<CFIF NOT IsDefined('url.VesselID') AND Not IsNumeric('url.VesselID')>
-					<cflocation addtoken="no" url="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">
+					<cflocation addtoken="no" url="#RootDir#reserve-book/booking.cfm?lang=#lang#">
 				</CFIF>
 				
 				<CFQUERY name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -86,7 +86,7 @@
 				</CFQUERY>
 				
 				<cfif getVesselDetail.recordCount EQ 0>
-					<cflocation addtoken="no" url="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">
+					<cflocation addtoken="no" url="#RootDir#reserve-book/booking.cfm?lang=#lang#">
 				</cfif>
 				
 				<cfif isDefined("form.Name")>
@@ -120,7 +120,7 @@
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm"><br><br>
 				
 				
-				<cfform name="editVessel" action="#RootDir#text/reserve-book/EditVessel_process.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#&VesselID=#VesselID#" method="post">
+				<cfform name="editVessel" action="#RootDir#reserve-book/EditVessel_process.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#&VesselID=#VesselID#" method="post">
 					<cfif getVesselDockBookings.recordCount GT 0 OR getVesselJettyBookings.recordCount GT 0>
 					<span style="font-size: 10pt; color: red">#language.notEditVesselDimensions#</span><br><br>
 					</cfif>
@@ -190,7 +190,7 @@
 								<br-->
 								<input type="submit" value="#language.Submit#" name="submitForm" class="textbutton">
 								<input type="reset" value="#language.Reset#" name="resetForm" class="textbutton">
-								<input type="button" value="#language.Cancel#" name="cancel" class="textbutton" onClick="self.location.href='#RootDir#text/reserve-book/booking.cfm?lang=#lang#&CompanyID=#GetVesselDetail.companyID#'">
+								<input type="button" value="#language.Cancel#" name="cancel" class="textbutton" onClick="self.location.href='#RootDir#reserve-book/booking.cfm?lang=#lang#&CompanyID=#GetVesselDetail.companyID#'">
 							</td>
 						</tr>
 					</table>

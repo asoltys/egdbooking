@@ -23,5 +23,5 @@
 <cfset Session.Success.Title = "Delete User">
 <cfset Session.Success.Message = "<b>#getUser.FirstName# #getUser.LastName#</b> has been removed.">
 <cfset Session.Success.Back = "Back to Admin Functions Home">
-<cfset Session.Success.Link = "#RootDir#text/admin/menu.cfm?lang=#lang#">
-<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
+<cfset Session.Success.Link = "#RootDir#admin/menu.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">

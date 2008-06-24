@@ -118,9 +118,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
 			<CFELSE>
-				<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+				<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.EditProfile#
 			</CFOUTPUT>
@@ -145,7 +145,7 @@
 				</cfif>
 				
 				<cfoutput>
-				<cfform action="#RootDir#text/reserve-book/editUser_action.cfm?lang=#lang#" name="editUserForm" method="post">
+				<cfform action="#RootDir#reserve-book/editUser_action.cfm?lang=#lang#" name="editUserForm" method="post">
 				<table align="center" width="81%">
 				<tr>
 					<td colspan="2"><strong>#language.EditProfile#:</strong></td>
@@ -179,7 +179,7 @@
 					<tr>
 						<td width="3%">&nbsp;</td><td width="50%" valign="top">#name#</td>
 						<td align="right" valign="top" width="17%">
-							<form method="post" action="#RootDir#text/reserve-book/removeUserCompany_confirm.cfm?lang=#lang#" name="remCompany#CompanyID#" id="remCompany#CompanyID#">
+							<form method="post" action="#RootDir#reserve-book/removeUserCompany_confirm.cfm?lang=#lang#" name="remCompany#CompanyID#" id="remCompany#CompanyID#">
 								<input type="hidden" name="CompanyID" value="#CompanyID#">
 								<cfif getUserCompanies.recordCount GT 1>
 									<a href="javascript:EditSubmit('remCompany#CompanyID#');" class="textbutton">#language.Remove#</a>
@@ -194,7 +194,7 @@
 				<hr width="65%" align="center"><br>
 				
 				<cfoutput>
-					<cfform action="#RootDir#text/reserve-book/changePassword.cfm?lang=eng" method="post" name="changePassForm">
+					<cfform action="#RootDir#reserve-book/changePassword.cfm?lang=eng" method="post" name="changePassForm">
 					<table align="center" width="81%">
 					<tr>
 						<td colspan="2"><strong>#language.ChangePassword#:</strong></td>

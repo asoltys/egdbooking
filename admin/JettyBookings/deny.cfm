@@ -3,9 +3,9 @@
 
 <CFPARAM name="url.referrer" default="Booking Management">
 <CFIF url.referrer eq "Edit Booking" OR url.referrer eq "Booking Details">
-	<CFSET returnTo = "#RootDir#text/admin/JettyBookings/editJettyBooking.cfm">
+	<CFSET returnTo = "#RootDir#admin/JettyBookings/editJettyBooking.cfm">
 <CFELSE>
-	<CFSET returnTo = "#RootDir#text/admin/JettyBookings/jettyBookingManage.cfm">
+	<CFSET returnTo = "#RootDir#admin/JettyBookings/jettyBookingManage.cfm">
 </CFIF>
 
 <cfif isDefined("url.date")>
@@ -44,9 +44,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
 			<A href="jettyBookingManage.cfm?lang=#lang#">Jetty Booking Management</A> &gt;
 			Change Booking Status

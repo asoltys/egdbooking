@@ -171,7 +171,7 @@
 	<cfset Session.Return_Structure.VesselID = Form.vesselID>
 	<cfset Session.Return_Structure.CompanyID = Form.CompanyID>
 	<cfset Session.Return_Structure.Errors = Errors>
- 	<cflocation url="#RootDir#text/reserve-book/jettyRequest.cfm?lang=#lang#">
+ 	<cflocation url="#RootDir#reserve-book/jettyRequest.cfm?lang=#lang#">
 </cfif>
 
 <cfquery name="getInfo" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -189,8 +189,8 @@
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
-			<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
-			<A href="#RootDir#text/reserve-book/bookingRequest_choose.cfm?lang=#lang#">#language.bookingRequest#</A> &gt;
+			<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+			<A href="#RootDir#reserve-book/bookingRequest_choose.cfm?lang=#lang#">#language.bookingRequest#</A> &gt;
 			#language.submitJettyBooking#
 			</CFOUTPUT>
 		</p>
@@ -209,7 +209,7 @@
 				
 				<p>#language.bookingAvailable#</p>
 				
-				<cfform action="#RootDir#text/reserve-book/jettyRequest_action.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/jettyRequest_action.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
 				<table width="100%" style="padding-left:10px;">
 					<tr>
 						<td width="30%" id="Agent">

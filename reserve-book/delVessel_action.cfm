@@ -20,5 +20,5 @@
 	<cfset Session.Success.Message = "Le navire, <b>#getVessel.Name#</b>, a &eacute;t&eacute; supprim&eacute;.">
 	<cfset Session.Success.Back = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
 </cfif>
-<cfset Session.Success.Link = "#RootDir#text/reserve-book/booking.cfm?lang=#lang#">
-<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
+<cfset Session.Success.Link = "#RootDir#reserve-book/booking.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">

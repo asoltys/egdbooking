@@ -39,7 +39,7 @@
 </script>
 
 <cfif NOT IsDefined('url.vesselID') OR NOT IsNumeric(url.vesselID)>
-	<cflocation addtoken="no" url="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">
+	<cflocation addtoken="no" url="#RootDir#reserve-book/booking.cfm?lang=#lang#">
 </cfif>
 
 <CFQUERY name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -64,7 +64,7 @@
 </CFQUERY>
 
 <cfif getVesselDetail.recordCount EQ 0>
-	<cflocation addtoken="no" url="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">
+	<cflocation addtoken="no" url="#RootDir#reserve-book/booking.cfm?lang=#lang#">
 </cfif>
 
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
@@ -74,9 +74,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
 			<CFELSE>
-				<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+				<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.DeleteVessel#
 			</CFOUTPUT>
@@ -98,7 +98,7 @@
 						<cfoutput query="getVesselDetail">
 							<p align="center">#language.areYouSure# <strong>#name#</strong>?</p>
 							<div align="center">
-							<form name="DelVessel" action="#RootDir#text/reserve-book/delVessel_action.cfm?lang=#lang#&CompanyID=#CompanyID#" method="post">
+							<form name="DelVessel" action="#RootDir#reserve-book/delVessel_action.cfm?lang=#lang#&CompanyID=#CompanyID#" method="post">
 								<input type="hidden" name="VesselID" value="#vesselID#">
 								<input type="submit" value="#language.Delete#" class="textbutton">
 								<input type="button" value="#language.Cancel#" onClick="history.go(-1);" class="textbutton">
@@ -164,7 +164,7 @@
 						</cfif>
 						<br />
 						<cfoutput>
-						<div align="center"><a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#" class="textbutton">#language.OK#</a></div></cfoutput>
+						<div align="center"><a href="#RootDir#reserve-book/booking.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#" class="textbutton">#language.OK#</a></div></cfoutput>
 				</cfif>
 			</div>
 

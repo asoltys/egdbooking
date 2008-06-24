@@ -96,8 +96,8 @@ function EditSubmit ( selectedform )
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
-			<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
-			<A href="#RootDir#text/reserve-book/bookingRequest_choose.cfm?lang=#lang#">#language.bookingRequest#</A> &gt;
+			<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+			<A href="#RootDir#reserve-book/bookingRequest_choose.cfm?lang=#lang#">#language.bookingRequest#</A> &gt;
 			#language.drydockRequest#
 			</CFOUTPUT>
 		</p>
@@ -128,7 +128,7 @@ function EditSubmit ( selectedform )
 				
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
-				<cfform action="#RootDir#text/reserve-book/bookingRequest_process.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/bookingRequest_process.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
 				
 				<table width="100%" style="font-size:10pt;padding-left:10px;">
 					<tr>
@@ -209,7 +209,7 @@ function EditSubmit ( selectedform )
 				
 				<cfoutput>
 				<p>#language.daysToBook#  #language.dateInclusive#</p>
-				<cfform action="#RootDir#text/reserve-book/bookingRequest_processB.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreqB" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/bookingRequest_processB.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreqB" preservedata="Yes">
 				<table width="100%" style="font-size:10pt;padding-left:10px;">
 					<tr>
 						<td id="comp">

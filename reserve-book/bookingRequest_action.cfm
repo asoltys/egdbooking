@@ -78,7 +78,7 @@
 	<cfset Session.Return_Structure.VesselID = Form.VesselID>
 	<cfset Session.Return_Structure.Errors = Errors>
 
- 	<cflocation url="#RootDir#text/reserve-book/bookingRequest.cfm?lang=#lang#" addtoken="no">
+ 	<cflocation url="#RootDir#reserve-book/bookingRequest.cfm?lang=#lang#" addtoken="no">
 <cfelse>
 	<cftransaction>
 		<cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -139,8 +139,8 @@
 		<cfset Session.Success.Message = "Une nouvelle demande de r&eacute;servation pour le #getDetails.vesselName# du #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# a &eacute;t&eacute; cr&eacute;&eacute;e et est en attente d'approbation.">
 		<cfset Session.Success.Back = "Pr&eacute;ciser les services et les installations">
 	</cfif>
-	<cfset Session.Success.Link = "#RootDir#text/reserve-book/FeesForm.cfm?lang=#lang#&BookingID=#getID.BookingID#">
-	<cflocation addtoken="no" url="#RootDir#text/comm/success.cfm?lang=#lang#">
+	<cfset Session.Success.Link = "#RootDir#reserve-book/FeesForm.cfm?lang=#lang#&BookingID=#getID.BookingID#">
+	<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">
 
 </cfif>
 

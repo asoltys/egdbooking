@@ -11,9 +11,9 @@
 
 <cfinclude template="#RootDir#includes/header-f.cfm">
 <div class="breadcrumbs"> 
-	<a href="http://www.tpsgc.gc.ca/text/home-f.html">TPSGC</a> &gt; 
+	<a href="http://www.tpsgc.gc.ca/home-f.html">TPSGC</a> &gt; 
 	R&eacute;gion du Pacifique &gt;
-	<a href="..<cfoutput>#RootDir#</cfoutput>text/index-f.cfm">Cale s&egrave;che d'Esquimalt</a> &gt; 
+	<a href="..<cfoutput>#RootDir#</cfoutput>index-f.cfm">Cale s&egrave;che d'Esquimalt</a> &gt; 
 	Merci!
 </div>
 <br>
@@ -22,7 +22,7 @@
 	<H1>Merci!</H1>
 	
 	<p>Vos commentaires ont &eacute;t&eacute; envoy&eacute;s.</p>
-	<p>Merci de vous être adress&eacute;s &agrave; la <a href="../text/index-f.cfm">Cale s&egrave;che d'Esquimalt </a> (Travaux publics et Services gouvernementaux Canada). Nous vous r&eacute;pondrons d&egrave;s que possible.</p>
+	<p>Merci de vous être adress&eacute;s &agrave; la <a href="../index-f.cfm">Cale s&egrave;che d'Esquimalt </a> (Travaux publics et Services gouvernementaux Canada). Nous vous r&eacute;pondrons d&egrave;s que possible.</p>
 
 </div>
 <cfinclude template="#RootDir#includes/footer-f.cfm">

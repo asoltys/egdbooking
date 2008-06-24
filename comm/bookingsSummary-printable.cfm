@@ -55,7 +55,7 @@
 	
 <cfoutput>
 	<meta name="pwgsc.contact.email" content="egd@tpsgc-pwgsc.gc.ca">
-	<meta name="dc.rights" lang="#langVar#" content="http://www.pwgsc.gc.ca/text/generic/copyright-e.html">
+	<meta name="dc.rights" lang="#langVar#" content="http://www.pwgsc.gc.ca/generic/copyright-e.html">
 	<meta name="robots" content="noindex,nofollow">
 
 	<meta name="dc.title" lang="#langVar#" content="#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#">

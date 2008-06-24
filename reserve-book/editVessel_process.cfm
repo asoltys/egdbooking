@@ -43,7 +43,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="#RootDir#text/reserve-book/addVessel.cfm?lang=#lang#&CompanyID=#CompanyID#" addtoken="no">
+	<cflocation url="#RootDir#reserve-book/addVessel.cfm?lang=#lang#&CompanyID=#CompanyID#" addtoken="no">
 </cfif>
 
 <cfhtmlhead text="
@@ -64,9 +64,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
 			<CFELSE>
-				<a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
+				<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.editVessel#
 			</CFOUTPUT>
@@ -90,7 +90,7 @@
 </CFQUERY>
 
 <cfif getVesselDetail.recordCount EQ 0>
-	<cflocation addtoken="no" url="#RootDir#text/reserve-book/booking.cfm?lang=#lang#&CompanyID=#url.companyID#">
+	<cflocation addtoken="no" url="#RootDir#reserve-book/booking.cfm?lang=#lang#&CompanyID=#url.companyID#">
 </cfif>
 
 <cfset Variables.Name = Form.Name>
@@ -114,7 +114,7 @@
 					<div id="actionErrors">#language.Note# (#Variables.MaxLength#m x #Variables.MaxWidth#m).</div>
 				</cfif>
 				</cfoutput>
-				<cfform name="editVessel" action="#RootDir#text/reserve-book/EditVessel_action.cfm?lang=#lang#&CompanyID=#url.companyID#" method="post">
+				<cfform name="editVessel" action="#RootDir#reserve-book/EditVessel_action.cfm?lang=#lang#&CompanyID=#url.companyID#" method="post">
 				<cfoutput>
 					<table align="center">
 						<tr>

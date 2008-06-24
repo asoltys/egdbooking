@@ -95,10 +95,10 @@
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Errors>
- 	<cflocation url="#RootDir#text/reserve-book/bookingRequest.cfm?lang=#lang#" addtoken="no">
+ 	<cflocation url="#RootDir#reserve-book/bookingRequest.cfm?lang=#lang#" addtoken="no">
 </cfif>
 <!------------------------------------------------------------------------------------------------->
-<cfinclude template="#RootDir#text/reserve-book/includes/towerCheck.cfm">
+<cfinclude template="#RootDir#reserve-book/includes/towerCheck.cfm">
 <cfset count = 0>
 <cfset found = false>
 <cfset finish = false>
@@ -184,7 +184,7 @@
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Errors>
 
- 	<cflocation url="#RootDir#text/reserve-book/bookingRequest.cfm?lang=#lang#" addtoken="no">
+ 	<cflocation url="#RootDir#reserve-book/bookingRequest.cfm?lang=#lang#" addtoken="no">
 </cfif>
 
 <!--- Gets all Bookings that would be affected by the requested booking --->
@@ -195,7 +195,7 @@
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
-			<A href="#RootDir#text/reserve-book/bookingRequest_choose.cfm?lang=#lang#">#language.bookingRequest#</A> &gt;
+			<A href="#RootDir#reserve-book/bookingRequest_choose.cfm?lang=#lang#">#language.bookingRequest#</A> &gt;
 			#language.NewBooking#
 			</CFOUTPUT>
 		</p>
@@ -213,7 +213,7 @@
 				<cfinclude template="#RootDir#includes/user_menu.cfm"><br>
 				
 				<cfoutput>
-				<cfform action="#RootDir#text/reserve-book/bookingRequest_actionB.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/bookingRequest_actionB.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
 				<p>#language.bookingFound# #LSDateFormat(Variables.FoundStartDate, 'mmm d, yyyy')# - #LSDateFormat(Variables.FoundEndDate, 'mmm d, yyyy')#.</p>
 				<table width="100%">
 					<tr>

@@ -12,15 +12,15 @@
 <cfinclude template="#RootDir#includes/header-e.cfm">
 
 <div class="breadcrumbs"> 
-	<a href="http://www.pwgsc.gc.ca/text/home-e.html">PWGSC</a> &gt; 
+	<a href="http://www.pwgsc.gc.ca/home-e.html">PWGSC</a> &gt; 
 	Pacific Region &gt; 
-	<a href="../text/index-e.cfm">Esquimalt Graving Dock</a> &gt; 
+	<a href="../index-e.cfm">Esquimalt Graving Dock</a> &gt; 
 	Help
 </div>
 
 <div class="main">
 	<H1>Help</H1>
-	<p>For department-wide information, visit our corporate <a href="http://www.pwgsc.gc.ca/text/generic/help-e.html">Help</a> 
+	<p>For department-wide information, visit our corporate <a href="http://www.pwgsc.gc.ca/generic/help-e.html">Help</a> 
         page.</p>
 </div>
 <cfinclude template="#RootDir#includes/footer-e.cfm">

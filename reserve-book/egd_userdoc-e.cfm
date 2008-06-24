@@ -194,7 +194,7 @@ a:hover {
             </div>
             <div style="padding-left:40px;"><strong>2.2.1 Where to Start</strong><br>
             </div>
-            <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Go to the main EGD page: <a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-e.html">http://www.pwgsc.gc.ca/pacific/egd/text/index-e.html</a> and click &quot;Booking&quot; in the side menu bar. Click  the &quot;Booking Application&quot; link, then click &quot;Add new user account.&quot;  Enter your  details, including: first name, last name, 6-10 character password and email address, all of which are required.  The email address provided will be used for logging in and receiving email notification from EGD.  Your password is not case-sensitive, so using uppercase letters is no different from using lowercase.  For a more robust password,  use both letters and numbers.
+            <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Go to the main EGD page: <a href="http://www.pwgsc.gc.ca/pacific/egd/index-e.html">http://www.pwgsc.gc.ca/pacific/egd/index-e.html</a> and click &quot;Booking&quot; in the side menu bar. Click  the &quot;Booking Application&quot; link, then click &quot;Add new user account.&quot;  Enter your  details, including: first name, last name, 6-10 character password and email address, all of which are required.  The email address provided will be used for logging in and receiving email notification from EGD.  Your password is not case-sensitive, so using uppercase letters is no different from using lowercase.  For a more robust password,  use both letters and numbers.
               <br>
               <br>
             </div>
@@ -223,7 +223,7 @@ a:hover {
             <p>
             <div style="padding-left:20px;"><em><a name="LoggingIn"></a><strong class="style11">2.3 Logging In</strong><br>
             </em></div>
-            <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Only one user-company association approval is required for account activation.  Once you receive email notification that one of your user-company associations is approved, login  using the email address and password that you specified  creating your account. Go to <a href="http://www.pwgsc.gc.ca/pacific/egd/text/index-e.html">http://www.pwgsc.gc.ca/pacific/egd/text/index-e.html</a> and click on &quot;Booking&quot; in the side menu bar. Then click  the &quot;Booking Application&quot; link. This brings you to the  login page.</div>
+            <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Only one user-company association approval is required for account activation.  Once you receive email notification that one of your user-company associations is approved, login  using the email address and password that you specified  creating your account. Go to <a href="http://www.pwgsc.gc.ca/pacific/egd/index-e.html">http://www.pwgsc.gc.ca/pacific/egd/index-e.html</a> and click on &quot;Booking&quot; in the side menu bar. Then click  the &quot;Booking Application&quot; link. This brings you to the  login page.</div>
             <p></p>
             <a href="#Top">return to index</a> <br>
             <p>            

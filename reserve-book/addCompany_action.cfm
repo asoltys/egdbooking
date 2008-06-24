@@ -49,7 +49,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="#RootDir#text/reserve-book/addCompany.cfm?lang=#lang#" addtoken="no">
+	<cflocation url="#RootDir#reserve-book/addCompany.cfm?lang=#lang#" addtoken="no">
 </cfif>
 
 
@@ -144,5 +144,5 @@
 	</cfmail>
 </cfoutput>
 
-<cflocation addtoken="no" url="#RootDir#text/reserve-book/editUser.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#reserve-book/editUser.cfm?lang=#lang#">
 

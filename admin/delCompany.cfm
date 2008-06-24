@@ -48,9 +48,9 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#text/admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#text/reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
 			Delete Company
 			</CFOUTPUT>
@@ -78,7 +78,7 @@
 					<cfform action="delCompany_confirm.cfm?lang=#lang#" method="post" name="delCompanyForm">
 						<cfselect name="companyID" query="getcompanyList" value="companyID" display="name" selected="#variables.companyID#"/>
 						<input type="submit" name="submitForm" class="textbutton" value="Delete">
-						<CFOUTPUT><input type="button" value="Cancel" onClick="self.location.href='#RootDir#text/admin/menu.cfm?lang=#lang#'" class="textbutton"></CFOUTPUT>
+						<CFOUTPUT><input type="button" value="Cancel" onClick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton"></CFOUTPUT>
 					</cfform>
 				</DIV>
 

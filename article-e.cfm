@@ -11,7 +11,7 @@
 
 <cfinclude template="#RootDir#includes/header-e.cfm">
 <div class="breadcrumbs"> 
-	<a href="http://www.pwgsc.gc.ca/text/home-e.html">PWGSC</a> &gt; 
+	<a href="http://www.pwgsc.gc.ca/home-e.html">PWGSC</a> &gt; 
 	Pacific Region &gt; 
 	<a href="index-e.cfm">Esquimalt Graving Dock</a> &gt; 
 	<a href="history-e.cfm">History</a> &gt; 
@@ -52,7 +52,7 @@
 	breathed a sigh of relief.</p>
 	
 	<DIV align="center"><img src="<cfoutput>#RootDir#</cfoutput>images/historical_pics/feb1924.jpg" alt="S.S. Queen Elizabeth - Conversion To Troop Carrier, February, 1942" title="S.S. Queen Elizabeth - Conversion To Troop Carrier, February, 1942" width="359" height="428"></DIV>
-	<p><a href="../text/history-e.cfm"><img src="<cfoutput>#RootDir#</cfoutput>images/back_arrow.gif" border="0" alt="Back to History"></a></p>
+	<p><a href="../history-e.cfm"><img src="<cfoutput>#RootDir#</cfoutput>images/back_arrow.gif" border="0" alt="Back to History"></a></p>
 
 </div>
 <cfinclude template="#RootDir#includes/footer-e.cfm">

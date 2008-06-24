@@ -191,7 +191,7 @@
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFOUTPUT>
-			<a href="#RootDir#text/ols-login/login.cfm?lang=#lang#">#language.login#</a> &gt; 
+			<a href="#RootDir#ols-login/login.cfm?lang=#lang#">#language.login#</a> &gt; 
 			#language.title#
 			</CFOUTPUT>
 		</p>
