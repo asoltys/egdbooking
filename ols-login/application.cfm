@@ -11,7 +11,10 @@
 	SELECT	Email
 	FROM	Configuration
 </cfquery>
-
+<cfset variables.adminEmail = "">
+<cfscript>
+	adminEmail = ValueList(getEmail.Email);
+</cfscript>
 
 <!--- <cflock timeout="60" throwontimeout="no" type="exclusive" scope="session">
 
