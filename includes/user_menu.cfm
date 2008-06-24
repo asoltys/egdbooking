@@ -78,7 +78,7 @@ function checkIt() {
 
 <script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
 <a href="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#" class="textbutton">#language.EditProfileButton#</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
-<a href="#RootDir#reserve-book/egd_userdoc-#lang#.html" class="textbutton" target="_blank">#language.Help#</a>
+<a href="#RootDir#reserve-book/aide-help-#lang#.html" class="textbutton" target="_blank">#language.Help#</a>
 <a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#" class="textbutton">#language.LogoutButton#</a>
 </CFOUTPUT>
 
