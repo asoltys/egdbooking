@@ -159,7 +159,7 @@
 			<cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<cfelse>
-				 <a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</cfif>
 			Jetty Booking Management
 			</CFOUTPUT>

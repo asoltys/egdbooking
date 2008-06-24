@@ -226,7 +226,7 @@ function getCalendar(formName, fieldName) {
 	}
 
 	if (flag) {
-		miniCal = window.open("<CFOUTPUT>#RootDir#</cfoutput>utils/calendar.cfm?lang=<cfoutput>#lang#</cfoutput>&formName=" + formName + "&year=" + yearValue + "&month=" + monthValue + "&fieldName=" + fieldName<CFIF IsDefined('Variables.BookingLen')> + "&len=" + <CFOUTPUT>#Variables.BookingLen#</CFOUTPUT></CFIF>, "CalendarWindow", "left=30,top=30,width=450,height=250,resizable=yes,scrollbars=no");
+		miniCal = window.open("<CFOUTPUT>#RootDir#</cfoutput>utils/calend.cfm?lang=<cfoutput>#lang#</cfoutput>&formName=" + formName + "&year=" + yearValue + "&month=" + monthValue + "&fieldName=" + fieldName<CFIF IsDefined('Variables.BookingLen')> + "&len=" + <CFOUTPUT>#Variables.BookingLen#</CFOUTPUT></CFIF>, "CalendarWindow", "left=30,top=30,width=450,height=250,resizable=yes,scrollbars=no");
 		
 		if (window.focus) {
 			miniCal.focus();

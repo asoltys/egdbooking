@@ -139,7 +139,7 @@
 	<cfset Session.Success.Message = "A new booking for <b>#getDetails.vesselName#</b> from #LSDateFormat(CreateODBCDate(getDetails.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getDetails.endDate), 'mmm d, yyyy')# has been successfully created.  Email notification of this new booking has been sent to the agent.">
 	<cfset Session.Success.Back = "Back to Dock Bookings Management">
 	<cfset Session.Success.Link = "#RootDir#admin/DockBookings/bookingmanage.cfm?#urltoken#">
-	<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">
+	<cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
 	<!---cflocation url="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" addtoken="no"--->
 </CFIF>

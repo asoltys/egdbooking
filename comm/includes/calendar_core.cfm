@@ -49,7 +49,7 @@
 			<td class="calendar">
 				<cfif not (Variables.DateCounter IS 0) AND NOT (Variables.DateCounter GT Variables.LastDayofMonth)>
 					<cfset taday = "#url.month#" & "/" & "#DaysofMonth[DateCounter]#" & "/" & "#url.year#">
-					<cfoutput><a href="javascript:self.location.href='getdetail.cfm?lang=#lang#&amp;date=#taday#';" title="#language.detailsFor# #taday#"><b>#DaysofMonth[DateCounter]#</b></a></cfoutput>
+					<cfoutput><a href="javascript:self.location.href='detail.cfm?lang=#lang#&amp;date=#taday#';" title="#language.detailsFor# #taday#"><b>#DaysofMonth[DateCounter]#</b></a></cfoutput>
 					<!---cfset CurrentDate = #CreateDate(url.year, url.month, DaysofMonth[DateCounter])#--->
 	
 					<cfquery name="GetEventsonDay" dbtype="query">
@@ -152,9 +152,9 @@
 								<tr>
 									<CFSET sec = "sec" & #bloop#>
 									<CFIF Evaluate(sec).maint eq true>
-										<td class="maintenance" nowrap><a href="getdetail.cfm?lang=#lang#&amp;date=#taday#" class="maintenance" title="#language.maintenance#">#Left(language.maintenance, magicnum)#...</a></td>
+										<td class="maintenance" nowrap><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="maintenance" title="#language.maintenance#">#Left(language.maintenance, magicnum)#...</a></td>
 									<CFELSEIF Evaluate(sec).name neq "">
-										<td class="#sec#" nowrap><a href="getdetail.cfm?lang=#lang#&amp;date=#taday#" class="confirmed" title="#Evaluate(sec).name#">#Left(Evaluate(sec).name, magicnum)#...</a></td>
+										<td class="#sec#" nowrap><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="confirmed" title="#Evaluate(sec).name#">#Left(Evaluate(sec).name, magicnum)#...</a></td>
 									<CFELSE>
 										<td>&nbsp;</td>
 									</CFIF>
@@ -162,14 +162,14 @@
 							</CFLOOP>
 							<tr>
 								<cfif tent.num neq 0>
-									<td nowrap><a href="getdetail.cfm?lang=#lang#&amp;date=#taday#" class="tentative" title="#tent.name#">#Left(tent.name, magicnum)#...</a></td>
+									<td nowrap><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="tentative" title="#tent.name#">#Left(tent.name, magicnum)#...</a></td>
 								<cfelse>
 									<td>&nbsp;</td>
 								</cfif>
 							</tr>
 							<tr>
 								<cfif pend.num neq 0>
-									<td nowrap><a href="getdetail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#pend.name#">#Left(pend.name, magicnum)#...</a></td>
+									<td nowrap><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#pend.name#">#Left(pend.name, magicnum)#...</a></td>
 								<cfelse>
 									<td>&nbsp;</td>
 								</cfif>

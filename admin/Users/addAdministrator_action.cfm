@@ -27,6 +27,6 @@
 	<cfset Session.Success.Message = "<b>#getUser.FirstName# #getUser.LastName#</b> is now an administrator.">
 	<cfset Session.Success.Back = "Back to Add Administrator">
 	<cfset Session.Success.Link = "#RootDir#admin/Users/addAdministrator.cfm?lang=#lang#">
-	<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">
+	<cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
 </cfif>

@@ -48,7 +48,7 @@ AND 	(UserCompanies.Approved = 1)
 
 <CFPARAM name="url.referrer" default="Jetty Booking Management">
 <CFIF url.referrer eq "Booking Details">
-	<CFSET returnTo = "#RootDir#comm/getDetail.cfm">
+	<CFSET returnTo = "#RootDir#comm/detail.cfm">
 <CFELSE>
 	<CFSET returnTo = "#RootDir#admin/JettyBookings/jettybookingManage.cfm">
 </CFIF>
@@ -108,5 +108,5 @@ AND 	(UserCompanies.Approved = 1)
 	<cfset Session.Success.Link = "#returnTo#?#urltoken#&bookingid=#form.bookingID##variables.dateValue#">
 	
 </cfif>
-<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 

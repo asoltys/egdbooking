@@ -14,7 +14,7 @@
 
 <CFPARAM name="url.referrer" default="Booking Management">
 <CFIF url.referrer eq "Booking Details">
-	<CFSET returnTo = "#RootDir#comm/getBookingDetail.cfm">
+	<CFSET returnTo = "#RootDir#comm/detail-res-book.cfm">
 	<cfset variables.referrer = "Booking Details">
 <CFELSE>
 	<CFSET returnTo = "#RootDir#admin/JettyBookings/jettybookingManage.cfm">
@@ -47,7 +47,7 @@
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 			<CFELSE>
-				 <a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
 			<a href="jettyBookingManage.cfm?lang=#lang#">Jetty Management</A> &gt;
 			Edit Booking

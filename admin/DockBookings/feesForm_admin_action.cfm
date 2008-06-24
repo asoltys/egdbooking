@@ -185,7 +185,7 @@
 
 <CFPARAM name="url.referrer" default="Drydock Booking Management">
 <CFIF url.referrer eq "Booking Details">
-	<CFSET returnTo = "#RootDir#comm/getBookingDetail.cfm">
+	<CFSET returnTo = "#RootDir#comm/detail-res-book.cfm">
 <CFELSE>
 	<CFSET returnTo = "#RootDir#admin/DockBookings/bookingManage.cfm">
 </CFIF>
@@ -202,6 +202,6 @@
 <cfset Session.Success.Message = "Tariff form for <b>#getBooking.vesselName#</b>, booked from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')#, has been updated.">
 <cfset Session.Success.Back = "Back to #url.referrer#">
 <cfset Session.Success.Link = "#returnTo#?#urltoken#&bookingid=#form.bookingID##variables.dateValue###id#form.bookingid#">
-<cflocation addtoken="no" url="#RootDir#comm/success.cfm?lang=#lang#">
+<cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
 <!---cflocation addtoken="no" url="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#"--->

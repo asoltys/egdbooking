@@ -32,7 +32,7 @@
 	<cflocation url="#RootDir#admin/menu.cfm?lang=#lang#" addtoken="no">
 </cfif>
 <cfif NOT IsDefined("Session.LoggedIn") AND GetFileFromPath(GetCurrentTemplatePath()) NEQ "public.cfm">
-	<cflocation url="#RootDir#ols-login/login.cfm?lang=#lang#" addtoken="no">
+	<cflocation url="#RootDir#ols-login/ols-login.cfm?lang=#lang#" addtoken="no">
 </cfif>
 
 </cflock>

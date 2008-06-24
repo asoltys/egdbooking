@@ -36,12 +36,12 @@ function popUp(pageID) {
 
 <CFOUTPUT>
 <div align="center" style="font-size: 8pt; min-height: 20px; padding-top: 15px;">
-	<A href="jettyCalendar.cfm?lang=#lang##datetoken#">#language.1monthCal#</A> |
-	<A href="jetty3MonthCalendar.cfm?lang=#lang##datetoken#">#language.3monthCal#</A> |
+	<A href="calend-jet.cfm?lang=#lang##datetoken#">#language.1monthCal#</A> |
+	<A href="calend-jet-3m.cfm?lang=#lang##datetoken#">#language.3monthCal#</A> |
 <CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 	<A href="javascript:popUp('text/admin/projectCalendar_choose')">#language.projectCal#</A> |
 </CFIF>
-	<A href="bookingsSummary_choose.cfm?lang=#lang#">#language.bookingsSummary#</A>
+	<A href="resume-summary_ch.cfm?lang=#lang#">#language.bookingsSummary#</A>
 </div>
 </CFOUTPUT>
 

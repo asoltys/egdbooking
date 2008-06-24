@@ -67,19 +67,19 @@ function checkIt() {
   
 <DIV align="center" style="min-height: 30px; ">
 <CFOUTPUT>
-<a href="#RootDir#reserve-book/booking.cfm?lang=#lang#" class="textbutton">#language.BookingHomeButton#</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
-<a href="#RootDir#comm/dockCalendar.cfm?lang=#lang##datetoken#" class="textbutton">#language.DrydockCalButton#</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
-<a href="#RootDir#comm/jettyCalendar.cfm?lang=#lang##datetoken#" class="textbutton">#language.JettyCalButton#</a>
+<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton">#language.BookingHomeButton#</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
+<a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang##datetoken#" class="textbutton">#language.DrydockCalButton#</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
+<a href="#RootDir#comm/calend-jet.cfm?lang=#lang##datetoken#" class="textbutton">#language.JettyCalButton#</a>
 <DIV style="height: 5px; ">&nbsp;</DIV>
 
 <cfif #Session.ReadOnly# EQ "1"><cfelse>
-<a href="#RootDir#reserve-book/bookingRequest_choose.cfm?lang=#lang##Variables.BookingRequestString#" class="textbutton">#language.RequestBookingButton#</a>
+<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang##Variables.BookingRequestString#" class="textbutton">#language.RequestBookingButton#</a>
 </cfif>
 
 <script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
-<a href="#RootDir#reserve-book/editUser.cfm?lang=#lang#" class="textbutton">#language.EditProfileButton#</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
+<a href="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#" class="textbutton">#language.EditProfileButton#</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
 <a href="#RootDir#reserve-book/egd_userdoc-#lang#.html" class="textbutton" target="_blank">#language.Help#</a>
-<a href="#RootDir#ols-login/logout.cfm?lang=#lang#" class="textbutton">#language.LogoutButton#</a>
+<a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#" class="textbutton">#language.LogoutButton#</a>
 </CFOUTPUT>
 
 </DIV>

@@ -26,7 +26,7 @@
 		<a href="#RootDir#reserve-book-#lang#.cfm">Booking</A> &gt;<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 			<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
 		<CFELSE>
-			 <a href="#RootDir#reserve-book/booking.cfm?lang=#lang#">Welcome Page</a> &gt;
+			 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 		</CFIF>
 	<a href="#RootDir#admin/Users/addNewUserCompany.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#">Create New User</A> &gt; 
 	</CFOUTPUT>
