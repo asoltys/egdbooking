@@ -33,7 +33,7 @@
 						</a></h1>
 
 				<cfform action="intromsgaction.cfm" method="POST">
-				  <cffile action="read" file="#FileDir#text\intromsg.txt" variable="intromsg">
+				  <cffile action="read" file="#FileDir#intromsg.txt" variable="intromsg">
 				  <cfif #Trim(intromsg)# EQ "">
 					Please enter a message for users when they first log in. To disable this block on log in, keep the text field blank and click 'Update'
 					<cfelse>

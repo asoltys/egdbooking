@@ -429,10 +429,11 @@
 				<cfoutput>#Language.PageTitle#</cfoutput>
 				</a></H1>
 
-			<DIV class="screenonly" style="width: 700px; padding-left: 10px; ">
+			<DIV class="screenonly">
 				<CFOUTPUT>#Language.ScreenMessage#</CFOUTPUT>
 				<div align="center"><A href="javascript:history.go(-1);" class="textbutton">Back to Date Selection</A> &nbsp;
 				<A href="javascript:self.close();" class="textbutton">Close this Window</A></div>
+				<br />
 			</DIV>
 	
 			<CFOUTPUT>

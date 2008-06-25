@@ -16,8 +16,8 @@ div.EventAdd {
 table.calendar {
 	font-size: 120%;
 	text-align: left;
-	border-left: 1px solid #669900;
-	border-bottom: 1px solid #669900;
+	border-left: 1px solid #369;
+	border-bottom: 1px solid #369;
 }
 
 table.calendar.small {
@@ -47,12 +47,12 @@ th.calendar {
 	vertical-align: top;
 	width: 14%;
 	padding: 2px;
-	background-color: #CCCC99;
+	background-color: #BBCCDD;
 	font-family: sans-serif, arial;
 	font-size: 80%;
 	font-weight: bold;
-	border-top: 1px solid #669900;
-	border-right: 1px solid #669900;
+	border-top: 1px solid #369;
+	border-right: 1px solid #369;
 }
 
 th.calendar.small {
@@ -65,8 +65,8 @@ td.calendar {
 	font-size: 80%;
 	text-align: left;
 	vertical-align: top;
-	border-top: 1px solid #669900;
-	border-right: 1px solid #669900;
+	border-top: 1px solid #369;
+	border-right: 1px solid #369;
 }
 
 td.calendar.details {
@@ -120,7 +120,7 @@ table.showDetails {
 */
 
 .maintenance, a.maintenance, a.maintenance:visited {
-	background-color: #666666;
+	background-color: #ddd;
 	color: #FFFFFF;
 }
 

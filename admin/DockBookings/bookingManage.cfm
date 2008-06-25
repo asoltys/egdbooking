@@ -198,7 +198,6 @@ function EditSubmit ( selectedform )
 					</div--->
 				
 				</form>
-				<br>
 				
 				<cfif form.startDate NEQ "" and form.endDate NEQ "">
 					<cfif isDate(form.startDate)>

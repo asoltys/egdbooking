@@ -39,7 +39,7 @@ function popUp(pageID) {
 	<A href="calend-cale-dock.cfm?lang=#lang##datetoken#">#language.1monthCal#</A> |
 	<A href="calend-cale-dock-3m.cfm?lang=#lang##datetoken#">#language.3monthCal#</A> |
 <CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-	<A href="javascript:popUp('text/admin/projectCalendar_choose')">#language.projectCal#</A> |
+	<A href="javascript:popUp('admin/projectCalendar_choose')">#language.projectCal#</A> |
 </CFIF>
 	<A href="resume-summary_ch.cfm?lang=#lang#">#language.bookingsSummary#</A>
 </div>

@@ -118,7 +118,7 @@
 						AND	Status = 'm'
 				</cfquery>
 				
-				<cfoutput>#language.viewInfo#</cfoutput><br>
+				<P><cfoutput>#language.viewInfo#</cfoutput></P>
 				
 				<CFSET pos="top">
 				<CFINCLUDE template="includes/dock_key.cfm">

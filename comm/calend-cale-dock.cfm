@@ -84,7 +84,7 @@
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				</CFIF>
 				
-				<CFINCLUDE template="#RootDir#includes/dock_calendar_menu.cfm"><br>
+				<CFINCLUDE template="#RootDir#includes/dock_calendar_menu.cfm">
 
 				
 				<CFINCLUDE template="includes/calendar_variables.cfm">

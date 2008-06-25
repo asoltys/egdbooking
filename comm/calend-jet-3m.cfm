@@ -76,7 +76,7 @@
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				</CFIF>
 				
-				<CFINCLUDE template="#RootDir#includes/jetty_calendar_menu.cfm"><br>
+				<CFINCLUDE template="#RootDir#includes/jetty_calendar_menu.cfm">
 				
 				<CFINCLUDE template="includes/calendar_variables.cfm">
 				<cfset firstdayofbunch = CreateDate(url.year, url.month, 1)>
