@@ -1,3 +1,7 @@
+/* These CSS entries are only loaded by a <style>@import</style> tag,
+   which is not supported by browsers that don't support thees 
+	classes anyway. */
+
 img {
 	border: none;
 }
@@ -37,47 +41,37 @@ textarea, .textField {
 
 
 .bookingDetails {
-	border-left: 1px solid #669900;
-	border-bottom: 1px solid #669900;
+	border-left: 1px solid #369;
+	border-bottom: 1px solid #369;
 }
 
 .bookingDetails td {
-	border-top: 1px solid #669900;
-	border-right: 1px solid #669900;
+	border-top: 1px solid #369;
+	border-right: 1px solid #369;
 	font-family: sans-serif, arial;
 	font-size: 100%;
 	padding-left: 5px;
 }
 
-.conflictBookings {
+.conflictBookings, .waitlistBookings {
+	width: 100%;
+	font-size: 90%;
+	font-weight: normal;
+}
 
-	width: 100%;
-}
-.conflictBookings th {
+.conflictBookings th, .waitlistBookings th {
 	border-bottom: 1px solid #000000;
 }
-.conflictBookings td {
-	font-size: 9pt;
+
+h2.conflict {
+	font-size: 120%;
+	margin-bottom: 0px;
 }
-h2.conflict span {
-	font-size:10pt;
-	font-weight:bold;
-	color: #000000;
-	
-}
+
 .waitList {
-	padding: 0px 5px 4px 5px; 
-	background-color:#FFFFCC; 
-	font-size:10pt;
-	border: 1px solid #000000;
-}
-.waitlistBookings {
-	width: 100%;
-	font-size:9pt;
-}
-.waitlistBookings th {
-	border-bottom: 1px solid #000000;
-}
-.waitlistBookings td {
-	font-size: 9pt;
+	padding: 0px 5px 4px 5px;
+	margin: 10px 0px 0px 0px;
+	background-color: #BCD;
+	font-size: 10pt;
+	border: 1px solid #369;
 }
