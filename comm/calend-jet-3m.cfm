@@ -180,7 +180,7 @@
 										<CFOUTPUT><option>#DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')#</option></CFOUTPUT>
 									</CFLOOP>
 								</select>
-									<a href="javascript:go('jetty3MonthCalendar')" class="textbutton"><cfoutput>#language.Go#</cfoutput></a>
+									<a href="javascript:go('calend-jet-3m')" class="textbutton"><cfoutput>#language.Go#</cfoutput></a>
 							</form>
 							<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 						</td>
@@ -190,8 +190,8 @@
 				</cfoutput>
 				
 				
-				<!---div class="EventAdd"><a href="bookingRequest.cfm" class="textbutton"><cfoutput>#language.ButtonLabel1#</cfoutput></a></div><br>
-				<div class="EventAdd"><a href="jettyRequest.cfm" class="textbutton"><cfoutput>#language.ButtonLabel3#</cfoutput></a></div><br>
+				<!---div class="EventAdd"><a href="bookingRequest.cfm" class="textbutton"><cfoutput>#language.ButtonLabel1#</cfoutput></a></div><br />
+				<div class="EventAdd"><a href="jettyRequest.cfm" class="textbutton"><cfoutput>#language.ButtonLabel3#</cfoutput></a></div><br />
 				<div class="EventAdd"><A href="bookingRequest_choose.cfm" class="textbutton"><cfoutput>Submit New Booking Request</cfoutput></A></div--->
 				
 				<!--- MEGA TABLE BEGINS HERE --->
@@ -208,8 +208,8 @@
 				
 					<CFINCLUDE template="includes/calendar_core.cfm">
 				
-					<!---div class="EventAdd"><a href="bookingRequest.cfm" class="textbutton"><cfoutput>#language.ButtonLabel1#</cfoutput></a></div><br>
-					<div class="EventAdd"><a href="jettyRequest.cfm" class="textbutton"><cfoutput>#language.ButtonLabel3#</cfoutput></a></div><br>
+					<!---div class="EventAdd"><a href="bookingRequest.cfm" class="textbutton"><cfoutput>#language.ButtonLabel1#</cfoutput></a></div><br />
+					<div class="EventAdd"><a href="jettyRequest.cfm" class="textbutton"><cfoutput>#language.ButtonLabel3#</cfoutput></a></div><br />
 					<div class="EventAdd"><A href="bookingRequest_choose.cfm" class="textbutton"><cfoutput>Submit New Booking Request</cfoutput></A></div--->
 				
 				</CFLOOP>

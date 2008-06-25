@@ -39,4 +39,3 @@
 	</cfloop>
 	</table>
 </div>
-<p></p>
