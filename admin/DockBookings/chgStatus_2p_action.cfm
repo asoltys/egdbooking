@@ -37,7 +37,7 @@
 " type="html">
 <p>The approval on your dock booking for #getDetails.VesselName# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# has been removed.  The booking status is now pending.</p>
 <p>Esquimalt Graving Dock</p>
-<br>
+<br />
 <p>L'approbation de votre r&eacute;servation du #getDetails.VesselName# au #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# pour le #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# a &eacute;t&eacute; r&eacute;sili&eacute;e. Votre r&eacute;servation est maintenant en cours de traitement.</p>
 <p>Cale s&egrave;che d'Esquimalt</p>
 	</cfmail>
@@ -56,7 +56,7 @@
 	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Unconfirmed - R&eacute;servation non confirm&eacute;e" type="html">
 <p>The confirmation on your dock booking for #getDetails.VesselName# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# has been removed.  The booking status is now pending.</p>
 <p>Esquimalt Graving Dock</p>
-<br>
+<br />
 <p>La confirmation de votre r&eacute;servation de la cale s&egrave;che pour #getDetails.VesselName# du #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# au #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# a &eacute;t&eacute; supprim&eacute;e.</p>
 <p>Cale s&egrave;che d'Esquimalt</p>
 	</cfmail>

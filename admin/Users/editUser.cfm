@@ -99,12 +99,12 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 				
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
 							Also display any errors returned --->
-					<cfinclude template="#RootDir#includes/getStructure.cfm"><br>
+					<cfinclude template="#RootDir#includes/getStructure.cfm"><br />
 				</cfif>
 				
 				<div align="left">
@@ -194,14 +194,14 @@
 								<br-->
 								<input type="submit" name="submitForm" value="Add" class="textbutton">
 								<cfoutput><input type="hidden" name="userID" value="#form.userID#"></cfoutput>
-								<BR>
+								<br />
 								<cfoutput><font size="-2">If the desired company is not listed, click <a href="editUser_addCompany.cfm?lang=#lang#&userID=#form.userID#">here</a> to create one.</font></cfoutput>
 							</td>
 						</tr>	
 					</table>
 				</cfform>
 				
-				<hr width="65%" align="center"><br>
+				<hr width="65%" align="center"><br />
 				
 				<cfform action="changePassword.cfm?lang=#lang#" method="post" name="changePassForm">
 						<table align="center" width="81%">
@@ -226,7 +226,7 @@
 							</td>
 						</tr>
 					</table>
-					<BR>
+					<br />
 					<div align="right"><CFOUTPUT><input type="button" name="cancel" value="Cancel" class="textbutton" onClick="self.location.href='../menu.cfm?lang=#lang#'"></CFOUTPUT></div>
 				</cfform>
 				

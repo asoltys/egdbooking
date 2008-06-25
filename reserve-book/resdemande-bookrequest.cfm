@@ -7,7 +7,7 @@
 	<cfset language.keywords = language.masterKeywords & ", Booking Request">
 	<cfset language.description = "User must choose between the two types of booking request to be made.">
 	<cfset language.subjects = language.masterSubjects & "">
-	<!--- <cfset language.drydockBooking = "If you would like to submit a Drydock booking request, <BR>please">
+	<!--- <cfset language.drydockBooking = "If you would like to submit a Drydock booking request, <br />please">
 	<cfset language.jettyBooking = "If you would like to submit a South Jetty / North Landing Wharf booking request, please">
 	<cfset language.mainPage = "to return to the Booking Application main page"> --->
 	<cfset language.choose = "Please choose the part of the dock for which you wish to request a booking:">
@@ -81,7 +81,7 @@
 					<LI><a href="#RootDir#reserve-book/caledemande-dockrequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.drydockBooking#</a></LI>
 					<LI><a href="#RootDir#reserve-book/jetdemande-jetrequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.jettyBooking#</a></LI>
 				</UL>
-				<BR>
+				<br />
 				<P><A href="#RootDir#reserve-book/reserve-booking.cfm?lang=<cfoutput>#lang#</cfoutput>" class="textbutton">#language.mainPage#</a></P>
 				
 				</cfoutput>

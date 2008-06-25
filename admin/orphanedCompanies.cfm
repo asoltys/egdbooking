@@ -72,7 +72,7 @@ WHERE	UC.CompanyID NOT IN
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				
 				<cfif getOrphans.RecordCount EQ 0>

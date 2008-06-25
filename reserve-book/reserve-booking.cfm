@@ -276,19 +276,19 @@
 				<cfoutput>
 				<p>#language.Welcome#, #Session.Firstname# #Session.LastName#!</p>
 				</cfoutput>
-				<cfinclude template="#RootDir#includes/user_menu.cfm"><br>
+				<cfinclude template="#RootDir#includes/user_menu.cfm"><br />
 				
 				<cfif getCompanies.recordCount GT 1>
 					<div align="center">
 						<cfoutput>
-							<p>#language.currentcompany#<br>
+							<p>#language.currentcompany#<br />
 							<b style="font-size: 16px; ">#currentCompany.companyName#</b></p>
-							<cfif getCompanies.RecordCount GT 1><p>#language.otherCompanies#<br></cfif>
+							<cfif getCompanies.RecordCount GT 1><p>#language.otherCompanies#<br /></cfif>
 						</cfoutput>
 						<cfoutput query="getCompanies">
 							<cfif getCompanies.CompanyID NEQ #variables.CompanyID# AND approved eq 1><span style="white-space: nowrap; "><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#CompanyID#" style="font-size:10pt;">#CompanyName#</a></span>&nbsp;&nbsp;</cfif>
 						</cfoutput></p>
-						<cfoutput><cfif unapprovedCompany.RecordCount GTE 1><p>#language.awaitingApproval#<br></cfif></cfoutput>
+						<cfoutput><cfif unapprovedCompany.RecordCount GTE 1><p>#language.awaitingApproval#<br /></cfif></cfoutput>
 						<cfoutput query="unapprovedCompany">
 							<span style="white-space: nowrap; ">#CompanyName#</span>&nbsp;&nbsp;
 						</cfoutput>
@@ -296,7 +296,7 @@
 					</div>
 				</cfif>
 				
-				<br>
+				<br />
 				
 				<cfoutput>
 				
@@ -321,7 +321,7 @@
 				<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&companyID=#variables.companyID#" class="textbutton"><cfoutput>#language.requestBooking#</cfoutput></a>&nbsp;
 				</cfif>
 				<a href="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a>&nbsp;
-				<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&companyID=#variables.companyID#" class="textbutton">#language.allBookings#</a><br><br>
+				<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&companyID=#variables.companyID#" class="textbutton">#language.allBookings#</a><br /><br />
 				
 					<cfset counter = 0>
 					<h2>#language.Drydock#</h2>
@@ -525,9 +525,9 @@
 							</tr>
 						</table>
 					<cfelse>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#language.None#<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#language.None#<br />
 					</cfif>
-				<br>
+				<br />
 				<cfif #Session.ReadOnly# EQ "1"><cfelse>
 				<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&companyID=#variables.companyID#" class="textbutton"><cfoutput>#language.requestBooking#</cfoutput></a>&nbsp;
 				</cfif>

@@ -56,7 +56,7 @@
 
 <div class="main">
 <H1>#language.RemoveComp#</H1>
-<CFINCLUDE template="#RootDir#includes/user_menu.cfm"><br>
+<CFINCLUDE template="#RootDir#includes/user_menu.cfm"><br />
 
 <cfif IsDefined("Session.Return_Structure")>
 	<!--- Populate the Variables Structure with the Return Structure.

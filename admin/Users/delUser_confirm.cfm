@@ -92,7 +92,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 				
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
@@ -103,7 +103,7 @@
 				Are you sure you want to delete <cfoutput><strong>#getUser.UserName#</strong></cfoutput>?
 				<!---All vessels associated with this user will also be deleted, along with all bookings associated with those vessels.--->
 				
-				<BR><BR>
+				<br /><br />
 				<cfoutput query="getUser">
 					<table align="center">
 						<tr>
@@ -150,8 +150,8 @@
 						<!---a href="javascript:EditSubmit('delUserConfirmForm');" class="textbutton">Delete</a>
 						<a href="delUser.cfm" class="textbutton">Back</a>
 						<a href="<cfoutput>#RootDir#</cfoutput>admin/menu.cfm?lang=#lang#" class="textbutton">Cancel</a--->
-						<cfif getCompanies.recordCount GT 1><cfoutput><input type="button" value="remove user from #getCompany.companyName#" onClick="self.location.href='removeUserCompany_action.cfm?userID=#form.userID#&companyID=#form.companyID#'" class="textbutton"></cfoutput><br><br></cfif>
-						<input type="submit" value="Delete user account" class="textbutton"><br><br>
+						<cfif getCompanies.recordCount GT 1><cfoutput><input type="button" value="remove user from #getCompany.companyName#" onClick="self.location.href='removeUserCompany_action.cfm?userID=#form.userID#&companyID=#form.companyID#'" class="textbutton"></cfoutput><br /><br /></cfif>
+						<input type="submit" value="Delete user account" class="textbutton"><br /><br />
 						<cfoutput><input type="button" value="Back" onClick="self.location.href='delUser.cfm?lang=#lang#'" class="textbutton"></cfoutput>
 						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton"></cfoutput>
 					</div>

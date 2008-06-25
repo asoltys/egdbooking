@@ -54,7 +54,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br>
+				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br />
 				
 				<cfparam name="form.compID" default="">
 				<cfparam name="Variables.compID" default="#form.compID#">
@@ -203,7 +203,7 @@
 									<input type="hidden" name="compID" value="#Variables.compID#">
 									<input type="submit" name="submitForm" class="textbutton" value="submit">
 								</cfif>
-								<cfoutput><input type="button" value="Back" onclick="self.location.href='bookingmanage.cfm?#urltoken#'" class="textbutton"></cfoutput><br>
+								<cfoutput><input type="button" value="Back" onclick="self.location.href='bookingmanage.cfm?#urltoken#'" class="textbutton"></cfoutput><br />
 								
 							</td>
 						</tr>

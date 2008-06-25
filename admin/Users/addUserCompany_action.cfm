@@ -65,7 +65,7 @@
 				<p>#getUser.firstName# #getUser.lastName#,</p>
 				<p>You have been given booking access for #getCompany.companyName# for the Esquimalt Graving Dock Online Booking System.</p>
 				<p>Esquimalt Graving Dock</p>
-				<br>
+				<br />
 				<p>Vous avez maintenant acc&egrave;s aux fonctions de r&eacute;servation pour #getCompany.companyName# dans le syst&egrave;me de r&eacute;servation en ligne de la cale s&egrave;che d'Esquimalt.</p>
 				<p>Cale s&egrave;che d'Esquimalt</p>
 			</cfmail>

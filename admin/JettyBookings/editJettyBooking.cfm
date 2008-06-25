@@ -64,7 +64,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br>
+				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br />
 				
 				<!--- Initiate Variables --------------------------------------------------------------------------------------------------->
 				<cfparam name="Variables.BookingID" default="">
@@ -335,7 +335,7 @@
 							<input type="submit" name="submitForm" class="textbutton" value="overwrite">
 							</cfif>
 							<input type="button" value="Cancel" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue####variables.bookingID#'" class="textbutton">
-							<br>
+							<br />
 							<input type="Hidden" name="BookingID" value="#Variables.BookingID#">
 							<!---input type="Hidden" name="CompanyID" value="#Variables.CompanyID#"--->
 							<input type="Hidden" name="Submitted" value="yes">

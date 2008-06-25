@@ -59,7 +59,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 			
-			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 			
 			<cfif getBooking.Status EQ "C">
 				<cfinclude template="includes/getConflicts.cfm">
@@ -72,7 +72,7 @@
 			
 			<cfform action="chgStatus_2p_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post" name="change2pending">
 				Are you sure you want to change this booking's status back to pending?
-			<br><br>
+			<br /><br />
 				<cfoutput>
 				<input type="hidden" name="BookingID" value="#Form.BookingID#">
 				<table align="center" style="padding-top:5px;">

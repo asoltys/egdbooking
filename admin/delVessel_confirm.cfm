@@ -87,7 +87,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 			
 			<cfif IsDefined("Session.Return_Structure")>
 				<!--- Populate the Variables Structure with the Return Structure.
@@ -100,7 +100,7 @@
 					Are you sure you want to delete <cfoutput><strong>#getVessel.Name#</strong></cfoutput>?
 					
 					<input type="hidden" name="vesselID" value="<cfoutput>#form.vesselID#</cfoutput>">
-			<br><br>
+			<br /><br />
 					<cfoutput query="getVessel">
 					<table align="center" style="padding-top:10px;">
 						<tr>
@@ -140,7 +140,7 @@
 							<td headers="Tonnage">#tonnage#</td>
 						</tr>
 					</table>
-					<br>
+					<br />
 					<div align="center">
 						<input type="submit" class="textbutton" value="submit">
 						<input type="button" value="Back" onClick="self.location.href='delVessel.cfm?lang=#lang#'" class="textbutton">
@@ -151,10 +151,10 @@
 				
 			<cfelse>
 					
-					<cfoutput><strong>#getVessel.name#</strong></cfoutput> cannot be deleted as it is booked for the following dates:<br>
+					<cfoutput><strong>#getVessel.name#</strong></cfoutput> cannot be deleted as it is booked for the following dates:<br />
 					
 					<cfif getVesselDockBookings.recordCount GT 0>
-						<br><br>
+						<br /><br />
 						&nbsp;&nbsp;&nbsp;<strong>Drydock</strong>
 						<table style="padding-left:20px;font-size:10pt;" width="100%">
 							<tr>
@@ -177,7 +177,7 @@
 					</cfif>
 						
 					<cfif getVesselJettyBookings.recordCount GT 0>
-						<br>
+						<br />
 						&nbsp;&nbsp;&nbsp;<strong>Jetty</strong>
 						<table style="padding-left:20px;font-size:10pt;" width="100%">
 							<tr>

@@ -143,7 +143,7 @@
 							</td>
 						</tr>
 					</table>
-					<br>
+					<br />
 					<div align="center">
 						<input type="submit" name="submitForm" class="textbutton" value="#variables.action#">
 						<input type="button" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" value="Back" class="textbutton">

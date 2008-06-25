@@ -84,7 +84,7 @@
 					<cfset Variables.Anonymous = 1>
 				</cfif>
 
-				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br>
+				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br />
 				
 				<p>Please confirm the following information: </p>
 				<cfif Variables.Width GT Variables.MaxWidth OR Variables.Length GT Variables.MaxLength>

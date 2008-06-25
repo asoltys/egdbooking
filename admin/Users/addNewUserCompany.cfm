@@ -125,7 +125,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 				<cfoutput>
 				
 				<!---decrpyt user info--->
@@ -200,7 +200,7 @@
 							<cfset counter = counter + 1>
 						</cfloop>
 					</cfif>
-				</table><br>
+				</table><br />
 				
 				<cfif Len(companyList) EQ 0>
 					<cfset companies = companyList>
@@ -221,14 +221,14 @@
 									</cfif>
 								</cfloop>
 							</cfselect>
-							<input type="submit" name="submitCompany" value="Add" class="textbutton"><BR>
+							<input type="submit" name="submitCompany" value="Add" class="textbutton"><br />
 							<font size="-2">If the desired company is not listed, click <a href="addCompany.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#">here</a> to create one.</font>
 						</td>
 					</tr>
 				</table>
 				</cfform>
 				
-				<!---<br><div align="center"><cfoutput><input type="button" value="Done" onClick="self.location.href='#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#'" class="textbutton"></cfoutput></div>--->
+				<!---<br /><div align="center"><cfoutput><input type="button" value="Done" onClick="self.location.href='#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#'" class="textbutton"></cfoutput></div>--->
 				
 				<cfform name="newUserForm" action="addUser_action.cfm?lang=#lang#&info=#Variables.info#">
 					<input type="hidden" name="firstname" value="#Variables.firstname#">
@@ -236,7 +236,7 @@
 					<input type="hidden" name="email" value="#Variables.email#">
 					<input type="hidden" name="password1" value="#Variables.password1#">
 					<input type="hidden" name="companies" value="#companies#">
-					<br><div align="right"><input type="submit" onClick="javascript:EditSubmit('newUserForm');" value="Submit New User" class="textbutton">
+					<br /><div align="right"><input type="submit" onClick="javascript:EditSubmit('newUserForm');" value="Submit New User" class="textbutton">
 					<input type="button" onClick="javascript:self.location.href='addUser.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#'" value="Edit Profile" class="textbutton">
 					<input type="button" onClick="javascript:self.location.href='../menu.cfm?lang=#lang#'" value="Cancel" class="textbutton"></div>
 				</cfform>

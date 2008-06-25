@@ -89,7 +89,7 @@ AND 	(UserCompanies.Approved = 1)
 		<cfmail to="#getBooking.Email#" from="#Session.AdminEmail#" subject="Booking Cancelled - R&eacute;servation annul&eacute;e" type="html">
 <p>Your jetty booking for #getBooking.VesselName# from #LSDateFormat(getBooking.startDate, 'mmm d, yyyy')# to #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')# has been cancelled.</p>
 <p>Esquimalt Graving Dock</p>
-<br>
+<br />
 <p>Votre r&eacute;servation de jet&eacute;e pour #getBooking.VesselName# du #LSDateFormat(getBooking.startDate, 'mmm d, yyyy')# au #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')# a &eacute;t&eacute; annul&eacute;e.</p>
 <p>Cale s&egrave;che d'Esquimalt</p>
 		</cfmail>

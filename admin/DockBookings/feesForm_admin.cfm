@@ -89,14 +89,14 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 	
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 				
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				
-				<br>
+				<br />
 				<cfoutput><div align="center" style="font-weight:bold;">#getDetails.CompanyName#: #getDetails.VesselName#</div></cfoutput>
 				<cfoutput><div align="center" style="font-weight:bold;">#DateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#</div></cfoutput>
-				<br>
+				<br />
 				<cfform name="serviceSelect" action="feesForm_admin_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#">
 				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the selected services for the booking and allows the administrator to edit the information.">
 					<tr>

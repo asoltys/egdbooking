@@ -94,7 +94,7 @@
 					</tr>
 				</table>
 				
-				<br>
+				<br />
 				<table width="100%" cellspacing="0" cellpadding="1" border="0" align="center" style="font-size:10pt;">
 					<tr>
 						<td colspan="2" align="center">

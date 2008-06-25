@@ -109,7 +109,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<cfinclude template="#RootDir#includes/user_menu.cfm"><br>
+				<cfinclude template="#RootDir#includes/user_menu.cfm"><br />
 				<cfoutput>
 				<p>#language.confirmInfo#</p>
 				<cfif Variables.Width GT Variables.MaxWidth OR Variables.Length GT Variables.MaxLength>

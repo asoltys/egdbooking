@@ -336,7 +336,7 @@
 	
 	<CFSET f = StartDate - CalStartDate + 1>
 	<CFSET t = EndDate - CalStartDate + 1>
-	<!---#StartDate#, #EndDate#, #VesselName#, offset: #f#, #Section1# #Section2# #Section3# <BR>--->
+	<!---#StartDate#, #EndDate#, #VesselName#, offset: #f#, #Section1# #Section2# #Section3# <br />--->
 	
 	<CFIF Status eq 'c' OR Status eq 'm'>  <!--- confirmed or maintenance --->
 		<CFIF Section1>
@@ -476,7 +476,7 @@
 								<CFSET boatCountToday = StructFind(nevermore, 'lol')>
 								<CFLOOP index="ok" from="1" to="#boatCountToday#" step="1">
 									<CFIF ok neq 1>
-										<CFSET snowflakes = snowflakes & '<BR>'>
+										<CFSET snowflakes = snowflakes & '<br />'>
 									</CFIF>
 									<CFIF StructFind(nevermore, "isYours" & ok) eq true>
 										<CFSET snowflakes = snowflakes & '<i>'>
@@ -484,10 +484,10 @@
 									<cfif structfind(nevermore, "h" & ok) GTE PacificNow>
 										<cfset snowflakes = snowflakes & '<b>*</b>'>
 									</cfif> 
-									<CFSET snowflakes = snowflakes & '<b>#StructFind(nevermore, "vesselName" & ok)#</b> <BR>'>
-									<CFSET snowflakes = snowflakes & '#language.text1#: #DateFormat(StructFind(nevermore, "startDate" & ok), "mm/dd/yyyy")# <BR>'
-										& '#language.text2#: #DateFormat(StructFind(nevermore, "endDate" & ok), "mm/dd/yyyy")# <BR>'
-										& '#language.text3#: #StructFind(nevermore, "allSections" & ok)# <BR>'>
+									<CFSET snowflakes = snowflakes & '<b>#StructFind(nevermore, "vesselName" & ok)#</b> <br />'>
+									<CFSET snowflakes = snowflakes & '#language.text1#: #DateFormat(StructFind(nevermore, "startDate" & ok), "mm/dd/yyyy")# <br />'
+										& '#language.text2#: #DateFormat(StructFind(nevermore, "endDate" & ok), "mm/dd/yyyy")# <br />'
+										& '#language.text3#: #StructFind(nevermore, "allSections" & ok)# <br />'>
 									<CFIF StructFind(nevermore, "isYours" & ok) eq true>
 										<CFSET snowflakes = snowflakes & '</i>'>
 									</CFIF>
@@ -504,14 +504,14 @@
 									<DIV class="text">#snowflakes#</DIV>
 								<CFELSE>
 									<!---A href="javascript:void(0)" onClick="foo(event, '#snowflakes#', '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOver="foo(event, '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOut="foo(event);"--->
-										<DIV class="text">&nbsp;<BR>&nbsp;<BR>&nbsp;<BR>&nbsp;<!---CFIF StructFind(nevermore, "yours") eq true>?<CFELSE>#StructFind(nevermore, "boatCount")#</CFIF---></DIV>
+										<DIV class="text">&nbsp;<br />&nbsp;<br />&nbsp;<br />&nbsp;<!---CFIF StructFind(nevermore, "yours") eq true>?<CFELSE>#StructFind(nevermore, "boatCount")#</CFIF---></DIV>
 									<!---/A--->
 								</CFIF>
 							</TD>
 						<CFCATCH type="coldfusion.runtime.UndefinedElementException">
 							<!--- If this day&section of the megaStruct DOESN'T exist, it throws this exception... --->
 							<TD headers="#d#_header month#offset#_header" class="day<CFIF DayofWeek(taday) eq 7> sat<CFELSEIF DayofWeek(taday) eq 1> sun</CFIF><CFIF Day(taday) eq 1> firstday</CFIF>">
-								<DIV class="text">&nbsp;<BR>&nbsp;<BR>&nbsp;<BR>&nbsp;</DIV>
+								<DIV class="text">&nbsp;<br />&nbsp;<br />&nbsp;<br />&nbsp;</DIV>
 						</CFCATCH>
 						</CFTRY>
 					</CFLOOP>

@@ -59,7 +59,7 @@
 						<br />
 					</cfif>
 
-					<div align="center">#language.enterEmail#<br>#language.getPassword#</div><br>
+					<div align="center">#language.enterEmail#<br />#language.getPassword#</div><br />
 	
 					<cfform action="passeoubli-passforgot_action.cfm?lang=#lang#" name="forgotForm">
 						<table align="center">

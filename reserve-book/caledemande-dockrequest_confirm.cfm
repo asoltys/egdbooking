@@ -77,7 +77,7 @@
 					</a></h1>
 
 
-				<cfinclude template="#RootDir#includes/user_menu.cfm"><br>
+				<cfinclude template="#RootDir#includes/user_menu.cfm"><br />
 				
 				<cfif IsDefined("Session.Return_Structure")>
 					<cfoutput>#StructDelete(Session, "Return_Structure")#</cfoutput>

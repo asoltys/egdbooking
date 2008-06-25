@@ -28,7 +28,7 @@
 <div id="actionErrors"><cfoutput>#language.formProblemError#</cfoutput><br />
 				
 <cfloop index="i" from="1" to="#ArrayLen(Session.Return_Structure.Errors)#" step="1">
-	<cfoutput>#Session.Return_Structure.Errors[i]#<br></cfoutput>
+	<cfoutput>#Session.Return_Structure.Errors[i]#<br /></cfoutput>
 </cfloop>
 <cfset overwrite = '1'>
 </div>

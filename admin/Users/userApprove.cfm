@@ -94,7 +94,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 					
 				<cfif getUserCompRequests.RecordCount EQ 0>
 					There are no new user company requests to approve.
@@ -103,7 +103,7 @@
 					they are approved or rejected, email notification will be sent to the user regarding the 
 					standing of their request.  <b><i>Those listings without an 'Approve' button must have 
 					the company approved first.</i></b>
-					<br><br>
+					<br /><br />
 					<!--- Start of Users Listing --->
 					
 					<CFSET prevID = 0>
@@ -114,7 +114,7 @@
 							<CFSET curr_row = 0>
 							<CFIF prevID neq '0'>
 							</TABLE>
-							<BR>
+							<br />
 							</CFIF>
 							<TABLE id="listManage" border="0" cellspacing="0" cellpadding="2" width="100%">
 								<TR bgcolor="##FFFFFF">

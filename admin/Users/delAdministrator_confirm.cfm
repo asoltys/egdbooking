@@ -55,7 +55,7 @@ function EditSubmit ( selectedform )
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 				
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
@@ -66,7 +66,7 @@ function EditSubmit ( selectedform )
 				<cfform action="delAdministrator_action.cfm?lang=#lang#" method="post" name="delAdministratorConfirmForm">
 					<div align="center">
 						Are you sure you want to remove <cfoutput><strong>#getAdmin.UserName#</strong></cfoutput> from administration?
-						<BR><BR>
+						<br /><br />
 						<!---a href="javascript:EditSubmit('delAdministratorConfirmForm');" class="textbutton">Remove</a>
 						<a href="delAdministrator.cfm" class="textbutton">Back</a>
 						<a href="../menu.cfm?lang=#lang#" class="textbutton">Cancel</a--->

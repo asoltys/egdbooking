@@ -210,7 +210,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<cfinclude template="#RootDir#includes/user_menu.cfm"><br>
+				<cfinclude template="#RootDir#includes/user_menu.cfm"><br />
 				
 				<cfoutput>
 				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action2.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">

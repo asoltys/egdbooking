@@ -76,7 +76,7 @@
 					</a></h1>
 
 				<cfoutput>
-				<cfinclude template="#RootDir#includes/user_menu.cfm"><br>
+				<cfinclude template="#RootDir#includes/user_menu.cfm"><br />
 			
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfinclude template="#RootDir#includes/restore_params.cfm">
@@ -142,7 +142,7 @@
 						<!---a href="javascript:document.addVessel.submitForm.click();" class="textbutton">#language.Submit#</a--->
 						<input type="submit" name="submitForm" class="textbutton" value="#language.Submit#">
 						<cfoutput><input type="button" value="#language.Cancel#" onClick="self.location.href='booking.cfm?lang=#lang#&CompanyID=#CompanyID#'" class="textbutton"></cfoutput>
-						<br>
+						<br />
 					</td>
 				</tr>
 				</table>

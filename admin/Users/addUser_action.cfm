@@ -84,12 +84,12 @@
 	<cfmail to="#form.Email#" from="#Variables.AdminEmail#" subject="Account Reactivated for EGD" type="html">
 <p>#form.firstname# #form.lastname#,</p>
 <p>Your account for the Esquimalt Graving Dock Online Booking System has been reactivated.</p>
-<p>Username: #form.email#<br>Password: #form.password1#</p>
+<p>Username: #form.email#<br />Password: #form.password1#</p>
 <p>Esquimalt Graving Dock</p>
-<br>	
+<br />	
 <p>#form.firstname# #form.lastname#,</p>
 <p>buncha french stuff</p>
-<p>Username: #form.email#<br>Password: #form.password1#</p>
+<p>Username: #form.email#<br />Password: #form.password1#</p>
 <p>Cale s&egrave;che d'Esquimalt</p>
 	</cfmail>
 </cfoutput>
@@ -154,11 +154,11 @@
 	<cfmail to="#form.Email#" from="#Session.AdminEmail#" subject="Account Created for EGD - Compte cr&eacute;e pour la CSE" type="html">
 <p>#form.firstname# #form.lastname#,</p>
 <p>An account has been created for you for the Esquimalt Graving Dock Online Booking System.</p>
-<p>Username: #form.email#<br>Password: #form.password1#</p>
+<p>Username: #form.email#<br />Password: #form.password1#</p>
 <p>Esquimalt Graving Dock</p>
-<br>
+<br />
 <p>Un compte a &eacute;t&eacute; cr&eacute;&eacute; pour vous dans le syst&egrave;me de r&eacute;servation en ligne de la cale s&egrave;che d'Esquimalt.</p>
-<p>Nom d'utilisateur: #form.email#<br>Mot de passe: #form.password1#</p>
+<p>Nom d'utilisateur: #form.email#<br />Mot de passe: #form.password1#</p>
 <p>Cale s&egrave;che d'Esquimalt</p>
 	</cfmail>
 </cfoutput>

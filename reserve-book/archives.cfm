@@ -120,10 +120,10 @@
 				<cfset variables.referrer = "Archive">
 				<cfoutput>
 				<p>#language.followingbooking#</p>
-				<!---div class="EventAdd"><a href="caledemande-dockrequest.cfm" class="textbutton"><cfoutput>#language.ButtonLabel1#</cfoutput></a></div><br>
-				<div class="EventAdd"><a href="jetdemande-jetrequest.cfm" class="textbutton"><cfoutput>#language.ButtonLabel3#</cfoutput></a></div><br>
+				<!---div class="EventAdd"><a href="caledemande-dockrequest.cfm" class="textbutton"><cfoutput>#language.ButtonLabel1#</cfoutput></a></div><br />
+				<div class="EventAdd"><a href="jetdemande-jetrequest.cfm" class="textbutton"><cfoutput>#language.ButtonLabel3#</cfoutput></a></div><br />
 				<A href="resdemande-bookrequest.cfm?lang=#lang#&companyID=#url.companyID#" class="textbutton"><cfoutput>#language.requestBooking#</cfoutput></A>&nbsp;
-				<a href="formulaires-forms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a><br><br--->
+				<a href="formulaires-forms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a><br /><br--->
 					<cfset counter = 0>
 					<h2>#language.Drydock#</h2>
 					<cfif "getDockBookings.recordCount" GE 1>
@@ -268,7 +268,7 @@
 					<cfelse>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#language.None#
 					</cfif>
-				<br>
+				<br />
 				<!---A href="resdemande-bookrequest.cfm?lang=#lang#&companyID=#url.companyID#" class="textbutton"><cfoutput>#language.requestBooking#</cfoutput></A>&nbsp;
 				<a href="formulaires-forms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a--->
 				<div align="center"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&companyID=#url.companyID#" class="textbutton">#language.returnTo#</a></div>

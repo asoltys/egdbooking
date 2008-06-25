@@ -161,10 +161,10 @@ WHERE	SouthJetty = 1
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				</CFIF>
 				
-				<CFINCLUDE template="#RootDir#includes/dock_calendar_menu.cfm"><br>
+				<CFINCLUDE template="#RootDir#includes/dock_calendar_menu.cfm"><br />
 				
 				<CFOUTPUT><A href="resume-summary_pi.cfm?lang=#lang#&fromDate=#CalStartDate#&toDate=#CalEndDate#" class="textbutton" target="Bookings_Summary_printable">#language.PRINTABLE#</A></CFOUTPUT>
-				<BR>
+				<br />
 				<H2><cfoutput>#language.Drydock#</cfoutput></H2>
 				
 				<!-- Begin Dry Docks table -->
@@ -329,7 +329,7 @@ WHERE	SouthJetty = 1
 				<cfoutput>#language.noBookings#</cfoutput>
 				</CFIF>
 				
-				<BR><BR>
+				<br /><br />
 				
 				<!--- Legend of company abbreviations --->
 				<TABLE class="calendar" cellpadding="0" cellspacing="0" width="80%" align="center">
@@ -350,7 +350,7 @@ WHERE	SouthJetty = 1
 				</CFOUTPUT>
 				</TABLE>
 				
-				<BR><BR>
+				<br /><br />
 
 			</div>
 

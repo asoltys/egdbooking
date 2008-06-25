@@ -71,7 +71,7 @@
 	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="New Booking - Nouvelle r&eacute;servation" type="html">
 <p>#getDetails.Vesselname# has been booked on the #jetty# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#.</p>
 <p>Esquimalt Graving Dock</p>
-<br>
+<br />
 <cfif jetty eq "North Landing Wharf">
 <p>Il y a une r&eacute;servation pour #getDetails.Vesselname# au quai de d&eacute;barquement nord du #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# au #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#.</p>
 <cfelse>

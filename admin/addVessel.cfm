@@ -71,7 +71,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br>
+				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br />
 				
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				

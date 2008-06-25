@@ -136,7 +136,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<cfinclude template="#RootDir#includes/user_menu.cfm"><br>
+				<cfinclude template="#RootDir#includes/user_menu.cfm"><br />
 				
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
@@ -169,7 +169,7 @@
 				</cfform>
 				</cfoutput>
 				
-				<hr width="65%" align="center"><br>
+				<hr width="65%" align="center"><br />
 				
 				<table align="center" width="81%">
 				<tr>
@@ -191,7 +191,7 @@
 				</cfoutput>
 				</table>
 
-				<hr width="65%" align="center"><br>
+				<hr width="65%" align="center"><br />
 				
 				<cfoutput>
 					<cfform action="#RootDir#reserve-book/passechange.cfm?lang=eng" method="post" name="changePassForm">

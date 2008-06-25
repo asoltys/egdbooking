@@ -142,7 +142,7 @@ function EditSubmit ( selectedform )
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br>
+				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br />
 				
 				<cfinclude template="#RootDir#includes/calendar_js.cfm">
 				
@@ -194,7 +194,7 @@ function EditSubmit ( selectedform )
 				
 					<!---div align="center">
 						<!--a href="javascript:document.dateSelect.submitForm.click();" class="textbutton">Submit</a><br-->
-						<a href="javascript:validate('dateSelect');" class="textbutton">Submit</a><br>
+						<a href="javascript:validate('dateSelect');" class="textbutton">Submit</a><br />
 					</div--->
 				
 				</form>

@@ -175,7 +175,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br>
+				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br />
 				
 				<P>Please enter a range of dates for which you would like to see the bookings:</p>
 				<form action="jettyBookingManage.cfm?lang=<cfoutput>#lang#</cfoutput>" method="get" name="dateSelect">
@@ -247,7 +247,7 @@
 						</form>
 					</cfoutput>
 				
-					<br>
+					<br />
 					<table width="100%" cellspacing="0" cellpadding="0" style="padding-bottom: 5px; ">
 						<tr>
 							<cfoutput><td align="left" width="80%"><div style="height:0;">&nbsp;</div><a href="addJettyBooking.cfm?#urltoken#" class="textbutton">Add New South Jetty / North Landing Wharf Booking</a></td></cfoutput>

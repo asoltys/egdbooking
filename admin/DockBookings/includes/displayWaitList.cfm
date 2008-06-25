@@ -28,11 +28,11 @@
 		</CFIF>
 		<cfoutput>
 			<TR class="#rowClass#" valign="top">
-				<td headers="Booked" valign="top">#DateFormat(getOtherBookings.BookingTime, 'mmm dd, yyyy')#<br>at #TimeFormat(getOtherBookings.BookingTime, 'H:mm')#</td>
+				<td headers="Booked" valign="top">#DateFormat(getOtherBookings.BookingTime, 'mmm dd, yyyy')#<br />at #TimeFormat(getOtherBookings.BookingTime, 'H:mm')#</td>
 				<td headers="Agent" valign="top">#trim(getOtherBookings.Agent)#</td>
 				<td headers="Company" valign="top">#trim(getOtherBookings.CompanyName)#</td>
 				<td headers="Vessel" valign="top">#trim(getOtherBookings.Name)#</td>
-				<td headers="Dates" valign="top">#DateFormat(getOtherBookings.StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#DateFormat(getOtherBookings.StartDate, ", yyyy")#</CFIF> -<br>#DateFormat(getOtherBookings.EndDate, "mmm d, yyyy")#</td>
+				<td headers="Dates" valign="top">#DateFormat(getOtherBookings.StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#DateFormat(getOtherBookings.StartDate, ", yyyy")#</CFIF> -<br />#DateFormat(getOtherBookings.EndDate, "mmm d, yyyy")#</td>
 			</tr>
 		</cfoutput>
 		<cfset count = count + 1>

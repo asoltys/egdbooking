@@ -54,7 +54,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 				
 				<cfparam name="form.compID" default="">
 				<cfparam name="Variables.compID" default="#form.compID#">
@@ -240,7 +240,7 @@
 									<input type="submit" name="submitForm" class="textbutton" value="override">
 									</cfif>
 								</cfif>
-								<cfoutput><input type="button" value="Back" onClick="self.location.href='jettybookingmanage.cfm?#urltoken#'" class="textbutton"></cfoutput><br>
+								<cfoutput><input type="button" value="Back" onClick="self.location.href='jettybookingmanage.cfm?#urltoken#'" class="textbutton"></cfoutput><br />
 							</td>
 						</tr>
 					</table>

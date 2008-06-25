@@ -39,7 +39,7 @@
 					</a></h1>
 
 			
-			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 			
 			
 			<cfset Errors = ArrayNew(1)>
@@ -156,7 +156,7 @@
 			</cfif>
 			
 			<cfform action="addBooking_action.cfm?#urltoken#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
-			<br>
+			<br />
 			<div style="font-size:10pt;font-weight:bold;">New Booking:</div>
 			<table width="100%" align="center" style="font-size:10pt;padding-left:20px;">
 				<tr>
@@ -217,7 +217,7 @@
 				</tr>
 			</table>
 			
-			<br>
+			<br />
 			<cfif NOT Variables.reOrder>
 				<cfif Form.Status EQ "C">
 					<table width="100%" cellspacing="0" cellpadding="1" border="0" align="center" style="font-size:10pt;">
@@ -238,7 +238,7 @@
 				</cfif>
 				<cfinclude template="#RootDir#includes/showConflicts.cfm">
 			</cfif>
-			<BR>
+			<br />
 			<table align="center">
 			<tr>
 				<td colspan="2" align="center">

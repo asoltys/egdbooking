@@ -184,8 +184,8 @@
 						<td headers="Dates">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 					</TR>
 				</table>
-				<br>
-				<br>
+				<br />
+				<br />
 				</CFOUTPUT>
 				
 				<CFOUTPUT query="getDockDetail">
@@ -243,11 +243,11 @@
 				<CFIF NOT Anonymous OR EVALUATE(Variables.count) GT 0 OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true) OR Status eq 'c' >
 					<div style="float: right; padding-right: 20px;"><a href="detail-res-book.cfm?lang=#lang#&bookingid=#BookingID#&date=#url.date#&referrer=Details For">#language.moreInfo#</a></div>
 				</cfif>
-				<br>
-				<br>
+				<br />
+				<br />
 				</CFOUTPUT>
 				<cfoutput>
-				<CFIF getDockDetail.RecordCount eq 0 AND getDockMaintenanceDetail.RecordCount eq 0>#language.noBookings#<br><br></CFIF>
+				<CFIF getDockDetail.RecordCount eq 0 AND getDockMaintenanceDetail.RecordCount eq 0>#language.noBookings#<br /><br /></CFIF>
 				<div align="center"><a href="calend-cale-dock.cfm?lang=#lang#&month=#moonth#&year=#yeaar#" class="textbutton">#language.drydockCalButton#</a></div>
 				
 				
@@ -270,8 +270,8 @@
 						<td headers="Dates3">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 					</TR>
 				</table>
-				<br>
-				<br>
+				<br />
+				<br />
 				</CFOUTPUT>
 				<CFOUTPUT query="getJettyDetail">
 				<cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
@@ -320,11 +320,11 @@
 					</TR>
 				</table>
 				<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true) OR Status eq 'c'><div style="float: right; padding-right: 20px;"><a href="detail-res-book.cfm?lang=#lang#&bookingid=#BookingID#&date=#url.date#&referrer=Details For">#language.moreInfo#</a></div></cfif>
-				<br>
-				<br>
+				<br />
+				<br />
 				</CFOUTPUT>
 				<cfoutput>
-				<CFIF getJettyDetail.RecordCount eq 0 AND getJettyMaintenanceDetail.RecordCount eq 0>#language.noBookings#<br><br></CFIF>
+				<CFIF getJettyDetail.RecordCount eq 0 AND getJettyMaintenanceDetail.RecordCount eq 0>#language.noBookings#<br /><br /></CFIF>
 				
 				<div align="center"><a href="calend-jet.cfm?lang=#lang#&month=#moonth#&year=#yeaar#" class="textbutton">#language.jettyCalButton#</a></div><DIV style="height:0;">&nbsp;</DIV>
 				</cfoutput>

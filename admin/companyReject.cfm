@@ -52,13 +52,13 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 					
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 				
 				<div class="content" align="center">
-					<p>Are you sure you want to reject <cfoutput><strong>#GetNewCompanies.Name#</strong></cfoutput>?<br>Rejecting this company will delete it from the system.</p><!---, along with the following users:</p>
+					<p>Are you sure you want to reject <cfoutput><strong>#GetNewCompanies.Name#</strong></cfoutput>?<br />Rejecting this company will delete it from the system.</p><!---, along with the following users:</p>
 					<p>
 					<cfoutput query="GetUsers">
-						#FirstName# #LastName# - #Email#<br>
+						#FirstName# #LastName# - #Email#<br />
 					</cfoutput>
 					</p>
 					<p>Please confirm that this is the user you wish to delete.</p>--->

@@ -73,8 +73,8 @@
 					ORDER BY Companies.Name, Vessels.Name
 				</cfquery>
 
-				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br>
-				<cfinclude template="#RootDir#includes/getStructure.cfm"><br>
+				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br />
+				<cfinclude template="#RootDir#includes/getStructure.cfm"><br />
 				
 				<cfform action="editVessel.cfm?lang=#lang#" method="post" name="chooseVesselForm">
 				<table width="100%">
@@ -107,7 +107,7 @@
 					</td></tr>
 				</table>
 				</cfform>
-				<br>
+				<br />
 				
 				<cfif form.vesselID NEQ "">
 				

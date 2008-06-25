@@ -100,7 +100,7 @@ so the users who belong to that current company can choose another company--->
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 				
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
@@ -112,7 +112,7 @@ so the users who belong to that current company can choose another company--->
 					<cfif getDockBookings.recordCount GT 0 OR getJettyBookings.recordCount GT 0>
 					<cfoutput>
 						<strong>#getCompany.Name#</strong> cannot be deleted as it has the following confirmed bookings:
-						<br><br>
+						<br /><br />
 						<cfif getDockBookings.recordCount GT 0>
 							<table style="padding-left:20px;font-size:10pt;" width="100%">
 							<tr><th id="drydock" align="left"><strong>Drydock</strong></th></tr>
@@ -124,7 +124,7 @@ so the users who belong to that current company can choose another company--->
 									</cfif>
 								</cfloop>
 							</table>
-						<br>
+						<br />
 						</cfif>
 						<cfif getJettyBookings.recordCount GT 0>
 							<table style="padding-left:20px;font-size:10pt;" width="100%">
@@ -137,16 +137,16 @@ so the users who belong to that current company can choose another company--->
 									</cfif>
 								</cfloop>
 							</table>
-						<br>
+						<br />
 						</cfif>
-						All confirmed bookings must be cancelled before #getCompany.Name# can be deleted.<br><br>
+						All confirmed bookings must be cancelled before #getCompany.Name# can be deleted.<br /><br />
 					</cfoutput>
 					</cfif>
 				
 					<cfif getVessels.recordCount GT 0>
 						<cfoutput>
 						<strong>#getCompany.Name#</strong> cannot be deleted as it is currently responsible for the following vessel(s):
-						<br><br>
+						<br /><br />
 						<table style="padding-left:20px;font-size:10pt;" width="100%">
 							<cfloop query="getVessels">
 								<tr>
@@ -154,14 +154,14 @@ so the users who belong to that current company can choose another company--->
 								</tr>
 							</cfloop>
 						</table>
-						<br>All vessels must be deleted before #getCompany.Name# can be deleted.<br><br>
+						<br />All vessels must be deleted before #getCompany.Name# can be deleted.<br /><br />
 					</cfoutput>
 					</cfif>
 					
 					<cfif getCompanyUsers.recordCount GT 0>
 						<cfoutput>
 						<strong>#getCompany.Name#</strong> cannot be deleted as it is currently the only company responsible for the following user(s):
-						<br><br>
+						<br /><br />
 						<table style="padding-left:20px;font-size:10pt;" width="100%">
 							<cfloop query="getCompanyUsers">
 								<tr>
@@ -169,7 +169,7 @@ so the users who belong to that current company can choose another company--->
 								</tr>
 							</cfloop>
 						</table>
-						<br>All users that are associated with only #getCompany.name# must be deleted before #getCompany.Name# can be deleted.<br><br>
+						<br />All users that are associated with only #getCompany.name# must be deleted before #getCompany.Name# can be deleted.<br /><br />
 					</cfoutput>
 					</cfif>
 					

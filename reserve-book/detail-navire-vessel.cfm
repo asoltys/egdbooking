@@ -96,7 +96,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 				
-					<CFINCLUDE template="#RootDir#includes/user_menu.cfm"><br>
+					<CFINCLUDE template="#RootDir#includes/user_menu.cfm"><br />
 				
 					<table align="center">
 						<tr>
@@ -141,7 +141,7 @@
 						</tr>
 					</table>
 				
-					<BR>
+					<br />
 					<div align="center">
 						<cfif #Session.ReadOnly# EQ "1"><cfelse>
 						<a href="#RootDir#reserve-book/naviremod-vesseledit.cfm?lang=#lang#&vesselID=#url.vesselID#" class="textbutton">#language.EditVessel#</a>

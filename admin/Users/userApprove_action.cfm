@@ -32,7 +32,7 @@
 <p>#getUser.UserName#,</p>
 	<p>Your request to be added to #getCompany.CompanyName#'s user list has been approved.</p>
 <p>Esquimalt Graving Dock</p>
-<br>
+<br />
 <p>La demande d'ajout de votre nom &agrave; la liste d'utilisateurs de #getCompany.CompanyName#'s a &eacute;t&eacute; approuv&eacute;e.</p>
 <p>Cale s&egrave;che d'Esquimalt</p>
 	</cfmail>

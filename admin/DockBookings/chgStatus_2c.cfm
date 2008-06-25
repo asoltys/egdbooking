@@ -50,7 +50,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 					
-			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 			
 			<!--- -------------------------------------------------------------------------------------------- --->
 			<cfparam name="Variables.BookingID" default="">
@@ -88,9 +88,9 @@
 					<cfloop query="overlapQuery">
 					<cfoutput>
 					<TR valign="top">
-						<td headers="Booked" valign="top">#DateFormat(overlapQuery.BookingTime, 'mmm dd, yyyy')#<br>at #TimeFormat(overlapQuery.BookingTime, 'H:mm')#</td>
+						<td headers="Booked" valign="top">#DateFormat(overlapQuery.BookingTime, 'mmm dd, yyyy')#<br />at #TimeFormat(overlapQuery.BookingTime, 'H:mm')#</td>
 						<td headers="Vessel" valign="top">#trim(overlapQuery.Name)#</td>
-						<td headers="Dates" valign="top">#DateFormat(overlapQuery.StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#DateFormat(overlapQuery.StartDate, ", yyyy")#</CFIF> -<br>#DateFormat(overlapQuery.EndDate, "mmm d, yyyy")#</td>
+						<td headers="Dates" valign="top">#DateFormat(overlapQuery.StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#DateFormat(overlapQuery.StartDate, ", yyyy")#</CFIF> -<br />#DateFormat(overlapQuery.EndDate, "mmm d, yyyy")#</td>
 						<td headers="Vessel" valign="top">
 						<cfif #trim(overlapQuery.Status)# EQ "C">
 							Confirmed 

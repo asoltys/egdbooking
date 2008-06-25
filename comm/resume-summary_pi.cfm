@@ -358,7 +358,7 @@ WHERE	SouthJetty = 1
 <cfoutput>#language.noBookings#</cfoutput>
 </CFIF>
 
-<BR><BR>
+<br /><br />
 
 <!--- Legend of company abbreviations --->
 <TABLE border="1" cellpadding="2" width="60%">

@@ -107,7 +107,7 @@
 
 	<div class="main">
 	<H1>#language.EditVessel#</H1>
-				<cfinclude template="#RootDir#includes/user_menu.cfm"><br>
+				<cfinclude template="#RootDir#includes/user_menu.cfm"><br />
 				<cfoutput>
 				<p>#language.confirmInfo#</p>
 				<cfif Variables.Width GT Variables.MaxWidth OR Variables.Length GT Variables.MaxLength>
@@ -158,7 +158,7 @@
 								<input type="submit" value="#language.Submit#" class="textbutton">
 								<input type="button" onClick="javascript:self.location.href='editVessel.cfm?lang=#lang#&CompanyID=#url.companyID#&vesselID=#url.vesselID#'" value="#language.Back#" class="textbutton">
 								<input type="button" onClick="javascript:self.location.href='booking.cfm?lang=#lang#&CompanyID=#CompanyID#'" value="#language.Cancel#" class="textbutton">
-								<br>
+								<br />
 								<input type="submit" name="submitForm" style="visibility:hidden;">
 								<input type="hidden" name="vesselID" value="#url.vesselID#">
 							</td>

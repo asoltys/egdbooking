@@ -117,12 +117,12 @@
 				
 				<cfoutput>
 				
-				<CFINCLUDE template="#RootDir#includes/user_menu.cfm"><br><br>
+				<CFINCLUDE template="#RootDir#includes/user_menu.cfm"><br /><br />
 				
 				
 				<cfform name="editVessel" action="#RootDir#reserve-book/naviremod-vesseledit_confirm.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#&VesselID=#VesselID#" method="post">
 					<cfif getVesselDockBookings.recordCount GT 0 OR getVesselJettyBookings.recordCount GT 0>
-					<span style="font-size: 10pt; color: red">#language.notEditVesselDimensions#</span><br><br>
+					<span style="font-size: 10pt; color: red">#language.notEditVesselDimensions#</span><br /><br />
 					</cfif>
 					<table align="center">
 						<tr>

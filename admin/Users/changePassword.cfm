@@ -47,7 +47,7 @@
 				<p>#getUser.firstName# #getUser.lastName#,</p>
 				<p>Your password for the Esquimalt Graving Dock Online Booking System has been changed to <strong>#getUser.password#</strong>.</p>
 				<p>Esquimalt Graving Dock</p>
-				<br>
+				<br />
 				<p>Votre mot de passe pour le syst&egrave;me de r&eacute;servation en ligne de la cale s&egrave;che d'Esquimalt a &eacute;t&eacute; chang&eacute; et est maintenant <strong>#getUser.password#</strong>.</p>
 				<p>Cale s&egrave;che d'Esquimalt</p>
 			</cfmail>

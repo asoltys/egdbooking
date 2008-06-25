@@ -197,7 +197,7 @@ function EditSubmit ( selectedform )
 
 <div class="main">
 <H1>Add Jetty Booking</H1>
-<cfinclude template="#RootDir#includes/admin_menu.cfm"><br>
+<cfinclude template="#RootDir#includes/admin_menu.cfm"><br />
 <!--- ---------------------------------------------------------------------------------------------------------------- --->
 
 
@@ -257,7 +257,7 @@ function EditSubmit ( selectedform )
 	</tr>
 </table>
 
-<br>
+<br />
 <table width="100%" cellspacing="0" cellpadding="1" border="0" align="center" style="font-size:10pt;">
 	<tr>
 		<td colspan="2" align="center">

@@ -99,5 +99,5 @@
 		</tr>
 	</cfoutput>
 	</table>
-	<br>
+	<br />
 </cfif>

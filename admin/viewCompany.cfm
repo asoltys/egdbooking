@@ -123,10 +123,10 @@
 	<TR>
 		<CFOUTPUT><TD id="addy1" width="30%" valign="top">#language.address#:</TD>
 		<TD headers="addy1">
-			#getCompany.Address1#<CFIF getCompany.Address2 neq ""><BR>
-			#getCompany.Address2#</CFIF><BR>
-			#getCompany.City#<BR>
-			#getCompany.Country#<BR>
+			#getCompany.Address1#<CFIF getCompany.Address2 neq ""><br />
+			#getCompany.Address2#</CFIF><br />
+			#getCompany.City#<br />
+			#getCompany.Country#<br />
 			#getCompany.zip#
 		</TD></CFOUTPUT>
 	</TR>
@@ -142,14 +142,14 @@
 	<CFIF IsDefined('getCompany.Approved') AND getCompany.Approved neq '' AND getCompany.approved>
 	<TR>
 		<TD id="Agents" valign="top">Other Approved Agents:</TD>
-		<TD headers="Agents"><CFOUTPUT query="getAgents">#FirstName# #LastName#<BR></CFOUTPUT><CFIF getAgents.recordCount eq 0>None</CFIF></TD>
+		<TD headers="Agents"><CFOUTPUT query="getAgents">#FirstName# #LastName#<br /></CFOUTPUT><CFIF getAgents.recordCount eq 0>None</CFIF></TD>
 	</TR>
 	</CFIF>
 </TABLE>
-<BR>
+<br />
 <DIV align="center"><A href="javascript: self.close();" class="textbutton">close</A></DIV>
 
-<BR>
+<br />
 			<!-- FOOTER BEGINS | DEBUT DU PIED DE LA PAGE -->
 			<div class="footer">
 				<div class="footerline"></div>

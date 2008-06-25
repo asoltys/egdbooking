@@ -51,7 +51,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 					
-				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br>
+				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br />
 				
 				<!--- Error Validation ------------------------------------------------------------------------------------------------->
 				<cfset Errors = ArrayNew(1)>
@@ -230,7 +230,7 @@
 					</tr>
 				</table>
 				
-				<br>
+				<br />
 				<div align="center">
 						<input type="Submit" value="Confirm" class="textbutton">
 				

@@ -208,10 +208,10 @@
 				<cfoutput>
 					<p>#language.message#</p>
 					<div align="center">
-						<br>#language.Username#: #form.email#<br>#language.Password#: #form.password1#
+						<br />#language.Username#: #form.email#<br />#language.Password#: #form.password1#
 					</div>
 					
-					<br><br>	
+					<br /><br />	
 					<div align="center"><a href="ols-login.cfm?lang=#lang#" class="textbutton">#language.login#</a></div>
 				</cfoutput>
 			</div>

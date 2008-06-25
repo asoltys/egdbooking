@@ -108,7 +108,7 @@
 	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="New Booking - Nouvelle r&eacute;servation" type="html">
 <p>#getDetails.Vesselname# has been booked in the dock from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#.</p>
 <p>Esquimalt Graving Dock</p>
-<br>
+<br />
 <p>Il y a une r&eacute;servation pour #getDetails.Vesselname# dans la cale s&egrave;che du #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# au #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#.</p>
 <p>Cale s&egrave;che d'Esquimalt</p>
 	</cfmail>

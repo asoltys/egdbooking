@@ -41,7 +41,7 @@
 			
 			<cfinclude template="#RootDir#includes/getStructure.cfm">
 			
-			<br><br>
+			<br /><br />
 			<cfoutput>
 			<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the selected services for the booking.">
 				<tr>

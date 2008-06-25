@@ -26,7 +26,7 @@
 	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Denied - Votre Confirmation est Refus&eacute;e" type="html">
 <p>Your confirmation is declined due to other priority. The confirmation on your jetty booking for #getDetails.VesselName# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# has been removed.  The booking status is now tentative.</p>
 <p>Esquimalt Graving Dock</p>
-<br>
+<br />
 <p>Votre confirmation est refus&eacute;e parce qu'il y a d'autres priorit&eacute;s. La confirmation de votre r&eacute;servation de la cale s&egrave;che pour #getDetails.VesselName# du #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# au #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# a &eacute;t&eacute; supprim&eacute;e.  La r&eacute;servation est maintenant provisoire.
 </p>
 <p>Cale s&egrave;che d'Esquimalt</p>

@@ -61,7 +61,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 			
 			<cfif IsDefined("Session.Return_Structure")>
 				<!--- Populate the Variables Structure with the Return Structure.

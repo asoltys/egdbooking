@@ -66,7 +66,7 @@
 
 <cfif NOT IsDefined('url.bookingid') OR NOT IsNumeric(url.bookingid)>
 	<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-		<cflocation addtoken="no" url="#RootDir#admin/menu.cfm?lang=#lang#"><BR>
+		<cflocation addtoken="no" url="#RootDir#admin/menu.cfm?lang=#lang#"><br />
 	<CFELSE>
 		<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 	</CFIF>
@@ -164,7 +164,7 @@
 	<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 </CFIF>
 
-<br>
+<br />
 
 <!---check if ship belongs to user's company--->
 <cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
@@ -267,7 +267,7 @@
 	</TR>
 	</cfif>
 </table>
-<br>
+<br />
 
 <cfif #Session.ReadOnly# EQ "1"><cfelse>
 

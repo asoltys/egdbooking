@@ -12,7 +12,7 @@
 	<cfset language.or = "or">
 	<cfset language.acrobatrequired = 'The following file requires <A href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</A> to be installed.  The links will open in a new window.'>
 	<cfset language.mail = "Mailing Address">
-	<cfset language.mailing = "Operations Manager<br>Esquimalt Graving Dock<br>825 Admirals Road<br>Esquimalt, BC<br>V9A 2P1<br>Canada">
+	<cfset language.mailing = "Operations Manager<br />Esquimalt Graving Dock<br />825 Admirals Road<br />Esquimalt, BC<br />V9A 2P1<br />Canada">
 <cfelse>
 	<cfset language.title = "Modification de r&eacute;servation">
 	<cfset language.keywords = language.masterKeywords & ", Modification de r&eacute;servation">
@@ -26,7 +26,7 @@
 	<cfset language.or = "ou">
 	<cfset language.acrobatrequired = 'Il faut le logiciel <A href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</A> pour le fichier suivant. Le lien ouvrira une nouvelle fen&ecirc;tre.'>
 	<cfset language.mail = "Adresse postale">
-	<cfset language.mailing = "Directeur des op&eacute;rations<br>Cale s&egrave;che d'Esquimalt<br>825 Admirals Road<br>Esquimalt (C.-B.)<br>V9A 2P1<br>Canada">
+	<cfset language.mailing = "Directeur des op&eacute;rations<br />Cale s&egrave;che d'Esquimalt<br />825 Admirals Road<br />Esquimalt (C.-B.)<br />V9A 2P1<br />Canada">
 </cfif>
 
 <cfhtmlhead text="
@@ -116,10 +116,10 @@
 						<cfloop list="#Variables.emailList#" index="email"><tr><td>&nbsp;</td><td><a href="mailto:#email#?subject=#emailSubject#">#email#</a></td></tr></cfloop>
 					</table>
 					</cfif>
-					<p>#language.mail#:<br>
+					<p>#language.mail#:<br />
 					<div style="padding-left:25px">#language.mailing#</div></p>
 				</div>
-				<br>
+				<br />
 				<div align="center">
 					<input type="button" onClick="self.location.href='#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#">
 				</div>

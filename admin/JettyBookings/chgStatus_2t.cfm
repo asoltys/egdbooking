@@ -51,7 +51,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 
 				<!--- -------------------------------------------------------------------------------------------- --->
 				<cfparam name="Variables.BookingID" default="">
@@ -103,7 +103,7 @@
 				
 				<cfform action="chgStatus_2t_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post" name="change2tentative">
 					Are you sure you want to change this booking's status to tentative?
-				<br><br>
+				<br /><br />
 					<cfoutput>
 					<input type="hidden" name="BookingID" value="#Form.BookingID#">
 					<table width="85%" style="padding-left:15px;">

@@ -51,7 +51,7 @@
 						<br />
 					</cfif>
 					
-					<div align="center">#language.sentPassword#</div><br>
+					<div align="center">#language.sentPassword#</div><br />
 					
 					<div align="center"><a href="ols-login.cfm?lang=#lang#" class="textbutton">#language.returnlogin#</a></div>
 				</cfoutput>					

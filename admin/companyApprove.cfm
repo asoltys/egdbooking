@@ -69,7 +69,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				
 				<cfif GetNewCompanies.RecordCount EQ 0>

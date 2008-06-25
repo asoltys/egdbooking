@@ -50,7 +50,7 @@
 				<cfparam name="Variables.phone" default="">
 				<cfparam name="Variables.fax" default="">
 				
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br>
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfset Variables.onLoad = "javascript:document.addCompanyForm.name.focus();">
 				

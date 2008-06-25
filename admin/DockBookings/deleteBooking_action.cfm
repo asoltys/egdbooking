@@ -111,7 +111,7 @@ AND 	(UserCompanies.Approved = 1)
 		<cfmail to="#getBooking.Email#" from="#Session.AdminEmail#" subject="Booking #variables.actionCap# - #language.subject#" type="html">
 <p>Your dock booking for #getBooking.VesselName# from #LSDateFormat(getBooking.startDate, 'mmm d, yyyy')# to #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')# has been #variables.actionPast#.</p>
 <p>Esquimalt Graving Dock</p>
-<br>
+<br />
 <cfif variables.actionPastCap eq "Cancelled">
 <p>Votre r&eacute;servation de cale s&egrave;che pour #getBooking.VesselName# du #LSDateFormat(getBooking.startDate, 'mmm d, yyyy')# au #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')# a &eacute;t&eacute; annul&eacute;e.</p>
 <cfelse>
