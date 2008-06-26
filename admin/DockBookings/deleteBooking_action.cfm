@@ -83,6 +83,7 @@ WHERE   Bookings.BookingID = '#Form.BookingID#'
 <cfelse>
 	<!--- booking agent is valid --->
 	<cfif DateCompare(PacificNow, getBooking.EndDate, 'd') EQ -1>
+		<!--- booking is in the future, so send notification --->
 		<cfmail to="#getBooking.Email#" from="#Session.AdminEmail#" subject="Booking #actionCap.eng# - R&eacute;servation #actionPast.fra#" type="html">
 		<cfoutput>
 <p>Your dock booking for #getBooking.VesselName# from #LSDateFormat(getBooking.startDate, 'mmm d, yyyy')# to #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')# has been #actionPast.eng#.</p>
