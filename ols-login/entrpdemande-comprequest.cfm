@@ -287,7 +287,7 @@
 						<cfif lang EQ 'fra'></div><br />
 						<div align="right"></cfif>
 						<input type="button" onclick="self.location.href='addUser.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#'" value="#language.editProfile#" class="textbutton" />
-						<input type="button" onclick="self.location.href='login.cfm?lang=#lang#'" value="#language.cancel#" class="textbutton" />
+						<input type="button" onclick="self.location.href='ols-login.cfm?lang=#lang#'" value="#language.cancel#" class="textbutton" />
 						</div>
 					</cfform>
 				</CFOUTPUT>
