@@ -55,7 +55,7 @@
 		AND	UserCompanies.UserID = '#session.UserID#'
 </cfquery>
 
-<cfif lang EQ 'e'>
+<cfif lang EQ 'eng'>
 	<cfquery name="getFees" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	item, serviceE AS service, fee, abbreviation, flex
 		FROM	TariffFees
