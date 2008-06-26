@@ -47,7 +47,7 @@
 <META name="dcterms.modified" SCHEME="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
 <META name="description" content="Allows user to view bookings in a given range in MS Project style.">
 <META name="keywords" content="">
-<META name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
+<META name="pwgsc.contact.email" content="questions@tpsgc-pwgsc.gc.ca" />
 <!-- METADATA ENDS | FIN DES METADONNEES -->
 <!-- TEMPLATE SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS DU GABARIT -->
 <cfoutput>
