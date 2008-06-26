@@ -61,6 +61,7 @@ textarea, .textField {
 
 .conflictBookings th, .waitlistBookings th {
 	border-bottom: 1px solid #000000;
+	background-color: #EEEEEE;
 }
 
 h2.conflict {
