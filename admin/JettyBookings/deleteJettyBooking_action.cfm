@@ -4,27 +4,28 @@
 	WHERE	BookingID = '#Form.BookingID#'
 </cfquery>
 
+<!--- get the details for the booking --->
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-SELECT	Bookings.StartDate, Bookings.EndDate, Users.Email, Vessels.Name AS VesselName
+SELECT	Bookings.StartDate, Bookings.EndDate, Users.Email, Vessels.Name AS VesselName, Companies.Name as CompanyName, UserCompanies.Deleted as UserRemovedFromComp, Users.Deleted as UserDeleted, Companies.Deleted as CompanyDeleted, Companies.Approved as CompanyApproved, UserCompanies.Approved as UserLinkedToComp
 FROM	Bookings INNER JOIN Vessels ON 
 		Bookings.VesselID = Vessels.VesselID INNER JOIN UserCompanies ON
 		Vessels.CompanyID = UserCompanies.CompanyID INNER JOIN Companies ON 
 		Vessels.CompanyID = Companies.CompanyID INNER JOIN Users ON
 		Bookings.UserID = Users.UserID AND UserCompanies.UserID = Users.UserID
-WHERE   (Bookings.BookingID = '#Form.BookingID#') 
-AND 	(UserCompanies.Deleted = 0) 
-AND 	(Users.Deleted = 0) 
-AND 	(Companies.Deleted = 0) 
-AND 	(Companies.Approved = 1) 
-AND 	(UserCompanies.Approved = 1)
+WHERE   Bookings.BookingID = '#Form.BookingID#'
 </cfquery>
 
-<cfif DateCompare(PacificNow, getBooking.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBooking.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1)>
-	<cfset variables.actionCap = "Cancel">
-	<cfset variables.actionPast = "cancelled">
-<cfelse>
-	<cfset variables.actionCap = "Delete">
-	<cfset variables.actionPast = "deleted">
+<cfif getBooking.RecordCount NEQ 0>
+	<!--- if the booking is in the past, then called it "deleted"; if it is in the future or ongoing, call it "cancelled" --->
+	<cfif DateCompare(PacificNow, getBooking.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBooking.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1)>
+		<cfset actionCap.eng = "Cancel">
+		<cfset actionPast.eng = "cancelled">
+		<cfset actionPast.fra = "annul&eacute;e">
+	<cfelse>
+		<cfset actionCap.eng = "Delete">
+		<cfset actionPast.eng = "deleted">
+		<cfset actionPast.fra = "supprim&eacute;e">
+	</cfif>
 </cfif>
 
 <!--- URL tokens set-up.  Do not edit unless you KNOW something is wrong.
@@ -59,54 +60,50 @@ AND 	(UserCompanies.Approved = 1)
 	<cfset variables.dateValue = "">
 </cfif>
 
-<cfif getBooking.RecordCount EQ 0>
-	<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	Companies.Name AS CompanyName, StartDate, EndDate, Vessels.Name AS VesselName
-		FROM	Bookings INNER JOIN Vessels ON 
-				Bookings.VesselID = Vessels.VesselID INNER JOIN Companies ON 
-				Vessels.CompanyID = Companies.CompanyID
-		WHERE   (Vessels.Deleted = 0)
-		AND		(Companies.Deleted = 0)
-		AND		(Bookings.BookingID = '#Form.BookingID#')
-	</cfquery>
+<cfset validAgent = 1>
+<cfif getBooking.RecordCount NEQ 0>
+	<!--- check if the user and the company who made the original booking is still kicking around --->
+	<cfif getBooking.userDeleted NEQ 0 OR
+		  getBooking.userRemovedFromComp NEQ 0 OR
+		  getBooking.companyDeleted NEQ 0 OR
+		  getBooking.userLinkedToComp NEQ 1 OR
+		  getBooking.companyApproved NEQ 1>
+		<cfset validAgent = 0>
+	</cfif>
+</cfif>
+
+<cfif NOT validAgent>
+	<!--- no email notification needs to be sent; go straight to success page, but let the admin know --->
 	<!--- create structure for sending to mothership/success page. --->
-	<cfset Session.Success.Breadcrumb = "<A href='..admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#'>Jetty Management</A> &gt; <cfoutput>#variables.actionCap#</cfoutput> Jetty Booking">
-	<cfset Session.Success.Title = "<cfoutput>#variables.actionCap#</cfoutput> Jetty Booking">
-	<cfset Session.Success.Message = "Booking for <b>#getCompany.vesselName#</b> from #LSDateFormat(CreateODBCDate(getCompany.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getCompany.endDate), 'mmm d, yyyy')# has been <cfoutput>#variables.actionPast#</cfoutput>.  The agent that made this booking is no longer associated with #getCompany.CompanyName#. Please notify the company of the <cfoutput>#variables.actionPast#</cfoutput> booking.">
-	<cfset Session.Success.Back = "Back to #url.referrer#">
-	<cfset Session.Success.Link = "#returnTo#?#urltoken#&bookingid=#form.bookingID##variables.dateValue#">
+	<cfset Session.Success.Message = "Booking for <b>#getCompany.vesselName#</b> from #LSDateFormat(CreateODBCDate(getCompany.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getCompany.endDate), 'mmm d, yyyy')# has been #actionPast.eng#.  The agent that made this booking is no longer associated with #getCompany.CompanyName#. Please notify the company of the #actionPast.eng# booking.">
 <cfelse>
+	<!--- booking agent is valid --->
 	<cfif DateCompare(PacificNow, getBooking.EndDate, 'd') EQ -1>
-	<cflock throwontimeout="no" scope="session" timeout="30" type="readonly">
-		<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			SELECT	Email
-			FROM	Users
-			WHERE	UserID = '#session.userID#'
-		</cfquery>
-	</cflock>
-	
-	<cfoutput>
+		<!--- booking is in the future, so send notification --->	
 		<cfmail to="#getBooking.Email#" from="#Session.AdminEmail#" subject="Booking Cancelled - R&eacute;servation annul&eacute;e" type="html">
-<p>Your jetty booking for #getBooking.VesselName# from #LSDateFormat(getBooking.startDate, 'mmm d, yyyy')# to #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')# has been cancelled.</p>
+		<cfoutput>
+<p>Your jetty booking for #getBooking.VesselName# from #LSDateFormat(getBooking.startDate, 'mmm d, yyyy')# to #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')# has been #actionPast.eng#.</p>
 <p>Esquimalt Graving Dock</p>
 <br />
-<p>Votre r&eacute;servation de jet&eacute;e pour #getBooking.VesselName# du #LSDateFormat(getBooking.startDate, 'mmm d, yyyy')# au #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')# a &eacute;t&eacute; annul&eacute;e.</p>
+<p>Votre r&eacute;servation de jet&eacute;e pour #getBooking.VesselName# du #LSDateFormat(getBooking.startDate, 'mmm d, yyyy')# au #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')# a &eacute;t&eacute; #actionPast.fra#.</p>
 <p>Cale s&egrave;che d'Esquimalt</p>
+		</cfoutput>
 		</cfmail>
-	</cfoutput>
 	</cfif>
 	
 	<!--- create structure for sending to mothership/success page. --->
-	<cfset Session.Success.Breadcrumb = "<A href='..admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#'>Jetty Management</A> &gt; <cfoutput>#variables.actionCap#</cfoutput> Jetty Booking">
-	<cfset Session.Success.Title = "<cfoutput>#variables.actionCap#</cfoutput> Jetty Booking">
+	<cfset Session.Success.Message = "Booking for <b>#getBooking.vesselName#</b> from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')# has been #actionPast.eng#.">
 	<cfif DateCompare(PacificNow, getBooking.EndDate, 'd') EQ -1>
-		<cfset Session.Success.Message = "Booking for <b>#getBooking.vesselName#</b> from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')# has been <cfoutput>#variables.actionPast#</cfoutput>.  Email notification of this cancellation has been sent to the agent.">
-	<cfelse>
-		<cfset Session.Success.Message = "Booking for <b>#getBooking.vesselName#</b> from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')# has been <cfoutput>#variables.actionPast#</cfoutput>.">
+		<cfset Session.Success.Message = Session.Success.Message & " Email notification of this cancellation has been sent to the agent.">
 	</cfif>
-	<cfset Session.Success.Back = "Back to #url.referrer#">
-	<cfset Session.Success.Link = "#returnTo#?#urltoken#&bookingid=#form.bookingID##variables.dateValue#">
-	
 </cfif>
+
+<cfset Session.Success.Breadcrumb = "<A href='..admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#'>Jetty Management</A> &gt; #actionCap.eng# Jetty Booking">
+<cfset Session.Success.Title = "#actionCap.eng# Jetty Booking">
+<cfset Session.Success.Back = "Back to #url.referrer#">
+<cfset Session.Success.Link = "#returnTo#?#urltoken#&bookingid=#form.bookingID##variables.dateValue#">
+
+<cfdump var="#session.success.message#">
+
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
