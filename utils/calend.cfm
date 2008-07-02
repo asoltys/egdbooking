@@ -66,7 +66,7 @@
 	<LINK type="text/css" rel="stylesheet" href="<CFOUTPUT>#RootDir#</cfoutput>css/default.css">
 	<CFOUTPUT><STYLE type="text/css">
 		@import url(#RootDir#css/advanced.css);
-		@import url(#RootDir#css/events.css);
+		@import url(#RootDir#css/custom.css);
 	</STYLE></CFOUTPUT>
 	
 	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.Calendar#</title>
@@ -168,7 +168,7 @@ function setDate(day) {
 
 	<table class="calendar" cellpadding="2" cellspacing="0" width="100%">
 		<tr>
-			<td colspan="7" class="calendar small">
+			<td colspan="7">
 				<div align="center" style="font-weight: bold; font-size: 10pt;">
 				<CFSET dummydate = CreateDate(url.year, url.month, 1)>
 				<cfoutput>#LSDateFormat(dummydate, 'mmmm yyyy')#</cfoutput>
@@ -180,7 +180,7 @@ function setDate(day) {
 			<cfoutput>
 			<!--- I'm using May 2005 because the first day is a sunday--->
 			<CFSET dummydate = CreateDate(2005, 5, kounter)>
-				<th class="calendar small">#LSDateFormat(dummydate, 'ddd')#</th>
+				<th>#LSDateFormat(dummydate, 'ddd')#</th>
 			</cfoutput>
 			</cfloop>
 		</tr>
@@ -207,13 +207,13 @@ function setDate(day) {
 				<!--- Otherwise, display the day of the month and increment the value.   --->
 				<cfif (ThisDay IS NOT 0) AND (ThisDay LTE Days)>
 					<cfoutput>
-					<td class="calendar small">
+					<td>
 						<div align="center"><a href="javascript:setDate(#ThisDay#)">#ThisDay#</a></div>
 					</td>
 					</cfoutput>
 					<cfset ThisDay=ThisDay + 1>
 				<cfelse>
-					<td class="calendar small">&nbsp;</td>
+					<td>&nbsp;</td>
 				</cfif>
 			</cfloop>
 			</tr>

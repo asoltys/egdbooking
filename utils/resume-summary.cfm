@@ -38,7 +38,7 @@
 	<meta name=""dc.date.modified"" content=""2005-07-25"">
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.bookingsSummary#</title>
-	<style type=""text/css"" media=""screen,print"">@import url(#RootDir#css/events.css);</style>
+	
 ">
 
 <!-- Start JavaScript Block -->
@@ -144,13 +144,13 @@ function popUp(pageID) {
 
 				<H2><cfoutput>#language.Drydock#</cfoutput></H2>
 				<!-- Begin Dry Docks table -->
-				<TABLE class="calendar" cellpadding="0" cellspacing="0" width="100%">
+				<TABLE class="basic mediumFont">
 					<cfoutput>
 					<TR>
 						<!---TH id="company" class="calendar" style="font-size: 12px; width: 10%;">#language.COMPANYCaps#</TH--->
-						<TH id="section" class="calendar small" style="width: 20%;">#language.SECTIONCaps#</TH>
-						<TH id="docking" class="calendar small" style="width: 40%;">#language.DOCKINGCaps#</TH>
-						<TH id="booking" class="calendar small" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
+						<TH id="section" style="width: 20%;">#language.SECTIONCaps#</TH>
+						<TH id="docking" style="width: 40%;">#language.DOCKINGCaps#</TH>
+						<TH id="booking" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
 					</TR>
 					</cfoutput>
 					<CFIF getDockBookings.RecordCount neq 0>
@@ -158,7 +158,7 @@ function popUp(pageID) {
 						<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
 							<!---TD class="calendar">#VesselLength#M <CFIF Anonymous>Deapsea Vessel<CFELSE>#VesselName#</CFIF></TD--->
 							<!---TD headers="company" class="calendar">#abbreviation#</TD--->
-							<TD headers="section" class="calendar small"><DIV align="center"><DIV align="center"><CFIF Status eq 'c'>
+							<TD headers="section"><DIV align="center"><DIV align="center"><CFIF Status eq 'c'>
 													<CFIF Section1 eq true>1</CFIF>
 													<CFIF Section2 eq true>
 														<CFIF Section1> &amp; </CFIF>
@@ -169,8 +169,8 @@ function popUp(pageID) {
 												<CFELSE>#language.tentative#
 												</CFIF>
 												</DIV></TD>
-							<TD headers="docking" class="calendar small">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
-							<TD headers="booking" class="calendar small">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></TD>
+							<TD headers="docking">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
+							<TD headers="booking">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></TD>
 						</TR>
 						</CFOUTPUT>
 					</TABLE>
@@ -182,13 +182,13 @@ function popUp(pageID) {
 				
 				<h2><cfoutput>#language.northLandingWharf#</cfoutput></h2>
 				<!-- Begin North Jetty table -->
-				<TABLE class="calendar" cellpadding="0" cellspacing="0" width="100%">
+				<TABLE class="basic mediumFont">
 					<cfoutput>
 					<TR>
 						<!---TH id="company2" class="calendar" style="font-size: 12px; width: 10%;">#language.COMPANYCaps#</TH--->
-						<TH id="section2" class="calendar small" style="width: 20%;">#language.SECTIONCaps#</TH>
-						<TH id="docking2" class="calendar small" style="width: 40%;">#language.DOCKINGCaps#</TH>
-						<TH id="booking2" class="calendar small" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
+						<TH id="section2" style="width: 20%;">#language.SECTIONCaps#</TH>
+						<TH id="docking2" style="width: 40%;">#language.DOCKINGCaps#</TH>
+						<TH id="booking2" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
 					</TR>
 					</cfoutput>
 					<CFIF getNJBookings.RecordCount neq 0>
@@ -196,11 +196,11 @@ function popUp(pageID) {
 						<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
 							<!---TD class="calendar">#VesselLength#M <CFIF Anonymous eq true>Deapsea Vessel<CFELSE>#VesselName#</CFIF></TD--->
 							<!---TD headers="company2" class="calendar">#abbreviation#</TD--->
-							<TD headers="section2" class="calendar small"><DIV align="center"><CFIF Status eq 'c'>#language.booked#
+							<TD headers="section2"><DIV align="center"><CFIF Status eq 'c'>#language.booked#
 														<CFELSEIF Status eq 't'>#language.tentative#
 														</CFIF></DIV></TD>
-							<TD headers="docking2" class="calendar small">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
-							<TD headers="booking2" class="calendar small">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></TD>
+							<TD headers="docking2">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
+							<TD headers="booking2">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></TD>
 						</TR>
 						</CFOUTPUT>
 					</TABLE>
@@ -212,13 +212,13 @@ function popUp(pageID) {
 				
 				<h2><cfoutput>#language.southJetty#</cfoutput></h2>
 				<!-- Begin South Jetty table -->
-				<TABLE class="calendar" cellpadding="0" cellspacing="0" width="100%">
+				<TABLE class="basic mediumFont">
 					<cfoutput>
 					<TR>
 						<!---TH id="company3" class="calendar" style="font-size: 12px; width: 10%;">#language.COMPANYCaps#</TH--->
-						<TH id="section3" class="calendar small" style="width: 20%;">#language.SECTIONCaps#</TH>
-						<TH id="docking3" class="calendar small" style="width: 40%;">#language.DOCKINGCaps#</TH>
-						<TH id="booking3" class="calendar small" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
+						<TH id="section3" style="width: 20%;">#language.SECTIONCaps#</TH>
+						<TH id="docking3" style="width: 40%;">#language.DOCKINGCaps#</TH>
+						<TH id="booking3" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
 					</TR>
 					</cfoutput>
 					<CFIF getSJBookings.RecordCount neq 0>
@@ -226,12 +226,12 @@ function popUp(pageID) {
 						<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
 							<!---TD class="calendar">#VesselLength#M <CFIF Anonymous eq true>Deapsea Vessel<CFELSE>#VesselName#</CFIF></TD--->
 							<!---TD headers="company3" class="calendar">#abbreviation#</TD--->
-							<TD headers="section3" class="calendar small"><DIV align="center"><CFIF Status eq 'c'>#language.booked#
+							<TD headers="section3"><DIV align="center"><CFIF Status eq 'c'>#language.booked#
 														<CFELSEIF Status eq 't'>#language.tentative#
 														<CFELSE>#language.pending#
 														</CFIF></DIV></TD>
-							<TD headers="docking3" class="calendar small">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
-							<TD headers="booking3" class="calendar small">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></TD>
+							<TD headers="docking3">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
+							<TD headers="booking3">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></TD>
 						</TR>
 						</CFOUTPUT>
 					</TABLE>
