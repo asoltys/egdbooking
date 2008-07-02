@@ -1,26 +1,32 @@
-/* These CSS entries are only loaded by a <style>@import</style> tag,
-   which is not supported by browsers that don't support thees 
-	classes anyway. */
+/*
+   Site-specific Advanced Style-sheet for Esquimalt Graving 
+   Dock Booking
+   
+   Date Created: 2008-06-27
+   Creator: lois.chan@pwgsc.gc.ca
+   
+   This style-sheet is maintained by AMI&TOS Pacific for 
+   EGD Booking. Updates to this style sheet will be at
+   the discretion of AMI&TOS Pacific.
 
-img {
-	border: none;
-}
+   --------------------------------------------------------
+   
+   These CSS entries are only loaded by a
+   <style>@import</style> tag, which is not supported by 
+   browsers that don't support these classes anyway.
+   
+*/
 
-form, textarea, .textField, select, ul, li, ol {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 100%;
-}
-
+/* Removes margins on hidden and form elements because they
+   make the forms look unnatural. */
 form, hidden {
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
 
-textarea, .textField {
-	background-color: white;
-	border: 1px solid black;
-}
-
+/* Make a chunk of text look like a button by drawing a 
+   border around it. Can be used with any class elements,
+   including DIV, SPAN, and A. */
 .textbutton {
 	font-family: sans-serif, arial;
 	font-size: 85%;
@@ -33,46 +39,15 @@ textarea, .textField {
 	white-space: nowrap;
 }
 
-/* #FFFCFC, if shown on a 256-colour screen, would be white.  No big deal. */
+/* Increases padding on rows that have inline text 
+   buttons. */
+tr.containsbutton td {
+	padding: 5px;
+}
+
+/* Highlights the button onmouseover. #FFFCFC, when viewed 
+   on a 256-colour screen, would be white. */
 .textbutton:hover {
 	background: #FFFCFC;
 	text-decoration: none;
-}
-
-
-.bookingDetails {
-	border-left: 1px solid #369;
-	border-bottom: 1px solid #369;
-}
-
-.bookingDetails td {
-	border-top: 1px solid #369;
-	border-right: 1px solid #369;
-	font-family: sans-serif, arial;
-	font-size: 100%;
-	padding-left: 5px;
-}
-
-.conflictBookings, .waitlistBookings {
-	width: 100%;
-	font-size: 90%;
-	font-weight: normal;
-}
-
-.conflictBookings th, .waitlistBookings th {
-	border-bottom: 1px solid #000000;
-	background-color: #EEEEEE;
-}
-
-h2.conflict {
-	font-size: 120%;
-	margin-bottom: 0px;
-}
-
-.waitList {
-	padding: 0px 5px 4px 5px;
-	margin: 10px 0px 0px 0px;
-	background-color: #BCD;
-	font-size: 10pt;
-	border: 1px solid #369;
 }

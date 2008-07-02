@@ -51,7 +51,10 @@
 <!-- DEBUT DES SCRIPTS/CSS PERSONNALISES | CUSTOM SCRIPTS/CSS BEGIN -->
 <LINK href="/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
 <LINK href="/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
-<STYLE type="text/css" media="screen,print">@import url(<cfoutput>#RootDir#</cfoutput>css/advanced.css);</STYLE>
+<cfoutput>
+<LINK href="#RootDir#css/custom.css" media="screen, print" rel="stylesheet" type="text/css" />
+<STYLE type="text/css" media="screen,print">@import url(#RootDir#css/advanced.css);</STYLE>
+</cfoutput>
 <!-- FIN DES SCRIPTS/CSS PERSONNALISES | CUSTOM SCRIPTS/CSS END -->
 <!-- DEBUT DU CSS DU GABARIT POUR L'IMPRESSION | TEMPLATE PRINT CSS BEGINS -->
 <LINK href="/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />

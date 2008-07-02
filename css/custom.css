@@ -1,0 +1,182 @@
+/*
+   Site-specific Style-sheet for Esquimalt Graving 
+   Dock Booking 
+   
+   Date Created: 2008-06-27
+   Creator: lois.chan@pwgsc.gc.ca
+   
+   This style-sheet is maintained by AMI&TOS Pacific for 
+   EGD Booking. Updates to this style sheet will be at
+   the discretion of AMI&TOS Pacific.
+
+   --------------------------------------------------------
+   
+   These custom classes are used in all of the EGDBk site.
+   
+*/
+
+/* GENERAL CONTROL DEFINITIONS ------------------------- */
+
+/* Overrides the institution definition of colLayout
+   having 100% height, which is buggy on our test 
+   server. */
+div.core div.colLayout {
+	height: auto;
+}
+
+/* Adds a margin to the top that is the same size as the
+   bottom margin. */
+table.basic {
+	margin-top: 1em;
+}
+
+/*  */
+table.basic td, table.basic th {
+	padding: 1px 3px 1px 3px;
+}
+
+/* This is necessary because some tables are found inside
+   coloured containers. */
+table tr {
+	background-color: #fff;
+}
+
+/* CALENDAR TABLE -------------------------------------- */
+
+/* Fixes height of each row of the calendar. */
+tr.week {
+	height: 84px;
+}
+
+/* These classes are used together to construct a calendar.
+   The table draws the left bottom borders. The other borders are
+   left up to the individial cells to draw. */
+table.calendar {
+	font-size: 115%;
+	text-align: left;
+	border-left: 1px solid #369;
+	border-bottom: 1px solid #369;
+	border-collapse: collapse;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+table.calendar th {
+	text-align: center;
+	vertical-align: top;
+	width: 14%;
+	padding: 2px;
+	background-color: #BBCCDD;
+	font-size: 80%;
+	font-weight: bold;
+	border-top: 1px solid #369;
+	border-right: 1px solid #369;
+} 
+table.calendar td {
+	background-color: #FFFFFF;
+	padding: 1px 3px 1px 3px;
+	font-size: 80%;
+	text-align: left;
+	vertical-align: top;
+	border-top: 1px solid #369;
+	border-right: 1px solid #369;
+}
+
+/* These are smallified version of the calendar table for 
+   smaller calendars. */
+table.calendar.small {
+	font-size: 90%;
+}
+table.calendar.small th {
+	font-size: 80%;
+}
+table.calendar.small td {
+	height: 15px;
+	font-size: 75%;
+}
+
+/* Table layout for legends and keys. */
+table.keytable {
+	border: 1px solid #cccccc;
+	width: 300px;
+	font-size: 90%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* STATUSES -------------------------------------------- */
+/* These have been given the div.center specificity because
+   otherwise div.center has a definition for class A,
+   which renders the links in the calendar all the same
+   uninformative colouration. */
+div.center .confirmed, div.center a.confirmed, div.center a.confirmed:visited, div.center a.confirmed:hover {
+	border : none;
+	color: #990000;
+}
+div.center .tentative, div.center a.tentative, div.center a.tentative:visited, div.center a.tentative:hover {
+	border: none;
+	color: #0033CC;
+}
+div.center .pending, div.center a.pending, div.center a.pending:visited, div.center a.pending:hover {
+	border: none;
+	color: #009933;
+}
+.cancelled, .cancelled:visited, .cancelled:hover {
+	color: #FF0000;
+}
+
+/* BOOKING DETAILS ------------------------------------- */
+/* Booking details organised in form of table. These 
+   classes work in concert to create the table. The table  */
+table.bookingDetails {
+	border-left: 1px solid #369;
+	border-bottom: 1px solid #369;
+	margin-bottom: 10px;
+	border-collapse: collapse;
+}
+
+table.bookingDetails td {
+	border-top: 1px solid #369;
+	border-right: 1px solid #369;
+	font-size: 100%;
+	padding-left: 5px;
+}
+
+/* DOCK SECTIONS --------------------------------------- */
+.sec1 { background-color: #FFFFCC; }
+.sec2 { background-color: #FFCCFF; }
+.sec3 { background-color: #99FFFF; }
+.maintenance, a.maintenance, a.maintenance:visited, maintenance:hover {
+	background-color: #ddd;
+	color: #FFFFFF;
+}
+
+/* CONFLICTS AND WAITLISTS ----------------------------- */
+
+/* Smaller-than-normal H2 definition so the page doesn't 
+   look so ridiculous with three or four large headings. */
+h2.conflict {
+	font-size: 120%;
+	margin-bottom: 0px;
+}
+
+/*  */
+.conflictBookings, .waitlistBookings {
+	width: 100%;
+	font-size: 90%;
+	font-weight: normal;
+}
+
+/*  */
+.conflictBookings th, .waitlistBookings th {
+	border-bottom: 1px solid #000000;
+	background-color: #EEEEEE;
+}
+
+/*  */
+div.waitList {
+	padding: 0px 5px 4px 5px;
+	margin: 10px 0px 0px 0px;
+	background-color: #FFC;
+	font-size: 10pt;
+	border: 1px solid #eee;
+}
