@@ -130,7 +130,7 @@ function EditSubmit ( selectedform )
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_confirm.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
 				
-				<table width="100%" style="font-size:10pt;padding-left:10px;">
+				<table width="100%" style="padding-left:10px;">
 					<tr>
 						<td width="30%" id="agent_header">#language.Agent#:</td>
 						<td width="70%" headers="agent_header">
@@ -210,7 +210,7 @@ function EditSubmit ( selectedform )
 				<cfoutput>
 				<p>#language.daysToBook#  #language.dateInclusive#</p>
 				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_confirm2.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreqB" preservedata="Yes">
-				<table width="100%" style="font-size:10pt;padding-left:10px;">
+				<table width="100%" style="padding-left:10px;">
 					<tr>
 						<td id="comp">
 							#language.Company#:

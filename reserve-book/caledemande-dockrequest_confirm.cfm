@@ -219,8 +219,8 @@
 				</tr>
 				</table>
 				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
-				<table align="center" style="font-size:10pt;">
-					<tr><td align="right" width="40%"><div style="font-size:10pt;font-weight:bold;">#language.new#:</div></td></tr>
+				<table align="center">
+					<tr><td align="right" width="40%"><div style="font-weight:bold;">#language.new#:</div></td></tr>
 					<tr>
 						<td align="left" id="vessel">&nbsp;&nbsp;&nbsp;#language.vessel#:</td>
 						<td width="60%" headers="vessel"><input type="hidden" name="vesselID" value="#Variables.VesselID#" />#getVessel.VesselName#</td>

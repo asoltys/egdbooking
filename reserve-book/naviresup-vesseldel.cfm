@@ -110,7 +110,7 @@
 				
 						<cfif getVesselDockBookings.recordCount GT 0>
 							<cfoutput>
-							<table style="padding-left:20px;font-size:10pt;" width="100%">
+							<table style="padding-left:20px;" width="100%">
 								<tr><td><h2>#language.Drydock#</i></strong></h2>
 								<tr>
 									<td width="25%" id="start"><strong>#language.StartDate#</strong></td>
@@ -134,7 +134,7 @@
 				
 						<cfif getVesselJettyBookings.recordCount GT 0>
 							<cfoutput>
-							<table style="padding-left:20px;font-size:10pt;" width="100%">
+							<table style="padding-left:20px;" width="100%">
 								<tr><td><h2>#language.Jetty#</i></strong></h2>
 								<tr>
 									<td width="25%" id="start"><strong>#language.StartDate#</strong></td>
