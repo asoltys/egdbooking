@@ -21,7 +21,7 @@
 		<cfoutput>
 			<!---th class="calendar">#Left(DaysofWeek[kounter],3)#</th--->
 			<CFSET dummydate = CreateDate(2005, 5, doh)>
-			<th class="calendar">#LSDateFormat(dummydate, 'ddd')#</th>
+			<th>#LSDateFormat(dummydate, 'ddd')#</th>
 		</cfoutput>
 		</cfloop>
 	</tr>
@@ -31,7 +31,7 @@
 	<cfset WeekCounter = 0>
 	<cfset FirstDay = "No">
 	<cfloop condition="Variables.DateCounter LT ArrayLen(DaysofMonth)">
-	<tr class="fixedheight">
+	<tr class="week">
 		<cfset WeekCounter = WeekCounter + 1>
 		<cfloop index="kounter" from="1" to="#ArrayLen(DaysofWeek)#" step="1">
 			<cfif WeekCounter EQ 1>
@@ -46,7 +46,7 @@
 			<cfelse>
 				<cfset DateCounter = DateCounter + 1>
 			</cfif>
-			<td class="calendar">
+			<td>
 				<cfif not (Variables.DateCounter IS 0) AND NOT (Variables.DateCounter GT Variables.LastDayofMonth)>
 					<cfset taday = "#url.month#" & "/" & "#DaysofMonth[DateCounter]#" & "/" & "#url.year#">
 					<cfoutput><a href="javascript:self.location.href='detail.cfm?lang=#lang#&amp;date=#taday#';" title="#language.detailsFor# #taday#"><b>#DaysofMonth[DateCounter]#</b></a></cfoutput>
@@ -146,43 +146,31 @@
 					</cfoutput>
 	
 					<cfoutput>
-					
-						<table align="center" WIDTH="100%" CELLPADDING="0" STYLE="font-size: 8pt; ">
-							<CFLOOP from="1" to="3" index="bloop">
-								<tr>
-									<CFSET sec = "sec" & #bloop#>
-									<CFIF Evaluate(sec).maint eq true>
-										<td class="maintenance" nowrap><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="maintenance" title="#language.maintenance#">#Left(language.maintenance, magicnum)#...</a></td>
-									<CFELSEIF Evaluate(sec).name neq "">
-										<td class="#sec#" nowrap><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="confirmed" title="#Evaluate(sec).name#">#Left(Evaluate(sec).name, magicnum)#...</a></td>
-									<CFELSE>
-										<td>&nbsp;</td>
-									</CFIF>
-								</tr>
-							</CFLOOP>
-							<tr>
-								<cfif tent.num neq 0>
-									<td nowrap><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="tentative" title="#tent.name#">#Left(tent.name, magicnum)#...</a></td>
-								<cfelse>
-									<td>&nbsp;</td>
-								</cfif>
-							</tr>
-							<tr>
-								<cfif pend.num neq 0>
-									<td nowrap><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#pend.name#">#Left(pend.name, magicnum)#...</a></td>
-								<cfelse>
-									<td>&nbsp;</td>
-								</cfif>
-							</tr>
-						</table>
-	
+						
+						<CFLOOP from="1" to="3" index="bloop">
+								
+							<CFSET sec = "sec" & #bloop#>
+							<CFIF Evaluate(sec).maint eq true>
+								<div class="maintenance"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="maintenance" title="#language.maintenance#">#Left(language.maintenance, magicnum)#...</a></div>
+							<CFELSEIF Evaluate(sec).name neq "">
+								<div class="#sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="confirmed" title="#Evaluate(sec).name#">#Left(Evaluate(sec).name, magicnum)#...</a></div>
+							<CFELSE>
+								<div>&nbsp;</div>
+							</CFIF>
+						</CFLOOP>
+						<cfif tent.num neq 0>
+							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="tentative" title="#tent.name#">#Left(tent.name, magicnum)#...</a></div>
+						<cfelse>
+							<div>&nbsp;</div>
+						</cfif>
+						<cfif pend.num neq 0>
+							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#pend.name#">#Left(pend.name, magicnum)#...</a></div>
+						<cfelse>
+							<div>&nbsp;</div>
+						</cfif>
 					</cfoutput>
 				<cfelse>
-					<table WIDTH="100%">
-						<tr><td class="noborder">&nbsp;</td></tr>
-						<tr><td class="noborder">&nbsp;</td></tr>
-						<tr><td class="noborder">&nbsp;</td></tr>
-					</table>
+					&nbsp;
 				</cfif>
 			</td>
 		</cfloop>

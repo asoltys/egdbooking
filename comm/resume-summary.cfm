@@ -38,7 +38,7 @@
 	<meta name=""dc.date.modified"" content=""2005-07-25"">
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#</title>
-	<style type=""text/css"" media=""screen,print"">@import url(#RootDir#css/events.css);</style>
+	
 ">
 
 <!--- <cfoutput>
@@ -168,13 +168,13 @@ WHERE	SouthJetty = 1
 				<H2><cfoutput>#language.Drydock#</cfoutput></H2>
 				
 				<!-- Begin Dry Docks table -->
-				<TABLE class="calendar" cellpadding="0" cellspacing="0" width="100%">
+				<TABLE class="basic mediumFont">
 					<cfoutput>
 					<TR>
-						<TH id="vessel" class="calendar small" style="width: 30%;">#language.VESSELCaps#</TH>
-						<TH id="section" class="calendar small" style="width: 10%;">#language.SECTIONCaps#</TH>
-						<TH id="docking" class="calendar small" style="width: 30%;">#language.DOCKINGCaps#</TH>
-						<TH id="booking" class="calendar small" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
+						<TH id="vessel" style="width: 30%;">#language.VESSELCaps#</TH>
+						<TH id="section" style="width: 10%;">#language.SECTIONCaps#</TH>
+						<TH id="docking" style="width: 30%;">#language.DOCKINGCaps#</TH>
+						<TH id="booking" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
 					</TR>
 					</cfoutput>
 					<CFIF getDockBookings.RecordCount neq 0>
@@ -196,30 +196,25 @@ WHERE	SouthJetty = 1
 							<cfset Variables.count = EVALUATE(countQName)>
 				
 						<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
-							<TD headers="vessel" class="calendar small"><cfif #EndHighlight# GTE PacificNow>* </cfif><ABBR title="#CompanyName#">#Abbreviation#</ABBR> #VesselLength#M 
+							<TD headers="vessel"><cfif #EndHighlight# GTE PacificNow>* </cfif><ABBR title="#CompanyName#">#Abbreviation#</ABBR> #VesselLength#M 
 								<CFIF Anonymous 
 									AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
 									AND Variables.count eq 0 
 									AND Status neq 'c'>#language.deepsea#<CFELSE>#VesselName#</CFIF></TD>
-							<TD headers="section" class="calendar small"><DIV align="center">
+							<TD headers="section"><DIV align="center">
 												<CFIF Status eq 'c'>
 													<CFIF Section1 eq true>1</CFIF>
-													<CFIF Section2 eq true>
-														<CFIF Section1> &amp; </CFIF>
-													2</CFIF>
-													<CFIF Section3 eq true>
-														<CFIF Section1 OR Section2> &amp; </CFIF>
-													3
+													<CFIF Section2 eq true><CFIF Section1> &amp; </CFIF>2</CFIF>
+													<CFIF Section3 eq true><CFIF Section1 OR Section2> &amp; </CFIF>3
 												</CFIF>
 												<CFELSE>
-													<CFIF Status eq 't'>
-														#language.Tentative#
+													<CFIF Status eq 't'>#language.Tentative#
 													<CFELSE> #language.Pending#
 													</CFIF>
 												</CFIF>
 												</DIV></TD>
-							<TD headers="docking" class="calendar small">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
-							<TD headers="booking" class="calendar small">#LSDateFormat(BookingTime, 'mmm d, yyyy')#@#LSTimeFormat(BookingTime, 'HH:mm')#</TD>
+							<TD headers="docking">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
+							<TD headers="booking">#LSDateFormat(BookingTime, 'mmm d, yyyy')#@#LSTimeFormat(BookingTime, 'HH:mm')#</TD>
 						</TR>
 						</CFOUTPUT>
 					</TABLE>
@@ -231,13 +226,13 @@ WHERE	SouthJetty = 1
 				
 				<h2><cfoutput>#language.NorthLandingWharf#</cfoutput></h2>
 				<!-- Begin North Jetty table -->
-				<TABLE class="calendar" cellpadding="0" cellspacing="0" width="100%"	>
+				<TABLE class="basic mediumFont">
 					<cfoutput>
 					<TR>
-						<TH id="vessel2" class="calendar small" style="width: 30%;">#language.VESSELCaps#</TH>
-						<TH id="section2" class="calendar small" style="width: 10%;">#language.SECTIONCaps#</TH>
-						<TH id="docking2" class="calendar small" style="width: 30%;">#language.DOCKINGCaps#</TH>
-						<TH id="booking2" class="calendar small" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
+						<TH id="vessel2" style="width: 30%;">#language.VESSELCaps#</TH>
+						<TH id="section2" style="width: 10%;">#language.SECTIONCaps#</TH>
+						<TH id="docking2" style="width: 30%;">#language.DOCKINGCaps#</TH>
+						<TH id="booking2" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
 					</TR>
 					</cfoutput>
 					<CFIF getNJBookings.RecordCount neq 0>
@@ -259,17 +254,17 @@ WHERE	SouthJetty = 1
 							<cfset Variables.count = EVALUATE(countQName)>
 				
 						<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
-							<TD headers="vessel2" class="calendar small"><cfif #EndHighlight# GTE PacificNow>* </cfif><ABBR title="#CompanyName#">#Abbreviation#</ABBR> #VesselLength#M 
+							<TD headers="vessel2"><cfif #EndHighlight# GTE PacificNow>* </cfif><ABBR title="#CompanyName#">#Abbreviation#</ABBR> #VesselLength#M 
 								<CFIF Anonymous 
 									AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
 									AND Variables.count eq 0 
 									AND Status neq 'c'>#language.deepsea#<CFELSE>#VesselName#</CFIF></TD>
-							<TD headers="section2" class="calendar small"><DIV align="center"><CFIF Status eq 'c'>#language.Booked#
+							<TD headers="section2"><DIV align="center"><CFIF Status eq 'c'>#language.Booked#
 														<cfelseif Status eq 't'>#language.Tentative#
 														<CFELSE>#language.Pending#
 														</CFIF></DIV></TD>
-							<TD headers="docking2" class="calendar small">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
-							<TD headers="booking2" class="calendar small">#LSDateFormat(BookingTime, 'mmm d, yyyy')#@#LSTimeFormat(BookingTime, 'HH:mm')#</TD>
+							<TD headers="docking2">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
+							<TD headers="booking2">#LSDateFormat(BookingTime, 'mmm d, yyyy')#@#LSTimeFormat(BookingTime, 'HH:mm')#</TD>
 						</TR>
 						</CFOUTPUT>
 					</TABLE>
@@ -281,13 +276,13 @@ WHERE	SouthJetty = 1
 				
 				<h2><cfoutput>#language.SouthJetty#</cfoutput></h2>
 				<!-- Begin South Jetty table //-->
-				<TABLE class="calendar" cellpadding="0" cellspacing="0" width="100%">
+				<TABLE class="basic mediumFont">
 					<cfoutput>
 					<TR>
-						<TH id="vessel3" class="calendar small" style="width: 30%;">#language.VESSELCaps#</TH>
-						<TH id="section3" class="calendar small" style="width: 10%;">#language.SECTIONCaps#</TH>
-						<TH id="docking3" class="calendar small" style="width: 30%;">#language.DOCKINGCaps#</TH>
-						<TH id="booking3" class="calendar small" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
+						<TH id="vessel3" style="width: 30%;">#language.VESSELCaps#</TH>
+						<TH id="section3" style="width: 10%;">#language.SECTIONCaps#</TH>
+						<TH id="docking3" style="width: 30%;">#language.DOCKINGCaps#</TH>
+						<TH id="booking3" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
 					</TR>	
 					</cfoutput>
 					<CFIF getSJBookings.RecordCount neq 0>
@@ -309,17 +304,17 @@ WHERE	SouthJetty = 1
 							<cfset Variables.count = EVALUATE(countQName)>
 				
 						<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
-							<TD headers="vessel3" class="calendar small"><cfif #EndHighlight# GTE PacificNow>* </cfif><ABBR title="#CompanyName#">#Abbreviation#</ABBR> #VesselLength#M 
+							<TD headers="vessel3"><cfif #EndHighlight# GTE PacificNow>* </cfif><ABBR title="#CompanyName#">#Abbreviation#</ABBR> #VesselLength#M 
 								<CFIF Anonymous 
 									AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
 									AND Variables.count eq 0 
 									AND Status neq 'c'>#language.deepsea#<CFELSE>#VesselName#</CFIF></TD>
-							<TD headers="section3" class="calendar small"><DIV align="center"><CFIF Status eq 'c'>#language.Booked#
+							<TD headers="section3"><DIV align="center"><CFIF Status eq 'c'>#language.Booked#
 														<CFELSEIF Status eq 't'>#language.tentative#
 														<CFELSE>#language.Pending#
 														</CFIF></DIV></TD>
-							<TD headers="docking3" class="calendar small">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
-							<TD headers="booking3" class="calendar small">#LSDateFormat(BookingTime, 'mmm d, yyyy')#@#LSTimeFormat(BookingTime, 'HH:mm')#</TD>
+							<TD headers="docking3">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
+							<TD headers="booking3">#LSDateFormat(BookingTime, 'mmm d, yyyy')#@#LSTimeFormat(BookingTime, 'HH:mm')#</TD>
 						</TR>
 						</CFOUTPUT>
 					</TABLE>
@@ -329,28 +324,25 @@ WHERE	SouthJetty = 1
 				<cfoutput>#language.noBookings#</cfoutput>
 				</CFIF>
 				
-				<br /><br />
-				
 				<!--- Legend of company abbreviations --->
-				<TABLE class="calendar" cellpadding="0" cellspacing="0" width="80%" align="center">
-				<CAPTION><cfoutput><STRONG>#language.legend#:</STRONG></cfoutput></CAPTION>
+				<TABLE class="basic mediumFont">
+				<CAPTION><cfoutput>#language.legend#:</cfoutput></CAPTION>
 					<TR>
 				<CFOUTPUT query="getCompanies">
-						<TD class="calendar small" width="30%">#Abbreviation# - #CompanyName#</TD>
+						<TD width="30%">#Abbreviation# - #CompanyName#</TD>
 					<CFIF CurrentRow mod 3 eq 0>
 					</TR>
 					<TR>
 					<CFELSEIF CurrentRow eq RecordCount>
 					<!--- finish off the row so the table doesn't look broken --->
 					<CFLOOP index="allegro" from="1" to="#3 - (RecordCount MOD 3)#">
-						<TD class="calendar small">&nbsp;</TD>
+						<TD>&nbsp;</TD>
 					</CFLOOP>
 					</TR>
 					</CFIF>
 				</CFOUTPUT>
 				</TABLE>
 				
-				<br /><br />
 
 			</div>
 

@@ -372,7 +372,7 @@ WHERE	SouthJetty = 1
 	<CFELSEIF CurrentRow eq RecordCount>
 	<!--- finish off the row so the table doesn't look broken --->
 	<CFLOOP index="allegro" from="1" to="#3 - (RecordCount MOD 3)#">
-		<TD class="calendar small">&nbsp;</TD>
+		<TD>&nbsp;</TD>
 	</CFLOOP>
 	</TR>
 	</CFIF>

@@ -48,7 +48,7 @@
 	<meta name=""dc.date.modified"" content=""2005-07-25"">
 	<meta name=""dc.date.created"" content=""2005-07-25"">
 	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.drydockCalendar#</title>
-	<style type=""text/css"" media=""screen,print"">@import url(#RootDir#css/events.css);</style>
+	
 ">
 
 <CFSET Variables.onLoad="setCalendar()">
@@ -124,10 +124,6 @@
 				<CFSET pos="top">
 				<CFINCLUDE template="includes/dock_key.cfm">
 				
-				<!---div class="EventAdd"><a href="bookingRequest.cfm" class="textbutton"><cfoutput>#language.ButtonLabel1#</cfoutput></a></div><br />
-				<div class="EventAdd"><a href="jettyRequest.cfm" class="textbutton"><cfoutput>#language.ButtonLabel3#</cfoutput></a></div><br />
-				<div class="EventAdd"><A href="bookingRequest_choose.cfm" class="textbutton"><cfoutput>Submit New Booking Request</cfoutput></A></div--->
-				
 				<CFIF url.month eq 1>
 					<CFSET prevmonth = 12>
 					<CFSET prevyear = url.year - 1>
@@ -146,44 +142,33 @@
 				
 				
 				<cfoutput>
-				<table width="100%">
-					<tr>
-						<td align="left" width="23%"><a href="calend-cale-dock.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></td>
-						<td align="center">
-							<form id="selection" name="selection" action="" style="margin: 0; padding:0; ">
-								<select name="selMonth">
-									<CFLOOP index="i" from="1" to="12">
-										<cfoutput><option value="#i#">#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option></cfoutput>
-									</CFLOOP>
-								</select>
-								<select name="selYear">
-									<CFLOOP index="i" from="-5" to="25">
-										<CFOUTPUT><option>#DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')#</option></CFOUTPUT>
-									</CFLOOP>
-								</select>
-									<a href="javascript:go('calend-cale-dock')" class="textbutton"><cfoutput>#language.Go#</cfoutput></a>
-							</form>
-							<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">						</td>
-						<td align="right" width="23%"><a href="calend-cale-dock.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></td>
-					</tr>
-				</table>
+				<DIV style="float:left;"><a href="calend-cale-dock.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></DIV>
+				<DIV style="float:right;"><a href="calend-cale-dock.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></DIV>
+				<DIV style="width:100%; text-align:center;">
+					<form id="selection" name="selection" action="" style="margin: 0; padding:0; ">
+						<select name="selMonth">
+							<CFLOOP index="i" from="1" to="12">
+								<option value="#i#">#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
+							</CFLOOP>
+						</select>
+						<select name="selYear">
+							<CFLOOP index="i" from="-5" to="25">
+								<option>#DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')#</option>
+							</CFLOOP>
+						</select>
+							<a href="javascript:go('calend-cale-dock')" class="textbutton">#language.Go#</a>
+					</form>
+				</DIV>
+				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 				</cfoutput>
 				
 				<!--- THE MEAT OF THE CALENDAR HAS BEEN MOVED --->
 				<CFINCLUDE template="includes/calendar_core.cfm">
 				
 				<cfoutput>
-				<table width="100%">
-					<tr>
-						<td align="left"><a href="calend-cale-dock.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></td>
-						<td align="right"><a href="calend-cale-dock.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></td>
-					</tr>
-				</table>
+				<DIV style="float:left;"><a href="calend-cale-dock.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></DIV>
+				<DIV style="text-align:right;"><a href="calend-cale-dock.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></DIV>
 				</cfoutput>
-				
-				<!---div class="EventAdd"><a href="bookingRequest.cfm" class="textbutton"><cfoutput>#language.ButtonLabel1#</cfoutput></a></div><br />
-				<div class="EventAdd"><a href="jettyRequest.cfm" class="textbutton"><cfoutput>#language.ButtonLabel3#</cfoutput></a></div><br />
-				<div class="EventAdd"><A href="bookingRequest_choose.cfm" class="textbutton"><cfoutput>Submit New Booking Request</cfoutput></A></div--->
 				
 				<CFSET pos="bottom">
 				<CFINCLUDE template="includes/dock_key.cfm">
