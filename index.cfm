@@ -1,14 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/tr/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 	<!-- VERSION 1.04 DU GABARIT NSI 2.0 | CLF 2.0 TEMPLATE VERSION 1.04 -->
 	<!-- VERSION 1.0 DU GABARIT TPSGC | PWGSC TEMPLATE VERSION 1.0 -->
-	<!-- DEBUT DE L'EN-TETE | HEADER BEGINS -->
-	<!-- DEBUT DU TITRE FRANCAIS / ANGLAIS | FRENCH / ENGLISH TITLE BEGINS -->
+	<!-- DEBUT DE L'EN-TETE | headER BEGINS -->
+	<!-- DEBUT DU TITRE FRANCAIS / ANGLAIS | FRENCH / ENGLISH title BEGINS -->
 	<title>Esquimalt Graving Dock | Cale s&egrave;che e'Esquimalt</title>
-	<!-- FIN DU TITRE FRANCAIS / ANGLAIS | FRENCH / ENGLISH TITLE ENDS   -->
+	<!-- FIN DU TITRE FRANCAIS / ANGLAIS | FRENCH / ENGLISH title ENDS   -->
 
-	<!-- DEBUT DES METADONNEES BILINGUES | BILINGUAL METADATA BEGINS -->
+	<!-- DEBUT DES metaDONNEES BILINGUES | BILINGUAL metaDATA BEGINS -->
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1/"  />
 	<link rel="schema.dc" href="http://purl.org/dc/terms/ " />
@@ -36,7 +36,7 @@
 
 	<meta name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
 	<meta name="pwgsc.contact.email" content="questions@tpsgc.gc.ca" />
-	<!-- FIN DES METADONNEES BILINGUES | BILINGUAL METADATA ENDS -->
+	<!-- FIN DES metaDONNEES BILINGUES | BILINGUAL metaDATA ENDS -->
 
 	<!-- DEBUT DES SCRIPTS/CSS DU GABARIT | TEMPLATE SCRIPTS/CSS BEGIN -->
 	<link href="/egd_internet_clf2/clf20/css/wp-pa.css" media="screen, print" rel="stylesheet" type="text/css" />
@@ -49,12 +49,12 @@
 	<!-- FIN DES SCRIPTS/CSS PERSONNALISES | CUSTOM SCRIPTS/CSS END -->
 
 </head>
-<!-- FIN DE L'EN-TETE | HEADER ENDS -->
+<!-- FIN DE L'EN-TETE | headER ENDS -->
 <body>
 <div class="mcontainter"><div class="core">
-	<!-- DEBUT DE L'EN-TETE PCIM | FIP HEADER BEGINS -->
+	<!-- DEBUT DE L'EN-TETE PCIM | FIP headER BEGINS -->
 	<div class="fip"><img src="/egd_internet_clf2/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada | Travaux publics et Services gouvernementaux Canada" /></div>
-	<!-- FIN DE L'EN-TETE PCIM | FIP HEADER ENDS -->
+	<!-- FIN DE L'EN-TETE PCIM | FIP headER ENDS -->
 
 	<!-- DEBUT DU CONTENU | CONTENT BEGINS --> 
 	<!-- DEBUT DE L'ESPACE DE MESSAGE | MESSAGE SPACE BEGINS -->
@@ -73,13 +73,13 @@
 	<!-- FIN DE L'ESPACE DE MESSAGE | MESSAGE SPACE ENDS -->
 
 	<div class="buttons">
-		<!-- DEBUT DU LIEN ANGLAIS | ENGLISH LINK BEGINS -->
+		<!-- DEBUT DU LIEN ANGLAIS | ENGLISH link BEGINS -->
 		<div class="lb"><div class="langbtn"><a href="reserve-book-eng.cfm">English</a></div></div>
-		<!-- FIN DU LIEN ANGLAIS | ENGLISH LINK ENDS -->
+		<!-- FIN DU LIEN ANGLAIS | ENGLISH link ENDS -->
 
-		<!-- DEBUT DU LIEN FRANCAIS | FRENCH LINK BEGINS -->
+		<!-- DEBUT DU LIEN FRANCAIS | FRENCH link BEGINS -->
 		<div class="lb"><div class="langbtn"><a href="reserve-book-fra.cfm" lang="fr" xml:lang="fr">Fran&ccedil;ais</a></div></div>
-		<!-- FIN DU LIEN FRANCAIS | FRENCH LINK ENDS -->
+		<!-- FIN DU LIEN FRANCAIS | FRENCH link ENDS -->
 	</div>
 	<div class="wm"><img src="/egd_internet_clf2/clf20/images/wmms.gif" alt="Symbol of the Government of Canada | Symbole du gouvernement du Canada" width="83" height="20" /></div>
 	<!-- FIN DU CONTENU | CONTENT ENDS -->

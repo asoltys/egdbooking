@@ -2,29 +2,28 @@
 	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Booking"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Booking</title>
-	">
-	
+">
 
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt;
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<A href="bookingManage.cfm?lang=#lang#">Drydock Management</A> &gt;
+			<a href="bookingManage.cfm?lang=#lang#">Drydock Management</a> &gt;
 			Change Company
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -33,7 +32,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>Change Company</CFOUTPUT>
+					Change Company
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 

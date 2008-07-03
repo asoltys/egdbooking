@@ -90,12 +90,12 @@
 	WHERE	BookingID = '#Form.BookingID#'
 </cfquery>
 
-<CFQUERY name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS vesselName
 	FROM	Vessels
 		INNER JOIN	Bookings ON Bookings.VesselID = Vessels.VesselID
 	WHERE	BookingID = '#Form.BookingID#'
-</CFQUERY>
+</cfquery>
 
 <!--- URL tokens set-up.  Do not edit unless you KNOW something is wrong.
 	Lois Chan, July 2007 --->
@@ -131,7 +131,7 @@
 	<cfset variables.dateValue = "">
 </cfif>
 
-<cfset Session.Success.Breadcrumb = "<A href='../admin/DockBookings/bookingmanage.cfm?lang=#lang#'>Drydock Management</A> &gt; Edit Dock Booking">
+<cfset Session.Success.Breadcrumb = "<a href='../admin/DockBookings/bookingmanage.cfm?lang=#lang#'>Drydock Management</a> &gt; Edit Dock Booking">
 <cfset Session.Success.Title = "Edit Dock Booking Information">
 <cfset Session.Success.Message = "Booking for <b>#getBooking.vesselName#</b> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been updated.">
 <cfset Session.Success.Back = "Back to #url.referrer#">

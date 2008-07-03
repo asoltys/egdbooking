@@ -60,10 +60,10 @@
 	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
 	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.EditProfile#</title>">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
@@ -116,14 +116,14 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.EditProfile#
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -132,11 +132,11 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>#language.EditProfile#</CFOUTPUT>
+					<cfoutput>#language.EditProfile#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<cfinclude template="#RootDir#includes/user_menu.cfm"><br />
+				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
@@ -200,7 +200,7 @@
 						<td colspan="2"><strong>#language.ChangePassword#:</strong></td>
 					</tr>
 					<tr>
-						<td id="pass1"><label for="password">#language.Password# <span style="font-size: 9pt;">(*6 - 10 #language.characters#)</span>:</label></td>
+						<td id="pass1"><label for="password">#language.Password# <span class="smallFont">(*6 - 10 #language.characters#)</span>:</label></td>
 						<td headers="pass1"><cfinput type="password" id="password" name="password1" required="yes" size="25" maxlength="10" class="textField" message="#language.password1Error#"></td>
 					</tr>
 					<tr>

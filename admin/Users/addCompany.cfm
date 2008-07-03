@@ -8,11 +8,11 @@
 <meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Create New Company"">
 <meta name=""keywords"" lang=""eng"" content="""">
 <meta name=""description"" lang=""eng"" content="""">
-<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-<meta name=""dc.date.published"" content=""2005-07-25"">
-<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-<meta name=""dc.date.modified"" content=""2005-07-25"">
-<meta name=""dc.date.created"" content=""2005-07-25"">
+<meta name=""dc.date.published"" content=""2005-07-25"" />
+<meta name=""dc.date.published"" content=""2005-07-25"" />
+<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+<meta name=""dc.date.modified"" content=""2005-07-25"" />
+<meta name=""dc.date.created"" content=""2005-07-25"" />
 <title>PWGSC - ESQUIMALT GRAVING DOCK - Create New Company</title>">
 
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
@@ -22,19 +22,19 @@
 	<a href="<cfoutput>http://www.pwgsc.gc.ca/home-#lang#.html</cfoutput>">PWGSC</a> &gt; 
 	Pacific Region &gt; 
 	<a href="http://www.pwgsc.gc.ca/pacific/egd/index-e.html">Esquimalt Graving Dock</a> &gt; 
-  <CFOUTPUT>
-		<a href="#RootDir#reserve-book-#lang#.cfm">Booking</A> &gt;<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-			<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+  <cfoutput>
+		<a href="#RootDir#reserve-book-#lang#.cfm">Booking</a> &gt;<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+			<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 		<CFELSE>
 			 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 		</CFIF>
-	<a href="#RootDir#admin/Users/addNewUserCompany.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#">Create New User</A> &gt; 
-	</CFOUTPUT>
+	<a href="#RootDir#admin/Users/addNewUserCompany.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#">Create New User</a> &gt; 
+	</cfoutput>
 	Create New Company
 </div>
 
 <div class="main">
-<H1>Create New Company</H1>
+<h1>Create New Company</h1>
 
 <cfparam name="Variables.name" default="">
 <cfparam name="Variables.abbrev" default="">
@@ -47,10 +47,10 @@
 <cfparam name="Variables.phone" default="">
 <cfparam name="Variables.fax" default="">
 
-<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
+<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 <cfinclude template="#RootDir#includes/getStructure.cfm">
 
-<CFOUTPUT>
+<cfoutput>
 <cfform action="addCompany_action.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#" name="addCompanyForm" method="post" onSubmit="if(!checkFilledIn('addCompanyForm')) { return false; }">
 	<table align="center">
 		<tr>
@@ -101,7 +101,7 @@
 		</tr>
 	</table>
 </cfform>
-</CFOUTPUT>
+</cfoutput>
 
 </div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

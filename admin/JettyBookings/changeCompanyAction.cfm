@@ -5,7 +5,7 @@
       
     </CFIF>
     
-</CFOUTPUT>
+</cfoutput>
 
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 SELECT VesselID

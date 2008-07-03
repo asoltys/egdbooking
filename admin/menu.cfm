@@ -2,11 +2,11 @@
 <meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions"">
 <meta name=""keywords"" lang=""eng"" content="""">
 <meta name=""description"" lang=""eng"" content="""">
-<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-<meta name=""dc.date.published"" content=""2005-07-25"">
-<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-<meta name=""dc.date.modified"" content=""2005-07-25"">
-<meta name=""dc.date.created"" content=""2005-07-25"">
+<meta name=""dc.date.published"" content=""2005-07-25"" />
+<meta name=""dc.date.published"" content=""2005-07-25"" />
+<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+<meta name=""dc.date.modified"" content=""2005-07-25"" />
+<meta name=""dc.date.created"" content=""2005-07-25"" />
 <title>PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions</title>">
 
 
@@ -73,14 +73,14 @@
 				<cffile action="read" file="#FileDir#intromsg.txt" variable="intromsg">
 				<cfif #Trim(intromsg)# EQ "">
 				<cfelse>
-					<DIV class="notice">
-					<H2>Notice</H2>
+					<div class="notice">
+					<h2>Notice</h2>
 					<cfoutput>#paragraphformat(intromsg)#</cfoutput>
-					</DIV>
+					</div>
 				</cfif>
 				<!---/cfform--->
 			
-				<div style="font-size:10pt;padding-left:10px;">
+				<div style="padding-left:10px;">
 					<cfif GetNewUsers.NumFound EQ 0>
 						There are no new user company requests that need to be approved.
 					<cfelseif GetNewUsers.NumFound EQ 1>

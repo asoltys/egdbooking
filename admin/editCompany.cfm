@@ -8,11 +8,11 @@
 	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Company"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Company</title>">
 
 <cfquery name="getCompanyList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -67,14 +67,14 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
 			Edit Company
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -87,7 +87,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
@@ -99,25 +99,25 @@
 					<cfselect name="companyID" query="getCompanyList" value="companyID" display="Name" selected="#form.companyID#" />
 					<!---a href="javascript:EditSubmit('chooseCompanyForm');" class="textbutton">View</a--->
 					<input type="submit" value="View" class="textbutton">
-					<CFOUTPUT><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='menu.cfm?lang=#lang#'"></CFOUTPUT>
+					<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='menu.cfm?lang=#lang#'"></cfoutput>
 				</cfform>
 				
 				<cfif form.CompanyID NEQ "">
-					<CFQUERY name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+					<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT	*
 						FROM	Companies
 						WHERE	Companies.CompanyID = #form.CompanyID#
 							AND	Deleted = '0'
 							AND	Approved = '1'
 						ORDER BY	Name
-					</CFQUERY>
+					</cfquery>
 				
 					<CFIF getCompany.RecordCount eq 0>
 						<CFLOCATION addtoken="no" url="editCompany.cfm">
 					</CFIF>
 					
 					<cfif NOT isDefined("url.companyID")>
-						<CFOUTPUT query="getCompany">
+						<cfoutput query="getCompany">
 							<CFSET "Variables.name" = Name>
 							<CFSET "Variables.address1" = Address1>
 							<CFSET "Variables.address2" = Address2>
@@ -128,10 +128,10 @@
 							<CFSET "Variables.phone" = Phone>
 							<CFSET "Variables.fax" = Fax>
 							<CFSET "Variables.abbr" = Abbreviation>
-						</CFOUTPUT>
+						</cfoutput>
 					</cfif>
 					
-					<CFOUTPUT>
+					<cfoutput>
 					<cfform action="editCompany_action.cfm?lang=#lang#" method="post" name="editCompanyForm" onSubmit="if(!checkFilledIn('editCompanyForm')) { return false; }">
 					<table align="center">
 						<tr>
@@ -176,7 +176,7 @@
 						</tr>
 						<tr>
 							<td id="" colspan="2" align="center" style="padding-top:20px;">
-								<INPUT type="hidden" name="companyID" value="#form.companyID#">
+								<input type="hidden" name="companyID" value="#form.companyID#">
 								<input type="Submit" class="textbutton" value="Submit">
 								<input type="button" value="Cancel" onClick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton">
 							</td>
@@ -184,7 +184,7 @@
 					</table>
 				
 					</cfform>
-					</CFOUTPUT>
+					</cfoutput>
 				</CFIF>
 
 			</div>

@@ -26,22 +26,22 @@ function checkIt() {
 
 function popUp(pageID) {
 	if (checkIt()) {
-		window.open("<CFOUTPUT>#RootDir#</CFOUTPUT>" + pageID + ".cfm?lang=<CFOUTPUT>#lang#</CFOUTPUT>", "", "width=800, height=400, resizable=yes, menubar=yes, scrollbars=yes, toolbar=no");
+		window.open("<cfoutput>#RootDir#</cfoutput>" + pageID + ".cfm?lang=<cfoutput>#lang#</cfoutput>", "", "width=800, height=400, resizable=yes, menubar=yes, scrollbars=yes, toolbar=no");
 	} else {
-		// window.open(pageID + ".cfm?lang=<CFOUTPUT>#lang#</CFOUTPUT>", pageID);
+		// window.open(pageID + ".cfm?lang=<cfoutput>#lang#</cfoutput>", pageID);
 		alert("<cfoutput>#language.warning#</cfoutput>");
 	}
 }
 </script>
 
-<CFOUTPUT>
+<cfoutput>
 <div align="center" style="font-size: 8pt; min-height: 20px; padding-top: 15px;">
-	<A href="calend-cale-dock.cfm?lang=#lang##datetoken#">#language.1monthCal#</A> |
-	<A href="calend-cale-dock-3m.cfm?lang=#lang##datetoken#">#language.3monthCal#</A> |
+	<a href="calend-cale-dock.cfm?lang=#lang##datetoken#">#language.1monthCal#</a> |
+	<a href="calend-cale-dock-3m.cfm?lang=#lang##datetoken#">#language.3monthCal#</a> |
 <CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-	<A href="javascript:popUp('admin/projectCalendar_choose')">#language.projectCal#</A> |
+	<a href="javascript:popUp('admin/projectCalendar_choose')">#language.projectCal#</a> |
 </CFIF>
-	<A href="resume-summary_ch.cfm?lang=#lang#">#language.bookingsSummary#</A>
+	<a href="resume-summary_ch.cfm?lang=#lang#">#language.bookingsSummary#</a>
 </div>
-</CFOUTPUT>
+</cfoutput>
 

@@ -2,11 +2,11 @@
 <meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Create New Company"">
 <meta name=""keywords"" lang=""eng"" content="""">
 <meta name=""description"" lang=""eng"" content="""">
-<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-<meta name=""dc.date.published"" content=""2005-07-25"">
-<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-<meta name=""dc.date.modified"" content=""2005-07-25"">
-<meta name=""dc.date.created"" content=""2005-07-25"">
+<meta name=""dc.date.published"" content=""2005-07-25"" />
+<meta name=""dc.date.published"" content=""2005-07-25"" />
+<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+<meta name=""dc.date.modified"" content=""2005-07-25"" />
+<meta name=""dc.date.created"" content=""2005-07-25"" />
 <title>PWGSC - ESQUIMALT GRAVING DOCK - Create New Company</title>">
 
 <CFIF NOT IsDefined('url.userID')>
@@ -18,15 +18,15 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#">Edit User Profile</A> &gt; 
+			<a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#">Edit User Profile</a> &gt; 
 			Create New Company
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -50,11 +50,11 @@
 				<cfparam name="Variables.phone" default="">
 				<cfparam name="Variables.fax" default="">
 				
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfset Variables.onLoad = "javascript:document.addCompanyForm.name.focus();">
 				
-				<CFOUTPUT>
+				<cfoutput>
 				<cfform action="editUser_addCompany_action.cfm?lang=#lang#&userID=#url.userID#" name="addCompanyForm" method="post">
 					<table align="center">
 						<tr>
@@ -105,7 +105,7 @@
 						</tr>
 					</table>
 				</cfform>
-				</CFOUTPUT>
+				</cfoutput>
 
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

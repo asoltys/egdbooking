@@ -30,11 +30,11 @@
 	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Confirm Delete Vessel"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm Delete Vessel</title>">
 
 <cfif isDefined("form.vesselID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
@@ -48,33 +48,33 @@
 </cfquery>
 
 <!-- 2005-09-27: Added new resriction on the following two queries, Deleted must be 0 -->
-<CFQUERY name="getVesselDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getVesselDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
 	FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID 
 			INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
 	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #form.VesselID# AND Bookings.Deleted = 0
-</CFQUERY>
+</cfquery>
 
-<CFQUERY name="getVesselJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getVesselJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
 	FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID 
 			INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
 	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #form.VesselID# AND Bookings.Deleted = 0
-</CFQUERY>
+</cfquery>
 
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
 			Confirm Delete Vessel
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -87,7 +87,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
+			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 			
 			<cfif IsDefined("Session.Return_Structure")>
 				<!--- Populate the Variables Structure with the Return Structure.
@@ -156,7 +156,7 @@
 					<cfif getVesselDockBookings.recordCount GT 0>
 						<br /><br />
 						&nbsp;&nbsp;&nbsp;<strong>Drydock</strong>
-						<table style="padding-left:20px;font-size:10pt;" width="100%">
+						<table style="padding-left:20px;" width="100%">
 							<tr>
 								<th id="start" width="25%"><strong>Start Date</strong></th>
 								<th id="end" width="60%"><strong>End Date</strong></th>
@@ -179,7 +179,7 @@
 					<cfif getVesselJettyBookings.recordCount GT 0>
 						<br />
 						&nbsp;&nbsp;&nbsp;<strong>Jetty</strong>
-						<table style="padding-left:20px;font-size:10pt;" width="100%">
+						<table style="padding-left:20px;" width="100%">
 							<tr>
 								<th id="start" width="25%"><strong>Start Date</strong></th>
 								<th id="end" width="25%"><strong>End Date</strong></th>

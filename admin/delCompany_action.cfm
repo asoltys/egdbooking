@@ -63,9 +63,9 @@
 	
 </cfif>
 
-<CFQUERY name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Name FROM Companies WHERE companyID = #form.companyID#
-</CFQUERY>
+</cfquery>
 
 
 <cfset Session.Success.Breadcrumb = "Delete Company">

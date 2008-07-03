@@ -1,6 +1,6 @@
-<div class="waitList">
+<div class="critical">
 	<p><cfoutput>#Variables.waitListText#</cfoutput></p>
-	<table class="waitlistBookings">
+	<table class="basic smallFont">
 		<tr>
 			<th id="Booked" align="left" width="18%">Booked</th>
 			<th id="Agent" align="left">Agent</th>
@@ -27,7 +27,7 @@
 			<CFSET rowClass = "">
 		</CFIF>
 		<cfoutput>
-			<TR class="#rowClass#" valign="top">
+			<tr class="#rowClass#" valign="top">
 				<td headers="Booked" valign="top">#DateFormat(getOtherBookings.BookingTime, 'mmm dd, yyyy')#<br />at #TimeFormat(getOtherBookings.BookingTime, 'H:mm')#</td>
 				<td headers="Agent" valign="top">#trim(getOtherBookings.Agent)#</td>
 				<td headers="Company" valign="top">#trim(getOtherBookings.CompanyName)#</td>

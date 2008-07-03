@@ -2,11 +2,11 @@
 	<meta name=""dc.title"" lang=""eng"" content=""pwgsc - esquimalt graving dock - Add Booking"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Add Booking</title>">
 
 <cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -33,7 +33,7 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<cfelse>
@@ -41,7 +41,7 @@
 			</cfif>
 			<a href="bookingManage.cfm?lang=#lang#">Drydock Management</a> &gt;
 			Create Booking
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -54,7 +54,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br />
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				
 				<cfparam name="form.compID" default="">
 				<cfparam name="Variables.compID" default="#form.compID#">
@@ -120,7 +120,7 @@
 						ORDER BY lastname, firstname
 					</cfquery>
 					
-					<table align="center" style="font-size:10pt;">
+					<table align="center">
 						<tr>
 							<cfquery name="getCompanyName" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 								SELECT Name
@@ -154,20 +154,16 @@
 								<td id="startDate"><label for="start">Start Date:</label></td>
 								<td headers="startDate">
 									<cfoutput>
-									<!---input class="textField" type="Text" name="startDateShow" id="start" disabled value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17"--->
-									<cfinput name="startDate" type="text" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'addBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'addBookingForm', #Variables.bookingLen#)"> <font class="light">#language.dateform#</font></cfoutput>
+									<cfinput name="startDate" type="text" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'addBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'addBookingForm', #Variables.bookingLen#)"> #language.dateform#</cfoutput>
 									<a href="javascript:void(0);" onclick="javascript:getCalendar('addBookingForm', 'start')" class="textbutton">calendar</a>
-									<!---a href="javascript:void(0);" onClick="javascript:document.addBookingForm.startDateShow.value=''; document.addBookingForm.startDate.value='';" class="textbutton">clear</a--->
 								</td>
 							</tr>
 							<tr>
 								<td id="endDate"><label for="end">End Date:</label></td>
 								<td headers="endDate">
 									<cfoutput>
-									<!---input type="text" name="endDateShow" id="end" class="textField" disabled value="#DateFormat(endDate, 'mmm d, yyyy')#" size="17"--->
-									<cfinput name="endDate" type="text" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField"> <!---onChange="setEarlierDate('self', 'addBookingForm', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'addBookingForm', #Variables.bookingLen#)"---> <font class="light">#language.dateform#</font></cfoutput>
+									<cfinput name="endDate" type="text" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField"> #language.dateform#</cfoutput>
 									<a href="javascript:void(0);" onclick="javascript:getCalendar('addBookingForm', 'end')" class="textbutton">calendar</a>
-									<!---a href="javascript:void(0);" onClick="javascript:document.addBookingForm.endDateShow.value=''; document.addBookingForm.endDate.value='';" class="textbutton">clear</a--->
 								</td>
 							</tr>
 							<tr>

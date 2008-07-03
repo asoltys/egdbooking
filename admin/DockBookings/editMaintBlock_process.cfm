@@ -5,11 +5,11 @@
 	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Maintenance Block"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Maintenance Block</title>">
 
 <!-- Start JavaScript Block -->
@@ -27,15 +27,15 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<A href="bookingManage.cfm?lang=#lang#">Drydock Management</A> &gt;
+			<a href="bookingManage.cfm?lang=#lang#">Drydock Management</a> &gt;
 			Edit Maintenance Block
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -44,11 +44,11 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>Edit Maintenance Block</CFOUTPUT>
+					<cfoutput>Edit Maintenance Block</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 					
-			<cfinclude template="#RootDir#includes/admin_menu.cfm"><br />
+			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 			<!--- ---------------------------------------------------------------------------------------------------------------- --->
 			<cfparam name = "Form.StartDate" default="">
 			<cfparam name = "Form.EndDate" default="">
@@ -166,7 +166,7 @@
 			</cfif>
 				
 			<!-- Gets all Bookings that would be affected by the maintenance block --->
-			<CFQUERY name="checkConflicts" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+			<cfquery name="checkConflicts" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT	Section1, Section2, Section3, StartDate, EndDate, V.Name AS VesselName, C.Name AS CompanyName
 				FROM	Bookings B INNER JOIN Docks D ON B.bookingID = D.bookingID
 							INNER JOIN Vessels V ON V.vesselID = B.vesselID
@@ -179,7 +179,7 @@
 					AND	(<CFIF Variables.Section1>Section1 = '1'</CFIF>
 					<CFIF Variables.Section2><CFIF Variables.Section1>OR	</CFIF>Section2 = '1'</CFIF>
 					<CFIF Variables.Section3><CFIF Variables.Section1 OR Variables.Section2>OR</CFIF>	Section3 = '1'</CFIF>)
-			</CFQUERY>
+			</cfquery>
 			
 			
 			<cfset Variables.StartDate = #CreateODBCDate(Variables.StartDate)#>
@@ -189,7 +189,7 @@
 			
 				<p>The requested date range for the maintenance block <b class="red">conflicts</b> with the following bookings:</p>
 			
-				<table class="conflictBookings">
+				<table class="basic smallFont">
 				<tr align="left" valign="top">
 					<th>Period</th>
 					<th>Vessel</th>
@@ -204,7 +204,7 @@
 					<CFELSE>
 						<CFSET rowClass = "">
 					</CFIF>
-					<TR class="#rowClass#" valign="top">
+					<tr class="#rowClass#" valign="top">
 						<td>#LSdateformat(startDate, 'mmm d')#<CFIF Year(StartDate) neq Year(EndDate)>, #DateFormat(startDate, 'yyyy')#</CFIF> - #LSdateformat(endDate, 'mmm d, yyyy')#</td>
 						<td>#VesselName#</td>
 						<td>#CompanyName#</td>
@@ -227,8 +227,8 @@
 			<cfform action="editMaintBlock_action.cfm?#urltoken#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
 			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#"></cfoutput>
 			
-			<table width="80%" align="center" style="font-size:10pt;">	
-				<tr><td align="left"><div style="font-size:10pt;font-weight:bold;">Booking:</div></td></tr>
+			<table width="80%" align="center">	
+				<tr><td align="left"><div style="font-weight:bold;">Booking:</div></td></tr>
 				<tr>
 					<td id="Start" align="left" width="25%">Start Date:</td>
 					<td headers="Start"><input type="hidden" name="StartDate" value="<cfoutput>#Variables.StartDate#</cfoutput>"><cfoutput>#DateFormat(Variables.StartDate, 'mmm d, yyyy')#</cfoutput></td>
@@ -269,7 +269,7 @@
 						<BR--->
 						<input type="Submit" value="Submit" class="textbutton">
 						<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='editMaintBlock.cfm?#urltoken#'"></cfoutput>
-						<CFOUTPUT><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='bookingmanage.cfm?#urltoken#';"></CFOUTPUT>
+						<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='bookingmanage.cfm?#urltoken#';"></cfoutput>
 						<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
 					</td>
 				</tr>

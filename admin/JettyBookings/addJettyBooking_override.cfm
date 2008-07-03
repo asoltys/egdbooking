@@ -162,11 +162,11 @@
 <meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add Jetty Booking"">
 <meta name=""keywords"" lang=""eng"" content="""">
 <meta name=""description"" lang=""eng"" content="""">
-<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-<meta name=""dc.date.published"" content=""2005-07-25"">
-<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-<meta name=""dc.date.modified"" content=""2005-07-25"">
-<meta name=""dc.date.created"" content=""2005-07-25"">
+<meta name=""dc.date.published"" content=""2005-07-25"" />
+<meta name=""dc.date.published"" content=""2005-07-25"" />
+<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+<meta name=""dc.date.modified"" content=""2005-07-25"" />
+<meta name=""dc.date.created"" content=""2005-07-25"" />
 <title>PWGSC - ESQUIMALT GRAVING DOCK - Add Jetty Booking</title>">
 
 <!-- Start JavaScript Block -->
@@ -184,20 +184,20 @@ function EditSubmit ( selectedform )
 	<a href="<cfoutput>http://www.pwgsc.gc.ca/home-#lang#.html</cfoutput>">PWGSC</a> &gt; 
 	Pacific Region &gt; 
 	<a href="http://www.pwgsc.gc.ca/pacific/egd/index-e.html">Esquimalt Graving Dock</a> &gt; 
-	<CFOUTPUT>
-		<a href="#RootDir#reserve-book-#lang#.cfm">Booking</A> &gt;<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-			<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+	<cfoutput>
+		<a href="#RootDir#reserve-book-#lang#.cfm">Booking</a> &gt;<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+			<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 		<CFELSE>
 			 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 		</CFIF>
-		<A href="jettyBookingManage.cfm?lang=#lang#">Jetty Management</A> &gt;
-	</CFOUTPUT>
+		<a href="jettyBookingManage.cfm?lang=#lang#">Jetty Management</a> &gt;
+	</cfoutput>
 	Add Jetty Booking
 </div>
 
 <div class="main">
-<H1>Add Jetty Booking</H1>
-<cfinclude template="#RootDir#includes/admin_menu.cfm"><br />
+<h1>Add Jetty Booking</h1>
+<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 <!--- ---------------------------------------------------------------------------------------------------------------- --->
 
 
@@ -207,8 +207,8 @@ function EditSubmit ( selectedform )
 
 <p>Please confirm the following maintenance block information.</p>
 <cfform action="addJettyBooking_action.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
-<div style="font-size:10pt;font-weight:bold;">Booking:</div>
-<table width="100%" align="center" style="font-size:10pt;">	
+<div style="font-weight:bold;">Booking:</div>
+<table width="100%" align="center">	
 	<tr>
 		<td align="left" width="20%">Company:</td>
 		<td><input type="hidden" name="company" value="<cfoutput>#form.companyID#</cfoutput>"><cfoutput>#getCompany.name#</cfoutput></td>
@@ -258,7 +258,7 @@ function EditSubmit ( selectedform )
 </table>
 
 <br />
-<table width="100%" cellspacing="0" cellpadding="1" border="0" align="center" style="font-size:10pt;">
+<table width="100%" cellspacing="0" cellpadding="1" border="0" align="center">
 	<tr>
 		<td colspan="2" align="center">
 			<!---a href="javascript:EditSubmit('bookingreq');" class="textbutton">Confirm</a>
@@ -266,8 +266,8 @@ function EditSubmit ( selectedform )
 			<cfoutput><a href="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" class="textbutton">Cancel</a></cfoutput>
 			<BR--->
 			<input type="Submit" value="Submit" class="textbutton">
-			<CFOUTPUT><input type="button" value="Back" class="textbutton" onClick="self.location.href='addJettyBooking.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#'"></CFOUTPUT>
-			<CFOUTPUT><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='jettybookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#';"></CFOUTPUT>
+			<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='addJettyBooking.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#'"></cfoutput>
+			<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='jettybookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#';"></cfoutput>
 		</td>
 	</tr>
 </table>

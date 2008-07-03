@@ -4,11 +4,11 @@
 	WHERE	BookingID = '#Form.BookingID#'
 </cfquery>
 
-<CFQUERY name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	startDate, endDate
 	from	Bookings
 	WHERE	BookingID = '#FORM.BookingID#'
-</CFQUERY>
+</cfquery>
 
 <!--- URL tokens set-up.  Do not edit unless you KNOW something is wrong.
 	Lois Chan, July 2007 --->
@@ -38,7 +38,7 @@
 </cfif>
 
 <!--- create structure for sending to mothership/success page. --->
-<cfset Session.Success.Breadcrumb = "<A href='../admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#'>Jetty Management</A> &gt; <cfoutput>#variables.actionCap#</cfoutput> Jetty Maintenance Block">
+<cfset Session.Success.Breadcrumb = "<a href='../admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#'>Jetty Management</a> &gt; <cfoutput>#variables.actionCap#</cfoutput> Jetty Maintenance Block">
 <cfset Session.Success.Title = "<cfoutput>#variables.actionCap#</cfoutput> Jetty Maintenance Block">
 <cfset Session.Success.Message = "Maintenance block from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')# has been <cfoutput>#variables.actionPast#</cfoutput>.">
 <cfset Session.Success.Back = "Back to Jetty Bookings Management">

@@ -13,11 +13,11 @@
 	</cfquery>
 </cftransaction>
 	
-	<CFQUERY name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+	<cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	startDate, endDate
 	from	Bookings
 	WHERE	BookingID = '#FORM.BookingID#'
-</CFQUERY>
+</cfquery>
 
 <!--- URL tokens set-up.  Do not edit unless you KNOW something is wrong.
 	Lois Chan, July 2007 --->
@@ -39,7 +39,7 @@
 </CFIF>
 
 <!--- create structure for sending to mothership/success page. --->
-<cfset Session.Success.Breadcrumb = "<a href='../admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#'>Jetty Management</A> &gt; Edit Maintenance Block">
+<cfset Session.Success.Breadcrumb = "<a href='../admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#'>Jetty Management</a> &gt; Edit Maintenance Block">
 <cfset Session.Success.Title = "Edit Maintenance Block">
 <cfset Session.Success.Message = "Maintenance block is now from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')#.">
 <cfset Session.Success.Back = "Back to Jetty Bookings Management">

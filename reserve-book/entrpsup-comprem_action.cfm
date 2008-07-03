@@ -12,7 +12,7 @@
 
 </cflock>
 
-<!--- CLEAR FORM STRUCTURE --->
+<!--- CLEAR FORM StrUCTURE --->
 <cfset StructDelete(Session, "Form_Structure")>
 
 <cflocation addtoken="no" url="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#">

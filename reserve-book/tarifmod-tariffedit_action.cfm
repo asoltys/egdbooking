@@ -152,7 +152,7 @@
 			<cfelse>
 				LightsCaisson = 0,
 			</cfif>
-			<cfif isDefined("Form.Other") AND Form.Other EQ "on" AND TRIM(Form.otherText) NEQ "">
+			<cfif isDefined("Form.Other") AND Form.Other EQ "on" AND trIM(Form.otherText) NEQ "">
 				OtherText = '#Form.otherText#',
 				Other = 1
 			<cfelse>
@@ -162,12 +162,12 @@
 	WHERE	BookingID = '#url.BookingID#'
 </cfquery>
 
-<CFQUERY name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS vesselName, startDate, endDate
 	FROM	Bookings
 		INNER JOIN	Vessels ON Bookings.VesselID = Vessels.VesselID
 	WHERE	BookingID = '#url.BookingID#'
-</CFQUERY>
+</cfquery>
 
 <CFPARAM name="url.referrer" default="Booking Home">
 <CFIF url.referrer eq "Archive">

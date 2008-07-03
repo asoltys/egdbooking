@@ -3,7 +3,7 @@
 	<cfset StructDelete(Session, "Form_Structure")>
 </cfif>
 
-<!--- these language variables have to come before the CFHTMLHEAD tag --->
+<!--- these language variables have to come before the CFHTMLhead tag --->
 <cfif lang EQ 'eng'>
 	<cfset language.keywords = language.masterKeywords & ", Booking Request">
 	<cfset language.description = "The Esquimalt Graving Dock booking application homepage.">
@@ -19,10 +19,10 @@
 	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
 	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.Booking#</title>">
 
 <cflock scope="session" throwontimeout="no" timeout="60" type="readonly">
@@ -258,7 +258,7 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>#language.welcomePage#</CFOUTPUT>
+			<cfoutput>#language.welcomePage#</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -267,7 +267,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>#getCompany.CompanyName# #language.Booking#</CFOUTPUT>
+					<cfoutput>#getCompany.CompanyName# #language.Booking#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 					
@@ -275,13 +275,13 @@
 				<cfoutput>
 				<p>#language.Welcome#, #Session.Firstname# #Session.LastName#!</p>
 				</cfoutput>
-				<cfinclude template="#RootDir#includes/user_menu.cfm"><br />
+				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				
 				<cfif getCompanies.recordCount GT 1>
 					<div align="center">
 						<cfoutput>
 							<p>#language.currentcompany#<br />
-							<b style="font-size: 16px; ">#currentCompany.companyName#</b></p>
+							<b class="h1Size">#currentCompany.companyName#</b></p>
 							<cfif getCompanies.RecordCount GT 1><p>#language.otherCompanies#<br /></cfif>
 						</cfoutput>
 						<cfoutput query="getCompanies">
@@ -289,17 +289,15 @@
 						</cfoutput></p>
 						<cfoutput><cfif unapprovedCompany.RecordCount GTE 1><p>#language.awaitingApproval#<br /></cfif></cfoutput>
 						<cfoutput query="unapprovedCompany">
-							<span style="white-space: nowrap; ">#CompanyName#</span>&nbsp;&nbsp;
+							<span style="white-space: nowrap;">#CompanyName#</span>&nbsp;&nbsp;
 						</cfoutput>
 						</p>
 					</div>
 				</cfif>
-				
-				<br />
-				
+							
 				<cfoutput>
 				
-				#language.Vessel#(s):
+				<h2>#language.Vessel#(s):</h2>
 					<table style="padding-left:20px;" width="100%">
 						<cfif "getVessels.recordCount" EQ 0>
 							<tr><td width="33%" align="left">#language.None#</td></tr>

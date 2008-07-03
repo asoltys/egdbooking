@@ -3,11 +3,11 @@
 	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Create New Company"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Create New Company</title>">
 
 <cfinclude template="#RootDir#includes/checkFilledIn_js.cfm">
@@ -62,14 +62,14 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
 			Create New Company
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -82,7 +82,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
@@ -90,9 +90,9 @@
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				</cfif>
 				
-				<CFOUTPUT>
+				<cfoutput>
 				<cfform action="addCompany_action.cfm?lang=#lang#" name="addCompanyForm" id="addCompanyForm" method="post" onSubmit="if(!checkFilledIn('addCompanyForm')) { return false; }">
-					<table align="center" style="font-size:10pt;">
+					<table align="center">
 						<tr>
 							<td id="name_Header"><label for="name">Company Name:</label></td>
 							<td headers="name_Header"><cfinput name="name" id="name" type="text" size="40" maxlength="75" value="#variables.name#" required="yes" CLASS="textField" message="Please enter the company name."></td>
@@ -141,7 +141,7 @@
 						</tr>
 					</table>
 				</cfform>
-				</CFOUTPUT>
+				</cfoutput>
 
 			</div>
 			

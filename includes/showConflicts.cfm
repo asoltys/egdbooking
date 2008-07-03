@@ -44,7 +44,7 @@
 <cfif currentBookings.RecordCount GT 0>
 	<cfoutput>
 	<h2 class="conflict">#language.Bookings#:</h2>
-	<table class="conflictBookings">
+	<table class="basic smallFont">
 	<tr>
 		<th align="left">#language.Period#</th>
 		<th align="left">#language.Vessel#</th>
@@ -59,7 +59,7 @@
 		<CFELSE>
 			<CFSET rowClass = "">
 		</CFIF>
-		<TR class="#rowClass#">
+		<tr class="#rowClass#">
 			<td valign="top">#LSdateformat(startDate, 'mmm d, yyyy')# - #LSdateformat(endDate, 'mmm d, yyyy')#</td>
 			<td>#VesselName#</td>
 			<td>#CompanyName#</td>
@@ -77,7 +77,7 @@
 	<cfoutput>
 	<h2 class="conflict">#language.Maintenance#:</h2>
 	<cfset counter = 0>
-	<table class="conflictBookings">
+	<table class="basic smallFont">
 	<tr>
 		<th align="left">#language.Period#</th>
 		<th align="left" width="15%">#language.Sections#</th>

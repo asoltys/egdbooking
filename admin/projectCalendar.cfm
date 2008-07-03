@@ -1,8 +1,8 @@
 <cfset language.PageTitle = "Project Calendar View">
-<cfset language.ScreenMessage = '<P><b>This calendar contains information for the drydock only.</b> Bookings belonging to your company are <i>italicised</i>.</P>'
+<cfset language.ScreenMessage = '<p><b>This calendar contains information for the drydock only.</b> Bookings belonging to your company are <i>italicised</i>.</p>'
 
-& '<P>Printing instructions:</P>'
-& '<DIV class="critical"><P>Before you print, go to <b>Print Preview</b> and make sure that none of your tooltips are so low on the page that they get cut off.</P></DIV>'
+& '<p>Printing instructions:</p>'
+& '<div class="critical"><p>Before you print, go to <b>Print Preview</b> and make sure that none of your tooltips are so low on the page that they get cut off.</p></div>'
 & '<UL>'
 & '	<LI>Internet Explorer: Go to <b>Tools</b> &gt; <b>Internet Options</b> &gt; <b>Advanced</b>; make sure <i>Print background colors and images</i> under <b>Printing</b> is checked</LI>'
 & '	<LI>Netscape Navigator, Mozilla &amp; Firefox: Go to <b>Page Setup</b>; make sure <i>Print background (colors &amp; images)</i> is checked</LI>'
@@ -11,7 +11,7 @@
 <cfset language.text2 = 'to'>
 <cfset language.text3 = 'docks'>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/tr/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 <CFINCLUDE template="#RootDir#includes/companyInfoVariables.cfm">
@@ -21,44 +21,44 @@
 <cfdirectory action="LIST" directory="#PageDir#" name="GetFile" filter="#PageFileName#">
 <cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
 
-<HEAD>
+<head>
 <!-- CLF 2.0 TEMPLATE VERSION 1.04 | VERSION 1.04 DU GABARIT NSI 2.0 -->
 <!-- PWGSC TEMPLATE VERSION 1.0 | VERSION 1.0 DU GABARIT TPSGC -->
-<!-- HEADER BEGINS | DEBUT DE L'EN-TETE -->
-<!-- TITLE BEGINS | DEBUT DU TITRE -->
+<!-- headER BEGINS | DEBUT DE L'EN-TETE -->
+<!-- title BEGINS | DEBUT DU TITRE -->
 <title>PWGSC - ESQUIMALT GRAVING DOCK - View Company Details</title>
-<!-- TITLE ENDS | FIN DU TITRE -->
-<!-- METADATA BEGINS | DEBUT DES METADONNEES -->
-<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<LINK rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
-<LINK rel="schema.dc" href="http://purl.org/dc/terms/" />
-<META name="dc.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Project Calendar">
-<META name="dc.subject" SCHEME="gccore" content="ship, wharf">
-<META name="dc.language" SCHEME="ISO639-2/T" content="eng" />
-<META name="dc.creator" content="Government of Canada, Public Works and Government Services Canada" />
-<META name="dc.publisher" content="Government of Canada, Public Works and Government Services Canada" />
-<META name="dc.audience" content=" " />
-<META name="dc.contributor" content=" " />
-<META name="dc.coverage" content=" " />
-<META name="dc.format" content=" " />
-<META name="dc.identifier" content=" " />
-<META name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html" />
-<META name="dcterms.issued" SCHEME="W3CDTF" content="2007-09-20" />
-<META name="dcterms.modified" SCHEME="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
-<META name="description" content="Allows user to view bookings in a given range in MS Project style.">
-<META name="keywords" content="">
-<META name="pwgsc.contact.email" content="questions@tpsgc-pwgsc.gc.ca" />
-<!-- METADATA ENDS | FIN DES METADONNEES -->
+<!-- title ENDS | FIN DU TITRE -->
+<!-- metaDATA BEGINS | DEBUT DES metaDONNEES -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+<link rel="schema.dc" href="http://purl.org/dc/terms/" />
+<meta name="dc.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Project Calendar" />
+<meta name="dc.subject" scheme="gccore" content="ship, wharf" />
+<meta name="dc.language" scheme="ISO639-2/T" content="eng" />
+<meta name="dc.creator" content="Government of Canada, Public Works and Government Services Canada" />
+<meta name="dc.publisher" content="Government of Canada, Public Works and Government Services Canada" />
+<meta name="dc.audience" content=" " />
+<meta name="dc.contributor" content=" " />
+<meta name="dc.coverage" content=" " />
+<meta name="dc.format" content=" " />
+<meta name="dc.identifier" content=" " />
+<meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html" />
+<meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
+<meta name="dcterms.modified" scheme="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
+<meta name="Description" content="Allows user to view bookings in a given range in MS Project style." />
+<meta name="Keywords" content="" />
+<meta name="pwgsc.contact.email" content="questions@tpsgc-pwgsc.gc.ca" />
+<!-- metaDATA ENDS | FIN DES metaDONNEES -->
 <!-- TEMPLATE SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS DU GABARIT -->
 <cfoutput>
-<LINK href="/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
-<LINK href="/clf20/css/1col.css" media="screen, print" rel="stylesheet" type="text/css" />
-<STYLE type="text/css" media="all">@import url(/clf20/css/base2.css);</STYLE>
+<link href="/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="/clf20/css/1col.css" media="screen, print" rel="stylesheet" type="text/css" />
+<style type="text/css" media="all">@import url(/clf20/css/base2.css);</style>
 </cfoutput>
 <!-- TEMPLATE SCRIPTS/CSS END | FIN DES SCRIPTS/CSS DU GABARIT -->
 <!-- PROGRESSIVE ENHANCEMENT BEGINS | DEBUT DE L'AMELIORATION PROGRESSIVE -->
-<SCRIPT src="/clf20/scripts/pe-ap.js" type="text/javascript"></SCRIPT>
-<SCRIPT type="text/javascript">
+<script src="/clf20/scripts/pe-ap.js" type="text/javascript"></script>
+<script type="text/javascript">
 	/* <![CDATA[ */
 		var params = {
 			lng:"eng",
@@ -66,20 +66,20 @@
 		};
 		PE.progress(params);
 	/* ]]> */
-</SCRIPT>
+</script>
 <!-- PROGRESSIVE ENHANCEMENT ENDS | FIN DE L'AMELIORATION PROGRESSIVE -->
 <!-- CUSTOM SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS PERSONNALISES -->
 <cfoutput>
-<LINK href="/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
-<LINK href="/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
-<STYLE type="text/css" media="screen,print">@import url(#RootDir#css/advanced.css);</STYLE>
-<STYLE type="text/css" media="screen,print">@import url(#RootDir#css/projectcalendar.css);</STYLE>
+<link href="/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+<style type="text/css" media="screen,print">@import url(#RootDir#css/advanced.css);</style>
+<style type="text/css" media="screen,print">@import url(#RootDir#css/projectcalendar.css);</style>
 </cfoutput>
 <!-- CUSTOM SCRIPTS/CSS END | FIN DES SCRIPTS/CSS PERSONNALISES -->
 <!-- TEMPLATE PRINT CSS BEGINS | DEBUT DU CSS DU GABARIT POUR L'IMPRESSION -->
-<LINK href="/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
+<link href="/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
 <!-- TEMPLATE PRINT CSS ENDS | FIN DU CSS DU GABARIT POUR L'IMPRESSION -->
-</HEAD>
+</head>
 
 
 <!--- If the FROM and TO dates are set, use them; otherwise the megaquery grabs all bookings. --->
@@ -92,7 +92,7 @@
 </CFIF>
 
 <!--- Goes through the db once and gets all the bookings that fall between the dates wanted. Second query finds all maintenance blocks and labels them with the 'lol' identifier, because when a booking overlaps with a maintenance block, it is very lol. Wouldn't you agree? --->
-<CFQUERY name="megaquery" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="megaquery" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT 	Status,
 			Section1, Section2, Section3,
 			StartDate, EndDate,
@@ -106,8 +106,8 @@
 		<!---INNER JOIN	Users ON Vessels.UserID = Users.UserID--->
 		INNER JOIN	Companies ON Vessels.CompanyID = Companies.CompanyID
 	WHERE	Bookings.Deleted = '0'
-		<CFIF isDefined("CalStartDate") AND CalStartDate neq "">AND	EndDate >= <CFQUERYPARAM value="#CalStartDate#" cfsqltype="cf_sql_date"></CFIF>
-		<CFIF isDefined("CalEndDate") AND CalEndDate neq "">AND	StartDate <= <CFQUERYPARAM value="#CalEndDate#" cfsqltype="cf_sql_date"></CFIF>
+		<CFIF isDefined("CalStartDate") AND CalStartDate neq "">AND	EndDate &gt;= <cfqueryPARAM value="#CalStartDate#" cfsqltype="cf_sql_date"></CFIF>
+		<CFIF isDefined("CalEndDate") AND CalEndDate neq "">AND	StartDate &lt;= <cfqueryPARAM value="#CalEndDate#" cfsqltype="cf_sql_date"></CFIF>
 	
 	UNION
 
@@ -122,18 +122,18 @@
 		INNER JOIN	Docks ON Bookings.BookingID = Docks.BookingID
 		<!---INNER JOIN	Users ON Vessels.UserID = Users.UserID--->
 	WHERE	Bookings.Deleted = '0'
-		<CFIF isDefined("CalStartDate") AND CalStartDate neq "">AND	EndDate >= <CFQUERYPARAM value="#CalStartDate#" cfsqltype="cf_sql_date"></CFIF>
-		<CFIF isDefined("CalEndDate") AND CalEndDate neq "">AND	StartDate <= <CFQUERYPARAM value="#CalEndDate#" cfsqltype="cf_sql_date"></CFIF>
+		<CFIF isDefined("CalStartDate") AND CalStartDate neq "">AND	EndDate &gt;= <cfqueryPARAM value="#CalStartDate#" cfsqltype="cf_sql_date"></CFIF>
+		<CFIF isDefined("CalEndDate") AND CalEndDate neq "">AND	StartDate &lt;= <cfqueryPARAM value="#CalEndDate#" cfsqltype="cf_sql_date"></CFIF>
 		AND Status = 'm'
 	ORDER BY	StartDate
 
-</CFQUERY>
+</cfquery>
 
-<CFQUERY name="hablah" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="hablah" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	CompanyID
 	FROM	UserCompanies
 	WHERE	UserID = #session.userID#
-</CFQUERY>
+</cfquery>
 
 <!--- Create an array-like struct for each part of the dock: docks 1, 2, 3, tentative, pending. --->
 <CFSET megaStruct[1] = structnew()>
@@ -160,7 +160,7 @@
 <CFSET accColour[14] = "3E3299">  <!--- navy blue --->
 <CFSET accColour[15] = "00571F">  <!--- deep forest --->
 <CFSET accColour[16] = "998200">  <!--- dark mustard --->
---->
+---&gt;
 <!--- scheme 2: using colour wheel, with additions from favourites of scheme 1! --->
 <CFSET accColour[1] = "E6AC73">  <!--- browns --->
 <CFSET accColour[2] = "886644">
@@ -181,7 +181,7 @@
 <CFSET accColour[99] = "000000">  <!--- maintenance colour --->
 
 
-<CFOUTPUT query="megaquery" maxrows="1">
+<cfoutput query="megaquery" maxrows="1">
 	<!---CFIF NOT IsDefined("CalStartDate") OR CalStartDate eq ""><CFSET CalStartDate = "#StartDate#"></CFIF>
 	<CFIF NOT IsDefined("CalEndDate") OR CalEndDate eq ""><CFSET CalEndDate = "#EndDate#"></CFIF--->
 	<CFSCRIPT>
@@ -326,11 +326,11 @@
 			return accColour[num];
 		}
 	</CFSCRIPT>
-</CFOUTPUT>
+</cfoutput>
 
 <!--- Populate the structs.  If toDate is not given, then keep increasing the size of the calendar to contain all bookings. --->
-<CFOUTPUT query="megaquery">
-	<CFIF (NOT IsDefined("CalEndDate") OR CalEndDate eq "")<!--- AND (#EndDate# GT #CalEndDate#) wtf is this doing here--->>
+<cfoutput query="megaquery">
+	<CFIF (NOT IsDefined("CalEndDate") OR CalEndDate eq "")<!--- AND (#EndDate# GT #CalEndDate#) wtf is this doing here--->&gt;
 		<CFSET CalEndDate = '#EndDate#'>
 	</CFIF>
 	
@@ -402,7 +402,7 @@
 	<CFELSE>  <!--- unknown character --->
 		
 	</CFIF>
-</CFOUTPUT>
+</cfoutput>
 
 <!--- These variables should be set by now.  If not, some code above this line has gone bad 
 	and ColdFusion will throw an exception. --->
@@ -412,61 +412,61 @@
 
 <CFSET #CalSize# = #CalEndDate# - #CalStartDate# + 1>
 
-<BODY>
+<body>
 <div class="page">
 	<div class="core">
-		<!-- FIP HEADER BEGINS | DEBUT DE L'EN-TETE PCIM -->
+		<!-- FIP headER BEGINS | DEBUT DE L'EN-TETE PCIM -->
 		<div class="fip">
 		<a name="tphp" id="tphp"><img src="/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></a>
 		</div>
 		<div class="cwm">
 			<img src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
 		</div>
-		<!-- FIP HEADER ENDS | FIN DE L'EN-TETE PCIM -->
+		<!-- FIP headER ENDS | FIN DE L'EN-TETE PCIM -->
 
 		<div class="center">
-			<H1><a name="cont" id="cont">
+			<h1><a name="cont" id="cont">
 				<cfoutput>#Language.PageTitle#</cfoutput>
-				</a></H1>
+			</a></h1>
 
-			<DIV class="screenonly">
-				<CFOUTPUT>#Language.ScreenMessage#</CFOUTPUT>
-				<div align="center"><A href="javascript:history.go(-1);" class="textbutton">Back to Date Selection</A> &nbsp;
-				<A href="javascript:self.close();" class="textbutton">Close this Window</A></div>
+			<div class="screenonly">
+				<cfoutput>#Language.ScreenMessage#</cfoutput>
+				<div align="center"><a href="javascript:history.go(-1);" class="textbutton">Back to Date Selection</a> &nbsp;
+				<a href="javascript:self.close();" class="textbutton">Close this Window</a></div>
 				<br />
-			</DIV>
+			</div>
 	
-			<CFOUTPUT>
+			<cfoutput>
 			
-			<TABLE cellpadding="0" cellspacing="0" width="700" style="font-size: 10pt; ">
-				<THEAD><TR style="border-bottom: 1px solid ##888888; ">
-					<TH style="background: White; border-right: 1px solid ##888888" colspan="2">&nbsp;</TH>
-					<TH id="1_header" axis="assignment_axis" class="sec1 confirmed" width="120" align="center">DRYDOCK 1</TH>
-					<TH id="2_header" axis="assignment_axis" class="sec2 confirmed" width="120" align="center">DRYDOCK 2</TH>
-					<TH id="3_header" axis="assignment_axis" class="sec3 confirmed" width="120" align="center">DRYDOCK 3</TH>
-					<TH id="4_header" axis="assignment_axis" class="tentative" width="120">TENTATIVE</TH>
-					<TH id="5_header" axis="assignment_axis" class="pending" width="120">PENDING</TH>
-				</TR></THEAD>
+			<table cellpadding="0" cellspacing="0" width="700">
+				<thead>
+					<tr style="border-bottom: 1px solid ##888888; ">
+					<th style="background: White; border-right: 1px solid ##888888" colspan="2">&nbsp;</th>
+					<th id="1_header" axis="assignment_axis" class="sec1 confirmed" width="120" align="center">DRYDOCK 1</th>
+					<th id="2_header" axis="assignment_axis" class="sec2 confirmed" width="120" align="center">DRYDOCK 2</th>
+					<th id="3_header" axis="assignment_axis" class="sec3 confirmed" width="120" align="center">DRYDOCK 3</th>
+					<th id="4_header" axis="assignment_axis" class="tentative" width="120">TENTATIVE</th>
+					<th id="5_header" axis="assignment_axis" class="pending" width="120">PENDING</th>
+				</tr></thead>
 				
-				<TBODY>
+				<tbody>
 				<!--- This loops through every day of the calendar requested and creates a new row for each one.  --->
 				<CFLOOP index="offset" from="1" to="#CalSize#">
 				<CFSET taday = DateAdd('d', offset - 1, CalStartDate)>
-				<TR style="text-align: left;">
-					<TD class="<CFIF Day(taday) eq 1>firstday</CFIF>" style="border-right: 1px solid ##888888; text-align: right;">
+				<tr style="text-align: left;">
+					<td class="<CFIF Day(taday) eq 1>firstday</CFIF>" style="border-right: 1px solid ##888888; text-align: right;">
 						<CFIF Day(taday) eq 1 OR offset eq 1>
 							#DateFormat(taday, "mmm")# '#DateFormat(taday, "yy")# &nbsp;
 						<CFELSE>
 							&nbsp;
-						</CFIF>
-					</TD>
-					<TD id="date#offset#_header" axis="date" class="day<CFIF DayofWeek(taday) eq 7> sat<CFELSEIF DayofWeek(taday) eq 1> sun</CFIF><CFIF Day(taday) eq 1> firstday</CFIF>" style="border-right: 1px solid ##888888; text-align: center;">
-						<A href="javascript:window.opener.location.href='#RootDir#comm/detail.cfm?lang=#lang#&date=#DateFormat(taday, 'm/d/yyyy')#'; void(0);">#DateFormat(taday, "d")#</A>
-					</TD>
+						</CFIF>					</td>
+					<td id="date#offset#_header" axis="date" class="day<CFIF DayofWeek(taday) eq 7> sat<CFELSEIF DayofWeek(taday) eq 1> sun</CFIF><CFIF Day(taday) eq 1> firstday</CFIF>" style="border-right: 1px solid ##888888; text-align: center;">
+						<a href="javascript:window.opener.location.href='#RootDir#comm/detail.cfm?lang=#lang#&amp;date=#DateFormat(taday, 'm/d/yyyy')#'; void(0);">#DateFormat(taday, "d")#</a>
+					</td>
 			
 					<!--- This part loops over the five columns of the calendar: dock 1, 2, 3, tentative, and pending.  --->
 					<CFLOOP index="d" from="1" to="5">
-						<CFTRY>
+						<CFtrY>
 							<!--- If this day&section of the megaStruct exists... --->
 							<CFSET nevermore = megaStruct[d][offset]>
 							<CFSET tadaysDate = "#DateFormat(taday, 'yyyy')#" & "/" & "#DateFormat(taday, 'm')#" & "/" & "#DateFormat(taday, 'd')#">
@@ -493,34 +493,37 @@
 									</CFIF>
 								</CFLOOP>
 							</CFIF>
-							<TD headers="#d#_header month#offset#_header" class="day<CFIF DayofWeek(taday) eq 7> sat<CFELSEIF DayofWeek(taday) eq 1> sun</CFIF>
+							<td headers="#d#_header month#offset#_header" class="day<CFIF DayofWeek(taday) eq 7> sat<CFELSEIF DayofWeek(taday) eq 1> sun</CFIF>
 											<CFIF Day(taday) eq 1> firstday</CFIF>"
 									style="background: ###getColour(StructFind(nevermore, 'colourCode'))#; ">
 								<CFIF StructFind(nevermore, "firstday") AND StructFind(nevermore, "firstdock") eq true>
 									<!--- The first day of the booking can have custom text --->
 									<!---A href="javascript:void(0)" onClick="foo(event, '#snowflakes#', '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOver="foo(event, '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOut="foo(event);">
-										<DIV class="text">#Left(StructFind(nevermore, "vesselName" & StructFind(nevermore, "boatCount")), 10)#...</DIV>
-									</A--->
-									<DIV class="text">#snowflakes#</DIV>
+										<div class="text">#Left(StructFind(nevermore, "vesselName" & StructFind(nevermore, "boatCount")), 10)#...</div>
+									</a--->
+									<div class="text">#snowflakes#</div>
 								<CFELSE>
 									<!---A href="javascript:void(0)" onClick="foo(event, '#snowflakes#', '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOver="foo(event, '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOut="foo(event);"--->
-										<DIV class="text">&nbsp;<br />&nbsp;<br />&nbsp;<br />&nbsp;<!---CFIF StructFind(nevermore, "yours") eq true>?<CFELSE>#StructFind(nevermore, "boatCount")#</CFIF---></DIV>
+										<div class="text">&nbsp;<br />
+										&nbsp;<br />&nbsp;<br />&nbsp;<!---CFIF StructFind(nevermore, "yours") eq true>?<CFELSE>#StructFind(nevermore, "boatCount")#</CFIF---></div>
 									<!---/A--->
-								</CFIF>
-							</TD>
+								</CFIF>							</td>
 						<CFCATCH type="coldfusion.runtime.UndefinedElementException">
 							<!--- If this day&section of the megaStruct DOESN'T exist, it throws this exception... --->
-							<TD headers="#d#_header month#offset#_header" class="day<CFIF DayofWeek(taday) eq 7> sat<CFELSEIF DayofWeek(taday) eq 1> sun</CFIF><CFIF Day(taday) eq 1> firstday</CFIF>">
-								<DIV class="text">&nbsp;<br />&nbsp;<br />&nbsp;<br />&nbsp;</DIV>
+							<td headers="#d#_header month#offset#_header" class="day<CFIF DayofWeek(taday) eq 7> sat<CFELSEIF DayofWeek(taday) eq 1> sun</CFIF><CFIF Day(taday) eq 1> firstday</CFIF>">
+								<div class="text">&nbsp;<br />
+									&nbsp;<br />&nbsp;<br />&nbsp;</div>
+						</td>
 						</CFCATCH>
-						</CFTRY>
+						</CFtrY>
 					</CFLOOP>
+				</tr>
 			
-				</TR>
-			
-				</CFLOOP></TBODY>
-			</TABLE>
-			</CFOUTPUT>
+				</CFLOOP></tbody>
+			</table>
+			</cfoutput>
 		</div>
 
 <CFINCLUDE template="#RootDir#includes/foot-pied-eng.cfm">
+</body>
+</html>

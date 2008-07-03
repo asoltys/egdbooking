@@ -5,11 +5,11 @@
 	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Confirm Booking"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm Booking</title>">
 
 <CFPARAM name="url.referrer" default="Booking Management">
@@ -29,15 +29,15 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-				<A href="bookingManage.cfm?lang=#lang#">Drydock Management</A> &gt;
+				<a href="bookingManage.cfm?lang=#lang#">Drydock Management</a> &gt;
 				Confirm Booking
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -50,7 +50,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 					
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				
 				<!--- -------------------------------------------------------------------------------------------- --->
 				<cfparam name="Variables.BookingID" default="">
@@ -76,9 +76,9 @@
 				<cfinclude template="includes/getOverlaps.cfm">
 				<cfset overlapQuery = getOverlaps_Conf(Variables.BookingID)>
 				<cfif overlapQuery.RecordCount GT 0>
-				<div class="waitList">
+				<div class="critical">
 					<p>This vessel has other overlapping bookings listed below:</p>
-					<table class="waitlistBookings">
+					<table class="basic smallFont">
 						<tr>
 							<th id="Booked" align="left">Booked</th>
 							<th id="Vessel" align="left">Vessel</th>
@@ -87,7 +87,7 @@
 						</tr>
 						<cfloop query="overlapQuery">
 						<cfoutput>
-						<TR valign="top">
+						<tr valign="top">
 							<td headers="Booked" valign="top">#DateFormat(overlapQuery.BookingTime, 'mmm dd, yyyy')#<br />at #TimeFormat(overlapQuery.BookingTime, 'H:mm')#</td>
 							<td headers="Vessel" valign="top">#trim(overlapQuery.Name)#</td>
 							<td headers="Dates" valign="top">#DateFormat(overlapQuery.StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#DateFormat(overlapQuery.StartDate, ", yyyy")#</CFIF> -<br />#DateFormat(overlapQuery.EndDate, "mmm d, yyyy")#</td>

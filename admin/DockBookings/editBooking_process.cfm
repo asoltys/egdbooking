@@ -5,11 +5,11 @@
 	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Dock Booking"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Dock Booking</title>">
 
 <CFPARAM name="url.referrer" default="Drydock Booking Management">
@@ -43,11 +43,11 @@
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-			<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+			<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<A href="bookingManage.cfm?lang=#lang#">Drydock Management</A> &gt;
+			<a href="bookingManage.cfm?lang=#lang#">Drydock Management</a> &gt;
 			Edit Dock Booking
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
@@ -61,7 +61,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
+			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 			
 			<cfset Errors = ArrayNew(1)>
 			<cfset Success = ArrayNew(1)>
@@ -162,7 +162,7 @@
 				<cfset Proceed_OK = "No"> --->
 			<cfif checkDblBooking.RecordCount GT 0>
 				<!---<cfoutput>#ArrayAppend(Errors, "#checkDblBooking.Name# has already been booked from #dateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# to #dateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.")#</cfoutput>--->
-				<cfoutput><div style="border: 1px solid ##1F1FC9; border-style:dashed; background: ##F5F5F5; padding:25px;">#checkDblBooking.Name# has already been booked from #dateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# to #dateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.</div></cfoutput>
+				<cfoutput><div id="actionErrors">#checkDblBooking.Name# has already been booked from #dateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# to #dateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.</div></cfoutput>
 				<cfset Proceed_OK = "Yes">
 			</cfif>
 			
@@ -210,8 +210,8 @@
 			<p>Please confirm the following information.</p>
 			<cfform action="editBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
 			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#"></cfoutput>
-			<div style="font-size:10pt;font-weight:bold;">Booking:</div>
-			<table width="100%" align="center" style="font-size:10pt;padding-left:15px;">
+			<div style="font-weight:bold;">Booking:</div>
+			<table width="100%" align="center" style="padding-left:15px;">
 				<tr>
 					<td id="Vessel" align="left" width="20%">Vessel:</td>
 					<td headers="Vessel" width="80%"><cfoutput>#getData.VesselName#</cfoutput></td>
@@ -263,7 +263,7 @@
 			</table>
 			
 			<br />
-			<table width="100%" cellspacing="0" cellpadding="1" border="0" align="center" style="font-size:10pt;">
+			<table width="100%" cellspacing="0" cellpadding="1" border="0" align="center">
 			
 			
 				<tr>
@@ -275,7 +275,7 @@
 						<BR--->
 						<input type="Submit" value="Confirm" class="textbutton">
 						<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='editBooking.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'"></cfoutput>
-						<CFOUTPUT><input type="button" value="Cancel" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'" class="textbutton"></CFOUTPUT>
+						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'" class="textbutton"></cfoutput>
 						<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
 					</td>
 				</tr>

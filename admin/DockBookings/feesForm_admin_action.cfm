@@ -146,8 +146,8 @@
 			<cfelse>
 				LightsCaisson = 0,
 			</cfif>
-			<cfif isDefined("Form.Other") AND Form.Other EQ "on" AND TRIM(Form.otherText) NEQ "">
-				OtherText = '#TRIM(Form.otherText)#',
+			<cfif isDefined("Form.Other") AND Form.Other EQ "on" AND trIM(Form.otherText) NEQ "">
+				OtherText = '#trIM(Form.otherText)#',
 				Other = 1 
 			<cfelse>
 				OtherText = '',
@@ -157,12 +157,12 @@
 	WHERE	BookingID = '#Form.BookingID#'
 </cfquery>
 
-<CFQUERY name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS vesselName, startDate, endDate
 	FROM	Bookings
 		INNER JOIN	Vessels ON Bookings.VesselID = Vessels.VesselID
 	WHERE	BookingID = '#Form.BookingID#'
-</CFQUERY>
+</cfquery>
 
 <!--- URL tokens set-up.  Do not edit unless you KNOW something is wrong.
 	Lois Chan, July 2007 --->
@@ -197,7 +197,7 @@
 </cfif>
 
 <!--- create structure for sending to mothership/success page. --->
-<cfset Session.Success.Breadcrumb = "<A href='../admin/DockBookings/bookingmanage.cfm?lang=#lang#'>Drydock Management</A> &gt; Tariff of Dock Charges">
+<cfset Session.Success.Breadcrumb = "<a href='../admin/DockBookings/bookingmanage.cfm?lang=#lang#'>Drydock Management</a> &gt; Tariff of Dock Charges">
 <cfset Session.Success.Title = "Tariff of Dock Charges">
 <cfset Session.Success.Message = "Tariff form for <b>#getBooking.vesselName#</b>, booked from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')#, has been updated.">
 <cfset Session.Success.Back = "Back to #url.referrer#">

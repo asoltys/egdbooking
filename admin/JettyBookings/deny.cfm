@@ -42,15 +42,15 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<A href="jettyBookingManage.cfm?lang=#lang#">Jetty Booking Management</A> &gt;
+			<a href="jettyBookingManage.cfm?lang=#lang#">Jetty Booking Management</a> &gt;
 			Change Booking Status
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -65,7 +65,7 @@
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				
-				<P>Are you sure you want to deny the confirmation and change this booking's status to tentative?</P>
+				<p>Are you sure you want to deny the confirmation and change this booking's status to tentative?</p>
 				<cfform action="deny_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post" name="deny">
 					
 					<cfoutput>

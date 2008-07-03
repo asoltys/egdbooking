@@ -5,11 +5,11 @@
 	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Jetty Booking"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Jetty Booking</title>">
 
 <CFPARAM name="url.referrer" default="Booking Management">
@@ -30,15 +30,15 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<a href="jettyBookingManage.cfm?lang=#lang#">Jetty Management</A> &gt;
+			<a href="jettyBookingManage.cfm?lang=#lang#">Jetty Management</a> &gt;
 			Edit Booking
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -51,7 +51,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 					
-				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br />
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				
 				<!--- Error Validation ------------------------------------------------------------------------------------------------->
 				<cfset Errors = ArrayNew(1)>
@@ -178,8 +178,8 @@
 				<p>Please confirm the following information.</p>
 				<cfform action="editJettyBooking_action.cfm?#urltoken#&BookingID=#form.BookingID#&editStart=#form.startDate#&editEnd=#form.endDate#&jetty=#form.jetty#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
 				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#"></cfoutput>
-				<div style="font-size:10pt;font-weight:bold;">Booking:</div>
-				<table width="100%" align="center" style="font-size:10pt;padding-left:15px;">
+				<div style="font-weight:bold;">Booking:</div>
+				<table width="100%" align="center" style="padding-left:15px;">
 					<tr>
 						<td id="Vessel" align="left" width="20%">Vessel:</td>
 						<td headers="Vessel" width="80%"><cfoutput>#getData.VesselName#</cfoutput></td>
@@ -235,7 +235,7 @@
 						<input type="Submit" value="Confirm" class="textbutton">
 				
 					<!----cfform name="backForm" action="editJettybooking.cfm?lang=#lang#">
-						<CFOUTPUT>
+						<cfoutput>
 							<input type="hidden" name="vesselID" value="#getData.vesselID#">
 							<input type="hidden" name="userID" value="#form.userID#">
 							<input type="hidden" name="startDate" value="#form.startDate#">
@@ -248,10 +248,10 @@
 							</cfif>
 							<input type="hidden" name="companyID" value="#form.companyID#">
 							<input type="submit" value="Back" class="textbutton">
-						</CFOUTPUT>
+						</cfoutput>
 					</cfform---->
-						<CFOUTPUT><input type="button" value="Back" class="textbutton" onClick="self.location.href='editJettyBooking.cfm?#urltoken#&bookingID=#form.bookingID##variables.dateValue#';"></CFOUTPUT>
-						<CFOUTPUT><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#form.bookingID##variables.dateValue####form.bookingID#';"></CFOUTPUT>
+						<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='editJettyBooking.cfm?#urltoken#&bookingID=#form.bookingID##variables.dateValue#';"></cfoutput>
+						<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#form.bookingID##variables.dateValue####form.bookingID#';"></cfoutput>
 						<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
 				</div>
 				</cfform>

@@ -37,10 +37,10 @@
 	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
 	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.tariffHeading#</title>">
 
 <cfinclude template="#RootDir#includes/restore_params.cfm">
@@ -74,15 +74,15 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
-			<A href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=<cfoutput>#lang#</cfoutput>">#language.bookingRequest#</A> &gt;
+			<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=<cfoutput>#lang#</cfoutput>">#language.bookingRequest#</a> &gt;
 			#language.tariffHeading#
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -91,7 +91,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>#language.tariffHeading#</CFOUTPUT>
+					<cfoutput>#language.tariffHeading#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -165,9 +165,9 @@
 						</td>
 						<cfif fee NEQ "">
 							<cfif flex EQ 0>
-						<td headers="feeHeader" align="right" valign="top" nowrap><label for="#abbreviation#"><STRONG>#LSCurrencyFormat(fee)#</STRONG></label></td>
+						<td headers="feeHeader" align="right" valign="top" nowrap><label for="#abbreviation#"><StrONG>#LSCurrencyFormat(fee)#</StrONG></label></td>
 							<cfelse>
-						<td headers="feeHeader" align="right" valign="top"><label for="#abbreviation#"><STRONG>#language.pricesVary#</STRONG></label></td>
+						<td headers="feeHeader" align="right" valign="top"><label for="#abbreviation#"><StrONG>#language.pricesVary#</StrONG></label></td>
 							</cfif>
 						<cfelse>
 						<td headers="feeHeader">&nbsp;</td>

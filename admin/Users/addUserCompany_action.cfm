@@ -72,14 +72,14 @@
 		</cfoutput>
 	</cfif>
 </cflock>
-<!---CFQUERY name="getDetails">
+<!---cfquery name="getDetails">
 	SELECT	Users.FirstName, Users.LastName, Companies.Name AS CompanyName
 	FROM	UserCompanies
 		INNER JOIN	Users ON UserCompanies.UserID = Users.UserID
 		INNER JOIN	Companies ON UserCompanies.CompanyID = Companies.CompanyID
 	WHERE	UserCompanies.UserID = '#form.userID#'
 		AND	UserCompanies.CompanyID = '#form.companyID#'
-</CFQUERY>
+</cfquery>
 
 <cfif lang EQ "eng">
 	<cfset Session.Success.Title = "Add User to Company">

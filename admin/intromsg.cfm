@@ -1,13 +1,13 @@
 <cfhtmlhead text="
 <meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions"">
-<META name=""keywords"" lang=""eng"" content="""">
-<META name=""description"" lang=""eng"" content="""">
-<META name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-<META name=""dc.date.published"" content=""2005-07-25"">
-<META name=""dc.date.reviewed"" content=""2005-07-25"">
-<META name=""dc.date.modified"" content=""2005-07-25"">
-<META name=""dc.date.created"" content=""2005-07-25"">
-<TITLE>PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions</TITLE>">
+<meta name=""keywords"" lang=""eng"" content="""">
+<meta name=""description"" lang=""eng"" content="""">
+<meta name=""dc.date.published"" content=""2005-07-25"" />
+<meta name=""dc.date.published"" content=""2005-07-25"" />
+<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+<meta name=""dc.date.modified"" content=""2005-07-25"" />
+<meta name=""dc.date.created"" content=""2005-07-25"" />
+<title>PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions</title>">
 
 <!---clear form structure--->
 <cfif IsDefined("Session.Form_Structure")>
@@ -44,7 +44,7 @@
 				  <TEXTAREA name="datatowrite" cols="40" rows="5"><cfif #intromsg# is not ""><cfoutput>#intromsg#</cfoutput></cfif>
 				</TEXTAREA>
 				  <BR />
-				  <INPUT id="submit" type="submit" value="Update">
+				  <input id="submit" type="submit" value="Update">
 				</cfform>
 			</div>	
 			<!-- CONTENT ENDS | FIN DU CONTENU -->

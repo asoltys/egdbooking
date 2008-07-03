@@ -13,7 +13,7 @@
 	<cfset language.deepsea = "Deepsea Vessel">
 	<cfset language.noBookings = "There are no bookings to view.">
 	<cfset language.booked = "Booked">
-	<cfset language.printable = "VIEW PRINTABLE VERSION">
+	<cfset language.printable = "VIEW PRINtable VERSION">
 <cfelse>
 	<CFSET langVar = "fre">
 	<cfset language.bookingsSummary = "R&eacute;sum&eacute; des r&eacute;servations">
@@ -32,11 +32,11 @@
 	<meta name=""dc.title"" lang=""#langVar#"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.bookingsSummary#"">
 	<meta name=""keywords"" lang=""#langVar#"" content="""">
 	<meta name=""description"" lang=""#langVar#"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.bookingsSummary#</title>
 	
 ">
@@ -52,7 +52,7 @@
 	<CFSET Variables.calEndDate = form.endDate>
 </CFIF>
 
-<CFQUERY name="getDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 SELECT	Bookings.VesselID,
 		Vessels.Name AS VesselName, Anonymous,
 		Length AS VesselLength,
@@ -75,9 +75,9 @@ WHERE	(Status = 'c' OR Status = 't')
 	<CFIF IsDefined('Variables.CalEndDate') and Variables.CalEndDate neq ''>AND StartDate <= '#Variables.CalEndDate#'</CFIF>
 	
 ORDER BY	StartDate, EndDate, VesselName
-</CFQUERY>
+</cfquery>
 
-<CFQUERY name="getJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 SELECT	Bookings.VesselID,
 		Vessels.Name AS VesselName, Anonymous,
 		Length AS VesselLength,
@@ -101,19 +101,19 @@ WHERE	Bookings.Deleted = '0'
 	AND ((Jetties.status <> 'T') OR (Jetties.status = 'T' AND Bookings.startDate >= #PacificNow#))
 
 ORDER BY	StartDate, EndDate, VesselName
-</CFQUERY>
+</cfquery>
 
-<CFQUERY name="getNJBookings" dbtype="query">
+<cfquery name="getNJBookings" dbtype="query">
 SELECT	* 
 FROM	getJettyBookings
 WHERE	NorthJetty = 1
-</CFQUERY>
+</cfquery>
 
-<CFQUERY name="getSJBookings" dbtype="query">
+<cfquery name="getSJBookings" dbtype="query">
 SELECT	* 
 FROM	getJettyBookings
 WHERE	SouthJetty = 1
-</CFQUERY>
+</cfquery>
 
 <script language="javascript" type="text/javascript">
 function popUp(pageID) {
@@ -126,10 +126,10 @@ function popUp(pageID) {
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<a href="#RootDir#reserve-book-#lang#.cfm">#language.booking#</a> &gt;
 			#language.bookingsSummary#
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -138,27 +138,26 @@ function popUp(pageID) {
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>#language.bookingsSummary#</CFOUTPUT>
+					<cfoutput>#language.bookingsSummary#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<H2><cfoutput>#language.Drydock#</cfoutput></H2>
+				<h2><cfoutput>#language.Drydock#</cfoutput></h2>
 				<!-- Begin Dry Docks table -->
-				<TABLE class="basic mediumFont">
+				<table class="basic mediumFont">
 					<cfoutput>
-					<TR>
-						<!---TH id="company" class="calendar" style="font-size: 12px; width: 10%;">#language.COMPANYCaps#</TH--->
-						<TH id="section" style="width: 20%;">#language.SECTIONCaps#</TH>
-						<TH id="docking" style="width: 40%;">#language.DOCKINGCaps#</TH>
-						<TH id="booking" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
-					</TR>
+					<tr>
+						<th id="section" style="width: 20%;">#language.SECTIONCaps#</th>
+						<th id="docking" style="width: 40%;">#language.DOCKINGCaps#</th>
+						<th id="booking" style="width: 30%;">#language.BOOKINGDATECaps#</th>
+					</tr>
 					</cfoutput>
 					<CFIF getDockBookings.RecordCount neq 0>
-						<CFOUTPUT query="getDockBookings">
-						<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
-							<!---TD class="calendar">#VesselLength#M <CFIF Anonymous>Deapsea Vessel<CFELSE>#VesselName#</CFIF></TD--->
-							<!---TD headers="company" class="calendar">#abbreviation#</TD--->
-							<TD headers="section"><DIV align="center"><DIV align="center"><CFIF Status eq 'c'>
+						<cfoutput query="getDockBookings">
+						<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
+							<!---td class="calendar">#VesselLength#M <CFIF Anonymous>Deapsea Vessel<CFELSE>#VesselName#</CFIF></td--->
+							<!---td headers="company" class="calendar">#abbreviation#</td--->
+							<td headers="section"><div align="center"><div align="center"><CFIF Status eq 'c'>
 													<CFIF Section1 eq true>1</CFIF>
 													<CFIF Section2 eq true>
 														<CFIF Section1> &amp; </CFIF>
@@ -168,76 +167,74 @@ function popUp(pageID) {
 													3</CFIF>
 												<CFELSE>#language.tentative#
 												</CFIF>
-												</DIV></TD>
-							<TD headers="docking">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
-							<TD headers="booking">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></TD>
-						</TR>
-						</CFOUTPUT>
-					</TABLE>
+												</div></td>
+							<td headers="docking">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
+							<td headers="booking">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></td>
+						</tr>
+						</cfoutput>
+					</table>
 				<CFELSE>
-				</TABLE>
+				</table>
 				<!-- End Dry Docks table -->
 				<cfoutput>#language.noBookings#</cfoutput>
 				</CFIF>
 				
 				<h2><cfoutput>#language.northLandingWharf#</cfoutput></h2>
 				<!-- Begin North Jetty table -->
-				<TABLE class="basic mediumFont">
+				<table class="basic mediumFont">
 					<cfoutput>
-					<TR>
-						<!---TH id="company2" class="calendar" style="font-size: 12px; width: 10%;">#language.COMPANYCaps#</TH--->
-						<TH id="section2" style="width: 20%;">#language.SECTIONCaps#</TH>
-						<TH id="docking2" style="width: 40%;">#language.DOCKINGCaps#</TH>
-						<TH id="booking2" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
-					</TR>
+					<tr>
+						<th id="section2" style="width: 20%;">#language.SECTIONCaps#</th>
+						<th id="docking2" style="width: 40%;">#language.DOCKINGCaps#</th>
+						<th id="booking2" style="width: 30%;">#language.BOOKINGDATECaps#</th>
+					</tr>
 					</cfoutput>
 					<CFIF getNJBookings.RecordCount neq 0>
-						<CFOUTPUT query="getNJBookings">
-						<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
-							<!---TD class="calendar">#VesselLength#M <CFIF Anonymous eq true>Deapsea Vessel<CFELSE>#VesselName#</CFIF></TD--->
-							<!---TD headers="company2" class="calendar">#abbreviation#</TD--->
-							<TD headers="section2"><DIV align="center"><CFIF Status eq 'c'>#language.booked#
+						<cfoutput query="getNJBookings">
+						<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
+							<!---td class="calendar">#VesselLength#M <CFIF Anonymous eq true>Deapsea Vessel<CFELSE>#VesselName#</CFIF></td--->
+							<!---td headers="company2" class="calendar">#abbreviation#</td--->
+							<td headers="section2"><div align="center"><CFIF Status eq 'c'>#language.booked#
 														<CFELSEIF Status eq 't'>#language.tentative#
-														</CFIF></DIV></TD>
-							<TD headers="docking2">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
-							<TD headers="booking2">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></TD>
-						</TR>
-						</CFOUTPUT>
-					</TABLE>
+														</CFIF></div></td>
+							<td headers="docking2">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
+							<td headers="booking2">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></td>
+						</tr>
+						</cfoutput>
+					</table>
 				<CFELSE>
-				</TABLE>
+				</table>
 				<!-- End North Jetty table -->
 				<cfoutput>#language.noBookings#</cfoutput>
 				</CFIF>
 				
 				<h2><cfoutput>#language.southJetty#</cfoutput></h2>
 				<!-- Begin South Jetty table -->
-				<TABLE class="basic mediumFont">
+				<table class="basic mediumFont">
 					<cfoutput>
-					<TR>
-						<!---TH id="company3" class="calendar" style="font-size: 12px; width: 10%;">#language.COMPANYCaps#</TH--->
-						<TH id="section3" style="width: 20%;">#language.SECTIONCaps#</TH>
-						<TH id="docking3" style="width: 40%;">#language.DOCKINGCaps#</TH>
-						<TH id="booking3" style="width: 30%;">#language.BOOKINGDATECaps#</TH>
-					</TR>
+					<tr>
+						<th id="section3" style="width: 20%;">#language.SECTIONCaps#</th>
+						<th id="docking3" style="width: 40%;">#language.DOCKINGCaps#</th>
+						<th id="booking3" style="width: 30%;">#language.BOOKINGDATECaps#</th>
+					</tr>
 					</cfoutput>
 					<CFIF getSJBookings.RecordCount neq 0>
-						<CFOUTPUT query="getSJBookings">
-						<TR style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
-							<!---TD class="calendar">#VesselLength#M <CFIF Anonymous eq true>Deapsea Vessel<CFELSE>#VesselName#</CFIF></TD--->
-							<!---TD headers="company3" class="calendar">#abbreviation#</TD--->
-							<TD headers="section3"><DIV align="center"><CFIF Status eq 'c'>#language.booked#
+						<cfoutput query="getSJBookings">
+						<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
+							<!---td class="calendar">#VesselLength#M <CFIF Anonymous eq true>Deapsea Vessel<CFELSE>#VesselName#</CFIF></td--->
+							<!---td headers="company3" class="calendar">#abbreviation#</td--->
+							<td headers="section3"><div align="center"><CFIF Status eq 'c'>#language.booked#
 														<CFELSEIF Status eq 't'>#language.tentative#
 														<CFELSE>#language.pending#
-														</CFIF></DIV></TD>
-							<TD headers="docking3">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</TD>
-							<TD headers="booking3">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></TD>
-						</TR>
-						</CFOUTPUT>
-					</TABLE>
+														</CFIF></div></td>
+							<td headers="docking3">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
+							<td headers="booking3">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></td>
+						</tr>
+						</cfoutput>
+					</table>
 				<!-- End South Jetty table -->
 				<CFELSE>
-				</TABLE>
+				</table>
 				<cfoutput>#language.noBookings#</cfoutput>
 				</CFIF>
 								

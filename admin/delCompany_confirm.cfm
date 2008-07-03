@@ -2,11 +2,11 @@
 	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Confirm Delete Company"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm Delete Company</title>">
 
 <cfif isDefined("form.companyID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
@@ -80,14 +80,14 @@ so the users who belong to that current company can choose another company--->
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
 			Confirm Delete Company
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -100,7 +100,7 @@ so the users who belong to that current company can choose another company--->
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
@@ -114,7 +114,7 @@ so the users who belong to that current company can choose another company--->
 						<strong>#getCompany.Name#</strong> cannot be deleted as it has the following confirmed bookings:
 						<br /><br />
 						<cfif getDockBookings.recordCount GT 0>
-							<table style="padding-left:20px;font-size:10pt;" width="100%">
+							<table style="padding-left:20px;" width="100%">
 							<tr><th id="drydock" align="left"><strong>Drydock</strong></th></tr>
 								<cfloop query="getDockBookings">
 									<cfif getDockBookings.Status EQ "C">
@@ -127,7 +127,7 @@ so the users who belong to that current company can choose another company--->
 						<br />
 						</cfif>
 						<cfif getJettyBookings.recordCount GT 0>
-							<table style="padding-left:20px;font-size:10pt;" width="100%">
+							<table style="padding-left:20px;" width="100%">
 							<tr><th id="jetties" align="left"><strong>Jetties</strong></th></tr>
 								<cfloop query="getJettyBookings">
 									<cfif getJettyBookings.Status EQ "C">
@@ -147,7 +147,7 @@ so the users who belong to that current company can choose another company--->
 						<cfoutput>
 						<strong>#getCompany.Name#</strong> cannot be deleted as it is currently responsible for the following vessel(s):
 						<br /><br />
-						<table style="padding-left:20px;font-size:10pt;" width="100%">
+						<table style="padding-left:20px;" width="100%">
 							<cfloop query="getVessels">
 								<tr>
 									<td>&nbsp;&nbsp;#name#</td>
@@ -162,7 +162,7 @@ so the users who belong to that current company can choose another company--->
 						<cfoutput>
 						<strong>#getCompany.Name#</strong> cannot be deleted as it is currently the only company responsible for the following user(s):
 						<br /><br />
-						<table style="padding-left:20px;font-size:10pt;" width="100%">
+						<table style="padding-left:20px;" width="100%">
 							<cfloop query="getCompanyUsers">
 								<tr>
 									<td>&nbsp;&nbsp;#userName#</td>

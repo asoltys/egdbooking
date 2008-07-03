@@ -21,10 +21,10 @@
 	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
 	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.AddVessel#</title>">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
@@ -55,14 +55,14 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.AddVessel#
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -71,12 +71,12 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>#language.AddVessel#</CFOUTPUT>
+					<cfoutput>#language.AddVessel#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
 				<cfoutput>
-				<cfinclude template="#RootDir#includes/user_menu.cfm"><br />
+				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 			
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfinclude template="#RootDir#includes/restore_params.cfm">
@@ -114,11 +114,11 @@
 				</tr>
 				<tr>
 					<td id="length_header"><label for="length">#language.Length#:</label></td>
-					<td headers="length_header"><cfinput name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="#language.lengthError#">  <span style="font-size: 9pt; color: red">#language.Max#: #Variables.MaxLength# m</span></td>
+					<td headers="length_header"><cfinput name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="#language.lengthError#">  <span class="smallFont" style="color:red;">#language.Max#: #Variables.MaxLength# m</span></td>
 				</tr>
 				<tr>
 					<td id="width_header"><label for="width">#language.Width#:</label></td>
-					<td headers="width_header"><cfinput name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="#language.widthError#">  <span style="font-size: 9pt; color: red">#language.Max#: #Variables.MaxWidth# m</span></td>
+					<td headers="width_header"><cfinput name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="#language.widthError#">  <span class="smallFont" style="color:red;">#language.Max#: #Variables.MaxWidth# m</span></td>
 				</tr>
 				<tr>
 					<td id="blocksetuptime_header"><label for="blocksetuptime">#language.BlockSetup# #language.days#:</label></td>
@@ -136,7 +136,7 @@
 					<td id="Anonymous_header"><label for="Anonymous">#language.anonymous#:</label></td>
 					<td headers="Anonymous_header"><input type="checkbox" id="Anonymous" name="Anonymous" value="Yes"></td>
 				</tr>
-				<tr><td colspan="2"><P class="smallFont">*#language.anonymousWarning#</P></td></tr>
+				<tr><td colspan="2"><P class="smallFont">*#language.anonymousWarning#</p></td></tr>
 				<tr>
 					<td colspan="2" align="center" style="padding-top:20px;">
 						<!---a href="javascript:document.addVessel.submitForm.click();" class="textbutton">#language.Submit#</a--->
@@ -147,7 +147,7 @@
 				</tr>
 				</table>
 				</cfform>
-				</CFOUTPUT>
+				</cfoutput>
 
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

@@ -56,12 +56,12 @@
 	<meta name=""keywords"" lang=""eng"" content=""#Language.masterKeywords#, #language.bookingDetail#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
 	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#Language.masterSubjects#"">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.bookingDetail#</title>
-	<link rel=""STYLESHEET"" type=""text/css"" href=""#RootDir#css/custom.css"">
+	<link rel=""styleSHEET"" type=""text/css"" href=""#RootDir#css/custom.css"">
 ">
 
 <cfif NOT IsDefined('url.bookingid') OR NOT IsNumeric(url.bookingid)>
@@ -84,7 +84,7 @@
 	<CFSET returnTo = "#RootDir#reserve-book/reserve-booking.cfm">
 </CFIF>
 
-<CFQUERY name="getBookingDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getBookingDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Bookings.EndHighlight, Bookings.BookingID, Docks.BookingID as DBID, Jetties.BookingID as JBID,
 		StartDate, EndDate,
 		Section1, Section2, Section3,
@@ -104,16 +104,16 @@
 	WHERE	Bookings.BookingID = #url.bookingid#
 		AND Bookings.Deleted = '0'
 		AND Vessels.Deleted = '0'
-</CFQUERY>
+</cfquery>
 
-<CFQUERY name="isUsers" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="isUsers" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	UserID, CompanyID
 	FROM	UserCompanies
 	WHERE	UserID = '#session.userID#'
 		AND	CompanyID = '#getBookingDetail.CompanyID#'
 		AND	Approved = 1
 		AND	Deleted = 0
-</CFQUERY>
+</cfquery>
 
 <cfif getBookingDetail.recordCount EQ 0>
 	<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
@@ -123,13 +123,13 @@
 	</CFIF>
 </cfif>
 
-<CFOUTPUT query="getBookingDetail">
+<cfoutput query="getBookingDetail">
 	<CFIF DBID eq BookingID>
 		<CFSET Variables.isDock = true>
 	<CFELSE>
 		<CFSET Variables.isDock = false>
 	</CFIF>
-</CFOUTPUT>
+</cfoutput>
 
 <CFPARAM name="url.date" default="#DateFormat(getBookingDetail.startDate, 'mm/dd/yyyy')#">
 
@@ -138,14 +138,14 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.bookingDetail#
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -154,7 +154,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>#language.bookingDetail#</CFOUTPUT>
+					<cfoutput>#language.bookingDetail#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 				
@@ -175,16 +175,16 @@
 					</cfquery>
 				</cflock>
 				
-				<CFOUTPUT query="getBookingDetail">
+				<cfoutput query="getBookingDetail">
 				
-				<H2>
+				<h2>
 					<cfif #EndHighlight# GTE PacificNow>* </cfif>
 					<CFIF Anonymous AND userVessel.recordCount EQ 0 AND (NOT IsDefined('Session.AdminLoggedIn') OR Session.AdminLoggedIn eq false) AND ((isDock AND DStatus neq 'c') OR (NOT isDock AND JStatus neq 'c'))>
 						#language.Deepsea#
 					<CFELSE>
 						#VesselName#
 					</CFIF>
-				</H2>
+				</h2>
 				
 				<table width="90%" class="bookingDetails" align="center">
 					<CFIF NOT Anonymous OR userVessel.recordCount GT 0 OR IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
@@ -193,7 +193,7 @@
 						<td headers="Agent">#LastName#, #FirstName#</td>
 					</tr>
 					</cfif>
-					<TR>
+					<tr>
 						<td id="Status">#language.Status#:</td>
 						<CFIF (isDefined("DStatus") AND DStatus eq 'C') OR (isDefined("JStatus") AND JStatus eq 'C')>
 							<td headers="Status"><b>#language.Confirmed#</b></td>
@@ -202,28 +202,28 @@
 						<CFELSE>
 							<td headers="Status"><i>#language.Pending#</i></td>
 						</CFIF>
-					</TR>
+					</tr>
 					<CFIF NOT Anonymous OR userVessel.recordCount GT 0 OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true) OR (isDock AND DStatus eq 'c') OR (NOT isDock AND JStatus eq 'c')>
-					<TR>
+					<tr>
 						<td id="Company" width="35%">#language.Company#:</td>
 						<td headers="Company">#CompanyName#</td>
-					</TR>
-					<TR>
+					</tr>
+					<tr>
 						<td id="Length">#language.Length#:</td>
 						<td headers="Length">#Length# m</td>
-					</TR>
+					</tr>
 					</cfif>
 					<cfif NOT Anonymous OR userVessel.recordCount GT 0 OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
-					<TR>
+					<tr>
 						<td id="Width">#language.Width#:</td>
 						<td headers="Width">#Width# m</td>
-					</TR>
-					<TR>
+					</tr>
+					<tr>
 						<td id="Tonnage">#language.Tonnage#:</td>
 						<td headers="Tonnage">#Tonnage#</td>
-					</TR>
+					</tr>
 					</cfif>
-					<TR>
+					<tr>
 						<CFIF isDock>
 							<CFIF DStatus eq 'c'>
 								<td id="SectionsBooked">#language.SectionsBooked#:</td>
@@ -244,26 +244,26 @@
 								<td headers="SectionRequested2"><CFIF NorthJetty> #language.NorthLandingWharf#<CFELSE>#language.SouthJetty#</CFIF></td>
 							</CFIF>
 						</CFIF>
-					</TR>
-					<TR>
+					</tr>
+					<tr>
 						<td id="DockingDates">#language.DockingDates#:</td>
 						<td headers="DockingDates">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> to #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
-					</TR>
+					</tr>
 					<CFIF NOT Anonymous OR userVessel.recordCount GT 0 OR IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-					<TR>
+					<tr>
 						<td id="Origin">#language.Origin#:</td>
 						<td headers="Origin">#City#, #Country#</td>
-					</TR>
+					</tr>
 					</cfif>
 					<CFIF NOT Anonymous OR userVessel.recordCount GT 0 OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true) OR (isDock AND DStatus eq 'c') OR (NOT isDock AND JStatus eq 'c')>
-					<TR>
+					<tr>
 						<td id="Time"><cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>Time of Booking:<cfelse>#language.bookingDate#:</cfif></td>
 						<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 						<td headers="Time">#LSDateFormat(BookingTime, 'mmm d, yyyy')# @ #LSTimeFormat(BookingTime, 'HH:mm')#</td>
 						<cfelse>
 						<td headers="Time">#LSDateFormat(BookingTime, 'mmm d, yyyy')#</td>
 						</cfif>
-					</TR>
+					</tr>
 					</cfif>
 				</table>
 			
@@ -324,8 +324,8 @@
 						</CFIF>
 					</cfif>
 				</div>
-				</CFOUTPUT>
-			</DIV>
+				</cfoutput>
+			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 

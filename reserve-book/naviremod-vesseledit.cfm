@@ -27,10 +27,10 @@
 	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
 	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.editVessel#</title>">
 
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
@@ -38,14 +38,14 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.editVessel#
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -54,7 +54,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>#language.editVessel#</CFOUTPUT>
+					<cfoutput>#language.editVessel#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -62,28 +62,28 @@
 					<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 				</CFIF>
 				
-				<CFQUERY name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+				<cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT Vessels.*, Companies.CompanyID, Companies.Name AS CompanyName
 					FROM  Vessels INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
 					WHERE VesselID = #url.VesselID#
 					AND Vessels.Deleted = 0
-				</CFQUERY>
+				</cfquery>
 				
-				<CFQUERY name="getVesselDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+				<cfquery name="getVesselDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	*
 					FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
 							INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
 					WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #url.VesselID# AND Bookings.Deleted = 0
 							AND Status = 'c'
-				</CFQUERY>
+				</cfquery>
 				
-				<CFQUERY name="getVesselJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+				<cfquery name="getVesselJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	*
 					FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
 							INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
 					WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #url.VesselID# AND Bookings.Deleted = 0
 							AND Status = 'c'
-				</CFQUERY>
+				</cfquery>
 				
 				<cfif getVesselDetail.recordCount EQ 0>
 					<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
@@ -117,12 +117,11 @@
 				
 				<cfoutput>
 				
-				<CFINCLUDE template="#RootDir#includes/user_menu.cfm"><br /><br />
-				
+				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				
 				<cfform name="editVessel" action="#RootDir#reserve-book/naviremod-vesseledit_confirm.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#&VesselID=#VesselID#" method="post">
 					<cfif getVesselDockBookings.recordCount GT 0 OR getVesselJettyBookings.recordCount GT 0>
-					<span style="font-size: 10pt; color: red">#language.notEditVesselDimensions#</span><br /><br />
+					<div id="actionErrors">#language.notEditVesselDimensions#</div>
 					</cfif>
 					<table align="center">
 						<tr>
@@ -140,20 +139,20 @@
 						<cfif getVesselDockBookings.recordCount GT 0 OR getVesselJettyBookings.recordCount GT 0>
 						<tr>
 							<td id="len"><label for="length">#language.Length#:</label></td>
-							<td headers="len">#variables.length# m<input type="hidden" name="length" value="#variables.length#">&nbsp;&nbsp;&nbsp;<span style="font-size: 9pt; color: red">#language.Max#: #Variables.MaxLength# m</span></td>
+							<td headers="len">#variables.length# m<input type="hidden" name="length" value="#variables.length#">&nbsp;&nbsp;&nbsp;<span class="smallFont" style="color:red;">#language.Max#: #Variables.MaxLength# m</span></td>
 						</tr>
 						<tr>
 							<td id="wid"><label for="width">#language.Width#:</label></td>
-							<td headers="wid">#variables.width# m<input type="hidden" name="width" value="#variables.width#">&nbsp;&nbsp;&nbsp;<span style="font-size: 9pt; color: red">#language.Max#: #Variables.MaxWidth# m</span></td>
+							<td headers="wid">#variables.width# m<input type="hidden" name="width" value="#variables.width#">&nbsp;&nbsp;&nbsp;<span class="smallFont" style="color:red;">#language.Max#: #Variables.MaxWidth# m</span></td>
 						</tr>
 						<cfelse>
 						<tr>
 							<td id="len"><label for="length">#language.Length#:</label></td>
-							<td headers="len"><cfinput id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="#language.lengthError#">  <span style="font-size: 9pt; color: red">#language.Max#: #Variables.MaxLength# m</span></td>
+							<td headers="len"><cfinput id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="#language.lengthError#">  <span class="smallFont" style="color:red;">#language.Max#: #Variables.MaxLength# m</span></td>
 						</tr>
 						<tr>
 							<td id="wid"><label for="width">#language.Width#:</label></td>
-							<td headers="wid"><cfinput id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="#language.widthError#">  <span style="font-size: 9pt; color: red">#language.Max#: #Variables.MaxWidth# m</span></td>
+							<td headers="wid"><cfinput id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="#language.widthError#">  <span class="smallFont" style="color:red;">#language.Max#: #Variables.MaxWidth# m</span></td>
 						</tr>
 						</cfif>
 						<tr>
@@ -181,7 +180,7 @@
 							<td id="anon"><label for="anonymous">#language.anonymous#:</label></td>
 							<td headers="anon"><input id="anonymous" type="checkbox" name="Anonymous" <cfif variables.Anonymous EQ 1>checked </cfif>value="Yes"></td>
 						</tr>
-						<tr><td colspan="2"><P class="smallFont">*#language.anonymousWarning#</P></td></tr>
+						<tr><td colspan="2"><P class="smallFont">*#language.anonymousWarning#</p></td></tr>
 						<tr>
 							<td colspan="2" align="center" style="padding-top:20px;">
 								<input type="hidden" name="vesselID" value="<cfoutput>#url.vesselID#</cfoutput>">

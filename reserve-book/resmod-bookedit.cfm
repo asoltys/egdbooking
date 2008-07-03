@@ -10,7 +10,7 @@
 	<cfset language.fax = "Fax">
 	<cfset language.emailAddress = "Email">
 	<cfset language.or = "or">
-	<cfset language.acrobatrequired = 'The following file requires <A href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</A> to be installed.  The links will open in a new window.'>
+	<cfset language.acrobatrequired = 'The following file requires <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</a> to be installed.  The links will open in a new window.'>
 	<cfset language.mail = "Mailing Address">
 	<cfset language.mailing = "Operations Manager<br />Esquimalt Graving Dock<br />825 Admirals Road<br />Esquimalt, BC<br />V9A 2P1<br />Canada">
 <cfelse>
@@ -24,7 +24,7 @@
 	<cfset language.fax = "Fac-simil&eacute;">
 	<cfset language.emailAddress = "Adresse de courriel">
 	<cfset language.or = "ou">
-	<cfset language.acrobatrequired = 'Il faut le logiciel <A href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</A> pour le fichier suivant. Le lien ouvrira une nouvelle fen&ecirc;tre.'>
+	<cfset language.acrobatrequired = 'Il faut le logiciel <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</a> pour le fichier suivant. Le lien ouvrira une nouvelle fen&ecirc;tre.'>
 	<cfset language.mail = "Adresse postale">
 	<cfset language.mailing = "Directeur des op&eacute;rations<br />Cale s&egrave;che d'Esquimalt<br />825 Admirals Road<br />Esquimalt (C.-B.)<br />V9A 2P1<br />Canada">
 </cfif>
@@ -34,10 +34,10 @@
 	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
 	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#</title>
 ">
 
@@ -76,14 +76,14 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.title#
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -92,7 +92,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>#language.title#</CFOUTPUT>
+					<cfoutput>#language.title#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 

@@ -4,12 +4,12 @@
 <cfset Variables.Errors = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
 
-<cfif TRIM(Form.FirstName) EQ "">
+<cfif trIM(Form.FirstName) EQ "">
 	<cfoutput>#ArrayAppend(Errors, "#language.noFirstName#")#</cfoutput>
 	<cfset Proceed_OK = "No">
 </cfif>
 
-<cfif TRIM(Form.LastName) EQ "">
+<cfif trIM(Form.LastName) EQ "">
 	<cfoutput>#ArrayAppend(Errors, "#language.noLastName#")#</cfoutput>
 	<cfset Proceed_OK = "No">
 </cfif>

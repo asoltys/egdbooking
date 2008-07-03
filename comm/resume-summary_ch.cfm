@@ -9,7 +9,7 @@
 	<cfset language.deepsea = "Deepsea Vessel">
 	<cfset language.noBookings = "There are no bookings to view.">
 	<cfset language.booked = "Booked">
-	<cfset language.printable = "VIEW PRINTABLE VERSION">
+	<cfset language.printable = "VIEW PRINtable VERSION">
 	<cfset language.fromDate = "From Date:">
 	<cfset language.toDate = "To Date:">
 	<cfset language.InvalidFromDate = "Please enter a valid From Date.">
@@ -44,10 +44,10 @@
 	<meta name=""keywords"" lang=""eng"" content=""#Language.masterKeywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
 	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#Language.masterSubjects#"">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#</title>
 	">
 
@@ -56,14 +56,14 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.BookingsSummary#
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -72,7 +72,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>#language.bookingsSummary#</CFOUTPUT>
+					<cfoutput>#language.bookingsSummary#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -101,7 +101,7 @@
 							<td id="startCell"><label for="start">&nbsp; #language.fromDate#</label></td>
 							<td headers="startCell">
 								<!---input type="Text" class="textField" name="startDateShow" value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17" maxlength="12" validate="date" message="Please enter a valid Start Date." disabled--->
-								<cfinput id="start" type="text" name="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="#language.invalidfromDate#" onChange="setLaterDate('self', 'bookSum', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookSum', #Variables.bookingLen#)"> <font class="light">#Language.dateform#</font>
+								<cfinput id="start" type="text" name="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="#language.invalidfromDate#" onChange="setLaterDate('self', 'bookSum', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookSum', #Variables.bookingLen#)"> #language.dateform#
 								<a href="javascript:void(0);" onclick="javascript:getCalendar('bookSum', 'start');" class="textbutton">#language.calendar#</a>
 								<a href="javascript:document.bookSum.startDate.value=''; void(0);" class="textbutton">#language.clear#</a>
 							</td>
@@ -110,7 +110,7 @@
 							<td id="endCell"><label for="end">&nbsp; #language.toDate#</label></td>
 							<td headers="endCell">
 								<!---input type="Text" class="textField" name="endDateShow" value="#DateFormat(endDate, 'mmm d, yyyy')#" size="17" maxlength="12" validate="date" message="Please enter a valid End Date." disabled--->
-								<cfinput id="end" type="text" name="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="#language.invalidtoDate#" onChange="setLaterDate('self', 'bookSum', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookSum', #Variables.bookingLen#)"> <font class="light">#Language.dateform#</font>
+								<cfinput id="end" type="text" name="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="#language.invalidtoDate#" onChange="setLaterDate('self', 'bookSum', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookSum', #Variables.bookingLen#)"> #language.dateform#
 								<a href="javascript:void(0);" onclick="javascript:getCalendar('bookSum', 'end');" class="textbutton">#language.calendar#</a>
 								<a href="javascript:document.bookSum.toDate.value=''; void(0);" class="textbutton">#language.clear#</a>
 							</td>

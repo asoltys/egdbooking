@@ -8,9 +8,9 @@
 	
 </cfif>
 
-<CFQUERY name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Name FROM Vessels WHERE vesselID = #form.vesselID#
-</CFQUERY>
+</cfquery>
 
 <cfset Session.Success.Breadcrumb = "Delete Vessel">
 <cfset Session.Success.Title = "Delete Vessel">

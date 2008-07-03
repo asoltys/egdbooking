@@ -27,11 +27,11 @@
 	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add Vessel"">
 	<meta name=""keywords"" lang=""eng"" content=""Add Vessel"">
 	<meta name=""description"" lang=""eng"" content=""Allows user to create a new vessel in the Esquimalt Graving Dock booking website."">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Add Vessel</title>">
 
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
@@ -39,14 +39,14 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
 			Add New Vessel
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -59,12 +59,12 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFQUERY name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+				<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT 	Companies.CompanyID, Companies.Name AS CompanyName
 					FROM  	Companies
 					WHERE 	CompanyID = '#Form.CompanyID#'
 					AND		Deleted = '0'
-				</CFQUERY>
+				</cfquery>
 				
 				<cfif getCompany.recordCount EQ 0>
 					<cflocation addtoken="no" url="booking.cfm?lang=#lang#&CompanyID=#url.companyID#">
@@ -84,11 +84,11 @@
 					<cfset Variables.Anonymous = 1>
 				</cfif>
 
-				<cfinclude template="#RootDir#includes/admin_menu.cfm"><br />
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				
 				<p>Please confirm the following information: </p>
 				<cfif Variables.Width GT Variables.MaxWidth OR Variables.Length GT Variables.MaxLength>
-					<p><span class="red"><strong>Note: The ship measurements exceed the maximum dimensions of the dock (<cfoutput>#Variables.MaxLength#m x #Variables.MaxWidth#m</cfoutput>).</strong></span></p>
+					<div id="actionErrors">Note: The ship measurements exceed the maximum dimensions of the dock (<cfoutput>#Variables.MaxLength#m x #Variables.MaxWidth#m</cfoutput>).</div>
 				</cfif>
 				<cfoutput>
 				<cfform name="addVessel" action="addVessel_action.cfm?lang=#lang#" method="post">

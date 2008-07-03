@@ -6,11 +6,11 @@
 	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - User Approval"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - User Approval</title>">
 
 <CFSET This_Page = "../admin/Users/userApprove.cfm">
@@ -60,7 +60,7 @@
 	}
 	
 	function popUp(pageID) {
-		var Cuilfhionn = window.open("<CFOUTPUT>#RootDir#</CFOUTPUT>" + pageID, "viewCompany", "width=500, height=300, top=20, left=20, resizable=yes, menubar=no, scrollbars=yes, toolbar=no");
+		var Cuilfhionn = window.open("<cfoutput>#RootDir#</cfoutput>" + pageID, "viewCompany", "width=500, height=300, top=20, left=20, resizable=yes, menubar=no, scrollbars=yes, toolbar=no");
 		if (window.focus) {
 			Cuilfhionn.focus();
 		}
@@ -77,7 +77,7 @@
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 		<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-			<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+			<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 		<CFELSE>
 			<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 		</CFIF>
@@ -94,7 +94,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 					
 				<cfif getUserCompRequests.RecordCount EQ 0>
 					There are no new user company requests to approve.
@@ -109,18 +109,18 @@
 					<CFSET prevID = 0>
 					<CFSET curr_row = 0>
 					<CFSET BackColour = "##FFFFFF">
-					<CFOUTPUT query="getUserCompRequests">
+					<cfoutput query="getUserCompRequests">
 						<CFIF prevID neq CompanyID>
 							<CFSET curr_row = 0>
 							<CFIF prevID neq '0'>
-							</TABLE>
+							</table>
 							<br />
 							</CFIF>
-							<TABLE id="listManage" border="0" cellspacing="0" cellpadding="2" width="100%">
-								<TR bgcolor="##FFFFFF">
-									<TD colspan="3" width="50%"><i><A href="javascript:void(0);" onClick="popUp('admin/viewCompany.cfm?lang=#lang#&companyID=#CompanyID#');">#CompanyName#</A></i></TD>
-									<TD colspan="3" align="right" width="50%"><CFIF CompApproved eq 0><i><A href="../CompanyApprove.cfm?lang=#lang#">awaiting company approval</A></i><CFELSE>&nbsp;</CFIF></TD>
-								</TR>
+							<table id="listManage" border="0" cellspacing="0" cellpadding="2" width="100%">
+								<tr bgcolor="##FFFFFF">
+									<td colspan="3" width="50%"><i><a href="javascript:void(0);" onClick="popUp('admin/viewCompany.cfm?lang=#lang#&companyID=#CompanyID#');">#CompanyName#</a></i></td>
+									<td colspan="3" align="right" width="50%"><CFIF CompApproved eq 0><i><a href="../CompanyApprove.cfm?lang=#lang#">awaiting company approval</a></i><CFELSE>&nbsp;</CFIF></td>
+								</tr>
 				
 						</CFIF>
 								<CFSET curr_row = curr_row + 1>
@@ -129,11 +129,11 @@
 								<CFELSE>
 									<CFSET rowClass = "">
 								</CFIF>
-								<TR class="#rowClass#">
-									<TD width="2%" bgcolor="##FFFFFF">&nbsp;</TD>
-									<TD valign="top" width="25%">#LastName#, #FirstName#</TD>
-									<TD valign="top" width="55%" colspan="2">#Email#</TD>
-									<TD valign="top" width="10%" align="center">
+								<tr class="#rowClass#">
+									<td width="2%" bgcolor="##FFFFFF">&nbsp;</td>
+									<td valign="top" width="25%">#LastName#, #FirstName#</td>
+									<td valign="top" width="55%" colspan="2">#Email#</td>
+									<td valign="top" width="10%" align="center">
 									<cfif CompApproved EQ 1>
 										<form action="userApprove_confirm.cfm?lang=#lang#" method="post" name="App#UserID##CompanyID#" style="margin-top: 0; margin-bottom: 0; ">
 											<input type="hidden" name="UserID" value="#UserID#">
@@ -143,19 +143,19 @@
 									<cfelse>
 										&nbsp;
 									</cfif>
-									</TD>
-									<TD valign="top" width="10%" align="center">
+									</td>
+									<td valign="top" width="10%" align="center">
 										<form action="userReject.cfm?lang=#lang#" method="post" name="Del#UserID##CompanyId#" style="margin-top: 0; margin-bottom: 0; ">
 											<input type="hidden" name="UserID" value="#UserID#">
 											<input type="hidden" name="CompanyID" value="#CompanyID#">
 											<a href="javascript:EditSubmit('Del#UserID##CompanyId#')" class="textbutton">Reject</a>
 										</form>
-									</TD>		
-								</TR>
+									</td>		
+								</tr>
 
 						<CFSET prevID = CompanyID>
-					</CFOUTPUT>
-							</TABLE>
+					</cfoutput>
+							</table>
 
 					<!--- End of Users Listing --->
 				</cfif>

@@ -152,7 +152,7 @@
 				<cfelse>
 					LightsCaisson = '0',
 				</cfif>
-				<cfif isDefined("Form.Other") AND Form.Other EQ "on" AND TRIM(Form.otherText) NEQ "">
+				<cfif isDefined("Form.Other") AND Form.Other EQ "on" AND trIM(Form.otherText) NEQ "">
 					otherText = '#Form.otherText#',
 					Other = '1'
 				<cfelse>
@@ -164,12 +164,12 @@
 
 <!--- queries to populate details in e-mail sent to dock administrators --->
 
-<CFQUERY name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS vesselName, CompanyID
 	FROM	Vessels
 		INNER JOIN	Bookings ON Bookings.VesselID = Vessels.VesselID
 	WHERE	BookingID = ('#form.BookingID#')
-</CFQUERY>
+</cfquery>
 	
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	firstname + ' ' + lastname AS UserName, Email, Companies.Name AS CompanyName

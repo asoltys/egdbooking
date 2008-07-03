@@ -226,7 +226,7 @@ function getCalendar(formName, fieldName) {
 	}
 
 	if (flag) {
-		miniCal = window.open("<CFOUTPUT>#RootDir#</cfoutput>utils/calend.cfm?lang=<cfoutput>#lang#</cfoutput>&formName=" + formName + "&year=" + yearValue + "&month=" + monthValue + "&fieldName=" + fieldName<CFIF IsDefined('Variables.BookingLen')> + "&len=" + <CFOUTPUT>#Variables.BookingLen#</CFOUTPUT></CFIF>, "CalendarWindow", "left=30,top=30,width=450,height=250,resizable=yes,scrollbars=no");
+		miniCal = window.open("<cfoutput>#RootDir#</cfoutput>utils/calend.cfm?lang=<cfoutput>#lang#</cfoutput>&formName=" + formName + "&year=" + yearValue + "&month=" + monthValue + "&fieldName=" + fieldName<CFIF IsDefined('Variables.BookingLen')> + "&len=" + <cfoutput>#Variables.BookingLen#</cfoutput></CFIF>, "CalendarWindow", "left=30,top=30,width=450,height=250,resizable=yes,scrollbars=no");
 		
 		if (window.focus) {
 			miniCal.focus();
@@ -245,7 +245,7 @@ function go(location) {
 	var monthIndex = formObj.selMonth.selectedIndex;
 	var year = formObj.selYear.options[yearIndex].text;
 	var month = formObj.selMonth.options[monthIndex].value;
-	window.location = location + ".cfm?lang=<cfoutput>#lang#</cfoutput>&month="+ month + "&year=" + year<CFIF IsDefined('url.formName') AND url.formName neq ''> + "&formName=<CFOUTPUT>#URL.formName#</CFOUTPUT>"</CFIF><CFIF IsDefined('url.fieldName') AND url.fieldName neq ''> + "&fieldName=<CFOUTPUT>#URL.fieldName#</CFOUTPUT>"</CFIF><CFIF IsDefined('url.len')> + "&len=" + <CFOUTPUT>#url.len#</CFOUTPUT></CFIF>;
+	window.location = location + ".cfm?lang=<cfoutput>#lang#</cfoutput>&month="+ month + "&year=" + year<CFIF IsDefined('url.formName') AND url.formName neq ''> + "&formName=<cfoutput>#URL.formName#</cfoutput>"</CFIF><CFIF IsDefined('url.fieldName') AND url.fieldName neq ''> + "&fieldName=<cfoutput>#URL.fieldName#</cfoutput>"</CFIF><CFIF IsDefined('url.len')> + "&len=" + <cfoutput>#url.len#</cfoutput></CFIF>;
 }
 
 /* Sets the calendar selection's default options accordding to the url variable

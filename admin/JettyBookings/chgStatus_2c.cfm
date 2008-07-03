@@ -6,11 +6,11 @@
 	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Confirm Booking"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm Booking</title>
 ">
 <CFPARAM name="url.referrer" default="Booking Management">
@@ -25,20 +25,29 @@
   <cfset variables.dateValue = "">
 </cfif>
 
+<cfparam name="Variables.BookingID" default="">
+<cfif IsDefined("Session.Return_Structure")>
+  <cfinclude template="#RootDir#includes/getStructure.cfm">
+  <cfelseif IsDefined("Form.BookingID")>
+  <cfset Variables.BookingID = Form.BookingID>
+  <cfelse>
+  <cflocation url="#returnTo#?#urltoken##dateValue#&referrer=#url.referrer#" addtoken="no">
+</cfif>
+
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt;
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<A href="bookingmanage.cfm?lang=#lang#">Jetty Management</A> &gt;
+			<a href="bookingmanage.cfm?lang=#lang#">Jetty Management</a> &gt;
 			Confirm Booking
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -54,14 +63,6 @@
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 
 				<!--- -------------------------------------------------------------------------------------------- --->
-				<cfparam name="Variables.BookingID" default="">
-				<cfif IsDefined("Session.Return_Structure")>
-				  <cfinclude template="#RootDir#includes/getStructure.cfm">
-				  <cfelseif IsDefined("Form.BookingID")>
-				  <cfset Variables.BookingID = Form.BookingID>
-				  <cfelse>
-				  <cflocation url="#returnTo#?#urltoken##dateValue#&referrer=#url.referrer#" addtoken="no">
-				</cfif>
 				<cfquery name="theBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT
 						Bookings.BookingID, 
@@ -99,14 +100,14 @@
 					AND	Bookings.Deleted = '0'
 					AND Jetties.Status = 'C'
 					</cfquery>
-					<CFOUTPUT>
+					<cfoutput>
 					  <!---check capacity for that day and see if it's the first error--->
 					  <CFIF (#checkLength.sumLength# NEQ "") AND (#checkLength.sumLength#+#theBooking.Length#) GT 304 AND NOT #error#>
 						<CFSET error=1>
-						<div class="waitList">
-						<p> <strong>WARNING: Max Length (304m) Exceeded on #DateFormat(tempDate, "mmm d YYYY")#</strong><br />
-						  Current Usage: #checkLength.sumLength#m &nbsp;&nbsp; Booking Vessel Length: #theBooking.Length#m
-						<table class="waitlistBookings">
+						<div class="critical">
+						<p>WARNING: Max Length (304m) Exceeded on #DateFormat(tempDate, "mmm d YYYY")#<br />
+						  Current Usage: #checkLength.sumLength#m &nbsp;&nbsp; Booking Vessel Length: #theBooking.Length#m</p>
+						<table class="basic smallFont">
 						<tr>
 						  <th id="Dates" align="left">Docking Dates</th>
 						  <th id="Vessel" align="left">Vessel</th>
@@ -115,14 +116,13 @@
 						<CFSET errorDate = #tempDate#>
 						<CFELSEIF #theBooking.Length# GT 304 AND NOT #error#>
 						<CFSET error=1>
-						<div class="waitList">
-						<p>
-						<strong>WARNING: Max Length (304m) Exceeded on #DateFormat(tempDate, "mmm d YYYY")#</strong><br />
-						Current Usage: 0m &nbsp;&nbsp; Booking Vessel Length: #theBooking.Length#m
+						<div class="critical">
+						<p>WARNING: Max Length (304m) Exceeded on #DateFormat(tempDate, "mmm d YYYY")#</strong><br />
+						Current Usage: 0m &nbsp;&nbsp; Booking Vessel Length: #theBooking.Length#m</p>
 						<CFSET errorDate = #tempDate#>
 					  </CFIF>
 					  <CFSET tempDate = DateFormat(DateAdd('d', 1, tempDate))>
-					</CFOUTPUT>
+					</cfoutput>
 				  </CFLOOP>
 				  <!---display table cells which list all boats that are confirmed on that day--->
 				  <CFIF #error#>
@@ -137,13 +137,13 @@
 					AND Jetties.Status = 'C'
 					</cfquery>
 					<CFLOOP QUERY="getLengthConflicts">
-					  <CFOUTPUT>
-						<TR valign="top">
+					  <cfoutput>
+						<tr valign="top">
 						  <td headers="Dates" valign="top">#DateFormat(getLengthConflicts.StartDate, "mmm d")# - #DateFormat(getLengthConflicts.EndDate, "mmm d")#</td>
 						  <td headers="Vessel" valign="top">#trim(getLengthConflicts.Name)#</td>
 						  <td headers="Length" valign="top">#trim(getLengthConflicts.Length)#m</td>
 						</tr>
-					  </CFOUTPUT>
+					  </cfoutput>
 					</CFLOOP>
 					</table>
 					</div>
@@ -163,14 +163,14 @@
 					AND	Bookings.Deleted = '0'
 					AND Jetties.Status = 'C'
 					</cfquery>
-					<CFOUTPUT>
+					<cfoutput>
 					  <!---check capacity for that day and see if it's the first error--->
 					  <CFIF (#checkLength.sumLength# NEQ "") AND (#checkLength.sumLength#+#theBooking.Length#) GT 301 AND NOT #error#>
 						<CFSET error=1>
-						<div class="waitList">
-						<p> <strong>WARNING: Max Length (301m) Exceeded on #DateFormat(tempDate, "mmm d YYYY")#</strong><br />
-						  Current Usage: #checkLength.sumLength#m &nbsp;&nbsp; Booking Vessel Length: #theBooking.Length#m
-						<table class="waitlistBookings">
+						<div class="critical">
+						<p>WARNING: Max Length (301m) Exceeded on #DateFormat(tempDate, "mmm d YYYY")#</strong><br />
+						  Current Usage: #checkLength.sumLength#m &nbsp;&nbsp; Booking Vessel Length: #theBooking.Length#m</p>
+						<table class="basic smallFont">
 						<tr>
 						  <th id="Dates" align="left">Docking Dates</th>
 						  <th id="Vessel" align="left">Vessel</th>
@@ -179,14 +179,13 @@
 						<CFSET errorDate = #tempDate#>
 						<CFELSEIF #theBooking.Length# GT 301 AND NOT #error#>
 						<CFSET error=1>
-						<div class="waitList">
-						<p>
-						<strong>WARNING: Max Length (301m) Exceeded on #DateFormat(tempDate, "mmm d YYYY")#</strong><br />
-						Current Usage: 0m &nbsp;&nbsp; Booking Vessel Length: #theBooking.Length#m
+						<div class="critical">
+						<p>WARNING: Max Length (301m) Exceeded on #DateFormat(tempDate, "mmm d YYYY")#</strong><br />
+						Current Usage: 0m &nbsp;&nbsp; Booking Vessel Length: #theBooking.Length#m</p>
 						<CFSET errorDate = #tempDate#>
 					  </CFIF>
 					  <CFSET tempDate = DateFormat(DateAdd('d', 1, tempDate))>
-					</CFOUTPUT>
+					</cfoutput>
 				  </CFLOOP>
 				  <!---display table cells which list all boats that are confirmed on that day--->
 				  <CFIF #error#>
@@ -201,13 +200,13 @@
 					AND Jetties.Status = 'C'
 					</cfquery>
 					<CFLOOP QUERY="getLengthConflicts">
-					  <CFOUTPUT>
-						<TR valign="top">
+					  <cfoutput>
+						<tr valign="top">
 						  <td headers="Dates" valign="top">#DateFormat(getLengthConflicts.StartDate, "mmm d")# - #DateFormat(getLengthConflicts.EndDate, "mmm d")#</td>
 						  <td headers="Vessel" valign="top">#trim(getLengthConflicts.Name)#</td>
 						  <td headers="Length" valign="top">#trim(getLengthConflicts.Length)#m</td>
 						</tr>
-					  </CFOUTPUT>
+					  </cfoutput>
 					</CFLOOP>
 					</table>
 					</div>

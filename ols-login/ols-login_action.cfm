@@ -93,20 +93,20 @@
 	</cfif>
 </cfif>
 
-<CFCOOKIE NAME="LoggedIn" VALUE="Yes" PATH="/EGD" DOMAIN=".monster.pac.pwgsc.gc.ca">
+<CFCOOKIE NAME="LoggedIn" value="Yes" PATH="/EGD" DOMAIN=".monster.pac.pwgsc.gc.ca">
 
 <!---Remember user's email address--->
 <CFIF IsDefined('form.remember')>
 	<!---SET COOKIE--->
-	<CFOUTPUT>
+	<cfoutput>
 	<CFLOCK timeout="60" throwontimeout="No" type="READONLY" scope="SESSION">
-		<CFCOOKIE NAME="login" VALUE="#Form.email#" EXPIRES="Never">
+		<CFCOOKIE NAME="login" value="#Form.email#" EXPIRES="Never">
 	</CFLOCK>
-	</CFOUTPUT>
+	</cfoutput>
 <CFELSE>
 	<!---DELETE COOKIE--->
 	<cflock timeout="60" throwontimeout="No" type="EXCLUSIVE" scope="SESSION">
-		<CFCOOKIE NAME="login" VALUE="empty" EXPIRES="Now">
+		<CFCOOKIE NAME="login" value="empty" EXPIRES="Now">
 	</cflock>
 </CFIF>
 
@@ -132,14 +132,14 @@
 		<CFSET Session.AdminEmail = "lois.chan@pwgsc.gc.ca">
 		<!--- change this back to EGDBooking@pwgsc.gc.ca when done --->
 	</CFLOCK>
-	<CFHEADER STATUSCODE="302" STATUSTEXT="Object Temporarily Moved">
-	<CFHEADER NAME="location" VALUE="#RootDir#admin/menu.cfm?lang=#lang#">
+	<CFheadER STATUSCODE="302" STATUSTEXT="Object Temporarily Moved">
+	<CFheadER NAME="location" value="#RootDir#admin/menu.cfm?lang=#lang#">
 <cfelse>
 	<CFLOCK TIMEOUT="60" THROWONTIMEOUT="No" TYPE="EXCLUSIVE" SCOPE="SESSION"> 
 		<CFSET Session.LoggedIn = "1">
 	</CFLOCK>
-	<CFHEADER STATUSCODE="302" STATUSTEXT="Object Temporarily Moved">
-	<CFHEADER NAME="location" VALUE="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
+	<CFheadER STATUSCODE="302" STATUSTEXT="Object Temporarily Moved">
+	<CFheadER NAME="location" value="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 </cfif>
 
 

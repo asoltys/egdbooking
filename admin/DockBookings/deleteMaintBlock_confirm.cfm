@@ -20,11 +20,11 @@
 	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Confirm <cfoutput>#variables.actionCap#</cfoutput> Maintenance Block"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm #variables.actionCap# Maintenance Block</title>">
 
 <cfset Variables.BookingID = Form.BookingID>
@@ -50,15 +50,15 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<A href="bookingManage.cfm?lang=#lang#">Drydock Management</A> &gt;
+			<a href="bookingManage.cfm?lang=#lang#">Drydock Management</a> &gt;
 			Confirm #variables.actionCap# Maintenance Block
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -67,7 +67,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>Confirm #variables.actionCap# Maintenance Block</CFOUTPUT>
+					<cfoutput>Confirm #variables.actionCap# Maintenance Block</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -87,8 +87,8 @@
 				<cfform action="deleteMaintBlock_action.cfm?#urltoken#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
 				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#"></cfoutput>
 				
-				<table width="80%" align="center" style="font-size:10pt;">	
-					<tr><td align="left"><div style="font-size:10pt;font-weight:bold;">Booking:</div></td></tr>
+				<table width="80%" align="center">	
+					<tr><td align="left"><div style="font-weight:bold;">Booking:</div></td></tr>
 					<tr>
 						<td id="Start" align="left" width="25%">Start Date:</td>
 						<td headers="Start"><input type="hidden" name="StartDate" value="<cfoutput>#Variables.Start#</cfoutput>"><cfoutput>#DateFormat(Variables.Start, 'mmm d, yyyy')#</cfoutput></td>
@@ -123,7 +123,7 @@
 				</table>
 				
 				<br />
-				<table width="100%" cellspacing="0" cellpadding="1" border="0" align="center" style="font-size:10pt;">
+				<table width="100%" cellspacing="0" cellpadding="1" border="0" align="center">
 					<tr>
 						<td colspan="2" align="center">
 							<!---a href="javascript:EditSubmit('bookingreq');" class="textbutton">Confirm</a>
@@ -131,7 +131,7 @@
 							<cfoutput><a href="bookingmanage.cfm?#urltoken#" class="textbutton">Cancel</a></cfoutput>
 							<BR--->
 							<input type="Submit" value="<cfoutput>#variables.actionCap#</cfoutput>" class="textbutton">
-							<CFOUTPUT><input type="button" value="Back" class="textbutton" onClick="self.location.href='bookingmanage.cfm?#urltoken#';"></CFOUTPUT>
+							<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='bookingmanage.cfm?#urltoken#';"></cfoutput>
 						</td>
 					</tr>
 				</table>

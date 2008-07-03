@@ -5,11 +5,11 @@
 	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Create New Dock Booking"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Create New Dock Booking</title>">
 
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
@@ -17,15 +17,15 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<A href="bookingManage.cfm?lang=#lang#">Drydock Management</A> &gt;
+			<a href="bookingManage.cfm?lang=#lang#">Drydock Management</a> &gt;
 			Create Booking
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -39,7 +39,7 @@
 					</a></h1>
 
 			
-			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
+			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 			
 			
 			<cfset Errors = ArrayNew(1)>
@@ -157,8 +157,8 @@
 			
 			<cfform action="addBooking_action.cfm?#urltoken#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
 			<br />
-			<div style="font-size:10pt;font-weight:bold;">New Booking:</div>
-			<table width="100%" align="center" style="font-size:10pt;padding-left:20px;">
+			<div style="font-weight:bold;">New Booking:</div>
+			<table width="100%" align="center" style="padding-left:20px;">
 				<tr>
 					<td id="Vessel" align="left" width="15%">Vessel:</td>
 					<td headers="Vessel" width="75%"><input type="hidden" name="vesselID" value="<cfoutput>#Variables.VesselID#</cfoutput>" /><cfoutput>#getVessel.VesselName#</cfoutput></td>
@@ -220,7 +220,7 @@
 			<br />
 			<cfif NOT Variables.reOrder>
 				<cfif Form.Status EQ "C">
-					<table width="100%" cellspacing="0" cellpadding="1" border="0" align="center" style="font-size:10pt;">
+					<table width="100%" cellspacing="0" cellpadding="1" border="0" align="center">
 					<tr><td colspan="2">This booking conflicts with other bookings. Please choose the sections of 
 						the dock that you wish to book:</td></tr>
 					<tr>
@@ -245,7 +245,7 @@
 					<input type="hidden" value="<cfoutput>#Form.Status#</cfoutput>" name="Status">
 					<input type="Submit" value="Submit" class="textbutton">
 					<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='addBooking.cfm?#urltoken#'"></cfoutput>
-					<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='bookingmanage.cfm?#urltoken#';"></CFOUTPUT>
+					<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='bookingmanage.cfm?#urltoken#';"></cfoutput>
 				</td>
 			</tr>
 			</table>

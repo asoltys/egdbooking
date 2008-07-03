@@ -57,20 +57,20 @@ function checkIt() {
 <cffile action="read" file="#FileDir#intromsg.txt" variable="intromsg">
 <cfif #Trim(intromsg)# EQ "">
 <cfelse>
-	<DIV class="notice">
-	<H2>Notice</H2>
+	<div class="notice">
+	<h2>Notice</h2>
 	<cfoutput>#paragraphformat(intromsg)#</cfoutput>
-	</DIV>
+	</div>
 </cfif>
 
 
   
-<DIV align="center" style="min-height: 30px; ">
-<CFOUTPUT>
+<div align="center" style="min-height: 30px; ">
+<cfoutput>
 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton">#language.BookingHomeButton#</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
 <a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang##datetoken#" class="textbutton">#language.DrydockCalButton#</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
 <a href="#RootDir#comm/calend-jet.cfm?lang=#lang##datetoken#" class="textbutton">#language.JettyCalButton#</a>
-<DIV style="height: 5px; ">&nbsp;</DIV>
+<div style="height: 5px; ">&nbsp;</div>
 
 <cfif #Session.ReadOnly# EQ "1"><cfelse>
 <a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang##Variables.BookingRequestString#" class="textbutton">#language.RequestBookingButton#</a>
@@ -80,9 +80,9 @@ function checkIt() {
 <a href="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#" class="textbutton">#language.EditProfileButton#</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
 <a href="#RootDir#reserve-book/aide-help-#lang#.html" class="textbutton" target="_blank">#language.Help#</a>
 <a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#" class="textbutton">#language.LogoutButton#</a>
-</CFOUTPUT>
+</cfoutput>
 
-</DIV>
+</div>
 
 <CFSET variables.urltoken = "lang=#lang#">
 <CFIF IsDefined('variables.startDate')>
@@ -101,3 +101,4 @@ function checkIt() {
 	<CFSET variables.urltoken = variables.urltoken & "&show=#url.show#">
 </CFIF>
 </div>
+<br />

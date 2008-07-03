@@ -3,10 +3,10 @@
 	<meta name=""keywords"" lang=""eng"" content=""#language.masterKeywords# #language.title#"">
 	<meta name=""description"" lang=""eng"" content=""#language.title#"">
 	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#</title>">
 
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
@@ -14,7 +14,7 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>#language.title#</CFOUTPUT>
+			<cfoutput>#language.title#</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -23,13 +23,13 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>#language.title#</CFOUTPUT>
+					<cfoutput>#language.title#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFOUTPUT>
+				<cfoutput>
 					<p>&nbsp;</p>
-				</CFOUTPUT>
+				</cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

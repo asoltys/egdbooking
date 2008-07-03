@@ -17,12 +17,12 @@
 	</cfquery>
 </cftransaction>
 
-<CFQUERY name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS vesselName, companyID
 	FROM	Vessels
 		INNER JOIN	Bookings ON Bookings.VesselID = Vessels.VesselID
 	WHERE	BookingID = ('#getID.BookingID#')
-</CFQUERY>
+</cfquery>
 	
 <cflock scope="session" throwontimeout="no" timeout="30" type="READONLY">
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">

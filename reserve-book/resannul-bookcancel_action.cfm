@@ -16,11 +16,11 @@
 		WHERE	BookingID = #Form.BookingID#
 	</cfquery>
 </CFIF>
-<CFQUERY name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS vesselName, StartDate, EndDate
 	FROM	Bookings INNER JOIN	Vessels ON Bookings.VesselID = Vessels.VesselID
 	WHERE	Bookings.BookingID = '#Form.BookingID#'
-</CFQUERY>
+</cfquery>
 
 <cflock scope="session" throwontimeout="no" timeout="30" type="READONLY">
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">

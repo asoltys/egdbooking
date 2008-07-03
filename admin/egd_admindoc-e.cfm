@@ -4,12 +4,12 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
-	<HEAD>
-		<TITLE>
+	<head>
+		<title>
 			Esquimalt Graving Dock (EGD) Online Booking System: Administrator Documentation
-		</TITLE>
-		<META http-equiv="Content-Type" content="text/html; charset=utf-8">
-<STYLE type="text/css">
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
  body, th, td {
   font-size: 12pt;
  }
@@ -39,13 +39,13 @@
   font-weight: bold;
  }
  
- H1 {
+ h1 {
   font-size: 14pt;
   color: #2C8585;
   font-weight: bold;
  }
  
- H2 {
+ h2 {
   font-size: 12pt;
   color: #000099;
   font-weight: bold;
@@ -73,7 +73,7 @@
 }
 .style10 {font-size: 14pt}
 
-H1 {
+h1 {
 	font-family: verdana, sans-serif;
 	font-size: 160%;
 	color: #669900;
@@ -109,8 +109,8 @@ a:hover {
 	font-weight: bold;
 	font-style: italic;
 }
-</STYLE>
-	</HEAD>
+</style>
+	</head>
 	
 	<BODY bgcolor="#FFFFFF" text="#000000">
 	

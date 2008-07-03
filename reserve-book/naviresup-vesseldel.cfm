@@ -25,11 +25,11 @@
 	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.DeleteVessel#"">
 	<meta name=""keywords"" lang=""eng"" content=""#language.DeleteVessel#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.DeleteVessel#</title>">
 
 <script language="JavaScript" type="text/javascript">
@@ -42,26 +42,26 @@
 	<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 </cfif>
 
-<CFQUERY name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Vessels.VesselID, Vessels.Name, Vessels.CompanyID
 	FROM  Vessels
 	WHERE VesselID = #url.VesselID#
 	AND Vessels.deleted = 0
-</CFQUERY>
+</cfquery>
 
-<CFQUERY name="getVesselDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getVesselDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
 	FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
 			INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
 	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #url.VesselID# AND Bookings.Deleted = 0
-</CFQUERY>
+</cfquery>
 
-<CFQUERY name="getVesselJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getVesselJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
 	FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
 			INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
 	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #url.VesselID# AND Bookings.Deleted = 0
-</CFQUERY>
+</cfquery>
 
 <cfif getVesselDetail.recordCount EQ 0>
 	<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
@@ -72,14 +72,14 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.DeleteVessel#
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -88,7 +88,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>#language.DeleteVessel#</CFOUTPUT>
+					<cfoutput>#language.DeleteVessel#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -106,7 +106,7 @@
 							</div>
 						</cfoutput>
 				<cfelse>
-						<P><cfoutput><strong>#getVesselDetail.name#</strong> #language.cannotDelete#</cfoutput></p>
+						<p><cfoutput><strong>#getVesselDetail.name#</strong> #language.cannotDelete#</cfoutput></p>
 				
 						<cfif getVesselDockBookings.recordCount GT 0>
 							<cfoutput>

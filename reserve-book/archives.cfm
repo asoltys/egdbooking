@@ -53,10 +53,10 @@
 	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
 	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.archivedBookings#</title>">
 
 
@@ -99,10 +99,10 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&companyID=#url.companyID#">#language.welcomePage#</a> &gt;
 			#language.archivedBookings#
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -111,7 +111,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>#getCompany.CompanyName# #language.archivedBookings#</CFOUTPUT>
+					<cfoutput>#getCompany.CompanyName# #language.archivedBookings#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -131,7 +131,7 @@
 								<CFELSE>
 									<CFSET rowClass = "">
 								</CFIF>
-								<TR class="#rowClass#" valign="top">
+								<tr class="#rowClass#" valign="top">
 									<td width="60%" valign="top"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#&referrer=#variables.referrer#&companyID=#url.companyID#">#Name#</a></td>
 									<td width="15%" valign="top">
 										<cfif status EQ "P"><i>#language.pending#</i>
@@ -145,7 +145,7 @@
 								</tr>
 								<tr class="#rowClass#"><td colspan="3" valign="top">
 									<table>
-										<tr>
+										<tr class="#rowClass#">
 											<td>&nbsp;</td>
 											<td width="50%" valign="top"><div class="smallFont">#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
 											<td align="right" width="10%" valign="top"><div class="smallFont">#language.Agent#: </div></td>
@@ -170,7 +170,7 @@
 								<CFELSE>
 									<CFSET rowClass = "">
 								</CFIF>
-								<TR class="#rowClass#" valign="top">
+								<tr class="#rowClass#" valign="top">
 									<td width="60%" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#&referrer=#variables.referrer#&companyID=#url.companyID#">#Name#</a></td>
 									<td width="40%" align="left">
 										<cfif NOT status eq 'c'><i>#language.pending#</i>
@@ -206,7 +206,7 @@
 								<CFELSE>
 									<CFSET rowClass = "">
 								</CFIF>
-								<TR class="#rowClass#" valign="top">
+								<tr class="#rowClass#" valign="top">
 									<td width="60%" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#&referrer=#variables.referrer#&companyID=#url.companyID#">#Name#</a></td>
 									<td width="40%" align="left">
 										<cfif NOT status eq 'c'><i>#language.pending#</i>

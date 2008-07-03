@@ -10,7 +10,7 @@
 	
 	<body>
 		<!--- Get all dock bookings with an end date 3 days from today --->
-		<CFQUERY datasource="#DSN#" username="#dbuser#" password="#dbpassword#" name="GetDockBookings">
+		<cfquery datasource="#DSN#" username="#dbuser#" password="#dbpassword#" name="GetDockBookings">
 			SELECT Bookings.VesselID, Bookings.UserID, Vessels.Name,Users.Email
 			FROM Bookings, Docks, Vessels, Users
 			WHERE Docks.BookingID=Bookings.BookingID
@@ -20,7 +20,7 @@
 			AND Bookings.EndDate>=#CreateODBCDate(DateAdd("d",3,PacificNow))# 
 			AND Bookings.EndDate < #CreateODBCDate(DateAdd("d",4,PacificNow))#
 			AND Bookings.Deleted=0
-		</CFQUERY>
+		</cfquery>
 		
 		<CFDUMP var="#GetDockBookings#">
 		<CFLOOP query="GetDockBookings">
@@ -35,7 +35,7 @@
 		</CFLOOP> 
 		
 		<!--- Get all jetty bookings with an end date 3 days from today --->
-		<CFQUERY datasource="#DSN#" username="#dbuser#" password="#dbpassword#" name="GetJettyBookings">
+		<cfquery datasource="#DSN#" username="#dbuser#" password="#dbpassword#" name="GetJettyBookings">
 			SELECT Bookings.VesselID, Bookings.UserID, Vessels.Name,Users.Email
 			FROM Bookings, Jetties, Vessels, Users
 			WHERE Jetties.BookingID=Bookings.BookingID
@@ -45,7 +45,7 @@
 			AND Bookings.EndDate>=#CreateODBCDate(DateAdd("d",3,PacificNow))# 
 			AND Bookings.EndDate < #CreateODBCDate(DateAdd("d",4,PacificNow))#
 			AND Bookings.Deleted=0
-		</CFQUERY>
+		</cfquery>
 		
 		<CFDUMP var="#GetJettyBookings#">
 		<CFLOOP query="GetJettyBookings">

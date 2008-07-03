@@ -5,11 +5,11 @@
 	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit User"">
 	<meta name=""keywords"" lang=""eng"" content="""">
 	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit User</title>">
 
 <cfquery name="getUserList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -80,13 +80,13 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</A> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			Edit User Profile</CFOUTPUT>
+			Edit User Profile</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -99,7 +99,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm"><br />
+				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
@@ -169,7 +169,7 @@
 					<tr>
 						<td id="#name#">&nbsp;</td><td width="50%" valign="top">#name#</td>
 						<td headers="#name#" align="right" valign="top" width="20%"><cfif getUserCompanies.recordCount GT 1><a href="javascript:EditSubmit('remCompany#CompanyID#');" class="textbutton">Remove</a></cfif></td>
-						<td headers="#name#" style="font-size:10pt;" align="right" valign="top" width="30%"><cfif approved EQ 0><i>awaiting approval</i><cfelse>&nbsp;</cfif></td>
+						<td headers="#name#" align="right" valign="top" width="30%"><cfif approved EQ 0><i>awaiting approval</i><cfelse>&nbsp;</cfif></td>
 					</tr>
 				</cfoutput>
 				</table>
@@ -209,7 +209,7 @@
 							<td colspan="2"><strong>Change Password:</strong></td>
 						</tr>
 						<tr>
-							<td id="Password"><label for="pass">Password <span style="font-size: 9pt;">(*6 - 10 characters)</span>:</label></td>
+							<td id="Password"><label for="pass">Password <span class="smallFont">(*6 - 10 characters)</span>:</label></td>
 							<td headers="Password"><cfinput type="password" id="pass" name="password1" required="yes" size="25" maxlength="10" class="textField" message="Please enter a password."></td>
 						</tr>
 						<tr>
@@ -227,7 +227,7 @@
 						</tr>
 					</table>
 					<br />
-					<div align="right"><CFOUTPUT><input type="button" name="cancel" value="Cancel" class="textbutton" onClick="self.location.href='../menu.cfm?lang=#lang#'"></CFOUTPUT></div>
+					<div align="right"><cfoutput><input type="button" name="cancel" value="Cancel" class="textbutton" onClick="self.location.href='../menu.cfm?lang=#lang#'"></cfoutput></div>
 				</cfform>
 				
 				<p><em>*Email notification of profile updates is automatically sent to the user after their password is changed or a company is added to their profile.</em></p>

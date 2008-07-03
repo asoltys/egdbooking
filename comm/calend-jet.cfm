@@ -39,10 +39,10 @@
 	<meta name=""keywords"" lang=""eng"" content=""#Language.masterKeywords#, #language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
 	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#Language.masterSubjects#"">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.jettyCalendar#</title>
 	
 ">
@@ -54,14 +54,14 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<A href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</A> &gt;
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.jettyCalendar#
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -70,7 +70,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>#language.jettyCalendar#</CFOUTPUT>
+					<cfoutput>#language.jettyCalendar#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -138,9 +138,9 @@
 				</CFIF>
 				
 				<cfoutput>
-				<DIV style="float:left;"><a href="calend-jet.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></DIV>
-				<DIV style="float:right;"><a href="calend-jet.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></DIV>
-				<DIV style="width:100%; text-align:center;">
+				<div style="float:left;"><a href="calend-jet.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
+				<div style="float:right;"><a href="calend-jet.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
+				<div style="width:100%; text-align:center;">
 					<form id="selection" name="selection" action="" style="margin: 0; padding:0; ">
 						<select name="selMonth">
 							<CFLOOP index="i" from="1" to="12">
@@ -154,7 +154,7 @@
 						</select>
 							<a href="javascript:go('calend-jet')" class="textbutton">#language.Go#</a>
 					</form>
-				</DIV>
+				</div>
 				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 				</cfoutput>
 				
@@ -163,8 +163,8 @@
 				
 				
 				<cfoutput>
-				<DIV style="float:left;"><a href="calend-jet.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></DIV>
-				<DIV style="text-align:right;"><a href="calend-jet.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></DIV>
+				<div style="float:left;"><a href="calend-jet.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
+				<div style="text-align:right;"><a href="calend-jet.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
 				</cfoutput>
 
 				<CFSET pos="bottom">

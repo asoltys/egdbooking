@@ -2,7 +2,7 @@
 <cfset Variables.End = CreateODBCDate(url.editEnd)>
 <cfset Variables.BookingDateTime = #CreateDateTime(DatePart('yyyy',Form.bookingDate), DatePart('m',Form.bookingDate), DatePart('d',Form.bookingDate), DatePart('h',Form.bookingTime), DatePart('n',Form.bookingTime), DatePart('s',Form.bookingTime))#>
 	
-<CFQUERY name="updateBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="updateBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE	Bookings
 	SET		StartDate = #Variables.Start#, 
 			EndDate = #Variables.End#,
@@ -11,9 +11,9 @@
 			BookingTimeChange = #PacificNow#,
 			BookingTimeChangeStatus = 'Edited at'
 	WHERE	BookingID = '#url.BookingID#'
-</CFQUERY>
+</cfquery>
 
-<CFQUERY name="updateBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="updateBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE	Jetties
 	SET		<cfif url.jetty EQ "north">
 				NorthJetty = 1,
@@ -23,25 +23,25 @@
 				SouthJetty = 1 
 			</cfif>
 	WHERE	BookingID = '#url.BookingID#'
-</CFQUERY>
+</cfquery>
 	
 
 <cfif IsDefined("Session.Return_Structure")>
 	<cfset StructDelete(Session, "Return_Structure")>
 </cfif>
 
-<CFQUERY name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	startDate, endDate
 	from	Bookings
 	WHERE	BookingID = '#FORM.BookingID#'
-</CFQUERY>
+</cfquery>
 
-<CFQUERY name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS vesselName
 	FROM	Vessels
 		INNER JOIN	Bookings ON Bookings.VesselID = Vessels.VesselID
 	WHERE	BookingID = '#Form.BookingID#'
-</CFQUERY>
+</cfquery>
 
 <!--- URL tokens set-up.  Do not edit unless you KNOW something is wrong.
 	Lois Chan, July 2007 --->
@@ -76,7 +76,7 @@
 </cfif>
 
 <!--- create structure for sending to mothership/success page. --->
-<cfset Session.Success.Breadcrumb = "<a href=../admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#'>Jetty Management</A> &gt; Edit Jetty Booking">
+<cfset Session.Success.Breadcrumb = "<a href=../admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#'>Jetty Management</a> &gt; Edit Jetty Booking">
 <cfset Session.Success.Title = "Edit Jetty Booking Information">
 <cfset Session.Success.Message = "Booking for <b>#getVessel.vesselName#</b> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been updated.">
 <cfset Session.Success.Back = "Back to #url.referrer#">

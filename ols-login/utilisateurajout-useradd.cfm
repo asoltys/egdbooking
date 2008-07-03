@@ -38,10 +38,10 @@
 	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
 	<meta name=""description"" lang=""eng"" content=""#language.description#"">
 	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.masterSubjects#"">
-	<meta name=""dc.date.published"" content=""2005-07-25"">
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"">
-	<meta name=""dc.date.modified"" content=""2005-07-25"">
-	<meta name=""dc.date.created"" content=""2005-07-25"">
+	<meta name=""dc.date.published"" content=""2005-07-25"" />
+	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
+	<meta name=""dc.date.modified"" content=""2005-07-25"" />
+	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC#-#language.EsqGravingDockCaps#-#language.CreateUser#</title>
 	">
 
@@ -75,10 +75,10 @@ SELECT CompanyID, Name FROM Companies WHERE Deleted = 0 ORDER BY CompanyID
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFOUTPUT>
+			<cfoutput>
 			<a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.login#</a> &gt;
 			#language.CreateUser#
-			</CFOUTPUT>
+			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -87,11 +87,11 @@ SELECT CompanyID, Name FROM Companies WHERE Deleted = 0 ORDER BY CompanyID
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<CFOUTPUT>#language.CreateUser#</CFOUTPUT>
+					<cfoutput>#language.CreateUser#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFOUTPUT>
+				<cfoutput>
 
 					<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
@@ -116,7 +116,7 @@ SELECT CompanyID, Name FROM Companies WHERE Deleted = 0 ORDER BY CompanyID
 							<tr>
 								<td id="password1_header"><label for="password1">#language.Password#:</label></td>
 								<td headers="password1_header"><cfinput type="password" name="password1" id="password1" required="yes" size="23" maxlength="10" class="textField" message="#language.password1Error#">
-									<span style="font-size: 9pt;">(*6 - 10 #language.characters#)</span></td>
+									<span class="smallFont">(*6 - 10 #language.characters#)</span></td>
 							</tr>
 							<tr>
 								<td id="password2_header"><label for="password2">#language.RepeatPassword#:</label></td>
@@ -137,7 +137,7 @@ SELECT CompanyID, Name FROM Companies WHERE Deleted = 0 ORDER BY CompanyID
 							</tr>
 						</table>
 					</cfform>
-				</CFOUTPUT>
+				</cfoutput>
 			</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

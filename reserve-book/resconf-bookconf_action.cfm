@@ -11,18 +11,18 @@
 		WHERE	BookingID = #Form.BookingID#
 	</cfquery>
 </CFIF>
-<CFQUERY name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS vesselName, StartDate, EndDate
 	FROM	Bookings INNER JOIN	Vessels ON Bookings.VesselID = Vessels.VesselID
 	WHERE	Bookings.BookingID = '#Form.BookingID#'
-</CFQUERY>
+</cfquery>
 
 <CFIF #URL.jetty#>
-<CFQUERY name="NorthSouth" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="NorthSouth" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	NorthJetty, SouthJetty, Jetties.BookingID
 	FROM	Jetties 
 	WHERE   Jetties.BookingID = '#Form.BookingID#'
-</CFQUERY>
+</cfquery>
 <cfoutput query="NorthSouth">
 <cfif NorthJetty EQ "1"><cfset northorsouth = "North"></cfif>
 <cfif SouthJetty EQ "1"><cfset northorsouth = "South"></cfif>
