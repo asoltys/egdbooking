@@ -28,9 +28,12 @@ div.core div.colLayout {
    bottom margin. */
 table.basic {
 	margin-top: 1em;
+	font-weight: normal;
+	text-align: left;
 }
 
-/*  */
+/* Overrides the padding to be a little bit smaller and
+   thus less intrusive. */
 table.basic td, table.basic th {
 	padding: 1px 3px 1px 3px;
 }
@@ -73,7 +76,6 @@ table.calendar th {
 } 
 table.calendar td {
 	background-color: #FFFFFF;
-	padding: 1px 3px 1px 3px;
 	font-size: 80%;
 	text-align: left;
 	vertical-align: top;
@@ -150,33 +152,10 @@ table.bookingDetails td {
 	color: #FFFFFF;
 }
 
-/* CONFLICTS AND WAITLISTS ----------------------------- */
+/* CONFLICTS ------------- ----------------------------- */
 
 /* Smaller-than-normal H2 definition so the page doesn't 
    look so ridiculous with three or four large headings. */
 h2.conflict {
 	font-size: 120%;
 	margin-bottom: 0px;
-}
-
-/*  */
-.conflictBookings, .waitlistBookings {
-	width: 100%;
-	font-size: 90%;
-	font-weight: normal;
-}
-
-/*  */
-.conflictBookings th, .waitlistBookings th {
-	border-bottom: 1px solid #000000;
-	background-color: #EEEEEE;
-}
-
-/*  */
-div.waitList {
-	padding: 0px 5px 4px 5px;
-	margin: 10px 0px 0px 0px;
-	background-color: #FFC;
-	font-size: 10pt;
-	border: 1px solid #eee;
-}
