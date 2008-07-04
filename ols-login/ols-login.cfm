@@ -7,7 +7,7 @@
 		<!---& '<li>128-bit encryption</li>'--->
 		& '<li>JavaScript enabled</li>'
 		& '<li>Cookies enabled</li>'
-		& '<li><a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="browser">Adobe Acrobat Reader</a> installed</li>'>
+		& '<li><a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" rel="external">Adobe Acrobat Reader</a> installed</li>'>
 	<cfset language.displayproblem = "The application may not function properly without these components.">
 	<cfset language.jserror = "You do not have JavaScript enabled.  Parts of this application will not function properly.">
 	<cfset language.forgot = "Forgot password">
@@ -24,7 +24,7 @@
 		<!---& '<li>Permet le chiffrement de 128 bits du JavaScript</li>'--->
 		& '<li>JavaScript activ&eacute;</li>'
 		& '<li>T&eacute;moins activ&eacute;s</li>'
-		& '<li>Poss&egrave;de <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="browser">Adobe Acrobat Reader</a> install&eacute;</li>'>
+		& '<li>Poss&egrave;de <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" rel="external">Adobe Acrobat Reader</a> install&eacute;</li>'>
 	<cfset language.displayproblem = "L'application ne fonctionnera peut-&ecirc;tre pas correctement sans ces composantes.">
 	<cfset language.jserror = "La fonction JavaScript n'est pas activ&eacute;e. Des parties de l'application ne fonctionnent pas correctement.">
 	<cfset language.forgot = "Oubli du mot de passe">

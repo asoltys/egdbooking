@@ -29,12 +29,13 @@
 <link href="/clf20/css/2col.css" media="screen, print" rel="stylesheet" type="text/css" />
 <style type="text/css" media="all">
 /* <![CDATA[ */
-	@import url(/egd_internet_clf2/clf20/css/base2.css);
+	@import url(/clf20/css/base2.css);
 /* ]]> */
 </style>
 <!-- TEMPLATE SCRIPTS/CSS END | FIN DES SCRIPTS/CSS DU GABARIT -->
 <!-- PROGRESSIVE ENHANCEMENT BEGINS | DEBUT DE L'AMELIORATION PROGRESSIVE -->
 <script src="/clf20/scripts/pe-ap.js" type="text/javascript"></script>
+<cfoutput><script src="#Rootdir#scripts/external.js" type="text/javascript"></script></cfoutput>
 <script type="text/javascript">
 	/* <![CDATA[ */
 		var params = {

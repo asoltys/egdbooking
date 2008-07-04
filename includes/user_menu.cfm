@@ -106,7 +106,7 @@ function checkIt() {
 	if (!checkIt()) document.write('&nbsp;');
 	/* ]]> */
 </script>
-<a href="#RootDir#reserve-book/aide-help-#lang#.html" class="textbutton" target="_blank">#language.Help#</a>
+<a href="#RootDir#reserve-book/aide-help-#lang#.html" class="textbutton" rel="external">#language.Help#</a>
 <a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#" class="textbutton">#language.LogoutButton#</a>
 </cfoutput>
 

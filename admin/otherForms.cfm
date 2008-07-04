@@ -31,13 +31,13 @@
 
 			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 			
-			<p>The following files may require <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</a> to be installed.</p>
+			<p>The following files may require <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" rel="external">Adobe Acrobat Reader</a> to be installed.</p>
 			<cfoutput>
 			<ul>
-				<li><a href="../formes-forms/DockBookingApplication.pdf" target="_blank" title="Schedule 1">Schedule 1 (#LSDateFormat(CreateDate(2004, 7, 14), 'long')#) [PDF 55.8 KB]</a></li>
-				<li><a href="../formes-forms/indemnificationClause.pdf" target="_blank" title="Indemnification Clause">Indemnification Clause (#LSDateFormat(CreateDate(2002, 6, 18), 'long')#) [PDF 5.58 KB]</a></li>
+				<li><a href="../formes-forms/DockBookingApplication.pdf" title="Schedule 1" rel="external">Schedule 1 (#LSDateFormat(CreateDate(2004, 7, 14), 'long')#) [PDF 55.8 KB]</a></li>
+				<li><a href="../formes-forms/indemnificationClause.pdf" title="Indemnification Clause" rel="external">Indemnification Clause (#LSDateFormat(CreateDate(2002, 6, 18), 'long')#) [PDF 5.58 KB]</a></li>
 				<li><a href="../admin/viewFeesForm.cfm?<cfoutput>lang=#lang#</cfoutput>" title="Tariff of Dock Charges">Tariff of Dock Charges [html]</a>&nbsp;&nbsp;<a class="textbutton" href="updateFees.cfm?lang=#lang#">update fees</a></li>
-				<li><a href="../formes-forms/Tentative_ChangeForm.pdf" target="_blank" title="Tentative Vessel and Change Booking Form">Tentative Vessel and Change Booking Form [PDF 5.51 KB]</a></li>
+				<li><a href="../formes-forms/Tentative_ChangeForm.pdf" title="Tentative Vessel and Change Booking Form" rel="external">Tentative Vessel and Change Booking Form [PDF 5.51 KB]</a></li>
 			</ul>
 			</cfoutput>
 			

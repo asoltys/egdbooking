@@ -49,7 +49,7 @@ function checkIt() {
 	if (!checkIt()) document.write('&nbsp;');
 	/* ]]> */
 </script>
-<a href="#RootDir#admin/egd_admindoc-e.html" class="textbutton" target="_blank">Help</a>
+<a href="#RootDir#admin/egd_admindoc-e.html" class="textbutton" rel="external">Help</a>
 <a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#" class="textbutton">Logout</a>
 </cfoutput>
 </div>

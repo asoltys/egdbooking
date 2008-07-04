@@ -105,7 +105,7 @@ a:hover {
               Introduction</a></strong><br />
             </div>
             <div style="padding-left:20px;"><em><a href="#SystemReqs">2.1   
-            			 Configuration exig�&copy;e</a><br />       
+            			 Configuration exig&copy;e</a><br />       
               <a href="#CreateAccount">2.2 Cr&eacute;er un compte d'utilisateur</a></em><br />       
             </div>
             <div style="padding-left:40px;">2.2.1 Par où commencer<br />       
@@ -196,12 +196,12 @@ a:hover {
               d'entrer dans le système&Acirc; veillez à ce que votre navigateur     
               respecte les paramètres de configuration suivants :       
                 <ul>
-                  <li><a href="http://browser.netscape.com/ns8/" target="_blank">Netscape 4+</a> (<a href="http://browser.netscape.com/ns8/download/archive72x.jsp" target="_blank">liens 
-                    vers de plus vieilles versions</a>), <a href="http://www.microsoft.com/windows/ie/downloads/critical/ie6sp1/default.mspx" target="_blank">Internet Explorer 4+</a>, 
-                    ou <a href="http://www.mozilla.org/products/firefox/" target="_blank">Mozilla Firefox</a></li> 
+                  <li><a href="http://browser.netscape.com/ns8/" rel="external">Netscape 4+</a> (<a href="http://browser.netscape.com/ns8/download/archive72x.jsp" rel="external">liens 
+                    vers de plus vieilles versions</a>), <a href="http://www.microsoft.com/windows/ie/downloads/critical/ie6sp1/default.mspx" rel="external">Internet Explorer 4+</a>, 
+                    ou <a href="http://www.mozilla.org/products/firefox/" rel="external">Mozilla Firefox</a></li> 
                   <li>JavaScript activ&eacute;</li>    
                   <li>T&eacute;moins (cookies) activ&eacute;s</li>   
-                  <li><a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</a>  
+                  <li><a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" rel="external">Adobe Acrobat Reader</a>  
                     install&eacute;</li>    
                 </ul>
               Pour installer l'un ou l'autre des logiciels requis, cliquez sur     

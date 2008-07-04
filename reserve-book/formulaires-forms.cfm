@@ -62,9 +62,9 @@
 				<p>#language.acrobatrequired#</p>
 			
 				<ul>
-					<li><a href="../formes-forms/DockBookingApplication.pdf" target="pdf" title="#language.schedule#">#language.schedule# (#LSDateFormat(CreateDate(2004, 7, 14), 'long')#) [PDF 55.8 KB]</a></li>
-					<li><a href="../formes-forms/indemnificationClause.pdf" target="pdf" title="#language.Indemnification#">#language.Indemnification# (#LSDateFormat(CreateDate(2002, 6, 18), 'long')#) [PDF 5.58 KB]</a></li>
-					<li><a href="../formes-forms/Tentative_ChangeForm.pdf" target="pdf" title="#language.changeForm#">#language.changeForm# [PDF 5.51 KB]</a></li>
+					<li><a href="../formes-forms/DockBookingApplication.pdf" title="#language.schedule#" rel="external">#language.schedule# (#LSDateFormat(CreateDate(2004, 7, 14), 'long')#) [PDF 55.8 KB]</a></li>
+					<li><a href="../formes-forms/indemnificationClause.pdf" title="#language.Indemnification#" rel="external">#language.Indemnification# (#LSDateFormat(CreateDate(2002, 6, 18), 'long')#) [PDF 5.58 KB]</a></li>
+					<li><a href="../formes-forms/Tentative_ChangeForm.pdf" title="#language.changeForm#" rel="external">#language.changeForm# [PDF 5.51 KB]</a></li>
 					<li><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?<cfoutput>lang=#lang#</cfoutput>" title="Tariff of Dock Charges">Tariff of Dock Charges [html]</a></li>
 				</ul>
 				</cfoutput>

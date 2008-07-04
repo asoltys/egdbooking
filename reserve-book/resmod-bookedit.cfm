@@ -96,7 +96,7 @@
 				<p align="left">#language.explanation#</p>
 				<p align="left">#language.acrobatRequired#</p>
 				<ul>
-					<li><a href="../formes-forms/Tentative_ChangeForm.pdf" target="pdf" title="#language.changeForm#">#language.changeForm# [PDF 5.51 KB]</a></li>
+					<li><a href="../formes-forms/Tentative_ChangeForm.pdf" title="#language.changeForm#" rel="external">#language.changeForm# [PDF 5.51 KB]</a></li>
 				</ul>
 				<cfset emailSubject = "#getbooking.CompanyName# editing booking for #trim(getbooking.VesselName)# from #LSDateFormat(getbooking.StartDate, 'mmm d, yyyy')# to #LSDateFormat(getbooking.EndDate, 'mmm d, yyyy')#">
 				<p>
