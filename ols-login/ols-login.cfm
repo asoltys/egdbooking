@@ -39,10 +39,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#"">
-	<meta name=""keywords"" lang=""eng"" content=""#language.masterKeywords# #language.Login#"">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.masterSubjects#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#"">
+	<meta name=""keywords"" content=""#language.masterKeywords# #language.Login#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.masterSubjects#"">
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -61,7 +61,7 @@
 	<CFSET email = "">
 </CFIF>
 
-<cfheader name="Pragma" value="no-cache"> 
+<cfheader name="Pragma" value="no-cache">
 <cfheader name="cache-control" value="no-cache, no-store, must-revalidate">
 <cfcookie name="CFID" value="empty" expires="NOW">
 <cfcookie name="CFTOKEN" value="empty" expires="NOW">
@@ -97,7 +97,7 @@
 					<noscript>
 					<b style="color: ##FF0000; ">#language.jserror#</b>
 					</noscript>
-					
+
 					<h2>#language.login#</h2>
 					<!-- Display the login form and pass contents to login_action.cfm -->
 					<form action="ols-login_action.cfm?lang=<cfoutput>#lang#</cfoutput>" method="post" id="login_form">

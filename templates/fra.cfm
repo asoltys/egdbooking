@@ -1,8 +1,8 @@
 <cfhtmlhead text="
 	<meta name=""dc.title"" content=""TPSGC - CALE S&EGRAVE;CHE D'SEQUIMALT - #language.title#"">
-	<meta name=""keywords"" content=""#language.masterKeywords# #language.title#"">
-	<meta name=""description"" content=""#language.title#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
+	<meta name=""keywords"" content=""#language.masterKeywords# #language.title#"" />
+	<meta name=""description"" content=""#language.title#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />

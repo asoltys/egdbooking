@@ -12,7 +12,8 @@
 	<cfset language.bookingsSummary = "r&eacute;sum&eacute; des r&eacute;servations">
 </cfif>
 
-<script language="javascript" type="text/javascript">
+<script type="text/javascript">
+/* <![CDATA[ */
 // used to prevent display problems with old versions of Netscape 4.7 and older
 
 function checkIt() {
@@ -22,7 +23,7 @@ function checkIt() {
 	}
 		
 	return true;
-}
+	}
 
 function popUp(pageID) {
 	if (checkIt()) {
@@ -32,6 +33,7 @@ function popUp(pageID) {
 		alert("<cfoutput>#language.warning#</cfoutput>");
 	}
 }
+/* ]]> */
 </script>
 
 <cfoutput>

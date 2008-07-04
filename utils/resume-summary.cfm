@@ -29,10 +29,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""#langVar#"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.bookingsSummary#"">
-	<meta name=""keywords"" lang=""#langVar#"" content="""">
-	<meta name=""description"" lang=""#langVar#"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.bookingsSummary#"" />
+	<meta name=""keywords"" content="""" />
+	<meta name=""description"" content="""" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -115,10 +115,12 @@ FROM	getJettyBookings
 WHERE	SouthJetty = 1
 </cfquery>
 
-<script language="javascript" type="text/javascript">
+<script type="text/javascript">
+/* <![CDATA[ */
 function popUp(pageID) {
 	window.open(pageID + "-e.cfm", pageID, "width=800, height=400, resizable=yes, menubar=no, scrollbars=yes, toolbar=no");
-}
+	}
+/* ]]> */
 </script>
 
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">

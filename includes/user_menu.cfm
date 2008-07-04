@@ -1,5 +1,6 @@
 <div id="menu1">
-<script language="javascript" type="text/javascript">
+<script type="text/javascript">
+/* <![CDATA[ */
 // used to prevent display problems with old versions of Netscape 4.7 and older
 function checkIt() {
 	//detect Netscape 4.7-
@@ -7,7 +8,8 @@ function checkIt() {
 		return false;
 	}
 	return true;
-}
+	}
+/* ]]> */
 </script>
 <cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT ReadOnly
@@ -67,8 +69,18 @@ function checkIt() {
   
 <div align="center" style="min-height: 30px; ">
 <cfoutput>
-<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton">#language.BookingHomeButton#</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
-<a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang##datetoken#" class="textbutton">#language.DrydockCalButton#</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
+<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton">#language.BookingHomeButton#</a>
+<script type="text/javascript">
+	/* <![CDATA[ */
+	if (!checkIt()) document.write('&nbsp;');
+	/* ]]> */
+</script>
+<a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang##datetoken#" class="textbutton">#language.DrydockCalButton#</a>
+<script type="text/javascript">
+	/* <![CDATA[ */
+	if (!checkIt()) document.write('&nbsp;');
+	/* ]]> */
+</script>
 <a href="#RootDir#comm/calend-jet.cfm?lang=#lang##datetoken#" class="textbutton">#language.JettyCalButton#</a>
 <div style="height: 5px; ">&nbsp;</div>
 
@@ -76,8 +88,17 @@ function checkIt() {
 <a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang##Variables.BookingRequestString#" class="textbutton">#language.RequestBookingButton#</a>
 </cfif>
 
-<script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
-<a href="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#" class="textbutton">#language.EditProfileButton#</a><script language="javascript" type="text/javascript">if (!checkIt()) document.write('&nbsp;');</script>
+<script type="text/javascript">
+	/* <![CDATA[ */
+	if (!checkIt()) document.write('&nbsp;');
+	/* ]]> */
+</script>
+<a href="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#" class="textbutton">#language.EditProfileButton#</a>
+<script type="text/javascript">
+	/* <![CDATA[ */
+	if (!checkIt()) document.write('&nbsp;');
+	/* ]]> */
+</script>
 <a href="#RootDir#reserve-book/aide-help-#lang#.html" class="textbutton" target="_blank">#language.Help#</a>
 <a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#" class="textbutton">#language.LogoutButton#</a>
 </cfoutput>

@@ -1,8 +1,8 @@
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Confirm Remove Company"">
-	<meta name=""keywords"" lang=""eng"" content="""">
-	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Confirm Remove Company"">
+	<meta name=""keywords"" content="""" />
+	<meta name=""description"" content="""" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -25,15 +25,14 @@
 </cfquery>
 
 <!-- Start JavaScript Block -->
-<script language="JavaScript" type="text/javascript">
-	<!--
-	function EditSubmit ( selectedform )
+<script type="text/javascript">
+/* <![CDATA[ */
+function EditSubmit ( selectedform )
 	{
-	  document.forms[selectedform].submit() ;
+	  document.forms[selectedform].submit();
 	}
-	//-->
+/* ]]> */
 </script>
-
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
@@ -69,7 +68,7 @@
 
 				<cfoutput>
 				<cfform action="removeUserCompany_action.cfm?lang=#lang#&userID=#form.userID#" method="post" name="remCompanyConfirmForm">
-					<div align="center">Are you sure you want to remove <StrONG>#getUser.UserName#</StrONG> from <strong>#getCompany.Name#</strong>?</div>
+					<div align="center">Are you sure you want to remove <strong>#getUser.UserName#</strong> from <strong>#getCompany.Name#</strong>?</div>
 					
 					<p><div align="center">
 						<!--a href="javascript:EditSubmit('remCompanyConfirmForm');" class="textbutton">Submit</a>

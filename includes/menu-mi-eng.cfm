@@ -1,4 +1,4 @@
-<!-- ====== /egd_internet_clf2/cse-egd/includes/MENU-MI-ENG.HTML ====== -->
+<!-- ====== /egd_internet_clf2/cse-egd/includes/MENU-MI-ENG.html ====== -->
 <ul class="leftNav">
 	<li>
 	<h2><a href="/egd_internet_clf2/cse-egd/index-eng.html"><acronym title="Esquimalt Graving Dock">EGD</acronym></a></h2>
@@ -21,4 +21,4 @@
 		</ul>
 	</li>
 </ul>
-<!-- ====== /egd_internet_clf2/cse-egd/includes/MENU-MI-ENG.HTML ====== -->
+<!-- ====== /egd_internet_clf2/cse-egd/includes/MENU-MI-ENG.html ====== -->

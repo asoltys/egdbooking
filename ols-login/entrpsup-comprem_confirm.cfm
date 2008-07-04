@@ -18,10 +18,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.confirmRem#"">
-	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.masterSubjects#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.confirmRem#"">
+	<meta name=""keywords"" content=""#language.keywords#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.masterSubjects#"">
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -39,13 +39,13 @@
 </cfquery>
 
 <!-- Start JavaScript Block -->
-<script language="JavaScript" type="text/javascript">
-<!--
+<script type="text/javascript">
+/* <![CDATA[ */
 function EditSubmit ( selectedform )
 {
-  document.forms[selectedform].submit() ;
-}
-//-->
+  document.forms[selectedform].submit();
+	}
+/* ]]> */
 </script>
 <!-- End JavaScript Block -->
 

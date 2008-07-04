@@ -49,10 +49,10 @@
 
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.archivedBookings#"">
-	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.archivedBookings#"">
+	<meta name=""keywords"" content=""#language.keywords#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />

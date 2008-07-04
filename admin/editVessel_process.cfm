@@ -25,10 +25,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Vessel"">
-	<meta name=""keywords"" lang=""eng"" content="""">
-	<meta name=""description"" lang=""eng"" content=""Allows user to edit the details of a vessel."">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Vessel"">
+	<meta name=""keywords"" content="""" />
+	<meta name=""description"" content=""Allows user to edit the details of a vessel."" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -41,7 +41,7 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -65,11 +65,11 @@
 					WHERE VesselID = #Form.VesselID#
 					AND Vessels.Deleted = 0
 				</cfquery>
-				
+
 				<cfif getVesselDetail.recordCount EQ 0>
 					<cflocation addtoken="no" url="booking.cfm?lang=#lang#&CompanyID=#url.companyID#">
 				</cfif>
-				
+
 				<cfset Variables.Name = Form.Name>
 				<cfset Variables.Length = Form.Length>
 				<cfset Variables.Width = Form.Width>
@@ -77,7 +77,7 @@
 				<cfset Variables.BlockTearDownTime = Form.BlockTearDownTime>
 				<cfset Variables.LloydsID = Form.LloydsID>
 				<cfset Variables.Tonnage = Form.Tonnage>
-				
+
 				<!---
 				<cfset Form.EndHighlight = DateAdd("d", Form.EndHighlight, PacificNow) >
 				<cfelse>
@@ -85,14 +85,14 @@
 				</cfif>
 				<cfset Variables.EndHighlight = Form.EndHighlight>
 				--->
-				
+
 				<cfparam name="Variables.Anonymous" default="0">
 				<cfif IsDefined("Form.Anonymous")>
 					<cfset Variables.Anonymous = 1>
 				</cfif>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<p>Please confirm the following information: </p>
 				<cfif Variables.Width GT Variables.MaxWidth OR Variables.Length GT Variables.MaxLength>
 					<div id="actionErrors">Note: The ship measurements exceed the maximum dimensions of the dock (<cfoutput>#Variables.MaxLength#m x #Variables.MaxWidth#m</cfoutput>).</div>
@@ -156,7 +156,7 @@
 					</table>
 				</cfform>
 				</cfoutput>
-				
+
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

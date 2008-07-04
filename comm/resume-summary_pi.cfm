@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/tr/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/tr/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 <cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
@@ -36,38 +36,37 @@
 <head>
 	<!--INTERNET TEMPLATE VERSION 2.1-->
 	<!--metaDATA PROFILE START-->
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-	<CFIF lang eq 'e'>
-	<CFSET langVar = "eng">
-	<meta name="MSSmartTagsPreventParsing" content="True">
-	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1">
-	<meta name="dc.language" scheme="IS0639-2" content="eng">
-	<meta name="dc.creator" lang="eng" content="Government of Canada, Public Works and Government Services Canada, Esquimalt Graving Dock">
-	<meta name="dc.publisher" lang="eng" content="Public Works and Government Services Canada">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1" />
+	
+	<CFIF lang eq 'eng'>
+	<meta name="MSSmartTagsPreventParsing" content="True" />
+	<meta name="dc.language" scheme="IS0639-2" content="eng" />
+	<meta name="dc.creator" lang="eng" content="Government of Canada, Public Works and Government Services Canada, Esquimalt Graving Dock" />
+	<meta name="dc.publisher" lang="eng" content="Public Works and Government Services Canada" />
 	<CFELSE>
-	<CFSET langVar = "fre">
-	<meta name="MSSmartTagsPreventParsing" content="Vrai">
-	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1">
-	<meta name="dc.language" scheme="IS0639-2" content="fre">
-	<meta name="dc.creator" lang="fre" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada, Cale s&egrave;che d'Esquimalt">
-	<meta name="dc.publisher" lang="fre" content="Travaux publics et Services gouvernementaux Canada ">
+	<meta name="MSSmartTagsPreventParsing" content="Vrai" />
+	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1" />
+	<meta name="dc.language" scheme="IS0639-2" content="fre" />
+	<meta name="dc.creator" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada, Cale s&egrave;che d'Esquimalt" />
+	<meta name="dc.publisher" content="Travaux publics et Services gouvernementaux Canada" />
 	</CFIF>
 	
 <cfoutput>
-	<meta name="pwgsc.contact.email" content="egd@tpsgc-pwgsc.gc.ca">
-	<meta name="dc.rights" lang="#langVar#" content="http://www.pwgsc.gc.ca/generic/copyright-e.html">
-	<meta name="robots" content="noindex,nofollow">
+	<meta name="pwgsc.contact.email" content="questions@tpsgc.gc.ca" />
+	<meta name="dc.rights" lang="#langVar#" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-fra.html" />
+	<meta name="robots" content="noindex,nofollow" />
 
-	<meta name="dc.title" lang="#langVar#" content="#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#">
-	<meta name="keywords" lang="#langVar#" content="#Language.masterKeywords#">
-	<meta name="description" lang="#langVar#" content="#language.description#">
-	<meta name="dc.subject" scheme="gccore" lang="#langVar#" content="#Language.masterSubjects#">
-	<meta name="dc.date.published" content="2005-07-25">
-	<meta name="dc.date.reviewed" content="2005-07-25">
-	<meta name="dc.date.modified" content="2005-07-25">
-	<meta name="dc.date.created" content="2005-07-25">
+	<meta name="dc.title" lang="#langVar#" content="#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#" />
+	<meta name="keywords" lang="#langVar#" content="#Language.masterKeywords#" />
+	<meta name="description" lang="#langVar#" content="#language.description#" />
+	<meta name="dc.subject" scheme="gccore" lang="#langVar#" content="#Language.masterSubjects#" />
+	<meta name="dc.date.published" content="2005-07-25" />
+	<meta name="dc.date.reviewed" content="2005-07-25" />
+	<meta name="dc.date.modified" content="2005-07-25" />
+	<meta name="dc.date.created" content="2005-07-25"  />
 	
-	<meta name="pwgsc.date.retention" content="">
+	<meta name="pwgsc.date.retention" content="" />
 	
 	<!-- leave blank -->
 	<meta name="dc.contributor" lang="#langVar#" content="">
@@ -362,7 +361,7 @@ WHERE	SouthJetty = 1
 
 <!--- Legend of company abbreviations --->
 <table border="1" cellpadding="2" width="60%">
-<CAPTION><cfoutput><StrONG>#language.legend#:</StrONG></cfoutput></CAPTION>
+<CAPTION><cfoutput><strong>#language.legend#:</strong></cfoutput></CAPTION>
 	<tr>
 <cfoutput query="getCompanies">
 		<td width="30%">#Abbreviation# - #CompanyName#</td>
@@ -383,7 +382,7 @@ WHERE	SouthJetty = 1
 
 			<!-- FOOTER BEGINS | DEBUT DU PIED DE LA PAGE -->
 			<div class="footer">
-				<HR />
+				<hr />
 				<div style="float:left; width:33.25%; text-align:left;">
 					<!-- DATE MODIFIED BEGINS | DEBUT DE LA DATE DE MODIFICATION -->
 					<CFIF lang EQ 'eng' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>Date Modified:
@@ -394,17 +393,17 @@ WHERE	SouthJetty = 1
 					</span>
 					<!-- DATE MODIFIED ENDS | FIN DE LA DATE DE MODIFICATION -->
 				</div>
-				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.HTML ====== -->
+				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.html ====== -->
 				<div class="screenonly" style="float:left; width:33.25%; text-align:center">
 					<a href="#tphp" title="Return to Top of Page"><img class="uparrow" src="/egd_internet_clf2/clf20/images/tphp.gif" width="19" height="12" alt="" /><br />Top of Page</a>
 				</div>
 				<div style="float:left; width:33.25%; text-align:right">
 					<a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html">Important Notices</a>
 				</div>
-				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.HTML ====== -->
+				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.html ====== -->
 				
 			</div>
 			<!-- FOOTER ENDS | FIN DU PIED DE LA PAGE -->
 
 </body>
-</HTML>
+</html>

@@ -30,10 +30,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.RequestBooking#"">
-	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.RequestBooking#"">
+	<meta name=""keywords"" content=""#language.keywords#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -77,10 +77,10 @@
 				</cfif>
 				
 				<p>#language.choose#</p>
-				<UL>
-					<LI><a href="#RootDir#reserve-book/caledemande-dockrequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.drydockBooking#</a></LI>
-					<LI><a href="#RootDir#reserve-book/jetdemande-jetrequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.jettyBooking#</a></LI>
-				</UL>
+				<ul>
+					<li><a href="#RootDir#reserve-book/caledemande-dockrequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.drydockBooking#</a></li>
+					<li><a href="#RootDir#reserve-book/jetdemande-jetrequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.jettyBooking#</a></li>
+				</ul>
 				<br />
 				<p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=<cfoutput>#lang#</cfoutput>" class="textbutton">#language.mainPage#</a></p>
 				

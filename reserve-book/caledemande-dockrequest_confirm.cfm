@@ -34,10 +34,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.NewBooking#"">
-	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.NewBooking#"">
+	<meta name=""keywords"" content=""#language.keywords#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -45,15 +45,14 @@
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.NewBooking#</title>">
 
 <!-- Start JavaScript Block -->
-<script language="JavaScript" type="text/javascript">
-	<!--
-	function EditSubmit ( selectedform )
+<script type="text/javascript">
+/* <![CDATA[ */
+function EditSubmit ( selectedform )
 	{
-	  document.forms[selectedform].submit() ;
+	  document.forms[selectedform].submit();
 	}
-	//-->
+/* ]]> */
 </script>
-
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
@@ -218,7 +217,7 @@
 					</td>
 				</tr>
 				</table>
-				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action.cfm?lang=#lang#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
 				<table align="center">
 					<tr><td align="right" width="40%"><div style="font-weight:bold;">#language.new#:</div></td></tr>
 					<tr>
@@ -252,7 +251,7 @@
 						<td colspan="2" align="center">
 							<!---a href="javascript:EditSubmit('bookingreq');" class="textbutton">#language.confirm#</a>
 							<a href="resdemande-bookrequest.cfm?lang=<cfoutput>#lang#</cfoutput>" class="textbutton">#language.Cancel#</a>
-							<BR--->
+							<br--->
 							<input type="Submit" value="#language.Submit#" class="textbutton">
 							<input type="button" value="#language.Back#" class="textbutton" onClick="self.location.href='bookingRequest.cfm?lang=#lang#'">
 							<input type="button" value="#language.Cancel#" class="textbutton" onClick="self.location.href='bookingRequest_choose.cfm?lang=<cfoutput>#lang#</cfoutput>';">

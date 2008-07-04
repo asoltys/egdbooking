@@ -3,15 +3,15 @@
 
 & '<p>Printing instructions:</p>'
 & '<div class="critical"><p>Before you print, go to <b>Print Preview</b> and make sure that none of your tooltips are so low on the page that they get cut off.</p></div>'
-& '<UL>'
-& '	<LI>Internet Explorer: Go to <b>Tools</b> &gt; <b>Internet Options</b> &gt; <b>Advanced</b>; make sure <i>Print background colors and images</i> under <b>Printing</b> is checked</LI>'
-& '	<LI>Netscape Navigator, Mozilla &amp; Firefox: Go to <b>Page Setup</b>; make sure <i>Print background (colors &amp; images)</i> is checked</LI>'
-& '</UL>'>
+& '<ul>'
+& '	<li>Internet Explorer: Go to <b>Tools</b> &gt; <b>Internet Options</b> &gt; <b>Advanced</b>; make sure <i>Print background colors and images</i> under <b>Printing</b> is checked</li>'
+& '	<li>Netscape Navigator, Mozilla &amp; Firefox: Go to <b>Page Setup</b>; make sure <i>Print background (colors &amp; images)</i> is checked</li>'
+& '</ul>'>
 <cfset language.text1 = 'from'>
 <cfset language.text2 = 'to'>
 <cfset language.text3 = 'docks'>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/tr/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/tr/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 <CFINCLUDE template="#RootDir#includes/companyInfoVariables.cfm">
@@ -59,8 +59,8 @@
 <!-- PROGRESSIVE ENHANCEMENT BEGINS | DEBUT DE L'AMELIORATION PROGRESSIVE -->
 <script src="/clf20/scripts/pe-ap.js" type="text/javascript"></script>
 <script type="text/javascript">
-	/* <![CDATA[ */
-		var params = {
+/* <![CDATA[ */
+var params = {
 			lng:"eng",
 			pngfix:"/clf20/images/inv.gif"
 		};
@@ -199,7 +199,7 @@
 				bar = 'unassigned';
  
 			return bar;
-		}
+	}
 		
 		function heffalump(n, firstdock, lastdock) {
 			var boatCount = 1;  // number of boats in a given day
@@ -264,9 +264,9 @@
 				
 				if (Status eq 'm') {
 					StructInsert(n, Evaluate("vn"), "Maintenance Block", false);
-				} else {
+	} else {
 					StructInsert(n, Evaluate("vn"), VesselName, false);
-				}
+	}
 				
 				StructInsert(n, evaluate("hl"), endhighlight, false);
 				StructInsert(n, Evaluate("sd"), StartDate, false);
@@ -279,22 +279,22 @@
 					StructInsert(n, Evaluate("iy"), true, true);
 				else
 					StructInsert(n, Evaluate("iy"), false, true);
-			} else {
+	} else {
 				StructInsert(n, Evaluate("fda"), false, true);
-			}
+	}
 			
 			if (i eq #t#) {
 				// i is the last day of the booking
 				StructInsert(n, Evaluate("lda"), true, true);
-			} else {
+	} else {
 				StructInsert(n, Evaluate("lda"), false, true);
-			}
+	}
 				
 			// first dock in the booking
 			StructInsert(n, Evaluate("fdo"), firstdock, true);
 			// last dock in the booking
 			StructInsert(n, Evaluate("ldo"), lastdock, true);
-		}
+	}
 		
 		function getColour(num) {
 			// var num = Left(Hash(name), 1);
@@ -322,9 +322,9 @@
 					break;
 				default:
 					break;
-			}
+	}
 			return accColour[num];
-		}
+	}
 	</CFSCRIPT>
 </cfoutput>
 

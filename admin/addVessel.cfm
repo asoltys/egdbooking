@@ -1,8 +1,8 @@
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add New Vessel"">
-	<meta name=""keywords"" lang=""eng"" content=""Add Vessel"">
-	<meta name=""description"" lang=""eng"" content=""Allows user to create a new vessel in the Esquimalt Graving Dock booking website."">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add New Vessel"">
+	<meta name=""keywords"" content=""Add Vessel"" />
+	<meta name=""description"" content=""Allows user to create a new vessel in the Esquimalt Graving Dock booking website."" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -53,7 +53,7 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -72,9 +72,9 @@
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
-				
+
 				<cfform action="addVessel_process.cfm?lang=#lang#" method="post" name="addVessel">
 				<table align="center">
 				<tr>

@@ -1,6 +1,6 @@
 <CFINCLUDE template="#RootDir#includes/companyInfoVariables.cfm">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/tr/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/tr/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 <cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
@@ -20,8 +20,8 @@
 <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
 <link rel="schema.dc" href="http://purl.org/dc/terms/" />
 <meta name="dc.title" content="PWGSC - ESQUIMALT GRAVING DOCK - View Company Details">
-<meta name="dc.subject" SCHEME="gccore" content="ship, wharf">
-<meta name="dc.language" SCHEME="ISO639-2/T" content="eng" />
+<meta name="dc.subject" scheme="gccore" content="ship, wharf">
+<meta name="dc.language" scheme="ISO639-2/T" content="eng" />
 <meta name="dc.creator" content="Government of Canada, Public Works and Government Services Canada" />
 <meta name="dc.publisher" content="Government of Canada, Public Works and Government Services Canada" />
 <meta name="dc.audience" content=" " />
@@ -30,10 +30,10 @@
 <meta name="dc.format" content=" " />
 <meta name="dc.identifier" content=" " />
 <meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html" />
-<meta name="dcterms.issued" SCHEME="W3CDTF" content="2007-09-20" />
-<meta name="dcterms.modified" SCHEME="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
+<meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
+<meta name="dcterms.modified" scheme="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
 <meta name="description" content="Allows user to view information on a company.">
-<meta name="keywords" content="">
+<meta name="keywords" content="" />
 <meta name="pwgsc.contact.email" content="questions@tpsgc-pwgsc.gc.ca" />
 <!-- metaDATA ENDS | FIN DES metaDONNEES -->
 <!-- TEMPLATE SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS DU GABARIT -->
@@ -44,16 +44,16 @@
 </cfoutput>
 <!-- TEMPLATE SCRIPTS/CSS END | FIN DES SCRIPTS/CSS DU GABARIT -->
 <!-- PROGRESSIVE ENHANCEMENT BEGINS | DEBUT DE L'AMELIORATION PROGRESSIVE -->
-<SCRIPT src="/clf20/scripts/pe-ap.js" type="text/javascript"></SCRIPT>
-<SCRIPT type="text/javascript">
-	/* <![CDATA[ */
-		var params = {
+<script src="/clf20/scripts/pe-ap.js" type="text/javascript"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var params = {
 			lng:"eng",
 			pngfix:"/clf20/images/inv.gif"
 		};
 		PE.progress(params);
 	/* ]]> */
-</SCRIPT>
+</script>
 <!-- PROGRESSIVE ENHANCEMENT ENDS | FIN DE L'AMELIORATION PROGRESSIVE -->
 <!-- CUSTOM SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS PERSONNALISES -->
 <cfoutput>
@@ -82,7 +82,7 @@
 			AND	Deleted = '0'
 		ORDER BY	Name
 	</cfquery>
-	
+
 	<cfquery name="getAgents" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	FirstName, LastName
 		FROM	Users	INNER JOIN	UserCompanies ON Users.UserID = UserCompanies.UserID
@@ -92,7 +92,7 @@
 			AND	UserCompanies.Deleted = '0'
 		ORDER BY	LastName, FirstName
 	</cfquery>
-	
+
 <CFELSE>
 	<CFSET ScreenMessage = "There is no such company.">
 </CFIF>
@@ -100,19 +100,19 @@
 
 </head>
 
-<BODY>
+<body>
 
 <div style="width:480px; background-color:#FFFFFF;">
 	<div class="core">
-		<!-- FIP headER BEGINS | DEBUT DE L'EN-TETE PCIM --> 
+		<!-- FIP headER BEGINS | DEBUT DE L'EN-TETE PCIM -->
 		<div class="fip">
 		<a name="tphp" id="tphp"><img src="/egd_internet_clf2/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></a>
 		</div>
 		<div class="cwm">
 			<img src="/egd_internet_clf2/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
 		</div>
-		<!-- FIP headER ENDS | FIN DE L'EN-TETE PCIM --> 
-		
+		<!-- FIP headER ENDS | FIN DE L'EN-TETE PCIM -->
+
 		<div class="center" style="margin-left:-10px;">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
@@ -161,15 +161,15 @@
 					</span>
 					<!-- DATE MODIFIED ENDS | FIN DE LA DATE DE MODIFICATION -->
 				</div>
-				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.HTML ====== -->
+				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.html ====== -->
 				<div class="foot2">
 					<a href="#tphp" title="Return to Top of Page"><img class="uparrow" src="/egd_internet_clf2/clf20/images/tphp.gif" width="19" height="12" alt="" /><br />Top of Page</a>
 				</div>
 				<div class="foot3">
 					<a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html">Important Notices</a>
 				</div>
-				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.HTML ====== -->
-				
+				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.html ====== -->
+
 			</div>
 			<!-- FOOTER ENDS | FIN DU PIED DE LA PAGE -->
 		</div>

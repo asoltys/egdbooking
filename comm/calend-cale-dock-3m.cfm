@@ -37,10 +37,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.drydockCalendar#"">
-	<meta name=""keywords"" lang=""eng"" content=""#Language.masterKeywords#, #language.keywords#"">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#Language.masterSubjects#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.drydockCalendar#"">
+	<meta name=""keywords"" content=""#Language.masterKeywords#, #language.keywords#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -80,10 +80,10 @@
 				<CFELSE>
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				</CFIF>
-				
+
 				<CFINCLUDE template="#RootDir#includes/dock_calendar_menu.cfm">
-				
-				
+
+
 				<CFINCLUDE template="includes/calendar_variables.cfm">
 				<cfset firstdayofbunch = CreateDate(url.year, url.month, 1)>
 				<cfset ahead3months= DateAdd('m', 3, firstdayofbunch)>
@@ -101,9 +101,9 @@
 						AND EndDate >= #firstdayofbunch#
 						AND	Bookings.Deleted = '0'
 						AND	Vessels.Deleted = '0'
-				
+
 					UNION
-				
+
 					SELECT	Status,
 						StartDate, EndDate,
 						Section1, Section2, Section3,
@@ -116,12 +116,12 @@
 						AND	Bookings.Deleted = '0'
 						AND	Status = 'm'
 				</cfquery>
-				
+
 				<p><cfoutput>#language.viewInfo#</cfoutput></p>
-				
+
 				<CFSET pos="top">
 				<CFINCLUDE template="includes/dock_key.cfm">
-				
+
 				<CFIF url.month eq 1>
 					<CFSET prevmonth = 12>
 					<CFSET prevyear = url.year - 1>
@@ -129,7 +129,7 @@
 					<CFSET prevmonth = url.month - 1>
 					<CFSET prevyear = url.year>
 				</CFIF>
-				
+
 				<CFIF url.month eq 12>
 					<CFSET nextmonth = 1>
 					<CFSET nextyear = url.year + 1>
@@ -137,8 +137,8 @@
 					<CFSET nextmonth = url.month + 1>
 					<CFSET nextyear = url.year>
 				</CFIF>
-				
-				
+
+
 				<cfoutput>
 				<div style="float:left;"><a href="calend-cale-dock-3m.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
 				<div style="float:right;"><a href="calend-cale-dock-3m.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
@@ -159,9 +159,9 @@
 				</div>
 				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 				</cfoutput>
-				
+
 				<!--- MEGA table BEGINS HERE --->
-				
+
 				<cfloop from="0" to="2" index="i">
 					<cfif i neq 0>
 						<cfif url.month neq 12>
@@ -171,15 +171,15 @@
 							<cfset url.year = url.year+1>
 							</cfif>
 						</cfif>
-					
+
 					<cfinclude template="includes/calendar_core.cfm">
 				</cfloop>
-				
+
 				<cfoutput>
 					<div style="float:left;"><a href="calend-cale-dock-3m.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
 					<div style="text-align:right;"><a href="calend-cale-dock-3m.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
 				</cfoutput>
-				
+
 				<CFSET pos="bottom">
 				<CFINCLUDE template="includes/dock_key.cfm">
 

@@ -10,10 +10,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDock# - #Variables.Success.Breadcrumb#"">
-	<meta name=""keywords"" lang=""eng"" content=""#Language.masterKeywords#"">
-	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#Language.masterSubjects#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDock# - #Variables.Success.Breadcrumb#"">
+	<meta name=""keywords"" content=""#Language.masterKeywords#"" />
+	<meta name=""description"" content="""" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -51,38 +51,38 @@
 					</a></h1>
 
 			<div class="content">
-			
+
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 			<CFELSE>
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 			</CFIF>
-			
-			
+
+
 			<cfoutput>
 			<p align="center">#Variables.Success.Message#
 			<cfif IsDefined('Session.Success.paperFormLink')>
-				<BR /><BR />
+				<br /><br />
 				*** Confirmation of Booking requires the submittal of the Schedule 1 and Indemnification Clause forms available through the "Mandatory Forms" button below. Payment of the necessary deposit is also required - please contact the Esquimalt Graving Dock for details.
 			</cfif>
 			</p>
 			<p align="center">
-			
+
 			<cfif IsDefined('Session.Success.paperFormLink')>
 				<a href="#Session.Success.paperFormLink#" class="textbutton">Mandatory Forms</a>&nbsp;
 			</cfif>
-			
+
 			<a href="#Variables.Success.Link#" class="textbutton">#Variables.Success.Back#</a>
 			</p>
 			</cfoutput>
-			
+
 			</div>
 			</div>
-			
+
 			<cfif IsDefined("Session.Form_Structure")>
 				<cfset StructDelete(Session, "Form_Structure")>
 			</cfif>
-		
+
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 

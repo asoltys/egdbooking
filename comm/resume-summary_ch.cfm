@@ -40,10 +40,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#"">
-	<meta name=""keywords"" lang=""eng"" content=""#Language.masterKeywords#"">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#Language.masterSubjects#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#"">
+	<meta name=""keywords"" content=""#Language.masterKeywords#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -84,18 +84,18 @@
 				<CFELSE>
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				</CFIF>
-				
+
 				<CFINCLUDE template="#RootDir#includes/dock_calendar_menu.cfm">
-				
+
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
-				
+
 				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
-				
+
 				<cfoutput>
-				
+
 				#Language.ScreenMessage#
-				
-				<cfform action="resume-summary.cfm?lang=#lang#" method="POST" enablecab="No" name="bookSum" preservedata="Yes">
+
+				<cfform action="resume-summary.cfm?lang=#lang#" method="post" enablecab="No" name="bookSum" preservedata="Yes">
 					<table width="100%">
 						<tr>
 							<td id="startCell"><label for="start">&nbsp; #language.fromDate#</label></td>
@@ -115,7 +115,7 @@
 								<a href="javascript:document.bookSum.toDate.value=''; void(0);" class="textbutton">#language.clear#</a>
 							</td>
 						</tr>
-						<tr><td colspan="2">&nbsp;</td></tr>		
+						<tr><td colspan="2">&nbsp;</td></tr>
 						<tr>
 							<td>&nbsp;</td>
 							<td>
@@ -128,7 +128,7 @@
 							</td>
 						</tr>
 					</table>
-				
+
 				</cfform>
 				</cfoutput>
 			</div>

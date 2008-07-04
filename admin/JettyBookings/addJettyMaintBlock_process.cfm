@@ -2,10 +2,10 @@
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add Maintenance Block"">
-	<meta name=""keywords"" lang=""eng"" content="""">
-	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add Maintenance Block"">
+	<meta name=""keywords"" content="""" />
+	<meta name=""description"" content="""" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -13,13 +13,13 @@
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Add Maintenance Block</title>">
 
 <!-- Start JavaScript Block -->
-	<script language="JavaScript" type="text/javascript">
-	<!--
-	function EditSubmit ( selectedform )
+	<script type="text/javascript">
+/* <![CDATA[ */
+function EditSubmit ( selectedform )
 	{
-	  document.forms[selectedform].submit() ;
+	  document.forms[selectedform].submit();
 	}
-	//-->
+/* ]]> */
 </script>
 <!-- End JavaScript Block -->
 
@@ -202,7 +202,7 @@
 					<p>Please confirm the following maintenance block information.</p>
 				</CFIF>
 				
-				<cfform action="addJettyMaintBlock_action.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="addJettyMaintBlock_action.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
 				<div style="font-weight:bold;padding-left:85px">Booking:</div>
 				<table width="100%" align="center" style="padding-left:100px">	
 					<tr>
@@ -235,7 +235,7 @@
 							<!---a href="javascript:EditSubmit('bookingreq');" class="textbutton">Confirm</a>
 							<a href="javascript:history.go(-1);" class="textbutton">Back</a>
 							<cfoutput><a href="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" class="textbutton">Cancel</a></cfoutput>
-							<BR--->
+							<br--->
 							<input type="Submit" value="Submit" class="textbutton">
 							<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='addJettyMaintBlock.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#'"></cfoutput>
 							<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='jettybookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#';"></cfoutput>

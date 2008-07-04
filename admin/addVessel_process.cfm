@@ -24,10 +24,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add Vessel"">
-	<meta name=""keywords"" lang=""eng"" content=""Add Vessel"">
-	<meta name=""description"" lang=""eng"" content=""Allows user to create a new vessel in the Esquimalt Graving Dock booking website."">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add Vessel"">
+	<meta name=""keywords"" content=""Add Vessel"" />
+	<meta name=""description"" content=""Allows user to create a new vessel in the Esquimalt Graving Dock booking website."" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -41,7 +41,7 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -65,11 +65,11 @@
 					WHERE 	CompanyID = '#Form.CompanyID#'
 					AND		Deleted = '0'
 				</cfquery>
-				
+
 				<cfif getCompany.recordCount EQ 0>
 					<cflocation addtoken="no" url="booking.cfm?lang=#lang#&CompanyID=#url.companyID#">
 				</cfif>
-				
+
 				<cfset Variables.CompanyID = getCompany.CompanyID>
 				<cfset Variables.CompanyName = getCompany.CompanyName>
 				<cfset Variables.Name = Form.Name>
@@ -85,7 +85,7 @@
 				</cfif>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<p>Please confirm the following information: </p>
 				<cfif Variables.Width GT Variables.MaxWidth OR Variables.Length GT Variables.MaxLength>
 					<div id="actionErrors">Note: The ship measurements exceed the maximum dimensions of the dock (<cfoutput>#Variables.MaxLength#m x #Variables.MaxWidth#m</cfoutput>).</div>
@@ -104,7 +104,7 @@
 						<tr>
 							<td id="LloydsID">Lloyds ID:</td>
 							<td headers="LloydsID"><input type="hidden" name="LloydsID" value="#Variables.LloydsID#">#Variables.LloydsID#</td>
-						</tr>	
+						</tr>
 						<tr>
 							<td id="length">Length:</td>
 							<td headers="length"><input type="hidden" name="length" value="#Variables.Length#">#Variables.Length# m</span></td>

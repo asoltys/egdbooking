@@ -1,8 +1,6 @@
 <CFINCLUDE template="#RootDir#includes/GeneralLanguageVariables.cfm">
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/tr/html4/loose.dtd">
-
-<html lang="en">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/tr/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 <cfif lang EQ "eng">
 	<cfset language.calendar = "Calendar">
@@ -26,45 +24,44 @@
 <head>
 	<!--INTERNET TEMPLATE VERSION 2.1-->
 	<!--metaDATA PROFILE START-->
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-	<CFIF lang eq 'e'>
-	<CFSET langVar = "eng">
-	<meta name="MSSmartTagsPreventParsing" content="True">
-	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1">
-	<meta name="dc.language" scheme="IS0639-2" content="eng">
-	<meta name="dc.creator" lang="eng" content="Government of Canada, Public Works and Government Services Canada, Esquimalt Graving Dock">
-	<meta name="dc.publisher" lang="eng" content="Public Works and Government Services Canada">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1" />
+	<link rel="schema.dc" href="http://purl.org/dc/terms/ " />
+
+	<CFIF lang eq 'eng'>
+	<meta name="MSSmartTagsPreventParsing" content="True" />
+	<meta name="dc.language" scheme="IS0639-2" content="eng" />
+	<meta name="dc.creator" content="Government of Canada, Public Works and Government Services Canada, Esquimalt Graving Dock" />
+	<meta name="dc.publisher" content="Public Works and Government Services Canada" />
 	<CFELSE>
-	<CFSET langVar = "fre">
-	<meta name="MSSmartTagsPreventParsing" content="Vrai">
-	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1">
-	<meta name="dc.language" scheme="IS0639-2" content="fre">
-	<meta name="dc.creator" lang="fre" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada, Cale s&egrave;che d'Esquimalt">
-	<meta name="dc.publisher" lang="fre" content="Travaux publics et Services gouvernementaux Canada ">
+	<meta name="MSSmartTagsPreventParsing" content="Vrai" />
+	<meta name="dc.language" scheme="IS0639-2" content="fre" />
+	<meta name="dc.creator" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada, Cale s&egrave;che d'Esquimalt" />
+	<meta name="dc.publisher" content="Travaux publics et Services gouvernementaux Canada" />
 	</CFIF>
 	
-	<meta name="pwgsc.contact.email" content="egd@pwgsc.gc.ca">
-	<meta name="dc.rights" lang="#langVar#" content="http://www.pwgsc.gc.ca/generic/copyright-e.html">
-	<meta name="robots" content="noindex,nofollow">
+	<meta name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
+	<meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html" />
+	<meta name="robots" content="noindex,nofollow" />
 
-	<meta name="dc.title" lang="#langVar#" content="#language.PWGSC# - #language.esqGravingDockCaps# - #language.calendar#">
-	<meta name="keywords" lang="#langVar#" content="#Language.masterKeywords#">
-	<meta name="description" lang="#langVar#" content="#language.description#">
-	<meta name="dc.subject" scheme="gccore" lang="#langVar#" content="#Language.masterSubjects#">
-	<meta name="dc.date.published" content="2005-07-25">
-	<meta name="dc.date.reviewed" content="2005-07-25">
-	<meta name="dc.date.modified" content="2005-07-25">
-	<meta name="dc.date.created" content="2005-07-25">
+	<meta name="dc.title" content="#language.PWGSC# - #language.esqGravingDockCaps# - #language.calendar#" />
+	<meta name="keywords" content="#Language.masterKeywords#" />
+	<meta name="description" content="#language.description#" />
+	<meta name="dc.subject" scheme="gccore" content="#Language.masterSubjects#" />
+	<meta name="dc.date.published" content="2005-07-25" />
+	<meta name="dc.date.reviewed" content="2005-07-25" />
+	<meta name="dc.date.modified" content="2005-07-25" />
+	<meta name="dc.date.created" content="2005-07-25" />
 	
-	<meta name="pwgsc.date.retention" content="">
+	<meta name="pwgsc.date.retention" content="" />
 	
 	<!-- leave blank -->
-	<meta name="dc.contributor" lang="#langVar#" content="">
-	<meta name="dc.identifier" lang="#langVar#" content="">
-	<meta name="dc.audience" lang="#langVar#" content="">
-	<meta name="dc.type" lang="#langVar#" content="">
-	<meta name="dc.format" lang="#langVar#" content="">
-	<meta name="dc.coverage" lang="#langVar#" content="">
+	<meta name="dc.contributor" content="">
+	<meta name="dc.identifier" content="">
+	<meta name="dc.audience" content="">
+	<meta name="dc.type" content="">
+	<meta name="dc.format" content="">
+	<meta name="dc.coverage" content="">
 	<!--metaDATA PROFILE END-->
 	
 	<link href="/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
@@ -81,19 +78,19 @@
 </head>
 </cfoutput>
 
-<body onload="setCalendar()">
+<body onLoad="setCalendar()">
 
 <!-- FIP HEADER BEGINS | DEBUT DE L'EN-TETE PCIM -->
 <CFIF lang EQ "eng">
 <div style="float:right; position:relative; z-index:1; height:33px;">
-	<img src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
+	<IMG src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
 </div>
-<a name="tphp" id="tphp"><img src="/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></a>
+<A name="tphp" id="tphp"><IMG src="/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></A>
 <CFELSE>
 <div style="float:right; position:relative; z-index:1; height:33px;">
-	<img src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbole du gouvernement du Canada" />
+	<IMG src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbole du gouvernement du Canada" />
 </div>
-<a name="tphp" id="tphp"><img src="/clf20/images/sig-fra.gif" width="364" height="33" alt="Travaux publics et Services gouvernementaux Canada" /></a>
+<A name="tphp" id="tphp"><IMG src="/clf20/images/sig-fra.gif" width="364" height="33" alt="Travaux publics et Services gouvernementaux Canada" /></A>
 </CFIF>
 <!-- FIP HEADER ENDS | FIN DE L'EN-TETE PCIM -->
 
@@ -117,9 +114,8 @@
 <cfset NextMonth = DatePart("m", NextMonthYear)>
 <cfset NextYear = DatePart("yyyy", NextMonthYear)>
 
-<script language="JavaScript" type="text/javascript">
-<!--
-
+<script type="text/javascript">
+/* <![CDATA[ */
 /*
  * Sends back date to original form.
  *
@@ -163,11 +159,9 @@ function setDate(day) {
 //	}
 
     self.close();
-}
-
-//-->
+	}
+/* ]]> */
 </script>
-
 <table class="calendar" cellpadding="2" cellspacing="0" width="100%">
 	<tr>
 		<td colspan="7">
@@ -182,7 +176,7 @@ function setDate(day) {
 		<cfoutput>
 		<!--- I'm using May 2005 because the first day is a sunday--->
 		<CFSET dummydate = CreateDate(2005, 5, kounter)>
-			<th>#LSDateFormat(dummydate, 'ddd')#</th>
+			<TH>#LSDateFormat(dummydate, 'ddd')#</TH>
 		</cfoutput>
 		</cfloop>
 	</tr>
@@ -210,7 +204,7 @@ function setDate(day) {
 			<cfif (ThisDay IS NOT 0) AND (ThisDay LTE Days)>
 				<cfoutput>
 				<td>
-					<div align="center"><a href="javascript:setDate(#ThisDay#)">#ThisDay#</a></div>
+					<div align="center"><A href="javascript:setDate(#ThisDay#)">#ThisDay#</A></div>
 				</td>
 				</cfoutput>
 				<cfset ThisDay=ThisDay + 1>
@@ -224,28 +218,28 @@ function setDate(day) {
 	
 <div style="float:left;">
 	<cfform name="selection" action="">
-		<select name="selMonth" onChange="go('calendar')">
+		<SELECT name="selMonth" onChange="go('calendar')">
 			<CFLOOP index="i" from="1" to="12">
-				<cfoutput><option value="#i#">#LSDateFormat(CreateDate(1990, i, 1), 'mmmm')#</option></cfoutput>
+				<cfoutput><OPTION value="#i#">#LSDateFormat(CreateDate(1990, i, 1), 'mmmm')#</OPTION></cfoutput>
 			</CFLOOP>
-		</select>
-		<select name="selYear" onChange="go('calendar')">
+		</SELECT>
+		<SELECT name="selYear" onChange="go('calendar')">
 			<CFLOOP index="i" from="-5" to="25">
-				<option><cfoutput>#DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')#</cfoutput></option>
+				<OPTION><cfoutput>#DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')#</cfoutput></OPTION>
 			</CFLOOP>
-		</select>
+		</SELECT>
 		<!--- <a href ="javascript:go()"><img src="go.gif" border = "0"></a> --->
 	</cfform>
 </div>
 
 <CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 
-<div style="text-align:right;"><a href="javascript:self.close();" class="textbutton"><cfoutput>#language.close#</cfoutput></a></div>
+<div style="text-align:right;"><A href="javascript:self.close();" class="textbutton"><cfoutput>#language.close#</cfoutput></A></div>
 
 
 <!-- FOOTER BEGINS | DEBUT DU PIED DE LA PAGE -->
 <div class="footer">
-	<HR />
+	<hr />
 	<div style="float:left; width:50%; text-align:left;">
 		<!-- DATE MODIFIED BEGINS | DEBUT DE LA DATE DE MODIFICATION -->
 		<CFIF lang EQ 'eng' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>Date Modified:
@@ -257,9 +251,9 @@ function setDate(day) {
 		<!-- DATE MODIFIED ENDS | FIN DE LA DATE DE MODIFICATION -->
 	</div>
 	<div style="float:left; width:50%; text-align:right">
-		<a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html">Important Notices</a>
+		<A href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html">Important Notices</A>
 	</div>
-	<!-- ====== /clf20/ssi/FOOT-PIED-ENG.HTML ====== -->
+	<!-- ====== /clf20/ssi/FOOT-PIED-ENG.html ====== -->
 	
 </div>
 <!-- FOOTER ENDS | FIN DU PIED DE LA PAGE -->

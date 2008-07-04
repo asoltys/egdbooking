@@ -1,7 +1,7 @@
 <cfhtmlhead text="
-<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - View Tariff Form of Dock Charges"">
-<meta name=""keywords"" lang=""eng"" content=""View Tariff Form of Dock Charges"">
-<meta name=""description"" lang=""eng"" content=""Allows user to view information on services requested for a booking and the fees associated with them."">
+<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - View Tariff Form of Dock Charges"">
+<meta name=""keywords"" content=""View Tariff Form of Dock Charges"" />
+<meta name=""description"" content=""Allows user to view information on services requested for a booking and the fees associated with them."" />
 <meta name=""dc.date.published"" content=""2005-07-25"" />
 <meta name=""dc.date.published"" content=""2005-07-25"" />
 <meta name=""dc.date.reviewed"" content=""2005-07-25"" />
@@ -21,7 +21,7 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm"> &gt; <CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-			<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+			<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 		<CFELSE>
 			 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 		</CFIF>
@@ -38,9 +38,9 @@
 						</a></h1>
 
 			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-			
+
 			<cfinclude template="#RootDir#includes/getStructure.cfm">
-			
+
 			<br /><br />
 			<cfoutput>
 			<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the selected services for the booking.">
@@ -50,7 +50,7 @@
 					<th id="serviceHeader" class="feesformheader"><strong>Services and Facilities</strong></th>
 					<th id="feeHeader" class="feesformheader" width="19%"><strong>Fees</strong></th>
 				</tr>
-				
+
 				<tr>
 					<td headers="checkHeader" align="right" valign="top"><input name="other" type="Checkbox" disabled></td>
 					<td headers="itemHeader" align="center" valign="top">&nbsp;</td>
@@ -65,18 +65,18 @@
 					<td headers="feeHeader" align="right" valign="top">&nbsp;</td>
 				</tr>
 			</cfoutput>
-			
+
 			<cfoutput query="getFees">
 				<cfif item NEQ "" AND item mod 2>
 					<cfset rowClass = "highlight">
 				<cfelseif item NEQ "">
 					<cfset rowClass = "">
 				</cfif>
-			
+
 				<tr class="#rowClass#">
 					<td headers="checkHeader" align="right" valign="top">
 						<cfif fee NEQ "">
-							<input name="#abbreviation#" id="#abbreviation#" type="Checkbox" disabled>		
+							<input name="#abbreviation#" id="#abbreviation#" type="Checkbox" disabled>
 						</cfif>
 					</td>
 					<td headers="itemHeader" align="center" valign="top">
@@ -109,13 +109,13 @@
 				</tr>
 			</cfoutput>
 			</table>
-			
+
 			<br />
 			<div align="right">
 				<a class="textbutton" href="<cfoutput>updateFees.cfm?lang=#lang#</cfoutput>">update fees</a>
 				<a href="otherForms.cfm?lang=#lang#" class="textbutton">Back</a>
 			</div>
-			
+
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

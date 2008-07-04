@@ -1,7 +1,7 @@
 <cfhtmlhead text="
-<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Create New Company"">
-<meta name=""keywords"" lang=""eng"" content="""">
-<meta name=""description"" lang=""eng"" content="""">
+<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Create New Company"">
+<meta name=""keywords"" content="""" />
+<meta name=""description"" content="""" />
 <meta name=""dc.date.published"" content=""2005-07-25"" />
 <meta name=""dc.date.published"" content=""2005-07-25"" />
 <meta name=""dc.date.reviewed"" content=""2005-07-25"" />

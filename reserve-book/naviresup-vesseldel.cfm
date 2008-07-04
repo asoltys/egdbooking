@@ -22,20 +22,22 @@
 </cfif>
 
 	<cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.DeleteVessel#"">
-	<meta name=""keywords"" lang=""eng"" content=""#language.DeleteVessel#"">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.DeleteVessel#"">
+	<meta name=""keywords"" content=""#language.DeleteVessel#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
 	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.DeleteVessel#</title>">
 
-<script language="JavaScript" type="text/javascript">
+<script type="text/javascript">
+/* <![CDATA[ */
 	function SubmitForm(selectedForm) {
 		document.forms[selectedForm].submit();
 	}
+/* ]]> */
 </script>
 
 <cfif NOT IsDefined('url.vesselID') OR NOT IsNumeric(url.vesselID)>
@@ -93,7 +95,7 @@
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-				
+
 				<cfif getVesselDockBookings.recordCount EQ 0 AND getVesselJettyBookings.recordCount EQ 0>
 						<cfoutput query="getVesselDetail">
 							<p align="center">#language.areYouSure# <strong>#name#</strong>?</p>
@@ -107,7 +109,7 @@
 						</cfoutput>
 				<cfelse>
 						<p><cfoutput><strong>#getVesselDetail.name#</strong> #language.cannotDelete#</cfoutput></p>
-				
+
 						<cfif getVesselDockBookings.recordCount GT 0>
 							<cfoutput>
 							<table style="padding-left:20px;" width="100%">
@@ -131,7 +133,7 @@
 							</cfoutput>
 							</table>
 						</cfif>
-				
+
 						<cfif getVesselJettyBookings.recordCount GT 0>
 							<cfoutput>
 							<table style="padding-left:20px;" width="100%">

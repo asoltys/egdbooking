@@ -35,16 +35,16 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.jettyCalendar#"">
-	<meta name=""keywords"" lang=""eng"" content=""#Language.masterKeywords#, #language.keywords#"">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#Language.masterSubjects#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.jettyCalendar#"">
+	<meta name=""keywords"" content=""#Language.masterKeywords#, #language.keywords#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
 	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.jettyCalendar#</title>
-	
+
 ">
 
 <CFSET Variables.onLoad="setCalendar()">
@@ -79,10 +79,10 @@
 				<CFELSE>
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				</CFIF>
-				
+
 				<CFINCLUDE template="#RootDir#includes/jetty_calendar_menu.cfm">
 
-				
+
 				<CFINCLUDE template="includes/calendar_variables.cfm">
 				<cfset firstdayofbunch = CreateDate(url.year, url.month, 1)>
 				<cfset lastdayofbunch = CreateDate(url.year, url.month, DaysInMonth(firstdayofbunch))>
@@ -99,9 +99,9 @@
 						AND EndDate >= #firstdayofbunch#
 						AND	Bookings.Deleted = '0'
 						AND	Vessels.Deleted = '0'
-				
+
 					UNION
-				
+
 					SELECT	Status,
 						StartDate, EndDate,
 						NorthJetty AS Section1, SouthJetty AS Section2, '0' AS Section3,
@@ -114,13 +114,13 @@
 						AND	Bookings.Deleted = '0'
 						AND	Status = 'm'
 				</cfquery>
-				
+
 				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
-				
+
 				<p><cfoutput>#Language.viewInfo#</cfoutput></p>
 				<CFSET pos="top">
 				<CFINCLUDE template="includes/jetty_key.cfm">
-				
+
 				<CFIF url.month eq 1>
 					<CFSET prevmonth = 12>
 					<CFSET prevyear = url.year - 1>
@@ -128,7 +128,7 @@
 					<CFSET prevmonth = url.month - 1>
 					<CFSET prevyear = url.year>
 				</CFIF>
-				
+
 				<CFIF url.month eq 12>
 					<CFSET nextmonth = 1>
 					<CFSET nextyear = url.year + 1>
@@ -136,7 +136,7 @@
 					<CFSET nextmonth = url.month + 1>
 					<CFSET nextyear = url.year>
 				</CFIF>
-				
+
 				<cfoutput>
 				<div style="float:left;"><a href="calend-jet.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
 				<div style="float:right;"><a href="calend-jet.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
@@ -157,11 +157,11 @@
 				</div>
 				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 				</cfoutput>
-				
+
 				<!--- THE MEAT OF THE CALENDAR HAS BEEN MOVED --->
 				<CFINCLUDE template="includes/calendar_core.cfm">
-				
-				
+
+
 				<cfoutput>
 				<div style="float:left;"><a href="calend-jet.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
 				<div style="text-align:right;"><a href="calend-jet.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
@@ -169,7 +169,7 @@
 
 				<CFSET pos="bottom">
 				<CFINCLUDE template="includes/jetty_key.cfm">
-				
+
 			</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

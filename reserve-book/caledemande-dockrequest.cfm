@@ -28,10 +28,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.drydockRequest#"">
-	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.drydockRequest#"">
+	<meta name=""keywords"" content=""#language.keywords#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -81,15 +81,14 @@
 </cflock>
 
 <!-- Start JavaScript Block -->
-<script language="JavaScript" type="text/javascript">
-<!--
+<script type="text/javascript">
+/* <![CDATA[ */
 function EditSubmit ( selectedform )
 {
-  document.forms[selectedform].submit() ;
-}
-//-->
+  document.forms[selectedform].submit();
+	}
+/* ]]> */
 </script>
-
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
@@ -128,7 +127,7 @@ function EditSubmit ( selectedform )
 				
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
-				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_confirm.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_confirm.cfm?lang=#lang#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
 				
 				<table width="100%" style="padding-left:10px;">
 					<tr>
@@ -154,7 +153,7 @@ function EditSubmit ( selectedform )
 								VALUE2="VesselID"
 								DEFAULT1="#Variables.CompanyID#"
 								DEFAULT2="#Variables.VesselID#"
-								HTMLBETWEEN="</td></tr><tr><td id='vessel_header'>#language.vessel#:</td><td headers='vessel_header'>"
+								htmlBETWEEN="</td></tr><tr><td id='vessel_header'>#language.vessel#:</td><td headers='vessel_header'>"
 								AUTOSELECTFIRST="Yes"
 								EMPTYTEXT1="(#language.chooseCompany#)"
 								EMPTYTEXT2="(#language.chooseVessel#)"
@@ -203,13 +202,13 @@ function EditSubmit ( selectedform )
 				</cfform>
 				</cfoutput>
 				
-				<HR width="50%">
+				<hr width="50%">
 				<div align="center" class="red" style="font-weight: bold; text-transform: uppercase; "><cfoutput>#language.or#</cfoutput></div>
-				<HR width="50%">
+				<hr width="50%">
 				
 				<cfoutput>
 				<p>#language.daysToBook#  #language.dateInclusive#</p>
-				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_confirm2.cfm?lang=#lang#" method="POST" enablecab="No" name="bookingreqB" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_confirm2.cfm?lang=#lang#" method="post" enablecab="No" name="bookingreqB" preservedata="Yes">
 				<table width="100%" style="padding-left:10px;">
 					<tr>
 						<td id="comp">
@@ -226,7 +225,7 @@ function EditSubmit ( selectedform )
 								VALUE2="vesselID"
 								DEFAULT1="#Variables.CompanyID#"
 								DEFAULT2="#Variables.VesselID#"
-								HTMLBETWEEN="</td></tr><tr><td id='vessel'>#language.vessel#:</td><td headers='vessel'>"
+								htmlBETWEEN="</td></tr><tr><td id='vessel'>#language.vessel#:</td><td headers='vessel'>"
 								AUTOSELECTFIRST="Yes"
 								EMPTYTEXT1="(#language.chooseCompany#)"
 								EMPTYTEXT2="(#language.chooseVessel#)"

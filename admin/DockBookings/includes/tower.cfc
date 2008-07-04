@@ -51,7 +51,7 @@
 						Variables.BlockStructure.Section2 = 0;
 						Variables.BlockStructure.Section3 = 0;
 						Variables.Orderable = false;
-					}
+	}
 					else if (DateCompare(Variables.BlockStructure.startDate, TowerArray[position-1].endDate, "d") EQ 1 AND ((TowerArray[position-1].row EQ 1) OR (DateCompare(Variables.BlockStructure.endDate,TowerArray[getRowEnd(TowerArray[position-1].row-1)].endDate,"d") EQ -1 OR DateCompare(Variables.BlockStructure.endDate,TowerArray[getRowEnd(TowerArray[position-1].row-1)].endDate,"d") EQ 0)))
 					{
 						Variables.BlockStructure.Row = Variables.TowerArray[position-1].Row;
@@ -59,7 +59,7 @@
 						Variables.BlockStructure.Section1 = TowerArray[position-1].Section1;
 						Variables.BlockStructure.Section2 = TowerArray[position-1].Section2;
 						Variables.BlockStructure.Section3 = TowerArray[position-1].Section3;
-					}
+	}
 					else if (DateCompare(Variables.BlockStructure.endDate, TowerArray[position-1].endDate, "d") EQ -1 OR DateCompare(Variables.BlockStructure.endDate, TowerArray[position-1].endDate, "d") EQ 0)
 					{
 						Variables.BlockStructure.Row = Variables.TowerArray[position-1].Row + 1;
@@ -68,7 +68,7 @@
 						Variables.BlockStructure.Section1 = temp.Section1;
 						Variables.BlockStructure.Section2 = temp.Section2;
 						Variables.BlockStructure.Section3 = temp.Section3;
-					}
+	}
 					else
 					{
 						Variables.BlockStructure.Row = 0;
@@ -77,7 +77,7 @@
 						Variables.BlockStructure.Section2 = 0;
 						Variables.BlockStructure.Section3 = 0;
 						Variables.Orderable = false;
-					}
+	}
 
 					ArrayAppend(Variables.TowerArray, Variables.BlockStructure);
 				</cfscript>
@@ -88,8 +88,8 @@
 					Variables.BlockStructure.Order = Variables.TowerArray[position].Order;
 					for (j = position; j lte ArrayLen(Variables.TowerArray); j=j+1)
 					{
-						Variables.TowerArray[j].Row = Variables.TowerArray[j].Row + 1; 
-					}					
+						Variables.TowerArray[j].Row = Variables.TowerArray[j].Row + 1;
+	}					
 					
 					Variables.BlockStructure.Section1 = Variables.TowerArray[position].Section1;
 					Variables.BlockStructure.Section2 = Variables.TowerArray[position].Section2;
@@ -104,11 +104,11 @@
 							Variables.BlockStructure.Section2 = 0;
 							Variables.BlockStructure.Section3 = 0;
 							Variables.Orderable = false;
-						}
+	}
 						else if (DateCompare(TowerArray[j].startDate, Variables.BlockStructure.endDate, "d") EQ 1 AND getRowEnd(Variables.BlockStructure.row-1) NEQ 0 AND ((Variables.BlockStructure.row EQ 1) OR (DateCompare(TowerArray[j].endDate,TowerArray[getRowEnd(Variables.BlockStructure.row-1)].endDate,"d") EQ -1 OR DateCompare(TowerArray[j].endDate,TowerArray[getRowEnd(Variables.BlockStructure.row-1)].endDate,"d") EQ 0)))
 						{
 							Variables.TowerArray[j].Order = Variables.TowerArray[j].Order + 1;
-						}
+	}
 						else if (DateCompare(TowerArray[j].endDate, Variables.BlockStructure.endDate, "d") EQ -1 OR DateCompare(TowerArray[j].endDate, Variables.BlockStructure.endDate, "d") EQ 0)
 						{
 							temp = increment_Section(Variables.BlockStructure.Section1, Variables.BlockStructure.Section2, Variables.BlockStructure.Section3, Variables.TowerArray[j].Width, Variables.TowerArray[j].Length);
@@ -116,7 +116,7 @@
 							Variables.TowerArray[j].Section1 = temp.Section1;
 							Variables.TowerArray[j].Section2 = temp.Section2;
 							Variables.TowerArray[j].Section3 = temp.Section3;
-						}
+	}
 						else
 						{
 							Variables.BlockStructure.Row = 0;
@@ -125,7 +125,7 @@
 							Variables.TowerArray[j].Section2 = 0;
 							Variables.TowerArray[j].Section3 = 0;
 							Variables.Orderable = false;
-						}
+	}
 					}
 					ArrayInsertAt(Variables.TowerArray, position, Variables.BlockStructure);
 				</cfscript>
@@ -191,14 +191,14 @@
 					ReturnStruct.Section1 = 1;
 					ReturnStruct.Section2 = 1;
 					ReturnStruct.Section3 = 0;
-				}
+	}
 				else
 				{
 					ReturnStruct.Section1 = 0;
 					ReturnStruct.Section2 = 0;
 					ReturnStruct.Section3 = 0;
 					Variables.Orderable = false;
-				}
+	}
 			}
 			else if (Arguments.Section1 EQ 0 AND Arguments.Section2 EQ 1 AND Arguments.Section3 EQ 1)
 			{
@@ -207,14 +207,14 @@
 					ReturnStruct.Section1 = 1;
 					ReturnStruct.Section2 = 0;
 					ReturnStruct.Section3 = 0;
-				}
+	}
 				else
 				{
 					ReturnStruct.Section1 = 0;
 					ReturnStruct.Section2 = 0;
 					ReturnStruct.Section3 = 0;
 					Variables.Orderable = false;
-				}
+	}
 			}
 			else
 			{
@@ -222,7 +222,7 @@
 				ReturnStruct.Section2 = 0;
 				ReturnStruct.Section3 = 0;
 				Variables.Orderable = false;
-			}
+	}
 		</cfscript>
 		<cfreturn ReturnStruct>
 	</cffunction>

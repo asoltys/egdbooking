@@ -48,14 +48,14 @@
 	FROM Users
 	WHERE UserID = #Session.UserID#
 </cfquery>
-<cfoutput query="readonlycheck">	
+<cfoutput query="readonlycheck">
 	<cfset Session.ReadOnly = #ReadOnly#>
 </cfoutput>
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDock# - #language.bookingDetail#"">
-	<meta name=""keywords"" lang=""eng"" content=""#Language.masterKeywords#, #language.bookingDetail#"">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#Language.masterSubjects#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDock# - #language.bookingDetail#"">
+	<meta name=""keywords"" content=""#Language.masterKeywords#, #language.bookingDetail#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -157,7 +157,7 @@
 					<cfoutput>#language.bookingDetail#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
-				
+
 				<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 					<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				<CFELSE>
@@ -174,9 +174,9 @@
 						WHERE	Users.UserID = #Session.UserID# AND Vessels.VesselID = #getBookingDetail.VesselID#
 					</cfquery>
 				</cflock>
-				
+
 				<cfoutput query="getBookingDetail">
-				
+
 				<h2>
 					<cfif #EndHighlight# GTE PacificNow>* </cfif>
 					<CFIF Anonymous AND userVessel.recordCount EQ 0 AND (NOT IsDefined('Session.AdminLoggedIn') OR Session.AdminLoggedIn eq false) AND ((isDock AND DStatus neq 'c') OR (NOT isDock AND JStatus neq 'c'))>
@@ -185,7 +185,7 @@
 						#VesselName#
 					</CFIF>
 				</h2>
-				
+
 				<table width="90%" class="bookingDetails" align="center">
 					<CFIF NOT Anonymous OR userVessel.recordCount GT 0 OR IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 					<tr>
@@ -266,12 +266,12 @@
 					</tr>
 					</cfif>
 				</table>
-			
+
 				<div align="center">
 					<cfif #Session.ReadOnly# EQ "1">
 						<a href="#returnTo#?lang=#lang#&date=#url.date#" class="textbutton">#language.Back#</a>
 					<cfelse>
-				
+
 						<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 							<cfif isDock>
 								<a href="#RootDir#admin/DockBookings/feesForm_admin.cfm?#urltoken#&bookingid=#url.bookingid#&referrer=Booking%20Details&date=#url.date#" class="textbutton">#language.tariff#</a>
@@ -279,7 +279,7 @@
 							<cfelse>
 								<a href="#RootDir#admin/JettyBookings/editJettyBooking.cfm?lang=#lang#&bookingid=#url.bookingid#&companyID=#companyID#&referrer=Booking%20Details&date=#url.date#" class="textbutton">
 							</cfif>#language.EditBooking#</a>
-						
+
 							<cfif isDock AND (DateCompare(PacificNow, getBookingDetail.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBookingDetail.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBookingDetail.endDate, 'd') NEQ 1))>
 								<a href="#RootDir#admin/DockBookings/deleteBooking_confirm.cfm?lang=#lang#&bookingID=#url.bookingID#&CompanyID=#getBookingDetail.CompanyID#&referrer=Booking%20Details&date=#url.date#" class="textbutton">#language.CancelBooking#</a>
 							<cfelseif isDock AND DateCompare(PacificNow, getBookingDetail.endDate, 'd') EQ 1>
@@ -293,7 +293,7 @@
 						<CFELSE>
 							<CFIF isUsers.RecordCount neq 0>
 								<cfif DateCompare(PacificNow, getBookingDetail.startDate, 'd') EQ -1 AND (getBookingDetail.DStatus NEQ 'C' AND getBookingDetail.JStatus NEQ 'C') AND userVessel.recordCount GT 0>
-									
+
 									<CFIF (isDefined("DStatus") AND DStatus eq 't') OR (isDefined("JStatus") AND JStatus eq 't')>
 										<CFIF isDock>
 											<a href="#RootDir#reserve-book/resconf-bookconf_confirm.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)#&date=#url.date#&jetty=0" class="textbutton">#language.confirmbooking#</a>
@@ -307,7 +307,7 @@
 									<CFELSE>
 										<a href="#RootDir#reserve-book/resannul-bookcancel_confirm.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)#&date=#url.date#&jetty=1" class="textbutton">#language.requestCancelBooking#</a>
 									</CFIF>
-									
+
 								<cfelseif (getBookingDetail.DStatus EQ 'C' OR getBookingDetail.JStatus EQ 'C' OR DateCompare(PacificNow, getBookingDetail.StartDate, 'd') NEQ -1) AND DateCompare(PacificNow, getBookingDetail.endDate, 'd') NEQ 1 AND userVessel.recordCount GT 0>
 									<CFIF isDock>
 										<a href="#RootDir#reserve-book/resannul-bookcancel_confirm.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)#&date=#url.date#&jetty=0" class="textbutton">#language.requestCancelBooking#</a>

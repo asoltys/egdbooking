@@ -31,16 +31,16 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.jettyCalendar#"">
-	<meta name=""keywords"" lang=""eng"" content=""#Language.masterKeywords#, #language.keywords#"">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#Language.masterSubjects#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.jettyCalendar#"">
+	<meta name=""keywords"" content=""#Language.masterKeywords#, #language.keywords#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
 	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.jettyCalendar#</title>
-	
+
 ">
 
 <CFSET Variables.onLoad="setCalendar()">
@@ -75,9 +75,9 @@
 				<CFELSE>
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				</CFIF>
-				
+
 				<CFINCLUDE template="#RootDir#includes/jetty_calendar_menu.cfm">
-				
+
 				<CFINCLUDE template="includes/calendar_variables.cfm">
 				<cfset firstdayofbunch = CreateDate(url.year, url.month, 1)>
 				<cfset ahead3months= DateAdd('m', 3, firstdayofbunch)>
@@ -95,9 +95,9 @@
 						AND EndDate >= #firstdayofbunch#
 						AND	Bookings.Deleted = '0'
 						AND	Vessels.Deleted = '0'
-				
+
 					UNION
-				
+
 					SELECT	Status,
 						StartDate, EndDate,
 						NorthJetty AS Section1, SouthJetty AS Section2, '0' AS Section3,
@@ -110,8 +110,9 @@
 						AND	Bookings.Deleted = '0'
 						AND	Status = 'm'
 				</cfquery>
-				
-				<SCRIPT language="javascript" type="text/javascript">
+
+				<script type="text/javascript">
+/* <![CDATA[ */
 				//function to refresh the calendar if users select a month or a year
 				function go() {
 					formObj = document.selection;
@@ -120,33 +121,33 @@
 					var year = formObj.selYear.options[yearIndex].text;
 					var month = formObj.selMonth.options[monthIndex].value;
 					window.location = "threemonthCalendar.cfm?month="+ month + "&year=" + year;
-				}
-				
+	}
+
 				//populate the calendar based on the url query string
 				function setCalendar() {
-				
+
 					formObj = document.selection;
 					//set the month
 					for (var j = 0; j < formObj.selMonth.length; j++) {
 					   if (formObj.selMonth.options[j].value == <cfoutput>#url.month#</cfoutput>) {
 						   formObj.selMonth.options.selectedIndex = j;
-					   }
+	}
 					}
 					//set the year
 					for (var i = 0; i < formObj.selYear.length; i++) {
 					   if (formObj.selYear.options[i].text == <cfoutput>#url.year#</cfoutput>) {
 							 formObj.selYear.options.selectedIndex = i;
-					   }
+	}
 					}
 				}
-				
-				</SCRIPT>
-				
+
+				</script>
+
 				<p><cfoutput>#language.viewInfo#</cfoutput></p>
-				
+
 				<CFSET pos="top">
 				<CFINCLUDE template="includes/jetty_key.cfm">
-				
+
 				<CFIF url.month eq 1>
 					<CFSET prevmonth = 12>
 					<CFSET prevyear = url.year - 1>
@@ -154,7 +155,7 @@
 					<CFSET prevmonth = url.month - 1>
 					<CFSET prevyear = url.year>
 				</CFIF>
-				
+
 				<CFIF url.month eq 12>
 					<CFSET nextmonth = 1>
 					<CFSET nextyear = url.year + 1>
@@ -162,8 +163,8 @@
 					<CFSET nextmonth = url.month + 1>
 					<CFSET nextyear = url.year>
 				</CFIF>
-				
-				
+
+
 				<cfoutput>
 				<div style="float:left;"><a href="calend-jet-3m.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
 				<div style="float:right;"><a href="calend-jet-3m.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
@@ -184,9 +185,9 @@
 				</div>
 				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 				</cfoutput>
-				
+
 				<!--- MEGA table BEGINS HERE --->
-				
+
 				<CFLOOP from="0" to="2" index="i">
 					<cfif i neq 0>
 						<cfif url.month neq 12>
@@ -196,19 +197,19 @@
 							<cfset url.year = url.year+1>
 						</cfif>
 					</cfif>
-				
+
 					<CFINCLUDE template="includes/calendar_core.cfm">
-				
+
 				</CFLOOP>
-				
+
 				<cfoutput>
 				<div style="float:left;"><a href="calend-jet-3m.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
 				<div style="text-align:right;"><a href="calend-jet-3m.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
 				</cfoutput>
-				
+
 				<CFSET pos="bottom">
 				<CFINCLUDE template="includes/jetty_key.cfm">
-				
+
 			</div>
 
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

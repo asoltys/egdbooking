@@ -34,13 +34,13 @@
 </cfif>
 
 <!-- Start JavaScript Block -->
-<script language="JavaScript" type="text/javascript">
-	<!--
-	function EditSubmit ( selectedform )
+<script type="text/javascript">
+/* <![CDATA[ */
+function EditSubmit ( selectedform )
 	{
-	  document.forms[selectedform].submit() ;
+	  document.forms[selectedform].submit();
 	}
-	//-->
+/* ]]> */
 </script>
 <!-- End JavaScript Block -->
 

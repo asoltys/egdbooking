@@ -1,7 +1,7 @@
 <cfhtmlhead text="
-<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions"">
-<meta name=""keywords"" lang=""eng"" content="""">
-<meta name=""description"" lang=""eng"" content="""">
+<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions"">
+<meta name=""keywords"" content="""" />
+<meta name=""description"" content="""" />
 <meta name=""dc.date.published"" content=""2005-07-25"" />
 <meta name=""dc.date.published"" content=""2005-07-25"" />
 <meta name=""dc.date.reviewed"" content=""2005-07-25"" />
@@ -32,18 +32,18 @@
 						<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 						</a></h1>
 
-				<cfform action="intromsgaction.cfm" method="POST">
+				<cfform action="intromsgaction.cfm" method="post">
 				  <cffile action="read" file="#FileDir#intromsg.txt" variable="intromsg">
 				  <cfif #Trim(intromsg)# EQ "">
 					Please enter a message for users when they first log in. To disable this block on log in, keep the text field blank and click 'Update'
 					<cfelse>
 					Please update the message for users when they first log in. To disable this block on log in, keep the text field blank and click 'Update'
 				  </cfif>
-				  <BR />
-				  <BR />
+				  <br />
+				  <br />
 				  <TEXTAREA name="datatowrite" cols="40" rows="5"><cfif #intromsg# is not ""><cfoutput>#intromsg#</cfoutput></cfif>
 				</TEXTAREA>
-				  <BR />
+				  <br />
 				  <input id="submit" type="submit" value="Update">
 				</cfform>
 			</div>	

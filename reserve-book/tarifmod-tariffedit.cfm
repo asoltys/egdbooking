@@ -25,10 +25,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.editTariffHeading#"">
-	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.editTariffHeading#"">
+	<meta name=""keywords"" content=""#language.keywords#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -96,15 +96,14 @@
 </cfif>
 
 <!-- Start JavaScript Block -->
-<script language="JavaScript" type="text/javascript">
-	<!--
-	function EditSubmit ( selectedform )
+<script type="text/javascript">
+/* <![CDATA[ */
+function EditSubmit ( selectedform )
 	{
-	  document.forms[selectedform].submit() ;
+	  document.forms[selectedform].submit();
 	}
-	//-->
+/* ]]> */
 </script>
-
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
@@ -198,9 +197,9 @@
 					</td>
 					<cfif fee NEQ "">
 						<cfif flex EQ 0>
-					<td headers="feeHeader" align="right" valign="top" nowrap><label for="#abbreviation#"><StrONG>#LSCurrencyFormat(fee)#</StrONG></label></td>
+					<td headers="feeHeader" align="right" valign="top" nowrap><label for="#abbreviation#"><strong>#LSCurrencyFormat(fee)#</strong></label></td>
 						<cfelse>
-					<td headers="feeHeader" align="right" valign="top"><label for="#abbreviation#"><StrONG>#language.pricesVary#</StrONG></label></td>
+					<td headers="feeHeader" align="right" valign="top"><label for="#abbreviation#"><strong>#language.pricesVary#</strong></label></td>
 						</cfif>
 					<cfelse>
 					<td headers="feeHeader">&nbsp;</td>

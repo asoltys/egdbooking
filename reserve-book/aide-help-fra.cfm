@@ -2,8 +2,8 @@
 	<cfset StructDelete(Session, "Form_Structure")>
 </cfif>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
 	<head>
 		<title>
 			Système de réservation en ligne de la Cale sèche d'Esquimalt : Guide de l'utilisateur
@@ -12,56 +12,56 @@
         <style type="text/css">
  body, th, td {
   font-size: 12pt;
- }
+	}
  
  th.link_from {
   background-color: #9999CC;
   color: #000000;
- }
+	}
 	
  th.link_to {
   background-color: #CC99CC;
   color: #000000;
- }
+	}
  
  th {
   color: #FFFFFF;
   background-color: #339999;
- }
+	}
  
  .small {
   font-size: 10pt;
- }
+	}
  
  div.title {
   font-size: 18pt;
   color: #339999;
   font-weight: bold;
- }
+	}
  
  .red {
   color: #FF0000;
- }
+	}
  
  .style1 {
 	font-size: 14pt;
 	font-weight: bold;
- }
+	}
  
  .style2 {font-size: 12pt}
  .style8 {
 	font-size: 12pt;
 	font-style: italic;
- }
+	}
  .style10 {font-size: 14pt}
  .style11 {
 	font-size: 13pt;
 	font-weight: bold;
- }
+	}
  .style12 {
 	font-weight: bold;
 	font-style: italic;
- }
+	}
 
 h1 {
 	font-family: verdana, sans-serif;
@@ -71,25 +71,25 @@ h1 {
 	border-bottom: 1px dashed;
 	letter-spacing: 2px;
 	font-weight: normal;
-}
+	}
 
 a, a:active {
 	color: #CC7700;
 	text-decoration: none;
-}
+	}
 
 a:visited {
 	color: #996600;
-}
+	}
 
 a:hover {
 	color: #FF3300;
 	text-decoration: none;
-}
+	}
 </style>
 	</head>
 	
-	<BODY bgcolor="#FFFFFF" text="#000000">
+	<body bgcolor="#FFFFFF" text="#000000">
 	
 			
 	<div align="center" class="style1">
@@ -99,53 +99,53 @@ a:hover {
             <p><a name="Top"></a><h1>Cale sèche d'Esquimalt (CSE)</h1>       
             <h1>Système de r&eacute;servation en ligne : Guide de l'utilisateur</h1>       
             <P class="style1">Table des matières</p>       
-            <P align="left"><SPAN class="style2"><StrONG><a href="#Overview">1.        
-            Aperçu</a></StrONG></SPAN></p>
-            <div style="padding-left:0px;"><StrONG><a href="#GettingStarted">2. 
-              Introduction</a></StrONG><br />
+            <P align="left"><span class="style2"><strong><a href="#Overview">1.        
+            Aperçu</a></strong></span></p>
+            <div style="padding-left:0px;"><strong><a href="#GettingStarted">2. 
+              Introduction</a></strong><br />
             </div>
-            <div style="padding-left:20px;"><EM><a href="#SystemReqs">2.1   
+            <div style="padding-left:20px;"><em><a href="#SystemReqs">2.1   
             			 Configuration exigée</a><br />       
-              <a href="#CreateAccount">2.2 Cr&eacute;er un compte d'utilisateur</a></EM><br />       
+              <a href="#CreateAccount">2.2 Cr&eacute;er un compte d'utilisateur</a></em><br />       
             </div>
             <div style="padding-left:40px;">2.2.1 Par où commencer<br />       
 			  2.2.2 Compagnie(s) de l'utilisateur<br />       
 			  2.2.3 Cr&eacute;er un compte de compagnie<br />       
 			  2.2.4 Activer un compte d'utilisateur <br />       
             </div>
-            <div style="padding-left:20px;"><EM><a href="#LoggingIn">2.3 Entr&eacute;e        
+            <div style="padding-left:20px;"><em><a href="#LoggingIn">2.3 Entr&eacute;e        
               dans le système</a><br />       
-              <a href="#GetPassword">2.4 R&eacute;cup&eacute;ration du mot de passe</a></EM><br />       
+              <a href="#GetPassword">2.4 R&eacute;cup&eacute;ration du mot de passe</a></em><br />       
                   <br />
             </div>
-            <SPAN class="style2">
-            <div style="padding-left:0px;"><StrONG><a href="#UsingApp">3.  
-              Utilisation du système de r&eacute;servation en ligne de la CSE</a></StrONG></div>       
-            </SPAN>
-            <div style="padding-left:20px;"><EM><a href="#HomePage">3.1 Page de 
-              bienvenue</a></EM><br /></div>
+            <span class="style2">
+            <div style="padding-left:0px;"><strong><a href="#UsingApp">3.  
+              Utilisation du système de r&eacute;servation en ligne de la CSE</a></strong></div>       
+            </span>
+            <div style="padding-left:20px;"><em><a href="#HomePage">3.1 Page de 
+              bienvenue</a></em><br /></div>
 			 <div style="padding-left:40px;">3.1.1 Entreprises<br />      
  				 3.1.2 R&eacute;servations       
             </div>
-             <div style="padding-left:20px;"><EM><a href="#EditProfile">3.2 
-              Modifier le profil d'utilisateur</a></EM><br />
+             <div style="padding-left:20px;"><em><a href="#EditProfile">3.2 
+              Modifier le profil d'utilisateur</a></em><br />
             </div>
             <div style="padding-left:40px;">3.2.1 Modifier les renseignements        
               personnels<br />
               3.2.2  
               Changement de mot de passe            </div>
-            <div style="padding-left:20px;"><EM><a href="#Vessels">3.3 Navires</a></EM><br />
+            <div style="padding-left:20px;"><em><a href="#Vessels">3.3 Navires</a></em><br />
             </div>
             <div style="padding-left:40px;">3.3.1 Ajouter des navires<br /> 
 			  3.3.2 Modifier le profil de navires<br /> 
 			  3.3.3 Supprimer des navires<br /> 
             </div>
-            <div style="padding-left:20px;"><EM><a href="#Bookings">3.4 R&eacute;servations</a></EM><br />       
+            <div style="padding-left:20px;"><em><a href="#Bookings">3.4 R&eacute;servations</a></em><br />       
             </div>
             <div style="padding-left:40px;">3.4.1 R&eacute;server une cale sèche<br /></div>       
-			<div style="padding-left:60px;"><SPAN class="style8">3.4.1.1 Demande        
+			<div style="padding-left:60px;"><span class="style8">3.4.1.1 Demande        
               de dates pr&eacute;cises<br />       
-				3.4.1.1 Demande de la prochaine p&eacute;riode disponible</SPAN><br /></div>       
+				3.4.1.1 Demande de la prochaine p&eacute;riode disponible</span><br /></div>       
 			<div style="padding-left:40px;">
 			  3.4.2 R&eacute;server une jet&eacute;e<br />       
 			  3.4.3 Modifier une r&eacute;servation<br />       
@@ -153,14 +153,14 @@ a:hover {
 			  3.4.5 Annulations et suppressions pour des raisons administratives<br />       
 			  3.4.6 Pr&eacute;avis de 24 heures<br />       
             </div>
-            <div style="padding-left:20px;"><EM><a href="#Overviews">3.5 R&eacute;servations        
-              - Vues d'ensemble</a></EM><br />       
+            <div style="padding-left:20px;"><em><a href="#Overviews">3.5 R&eacute;servations        
+              - Vues d'ensemble</a></em><br />       
             </div>
             <div style="padding-left:40px;">3.5.1 Calendriers<br />       
  				 3.5.2 Sommaire des r&eacute;servations<br />       
             </div>
-            <div style="padding-left:20px;"> <EM><a href="#Forms">3.6        
-              Formulaires pour les r&eacute;servation</a>s</EM><br />      
+            <div style="padding-left:20px;"> <em><a href="#Forms">3.6        
+              Formulaires pour les r&eacute;servation</a>s</em><br />      
             </div>
             <div style="padding-left:40px;">
   				3.6.1 Tarifs de droit de cale sèche<br />     
@@ -168,15 +168,15 @@ a:hover {
   				3.6.3 Clause d'indemnisation<br />       
   				3.6.4 Formulaire de modification d'une r&eacute;servation<br />      
             </div>
-            <div style="padding-left:20px;"><EM><a href="#LoggingOut">3.7 Sortie        
-              du système</a></EM><br />       
+            <div style="padding-left:20px;"><em><a href="#LoggingOut">3.7 Sortie        
+              du système</a></em><br />       
             </div>
             
             <p>           
-            <HR width="75%">
-            <p><StrONG><br />
+            <hr width="75%">
+            <p><strong><br />
               <br />
-            <a name="Overview"></a><SPAN class="style10">1. Aperçu</SPAN></StrONG><br />       
+            <a name="Overview"></a><span class="style10">1. Aperçu</span></strong><br />       
             <div style="padding-left:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le        
               système de r&eacute;servation en ligne de la Cale sèche d'Esquimalt        
               (CSE) est une façon pratique de r&eacute;server &eacute;lectroniquement des        
@@ -187,47 +187,47 @@ a:hover {
             <br />
             <a href="#Top">Retour à la table des matières</a>       
             <p></p>
-            <p><StrONG><br />
-                  <a name="GettingStarted"></a><SPAN class="style10">2. 
-            Introduction</SPAN></StrONG><br /> 
-            <div style="padding-left:20px;"><EM><a name="SystemReqs"></a><StrONG class="style11">2.1     
-              Configuration exig&eacute;e</StrONG></EM></div>    
+            <p><strong><br />
+                  <a name="GettingStarted"></a><span class="style10">2. 
+            Introduction</span></strong><br /> 
+            <div style="padding-left:20px;"><em><a name="SystemReqs"></a><strong class="style11">2.1     
+              Configuration exig&eacute;e</strong></em></div>    
             <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Avant     
               d'entrer dans le système&Acirc; veillez à ce que votre navigateur     
               respecte les paramètres de configuration suivants :       
-                <UL>
-                  <LI><a href="http://browser.netscape.com/ns8/" target="_blank">Netscape 4+</a> (<a href="http://browser.netscape.com/ns8/download/archive72x.jsp" target="_blank">liens 
+                <ul>
+                  <li><a href="http://browser.netscape.com/ns8/" target="_blank">Netscape 4+</a> (<a href="http://browser.netscape.com/ns8/download/archive72x.jsp" target="_blank">liens 
                     vers de plus vieilles versions</a>), <a href="http://www.microsoft.com/windows/ie/downloads/critical/ie6sp1/default.mspx" target="_blank">Internet Explorer 4+</a>, 
-                    ou <a href="http://www.mozilla.org/products/firefox/" target="_blank">Mozilla Firefox</a></LI> 
-                  <LI>JavaScript activ&eacute;</LI>    
-                  <LI>T&eacute;moins (cookies) activ&eacute;s</LI>   
-                  <LI><a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</a>  
-                    install&eacute;</LI>    
-                </UL>
+                    ou <a href="http://www.mozilla.org/products/firefox/" target="_blank">Mozilla Firefox</a></li> 
+                  <li>JavaScript activ&eacute;</li>    
+                  <li>T&eacute;moins (cookies) activ&eacute;s</li>   
+                  <li><a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</a>  
+                    install&eacute;</li>    
+                </ul>
               Pour installer l'un ou l'autre des logiciels requis, cliquez sur     
               les liens ci-dessus. Si vous avez des difficult&eacute;s à activer le JavaScript     
               ou les t&eacute;moins, suivez les instructions suivantes :      
-                <UL>
-                  <LI>Netscape 4 : Allez à Édition &gt; Pr&eacute;f&eacute;rences &gt;   
-                    Avanc&eacute; pour activer les deux fonctions. </LI>    
-                  <LI>Netscape 7 ou 8 : Allez à Édition &gt; Pr&eacute;f&eacute;rences.   
+                <ul>
+                  <li>Netscape 4 : Allez à Édition &gt; Pr&eacute;f&eacute;rences &gt;   
+                    Avanc&eacute; pour activer les deux fonctions. </li>    
+                  <li>Netscape 7 ou 8 : Allez à Édition &gt; Pr&eacute;f&eacute;rences.   
                     Vous trouverez les fonctions JavaScript sous Avanc&eacute;, et   
-                    Cookies sous Confidentialit&eacute; et s&eacute;curit&eacute;.</LI>  
-                  <LI>Internet Explorer 6 : Allez à Outils &gt; Options Internet.   
+                    Cookies sous Confidentialit&eacute; et s&eacute;curit&eacute;.</li>  
+                  <li>Internet Explorer 6 : Allez à Outils &gt; Options Internet.   
                     Vous trouverez JavaScript sous Advanced, et Cookies sous   
-                    Confidentialit&eacute;.</LI>
-                  <LI>Mozilla Firefox : Allez à Outils &gt; Options. Vous trouverez   
+                    Confidentialit&eacute;.</li>
+                  <li>Mozilla Firefox : Allez à Outils &gt; Options. Vous trouverez   
                     JavaScript sous Fonctionnalit&eacute;s Web, et Cookies sous   
-                    Confidentialit&eacute;.</LI>
-                </UL>
+                    Confidentialit&eacute;.</li>
+                </ul>
             </div>
             <a href="#Top">Retour à la table des matières</a>    
             <p></p>
             <p>            
-            <div style="padding-left:20px;"> <EM><a name="CreateAccount"></a><SPAN class="style11"><StrONG>2.2     
-              Cr&eacute;er un compte d'utilisateur</StrONG></SPAN></EM>    
+            <div style="padding-left:20px;"> <em><a name="CreateAccount"></a><span class="style11"><strong>2.2     
+              Cr&eacute;er un compte d'utilisateur</strong></span></em>    
             </div>
-            <div style="padding-left:40px;"><StrONG>2.2.1 Par où commencer</StrONG><br />    
+            <div style="padding-left:40px;"><strong>2.2.1 Par où commencer</strong><br />    
             </div>
             <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Allez     
               à la page principale du site de la CSE : <a href="http://www.pwgsc.gc.ca/pacific/egd/index-f.html">http://www.pwgsc.gc.ca/pacific/egd/index-f.html</a>     
@@ -246,8 +246,8 @@ a:hover {
               <br />
               <br />
             </div>
-            <div style="padding-left:40px;"><StrONG>2.2.2 Entreprises(s) de  
-              l'utilisateur</StrONG><br />
+            <div style="padding-left:40px;"><strong>2.2.2 Entreprises(s) de  
+              l'utilisateur</strong><br />
             </div>
             <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;À     
               la prochaine page, ajoutez à votre profil la ou les entreprises que     
@@ -257,8 +257,8 @@ a:hover {
               n'est pas &eacute;num&eacute;r&eacute;e, voir le paragraphe 2.2.3.<br />       
               <br />
             </div>
-            <div style="padding-left:40px;"><StrONG>2.2.3 Cr&eacute;er un compte  
-              d'entreprise</StrONG><br />
+            <div style="padding-left:40px;"><strong>2.2.3 Cr&eacute;er un compte  
+              d'entreprise</strong><br />
             </div>
             <div style="padding-left:60px;">
               <div align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cliquez sur     
@@ -277,7 +277,7 @@ a:hover {
                 
               </div>
             <div style="padding-left:40px;"><br />
-            <StrONG>2.2.4 Activer un compte d'utilisateur</StrONG>            </div>
+            <strong>2.2.4 Activer un compte d'utilisateur</strong>            </div>
             <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorsque     
               votre ou vos entreprises ont &eacute;t&eacute; ajout&eacute;es, cliquez sur &laquo;     
               Soumettre une demande d'ajout d'un nouvel utilisateur &raquo;. Cela     
@@ -292,9 +292,9 @@ a:hover {
             </div>
             <p><a href="#Top">Retour à la table des matières</a> </p>    
             <p>
-            <div style="padding-left:20px;"><EM><a name="LoggingIn"></a><StrONG class="style11">2.3     
-              Entr&eacute;e dans le système</StrONG><br />    
-            </EM></div>
+            <div style="padding-left:20px;"><em><a name="LoggingIn"></a><strong class="style11">2.3     
+              Entr&eacute;e dans le système</strong><br />    
+            </em></div>
             <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L'approbation     
               d'une seule affiliation utilisateur-entreprise est n&eacute;cessaire     
               pour que le compte soit activ&eacute;. Lorsque vous recevez un courriel     
@@ -308,9 +308,9 @@ a:hover {
             <p></p>
             <a href="#Top">Retour à la table des matières</a> <br />    
             <p>            
-            <div style="padding-left:20px;"><EM><a name="GetPassword"></a><StrONG class="style11">2.4     
-              R&eacute;cup&eacute;ration du mot de passe</StrONG><br />    
-            </EM></div>
+            <div style="padding-left:20px;"><em><a name="GetPassword"></a><strong class="style11">2.4     
+              R&eacute;cup&eacute;ration du mot de passe</strong><br />    
+            </em></div>
             <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si     
               vous avez oubli&eacute; votre mot de passe, cliquez sur le lien &laquo; Oubli  
               du mot de passe &raquo; de la page d'entr&eacute;e. Entrez l'adresse     
@@ -321,12 +321,12 @@ a:hover {
             <a href="#Top">Retour à la table des matières</a>    
             <p></p>
             <p>     <br />       
-            <StrONG><a name="UsingApp"></a><SPAN class="style10">3. Utilisation  
+            <strong><a name="UsingApp"></a><span class="style10">3. Utilisation  
             du     
-            système de r&eacute;servation en ligne de la CSE</SPAN></StrONG>    
+            système de r&eacute;servation en ligne de la CSE</span></strong>    
             
-            <div style="padding-left:20px;"><EM><a name="HomePage"></a><SPAN class="style11"><StrONG>3.1 
-              Page de bienvenue</StrONG></SPAN></EM><br />
+            <div style="padding-left:20px;"><em><a name="HomePage"></a><span class="style11"><strong>3.1 
+              Page de bienvenue</strong></span></em><br />
             </div>
             <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorsque     
               vous entrez dans l'application, vous arrivez à la &laquo; page de     
@@ -347,7 +347,7 @@ a:hover {
                 <div align="center">Figure 3: piste de navigation <br />
             <br />
             </div>
-			<div style="padding-left:40px;"><StrONG>3.1.1 Entreprises</StrONG></div>
+			<div style="padding-left:40px;"><strong>3.1.1 Entreprises</strong></div>
 			<div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La     
               page de bienvenue affiche des renseignements sur une entreprise à     
               la fois. Le nom de l'entreprise dont on voit les renseignements     
@@ -365,7 +365,7 @@ a:hover {
                 </div>
 			</div>
 			<br />
-			<div style="padding-left:40px;"><StrONG>3.1.2 R&eacute;servations</StrONG></div>    
+			<div style="padding-left:40px;"><strong>3.1.2 R&eacute;servations</strong></div>    
 			<div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Toutes     
               les r&eacute;servations pour l'entreprise que vous choisissez&nbsp; sont     
               affich&eacute;es sur la page de bienvenue. Pour une liste complète de     
@@ -385,16 +385,16 @@ a:hover {
 		   
             <p><a href="#Top">Retour à la table des matières</a> </p>    
 <p>
-<div style="padding-left:20px;"><EM><a name="EditProfile"></a><SPAN class="style11"><StrONG>3.2 
-  Modifier le profil d'utilisateur</StrONG></SPAN></EM><br /></div>
+<div style="padding-left:20px;"><em><a name="EditProfile"></a><span class="style11"><strong>3.2 
+  Modifier le profil d'utilisateur</strong></span></em><br /></div>
   <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pour     
     modifier votre profil, cliquez sur &laquo;&nbsp;Modifier le profil&nbsp;&raquo; dans     
     la barre de menus. La page &laquo;&nbsp;Modifier le profil&nbsp;&raquo; est divis&eacute;e     
     en trois sections, et chacune d'entre elles a son bouton de soumission.<br />       
     <br />
   </div>
-  <div style="padding-left:40px;"><StrONG>3.2.1 Modifier les renseignements 
-    personnels</StrONG><br /></div>
+  <div style="padding-left:40px;"><strong>3.2.1 Modifier les renseignements 
+    personnels</strong><br /></div>
   <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La première     
     section vous permet de modifier votre pr&eacute;nom et votre nom. L'adresse de     
     courriel ne peut pas être modifi&eacute;e, &eacute;tant donn&eacute; qu'il s'agit de votre     
@@ -406,7 +406,7 @@ a:hover {
 	<div align="center"><IMG src="../images/aide-help/utilisateur-user-profilmod-profileedit-fra.gif" alt="Figure 5 : modifier votre nom"></div>
 	<div align="center">Figure 5 : modifier votre nom <br /><br />
   </div>
-  <div style="padding-left:40px;"><StrONG>3.2.2 Changement de mot de passe</StrONG><br />
+  <div style="padding-left:40px;"><strong>3.2.2 Changement de mot de passe</strong><br />
   </div> 
   <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La troisième     
     section vous permet de changer votre mot de passe, qui doit compter de 6 à     
@@ -420,8 +420,8 @@ a:hover {
   </div>
             <p><a href="#Top">Retour à la table des matières</a> </p>    
   
-  <p> <div style="padding-left:20px;"><EM><a name="Vessels"></a><SPAN class="style11"><StrONG>3.3 
-              Navires</StrONG></SPAN></EM><br /></div>
+  <p> <div style="padding-left:20px;"><em><a name="Vessels"></a><span class="style11"><strong>3.3 
+              Navires</strong></span></em><br /></div>
     <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Les     
       navires d'une entreprise sont &eacute;num&eacute;r&eacute;s dans la page de bienvenue sous la     
       rubrique &laquo;&nbsp;Navire(s)&nbsp;&raquo;. Si le navire que vous cherchez n'est     
@@ -430,7 +430,7 @@ a:hover {
       son nom.<br />       
       <br />
     </div>
-	<div style="padding-left:40px;"><StrONG>3.3.1 Ajouter des navires</StrONG><br /></div>
+	<div style="padding-left:40px;"><strong>3.3.1 Ajouter des navires</strong><br /></div>
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cliquez     
       &laquo;&nbsp;Ajout d'un navire&nbsp;&raquo; sous la liste des navires de  
       l'entreprise. Tous les champs sont obligatoires. Les longueurs et les     
@@ -452,7 +452,7 @@ a:hover {
       à toute l'information sur les r&eacute;servations et les navires, peu importe  
       si ces derniers sont anonymes ou non.<br />      
     <br /></div>
-    <div style="padding-left:40px;"><StrONG>3.3.2 Modifier le profil de navires</StrONG></div>
+    <div style="padding-left:40px;"><strong>3.3.2 Modifier le profil de navires</strong></div>
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cliquez     
       sur le nom du navire dans la rubrique &laquo;&nbsp;Navire(s) &raquo;, puis cliquez     
       sur le bouton &laquo;&nbsp;Modifier le navire &raquo;. Vous pouvez     
@@ -463,7 +463,7 @@ a:hover {
       CSE. L'administration est avis&eacute;e lorsque les renseignements sur un navire     
       sont modifi&eacute;s.<br />       
       <br /></div>
-    <div style="padding-left:40px;"><StrONG>3.3.3 Supprimer des navires</StrONG></div>
+    <div style="padding-left:40px;"><strong>3.3.3 Supprimer des navires</strong></div>
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cliquez     
       sur le nom du navire dans la rubrique &laquo;&nbsp;Navire(s), puis cliquez sur     
       le bouton &laquo; Supprimer le navire&nbsp;&raquo;. Les navires ne peuvent être supprim&eacute;s     
@@ -473,9 +473,9 @@ a:hover {
       supprim&eacute;. Si vous arrivez à supprimer le navire, vous recevrez un avis     
       de confirmation.</div>       
             <p><a href="#Top">Retour à la table des matières</a> </p>    
-  <p> <div style="padding-left:20px;"><EM><a name="Bookings"></a><SPAN class="style11"><StrONG>3.4     
-              R&eacute;servations</StrONG></SPAN></EM></div>
-    <div style="padding-left:40px;"><StrONG>3.4.1 R&eacute;server la cale sèche</StrONG></div>   
+  <p> <div style="padding-left:20px;"><em><a name="Bookings"></a><span class="style11"><strong>3.4     
+              R&eacute;servations</strong></span></em></div>
+    <div style="padding-left:40px;"><strong>3.4.1 R&eacute;server la cale sèche</strong></div>   
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cliquez    
       sur &laquo;&nbsp;Pr&eacute;senter une r&eacute;servation&nbsp;&raquo; sous vos r&eacute;servations&nbsp;  
       ou sur &laquo;&nbsp;Pr&eacute;senter une r&eacute;servation&nbsp;&raquo;    
@@ -486,8 +486,8 @@ a:hover {
       qui vient.).<br />       
       <br />
     </div>
-	<div style="padding-left:60px;"><SPAN class="style12">3.4.1.1 Demande de    
-      dates pr&eacute;cises</SPAN><br /></div>   
+	<div style="padding-left:60px;"><span class="style12">3.4.1.1 Demande de    
+      dates pr&eacute;cises</span><br /></div>   
 	  <div style="padding-left:80px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tous    
         les champs sont obligatoires pour la r&eacute;servation. Il faut choisir  
         l'entreprise et le navire au moyen des menus d&eacute;roulants, et il faut pr&eacute;ciser    
@@ -497,8 +497,8 @@ a:hover {
         petit calendrier appara&reg;t, dans lequel vous pouvez cliquer sur la date    
         choisie. Cette date sera entr&eacute;e dans la bo&reg;te de date correspondante.    
         Lorsque vous choisissez des dates de bassin, veuillez vous assurer de    
-        tenir compte du temps n&eacute;cessaire pour installer et retirer les tins.  (<EM>Nota    
-        </EM>: les dates de bassin sont inclusives, p.&nbsp;ex. une r&eacute;servation    
+        tenir compte du temps n&eacute;cessaire pour installer et retirer les tins.  (<em>Nota    
+        </em>: les dates de bassin sont inclusives, p.&nbsp;ex. une r&eacute;servation    
         de trois jours se fera du 1<SUP>er</SUP> mai au 3 mai.)<br />       
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si la cale sèche est disponible pour les    
         dates demand&eacute;es, vote demande sera soumise. Si rien n'est disponible    
@@ -524,8 +524,8 @@ a:hover {
         Vous serez avis&eacute; par courriel de la confirmation &eacute;ventuelle de votre r&eacute;servation.<br />       
         <br />
         </div>
-    <div style="padding-left:60px;"><SPAN class="style12">3.4.1.2 Demande de la    
-      prochaine p&eacute;riode disponible</SPAN></div>   
+    <div style="padding-left:60px;"><span class="style12">3.4.1.2 Demande de la    
+      prochaine p&eacute;riode disponible</span></div>   
 	<div style="padding-left:80px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tous les    
       champs sont obligatoires; il faut donc choisir l'entreprise et le navire    
       au moyen de menus d&eacute;roulants, une p&eacute;riode doit être pr&eacute;cis&eacute;e de la façon    
@@ -535,7 +535,7 @@ a:hover {
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorsque vous soumettez une demande, on    
       vous donnera la prochaine p&eacute;riode disponible pour la dur&eacute;e de la r&eacute;servation    
       pr&eacute;cis&eacute;e. Si c'est acceptable, vous pouvez faire la r&eacute;servation; sinon,    
-      vous pouvez essayer une autre p&eacute;riode. (<EM>Nota </EM>: Lorsque vous    
+      vous pouvez essayer une autre p&eacute;riode. (<em>Nota </em>: Lorsque vous    
       utilisez l'autre m&eacute;thode de r&eacute;servation qui prend les dates pr&eacute;cises,    
       si votre p&eacute;riode pr&eacute;cis&eacute;e n'est pas disponible, votre r&eacute;servation sera    
       approuv&eacute;e et vous serez mis sur une liste d'attente au cas où une    
@@ -561,7 +561,7 @@ a:hover {
       politique de pr&eacute;avis de 24 heures sera appliqu&eacute;e (section 3.4.6). Vous    
       serez avis&eacute; par courriel de la confirmation &eacute;ventuelle de votre r&eacute;servation.<br />       
 	</div>
-	<div style="padding-left:40px;"><StrONG>3.4.2 R&eacute;server une jet&eacute;e</StrONG></div>   
+	<div style="padding-left:40px;"><strong>3.4.2 R&eacute;server une jet&eacute;e</strong></div>   
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cliquez    
       sur &laquo; Pr&eacute;senter une r&eacute;servation &raquo; sous vos r&eacute;servations ou dans la barre des menus, et choisissez l'option de r&eacute;servation    
       d'une jet&eacute;e. Tous les champs sont obligatoires pour la r&eacute;servation d'une    
@@ -579,7 +579,7 @@ a:hover {
       frais de r&eacute;servation.<br />       
 	<br />
     </div>
-    <div style="padding-left:40px;"><StrONG>3.4.3 Modifier des r&eacute;servations</StrONG><br /></div>   
+    <div style="padding-left:40px;"><strong>3.4.3 Modifier des r&eacute;servations</strong><br /></div>   
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Les r&eacute;servations    
       ne peuvent être modifi&eacute;es en ligne. Si vous souhaitez modifier une r&eacute;servation,    
       vous devez communiquer avec l'administration de la CSE et transmettre par    
@@ -589,7 +589,7 @@ a:hover {
       en haut de la liste de vos r&eacute;servations.<br />       
       <br />
     </div>
-    <div style="padding-left:40px;"><StrONG>3.4.4 Annuler des r&eacute;servations</StrONG><br /></div>   
+    <div style="padding-left:40px;"><strong>3.4.4 Annuler des r&eacute;servations</strong><br /></div>   
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Il est    
       possible d'annuler des r&eacute;servations. Pour ce faire, cliquez sur le nom du    
       navire dans la liste des r&eacute;servations sur la page de bienvenue ou la page    
@@ -601,8 +601,8 @@ a:hover {
       cela veut dire que celle-ci est maintenue.<br />       
 	<br />
     </div>
-    <div style="padding-left:40px;"><StrONG>3.4.5 Annulations et suppressions 
-      administratives</StrONG><br /></div>
+    <div style="padding-left:40px;"><strong>3.4.5 Annulations et suppressions 
+      administratives</strong><br /></div>
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L'administration    
       de la CSE a la capacit&eacute; d'annuler les r&eacute;servations actuelles, ainsi que    
       de supprimer les r&eacute;servations pass&eacute;es. Vous serez avis&eacute; par courriel si    
@@ -611,7 +611,7 @@ a:hover {
       qu'elle n'est plus affich&eacute;e dans la liste de vos r&eacute;servations archiv&eacute;es.<br />       
       <br />
     </div>
-  	<div style="padding-left:40px;"><StrONG>3.4.6 Pr&eacute;avis de 24 heures</StrONG><br /></div>   
+  	<div style="padding-left:40px;"><strong>3.4.6 Pr&eacute;avis de 24 heures</strong><br /></div>   
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La CSE    
       maintient une politique de pr&eacute;avis de 24&nbsp;heures en ce qui concerne les    
       listes d'attente. Si plusieurs r&eacute;servations provisoires indiquent la même    
@@ -634,9 +634,9 @@ a:hover {
     </div>
             <p><a href="#Top">Retour à la table des matières</a> </p>   
      
-  <p> <div style="padding-left:20px;"><EM><a name="Overviews"></a><SPAN class="style11"><StrONG>3.5    
-              R&eacute;servations - Vue d'ensemble</StrONG></SPAN></EM></div>   
-    <div style="padding-left:40px;"><StrONG>3.5.1 Calendriers</StrONG><br /></div>
+  <p> <div style="padding-left:20px;"><em><a name="Overviews"></a><span class="style11"><strong>3.5    
+              R&eacute;servations - Vue d'ensemble</strong></span></em></div>   
+    <div style="padding-left:40px;"><strong>3.5.1 Calendriers</strong><br /></div>
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La barre    
       de menus du haut donne accès aux calendriers de la cale sèche et des jet&eacute;es.    
       Des tableaux mensuels et trimestriels sont disponibles (figure 8). Les    
@@ -655,7 +655,7 @@ a:hover {
       et le navire.<br />        
 	<br />
     </div>
-    <div style="padding-left:40px;"><StrONG>3.5.2 Sommaire des r&eacute;servations</StrONG><br /></div>   
+    <div style="padding-left:40px;"><strong>3.5.2 Sommaire des r&eacute;servations</strong><br /></div>   
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;À    
       partir de toutes les pages du calendrier, vous avez accès à un lien &laquo; R&eacute;sum&eacute; des r&eacute;servations &raquo; tout juste sous la barre de menus du haut    
       (figure 8). Le r&eacute;sum&eacute; des r&eacute;servations est un tableau regroupant    
@@ -670,9 +670,9 @@ a:hover {
  	 </div>
             <a href="#Top">Retour à la table des matières</a> <br />   
     <br />
-    <div style="padding-left:20px;"><EM><a name="Forms"></a><SPAN class="style11">3.6    
-      Formulaires pour les r&eacute;servations</SPAN></EM></div>   
-    <div style="padding-left:40px;"><StrONG>3.6.1 Tarifs des droits de cale sèche</StrONG><br /></div>
+    <div style="padding-left:20px;"><em><a name="Forms"></a><span class="style11">3.6    
+      Formulaires pour les r&eacute;servations</span></em></div>   
+    <div style="padding-left:40px;"><strong>3.6.1 Tarifs des droits de cale sèche</strong><br /></div>
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le    
       formulaire des tarifs de droits de cale sèche est un formulaire optionnel qui vous    
       permet de pr&eacute;ciser les services et les installations dont vous aurez    
@@ -694,14 +694,14 @@ a:hover {
       tarif d'une r&eacute;servation confirm&eacute;e, prière de communiquer avec la CSE.<br />       
 	<br />
     </div>
-    <div style="padding-left:40px;"><StrONG>3.6.2 Tableau 1</StrONG><br /></div> 
+    <div style="padding-left:40px;"><strong>3.6.2 Tableau 1</strong><br /></div> 
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le   
       tableau 1 donne des renseignements sur le navire, et sert d'entente entre   
       l'agent qui fait la r&eacute;servation et la CSE. La CSE doit recevoir le   
       tableau 1 avant que la r&eacute;servation ne puisse être confirm&eacute;e.<br />       
       <br />
     </div>
-    <div style="padding-left:40px;"><StrONG>3.6.3 Clause d'indemnisation</StrONG><br /></div>
+    <div style="padding-left:40px;"><strong>3.6.3 Clause d'indemnisation</strong><br /></div>
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La   
       clause d'indemnisation est une stipulation d'exon&eacute;ration de responsabilit&eacute;   
       juridique qui&nbsp; d&eacute;gage la Couronne de toute responsabilit&eacute; en ce qui   
@@ -710,15 +710,15 @@ a:hover {
       avant qu'une r&eacute;servation ne puisse être confirm&eacute;e.<br />       
       <br />
     </div>
-    <div style="padding-left:40px;"><StrONG>3.6.4 Formulaire de modification   
-      d'une r&eacute;servation</StrONG><br /></div>  
+    <div style="padding-left:40px;"><strong>3.6.4 Formulaire de modification   
+      d'une r&eacute;servation</strong><br /></div>  
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pour   
       faire une demande de changement des dates d'une r&eacute;servation, il faut   
       transmettre le formulaire de modification d'une r&eacute;servation à la CSE.<br />       
     </div>
             <P align="left"><a href="#Top">Retour à la table des matières</a> </p>  
-    <P align="left"><div style="padding-left:20px;"><EM><a name="LoggingOut" id="LoggingOut"></a><SPAN class="style11">3.7  
-              Sortir du système</SPAN></EM><br /></div> 
+    <P align="left"><div style="padding-left:20px;"><em><a name="LoggingOut" id="LoggingOut"></a><span class="style11">3.7  
+              Sortir du système</span></em><br /></div> 
     <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pour  
       sortir du système, cliquez sur le bouton &laquo;&nbsp;Fermer la session&nbsp;&raquo;, dans la  
       barre de menus du haut. Il faut toujours sortir du système pour mettre  
@@ -728,6 +728,6 @@ a:hover {
             <a href="#Top">Retour à la table des matières</a> </td>
         </tr>
       </table>
-	<a href="egd_userdoc-eng.cfm">egd_userdoc-eng</a></BODY>
-</HTML>
+	<a href="egd_userdoc-eng.cfm">egd_userdoc-eng</a></body>
+</html>
 

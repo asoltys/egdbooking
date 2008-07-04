@@ -25,10 +25,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.bookingForms#"">
-	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.bookingForms#"">
+	<meta name=""keywords"" content=""#language.keywords#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -70,7 +70,7 @@
 					<li><a href="../formes-forms/DockBookingApplication.pdf" target="pdf" title="#language.schedule#">#language.schedule# (#LSDateFormat(CreateDate(2004, 7, 14), 'long')#) [PDF 55.8 KB]</a></li>
 					<li><a href="../formes-forms/indemnificationClause.pdf" target="pdf" title="#language.Indemnification#">#language.Indemnification# (#LSDateFormat(CreateDate(2002, 6, 18), 'long')#) [PDF 5.58 KB]</a></li>
 					<li><a href="../formes-forms/Tentative_ChangeForm.pdf" target="pdf" title="#language.changeForm#">#language.changeForm# [PDF 5.51 KB]</a></li>
-					<li><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?<cfoutput>lang=#lang#</cfoutput>" title="Tariff of Dock Charges">Tariff of Dock Charges [HTML]</a></li>
+					<li><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?<cfoutput>lang=#lang#</cfoutput>" title="Tariff of Dock Charges">Tariff of Dock Charges [html]</a></li>
 				</ul>
 				</cfoutput>
 			</div>

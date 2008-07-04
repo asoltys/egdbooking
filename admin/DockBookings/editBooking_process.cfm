@@ -2,10 +2,10 @@
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Dock Booking"">
-	<meta name=""keywords"" lang=""eng"" content="""">
-	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Dock Booking"">
+	<meta name=""keywords"" content="""" />
+	<meta name=""description"" content="""" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -27,13 +27,13 @@
 
 
 <!-- Start JavaScript Block -->
-<script language="JavaScript" type="text/javascript">
-	<!--
-	function EditSubmit ( selectedform )
+<script type="text/javascript">
+/* <![CDATA[ */
+function EditSubmit ( selectedform )
 	{
-	  document.forms[selectedform].submit() ;
+	  document.forms[selectedform].submit();
 	}
-	//-->
+/* ]]> */
 </script>
 <!-- End JavaScript Block -->
 
@@ -208,7 +208,7 @@
 			<cfset Variables.EndDate = #CreateODBCDate(Variables.EndDate)#>
 			
 			<p>Please confirm the following information.</p>
-			<cfform action="editBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
+			<cfform action="editBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
 			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#"></cfoutput>
 			<div style="font-weight:bold;">Booking:</div>
 			<table width="100%" align="center" style="padding-left:15px;">
@@ -272,7 +272,7 @@
 						<!---input type="submit" name="submitForm" class="textbutton" value="submit">
 						<a href="javascript:history.go(-1);" class="textbutton">Back</a>
 						<cfoutput><a href="bookingmanage.cfm?#urltoken#" class="textbutton">Cancel</a></cfoutput>
-						<BR--->
+						<br--->
 						<input type="Submit" value="Confirm" class="textbutton">
 						<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='editBooking.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'"></cfoutput>
 						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'" class="textbutton"></cfoutput>

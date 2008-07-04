@@ -1,8 +1,8 @@
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Vessel"">
-	<meta name=""keywords"" lang=""eng"" content=""Edit Vessel Profile"">
-	<meta name=""description"" lang=""eng"" content=""Allows user to edit the details of a vessel."">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Vessel"" />
+	<meta name=""keywords"" content=""Edit Vessel Profile"" />
+	<meta name=""description"" content=""Allows user to edit the details of a vessel."" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -39,7 +39,7 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -58,14 +58,14 @@
 					</a></h1>
 
 				<cfparam name="form.vesselID" default="">
-				
+
 				<!---<cfquery name="getVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT 	VesselID, Name
 					FROM 	Vessels
 					WHERE 	Deleted = 0
 					ORDER BY Name
 				</cfquery>--->
-				
+
 				<cfquery name="companyVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT vesselID, vessels.Name AS VesselName, companies.companyID, companies.Name AS CompanyName
 					FROM Vessels INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
@@ -75,29 +75,29 @@
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				<cfinclude template="#RootDir#includes/getStructure.cfm"><br />
-				
+
 				<cfform action="editVessel.cfm?lang=#lang#" method="post" name="chooseVesselForm">
 				<table width="100%">
 					<!---<cfselect name="vesselID" query="getVessels" display="name" value="vesselID" selected="#form.vesselID#" />--->
 					<tr>
 						<td valign="baseline">Company:</td>
 						<td>
-							<CF_TwoSelectsRelated 
-								QUERY="companyVessels" 
-								NAME1="CompanyID" 
-								NAME2="VesselID" 
-								DISPLAY1="CompanyName" 
-								DISPLAY2="VesselName" 
-								VALUE1="companyID" 
-								VALUE2="vesselID"  
-								SIZE1="1" 
-								SIZE2="1" 
-								HTMLBETWEEN="</td></tr><tr><td>Vessel:</td><td>" 
-								AUTOSELECTFIRST="Yes" 
-								EMPTYTEXT1="(choose a company)" 
+							<CF_TwoSelectsRelated
+								QUERY="companyVessels"
+								NAME1="CompanyID"
+								NAME2="VesselID"
+								DISPLAY1="CompanyName"
+								DISPLAY2="VesselName"
+								VALUE1="companyID"
+								VALUE2="vesselID"
+								SIZE1="1"
+								SIZE2="1"
+								htmlBETWEEN="</td></tr><tr><td>Vessel:</td><td>"
+								AUTOSELECTFIRST="Yes"
+								EMPTYTEXT1="(choose a company)"
 								EMPTYTEXT2="(choose a vessel)"
 								DEFAULT1 ="#companyDefault#"
-								DEFAULT2 ="#vesselDefault#" 
+								DEFAULT2 ="#vesselDefault#"
 								FORMNAME="chooseVesselForm">
 						</td>
 					</tr>
@@ -108,16 +108,16 @@
 				</table>
 				</cfform>
 				<br />
-				
+
 				<cfif form.vesselID NEQ "">
-				
+
 					<cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT	Vessels.*, Companies.CompanyID, Companies.Name AS CompanyName
 						FROM	Vessels INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
 						WHERE	VesselID = '#Form.VesselID#'
 							AND	Vessels.Deleted = 0
 					</cfquery>
-					
+
 					<cfif isDefined("session.form_structure") AND isDefined("form.name")>
 						<!---<cfset variables.EndHighlight = "#form.EndHighlight#">--->
 						<cfset variables.name = "#form.name#">
@@ -139,21 +139,21 @@
 						<cfset variables.tonnage = "#getVesselDetail.tonnage#">
 						<cfset variables.Anonymous = "#getVesselDetail.Anonymous#">
 					</cfif>
-					
+
 					<!--- 	<cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 							SELECT Vessels.*, Companies.CompanyID, Companies.Name AS CompanyName, Users.FirstName + ' ' + Users.LastName AS UserName, Users.userID
 							FROM  Vessels INNER JOIN
 								Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-								UserCompanies ON Companies.CompanyID = UserCompanies.CompanyID INNER JOIN 
+								UserCompanies ON Companies.CompanyID = UserCompanies.CompanyID INNER JOIN
 								Users ON UserCompanies.UserID = Users.UserID
 							WHERE VesselID = #form.VesselID#
 							AND Vessels.Deleted = 0
 						</cfquery> --->
-					
+
 					<cfif getVesselDetail.recordCount EQ 0>
 						<cflocation addtoken="no" url="menu.cfm?lang=#lang#">
 					</cfif>
-				
+
 					<cfform name="editVessel" action="EditVessel_process.cfm?lang=#lang#" method="post">
 					<table align="center">
 						<tr>

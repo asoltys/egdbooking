@@ -2,10 +2,10 @@
 <cfinclude template="#RootDir#includes/build_form_struct.cfm"--->
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Maintenance Block"">
-	<meta name=""keywords"" lang=""eng"" content="""">
-	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Maintenance Block"">
+	<meta name=""keywords"" content="""" />
+	<meta name=""description"" content="""" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -15,13 +15,13 @@
 <CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 
 <!-- Start JavaScript Block -->
-<script language="JavaScript" type="text/javascript">
-	<!--
-	function EditSubmit ( selectedform )
+<script type="text/javascript">
+/* <![CDATA[ */
+function EditSubmit ( selectedform )
 	{
-	  document.forms[selectedform].submit() ;
+	  document.forms[selectedform].submit();
 	}
-	//-->
+/* ]]> */
 </script>
 <!-- End JavaScript Block -->
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">

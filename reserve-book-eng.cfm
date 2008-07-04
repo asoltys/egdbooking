@@ -1,8 +1,8 @@
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Booking Space at the Esquimalt Graving Dock"" />
-	<meta name=""keywords"" lang=""eng"" content=""Booking Space at the Esquimalt Graving Dock"">
-	<meta name=""description"" lang=""eng"" content=""Introduction page for the booking application."">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Booking Space at the Esquimalt Graving Dock"" />
+	<meta name=""keywords"" content=""Booking Space at the Esquimalt Graving Dock"" />
+	<meta name=""description"" content=""Introduction page for the booking application."" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -10,11 +10,13 @@
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Booking Space at the Esquimalt Graving Dock</title>">
 
 <cfoutput>
-<SCRIPT type="text/javascript" language="javascript">
+<script type="text/javascript">
+/* <![CDATA[ */
 	function popUp(pageID) {
 		window.open("#RootDir#" + pageID + ".cfm?lang=<cfoutput>#lang#</cfoutput>", "", "width=640, height=480, resizable=yes, menubar=yes, scrollbars=yes, toolbar=no");
 	}
-</SCRIPT>
+/* ]]> */
+</script>
 </cfoutput>
 
 <cfinclude template="#RootDir#includes/tete-header-eng.cfm">

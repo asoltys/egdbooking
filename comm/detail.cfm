@@ -46,10 +46,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# -  #language.bookingDetail#"">
-	<meta name=""keywords"" lang=""eng"" content=""#Language.masterKeywords#, #language.bookingDetail#"">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#Language.masterSubjects#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# -  #language.bookingDetail#"">
+	<meta name=""keywords"" content=""#Language.masterKeywords#, #language.bookingDetail#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -100,9 +100,9 @@
 				<CFELSE>
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				</CFIF>
-				
+
 				<p><cfoutput>#language.yourbookings#</cfoutput></p>
-				
+
 				<cfquery name="getDockDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	Bookings.BookingID, Bookings.EndHighlight,
 						StartDate, EndDate,
@@ -120,7 +120,7 @@
 						AND Vessels.Deleted = '0'
 					ORDER BY	Status, startdate, enddate, vessels.name
 				</cfquery>
-				
+
 				<cfquery name="getJettyDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	Bookings.BookingID, Bookings.EndHighlight,
 						StartDate, EndDate,
@@ -138,7 +138,7 @@
 						AND Vessels.Deleted = '0'
 					ORDER BY	Status, startdate, enddate, vessels.name
 				</cfquery>
-				
+
 				<cfquery name="getDockMaintenanceDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	Status,
 						StartDate, EndDate,
@@ -149,9 +149,9 @@
 						AND	Bookings.EndDate >= '#URL.Date#'
 						AND	Bookings.Deleted = '0'
 						AND	Status = 'm'
-				
+
 				</cfquery>
-				
+
 				<cfquery name="getJettyMaintenanceDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	Status,
 						StartDate, EndDate,
@@ -162,15 +162,15 @@
 						AND	Bookings.EndDate >= '#URL.Date#'
 						AND	Bookings.Deleted = '0'
 						AND	Status = 'm'
-				
+
 				</cfquery>
-				
+
 				<cfoutput><h2>#language.DrydockBookings#</h2></cfoutput>
-				
+
 				<cfoutput query="getDockMaintenanceDetail">
 				<table cellpadding="2" cellspacing="0" width="400" class="bookingDetails" align="center">
 					<tr>
-						<td colspan="2"><StrONG>#language.MaintenanceBlock#</StrONG></td>
+						<td colspan="2"><strong>#language.MaintenanceBlock#</strong></td>
 					</tr>
 					<tr>
 						<td colspan="2">#language.closedForMaint#</td>
@@ -187,7 +187,7 @@
 				<br />
 				<br />
 				</cfoutput>
-				
+
 				<cfoutput query="getDockDetail">
 				<!---check if ship belongs to user's company--->
 				<cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
@@ -199,10 +199,10 @@
 							AND UserCompanies.Approved = 1 AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
 					</cfquery>
 				</cflock>
-				
+
 				<cfset Variables.countQName = "userVessel" & #bookingID# & ".recordCount">
 				<cfset Variables.count = EVALUATE(countQName)>
-				
+
 				<!--- <p>countQname = #Variables.countQName#</p>
 				<p>variables.count = #Variables.count#</p> --->
 				<table cellpadding="2" cellspacing="0" width="400" class="bookingDetails" align="center"<CFIF EVALUATE(Variables.count) GT 0> bgcolor="##E0E6CF"</CFIF>>
@@ -249,14 +249,14 @@
 				<cfoutput>
 				<CFIF getDockDetail.RecordCount eq 0 AND getDockMaintenanceDetail.RecordCount eq 0>#language.noBookings#<br /><br /></CFIF>
 				<div align="center"><a href="calend-cale-dock.cfm?lang=#lang#&month=#moonth#&year=#yeaar#" class="textbutton">#language.drydockCalButton#</a></div>
-				
-				
+
+
 				<h2>#language.JettyBookings#</h2>
 				</cfoutput>
 				<cfoutput query="getJettyMaintenanceDetail">
 				<table cellpadding="2" cellspacing="0" width="400" class="bookingDetails" align="center">
 					<tr>
-						<td colspan="2"><StrONG>#language.MaintenanceBlock#</StrONG></td>
+						<td colspan="2"><strong>#language.MaintenanceBlock#</strong></td>
 					</tr>
 					<tr>
 						<td colspan="2">#language.closedForMaint#</td>
@@ -283,10 +283,10 @@
 							AND UserCompanies.Approved = 1 AND UserCompanies.Deleted = 0
 					</cfquery>
 				</cflock>
-				
+
 				<cfset Variables.count = "jUserVessel" & #bookingID# & ".recordCount">
 				<cfset "#Variables.count#" = EVALUATE(count)>
-				
+
 				<table cellpadding="2" cellspacing="0" width="400" class="bookingDetails" align="center"<CFIF EVALUATE(Variables.count) GT 0> bgcolor="##E0E6CF"</CFIF>>
 					<tr>
 						<td colspan="2" <CFIF Status eq 'c'>style="font-weight: bold;"</CFIF> ><cfif #EndHighlight# GTE PacificNow>* </cfif><CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND NOT IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
@@ -325,7 +325,7 @@
 				</cfoutput>
 				<cfoutput>
 				<CFIF getJettyDetail.RecordCount eq 0 AND getJettyMaintenanceDetail.RecordCount eq 0>#language.noBookings#<br /><br /></CFIF>
-				
+
 				<div align="center"><a href="calend-jet.cfm?lang=#lang#&month=#moonth#&year=#yeaar#" class="textbutton">#language.jettyCalButton#</a></div><div style="height:0;">&nbsp;</div>
 				</cfoutput>
 			</div>

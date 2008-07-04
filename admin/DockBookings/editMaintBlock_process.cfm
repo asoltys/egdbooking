@@ -2,10 +2,10 @@
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Maintenance Block"">
-	<meta name=""keywords"" lang=""eng"" content="""">
-	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Maintenance Block"">
+	<meta name=""keywords"" content="""" />
+	<meta name=""description"" content="""" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -13,13 +13,13 @@
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Maintenance Block</title>">
 
 <!-- Start JavaScript Block -->
-<script language="JavaScript" type="text/javascript">
-	<!--
-	function EditSubmit ( selectedform )
+<script type="text/javascript">
+/* <![CDATA[ */
+function EditSubmit ( selectedform )
 	{
-	  document.forms[selectedform].submit() ;
+	  document.forms[selectedform].submit();
 	}
-	//-->
+/* ]]> */
 </script>
 <!-- End JavaScript Block -->
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
@@ -224,7 +224,7 @@
 				<p>Please confirm the following maintenance block information.</p>
 			</CFIF>
 			
-			<cfform action="editMaintBlock_action.cfm?#urltoken#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
+			<cfform action="editMaintBlock_action.cfm?#urltoken#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
 			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#"></cfoutput>
 			
 			<table width="80%" align="center">	
@@ -266,7 +266,7 @@
 						<!---a href="javascript:EditSubmit('bookingreq');" class="textbutton">Confirm</a>
 						<a href="javascript:history.go(-1);" class="textbutton">Back</a>
 						<cfoutput><a href="bookingmanage.cfm?#urltoken#" class="textbutton">Cancel</a></cfoutput>
-						<BR--->
+						<br--->
 						<input type="Submit" value="Submit" class="textbutton">
 						<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='editMaintBlock.cfm?#urltoken#'"></cfoutput>
 						<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='bookingmanage.cfm?#urltoken#';"></cfoutput>

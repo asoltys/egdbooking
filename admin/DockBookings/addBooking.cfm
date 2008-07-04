@@ -1,8 +1,8 @@
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""pwgsc - esquimalt graving dock - Add Booking"">
-	<meta name=""keywords"" lang=""eng"" content="""">
-	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""pwgsc - esquimalt graving dock - Add Booking"">
+	<meta name=""keywords"" content="""" />
+	<meta name=""description"" content="""" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -18,13 +18,13 @@
 
 
 <!-- Start JavaScript Block -->
-<script language="JavaScript" type="text/javascript">
-	<!--
-	function EditSubmit ( selectedform )
+<script type="text/javascript">
+/* <![CDATA[ */
+function EditSubmit ( selectedform )
 	{
-	  document.forms[selectedform].submit() ;
+	  document.forms[selectedform].submit();
 	}
-	//-->
+/* ]]> */
 </script>
 <!-- End JavaScript Block -->
 
@@ -101,7 +101,7 @@
 						<cfset Session.Company = "#form.compID#">
 					</cflock>
 				
-					<cfform action="addBooking_process.cfm?#urltoken#" method="POST" name="addBookingForm">
+					<cfform action="addBooking_process.cfm?#urltoken#" method="post" name="addBookingForm">
 					<cfoutput>
 					
 					<cfquery name="getVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">

@@ -2,8 +2,8 @@
 	<cfset StructDelete(Session, "Form_Structure")>
 </cfif>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
 	<head>
 		<title>
 			Esquimalt Graving Dock (EGD) Online Booking System: Administrator Documentation
@@ -12,65 +12,65 @@
 <style type="text/css">
  body, th, td {
   font-size: 12pt;
- }
+	}
  
  th.link_from {
   background-color: #9999CC;
   color: #000000;
- }
+	}
 	
  th.link_to {
   background-color: #CC99CC;
   color: #000000;
- }
+	}
  
  th {
   color: #FFFFFF;
   background-color: #339999;
- }
+	}
  
  .small {
   font-size: 10pt;
- }
+	}
  
  div.title {
   font-size: 18pt;
   color: #339999;
   font-weight: bold;
- }
+	}
  
  h1 {
   font-size: 14pt;
   color: #2C8585;
   font-weight: bold;
- }
+	}
  
  h2 {
   font-size: 12pt;
   color: #000099;
   font-weight: bold;
- }
+	}
  
  .red {
   color: #FF0000;
- }
+	}
  
  code {
   font-size: 10pt;
   font-family: "Courier New", Courier, mono;
   background-color: #CCFFFF;
- }
+	}
  
  .style1 {
 	font-size: 14pt;
 	font-weight: bold;
- }
+	}
  
  .style2 {font-size: 12pt}
 .style8 {
 	font-size: 12pt;
 	font-style: italic;
-}
+	}
 .style10 {font-size: 14pt}
 
 h1 {
@@ -81,38 +81,38 @@ h1 {
 	border-bottom: 1px dashed;
 	letter-spacing: 2px;
 	font-weight: normal;
-}
+	}
 
 a, a:active {
 	color: #CC7700;
 	text-decoration: none;
-}
+	}
 
 a:visited {
 	color: #996600;
-}
+	}
 
 a:hover {
 	color: #FF3300;
 	text-decoration: none;
-}
+	}
 
 a:hover {
 	color: #FF2C00;
 	text-decoration: none;
-}
+	}
 .style11 {
 	font-size: 13pt;
 	font-weight: bold;
-}
+	}
 .style14 {
 	font-weight: bold;
 	font-style: italic;
-}
+	}
 </style>
 	</head>
 	
-	<BODY bgcolor="#FFFFFF" text="#000000">
+	<body bgcolor="#FFFFFF" text="#000000">
 	
 			
 	<div align="center" class="style1">
@@ -502,7 +502,7 @@ a:hover {
     <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Schedule 1, the Indemnification Clause and the Tentative Vessel and Change Booking Form are all available in PDF format via the Booking Forms page. Adobe Acrobat Reader is required for viewing them. Click on the words &quot;Adobe Acrobat Reader&quot; to download the software.<br />
       <br /></div>
     <div style="padding-left:40px;"><strong>3.12.2 Tariff of Dock Charges</strong><br /></div>
-    <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Tariff of Dock Charges is available in HTML format so that it can be filled out online, and to allow administrators to update the fees.<br />
+    <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Tariff of Dock Charges is available in html format so that it can be filled out online, and to allow administrators to update the fees.<br />
       <br /></div>
     <div style="padding-left:60px;"><span class="style14">3.12.2.1 Updating Dock Charges</span><br />
     </div>
@@ -515,5 +515,5 @@ a:hover {
 </td>
         </tr>
       </table>
-	</BODY>
-</HTML>
+	</body>
+</html>

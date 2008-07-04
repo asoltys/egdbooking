@@ -25,10 +25,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.submitJettyBooking#"">
-	<meta name=""keywords"" lang=""eng"" content=""#language.keywords#"">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content=""#language.subjects#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.submitJettyBooking#"">
+	<meta name=""keywords"" content=""#language.keywords#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -118,7 +118,7 @@
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 				
-				<cfform action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#&companyID=#variables.companyID#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#&companyID=#variables.companyID#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
 				<table width="100%" style="padding-left:10px;">
 					<tr>
 						<td width="30%" id="Agent">
@@ -146,7 +146,7 @@
 								VALUE2="VesselID"
 								DEFAULT1="#Variables.CompanyID#"
 								DEFAULT2="#Variables.VesselID#"
-								HTMLBETWEEN="</td></tr><tr><td id='vessel'>#language.vessel#:</td><td headers='vessel'>"
+								htmlBETWEEN="</td></tr><tr><td id='vessel'>#language.vessel#:</td><td headers='vessel'>"
 								AUTOSELECTFIRST="Yes"
 								EMPTYTEXT1="(#language.chooseCompany#)"
 								EMPTYTEXT2="(#language.chooseVessel#)"

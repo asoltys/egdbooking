@@ -2,10 +2,10 @@
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Jetty Booking"">
-	<meta name=""keywords"" lang=""eng"" content="""">
-	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Jetty Booking"">
+	<meta name=""keywords"" content="""" />
+	<meta name=""description"" content="""" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -176,7 +176,7 @@
 				<!---------------------------------------------------------------------------------------------------------------------->
 				
 				<p>Please confirm the following information.</p>
-				<cfform action="editJettyBooking_action.cfm?#urltoken#&BookingID=#form.BookingID#&editStart=#form.startDate#&editEnd=#form.endDate#&jetty=#form.jetty#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="POST" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="editJettyBooking_action.cfm?#urltoken#&BookingID=#form.BookingID#&editStart=#form.startDate#&editEnd=#form.endDate#&jetty=#form.jetty#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
 				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#"></cfoutput>
 				<div style="font-weight:bold;">Booking:</div>
 				<table width="100%" align="center" style="padding-left:15px;">

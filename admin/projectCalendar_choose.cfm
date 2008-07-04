@@ -1,7 +1,7 @@
 <cfset language.PageTitle = "Project Calendar View">
 <cfset language.ScreenMessage = '<p><b>This calendar contains information for the drydock only.</b>  Please use the pop-up <span class="textbutton">calendar</span> to enter the range of dates you would like to view.  To start from the first booking record, clear the "From Date" field.  To end after the last booking record, clear the "To Date" field.  To see all records, clear both fields.</p>'>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/tr/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/tr/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 <CFINCLUDE template="#RootDir#includes/companyInfoVariables.cfm">
@@ -23,8 +23,8 @@
 <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
 <link rel="schema.dc" href="http://purl.org/dc/terms/" />
 <meta name="dc.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Project Calendar">
-<meta name="dc.subject" SCHEME="gccore" content="ship, wharf">
-<meta name="dc.language" SCHEME="ISO639-2/T" content="eng" />
+<meta name="dc.subject" scheme="gccore" content="ship, wharf">
+<meta name="dc.language" scheme="ISO639-2/T" content="eng" />
 <meta name="dc.creator" content="Government of Canada, Public Works and Government Services Canada" />
 <meta name="dc.publisher" content="Government of Canada, Public Works and Government Services Canada" />
 <meta name="dc.audience" content=" " />
@@ -33,10 +33,10 @@
 <meta name="dc.format" content=" " />
 <meta name="dc.identifier" content=" " />
 <meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html" />
-<meta name="dcterms.issued" SCHEME="W3CDTF" content="2007-09-20" />
-<meta name="dcterms.modified" SCHEME="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
-<meta name="description" content="Allows user to view bookings in a given range in MS Project style.">
-<meta name="keywords" content="">
+<meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
+<meta name="dcterms.modified" scheme="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
+<meta name="description" content="Allows user to view bookings in a given range in MS Project style." />
+<meta name="keywords" content="" />
 <meta name="pwgsc.contact.email" content="questions@tpsgc-pwgsc.gc.ca" />
 <!-- metaDATA ENDS | FIN DES metaDONNEES -->
 <!-- TEMPLATE SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS DU GABARIT -->
@@ -47,16 +47,16 @@
 </cfoutput>
 <!-- TEMPLATE SCRIPTS/CSS END | FIN DES SCRIPTS/CSS DU GABARIT -->
 <!-- PROGRESSIVE ENHANCEMENT BEGINS | DEBUT DE L'AMELIORATION PROGRESSIVE -->
-<SCRIPT src="/clf20/scripts/pe-ap.js" type="text/javascript"></SCRIPT>
-<SCRIPT type="text/javascript">
-	/* <![CDATA[ */
-		var params = {
+<script src="/clf20/scripts/pe-ap.js" type="text/javascript"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var params = {
 			lng:"eng",
 			pngfix:"/clf20/images/inv.gif"
 		};
 		PE.progress(params);
 	/* ]]> */
-</SCRIPT>
+</script>
 <!-- PROGRESSIVE ENHANCEMENT ENDS | FIN DE L'AMELIORATION PROGRESSIVE -->
 <!-- CUSTOM SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS PERSONNALISES -->
 <cfoutput>
@@ -71,7 +71,7 @@
 </head>
 
 
-<BODY>
+<body>
 <div class="page">
 	<div class="core">
 		<!-- FIP headER BEGINS | DEBUT DE L'EN-TETE PCIM -->
@@ -92,12 +92,12 @@
 			<cfparam name="Variables.startDate" default="#PacificNow#">
 			<cfparam name="Variables.endDate" default="#DateAdd('m', 3, PacificNow)#">
 			<cfset Variables.BookingLen = Variables.endDate - Variables.startDate>
-		
+
 			<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 
 			<cfoutput>#Language.ScreenMessage#</cfoutput>
 
-			<cfform action="projectCalendar.cfm?lang=#lang#" method="POST" enablecab="No" name="procal" preservedata="Yes">
+			<cfform action="projectCalendar.cfm?lang=#lang#" method="post" enablecab="No" name="procal" preservedata="Yes">
 			<cfoutput>
 			<table width="60%">
 				<!---tr>
@@ -130,7 +130,7 @@
 						<a href="javascript:void(0);" onClick="document.procal.endDate.value='';" class="textbutton">clear</a>
 					</td>
 				</tr>
-				<tr><td colspan="2">&nbsp;</td></tr>		
+				<tr><td colspan="2">&nbsp;</td></tr>
 				<tr>
 					<td>&nbsp;</td>
 					<td>

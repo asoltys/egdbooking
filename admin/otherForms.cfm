@@ -1,8 +1,8 @@
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Booking Forms"">
-	<meta name=""keywords"" lang=""eng"" content="""">
-	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Booking Forms"">
+	<meta name=""keywords"" content="""" />
+	<meta name=""description"" content="""" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -41,7 +41,7 @@
 			<ul>
 				<li><a href="../formes-forms/DockBookingApplication.pdf" target="_blank" title="Schedule 1">Schedule 1 (#LSDateFormat(CreateDate(2004, 7, 14), 'long')#) [PDF 55.8 KB]</a></li>
 				<li><a href="../formes-forms/indemnificationClause.pdf" target="_blank" title="Indemnification Clause">Indemnification Clause (#LSDateFormat(CreateDate(2002, 6, 18), 'long')#) [PDF 5.58 KB]</a></li>
-				<li><a href="../admin/viewFeesForm.cfm?<cfoutput>lang=#lang#</cfoutput>" title="Tariff of Dock Charges">Tariff of Dock Charges [HTML]</a>&nbsp;&nbsp;<a class="textbutton" href="updateFees.cfm?lang=#lang#">update fees</a></li>
+				<li><a href="../admin/viewFeesForm.cfm?<cfoutput>lang=#lang#</cfoutput>" title="Tariff of Dock Charges">Tariff of Dock Charges [html]</a>&nbsp;&nbsp;<a class="textbutton" href="updateFees.cfm?lang=#lang#">update fees</a></li>
 				<li><a href="../formes-forms/Tentative_ChangeForm.pdf" target="_blank" title="Tentative Vessel and Change Booking Form">Tentative Vessel and Change Booking Form [PDF 5.51 KB]</a></li>
 			</ul>
 			</cfoutput>

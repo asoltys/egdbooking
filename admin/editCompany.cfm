@@ -5,10 +5,10 @@
 
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Company"">
-	<meta name=""keywords"" lang=""eng"" content="""">
-	<meta name=""description"" lang=""eng"" content="""">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Company"">
+	<meta name=""keywords"" content="""" />
+	<meta name=""description"" content="""" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -51,13 +51,13 @@
 <cfparam name="variables.abbr" default="">
 
 <!-- Start JavaScript Block -->
-<script language="JavaScript" type="text/javascript">
-	<!--
-	function EditSubmit ( selectedform )
+<script type="text/javascript">
+/* <![CDATA[ */
+function EditSubmit ( selectedform )
 	{
-	  document.forms[selectedform].submit() ;
+	  document.forms[selectedform].submit();
 	}
-	//-->
+/* ]]> */
 </script>
 <!-- End JavaScript Block -->
 <CFINCLUDE template="#RootDir#includes/checkFilledIn_js.cfm">
@@ -132,7 +132,8 @@
 					</cfif>
 					
 					<cfoutput>
-					<cfform action="editCompany_action.cfm?lang=#lang#" method="post" name="editCompanyForm" onSubmit="if(!checkFilledIn('editCompanyForm')) { return false; }">
+					<cfform action="editCompany_action.cfm?lang=#lang#" method="post" name="editCompanyForm" onSubmit="if(!checkFilledIn('editCompanyForm')) { return false;
+	}">
 					<table align="center">
 						<tr>
 							<td id="companyName_Header"><label for="name">Company Name:</label></td>

@@ -105,7 +105,7 @@
 								if (Evaluate('Section' & frika)) {
 									Evaluate('sec' & frika).maint = true;
 									Evaluate('sec' & frika).name = "";
-								}
+	}
 							}
 							
 						} else if (Status eq 'c') {  // confirmed
@@ -115,9 +115,9 @@
 									Evaluate(buzzard).num = Evaluate(buzzard).num + 1;
 									if (Evaluate(buzzard).num eq 1) {
 										Evaluate(buzzard).name = VesselName;
-									} else {
+	} else {
 										Evaluate(buzzard).name = Evaluate(buzzard).num & " #language.bookings#";
-									}
+	}
 								}
 							}
 						} else if (Status eq 't') {
@@ -125,22 +125,21 @@
 							if (tent.num eq 1) {
 								if (Anonymous AND (NOT IsDefined('session.adminLoggedIn')) AND Variables.count eq 0) {
 									tent.name = "#language.deepsea#";
-								} else {
+	} else {
 									tent.name = VesselName;
-								}
+	}
 							} else {
 								tent.name = tent.num & " #language.tentative#";
-							}
+	}
 						} else if (Status eq 'p') {  // pending
 							pend.num = pend.num + 1;
 							if (pend.num eq 1) {
 								pend.name = "#language.pending#";
-							} else {
+	} else {
 								pend.name = pend.num & " #language.pending#";
-							}
-						} else {  // unrecognised character
-							;
-						}
+	}
+						} else {  // unrecognised character;
+	}
 	
 						</CFSCRIPT>
 					</cfoutput>

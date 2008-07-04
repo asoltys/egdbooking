@@ -42,10 +42,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""eng"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#"">
-	<meta name=""keywords"" lang=""eng"" content="""">
-	<meta name=""description"" lang=""eng"" content=""#language.description#"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""eng"" content="""" />
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#"">
+	<meta name=""keywords"" content="""" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -83,7 +83,7 @@
 				<cfoutput>
 				#Language.ScreenMessage#
 				
-				<cfform action="resume-summary.cfm?lang=#lang#" method="POST" enablecab="No" name="bookSum" preservedata="Yes">
+				<cfform action="resume-summary.cfm?lang=#lang#" method="post" enablecab="No" name="bookSum" preservedata="Yes">
 					<table width="100%">
 						<tr>
 							<td id="startCell"><label for="start">&nbsp; #language.fromDate#</label></td>

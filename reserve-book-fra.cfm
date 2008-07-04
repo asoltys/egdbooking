@@ -1,8 +1,8 @@
 <cfhtmlhead text="
-	<meta name=""dc.title"" lang=""fre"" content=""TPSGC - CALE S&Egrave;CHE D'ESQUIMALT - french"">
-	<meta name=""keywords"" lang=""fre"" content=""cale seche d'Esquimalt, reservation pour travaux, reparation de navires, bateaux, entretien de navires, cale seche, bassin de radoub, chantier naval"">
-	<meta name=""description"" lang=""fre"" content=""Reservation pour travaux le Cale seche d'Esquimalt"">
-	<meta name=""dc.subject"" scheme=""gccore"" lang=""fre"" content="""">
+	<meta name=""dc.title"" content=""TPSGC - CALE S&Egrave;CHE D'ESQUIMALT - Réservation pour travaux le Cale S&egrave;che d'Esquimalt"" />
+	<meta name=""keywords"" content=""cale seche d'Esquimalt, reservation pour travaux, reparation de navires, bateaux, entretien de navires, cale seche, bassin de radoub, chantier naval"" />
+	<meta name=""description"" content=""Reservation pour travaux le Cale seche d'Esquimalt"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<meta name=""dc.date.published"" content=""2005-07-25"" />
 	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 	<meta name=""dc.date.modified"" content=""2005-07-25"" />
@@ -10,11 +10,13 @@
 	<title>TPSGC - CALE S&Egrave;CHE D'ESQUIMALT - Booking Space at the Esquimalt Graving Dock</title>">
 
 <cfoutput>
-<SCRIPT type="text/javascript" language="javascript">
+<script type="text/javascript">
+/* <![CDATA[ */
 function popUp(pageID) {
 	window.open("<cfoutput>#RootDir#</cfoutput>" + pageID + ".cfm?lang=<cfoutput>#lang#</cfoutput>", "", "width=640, height=480, resizable=yes, menubar=yes, scrollbars=yes, toolbar=no");
-}
-</SCRIPT>
+	}
+/* ]]> */
+</script>
 </cfoutput>
 
 <cfinclude template="#RootDir#includes/tete-header-fra.cfm">
