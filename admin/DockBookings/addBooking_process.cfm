@@ -153,10 +153,10 @@
 			<cfform action="addBooking_action.cfm?#urltoken#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
 			<br />
 			<div style="font-weight:bold;">New Booking:</div>
-			<table width="100%" align="center" style="padding-left:20px;">
+			<table style="width:100%; padding-left:20px;" align="center">
 				<tr>
-					<td id="Vessel" align="left" width="15%">Vessel:</td>
-					<td headers="Vessel" width="75%"><input type="hidden" name="vesselID" value="<cfoutput>#Variables.VesselID#</cfoutput>" /><cfoutput>#getVessel.VesselName#</cfoutput></td>
+					<td id="Vessel" align="left" style="width:15%;">Vessel:</td>
+					<td headers="Vessel" style="width:75%;"><input type="hidden" name="vesselID" value="<cfoutput>#Variables.VesselID#</cfoutput>" /><cfoutput>#getVessel.VesselName#</cfoutput></td>
 				</tr>
 				<tr>
 					<td id="Company" align="left">Company:</td>
@@ -164,15 +164,15 @@
 				</tr>	
 				<tr>
 					<td id="Agent" align="left">Agent:</td>
-					<td headers="Agent"><input type="hidden" name="userID" value="<cfoutput>#Variables.userID#</cfoutput>"><cfoutput>#getAgent.UserName#</cfoutput></td>
+					<td headers="Agent"><input type="hidden" name="userID" value="<cfoutput>#Variables.userID#</cfoutput>" />
 				</tr>
 				<tr>
 					<td id="Start" align="left">Start Date:</td>
-					<td headers="Start"><input type="hidden" name="StartDate" value="<cfoutput>#Variables.StartDate#</cfoutput>"><cfoutput>#DateFormat(Variables.StartDate, 'mmm d, yyyy')#</cfoutput></td>
+					<td headers="Start"><input type="hidden" name="StartDate" value="<cfoutput>#Variables.StartDate#</cfoutput>)" /><cfoutput>#DateFormat(Variables.StartDate, 'mmm d, yyyy'" />
 				</tr>
 				<tr>
 					<td id="End" align="left">End Date:</td>
-					<td headers="End"><input type="hidden" name="EndDate" value="<cfoutput>#Variables.EndDate#</cfoutput>"><cfoutput>#DateFormat(Variables.EndDate, 'mmm d, yyyy')#</cfoutput></td>
+					<td headers="End"><input type="hidden" name="EndDate" value="<cfoutput>#Variables.EndDate#</cfoutput>)" /><cfoutput>#DateFormat(Variables.EndDate, 'mmm d, yyyy'" />
 				</tr>
 				<tr>
 					<td id="bookingDate" align="left">Booking Time:</td>
@@ -195,9 +195,9 @@
 						<CFIF Variables.BlockStructure.Section1>Section 1</CFIF>
 						<CFIF Variables.BlockStructure.Section2><CFIF Variables.BlockStructure.Section1> &amp; </CFIF>Section 2</CFIF>
 						<CFIF Variables.BlockStructure.Section3><CFIF Variables.BlockStructure.Section1 OR Variables.BlockStructure.Section2> &amp; </CFIF>Section 3</CFIF>
-						<input type="hidden" name="Section1A" value="<cfoutput>#Variables.BlockStructure.Section1#</cfoutput>">
-						<input type="hidden" name="Section2A" value="<cfoutput>#Variables.BlockStructure.Section2#</cfoutput>">
-						<input type="hidden" name="Section3A" value="<cfoutput>#Variables.BlockStructure.Section3#</cfoutput>">
+						<input type="hidden" name="Section1A" value="<cfoutput>#Variables.BlockStructure.Section1#</cfoutput>" />
+						<input type="hidden" name="Section2A" value="<cfoutput>#Variables.BlockStructure.Section2#</cfoutput>" />
+						<input type="hidden" name="Section3A" value="<cfoutput>#Variables.BlockStructure.Section3#</cfoutput>" />
 					</td>
 				</tr>
 				</cfif>
@@ -215,19 +215,19 @@
 			<br />
 			<cfif NOT Variables.reOrder>
 				<cfif Form.Status EQ "C">
-					<table width="100%" cellspacing="0" cellpadding="1" border="0" align="center">
+					<table style="width:100%;" cellspacing="0" cellpadding="1" border="0" align="center">
 					<tr><td colspan="2">This booking conflicts with other bookings. Please choose the sections of 
 						the dock that you wish to book:</td></tr>
 					<tr>
-						<td id="header1" width="25%" align="right">&nbsp;&nbsp;&nbsp;<label for="Section1">Section 1</label></td>
-						<td headers="header1"><cfinput type="Checkbox" name="Section1B" id="Section1"></td></tr>
+						<td id="header1" style="width:25%;" align="right">&nbsp;&nbsp;&nbsp;<label for="Section1">Section 1</label></td>
+						<td headers="header1"><cfinput type="Checkbox" name="Section1B" id="Section1" /></td></tr>
 					<tr>
 						<td id="header2" align="right">&nbsp;&nbsp;&nbsp;<label for="Section2">Section 2</label></td>
-						<td headers="header2"><cfinput type="Checkbox" name="Section2B" id="Section2"></td>
+						<td headers="header2"><cfinput type="Checkbox" name="Section2B" id="Section2" /></td>
 					</tr>
 					<tr>
 						<td id="header3" align="right">&nbsp;&nbsp;&nbsp;<label for="Section3">Section 3</label></td>
-						<td headers="header3"><cfinput type="Checkbox" name="Section3B" id="Section3"></td>
+						<td headers="header3"><cfinput type="Checkbox" name="Section3B" id="Section3" /></td>
 					</tr>
 					</table>
 				</cfif>
@@ -237,10 +237,10 @@
 			<table align="center">
 			<tr>
 				<td colspan="2" align="center">
-					<input type="hidden" value="<cfoutput>#Form.Status#</cfoutput>" name="Status">
-					<input type="Submit" value="Submit" class="textbutton">
-					<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='addBooking.cfm?#urltoken#'"></cfoutput>
-					<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='bookingmanage.cfm?#urltoken#';"></cfoutput>
+					<input type="hidden" value="<cfoutput>#Form.Status#</cfoutput>" name="Status" />
+					<input type="submit" value="submit" class="textbutton" />
+					<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='addBooking.cfm?#urltoken#'" />
+					<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='bookingmanage.cfm?#urltoken#';" />
 				</td>
 			</tr>
 			</table>

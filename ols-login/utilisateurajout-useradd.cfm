@@ -97,27 +97,27 @@ function EditSubmit ( selectedform )
 						<cfset Variables.action = "entrpdemande-comprequest.cfm?lang=#lang#">
 					</cfif>
 					<cfform action="#Variables.action#" name="addUserForm" method="post">
-						<table align="center" width="100%" style="padding-left:10px;">
+						<table align="center" style="width:100%;" style="padding-left:10px;">
 							<tr>
 								<td id="firstname_header"><label for="firstname">#language.FirstName#:</label></td>
-								<td headers="firstname_header"><cfinput name="firstname" type="text" value="#variables.firstName#" size="23" maxlength="40" required="yes" id="firstname" CLASS="textField" message="#language.firstNameError#"></td>
+								<td headers="firstname_header"><cfinput name="firstname" type="text" value="#variables.firstName#" size="23" maxlength="40" required="yes" id="firstname" CLASS="textField" message="#language.firstNameError#" /></td>
 							</tr>
 							<tr>
 								<td id="lastname_header"><label for="lastname">#language.LastName#:</label></td>
-								<td headers="lastname_header"><cfinput name="lastname" type="text" value="#variables.lastName#" size="23" maxlength="40" required="yes" id="lastname" CLASS="textField" message="#language.lastNameError#"></td>
+								<td headers="lastname_header"><cfinput name="lastname" type="text" value="#variables.lastName#" size="23" maxlength="40" required="yes" id="lastname" CLASS="textField" message="#language.lastNameError#" /></td>
 							</tr>
 							<tr>
 								<td id="password1_header"><label for="password1">#language.Password#:</label></td>
-								<td headers="password1_header"><cfinput type="password" name="password1" id="password1" required="yes" size="23" maxlength="10" class="textField" message="#language.password1Error#">
+								<td headers="password1_header"><cfinput type="password" name="password1" id="password1" required="yes" size="23" maxlength="10" class="textField" message="#language.password1Error#" />
 									<span class="smallFont">(*6 - 10 #language.characters#)</span></td>
 							</tr>
 							<tr>
 								<td id="password2_header"><label for="password2">#language.RepeatPassword#:</label></td>
-								<td headers="password2_header"><cfinput type="password" name="password2" id="password2" required="yes" size="23" maxlength="10" class="textField" message="#language.password2Error#"></td>
+								<td headers="password2_header"><cfinput type="password" name="password2" id="password2" required="yes" size="23" maxlength="10" class="textField" message="#language.password2Error#" /></td>
 							</tr>
 							<tr>
 								<td id="email_header"><label for="email">#language.Email#:</label></td>
-								<td headers="email_header"><cfinput name="email" type="text" value="#variables.email#" size="40" maxlength="100" required="yes" id="email" CLASS="textField" message="#language.emailError#"></td>
+								<td headers="email_header"><cfinput name="email" type="text" value="#variables.email#" size="40" maxlength="100" required="yes" id="email" CLASS="textField" message="#language.emailError#" /></td>
 							</tr>
 							<tr>
 								<td>&nbsp;</td>

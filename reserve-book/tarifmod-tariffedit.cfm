@@ -145,7 +145,7 @@ function EditSubmit ( selectedform )
 					</tr>
 				
 					<tr>
-						<td headers="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="Checkbox" <cfif getForm.other EQ 1>checked</cfif> onClick="if (this.checked) this.form.otherBox.focus();"></td>
+						<td headers="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="Checkbox" <cfif getForm.other EQ 1>checked</cfif> onClick="if (this.checked) this.form.otherBox.focus();" />
 						<td headers="itemHeader" align="center" valign="top">&nbsp;</td>
 						<td headers="serviceHeader" align="left" valign="top">
 							<table>
@@ -204,13 +204,13 @@ function EditSubmit ( selectedform )
 				</table>
 				
 				<br />
-				<div align="right">
+				<div style="text-align:right;">
 				<cfoutput>
 					<!---a href="javascript:EditSubmit('serviceSelect');" class="textbutton">#language.Submit#</a>
 					<a href="reserve-booking.cfm?lang=#lang#&CompanyID=#url.CompanyID#" class="textbutton">#language.Back#</a--->
-					<input type="hidden" name="CompanyID" value="#getDetails.CompanyID#" class="textField">
-					<input type="submit" value="#language.Submit#" class="textbutton">
-					<input type="button" value="#language.Back#" onClick="self.location.href='#returnTo#?lang=#lang#&CompanyID=#getDetails.CompanyID#'" class="textbutton">
+					<input type="hidden" name="CompanyID" value="#getDetails.CompanyID#" class="textField" />
+					<input type="submit" value="#language.Submit#" class="textbutton" />
+					<input type="button" value="#language.Back#" onClick="self.location.href='#returnTo#?lang=#lang#&CompanyID=#getDetails.CompanyID#'" class="textbutton" />
 				</cfoutput>
 				</div>
 				</cfform>

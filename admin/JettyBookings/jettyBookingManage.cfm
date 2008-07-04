@@ -171,7 +171,7 @@ function EditSubmit ( selectedform )
 				
 				<p>Please enter a range of dates for which you would like to see the bookings:</p>
 				<form action="jettyBookingManage.cfm?lang=<cfoutput>#lang#</cfoutput>" method="get" name="dateSelect">
-					<input type="hidden" name="lang" value="<cfoutput>#lang#</cfoutput>">
+					<input type="hidden" name="lang" value="<cfoutput>#lang#</cfoutput>" />
 					<table align="center" style="width: 100%;">
 						<tr>
 							<td id="Startdate">
@@ -179,7 +179,7 @@ function EditSubmit ( selectedform )
 							<td headers="Startdate" colspan="2">
 								<cfoutput>
 								<!---input class="textField" type="Text" name="startDateShow" id="start" disabled value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17"--->
-								<input type="text" name="startDate" size="15" maxlength="10" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" class="textField" onchange="setLaterDate('self', 'dateSelect', #Variables.bookingLen#)" onfocus="setEarlierDate('self', 'dateSelect', #Variables.bookingLen#)"> #language.dateform#</cfoutput>
+								<input type="text" name="startDate" size="15" maxlength="10" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" class="textField" onchange="setLaterDate('self', 'dateSelect', #Variables.bookingLen#)" onfocus="setEarlierDate('self', 'dateSelect', #Variables.bookingLen#)" />
 								<a href="javascript:void(0);" onclick="javascript:getCalendar('dateSelect', 'start')" class="textbutton">calendar</a>
 							</td>
 						</tr>
@@ -188,13 +188,13 @@ function EditSubmit ( selectedform )
 								<label for="end">End Date:</label>							</td>
 							<td headers="Enddate" colspan="2">
 								<cfoutput>
-								<input type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" class="textField" onchange="setEarlierDate('self', 'dateSelect', #Variables.bookingLen#)" onfocus="setLaterDate('self', 'dateSelect', #Variables.bookingLen#)"> #language.dateform#</cfoutput>
+								<input type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" class="textField" onchange="setEarlierDate('self', 'dateSelect', #Variables.bookingLen#)" onfocus="setLaterDate('self', 'dateSelect', #Variables.bookingLen#)" />
 								<a href="javascript:void(0);" onclick="javascript:getCalendar('dateSelect', 'end')" class="textbutton">calendar</a>
 							</td>
 						</tr>
 						<tr>
 							<td>Show only:</td>	
-							<td headers="Pending" align="right" width="15%"><input type="checkbox" name="show" value="p" id="showPend"<cfif showPend EQ true> checked="true"</cfif>></td>
+							<td headers="Pending" align="right" style="width:15%;"><input type="checkbox" name="show" value="p" id="showPend"<cfif showPend EQ true> checked="true"</cfif>></td>
 							<td id="Pending" align="left"><label for="showPend" class="pending">Pending</label></td>	
 						</tr>
 						<tr>
@@ -209,7 +209,7 @@ function EditSubmit ( selectedform )
 							<td id="Confirmed" align="left"><label for="showConf" class="confirmed">Confirmed</label></td>
 						</tr>
 						<tr>
-							<td colspan="3" align="right"><input type="submit" value="Submit" class="textbutton"></td>
+							<td colspan="3" align="right"><input type="submit" value="submit" class="textbutton" />
 						</tr>
 					</table>
 					
@@ -227,14 +227,14 @@ function EditSubmit ( selectedform )
 					<cfoutput>
 					<cfparam name="form.expandAll" default="">
 					<form action="jettyBookingManage.cfm?#urltoken#" method="post" name="expandAll">
-						<input type="hidden" name="startDate" value="#variables.startDate#">
-						<input type="hidden" name="endDate" value="#variables.endDate#">
+						<input type="hidden" name="startDate" value="#variables.startDate#" />
+						<input type="hidden" name="endDate" value="#variables.endDate#" />
 						<cfif form.expandAll NEQ "yes">
-							<input type="hidden" name="expandAll" value="yes">
+							<input type="hidden" name="expandAll" value="yes" />
 						<cfelse>
-							<input type="hidden" name="expandAll" value="no">
+							<input type="hidden" name="expandAll" value="no" />
 						</cfif>
-						<input type="hidden" name="show" value="#url.show#">
+						<input type="hidden" name="show" value="#url.show#" />
 					</form>
 				
 					<div style="float:left;"><a href="addJettyBooking.cfm?#urltoken#" class="textbutton">Add New South Jetty / North Landing Wharf Booking</a></div>
@@ -289,12 +289,12 @@ function EditSubmit ( selectedform )
 						<cfoutput query="getBookings">
 							<cfset Variables.id = #BookingID#>
 							<form name="booking#id#" action="jettyBookingManage.cfm?#urltoken####id#" method="post">
-								<input type="hidden" name="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#">
-								<input type="hidden" name="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#">
+								<input type="hidden" name="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" />
+								<input type="hidden" name="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" />
 								<cfif (isDefined("form.ID") AND form.ID EQ #id#) OR (isDefined('url.bookingid') AND url.bookingid EQ id)>
-									<input type="hidden" name="ID" value="0">
+									<input type="hidden" name="ID" value="0" />
 								<cfelse>
-									<input type="hidden" name="ID" value="#id#">
+									<input type="hidden" name="ID" value="#id#" />
 								</cfif>
 							</form>
 						</cfoutput>
@@ -355,47 +355,47 @@ function EditSubmit ( selectedform )
 							</cfquery>
 								
 							<form method="post" action="jettyBookingManage_action.cfm?#urltoken#" name="confBooking#ID#">
-								<input type="hidden" name="ID" value="#id#">
-								<input type="hidden" name="Status" value="C">
+								<input type="hidden" name="ID" value="#id#" />
+								<input type="hidden" name="Status" value="C" />
 							</form>
 							
 							<form method="post" action="jettyBookingManage_action.cfm?#urltoken#" name="UnConfBooking#ID#">
-								<input type="hidden" name="ID" value="#id#">
-								<input type="hidden" name="Status" value="P">
+								<input type="hidden" name="ID" value="#id#" />
+								<input type="hidden" name="Status" value="P" />
 							</form>
 							
 							<form method="post" action="chgStatus_2c.cfm?#urltoken#" name="chgStatus_2c#ID#">
-								<input type="hidden" name="BookingID" value="#id#">
+								<input type="hidden" name="BookingID" value="#id#" />
 							</form>
 								
 							<form method="post" action="chgStatus_2p.cfm?#urltoken#" name="chgStatus_2p#ID#">
-								<input type="hidden" name="BookingID" value="#id#">
+								<input type="hidden" name="BookingID" value="#id#" />
 							</form>
 							
 							<form method="post" action="chgStatus_2t.cfm?#urltoken#" name="chgStatus_2t#ID#">
-								<input type="hidden" name="BookingID" value="#id#">
+								<input type="hidden" name="BookingID" value="#id#" />
 							</form>
 							
 							<form method="post" action="deny.cfm?#urltoken#" name="deny#ID#">
-								<input type="hidden" name="BookingID" value="#id#">
+								<input type="hidden" name="BookingID" value="#id#" />
 							</form>
 							
 							<form method="post" action="editJettyBooking.cfm?#urltoken#" name="editBooking#ID#">
-								<input type="hidden" name="BookingID" value="#id#">
+								<input type="hidden" name="BookingID" value="#id#" />
 							</form>
 							
 							<form method="post" action="deleteJettyBooking_confirm.cfm?#urltoken#" name="delete#ID#">
-								<input type="hidden" name="BookingID" value="#id#">
+								<input type="hidden" name="BookingID" value="#id#" />
 							</form>
 								
 							<tr><td colspan="5">
 							
-								<div align="center">
+								<div style="text-align:center;">
 									<div style="width:70%">
 										<div style="text-align:right;"><a href="javascript:EditSubmit('editBooking#ID#');">Edit Booking</a></div>
-										<table width="100%" class="bookingDetails">
+										<table style="width:100%;" class="bookingDetails">
 											<tr>
-												<td id="Start" width="25%">Start Date:</td>
+												<td id="Start" style="width:25%;">Start Date:</td>
 												<td headers="Start">#dateformat(getData.startDate, "mmm d, yyyy")#</td>
 											</tr>
 											<tr>
@@ -449,8 +449,8 @@ function EditSubmit ( selectedform )
 												<cfelse>
 												<cfset datediffhighlight = "0">
 												</cfif>
-												<cfinput id="EndHighlight" name="EndHighlight" type="text" value="#datediffhighlight#" size="3" maxlength="3" required="yes" CLASS="textField" message="Please enter an End Highlight Date."> Days
-												<input type="submit" name="submitForm" class="textbutton" value="Update">
+												<cfinput id="EndHighlight" name="EndHighlight" type="text" value="#datediffhighlight#" size="3" maxlength="3" required="yes" CLASS="textField" message="Please enter an End Highlight Date." /> Days
+												<input type="submit" name="submitForm" class="textbutton" value="Update" />
 												</cfform> 
 												</td>
 											</tr>
@@ -536,14 +536,14 @@ function EditSubmit ( selectedform )
 					<cfoutput query="getMaintenance">
 						<cfset Variables.id = #BookingID#>
 						<form name="MaintenanceEdit#id#" action="editJettyMaintBlock.cfm?#urltoken#" method="post">
-							<input type="hidden" name="BookingID" value="#id#">
+							<input type="hidden" name="BookingID" value="#id#" />
 						</form>
 						<form name="MaintenanceDel#id#" action="deleteJettyMaintBlock_confirm.cfm?#urltoken#" method="post">
-							<input type="hidden" name="BookingID" value="#id#">
+							<input type="hidden" name="BookingID" value="#id#" />
 						</form>
 					</cfoutput>
 				</cfif>
-				<table class="basic" width="100%">
+				<table class="basic" style="width:100%;">
 						<tr align="center" style="font-weight:bold;background-color:#cccccc;">
 							<th id="Start" style="width: 20%;">Start Date</th>
 							<th id="End" style="width: 20%;">End Date</th>

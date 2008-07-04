@@ -58,19 +58,19 @@ function EditSubmit ( selectedform )
 				</cfif>
 				
 				<cfform action="delAdministrator_action.cfm?lang=#lang#" method="post" name="delAdministratorConfirmForm">
-					<div align="center">
+					<div style="text-align:center;">
 						Are you sure you want to remove <cfoutput><strong>#getAdmin.UserName#</strong></cfoutput> from administration?
 						<br /><br />
 						<!---a href="javascript:EditSubmit('delAdministratorConfirmForm');" class="textbutton">Remove</a>
 						<a href="delAdministrator.cfm" class="textbutton">Back</a>
 						<a href="../menu.cfm?lang=#lang#" class="textbutton">Cancel</a--->
-						<input type="submit" value="Remove" class="textbutton">
-						<cfoutput><input type="button" value="Back" onClick="self.location.href='delAdministrator.cfm?lang=#lang#'" class="textbutton"></cfoutput>
-						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton"></cfoutput>
+						<input type="submit" value="Remove" class="textbutton" />
+						<cfoutput><input type="button" value="Back" onClick="self.location.href='delAdministrator.cfm?lang=#lang#'" class="textbutton" />
+						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" />
 				
 					</div>
 					
-					<input type="hidden" name="userID" value="<cfoutput>#form.UserID#</cfoutput>">
+					<input type="hidden" name="userID" value="<cfoutput>#form.UserID#</cfoutput>" />
 				</cfform>
 			
 			</div>

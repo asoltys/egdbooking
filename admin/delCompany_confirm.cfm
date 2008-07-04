@@ -109,7 +109,7 @@ function EditSubmit ( selectedform )
 						<strong>#getCompany.Name#</strong> cannot be deleted as it has the following confirmed bookings:
 						<br /><br />
 						<cfif getDockBookings.recordCount GT 0>
-							<table style="padding-left:20px;" width="100%">
+							<table style="padding-left:20px; width:100%;">
 							<tr><th id="drydock" align="left"><strong>Drydock</strong></th></tr>
 								<cfloop query="getDockBookings">
 									<cfif getDockBookings.Status EQ "C">
@@ -122,7 +122,7 @@ function EditSubmit ( selectedform )
 						<br />
 						</cfif>
 						<cfif getJettyBookings.recordCount GT 0>
-							<table style="padding-left:20px;" width="100%">
+							<table style="padding-left:20px;width:100%;" >
 							<tr><th id="jetties" align="left"><strong>Jetties</strong></th></tr>
 								<cfloop query="getJettyBookings">
 									<cfif getJettyBookings.Status EQ "C">
@@ -142,7 +142,7 @@ function EditSubmit ( selectedform )
 						<cfoutput>
 						<strong>#getCompany.Name#</strong> cannot be deleted as it is currently responsible for the following vessel(s):
 						<br /><br />
-						<table style="padding-left:20px;" width="100%">
+						<table style="padding-left:20px; width:100%;" >
 							<cfloop query="getVessels">
 								<tr>
 									<td>&nbsp;&nbsp;#name#</td>
@@ -157,7 +157,7 @@ function EditSubmit ( selectedform )
 						<cfoutput>
 						<strong>#getCompany.Name#</strong> cannot be deleted as it is currently the only company responsible for the following user(s):
 						<br /><br />
-						<table style="padding-left:20px;" width="100%">
+						<table style="padding-left:20px; width:100%;" >
 							<cfloop query="getCompanyUsers">
 								<tr>
 									<td>&nbsp;&nbsp;#userName#</td>
@@ -169,9 +169,9 @@ function EditSubmit ( selectedform )
 					</cfif>
 					
 					<cfoutput>
-					<div align="center">
-						<input type="button" value="Back" onClick="self.location.href='delCompany.cfm?lang=#lang#'" class="textbutton">
-						<input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton">
+					<div style="text-align:center;">
+						<input type="button" value="Back" onClick="self.location.href='delCompany.cfm?lang=#lang#'" class="textbutton" />
+						<input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
 					</div>
 					</cfoutput>
 					
@@ -180,16 +180,16 @@ function EditSubmit ( selectedform )
 					Are you sure you want to delete <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?
 					
 					<cfoutput>
-					<p><div align="center">
+					<p><div style="text-align:center;">
 					<!--a href="javascript:EditSubmit('delCompanyConfirmForm');" class="textbutton">Submit</a>
 					<a href="menu.cfm?lang=#lang#" class="textbutton">Cancel</a-->
-					<input type="submit" name="submitForm" class="textbutton" value="submit">
-					<input type="button" value="Back" onClick="self.location.href='delCompany.cfm?lang=#lang#'" class="textbutton">
-					<input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton">
+					<input type="submit" name="submitForm" class="textbutton" value="submit" />
+					<input type="button" value="Back" onClick="self.location.href='delCompany.cfm?lang=#lang#'" class="textbutton" />
+					<input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
 					</div></p>
 					</cfoutput>
 					
-					<input type="hidden" name="companyID" value="<cfoutput>#form.CompanyID#</cfoutput>">
+					<input type="hidden" name="companyID" value="<cfoutput>#form.CompanyID#</cfoutput>" />
 				
 				
 					<cfoutput>

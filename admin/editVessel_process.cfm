@@ -101,51 +101,51 @@
 						</tr>
 						<tr>
 							<td id="Name">Name:</td>
-							<td headers="Name"><input type="hidden" name="name" value="#Variables.Name#">#Variables.Name#</td>
+							<td headers="Name"><input type="hidden" name="name" value="#Variables.Name#" />
 						</tr>
 						<tr>
 							<td id="Lloyds">International Maritime Organization (I.M.O.) number:</td>
-							<td headers="Lloyds"><input type="hidden" name="LloydsID" value="#Variables.LloydsID#">#Variables.LloydsID#</td>
+							<td headers="Lloyds"><input type="hidden" name="LloydsID" value="#Variables.LloydsID#" />
 						</tr>
 						<tr>
 							<td id="Length">Length:</td>
-							<td headers="Length"><input type="hidden" name="length" value="#Variables.Length#">#Variables.Length#m</span></td>
+							<td headers="Length"><input type="hidden" name="length" value="#Variables.Length#" />
 						</tr>
 						<tr>
 							<td id="Width">Width:</td>
-							<td headers="Width"><input type="hidden" name="width" value="#Variables.Width#">#Variables.Width#m</span></td>
+							<td headers="Width"><input type="hidden" name="width" value="#Variables.Width#" />
 						</tr>
 						<tr>
 							<td id="Setup">Block Setup Time:</td>
-							<td headers="Setup"><input type="hidden" name="blocksetuptime" value="#Variables.Blocksetuptime#">#Variables.Blocksetuptime# days</td>
+							<td headers="Setup"><input type="hidden" name="blocksetuptime" value="#Variables.Blocksetuptime#" />
 						</tr>
 						<tr>
 							<td id="Teardown">Block Teardown Time:</td>
-							<td headers="Teardown"><input type="hidden" name="blockteardowntime" value="#Variables.Blockteardowntime#">#Variables.Blockteardowntime# days</td>
+							<td headers="Teardown"><input type="hidden" name="blockteardowntime" value="#Variables.Blockteardowntime#" />
 						</tr>
 						<tr>
 							<td id="Tonnage">Tonnage:</td>
-							<td headers="Tonnage"><input type="hidden" name="tonnage" value="#Variables.Tonnage#">#Variables.Tonnage#</td>
+							<td headers="Tonnage"><input type="hidden" name="tonnage" value="#Variables.Tonnage#" />
 						</tr>
 						<tr>
 							<td id="anonymous">Anonymous:</td>
-							<td headers="anonymous"><input type="hidden" name="Anonymous" value="#Variables.Anonymous#"><cfif Variables.Anonymous EQ 1>Yes<cfelse>No</cfif></td>
+							<td headers="anonymous"><input type="hidden" name="Anonymous" value="#Variables.Anonymous#" />
 						</tr>
 						<!---<tr>
 							<td id="EndHighlight">Highlight until:</td>
-							<td headers="EndHighlight"><input type="hidden" name="EndHighlight" value="#Variables.EndHighlight#"><cfif Variables.EndHighlight GTE PacificNow>#DateFormat(Variables.EndHighlight, "mmm dd, yyyy")#<cfelse>-</cfif></td>
+							<td headers="EndHighlight"><input type="hidden" name="EndHighlight" value="#Variables.EndHighlight#)" /><cfif Variables.EndHighlight GTE PacificNow>#DateFormat(Variables.EndHighlight, "mmm dd, yyyy"" />
 						</tr>--->
 						<tr>
 							<td colspan="2" align="center" style="padding-top:20px;">
-								<input type="hidden" name="vesselID" value="<cfoutput>#Form.vesselID#</cfoutput>">
-								<input type="hidden" name="companyID" value="<cfoutput>#Form.companyID#</cfoutput>">
+								<input type="hidden" name="vesselID" value="<cfoutput>#Form.vesselID#</cfoutput>" />
+								<input type="hidden" name="companyID" value="<cfoutput>#Form.companyID#</cfoutput>" />
 								<!---a href="javascript:document.editVessel.submitForm.click();" class="textbutton">Submit</a>
 								<a href="javascript:history.go(-1);" class="textbutton">Back</a>
 								<a href="menu.cfm?lang=#lang#" class="textbutton">Cancel</a>
 								<br--->
-								<input type="submit" value="Confirm" class="textbutton">
-								<input type="button" value="Back" onClick="self.location.href='editVessel.cfm?lang=#lang#'" class="textbutton">
-								<input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton">
+								<input type="submit" value="Confirm" class="textbutton" />
+								<input type="button" value="Back" onClick="self.location.href='editVessel.cfm?lang=#lang#'" class="textbutton" />
+								<input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
 							</td>
 						</tr>
 					</table>

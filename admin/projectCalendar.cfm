@@ -426,14 +426,14 @@ var params = {
 
 			<div class="screenonly">
 				<cfoutput>#Language.ScreenMessage#</cfoutput>
-				<div align="center"><a href="javascript:history.go(-1);" class="textbutton">Back to Date Selection</a> &nbsp;
+				<div style="text-align:center;"><a href="javascript:history.go(-1);" class="textbutton">Back to Date Selection</a> &nbsp;
 				<a href="javascript:self.close();" class="textbutton">Close this Window</a></div>
 				<br />
 			</div>
 	
 			<cfoutput>
 			
-			<table cellpadding="0" cellspacing="0" width="700">
+			<table cellpadding="0" cellspacing="0" style="width:700px;">
 				<thead>
 					<tr style="border-bottom: 1px solid ##888888; ">
 					<th style="background: White; border-right: 1px solid ##888888" colspan="2">&nbsp;</th>

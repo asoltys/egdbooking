@@ -83,14 +83,14 @@
 <!-- FIP HEADER BEGINS | DEBUT DE L'EN-TETE PCIM -->
 <CFIF lang EQ "eng">
 <div style="float:right; position:relative; z-index:1; height:33px;">
-	<IMG src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
+	<img src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
 </div>
-<A name="tphp" id="tphp"><IMG src="/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></A>
+<A name="tphp" id="tphp"><img src="/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></A>
 <CFELSE>
 <div style="float:right; position:relative; z-index:1; height:33px;">
-	<IMG src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbole du gouvernement du Canada" />
+	<img src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbole du gouvernement du Canada" />
 </div>
-<A name="tphp" id="tphp"><IMG src="/clf20/images/sig-fra.gif" width="364" height="33" alt="Travaux publics et Services gouvernementaux Canada" /></A>
+<A name="tphp" id="tphp"><img src="/clf20/images/sig-fra.gif" width="364" height="33" alt="Travaux publics et Services gouvernementaux Canada" /></A>
 </CFIF>
 <!-- FIP HEADER ENDS | FIN DE L'EN-TETE PCIM -->
 
@@ -162,10 +162,10 @@ function setDate(day) {
 	}
 /* ]]> */
 </script>
-<table class="calendar" cellpadding="2" cellspacing="0" width="100%">
+<table class="calendar" cellpadding="2" cellspacing="0" style="width:100%;">
 	<tr>
 		<td colspan="7">
-			<div align="center" style="font-weight: bold; font-size: 10pt;">
+			<div style="text-align:center;" style="font-weight: bold; font-size: 10pt;">
 			<CFSET dummydate = CreateDate(url.year, url.month, 1)>
 			<cfoutput>#LSDateFormat(dummydate, 'mmmm yyyy')#</cfoutput>
 			</div>
@@ -204,7 +204,7 @@ function setDate(day) {
 			<cfif (ThisDay IS NOT 0) AND (ThisDay LTE Days)>
 				<cfoutput>
 				<td>
-					<div align="center"><A href="javascript:setDate(#ThisDay#)">#ThisDay#</A></div>
+					<div style="text-align:center;"><A href="javascript:setDate(#ThisDay#)">#ThisDay#</A></div>
 				</td>
 				</cfoutput>
 				<cfset ThisDay=ThisDay + 1>

@@ -197,10 +197,10 @@ function EditSubmit ( selectedform )
 				<cfinclude template="#RootDir#reserve-book/includes/towerCheck.cfm">
 				<cfset Variables.spaceFound = findSpace(-1, #Variables.StartDate#, #Variables.EndDate#, #getVessel.Length#, #getVessel.Width#)>
 				<cfoutput>
-				<table width="100%" cellspacing="0" cellpadding="1" border="0">
+				<table style="width:100%;" cellspacing="0" cellpadding="1" border="0">
 				<tr>
 					<td>
-						<table width="100%" cellspacing="0" cellpadding="10" border="0">
+						<table style="width:100%;" cellspacing="0" cellpadding="10" border="0">
 						<tr>
 							<cfif NOT variables.spaceFound>
 								<td>#language.bookingConflicts#</td>
@@ -214,10 +214,10 @@ function EditSubmit ( selectedform )
 				</table>
 				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action.cfm?lang=#lang#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
 				<table align="center">
-					<tr><td align="right" width="40%"><div style="font-weight:bold;">#language.new#:</div></td></tr>
+					<tr><td align="right" style="width:40%;"><div style="font-weight:bold;">#language.new#:</div></td></tr>
 					<tr>
 						<td align="left" id="vessel">&nbsp;&nbsp;&nbsp;#language.vessel#:</td>
-						<td width="60%" headers="vessel"><input type="hidden" name="vesselID" value="#Variables.VesselID#" />#getVessel.VesselName#</td>
+						<td style="width:60%;" headers="vessel"><input type="hidden" name="vesselID" value="#Variables.VesselID#" />#getVessel.VesselName#</td>
 					</tr>
 					<tr>
 						<td align="left" id="Company">&nbsp;&nbsp;&nbsp;#language.Company#:</td>
@@ -225,15 +225,15 @@ function EditSubmit ( selectedform )
 					</tr>
 					<tr>
 						<td align="left" id="StartDate">&nbsp;&nbsp;&nbsp;#language.StartDate#:</td>
-						<td headers="StartDate"><input type="hidden" name="StartDate" value="#Variables.StartDate#">#LSDateFormat(Variables.StartDate, 'mmm d, yyyy')#</td>
+						<td headers="StartDate"><input type="hidden" name="StartDate" value="#Variables.StartDate#)" />#LSDateFormat(Variables.StartDate, 'mmm d, yyyy'" />
 					</tr>
 					<tr>
 						<td align="left" id="EndDate">&nbsp;&nbsp;&nbsp;#language.EndDate#:</td>
-						<td headers="EndDate"><input type="hidden" name="EndDate" value="#Variables.EndDate#">#LSDateFormat(Variables.EndDate, 'mmm d, yyyy')#</td>
+						<td headers="EndDate"><input type="hidden" name="EndDate" value="#Variables.EndDate#)" />#LSDateFormat(Variables.EndDate, 'mmm d, yyyy'" />
 					</tr>
 					<tr>
 						<td align="left" id="Status">&nbsp;&nbsp;&nbsp;#language.requestedStatus#:</td>
-						<td headers="Status"><input type="hidden" name="Status" value="#Form.Status#"><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></td>
+						<td headers="Status"><input type="hidden" name="Status" value="#Form.Status#"><cfif form.status eq "tentative" />
 					</tr>
 				</table>
 				<!---<cfif NOT Variables.spaceFound>
@@ -247,9 +247,9 @@ function EditSubmit ( selectedform )
 							<!---a href="javascript:EditSubmit('bookingreq');" class="textbutton">#language.confirm#</a>
 							<a href="resdemande-bookrequest.cfm?lang=<cfoutput>#lang#</cfoutput>" class="textbutton">#language.Cancel#</a>
 							<br--->
-							<input type="Submit" value="#language.Submit#" class="textbutton">
-							<input type="button" value="#language.Back#" class="textbutton" onClick="self.location.href='bookingRequest.cfm?lang=#lang#'">
-							<input type="button" value="#language.Cancel#" class="textbutton" onClick="self.location.href='bookingRequest_choose.cfm?lang=<cfoutput>#lang#</cfoutput>';">
+							<input type="submit" value="#language.Submit#" class="textbutton" />
+							<input type="button" value="#language.Back#" class="textbutton" onClick="self.location.href='bookingRequest.cfm?lang=#lang#'" />
+							<input type="button" value="#language.Cancel#" class="textbutton" onClick="self.location.href='bookingRequest_choose.cfm?lang=<cfoutput>#lang#</cfoutput>';" />
 							<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
 						</td>
 					</tr>

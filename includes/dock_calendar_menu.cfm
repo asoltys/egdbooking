@@ -37,7 +37,7 @@ function popUp(pageID) {
 </script>
 
 <cfoutput>
-<div align="center" style="font-size: 8pt; min-height: 20px; padding-top: 15px;">
+<div style="text-align:center;" style="font-size: 8pt; min-height: 20px; padding-top: 15px;">
 	<a href="calend-cale-dock.cfm?lang=#lang##datetoken#">#language.1monthCal#</a> |
 	<a href="calend-cale-dock-3m.cfm?lang=#lang##datetoken#">#language.3monthCal#</a> |
 <CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>

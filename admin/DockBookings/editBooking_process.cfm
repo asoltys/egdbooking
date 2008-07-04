@@ -204,12 +204,12 @@ function EditSubmit ( selectedform )
 			
 			<p>Please confirm the following information.</p>
 			<cfform action="editBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
-			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#"></cfoutput>
+			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 			<div style="font-weight:bold;">Booking:</div>
-			<table width="100%" align="center" style="padding-left:15px;">
+			<table style="width:100%; padding-left:15px;" align="center" >
 				<tr>
-					<td id="Vessel" align="left" width="20%">Vessel:</td>
-					<td headers="Vessel" width="80%"><cfoutput>#getData.VesselName#</cfoutput></td>
+					<td id="Vessel" align="left" style="width:20%;">Vessel:</td>
+					<td headers="Vessel" style="width:80%;"><cfoutput>#getData.VesselName#</cfoutput></td>
 				</tr>
 				<tr>
 					<td id="Company" align="left">Company:</td>
@@ -217,15 +217,15 @@ function EditSubmit ( selectedform )
 				</tr>		
 				<tr>
 					<td id="Agent" align="left">Agent:</td>
-					<td headers="Agent"><input type="hidden" name="userID" value="<cfoutput>#Variables.userID#</cfoutput>"><cfoutput>#getAgent.UserName#</cfoutput></td>
+					<td headers="Agent"><input type="hidden" name="userID" value="<cfoutput>#Variables.userID#</cfoutput>" />
 				</tr>
 				<tr>
 					<td id="Start" align="left">Start Date:</td>
-					<td headers="Start"><input type="hidden" name="StartDate" value="<cfoutput>#Variables.StartDate#</cfoutput>"><cfoutput>#DateFormat(Variables.StartDate, 'mmm d, yyyy')#</cfoutput></td>
+					<td headers="Start"><input type="hidden" name="StartDate" value="<cfoutput>#Variables.StartDate#</cfoutput>)" /><cfoutput>#DateFormat(Variables.StartDate, 'mmm d, yyyy'" />
 				</tr>
 				<tr>
 					<td id="End" align="left">End Date:</td>
-					<td headers="End"><input type="hidden" name="EndDate" value="<cfoutput>#Variables.EndDate#</cfoutput>"><cfoutput>#DateFormat(Variables.EndDate, 'mmm d, yyyy')#</cfoutput></td>
+					<td headers="End"><input type="hidden" name="EndDate" value="<cfoutput>#Variables.EndDate#</cfoutput>)" /><cfoutput>#DateFormat(Variables.EndDate, 'mmm d, yyyy'" />
 				</tr>
 				<tr>
 					<td id="bookingDate" align="left">Booking Time:</td>
@@ -249,16 +249,16 @@ function EditSubmit ( selectedform )
 				<tr>
 					<td id="Sections" align="left">Sections:</td>
 					<td headers="Sections">
-						<CFIF Variables.Section1>Section 1<input type="hidden" name="Section1" value="true"></CFIF>
-						<CFIF Variables.Section2><CFIF Variables.Section1> &amp; </CFIF>Section 2<input type="hidden" name="Section2" value="true"></CFIF>
-						<CFIF Variables.Section3><CFIF Variables.Section1 OR Variables.Section2> &amp; </CFIF>Section 3<input type="hidden" name="Section3" value="true"></CFIF>
+						<CFIF Variables.Section1>Section 1<input type="hidden" name="Section1" value="true" />
+						<CFIF Variables.Section2><CFIF Variables.Section1> &amp; </CFIF>Section 2<input type="hidden" name="Section2" value="true" />
+						<CFIF Variables.Section3><CFIF Variables.Section1 OR Variables.Section2> &amp; </CFIF>Section 3<input type="hidden" name="Section3" value="true" />
 					</td>
 				</tr>
 				</cfif>
 			</table>
 			
 			<br />
-			<table width="100%" cellspacing="0" cellpadding="1" border="0" align="center">
+			<table style="width:100%;" cellspacing="0" cellpadding="1" border="0" align="center">
 			
 			
 				<tr>
@@ -268,9 +268,9 @@ function EditSubmit ( selectedform )
 						<a href="javascript:history.go(-1);" class="textbutton">Back</a>
 						<cfoutput><a href="bookingmanage.cfm?#urltoken#" class="textbutton">Cancel</a></cfoutput>
 						<br--->
-						<input type="Submit" value="Confirm" class="textbutton">
-						<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='editBooking.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'"></cfoutput>
-						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'" class="textbutton"></cfoutput>
+						<input type="submit" value="Confirm" class="textbutton" />
+						<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='editBooking.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'" />
+						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'" class="textbutton" />
 						<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
 					</td>
 				</tr>

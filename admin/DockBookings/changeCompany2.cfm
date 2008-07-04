@@ -47,17 +47,17 @@ SELECT Name as CompanyDetail
 				<cfform action="changeCompany3.cfm" method="post">
 				<table>
 				  <tr>
-					<td><br /><cfinput type="Text" style="border:0; font-weight:bold" value="#vesselNameURL#" name="vesselNameURL" required="Yes" readonly="yes"><cfinput type="Text" style="border:0; color:##FFFFFF" value="#BookingIDURL#" name="BookingIDURL" required="Yes" readonly="yes"></td>
+					<td><br /><cfinput type="Text" style="border:0; font-weight:bold" value="#vesselNameURL#" name="vesselNameURL" required="Yes" readonly="yes"><cfinput type="Text" style="border:0; color:##FFFFFF" value="#BookingIDURL#" name="BookingIDURL" required="Yes" readonly="yes" /></td>
 				  </tr>
 				  <tr>
 					<td>
-				Original Company: <cfinput type="Text" style="border:0;" value="#CompanyURL#" name="CompanyURL" required="Yes" readonly="yes"></td>
+				Original Company: <cfinput type="Text" style="border:0;" value="#CompanyURL#" name="CompanyURL" required="Yes" readonly="yes" /></td>
 				  </tr>
 				  <tr>
-					<td>Original Agent: <cfinput type="Text" style="border:0;" value="#UserNameURL#" name="UserNameURL" required="Yes" readonly="yes"></td>
+					<td>Original Agent: <cfinput type="Text" style="border:0;" value="#UserNameURL#" name="UserNameURL" required="Yes" readonly="yes" /></td>
 				  </tr>
 						<tr>
-					<td><br />Change to Company: <cfoutput query="getCompanyDetail">#CompanyDetail#</cfoutput> <cfinput type="Text" style="border:0; color:##FFFFFF" value="#newCompanyID#" name="newCompanyID" required="Yes" readonly="yes"></td>
+					<td><br />Change to Company: <cfoutput query="getCompanyDetail">#CompanyDetail#</cfoutput> <cfinput type="Text" style="border:0; color:##FFFFFF" value="#newCompanyID#" name="newCompanyID" required="Yes" readonly="yes" /></td>
 				  </tr>
 				  <tr>
 					<td>Change to Agent: <cfselect name="newUserName" size="1" required="yes">
@@ -66,7 +66,7 @@ SELECT Name as CompanyDetail
 					  </cfoutput> </cfselect></td>
 				  </tr>
 				  <tr>
-					<td><input id="submit" type="submit" value="Submit"></td>
+					<td><input id="submit" type="submit" value="submit" />
 				  </tr>
 				</table>
 				</cfform>

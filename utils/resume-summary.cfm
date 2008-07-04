@@ -153,7 +153,7 @@ function popUp(pageID) {
 						<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
 							<!---td class="calendar">#VesselLength#M <CFIF Anonymous>Deapsea Vessel<CFELSE>#VesselName#</CFIF></td--->
 							<!---td headers="company" class="calendar">#abbreviation#</td--->
-							<td headers="section"><div align="center"><div align="center"><CFIF Status eq 'c'>
+							<td headers="section" style="text-align:center;"><CFIF Status eq 'c'>
 													<CFIF Section1 eq true>1</CFIF>
 													<CFIF Section2 eq true>
 														<CFIF Section1> &amp; </CFIF>
@@ -162,8 +162,7 @@ function popUp(pageID) {
 														<CFIF Section1 OR Section2> &amp; </CFIF>
 													3</CFIF>
 												<CFELSE>#language.tentative#
-												</CFIF>
-												</div></td>
+												</CFIF></td>
 							<td headers="docking">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 							<td headers="booking">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></td>
 						</tr>
@@ -190,7 +189,7 @@ function popUp(pageID) {
 						<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
 							<!---td class="calendar">#VesselLength#M <CFIF Anonymous eq true>Deapsea Vessel<CFELSE>#VesselName#</CFIF></td--->
 							<!---td headers="company2" class="calendar">#abbreviation#</td--->
-							<td headers="section2"><div align="center"><CFIF Status eq 'c'>#language.booked#
+							<td headers="section2"><div style="text-align:center;"><CFIF Status eq 'c'>#language.booked#
 														<CFELSEIF Status eq 't'>#language.tentative#
 														</CFIF></div></td>
 							<td headers="docking2">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
@@ -219,7 +218,7 @@ function popUp(pageID) {
 						<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
 							<!---td class="calendar">#VesselLength#M <CFIF Anonymous eq true>Deapsea Vessel<CFELSE>#VesselName#</CFIF></td--->
 							<!---td headers="company3" class="calendar">#abbreviation#</td--->
-							<td headers="section3"><div align="center"><CFIF Status eq 'c'>#language.booked#
+							<td headers="section3"><div style="text-align:center;"><CFIF Status eq 'c'>#language.booked#
 														<CFELSEIF Status eq 't'>#language.tentative#
 														<CFELSE>#language.pending#
 														</CFIF></div></td>

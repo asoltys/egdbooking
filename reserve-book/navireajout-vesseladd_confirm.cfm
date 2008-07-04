@@ -116,39 +116,39 @@
 				<table align="center">
 					<tr>
 						<td id="CompanyName">#language.CompanyName#:</td>
-						<td headers="CompanyName"><input type="hidden" name="CompanyID" value="#Variables.CompanyID#">#Variables.CompanyName#</td>
+						<td headers="CompanyName"><input type="hidden" name="CompanyID" value="#Variables.CompanyID#" />
 					</tr>
 					<tr>
 						<td id="vesselName">#language.vesselName#:</td>
-						<td headers="vesselName"><input type="hidden" name="name" value="#Variables.Name#">#Variables.Name#</td>
+						<td headers="vesselName"><input type="hidden" name="name" value="#Variables.Name#" />
 					</tr>
 					<tr>
 						<td id="Length">#language.Length#:</td>
-						<td headers="Length"><input type="hidden" name="length" value="#Variables.Length#">#Variables.Length# m</td>
+						<td headers="Length"><input type="hidden" name="length" value="#Variables.Length#" />
 					</tr>
 					<tr>
 						<td id="Width">#language.Width#:</td>
-						<td headers="Width"><input type="hidden" name="width" value="#Variables.Width#">#Variables.Width# m</td>
+						<td headers="Width"><input type="hidden" name="width" value="#Variables.Width#" />
 					</tr>
 					<tr>
 						<td id="BlockSetup">#language.BlockSetup# #language.days#:</td>
-						<td headers="BlockSetup"><input type="hidden" name="blocksetuptime" value="#Variables.BlockSetuptime#">#Variables.Blocksetuptime#</td>
+						<td headers="BlockSetup"><input type="hidden" name="blocksetuptime" value="#Variables.BlockSetuptime#" />
 					</tr>
 					<tr>
 						<td id="BlockTeardown">#language.BlockTeardown# #language.days#:</td>
-						<td headers="BlockTeardown"><input type="hidden" name="blockteardowntime" value="#Variables.Blockteardowntime#">#Variables.Blockteardowntime#</td>
+						<td headers="BlockTeardown"><input type="hidden" name="blockteardowntime" value="#Variables.Blockteardowntime#" />
 					</tr>
 					<tr>
 						<td id="LloydsID">#language.LloydsID#:</td>
-						<td headers="LloydsID"><input type="hidden" name="LloydsID" value="#Variables.LloydsID#">#Variables.LloydsID#</td>
+						<td headers="LloydsID"><input type="hidden" name="LloydsID" value="#Variables.LloydsID#" />
 					</tr>
 					<tr>
 						<td id="Tonnage">#language.Tonnage#:</td>
-						<td headers="Tonnage"><input type="hidden" name="tonnage" value="#Variables.Tonnage#">#Variables.Tonnage#</td>
+						<td headers="Tonnage"><input type="hidden" name="tonnage" value="#Variables.Tonnage#" />
 					</tr>
 					<tr>
 						<td id="anonymous">#language.anonymous#:</td>
-						<td headers="anonymous"><input type="hidden" name="Anonymous" value="#Variables.Anonymous#"><cfif Variables.Anonymous EQ 1>#language.Yes#<cfelse>#language.No#</cfif></td>
+						<td headers="anonymous"><input type="hidden" name="Anonymous" value="#Variables.Anonymous#" />
 					</tr>
 					<tr>
 						<td colspan="2" align="center" style="padding-top:20px;">
@@ -156,9 +156,9 @@
 							<a href="javascript:history.go(-1);" class="textbutton">#language.Back#</a>
 							<a href="reserve-booking.cfm?lang=#lang#&CompanyID=#CompanyID#" class="textbutton">#language.Cancel#</a>
 							<br--->
-							<input type="submit" name="submitForm" value="#language.Submit#" class="textbutton">
-							<input type="button" name="back" value="#language.Back#" onClick="self.location.href='addVessel.cfm?lang=#lang#&CompanyID=#CompanyID#'" class="textbutton">
-							<input type="button" name="cancel" value="#language.Cancel#" onClick="self.location.href='booking.cfm?lang=#lang#&CompanyID=#CompanyID#'" class="textbutton">
+							<input type="submit" name="submitForm" value="#language.Submit#" class="textbutton" />
+							<input type="button" name="back" value="#language.Back#" onClick="self.location.href='addVessel.cfm?lang=#lang#&CompanyID=#CompanyID#'" class="textbutton" />
+							<input type="button" name="cancel" value="#language.Cancel#" onClick="self.location.href='booking.cfm?lang=#lang#&CompanyID=#CompanyID#'" class="textbutton" />
 						</td>
 					</tr>
 				</table>

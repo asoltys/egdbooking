@@ -111,7 +111,7 @@
 			</table>
 
 			<br />
-			<div align="right">
+			<div style="text-align:right;">
 				<a class="textbutton" href="<cfoutput>updateFees.cfm?lang=#lang#</cfoutput>">update fees</a>
 				<a href="otherForms.cfm?lang=#lang#" class="textbutton">Back</a>
 			</div>

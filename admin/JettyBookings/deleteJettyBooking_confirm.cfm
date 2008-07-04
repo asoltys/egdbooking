@@ -80,36 +80,36 @@
 				</cfif>
 				
 				<cfform action="deleteJettyBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" name="delBookingConfirm">
-					<p><div align="center">Are you sure you want to <cfoutput>#variables.action#</cfoutput> the following booking?</div></p>
-					<input type="hidden" name="BookingID" value="<cfoutput>#variables.BookingID#</cfoutput>">
+					<p><div style="text-align:center;">Are you sure you want to <cfoutput>#variables.action#</cfoutput> the following booking?</div></p>
+					<input type="hidden" name="BookingID" value="<cfoutput>#variables.BookingID#</cfoutput>" />
 					<cfoutput query="getBooking">
-					<table align="center" style="padding-top:10px;" width="70%">
+					<table align="center" style="padding-top:10px;" style="width:70%;">
 						<tr>
-							<td id="Vessel" valign="top" width="25%" align="left">Vessel:</td>
+							<td id="Vessel" valign="top" style="width:25%;" align="left">Vessel:</td>
 							<td header="Vessel">#vesselName#</td>
 						</tr>
 						<tr>
-							<td id="Company" valign="top" width="25%" align="left">Company:</td>
-							<td header="Company" width="85%">#companyName#</td>
+							<td id="Company" valign="top" style="width:25%;" align="left">Company:</td>
+							<td header="Company" style="width:85%;">#companyName#</td>
 						</tr>
 						<tr>
-							<td id="Agent" valign="top" width="25%" align="left">Agent:</td>
+							<td id="Agent" valign="top" style="width:25%;" align="left">Agent:</td>
 							<td header="Agent">#UserName#</td>
 						</tr>
 						<tr>
-							<td id="Start" valign="top" width="25%" align="left">Start Date:</td>
+							<td id="Start" valign="top" style="width:25%;" align="left">Start Date:</td>
 							<td header="Start">#dateformat(startDate, "mmm d, yyyy")#</td>
 						</tr>
 						<tr>
-							<td id="End" valign="top" width="25%" align="left">End Date:</td>
+							<td id="End" valign="top" style="width:25%;" align="left">End Date:</td>
 							<td header="End">#dateformat(endDate, "mmm d, yyyy")#</td>
 						</tr>
 						<tr>
-							<td id="Days" valign="top" width="25%" align="left">## of Days:</td>
+							<td id="Days" valign="top" style="width:25%;" align="left">## of Days:</td>
 							<td header="Days">#datediff('d', startDate, endDate) + 1#</td>
 						</tr>
 						<tr>
-							<td id="Jetty" valign="top" width="25%" align="left">Jetty:</td>
+							<td id="Jetty" valign="top" style="width:25%;" align="left">Jetty:</td>
 							<td header="Jetty">
 								<CFIF NorthJetty>North Landing Wharf
 								<CFELSE>South Jetty
@@ -117,7 +117,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td id="Status" valign="top" width="25%" align="left">Status:</td>
+							<td id="Status" valign="top" style="width:25%;" align="left">Status:</td>
 							<td header="Status">
 								<cfif status EQ 'c'>
 									Confirmed
@@ -129,9 +129,9 @@
 					</table>
 					</cfoutput>
 					<br />
-					<div align="center">
-						<input type="submit" name="submitForm" class="textbutton" value="<cfoutput>#variables.action#</cfoutput> booking">
-						<cfoutput><input type="button" onClick="javascript:self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue####variables.bookingID#'" value="Back" class="textbutton"></cfoutput>
+					<div style="text-align:center;">
+						<input type="submit" name="submitForm" class="textbutton" value="<cfoutput>#variables.action#</cfoutput> booking" />
+						<cfoutput><input type="button" onClick="javascript:self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue####variables.bookingID#'" value="Back" class="textbutton" />
 					</div>
 				
 				</cfform>

@@ -89,35 +89,35 @@
 				<cfform action="deleteBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" name="delBookingConfirm">
 					<p align="center">Are you sure you want to <cfoutput>#variables.action#</cfoutput> the following booking?</p>
 					
-					<input type="hidden" name="BookingID" value="<cfoutput>#Variables.BookingID#</cfoutput>">
+					<input type="hidden" name="BookingID" value="<cfoutput>#Variables.BookingID#</cfoutput>" />
 					<cfoutput query="getBooking">
-					<table align="center" style="padding-top:10px;padding-bottom:10px;padding-left:30px;" width="70%">
+					<table align="center" style="padding-top:10px;padding-bottom:10px;padding-left:30px;" style="width:70%;">
 						<tr>
-							<td id="Company" valign="top" width="25%" align="left">Company:</td>
-							<td headers="Company" width="75%">#companyName#</td>
+							<td id="Company" valign="top" style="width:25%;" align="left">Company:</td>
+							<td headers="Company" style="width:75%;">#companyName#</td>
 						</tr>
 						<tr>
-							<td id="Agent" valign="top" width="15%" align="left">Agent:</td>
+							<td id="Agent" valign="top" style="width:15%;" align="left">Agent:</td>
 							<td headers="Agent">#UserName#</td>
 						</tr>
 						<tr>
-							<td id="Vessel" valign="top" width="15%" align="left">Vessel:</td>
+							<td id="Vessel" valign="top" style="width:15%;" align="left">Vessel:</td>
 							<td headers="Vessel">#vesselName#</td>
 						</tr>
 						<tr>
-							<td id="Start" valign="top" width="15%" align="left">Start Date:</td>
+							<td id="Start" valign="top" style="width:15%;" align="left">Start Date:</td>
 							<td headers="Start">#dateformat(startDate, "mmm d, yyyy")#</td>
 						</tr>
 						<tr>
-							<td id="End" valign="top" width="15%" align="left">End Date:</td>
+							<td id="End" valign="top" style="width:15%;" align="left">End Date:</td>
 							<td headers="End">#dateformat(endDate, "mmm d, yyyy")#</td>
 						</tr>
 						<tr>
-							<td id="Days" valign="top" width="15%" align="left">## of Days:</td>
+							<td id="Days" valign="top" style="width:15%;" align="left">## of Days:</td>
 							<td headers="Days">#datediff('d', startDate, endDate) + 1#</td>
 						</tr>
 						<tr>
-							<td id="Section" valign="top" width="15%" align="left">Section(s):</td>
+							<td id="Section" valign="top" style="width:15%;" align="left">Section(s):</td>
 							<td headers="Section">
 								<CFIF Section1>Section 1</CFIF>
 								<CFIF Section2><CFIF Section1> &amp; </CFIF>Section 2</CFIF>
@@ -126,7 +126,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td id="Status" valign="top" width="15%" align="left">Status:</td>
+							<td id="Status" valign="top" style="width:15%;" align="left">Status:</td>
 							<td headers="Status">
 								<cfif status EQ 'c'>
 									Confirmed
@@ -139,9 +139,9 @@
 						</tr>
 					</table>
 					<br />
-					<div align="center">
-						<input type="submit" name="submitForm" class="textbutton" value="#variables.action#">
-						<input type="button" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" value="Back" class="textbutton">
+					<div style="text-align:center;">
+						<input type="submit" name="submitForm" class="textbutton" value="#variables.action#" />
+						<input type="button" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" value="Back" class="textbutton" />
 					</div>
 				
 					</cfoutput>

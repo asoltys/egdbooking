@@ -101,33 +101,33 @@ function EditSubmit ( selectedform )
 					<cfinclude template="#RootDir#includes/getStructure.cfm"><br />
 				</cfif>
 				
-				<div align="left">
+				<div style="text-align:left;">
 					<cfform action="editUser.cfm?lang=#lang#" name="chooseUserForm" method="post">
 						<cfselect name="UserID" query="getUserList" value="UserID" display="UserName" selected="#form.userID#" />
 						<!--a href="javascript:EditSubmit('chooseUserForm');" class="textbutton">Edit</a-->
-						<input type="submit" name="submitForm" value="View" class="textbutton">
+						<input type="submit" name="submitForm" value="View" class="textbutton" />
 					</cfform>
 				</div>
 				
 				<cfform action="editUser_action.cfm?lang=#lang#" name="editUserForm" method="post">
-					<table align="center" width="81%">
+					<table align="center" style="width:81%;">
 						<tr>
 							<td colspan="2"><strong>Edit Profile:</strong></td>
 						</tr>
 						<tr>
 							<td id="First"><label for="firstName">First Name:</label></td>
-							<td headers="First"><cfinput name="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40" required="yes" id="firstName" CLASS="textField" message="Please enter a first name."></td>
+							<td headers="First"><cfinput name="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40" required="yes" id="firstName" CLASS="textField" message="Please enter a first name." /></td>
 						</tr>
 						<tr>
 							<td id="Last"><label for="lastName">Last Name:</label></td>
-							<td headers="Last"><cfinput name="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40" required="yes" id="lastName" CLASS="textField" message="Please enter a last name."></td>
+							<td headers="Last"><cfinput name="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40" required="yes" id="lastName" CLASS="textField" message="Please enter a last name." /></td>
 						</tr>
 						<tr>
 							<td id="Email">Read Only:</td>
 							<cfif #variables.ReadOnly# NEQ "1">
-							<td headers="ReadOnly"><cfinput type="radio" name="ReadOnly" value="0" checked>No<cfinput type="radio" name="ReadOnly" value="1">Yes
+							<td headers="ReadOnly"><cfinput type="radio" name="ReadOnly" value="0" checked>No<cfinput type="radio" name="ReadOnly" value="1" />Yes
 							<cfelse>
-							<td headers="ReadOnly"><cfinput type="radio" name="ReadOnly" value="0">No<cfinput type="radio" name="ReadOnly" value="1" checked>Yes
+							<td headers="ReadOnly"><cfinput type="radio" name="ReadOnly" value="0" />No<cfinput type="radio" name="ReadOnly" value="1" checked>Yes
 							</cfif>
 							</td>
 						</tr>
@@ -138,9 +138,9 @@ function EditSubmit ( selectedform )
 						<tr>
 							<td colspan="2" align="center">
 								<!--a href="javascript:document.editUserForm.submitForm.click();" class="textbutton">Submit</a-->
-								<!---<cfif isDefined("form.UserID")><cfoutput><input type="hidden" name="userId" value="#form.userID#"></cfoutput></cfif>--->
-								<cfoutput><input type="hidden" name="userID" value="#form.userID#"></cfoutput>
-								<input type="submit" value="Save Name Changes" class="textbutton">
+								<!---<cfif isDefined("form.UserID")><cfoutput><input type="hidden" name="userId" value="#form.userID#" />
+								<cfoutput><input type="hidden" name="userID" value="#form.userID#" />
+								<input type="submit" value="Save Name Changes" class="textbutton" />
 							</td>
 						</tr>
 						</table>
@@ -150,26 +150,26 @@ function EditSubmit ( selectedform )
 				
 				<cfoutput query="getUserCompanies">
 					<form method="post" action="removeUserCompany_confirm.cfm?lang=#lang#" name="remCompany#CompanyID#">
-						<input type="hidden" name="CompanyID" value="#CompanyID#">
-						<input type="hidden" name="userID" value="#form.userID#">
+						<input type="hidden" name="CompanyID" value="#CompanyID#" />
+						<input type="hidden" name="userID" value="#form.userID#" />
 					</form>
 				</cfoutput>
 				
-				<table align="center" width="81%">
+				<table align="center" style="width:81%;">
 				<tr>
 					<cfoutput><td valign="top"colspan="2"><cfif getUserCompanies.recordCount GT 1><strong>User Companies:</strong><cfelse><strong>User Company:</strong></cfif></td></cfoutput>
 				</tr>
 				<cfoutput query="getUserCompanies">
 					<tr>
-						<td id="#name#">&nbsp;</td><td width="50%" valign="top">#name#</td>
-						<td headers="#name#" align="right" valign="top" width="20%"><cfif getUserCompanies.recordCount GT 1><a href="javascript:EditSubmit('remCompany#CompanyID#');" class="textbutton">Remove</a></cfif></td>
-						<td headers="#name#" align="right" valign="top" width="30%"><cfif approved EQ 0><i>awaiting approval</i><cfelse>&nbsp;</cfif></td>
+						<td id="#name#">&nbsp;</td><td style="width:50%;" valign="top">#name#</td>
+						<td headers="#name#" align="right" valign="top" style="width:20%;"><cfif getUserCompanies.recordCount GT 1><a href="javascript:EditSubmit('remCompany#CompanyID#');" class="textbutton">Remove</a></cfif></td>
+						<td headers="#name#" align="right" valign="top" style="width:30%;"><cfif approved EQ 0><i>awaiting approval</i><cfelse>&nbsp;</cfif></td>
 					</tr>
 				</cfoutput>
 				</table>
 				
 				<cfform action="addUserCompany_action.cfm?lang=#lang#" name="addUserCompanyForm" method="post">
-					<table align="center" width="81%">
+					<table align="center" style="width:81%;">
 						<tr><td>&nbsp;</td></tr>
 						<tr>
 							<td colspan="2"><label for="companySelect">Add Company:</label></td>
@@ -186,8 +186,8 @@ function EditSubmit ( selectedform )
 								</cfselect>
 								<!--a href="javascript:document.addUserCompanyForm.submitForm.click();" class="textbutton">Add</a>
 								<br-->
-								<input type="submit" name="submitForm" value="Add" class="textbutton">
-								<cfoutput><input type="hidden" name="userID" value="#form.userID#"></cfoutput>
+								<input type="submit" name="submitForm" value="Add" class="textbutton" />
+								<cfoutput><input type="hidden" name="userID" value="#form.userID#" />
 								<br />
 								<cfoutput><font size="-2">If the desired company is not listed, click <a href="editUser_addCompany.cfm?lang=#lang#&userID=#form.userID#">here</a> to create one.</font></cfoutput>
 							</td>
@@ -198,30 +198,30 @@ function EditSubmit ( selectedform )
 				<hr width="65%" align="center"><br />
 				
 				<cfform action="changePassword.cfm?lang=#lang#" method="post" name="changePassForm">
-						<table align="center" width="81%">
+						<table align="center" style="width:81%;">
 						<tr>
 							<td colspan="2"><strong>Change Password:</strong></td>
 						</tr>
 						<tr>
 							<td id="Password"><label for="pass">Password <span class="smallFont">(*6 - 10 characters)</span>:</label></td>
-							<td headers="Password"><cfinput type="password" id="pass" name="password1" required="yes" size="25" maxlength="10" class="textField" message="Please enter a password."></td>
+							<td headers="Password"><cfinput type="password" id="pass" name="password1" required="yes" size="25" maxlength="10" class="textField" message="Please enter a password." /></td>
 						</tr>
 						<tr>
 							<td id="Repeat"><label for="repeatPass">Repeat Password:</label></td>
-							<td headers="Repeat"><cfinput type="password" id="repeatPass" name="password2" required="yes" size="25" maxlength="10" class="textField" message="Please repeat the password for verification."></td>
+							<td headers="Repeat"><cfinput type="password" id="repeatPass" name="password2" required="yes" size="25" maxlength="10" class="textField" message="Please repeat the password for verification." /></td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
 								<!--a href="javascript:document.changePassForm.submitForm.click();" class="textbutton">Submit</a>
 								<br-->
-								<input type="submit" value="Change Password" class="textbutton">
-								<cfoutput><input type="hidden" name="userID" value="#form.userID#"></cfoutput>
-								<!---<input type="button" value="Cancel" class="button" onClick="javascript:location.href='#RootDir#reserve-book-e.cfm'">--->
+								<input type="submit" value="Change Password" class="textbutton" />
+								<cfoutput><input type="hidden" name="userID" value="#form.userID#" />
+								<!---<input type="button" value="Cancel" class="button" onClick="javascript:location.href='#RootDir#reserve-book-e.cfm'" />
 							</td>
 						</tr>
 					</table>
 					<br />
-					<div align="right"><cfoutput><input type="button" name="cancel" value="Cancel" class="textbutton" onClick="self.location.href='../menu.cfm?lang=#lang#'"></cfoutput></div>
+					<div style="text-align:right;"><cfoutput><input type="button" name="cancel" value="Cancel" class="textbutton" onClick="self.location.href='../menu.cfm?lang=#lang#'" />
 				</cfform>
 				
 				<p><em>*Email notification of profile updates is automatically sent to the user after their password is changed or a company is added to their profile.</em></p>

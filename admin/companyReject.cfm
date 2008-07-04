@@ -49,7 +49,7 @@
 					
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				
-				<div class="content" align="center">
+				<div class="content" style="text-align:center;">
 					<p>Are you sure you want to reject <cfoutput><strong>#GetNewCompanies.Name#</strong></cfoutput>?<br />Rejecting this company will delete it from the system.</p><!---, along with the following users:</p>
 					<p>
 					<cfoutput query="GetUsers">
@@ -60,9 +60,9 @@
 					<p>
 					<cfoutput>
 					<form action="companyReject_action.cfm?lang=#lang#" method="post">
-						<input type="hidden" name="CompanyID" value="#Form.CompanyID#">
-						<input type="Submit" value="Reject" class="textbutton">
-						<input type="button" value="Cancel" class="textbutton" onClick="javascript:location.href='companyApprove.cfm?lang=#lang#'">
+						<input type="hidden" name="CompanyID" value="#Form.CompanyID#" />
+						<input type="submit" value="Reject" class="textbutton" />
+						<input type="button" value="Cancel" class="textbutton" onClick="javascript:location.href='companyApprove.cfm?lang=#lang#'" />
 					</form>
 					</cfoutput>
 					</p>

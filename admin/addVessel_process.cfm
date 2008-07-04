@@ -89,45 +89,45 @@
 					<table align="center">
 						<tr>
 							<td id="CompanyID">Company Name:</td>
-							<td headers="CompanyID"><input type="hidden" name="CompanyID" value="#Variables.CompanyID#">#Variables.CompanyName#</td>
+							<td headers="CompanyID"><input type="hidden" name="CompanyID" value="#Variables.CompanyID#" />
 						</tr>
 						<tr>
 							<td id="name">Name:</td>
-							<td headers="name"><input type="hidden" name="name" value="#Variables.Name#">#Variables.Name#</td>
+							<td headers="name"><input type="hidden" name="name" value="#Variables.Name#" />
 						</tr>
 						<tr>
 							<td id="LloydsID">Lloyds ID:</td>
-							<td headers="LloydsID"><input type="hidden" name="LloydsID" value="#Variables.LloydsID#">#Variables.LloydsID#</td>
+							<td headers="LloydsID"><input type="hidden" name="LloydsID" value="#Variables.LloydsID#" />
 						</tr>
 						<tr>
 							<td id="length">Length:</td>
-							<td headers="length"><input type="hidden" name="length" value="#Variables.Length#">#Variables.Length# m</span></td>
+							<td headers="length"><input type="hidden" name="length" value="#Variables.Length#" />
 						</tr>
 						<tr>
 							<td id="width">Width:</td>
-							<td headers="width"><input type="hidden" name="width" value="#Variables.Width#">#Variables.Width# m</span></td>
+							<td headers="width"><input type="hidden" name="width" value="#Variables.Width#" />
 						</tr>
 						<tr>
 							<td id="blocksetuptime">Block Setup Time:</td>
-							<td headers="blocksetuptime"><input type="hidden" name="blocksetuptime" value="#Variables.BlockSetuptime#">#Variables.Blocksetuptime# days</td>
+							<td headers="blocksetuptime"><input type="hidden" name="blocksetuptime" value="#Variables.BlockSetuptime#" />
 						</tr>
 						<tr>
 							<td id="blockteardowntime">Block Teardown Time:</td>
-							<td headers="blockteardowntime"><input type="hidden" name="blockteardowntime" value="#Variables.Blockteardowntime#">#Variables.Blockteardowntime# days</td>
+							<td headers="blockteardowntime"><input type="hidden" name="blockteardowntime" value="#Variables.Blockteardowntime#" />
 						</tr>
 						<tr>
 							<td id="tonnage">Tonnage:</td>
-							<td headers="tonnage"><input type="hidden" name="tonnage" value="#Variables.Tonnage#">#Variables.Tonnage#</td>
+							<td headers="tonnage"><input type="hidden" name="tonnage" value="#Variables.Tonnage#" />
 						</tr>
 						<tr>
 							<td id="Anonymous">Anonymous:</td>
-							<td headers="Anonymous"><input type="hidden" name="Anonymous" value="#Variables.Anonymous#"><cfif Variables.Anonymous EQ 1>Yes<cfelse>No</cfif></td>
+							<td headers="Anonymous"><input type="hidden" name="Anonymous" value="#Variables.Anonymous#" />
 						</tr>
 						<tr>
 							<td colspan="2" align="center" style="padding-top:20px;">
-								<input type="submit" value="Submit" class="textbutton">
-								<input type="button" onClick="javascript:self.location.href='addVessel.cfm?lang=#lang#'" value="Back" class="textbutton">
-								<input type="button" onClick="javascript:self.location.href='menu.cfm?lang=#lang#'" value="Cancel" class="textbutton">
+								<input type="submit" value="submit" class="textbutton" />
+								<input type="button" onClick="javascript:self.location.href='addVessel.cfm?lang=#lang#'" value="Back" class="textbutton" />
+								<input type="button" onClick="javascript:self.location.href='menu.cfm?lang=#lang#'" value="Cancel" class="textbutton" />
 							</td>
 						</tr>
 					</table>

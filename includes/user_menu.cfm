@@ -59,15 +59,22 @@ function checkIt() {
 <cffile action="read" file="#FileDir#intromsg.txt" variable="intromsg">
 <cfif #Trim(intromsg)# EQ "">
 <cfelse>
+	<cfscript>
+		function FormatParagraph(txt) {
+			var temp = ReReplace(Trim(txt), '\r\n\r\n', '</p><p>', 'all');
+			temp = '<p>' & ReReplace(temp, '\r\n', '<br />', 'all') & '</p>';
+			temp=Replace(temp, '</p>', '</p>#Chr(10)##Chr(13)#', 'all');
+			temp=Replace(temp, '<br />', '<br />#Chr(10)##Chr(13)#', 'all');
+			return temp;
+		}
+	</cfscript>
 	<div class="notice">
 	<h2>Notice</h2>
-	<cfoutput>#paragraphformat(intromsg)#</cfoutput>
+	<cfoutput>#FormatParagraph(intromsg)#</cfoutput>
 	</div>
 </cfif>
 
-
-  
-<div align="center" style="min-height: 30px; ">
+<div style="min-height:30px; text-align:center;">
 <cfoutput>
 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton">#language.BookingHomeButton#</a>
 <script type="text/javascript">

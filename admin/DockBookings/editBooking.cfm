@@ -168,23 +168,23 @@ function EditSubmit ( selectedform )
 				
 				<cfoutput query="getBooking">
 					<form method="post" action="chgStatus_2c.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2c#BookingID#" style="margin: 0; padding: 0; ">
-						<input type="hidden" name="BookingID" value="#BookingID#">
+						<input type="hidden" name="BookingID" value="#BookingID#" />
 					</form>
 					
 					<form method="post" action="chgStatus_2p.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2p#BookingID#" style="margin: 0; padding: 0; ">
-						<input type="hidden" name="BookingID" value="#BookingID#">
+						<input type="hidden" name="BookingID" value="#BookingID#" />
 					</form>
 					
 					<form method="post" action="chgStatus_2t.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2t#BookingID#" style="margin: 0; padding: 0; ">
-						<input type="hidden" name="BookingID" value="#BookingID#">
+						<input type="hidden" name="BookingID" value="#BookingID#" />
 					</form>
 				</cfoutput>
 				
 				<cfform action="editBooking_process.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" method="post" enablecab="No" name="editBookingForm" preservedata="Yes">
 				<cfoutput>
-				<input type="hidden" name="BookingID" value="#Variables.BookingID#">
+				<input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 				
-				<table width="100%">
+				<table style="width:100%;">
 					<tr>
 						<td id="Vessel">Vessel:</td>
 						<td headers="Vessel">#getBooking.vesselName#</td>
@@ -206,7 +206,7 @@ function EditSubmit ( selectedform )
 						<td headers="Start">
 							<cfoutput>
 							<!---input class="textField" type="Text" name="startDateShow" id="start" disabled value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17"--->
-							<cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'editBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'editBookingForm', #Variables.bookingLen#)"> #language.dateform#</cfoutput>
+							<cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'editBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'editBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 							<a href="javascript:void(0);" onclick="javascript:getCalendar('editBookingForm', 'start')" class="textbutton">calendar</a>
 							<!---a href="javascript:void(0);" onClick="javascript:document.bookingreq.startDateShow.value=''; document.editBookingForm.startDate.value='';" class="textbutton">clear</a--->
 						</td>
@@ -216,7 +216,7 @@ function EditSubmit ( selectedform )
 						<td headers="End">
 							<cfoutput>
 							<!---input type="text" name="endDateShow" id="end" class="textField" disabled value="#DateFormat(endDate, 'mmm d, yyyy')#" size="17"---> 
-							<cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" onChange="setEarlierDate('self', 'editBookingForm', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'editBookingForm', #Variables.bookingLen#)"> #language.dateform#</cfoutput>
+							<cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" onChange="setEarlierDate('self', 'editBookingForm', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'editBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 							<a href="javascript:void(0);" onclick="javascript:getCalendar('editBookingForm', 'end')" class="textbutton">calendar</a>
 							<!---a href="javascript:void(0);" onClick="javascript:document.editBookingForm.startDateShow.value=''; document.editBookingForm.startDate.value='';" class="textbutton">clear</a--->
 						</td>
@@ -225,8 +225,8 @@ function EditSubmit ( selectedform )
 						<td id="bookingDT">Booking Time:</td>
 						<td headers="bookingDT">
 							<cfoutput>
-								<cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" class="textField">
-								<cfinput name="bookingTime" type="text" value="#TimeFormat(Variables.TheBookingTime, 'HH:mm:ss')#" size="5" maxlength="8" required="yes" message="Please enter a valid booking time." validate="time" class="textField">
+								<cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" class="textField" />
+								<cfinput name="bookingTime" type="text" value="#TimeFormat(Variables.TheBookingTime, 'HH:mm:ss')#" size="5" maxlength="8" required="yes" message="Please enter a valid booking time." validate="time" class="textField" />
 							</cfoutput>
 							<a href="javascript:void(0);" onclick="javascript:getCalendar('editBookingForm', 'booking')" class="textbutton">calendar</a>
 						</td>
@@ -272,11 +272,11 @@ function EditSubmit ( selectedform )
 					</tr>
 				</table>
 				
-				<table width="100%">
+				<table style="width:100%;">
 					<cfif getBooking.Status EQ 'c'>
 					<tr><td colspan="2">Please choose the sections of the dock that you wish to book</td></tr>
 					<tr>
-						<td id="Section1_header" width="25%" align="right">&nbsp;&nbsp;&nbsp;<label for="Section1">Section 1</label></td>
+						<td id="Section1_header" style="width:25%;" align="right">&nbsp;&nbsp;&nbsp;<label for="Section1">Section 1</label></td>
 						<td headers="Section1_header"><input type="Checkbox" id="Section1" name="Section1" <cfoutput>#Variables.Section1#</cfoutput>></td>
 					</tr>
 					<tr>
@@ -291,8 +291,8 @@ function EditSubmit ( selectedform )
 					<tr>
 						<td colspan="2" align="center">
 							<!--a href="javascript:document.editBookingForm.submitForm.click();" class="textbutton">Submit</a-->
-							<input type="submit" class="textbutton" value="submit">
-							<input type="button" value="Cancel" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue#'" class="textbutton">
+							<input type="submit" class="textbutton" value="submit" />
+							<input type="button" value="Cancel" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue#'" class="textbutton" />
 							<!--- <a href="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" class="textbutton">Cancel</a> --->
 						</td>
 					</tr>
@@ -301,15 +301,15 @@ function EditSubmit ( selectedform )
 				</cfform>
 				<!--- <cfoutput>
 				<form method="post" action="chgStatus_2c.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" name="chgStatus_2c#BookingID#">
-					<input type="hidden" name="BookingID" value="#BookingID#">
+					<input type="hidden" name="BookingID" value="#BookingID#" />
 				</form>
 				
 				<form method="post" action="chgStatus_2p.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" name="chgStatus_2p#BookingID#">
-					<input type="hidden" name="BookingID" value="#BookingID#">
+					<input type="hidden" name="BookingID" value="#BookingID#" />
 				</form>
 				
 				<form method="post" action="chgStatus_2t.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" name="chgStatus_2t#BookingID#">
-					<input type="hidden" name="BookingID" value="#BookingID#">
+					<input type="hidden" name="BookingID" value="#BookingID#" />
 				</form>
 				</cfoutput> --->
 			</div>

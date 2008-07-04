@@ -172,12 +172,12 @@
 				
 				<p>Please confirm the following information.</p>
 				<cfform action="editJettyBooking_action.cfm?#urltoken#&BookingID=#form.BookingID#&editStart=#form.startDate#&editEnd=#form.endDate#&jetty=#form.jetty#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
-				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#"></cfoutput>
+				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 				<div style="font-weight:bold;">Booking:</div>
-				<table width="100%" align="center" style="padding-left:15px;">
+				<table style="width:100%; padding-left:15px;" align="center" >
 					<tr>
-						<td id="Vessel" align="left" width="20%">Vessel:</td>
-						<td headers="Vessel" width="80%"><cfoutput>#getData.VesselName#</cfoutput></td>
+						<td id="Vessel" align="left" style="width:20%;">Vessel:</td>
+						<td headers="Vessel" style="width:80%;"><cfoutput>#getData.VesselName#</cfoutput></td>
 					</tr>
 					<tr>
 						<td id="Company" align="left">Company:</td>
@@ -185,15 +185,15 @@
 					</tr>			
 					<tr>
 						<td id="Agent" align="left">Agent:</td>
-						<td headers="Agent"><input type="hidden" name="userID" value="<cfoutput>#Variables.userID#</cfoutput>"><cfoutput>#getAgent.UserName#</cfoutput></td>
+						<td headers="Agent"><input type="hidden" name="userID" value="<cfoutput>#Variables.userID#</cfoutput>" />
 					</tr>
 					<tr>
 						<td id="Start" align="left">Start Date:</td>
-						<td headers="Start"><input type="hidden" name="StartDate" value="<cfoutput>#Variables.StartDate#</cfoutput>"><cfoutput>#DateFormat(Variables.StartDate, 'mmm d, yyyy')#</cfoutput></td>
+						<td headers="Start"><input type="hidden" name="StartDate" value="<cfoutput>#Variables.StartDate#</cfoutput>)" /><cfoutput>#DateFormat(Variables.StartDate, 'mmm d, yyyy'" />
 					</tr>
 					<tr>
 						<td id="End" align="left">End Date:</td>
-						<td headers="End"><input type="hidden" name="EndDate" value="<cfoutput>#Variables.EndDate#</cfoutput>"><cfoutput>#DateFormat(Variables.EndDate, 'mmm d, yyyy')#</cfoutput></td>
+						<td headers="End"><input type="hidden" name="EndDate" value="<cfoutput>#Variables.EndDate#</cfoutput>)" /><cfoutput>#DateFormat(Variables.EndDate, 'mmm d, yyyy'" />
 					</tr>
 					<tr>
 						<td id="bookingDate" align="left">Booking Time:</td>
@@ -226,27 +226,27 @@
 				</table>
 				
 				<br />
-				<div align="center">
-						<input type="Submit" value="Confirm" class="textbutton">
+				<div style="text-align:center;">
+						<input type="submit" value="Confirm" class="textbutton" />
 				
 					<!----cfform name="backForm" action="editJettybooking.cfm?lang=#lang#">
 						<cfoutput>
-							<input type="hidden" name="vesselID" value="#getData.vesselID#">
-							<input type="hidden" name="userID" value="#form.userID#">
-							<input type="hidden" name="startDate" value="#form.startDate#">
-							<input type="hidden" name="endDate" value="#form.endDate#">
-							<input type="hidden" name="jetty" value="#form.jetty#">
+							<input type="hidden" name="vesselID" value="#getData.vesselID#" />
+							<input type="hidden" name="userID" value="#form.userID#" />
+							<input type="hidden" name="startDate" value="#form.startDate#" />
+							<input type="hidden" name="endDate" value="#form.endDate#" />
+							<input type="hidden" name="jetty" value="#form.jetty#" />
 							<cfif isDefined("form.Confirmed")>
-								<input type="hidden" name="confirmed" value="#form.confirmed#">
+								<input type="hidden" name="confirmed" value="#form.confirmed#" />
 							<cfelse>
-								<input type="hidden" name="confirmed" value="off">
+								<input type="hidden" name="confirmed" value="off" />
 							</cfif>
-							<input type="hidden" name="companyID" value="#form.companyID#">
-							<input type="submit" value="Back" class="textbutton">
+							<input type="hidden" name="companyID" value="#form.companyID#" />
+							<input type="submit" value="Back" class="textbutton" />
 						</cfoutput>
 					</cfform---->
-						<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='editJettyBooking.cfm?#urltoken#&bookingID=#form.bookingID##variables.dateValue#';"></cfoutput>
-						<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#form.bookingID##variables.dateValue####form.bookingID#';"></cfoutput>
+						<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='editJettyBooking.cfm?#urltoken#&bookingID=#form.bookingID##variables.dateValue#';" />
+						<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#form.bookingID##variables.dateValue####form.bookingID#';" />
 						<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
 				</div>
 				</cfform>

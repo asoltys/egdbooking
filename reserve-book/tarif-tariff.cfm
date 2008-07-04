@@ -98,8 +98,8 @@
 				<p align="center" style="font-weight:bold;">#getDetails.CompanyName#: #getDetails.VesselName#<br />
 				#DateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#</p>
 					<p align="left">#language.optional#</p>
-					<div align="center">
-						<input type="button" value="#language.later#" class="textbutton" onClick="javascript:self.location.href='otherForms.cfm?lang=#lang#';">
+					<div style="text-align:center;">
+						<input type="button" value="#language.later#" class="textbutton" onClick="javascript:self.location.href='otherForms.cfm?lang=#lang#';" />
 					</div>
 				</cfoutput>
 				<br />
@@ -114,7 +114,7 @@
 					</tr>
 				
 					<tr>
-						<td id="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="Checkbox" onClick="if (this.checked) this.form.otherBox.focus();"></td>
+						<td id="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="Checkbox" onClick="if (this.checked) this.form.otherBox.focus();" />
 						<td id="itemHeader" align="center" valign="top">&nbsp;</td>
 						<td id="serviceHeader" align="left" valign="top">
 							<table>
@@ -139,7 +139,7 @@
 					<tr class="#rowClass#">
 						<td id="checkHeader" align="right" valign="top">
 							<cfif fee NEQ "">
-								<input name="#abbreviation#" id="#abbreviation#" type="Checkbox">
+								<input name="#abbreviation#" id="#abbreviation#" type="Checkbox" />
 							</cfif>
 						</td>
 						<td headers="itemHeader" align="center" valign="top">
@@ -172,10 +172,10 @@
 				</table>
 				
 				<cfoutput>
-				<input type="hidden" name="bookingID" value="#url.bookingID#">
-				<p><div align="right">
-					<input type="submit" value="#language.Submit#" class="textbutton">
-					<!---<input type="button" onClick="javascript:self.location.href='javascript:history.go(-1);'" value="#language.Back#" class="textbutton">--->
+				<input type="hidden" name="bookingID" value="#url.bookingID#" />
+				<p><div style="text-align:right;">
+					<input type="submit" value="#language.Submit#" class="textbutton" />
+					<!---<input type="button" onClick="javascript:self.location.href='javascript:history.go(-1);'" value="#language.Back#" class="textbutton" />
 				</div></p>
 				</cfoutput>
 				</cfform>

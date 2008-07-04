@@ -141,24 +141,24 @@ function EditSubmit ( selectedform )
 				
 				<cfoutput>
 				<cfform action="#RootDir#reserve-book/profilmod-profileedit_action.cfm?lang=#lang#" name="editUserForm" method="post">
-				<table align="center" width="81%">
+				<table align="center" style="width:81%;">
 				<tr>
 					<td colspan="2"><strong>#language.EditProfile#:</strong></td>
 				</tr>
 				<tr>
 					<td id="first"><label for="firstName">#language.FirstName#:</label></td>
-					<td headers="first"><cfinput name="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40" required="yes" id="firstName" CLASS="textField" message="#language.firstNameError#"></td>
+					<td headers="first"><cfinput name="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40" required="yes" id="firstName" CLASS="textField" message="#language.firstNameError#" /></td>
 				</tr>
 				<tr>
 					<td id="last"><label for="lastName">#language.LastName#:</label></td>
-					<td headers="last"><cfinput name="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40" required="yes" id="lastName" CLASS="textField" message="#language.lastNameError#"></td>
+					<td headers="last"><cfinput name="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40" required="yes" id="lastName" CLASS="textField" message="#language.lastNameError#" /></td>
 				</tr>
 				<tr>
 					<td id="email">#language.Email#:</td>
 					<td headers="email">#variables.email#</td>
 				</tr>
 				<tr>
-					<td colspan="2" align="center"><input type="submit" name="submitForm" value="#language.saveName#" class="textbutton">
+					<td colspan="2" align="center"><input type="submit" name="submitForm" value="#language.saveName#" class="textbutton" />
 				</tr>
 				</table>
 				</cfform>
@@ -166,22 +166,22 @@ function EditSubmit ( selectedform )
 				
 				<hr width="65%" align="center"><br />
 				
-				<table align="center" width="81%">
+				<table align="center" style="width:81%;">
 				<tr>
 					<cfoutput><td valign="top"colspan="2"><cfif getUserCompanies.recordCount GT 1><strong>#language.yourCompanies#:</strong><cfelse><strong>#language.yourCompany#:</strong></cfif></td></cfoutput>
 				</tr>
 				<cfoutput query="getUserCompanies">
 					<tr>
-						<td width="3%">&nbsp;</td><td width="50%" valign="top">#name#</td>
-						<td align="right" valign="top" width="17%">
+						<td style="width:3%;">&nbsp;</td><td style="width:50%;" valign="top">#name#</td>
+						<td align="right" valign="top" style="width:17%;">
 							<form method="post" action="#RootDir#reserve-book/entrpsup-comprem_confirm.cfm?lang=#lang#" name="remCompany#CompanyID#" id="remCompany#CompanyID#">
-								<input type="hidden" name="CompanyID" value="#CompanyID#">
+								<input type="hidden" name="CompanyID" value="#CompanyID#" />
 								<cfif getUserCompanies.recordCount GT 1>
 									<a href="javascript:EditSubmit('remCompany#CompanyID#');" class="textbutton">#language.Remove#</a>
 								</cfif>
 							</form>
 						</td>
-						<td align="right" valign="top" width="30%"><cfif approved EQ 0><em class="smallFont">#language.awaitingApproval#</em><cfelse>&nbsp;</cfif></td>
+						<td align="right" valign="top" style="width:30%;"><cfif approved EQ 0><em class="smallFont">#language.awaitingApproval#</em><cfelse>&nbsp;</cfif></td>
 					</tr>
 				</cfoutput>
 				</table>
@@ -190,20 +190,20 @@ function EditSubmit ( selectedform )
 				
 				<cfoutput>
 					<cfform action="#RootDir#reserve-book/passechange.cfm?lang=eng" method="post" name="changePassForm">
-					<table align="center" width="81%">
+					<table align="center" style="width:81%;">
 					<tr>
 						<td colspan="2"><strong>#language.ChangePassword#:</strong></td>
 					</tr>
 					<tr>
 						<td id="pass1"><label for="password">#language.Password# <span class="smallFont">(*6 - 10 #language.characters#)</span>:</label></td>
-						<td headers="pass1"><cfinput type="password" id="password" name="password1" required="yes" size="25" maxlength="10" class="textField" message="#language.password1Error#"></td>
+						<td headers="pass1"><cfinput type="password" id="password" name="password1" required="yes" size="25" maxlength="10" class="textField" message="#language.password1Error#" /></td>
 					</tr>
 					<tr>
 						<td id="pass2"><label for="password2">#language.RepeatPassword#:</label></td>
-						<td headers="pass2"><cfinput type="password" id="password2" name="password2" required="yes" size="25" maxlength="10" class="textField" message="#language.password2Error#"></td>
+						<td headers="pass2"><cfinput type="password" id="password2" name="password2" required="yes" size="25" maxlength="10" class="textField" message="#language.password2Error#" /></td>
 					</tr>
 					<tr>
-						<td colspan="2" align="center"><input type="submit" name="submitForm" value="#language.ChangePassword#" class="textbutton">
+						<td colspan="2" align="center"><input type="submit" name="submitForm" value="#language.ChangePassword#" class="textbutton" />
 					</tr>
 					</table>
 					</cfform>

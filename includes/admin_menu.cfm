@@ -21,7 +21,7 @@ function checkIt() {
 	<CFSET variables.datetoken = variables.datetoken & "&year=#url.year#">
 </CFIF>
 
-<div align="center" style="min-height: 30px;">
+<div style="min-height:30px; text-align:center;">
 <cfoutput>
 <a href="#RootDir#admin/menu.cfm?lang=#lang#" class="textbutton">Admin Home</a>
 <script type="text/javascript">

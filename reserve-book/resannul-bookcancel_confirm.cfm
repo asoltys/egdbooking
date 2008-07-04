@@ -89,11 +89,11 @@
 				
 				<cfoutput>
 				<p align="center">#language.areYouSure# <strong>#getBooking.VesselName#</strong> #language.from# #LSDateFormat(getBooking.StartDate, 'mmm d, yyyy')# #language.to# #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')#?</p>
-				<div align="center">
+				<div style="text-align:center;">
 					<CFFORM action="#RootDir#reserve-book/resannul-bookcancel_action.cfm?lang=#lang#&CompanyID=#getBooking.CompanyID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#&jetty=#url.jetty#" name="cancelBooking">
-						<input type="hidden" name="BookingID" value="#url.bookingID#">
-						<input type="submit" value="#language.Continue#" class="textbutton">
-						<input type="button" onClick="self.location.href='#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#">
+						<input type="hidden" name="BookingID" value="#url.bookingID#" />
+						<input type="submit" value="#language.Continue#" class="textbutton" />
+						<input type="button" onClick="self.location.href='#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#" />
 					</CFFORM>
 				</div>
 				</cfoutput>

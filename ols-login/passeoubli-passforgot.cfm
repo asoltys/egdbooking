@@ -58,20 +58,20 @@
 						<br />
 					</cfif>
 
-					<div align="center">#language.enterEmail#<br />#language.getPassword#</div><br />
+					<div style="text-align:center;">#language.enterEmail#<br />#language.getPassword#</div><br />
 	
 					<cfform action="passeoubli-passforgot_action.cfm?lang=#lang#" name="forgotForm">
 						<table align="center">
 							<tr>
-								<td><label for="email">#language.Email#:</label>&nbsp;&nbsp;<cfinput class="textField" type="Text" name="email" id="email" size="30" validate="regular_expression" pattern=".+@.+..+"  message="#language.emailError#"></td>
+								<td><label for="email">#language.Email#:</label>&nbsp;&nbsp;<cfinput class="textField" type="Text" name="email" id="email" size="30" validate="regular_expression" pattern=".+@.+..+"  message="#language.emailError#" /></td>
 							</tr>
 							<tr>
-								<td align="right"><input type="Submit" value="#language.Submit#" class="textbutton"></td>
+								<td align="right"><input type="submit" value="#language.Submit#" class="textbutton" />
 							</tr>
 						</table>
 					</cfform>
 	
-					<div align="center"><a href="ols-login.cfm?lang=#lang#">#language.returnlogin#</a></div>
+					<div style="text-align:center;"><a href="ols-login.cfm?lang=#lang#">#language.returnlogin#</a></div>
 				</cfoutput>
 				</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->

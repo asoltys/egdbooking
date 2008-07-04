@@ -114,9 +114,9 @@ var params = {
 					<cfoutput>#getCompany.Name# <CFIF IsDefined('getCompany.Approved') AND getCompany.Approved neq '' AND getCompany.Approved>(#getCompany.Abbreviation#)</CFIF></cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
-<table width="80%" align="center" border="0" cellpadding="0" cellspacing="0">
+<table style="width:80%;" align="center" border="0" cellpadding="0" cellspacing="0">
 	<tr>
-		<cfoutput><td id="addy1" width="30%" valign="top">#language.address#:</td>
+		<cfoutput><td id="addy1" style="width:30%;" valign="top">#language.address#:</td>
 		<td headers="addy1">
 			#getCompany.Address1#<CFIF getCompany.Address2 neq ""><br />
 			#getCompany.Address2#</CFIF><br />
@@ -142,7 +142,7 @@ var params = {
 	</CFIF>
 </table>
 <br />
-<div align="center"><a href="javascript: self.close();" class="textbutton">close</a></div>
+<div style="text-align:center;"><a href="javascript: self.close();" class="textbutton">close</a></div>
 
 <br />
 			<!-- FOOTER BEGINS | DEBUT DU PIED DE LA PAGE -->

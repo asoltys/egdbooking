@@ -79,7 +79,7 @@ function EditSubmit ( selectedform )
 				</cfif>
 
 				<cfform action="delUser_confirm.cfm?lang=#lang#" method="post" name="delUserForm">
-				<table width="100%">
+				<table style="width:100%;">
 					<tr>
 						<td>Company:</td>
 						<td>
@@ -107,8 +107,8 @@ function EditSubmit ( selectedform )
 					<!--a href="javascript:EditSubmit('delUserForm');" class="textbutton">Submit</a-->
 					<tr><td>&nbsp;</td></tr>
 					<tr><td colspan="2" align="center">
-						<input type="submit" name="submitForm" value="Delete" class="textbutton">
-						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton"></cfoutput>
+						<input type="submit" name="submitForm" value="Delete" class="textbutton" />
+						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" />
 					</td></tr>
 				</table>
 				</cfform>

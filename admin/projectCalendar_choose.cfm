@@ -94,10 +94,10 @@ var params = {
 
 			<cfform action="projectCalendar.cfm?lang=#lang#" method="post" enablecab="No" name="procal" preservedata="Yes">
 			<cfoutput>
-			<table width="60%">
+			<table style="width:60%;">
 				<!---tr>
-					<td width="30%">Name:</td>
-					<td width="70%">
+					<td style="width:30%;">Name:</td>
+					<td style="width:70%;">
 						<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 							#session.lastName#, #session.firstName#
 						</cflock>
@@ -111,7 +111,7 @@ var params = {
 					<td id="From_Header">&nbsp; <LABEL for="From">From Date:</LABEL></td>
 					<td headers="From_Header">
 						<!---input type="Text" class="textField" name="startDateShow" value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17" maxlength="12" validate="date" message="Please enter a valid Start Date." disabled--->
-						<cfinput id="Start" type="text" name="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="Please enter a valid From Date." onChange="setLaterDate('self', 'procal', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'procal', #Variables.BookingLen#)"> #language.dateform#
+						<cfinput id="Start" type="text" name="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="Please enter a valid From Date." onChange="setLaterDate('self', 'procal', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'procal', #Variables.BookingLen#)" /> #language.dateform#
 						<a href="javascript:void(0);" onClick="getCalendar('procal', 'start');" class="textbutton">calendar</a>
 						<a href="javascript:void(0);" onClick="document.procal.startDate.value='';" class="textbutton">clear</a>
 					</td>
@@ -120,7 +120,7 @@ var params = {
 					<td id="To_Header">&nbsp; <LABEL for="To">To Date:</LABEL></td>
 					<td headers="To_Header">
 						<!---input type="Text" class="textField" name="endDateShow" value="#DateFormat(endDate, 'mmm d, yyyy')#" size="17" maxlength="12" validate="date" message="Please enter a valid End Date." disabled--->
-						<cfinput id="End" type="text" name="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="Please enter a valid From Date." onChange="setEarlierDate('self', 'procal', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'procal', #Variables.BookingLen#)"> #language.dateform#
+						<cfinput id="End" type="text" name="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="Please enter a valid From Date." onChange="setEarlierDate('self', 'procal', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'procal', #Variables.BookingLen#)" /> #language.dateform#
 						<a href="javascript:void(0);" onClick="getCalendar('procal', 'end');" class="textbutton">calendar</a>
 						<a href="javascript:void(0);" onClick="document.procal.endDate.value='';" class="textbutton">clear</a>
 					</td>
@@ -133,9 +133,9 @@ var params = {
 						<a href="javascript:document.procal.reset();" class="textbutton">Reset</a>
 						<a href="javascript:window.close()" class="textbutton">Cancel</a>
 						<br--->
-						<input type="Submit" value="Submit" class="textbutton">
-						<input type="Reset" value="Reset" class="textbutton">
-						<input type="button" value="Close This Window" class="textbutton" onClick="javascript:window.close(); void(0);">
+						<input type="submit" value="submit" class="textbutton" />
+						<input type="reset" value="reset" class="textbutton" />
+						<input type="button" value="Close This Window" class="textbutton" onClick="javascript:window.close(); void(0);" />
 					</td>
 				</tr>
 			</table>

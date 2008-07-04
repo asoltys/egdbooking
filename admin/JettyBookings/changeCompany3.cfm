@@ -49,27 +49,27 @@ SELECT LastName + ', ' + FirstName as newFullName
 				<cfform action="changeCompanyAction.cfm" method="post">
 				<table>
 				  <tr>
-					<td><br /><cfinput type="Text" style="border:0; font-weight:bold" value="#vesselNameURL#" name="vesselNameURL" required="Yes" readonly="yes"><cfinput type="Text" style="border:0; color:##FFFFFF" value="#BookingIDURL#" name="BookingIDURL" required="Yes" readonly="yes"></td>
+					<td><br /><cfinput type="Text" style="border:0; font-weight:bold" value="#vesselNameURL#" name="vesselNameURL" required="Yes" readonly="yes"><cfinput type="Text" style="border:0; color:##FFFFFF" value="#BookingIDURL#" name="BookingIDURL" required="Yes" readonly="yes" /></td>
 				  </tr>
 				  <tr>
 					<td>
-				Original Company: <cfinput type="Text" style="border:0;" value="#CompanyURL#" name="CompanyURL" required="Yes" readonly="yes"></td>
+				Original Company: <cfinput type="Text" style="border:0;" value="#CompanyURL#" name="CompanyURL" required="Yes" readonly="yes" /></td>
 				  </tr>
 				  <tr>
-					<td>Original Agent: <cfinput type="Text" style="border:0;" value="#UserNameURL#" name="UserNameURL" required="Yes" readonly="yes"></td>
+					<td>Original Agent: <cfinput type="Text" style="border:0;" value="#UserNameURL#" name="UserNameURL" required="Yes" readonly="yes" /></td>
 				  </tr>
 						<tr>
-					<td><br />Change to Company: <cfoutput query="getCompanyDetail">#CompanyDetail#</cfoutput> <cfinput type="Text" style="border:0; color:##FFFFFF" value="#newCompanyID#" name="newCompanyID" required="Yes" readonly="yes"></td>
+					<td><br />Change to Company: <cfoutput query="getCompanyDetail">#CompanyDetail#</cfoutput> <cfinput type="Text" style="border:0; color:##FFFFFF" value="#newCompanyID#" name="newCompanyID" required="Yes" readonly="yes" /></td>
 				  </tr>
 				  <tr>
-					<td>Change to Agent: <cfoutput query="getUserIDDetail">#newFullName#</cfoutput> <cfinput type="Text" style="border:0; color:##FFFFFF" value="#newUserName#" name="newUserName" required="Yes" readonly="yes"></td>
+					<td>Change to Agent: <cfoutput query="getUserIDDetail">#newFullName#</cfoutput> <cfinput type="Text" style="border:0; color:##FFFFFF" value="#newUserName#" name="newUserName" required="Yes" readonly="yes" /></td>
 				  </tr>
 				
 				  <tr>
 					<td><br />
 				<b>Please finalize changes before submitting</b> <br />
 				<br />
-				<input id="submit" type="submit" value="Submit"></td>
+				<input id="submit" type="submit" value="submit" />
 				  </tr>
 				</table>
 				</cfform>

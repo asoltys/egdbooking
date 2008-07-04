@@ -163,7 +163,7 @@
 				<cfoutput><h2>#language.DrydockBookings#</h2></cfoutput>
 
 				<cfoutput query="getDockMaintenanceDetail">
-				<table cellpadding="2" cellspacing="0" width="400" class="bookingDetails" align="center">
+				<table cellpadding="2" cellspacing="0" style="width:400px;" class="bookingDetails" align="center">
 					<tr>
 						<td colspan="2"><strong>#language.MaintenanceBlock#</strong></td>
 					</tr>
@@ -171,7 +171,7 @@
 						<td colspan="2">#language.closedForMaint#</td>
 					</tr>
 					<tr>
-						<td id="SectionsBooked" width="35%">#language.SectionsBooked#:</td>
+						<td id="SectionsBooked" style="width:35%;">#language.SectionsBooked#:</td>
 						<td headers="SectionsBooked"><CFIF Section1>#language.Drydock1#</CFIF><CFIF Section2><CFIF Section1> &amp; </CFIF>#language.Drydock2#</CFIF><CFIF Section3><CFIF Section1 OR Section2> &amp; </CFIF>#language.Drydock3#</CFIF></td>
 					</tr>
 					<tr>
@@ -200,7 +200,7 @@
 
 				<!--- <p>countQname = #Variables.countQName#</p>
 				<p>variables.count = #Variables.count#</p> --->
-				<table cellpadding="2" cellspacing="0" width="400" class="bookingDetails" align="center"<CFIF EVALUATE(Variables.count) GT 0> bgcolor="##E0E6CF"</CFIF>>
+				<table cellpadding="2" cellspacing="0" style="width:400px;" class="bookingDetails" align="center"<CFIF EVALUATE(Variables.count) GT 0> bgcolor="##E0E6CF"</CFIF>>
 					<tr>
 						<td colspan="2" <CFIF Status eq 'c'>style="font-weight: bold;"</CFIF> ><cfif #EndHighlight# GTE PacificNow>* </cfif>
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
@@ -210,12 +210,12 @@
 					</tr>
 					<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR IsDefined('session.AdminLoggedIn')>
 					<tr>
-						<td id="Agent" width="35%">#language.Agent#:</td>
+						<td id="Agent" style="width:35%;">#language.Agent#:</td>
 						<td headers="Agent">#LastName#, #FirstName#</td>
 					</tr>
 					</cfif>
 					<tr>
-						<td id="Status" width="35%">#language.Status#:</td>
+						<td id="Status" style="width:35%;">#language.Status#:</td>
 						<CFIF Status eq 'c'>
 							<td headers="Status">#language.Confirmed#</td>
 						<CFELSEIF Status eq 't'>
@@ -243,13 +243,13 @@
 				</cfoutput>
 				<cfoutput>
 				<CFIF getDockDetail.RecordCount eq 0 AND getDockMaintenanceDetail.RecordCount eq 0>#language.noBookings#<br /><br /></CFIF>
-				<div align="center"><a href="calend-cale-dock.cfm?lang=#lang#&month=#moonth#&year=#yeaar#" class="textbutton">#language.drydockCalButton#</a></div>
+				<div style="text-align:center;"><a href="calend-cale-dock.cfm?lang=#lang#&month=#moonth#&year=#yeaar#" class="textbutton">#language.drydockCalButton#</a></div>
 
 
 				<h2>#language.JettyBookings#</h2>
 				</cfoutput>
 				<cfoutput query="getJettyMaintenanceDetail">
-				<table cellpadding="2" cellspacing="0" width="400" class="bookingDetails" align="center">
+				<table cellpadding="2" cellspacing="0" style="width:400px;" class="bookingDetails" align="center">
 					<tr>
 						<td colspan="2"><strong>#language.MaintenanceBlock#</strong></td>
 					</tr>
@@ -257,7 +257,7 @@
 						<td colspan="2">#language.closedForMaint#</td>
 					</tr>
 					<tr>
-						<td id="SectionsBooked3" width="35%">#language.SectionsBooked#:</td>
+						<td id="SectionsBooked3" style="width:35%;">#language.SectionsBooked#:</td>
 						<td headers="SectionsBooked3"><CFIF NorthJetty>#language.NorthLandingWharf#</CFIF><CFIF SouthJetty><CFIF NorthJetty> &amp; </CFIF>#language.SouthJetty#</CFIF></td>
 					</tr>
 					<tr>
@@ -282,19 +282,19 @@
 				<cfset Variables.count = "jUserVessel" & #bookingID# & ".recordCount">
 				<cfset "#Variables.count#" = EVALUATE(count)>
 
-				<table cellpadding="2" cellspacing="0" width="400" class="bookingDetails" align="center"<CFIF EVALUATE(Variables.count) GT 0> bgcolor="##E0E6CF"</CFIF>>
+				f
 					<tr>
 						<td colspan="2" <CFIF Status eq 'c'>style="font-weight: bold;"</CFIF> ><cfif #EndHighlight# GTE PacificNow>* </cfif><CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND NOT IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
 						#language.Deepsea#<CFELSE>#VesselName#</CFIF></td>
 					</tr>
 					<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR IsDefined('session.AdminLoggedIn')>
 					<tr>
-						<td id="Agent2" width="35%">#language.Agent#:</td>
+						<td id="Agent2" style="width:35%;">#language.Agent#:</td>
 						<td headers="Agent2">#LastName#, #FirstName#</td>
 					</tr>
 					</cfif>
 					<tr>
-						<td id="Status2" width="35%">#language.Status#:</td>
+						<td id="Status2" style="width:35%;">#language.Status#:</td>
 						<CFIF Status eq 'c'>
 							<td headers="Status2">#language.Confirmed#</td>
 						<CFELSEIF Status eq 't'>
@@ -321,7 +321,7 @@
 				<cfoutput>
 				<CFIF getJettyDetail.RecordCount eq 0 AND getJettyMaintenanceDetail.RecordCount eq 0>#language.noBookings#<br /><br /></CFIF>
 
-				<div align="center"><a href="calend-jet.cfm?lang=#lang#&month=#moonth#&year=#yeaar#" class="textbutton">#language.jettyCalButton#</a></div><div style="height:0;">&nbsp;</div>
+				<div style="text-align:center;"><a href="calend-jet.cfm?lang=#lang#&month=#moonth#&year=#yeaar#" class="textbutton">#language.jettyCalButton#</a></div><div style="height:0;">&nbsp;</div>
 				</cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

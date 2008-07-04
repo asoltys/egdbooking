@@ -114,8 +114,8 @@
 					<div style="padding-left:25px">#language.mailing#</div></p>
 				</div>
 				<br />
-				<div align="center">
-					<input type="button" onClick="self.location.href='#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#">
+				<div style="text-align:center;">
+					<input type="button" onClick="self.location.href='#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#" />
 				</div>
 				
 				</cfoutput>

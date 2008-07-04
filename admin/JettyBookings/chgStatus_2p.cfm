@@ -100,10 +100,10 @@
 					Are you sure you want to change this booking's status to pending?
 				<br /><br />
 					<cfoutput>
-					<input type="hidden" name="BookingID" value="#Form.BookingID#">
-					<table width="85%" style="padding-left:15px;">
+					<input type="hidden" name="BookingID" value="#Form.BookingID#" />
+					<table style="width:85%; padding-left:15px;" >
 					<tr>
-						<td id="Vessel" width="25%" align="left">Vessel:</td>
+						<td id="Vessel" style="width:25%;" align="left">Vessel:</td>
 						<td headers="Vessel"><input type="hidden" name="vesselID" value="<cfoutput>#Variables.VesselID#</cfoutput>" /><cfoutput>#Variables.VesselName#</cfoutput></td>
 					</tr>
 					<tr>
@@ -130,8 +130,8 @@
 					<table align="center">
 					<tr>
 						<td>
-						<input type="submit" value="Submit" class="textbutton">
-						<cfoutput><input type="button" onClick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton"></cfoutput>
+						<input type="submit" value="submit" class="textbutton" />
+						<cfoutput><input type="button" onClick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton" />
 						</td>
 					</tr>
 					</table>

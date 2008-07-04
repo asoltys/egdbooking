@@ -72,7 +72,7 @@
 				<cfinclude template="#RootDir#includes/getStructure.cfm"><br />
 
 				<cfform action="editVessel.cfm?lang=#lang#" method="post" name="chooseVesselForm">
-				<table width="100%">
+				<table style="width:100%;">
 					<!---<cfselect name="vesselID" query="getVessels" display="name" value="vesselID" selected="#form.vesselID#" />--->
 					<tr>
 						<td valign="baseline">Company:</td>
@@ -97,8 +97,8 @@
 						</td>
 					</tr>
 					<tr><td colspan="2" align="right">
-						<input type="submit" name="submitForm" class="textbutton" value="Edit">
-						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#';" class="textbutton"></cfoutput>
+						<input type="submit" name="submitForm" class="textbutton" value="Edit" />
+						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#';" class="textbutton" />
 					</td></tr>
 				</table>
 				</cfform>
@@ -152,41 +152,41 @@
 					<cfform name="editVessel" action="EditVessel_process.cfm?lang=#lang#" method="post">
 					<table align="center">
 						<tr>
-							<td id="Company_Header" width="42%">Company Name:</td>
+							<td id="Company_Header" style="width:42%;">Company Name:</td>
 							<td headers="Company_Header"><cfoutput>#getVesselDetail.companyName#</cfoutput></td>
 							<!---<td><cfselect name="companyID" query="getCompanies" display="Name" value="companyID" selected="#getVesselDetail.companyID#" /></td>--->
 						</tr>
 						<tr>
 							<td id="name_Header"><label for="name">Name:</label></td>
-							<td headers="name_Header"><cfinput id="name" name="name" type="text" value="#variables.Name#" size="37" maxlength="100" required="yes" CLASS="textField" message="Please enter the vessel name."></td>
+							<td headers="name_Header"><cfinput id="name" name="name" type="text" value="#variables.Name#" size="37" maxlength="100" required="yes" CLASS="textField" message="Please enter the vessel name." /></td>
 						</tr>
 						<tr>
 							<td id="LloydsID_Header"><label for="LloydsID">International Maritime Organization (IMO) Number:</label></td>
-							<td headers="LloydsID_Header"><cfinput id="LloydsID" name="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" required="no" CLASS="textField" message="Please enter the International Maritime Organization (I.M.O.) number."></td>
+							<td headers="LloydsID_Header"><cfinput id="LloydsID" name="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" required="no" CLASS="textField" message="Please enter the International Maritime Organization (I.M.O.) number." /></td>
 						</tr>
 						<tr>
 							<td id="length_Header"><label for="length">Length (m):</label></td>
-							<td headers="length_Header"><cfinput id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="Please enter the length in metres.">  <span class="smallFont" style="color:red;">Max: <cfoutput>#Variables.MaxLength#</cfoutput>m</span></td>
+							<td headers="length_Header"><cfinput id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="Please enter the length in metres.">  <span class="smallFont" style="color:red;" />Max: <cfoutput>#Variables.MaxLength#</cfoutput>m</span></td>
 						</tr>
 						<tr>
 							<td id="width_Header"><label for="width">Width (m):</label></td>
-							<td headers="width_Header"><cfinput id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="Please enter the width in metres.">  <span class="smallFont" style="color:red;">Max: <cfoutput>#Variables.MaxWidth#</cfoutput>m</span></td>
+							<td headers="width_Header"><cfinput id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="Please enter the width in metres.">  <span class="smallFont" style="color:red;" />Max: <cfoutput>#Variables.MaxWidth#</cfoutput>m</span></td>
 						</tr>
 						<tr>
 							<td id="blocksetuptime_Header"><label for="blocksetuptime">Block Setup Time (days):</label></td>
-							<td headers="blocksetuptime_Header"><cfinput id="blocksetuptime" name="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" required="yes" validate="float" CLASS="textField" message="Please enter the block setup time in days."></td>
+							<td headers="blocksetuptime_Header"><cfinput id="blocksetuptime" name="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" required="yes" validate="float" CLASS="textField" message="Please enter the block setup time in days." /></td>
 						</tr>
 						<tr>
 							<td id="blockteardowntime_Header"><label for="blockteardowntime">Block Teardown Time (days):</label></td>
-							<td headers="blockteardowntime_Header"><cfinput id="blockteardowntime" name="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" required="yes" validate="float" CLASS="textField" message="Please enter the block teardown time in days."></td>
+							<td headers="blockteardowntime_Header"><cfinput id="blockteardowntime" name="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" required="yes" validate="float" CLASS="textField" message="Please enter the block teardown time in days." /></td>
 						</tr>
 						<tr>
 							<td id="tonnage_Header"><label for="tonnage">Tonnage:</label></td>
-							<td headers="tonnage_Header"><cfinput id="tonnage" name="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="Please enter the tonnage."></td>
+							<td headers="tonnage_Header"><cfinput id="tonnage" name="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="Please enter the tonnage." /></td>
 						</tr>
 						<tr>
 							<td id="Anonymous_Header"><label for="Anonymous">Keep this vessel anonymous:</label></td>
-							<td headers="Anonymous_Header"><input id="Anonymous" type="checkbox" name="Anonymous"<cfif variables.Anonymous EQ 1> checked</cfif> value="Yes"></td>
+							<td headers="Anonymous_Header"><input id="Anonymous" type="checkbox" name="Anonymous"<cfif variables.Anonymous EQ 1> checked</cfif> value="Yes" />
 						</tr><!---
 						<tr>
 							<td id="Highlight_Header"><label for="Anonymous">Highlight for this many days:</label></td>
@@ -198,17 +198,17 @@
 							<cfelse>
 							<cfset datediffhighlight = "0">
 							</cfif>
-							<cfinput id="EndHighlight" name="EndHighlight" type="text" value="#datediffhighlight#" size="8" maxlength="8" required="yes" CLASS="textField" message="Please enter an End Highlight Date."></td>
+							<cfinput id="EndHighlight" name="EndHighlight" type="text" value="#datediffhighlight#" size="8" maxlength="8" required="yes" CLASS="textField" message="Please enter an End Highlight Date." /></td>
 						</tr>--->
 						<tr>
 							<td colspan="2" align="center" style="padding-top:20px;">
 								<!--a href="javascript:document.editVessel.submitForm.click();" class="textbutton">Submit</a>
 								<a href="javascript:history.go(-1);" class="textbutton">Cancel</a>
 								<br-->
-								<input type="hidden" name="vesselID" value="<cfoutput>#form.vesselID#</cfoutput>">
-								<input type="hidden" name="companyID" value="<cfoutput>#form.companyID#</cfoutput>">
-								<input type="Submit" value="Submit" class="textbutton">
-								<cfoutput><input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton"></cfoutput>
+								<input type="hidden" name="vesselID" value="<cfoutput>#form.vesselID#</cfoutput>" />
+								<input type="hidden" name="companyID" value="<cfoutput>#form.companyID#</cfoutput>" />
+								<input type="submit" value="submit" class="textbutton" />
+								<cfoutput><input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
 							</td>
 						</tr>
 					</table>

@@ -92,8 +92,8 @@ function EditSubmit ( selectedform )
 										<cfset variables.value = "">
 										<cfset variables.checked = "true">
 									</cfif>
-									$<cfinput name="#abbreviation#Fee" type="text" value="#variables.value#" size="9" id="#abbreviation#" CLASS="textField">
-									<br /><cfinput type="Checkbox" name="#abbreviation#Flex" id="#abbreviation#Flex" checked="#variables.checked#"><label for="#abbreviation#Flex">prices vary</label>
+									$<cfinput name="#abbreviation#Fee" type="text" value="#variables.value#" size="9" id="#abbreviation#" CLASS="textField" />
+									<br /><cfinput type="Checkbox" name="#abbreviation#Flex" id="#abbreviation#Flex" checked="#variables.checked#"><label for="#abbreviation#Flex" />prices vary</label>
 								</cfif>				
 							</td>
 						</tr>
@@ -101,10 +101,10 @@ function EditSubmit ( selectedform )
 				</table>
 				
 				<br />
-				<div align="right">
+				<div style="text-align:right;">
 					<!--a href="javascript:EditSubmit('serviceSelect');" class="textbutton">Submit</a-->
-					<input type="submit" name="submitForm" class="textbutton" value="submit">
-					<cfoutput><input type="button" value="Cancel" onClick="self.location.href='otherForms.cfm?lang=#lang#'" class="textbutton"></cfoutput>
+					<input type="submit" name="submitForm" class="textbutton" value="submit" />
+					<cfoutput><input type="button" value="Cancel" onClick="self.location.href='otherForms.cfm?lang=#lang#'" class="textbutton" />
 				</div>
 				</cfform>
 			</div>

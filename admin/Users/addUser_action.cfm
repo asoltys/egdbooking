@@ -199,7 +199,7 @@
 				<cfoutput>
 				<p>You have successfully created a new account for #form.firstname# #form.lastname#.  Email notification has been sent to the user.</p>
 					
-				<div align="center"><a href="../menu.cfm?lang=#lang#" class="textbutton">Return to Main Menu</a></div>
+				<div style="text-align:center;"><a href="../menu.cfm?lang=#lang#" class="textbutton">Return to Main Menu</a></div>
 				</cfoutput>
 
 			</div>

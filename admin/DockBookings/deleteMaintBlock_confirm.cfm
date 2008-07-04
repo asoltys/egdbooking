@@ -80,24 +80,24 @@ function EditSubmit ( selectedform )
 				
 				<p>Please confirm the following maintenance block information.</p>
 				<cfform action="deleteMaintBlock_action.cfm?#urltoken#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
-				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#"></cfoutput>
+				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 				
-				<table width="80%" align="center">	
+				<table style="width:80%;" align="center">	
 					<tr><td align="left"><div style="font-weight:bold;">Booking:</div></td></tr>
 					<tr>
-						<td id="Start" align="left" width="25%">Start Date:</td>
-						<td headers="Start"><input type="hidden" name="StartDate" value="<cfoutput>#Variables.Start#</cfoutput>"><cfoutput>#DateFormat(Variables.Start, 'mmm d, yyyy')#</cfoutput></td>
+						<td id="Start" align="left" style="width:25%;">Start Date:</td>
+						<td headers="Start"><input type="hidden" name="StartDate" value="<cfoutput>#Variables.Start#</cfoutput>)" /><cfoutput>#DateFormat(Variables.Start, 'mmm d, yyyy'" />
 					</tr>
 					<tr>
 						<td id="End" align="left">End Date:</td>
-						<td headers="End"><input type="hidden" name="EndDate" value="<cfoutput>#Variables.End#</cfoutput>"><cfoutput>#DateFormat(Variables.End, 'mmm d, yyyy')#</cfoutput></td>
+						<td headers="End"><input type="hidden" name="EndDate" value="<cfoutput>#Variables.End#</cfoutput>)" /><cfoutput>#DateFormat(Variables.End, 'mmm d, yyyy'" />
 					</tr>
 					<tr>
 						<td id="Sections" align="left">Sections:</td>
 						<td headers="Sections">
-							<input type="hidden" name="Section1" value="<cfoutput>#Variables.Section1#</cfoutput>">
-							<input type="hidden" name="Section2" value="<cfoutput>#Variables.Section2#</cfoutput>">
-							<input type="hidden" name="Section3" value="<cfoutput>#Variables.Section3#</cfoutput>">
+							<input type="hidden" name="Section1" value="<cfoutput>#Variables.Section1#</cfoutput>" />
+							<input type="hidden" name="Section2" value="<cfoutput>#Variables.Section2#</cfoutput>" />
+							<input type="hidden" name="Section3" value="<cfoutput>#Variables.Section3#</cfoutput>" />
 							<cfif Variables.Section1 EQ 1>
 								Section 1
 							</cfif>
@@ -118,15 +118,15 @@ function EditSubmit ( selectedform )
 				</table>
 				
 				<br />
-				<table width="100%" cellspacing="0" cellpadding="1" border="0" align="center">
+				<table style="width:100%;" cellspacing="0" cellpadding="1" border="0" align="center">
 					<tr>
 						<td colspan="2" align="center">
 							<!---a href="javascript:EditSubmit('bookingreq');" class="textbutton">Confirm</a>
 							<a href="javascript:history.go(-1);" class="textbutton">Back</a>
 							<cfoutput><a href="bookingmanage.cfm?#urltoken#" class="textbutton">Cancel</a></cfoutput>
 							<br--->
-							<input type="Submit" value="<cfoutput>#variables.actionCap#</cfoutput>" class="textbutton">
-							<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='bookingmanage.cfm?#urltoken#';"></cfoutput>
+							<input type="submit" value="<cfoutput>#variables.actionCap#</cfoutput>" class="textbutton" />
+							<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='bookingmanage.cfm?#urltoken#';" />
 						</td>
 					</tr>
 				</table>

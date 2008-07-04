@@ -3,7 +3,7 @@
 	<cfset language.pacificRegion = "Pacific Region">
 	<cfset language.esqGravingDock = "Esquimalt Graving Dock">
 	<cfset language.esqGravingDockCaps = "ESQUIMALT GRAVING DOCK">
-	<cfset language.submit = "Submit">
+	<cfset language.submit = "submit">
 	<cfset language.cancel = "Cancel">
 	<cfset language.admin = "Admin">
 	<cfset language.confirm = "Confirm">

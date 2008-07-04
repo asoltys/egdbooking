@@ -137,7 +137,7 @@
 					</table>
 				
 					<br />
-					<div align="center">
+					<div style="text-align:center;">
 						<cfif #Session.ReadOnly# EQ "1"><cfelse>
 						<a href="#RootDir#reserve-book/naviremod-vesseledit.cfm?lang=#lang#&vesselID=#url.vesselID#" class="textbutton">#language.EditVessel#</a>
 						<a href="#RootDir#reserve-book/naviresup-vesseldel.cfm?lang=#lang#&vesselID=#url.vesselID#" class="textbutton">#language.DeleteVessel#</a>

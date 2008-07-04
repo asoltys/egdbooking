@@ -139,10 +139,10 @@
 				</cfif>
 							<!--- -------------------------------------------------------------------------------------------- --->
 				<cfform name="BookingConfirm" action="chgStatus_2c_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post">
-				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#"></cfoutput>
-				<table width="85%" style="padding-left:15px;">
+				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
+				<table style="width:85%; padding-left:15px;" >
 				<tr>
-					<td id="Vessel" width="25%" align="left">Vessel:</td>
+					<td id="Vessel" style="width:25%;" align="left">Vessel:</td>
 					<td headers="Vessel"><input type="hidden" name="vesselID" value="<cfoutput>#Variables.VesselID#</cfoutput>" /><cfoutput>#Variables.VesselName#</cfoutput></td>
 				</tr>
 				<tr>
@@ -178,8 +178,8 @@
 				<table align="center">
 				<tr>
 					<td>
-						<input type="submit" value="Confirm" class="textbutton">
-						<cfoutput><input type="button" onClick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton"></cfoutput>
+						<input type="submit" value="Confirm" class="textbutton" />
+						<cfoutput><input type="button" onClick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton" />
 					</td>
 				</tr>
 				</table>

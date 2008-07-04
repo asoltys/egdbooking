@@ -94,11 +94,11 @@
 				<cfif getVesselDockBookings.recordCount EQ 0 AND getVesselJettyBookings.recordCount EQ 0>
 						<cfoutput query="getVesselDetail">
 							<p align="center">#language.areYouSure# <strong>#name#</strong>?</p>
-							<div align="center">
+							<div style="text-align:center;">
 							<form name="DelVessel" action="#RootDir#reserve-book/naviresup-vesseldel_action.cfm?lang=#lang#&CompanyID=#CompanyID#" method="post">
-								<input type="hidden" name="VesselID" value="#vesselID#">
-								<input type="submit" value="#language.Delete#" class="textbutton">
-								<input type="button" value="#language.Cancel#" onClick="history.go(-1);" class="textbutton">
+								<input type="hidden" name="VesselID" value="#vesselID#" />
+								<input type="submit" value="#language.Delete#" class="textbutton" />
+								<input type="button" value="#language.Cancel#" onClick="history.go(-1);" class="textbutton" />
 							</form>
 							</div>
 						</cfoutput>
@@ -107,12 +107,12 @@
 
 						<cfif getVesselDockBookings.recordCount GT 0>
 							<cfoutput>
-							<table style="padding-left:20px;" width="100%">
+							<table style="padding-left:20px; width:100%;" >
 								<tr><td><h2>#language.Drydock#</i></strong></h2>
 								<tr>
-									<td width="25%" id="start"><strong>#language.StartDate#</strong></td>
-									<td width="60%" id="end"><strong>#language.EndDate#</strong></td>
-									<td width="15%" id="status"><strong>#language.Status#</strong></td>
+									<td style="width:25%;" id="start"><strong>#language.StartDate#</strong></td>
+									<td style="width:60%;" id="end"><strong>#language.EndDate#</strong></td>
+									<td style="width:15%;" id="status"><strong>#language.Status#</strong></td>
 								</tr>
 							</cfoutput>
 							<cfoutput query="getVesselDockBookings">
@@ -131,13 +131,13 @@
 
 						<cfif getVesselJettyBookings.recordCount GT 0>
 							<cfoutput>
-							<table style="padding-left:20px;" width="100%">
+							<table style="padding-left:20px; width:100%;" >
 								<tr><td><h2>#language.Jetty#</i></strong></h2>
 								<tr>
-									<td width="25%" id="start"><strong>#language.StartDate#</strong></td>
-									<td width="25%" id="end"><strong>#language.EndDate#</strong></td>
-									<td width="35%" id="jetty"><strong>#language.Jetty#</strong></td>
-									<td width="15%" id="status"><strong>#language.Status#</strong></td>
+									<td style="width:25%;" id="start"><strong>#language.StartDate#</strong></td>
+									<td style="width:25%;" id="end"><strong>#language.EndDate#</strong></td>
+									<td style="width:35%;" id="jetty"><strong>#language.Jetty#</strong></td>
+									<td style="width:15%;" id="status"><strong>#language.Status#</strong></td>
 								</tr>
 							</cfoutput>
 							<cfoutput query="getVesselJettyBookings">
@@ -161,7 +161,7 @@
 						</cfif>
 						<br />
 						<cfoutput>
-						<div align="center"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#" class="textbutton">#language.OK#</a></div></cfoutput>
+						<div style="text-align:center;"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#" class="textbutton">#language.OK#</a></div></cfoutput>
 				</cfif>
 			</div>
 

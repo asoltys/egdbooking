@@ -111,10 +111,10 @@ function EditSubmit ( selectedform )
 							</table>
 							<br />
 							</CFIF>
-							<table id="listManage" border="0" cellspacing="0" cellpadding="2" width="100%">
+							<table id="listManage" border="0" cellspacing="0" cellpadding="2" style="width:100%;">
 								<tr bgcolor="##FFFFFF">
-									<td colspan="3" width="50%"><i><a href="javascript:void(0);" onClick="popUp('admin/viewCompany.cfm?lang=#lang#&companyID=#CompanyID#');">#CompanyName#</a></i></td>
-									<td colspan="3" align="right" width="50%"><CFIF CompApproved eq 0><i><a href="../CompanyApprove.cfm?lang=#lang#">awaiting company approval</a></i><CFELSE>&nbsp;</CFIF></td>
+									<td colspan="3" style="width:50%;"><i><a href="javascript:void(0);" onClick="popUp('admin/viewCompany.cfm?lang=#lang#&companyID=#CompanyID#');">#CompanyName#</a></i></td>
+									<td colspan="3" align="right" style="width:50%;"><CFIF CompApproved eq 0><i><a href="../CompanyApprove.cfm?lang=#lang#">awaiting company approval</a></i><CFELSE>&nbsp;</CFIF></td>
 								</tr>
 				
 						</CFIF>
@@ -125,24 +125,24 @@ function EditSubmit ( selectedform )
 									<CFSET rowClass = "">
 								</CFIF>
 								<tr class="#rowClass#">
-									<td width="2%" bgcolor="##FFFFFF">&nbsp;</td>
-									<td valign="top" width="25%">#LastName#, #FirstName#</td>
-									<td valign="top" width="55%" colspan="2">#Email#</td>
-									<td valign="top" width="10%" align="center">
+									<td style="width:2%;" bgcolor="##FFFFFF">&nbsp;</td>
+									<td valign="top" style="width:25%;">#LastName#, #FirstName#</td>
+									<td valign="top" style="width:55%;" colspan="2">#Email#</td>
+									<td valign="top" style="width:10%;" align="center">
 									<cfif CompApproved EQ 1>
 										<form action="userApprove_confirm.cfm?lang=#lang#" method="post" name="App#UserID##CompanyID#" style="margin-top: 0; margin-bottom: 0; ">
-											<input type="hidden" name="UserID" value="#UserID#">
-											<input type="hidden" name="CompanyID" value="#CompanyID#">
+											<input type="hidden" name="UserID" value="#UserID#" />
+											<input type="hidden" name="CompanyID" value="#CompanyID#" />
 											<a href="javascript:EditSubmit('App#UserID##CompanyId#')" class="textbutton">Approve</a>
 										</form>
 									<cfelse>
 										&nbsp;
 									</cfif>
 									</td>
-									<td valign="top" width="10%" align="center">
+									<td valign="top" style="width:10%;" align="center">
 										<form action="userReject.cfm?lang=#lang#" method="post" name="Del#UserID##CompanyId#" style="margin-top: 0; margin-bottom: 0; ">
-											<input type="hidden" name="UserID" value="#UserID#">
-											<input type="hidden" name="CompanyID" value="#CompanyID#">
+											<input type="hidden" name="UserID" value="#UserID#" />
+											<input type="hidden" name="CompanyID" value="#CompanyID#" />
 											<a href="javascript:EditSubmit('Del#UserID##CompanyId#')" class="textbutton">Reject</a>
 										</form>
 									</td>		

@@ -273,7 +273,7 @@
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				
 				<cfif getCompanies.recordCount GT 1>
-					<div align="center">
+					<div style="text-align:center;">
 						<cfoutput>
 							<p>#language.currentcompany#<br />
 							<b class="h1Size">#currentCompany.companyName#</b></p>
@@ -293,12 +293,12 @@
 				<cfoutput>
 				
 				<h2>#language.Vessel#(s):</h2>
-					<table style="padding-left:20px;" width="100%">
+					<table style="padding-left:20px; width:100%;" >
 						<cfif "getVessels.recordCount" EQ 0>
-							<tr><td width="33%" align="left">#language.None#</td></tr>
+							<tr><td style="width:33%;" align="left">#language.None#</td></tr>
 						<cfelse>
 							<cfloop query="getVessels">
-								<tr><td width="33%" align="left"><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&VesselID=#VesselID#">#Name#</a></td></tr>
+								<tr><td style="width:33%;" align="left"><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&VesselID=#VesselID#">#Name#</a></td></tr>
 							</cfloop>
 						</cfif>
 						<cfif #Session.ReadOnly# EQ "1"><cfelse>
@@ -319,11 +319,11 @@
 					<h2>#language.Drydock#</h2>
 					<cfif getDockBookings.recordCount GE 1> 
 					
-						<table width="100%" cellspacing="0">
+						<table style="padding-left:20px; width:100%;" cellspacing="0">
 							<!---<tr>
-								<td width="20%"><strong>Start Date</strong></td>
-								<td width="20%"><strong>End Date</strong></td>
-								<td width="30%"><strong>Vessel</strong></td>
+								<td style="width:20%;"><strong>Start Date</strong></td>
+								<td style="width:20%;"><strong>End Date</strong></td>
+								<td style="width:30%;"><strong>Vessel</strong></td>
 								<td><strong>Status</strong></td>
 							</tr>--->
 				
@@ -336,8 +336,8 @@
 								<!---form method="post" action="tarifmod-tariffedit.cfm?lang=#lang#&BookingID=#BookingID#" name="editForm#bookingID#"></form>
 								<form method="post" action="tarifconsult-tariffview.cfm?lang=#lang#&BookingID=#BookingID#" name="viewForm#bookingID#"></form--->
 								<tr class="#rowClass#" valign="top">
-									<td width="60%" valign="top"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
-									<td width="15%" valign="top">
+									<td style="width:60%;" valign="top"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+									<td style="width:15%;" valign="top">
 										<cfif status EQ "P"><i class="pending">#language.pending#</i>
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
 										<cfelseif status EQ "T"><i class="tentative">#language.tentative#</i>
@@ -346,7 +346,7 @@
 										<cfelseif status EQ "X"><i class="cancelled">#language.cancelling#</i>
 										</cfif>
 									</td>
-									<td align="right" width="25%" valign="top">
+									<td align="right" style="width:25%;" valign="top">
 										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&BookingID=#BookingID#">#language.editTariff#</a></div>
 										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&BookingID=#BookingID#">#language.viewTariff#</a></div></cfif>
 									</td>
@@ -355,10 +355,10 @@
 									<table>
 										<tr class="#rowClass#">
 											<td>&nbsp;</td>
-											<td width="50%" valign="top"><div class="smallFont">#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td align="right" width="10%" valign="top"><div class="smallFont">#language.Agent#: </div></td>
-											<td align="left" width="40%" valign="top"><div class="smallFont">#AgentName#</div></td>
-											<!---<td align="left" width="40%" valign="top"><div class="smallFont"><cfif ifAdmin.recordCount EQ 0>#AgentName#<cfelse>#language.Administrator#</cfif></div></td>--->
+											<td style="width:50%;" valign="top"><div class="smallFont">#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
+											<td align="right" style="width:10%;" valign="top"><div class="smallFont">#language.Agent#: </div></td>
+											<td align="left" style="width:40%;" valign="top"><div class="smallFont">#AgentName#</div></td>
+											<!---<td align="left" style="width:40%;" valign="top"><div class="smallFont"><cfif ifAdmin.recordCount EQ 0>#AgentName#<cfelse>#language.Administrator#</cfif></div></td>--->
 										</tr>
 									</table>
 								</td></tr>
@@ -366,7 +366,7 @@
 							</cfloop>
 						</table>
 						
-						<table width="100%" cellspacing="0">
+						<table style="width:100%;" cellspacing="0">
 							<tr>
 								<td align="center"><b>Total:&nbsp;&nbsp;</b>
 								<cfoutput>
@@ -385,12 +385,12 @@
 					<cfset counter = 0>
 					<h2>#language.NorthLandingWharf#</h2>
 					<cfif getNorthJettyBookings.recordCount GE 1>
-						<table style="padding-left:20px;" width="100%" cellspacing="0">
+						<table style="padding-left:20px; width:100%;" cellspacing="0" >
 							<!---<tr>
-								<td width="20%"><strong>Start Date</strong></td>
-								<td width="20%"><strong>End Date</strong></td>
-								<td width="30%"><strong>Vessel</strong></td>
-								<td width="20%"><strong>Jetty</strong></td>
+								<td style="width:20%;"><strong>Start Date</strong></td>
+								<td style="width:20%;"><strong>End Date</strong></td>
+								<td style="width:30%;"><strong>Vessel</strong></td>
+								<td style="width:20%;"><strong>Jetty</strong></td>
 								<td><strong>Status</strong></td>
 							</tr>--->
 							<cfloop query="getNorthJettyBookings">
@@ -400,8 +400,8 @@
 									<cfset rowClass = "">
 								</cfif>
 								<tr class="#rowClass#" valign="top">
-									<td width="60%" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
-									<td width="40%" align="left">
+									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+									<td style="width:40%;" align="left">
 										<!---
 										<cfif NOT status eq 'C'><i class="pending">#language.pending#</i>
 										<cfelseif status eq 'X'><i class="cancelled">#language.cancelling#</i>
@@ -427,17 +427,17 @@
 									<table>
 										<tr class="#rowClass#">
 											<td>&nbsp;</td>
-											<td width="50%" valign="top"><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td align="right" width="10%" valign="top"><div class="smallFont">#language.Agent#: </div></td>
-											<td align="left" width="40%" valign="top"><div class="smallFont">#AgentName#</div></td>
-											<!---<td align="left" width="40%" valign="top"><div class="smallFont"><cfif ifAdmin.recordCount EQ 0>#AgentName#<cfelse>#language.Administrator#</cfif></div></td>--->
+											<td style="width:50%;" valign="top"><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
+											<td align="right" style="width:10%;" valign="top"><div class="smallFont">#language.Agent#: </div></td>
+											<td align="left" style="width:40%;" valign="top"><div class="smallFont">#AgentName#</div></td>
+											<!---<td align="left" style="width:40%;" valign="top"><div class="smallFont"><cfif ifAdmin.recordCount EQ 0>#AgentName#<cfelse>#language.Administrator#</cfif></div></td>--->
 										</tr>
 									</table>
 								</td></tr>
 							<cfset counter = counter + 1>
 							</cfloop>
 						</table>
-						<table width="100%" cellspacing="0">
+						<table style="width:100%;" cellspacing="0">
 							<tr>
 								<td align="center"><b>Total:&nbsp;&nbsp;</b>
 								<cfoutput>
@@ -455,12 +455,12 @@
 				<cfset counter = 0>
 					<h2>#language.SouthJetty#</h2>
 					<cfif getSouthJettyBookings.recordCount GE 1>
-						<table width="100%" cellspacing="0">
+						<table style="padding-left:20px; width:100%;" cellspacing="0">
 							<!---<tr>
-								<td width="20%"><strong>Start Date</strong></td>
-								<td width="20%"><strong>End Date</strong></td>
-								<td width="30%"><strong>Vessel</strong></td>
-								<td width="20%"><strong>Jetty</strong></td>
+								<td style="width:20%;"><strong>Start Date</strong></td>
+								<td style="width:20%;"><strong>End Date</strong></td>
+								<td style="width:30%;"><strong>Vessel</strong></td>
+								<td style="width:20%;"><strong>Jetty</strong></td>
 								<td><strong>Status</strong></td>
 							</tr>--->
 							<cfloop query="getSouthJettyBookings">
@@ -470,7 +470,7 @@
 									<cfset rowClass = "">
 								</cfif>
 								<tr class="#rowClass#" valign="top">
-									<td width="60%" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>					<td width="40%" align="left">
+									<td width="60%" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>					<td style="width:40%;" align="left">
 										<!---
 										<cfif NOT status eq 'C'><i class="pending">#language.pending#</i>
 										<cfelseif status eq 'X'><i class="cancelled">#language.cancelling#</i>
@@ -496,17 +496,17 @@
 									<table>
 										<tr class="#rowClass#">
 											<td>&nbsp;</td>
-											<td width="50%" valign="top"><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td align="right" width="10%" valign="top"><div class="smallFont">#language.Agent#: </div></td>
-											<!---<td align="left" width="40%" valign="top"><div class="smallFont"><cfif ifAdmin.recordCount EQ 0>#AgentName#<cfelse>#language.Administrator#</cfif></div></td>--->
-											<td align="left" width="40%" valign="top"><div class="smallFont">#AgentName#</div></td>
+											<td style="width:50%;" valign="top"><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
+											<td align="right" style="width:10%;" valign="top"><div class="smallFont">#language.Agent#: </div></td>
+											<!---<td align="left" style="width:40%;" valign="top"><div class="smallFont"><cfif ifAdmin.recordCount EQ 0>#AgentName#<cfelse>#language.Administrator#</cfif></div></td>--->
+											<td align="left" style="width:40%;" valign="top"><div class="smallFont">#AgentName#</div></td>
 										</tr>
 									</table>
 								</td></tr>
 							<cfset counter = counter + 1>
 							</cfloop>
 						</table>
-						<table width="100%" cellspacing="0">
+						<table style="width:100%;" cellspacing="0">
 							<tr>
 								<td align="center"><b>Total:&nbsp;&nbsp;</b>
 								<cfoutput>

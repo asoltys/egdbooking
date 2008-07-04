@@ -59,7 +59,7 @@ function EditSubmit ( selectedform )
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 			</cfif>
 			
-			<!---<div align="left">
+			<!---<div style="text-align:left;">
 				<cfform action="addAdministrator_action.cfm?lang=#lang#" name="chooseUserForm" method="post">
 					<cfselect name="UserID" query="getUserList" value="UserID" display="UserName" />
 					<a href="javascript:EditSubmit('chooseUserForm');">Add</a>
@@ -70,8 +70,8 @@ function EditSubmit ( selectedform )
 				Select User: <cfselect name="UserID" query="getUserList" value="UserID" display="UserName" />
 				&nbsp;&nbsp;&nbsp;
 				<!--a href="javascript:EditSubmit('addAdministratorForm');" class="textbutton">Submit</a-->
-				<input type="submit" name="submitForm" value="Submit" class="textbutton">
-				<cfoutput><input type="button" name="cancel" value="Cancel" class="textbutton" onClick="self.location.href='../menu.cfm?lang=#lang#'"></cfoutput>
+				<input type="submit" name="submitForm" value="submit" class="textbutton" />
+				<cfoutput><input type="button" name="cancel" value="Cancel" class="textbutton" onClick="self.location.href='../menu.cfm?lang=#lang#'" />
 			</cfform>
 			
 			</div>

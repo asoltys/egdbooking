@@ -72,7 +72,7 @@
 				Are you sure you want to change this booking's status back to pending?
 			<br /><br />
 				<cfoutput>
-				<input type="hidden" name="BookingID" value="#Form.BookingID#">
+				<input type="hidden" name="BookingID" value="#Form.BookingID#" />
 				<table align="center" style="padding-top:5px;">
 					<tr>
 						<td><strong>Booking Details:</strong></td>
@@ -118,9 +118,9 @@
 				</table>	
 				</cfoutput>
 				
-				<div align="center"><p>
-				<input type="submit" value="Submit" class="textbutton">
-				<cfoutput><input type="button" onClick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" value="Cancel" class="textbutton"></cfoutput>
+				<div style="text-align:center;"><p>
+				<input type="submit" value="submit" class="textbutton" />
+				<cfoutput><input type="button" onClick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" value="Cancel" class="textbutton" />
 				</p></div>
 			</cfform>
 			

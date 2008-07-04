@@ -194,7 +194,7 @@ WHERE	SouthJetty = 1
 									AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn)
 									AND Variables.count eq 0
 									AND Status neq 'c'>#language.deepsea#<CFELSE>#VesselName#</CFIF></td>
-							<td headers="section"><div align="center">
+							<td headers="section"><div style="text-align:center;">
 												<CFIF Status eq 'c'>
 													<CFIF Section1 eq true>1</CFIF>
 													<CFIF Section2 eq true><CFIF Section1> &amp; </CFIF>2</CFIF>
@@ -252,7 +252,7 @@ WHERE	SouthJetty = 1
 									AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn)
 									AND Variables.count eq 0
 									AND Status neq 'c'>#language.deepsea#<CFELSE>#VesselName#</CFIF></td>
-							<td headers="section2"><div align="center"><CFIF Status eq 'c'>#language.Booked#
+							<td headers="section2"><div style="text-align:center;"><CFIF Status eq 'c'>#language.Booked#
 														<cfelseif Status eq 't'>#language.Tentative#
 														<CFELSE>#language.Pending#
 														</CFIF></div></td>
@@ -302,7 +302,7 @@ WHERE	SouthJetty = 1
 									AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn)
 									AND Variables.count eq 0
 									AND Status neq 'c'>#language.deepsea#<CFELSE>#VesselName#</CFIF></td>
-							<td headers="section3"><div align="center"><CFIF Status eq 'c'>#language.Booked#
+							<td headers="section3"><div style="text-align:center;"><CFIF Status eq 'c'>#language.Booked#
 														<CFELSEIF Status eq 't'>#language.tentative#
 														<CFELSE>#language.Pending#
 														</CFIF></div></td>
@@ -322,7 +322,7 @@ WHERE	SouthJetty = 1
 				<CAPTION><cfoutput>#language.legend#:</cfoutput></CAPTION>
 					<tr>
 				<cfoutput query="getCompanies">
-						<td width="30%">#Abbreviation# - #CompanyName#</td>
+						<td style="width:30%;">#Abbreviation# - #CompanyName#</td>
 					<CFIF CurrentRow mod 3 eq 0>
 					</tr>
 					<tr>

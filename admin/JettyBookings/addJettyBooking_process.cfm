@@ -212,26 +212,26 @@ function EditSubmit ( selectedform )
 				<p>Please confirm the following maintenance block information.</p>
 				<cfform action="addJettyBooking_action.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
 				<div style="font-weight:bold;">Booking:</div>
-				<table width="100%" align="center">	
+				<table style="width:100%;" align="center">	
 					<tr>
-						<td align="left" width="20%">Company:</td>
-						<td><input type="hidden" name="company" value="<cfoutput>#form.companyID#</cfoutput>"><cfoutput>#getCompany.name#</cfoutput></td>
+						<td align="left" style="width:20%;">Company:</td>
+						<td><input type="hidden" name="company" value="<cfoutput>#form.companyID#</cfoutput>" />
 					</tr>
 					<tr>
 						<td align="left">Vessel:</td>
-						<td><input type="hidden" name="vessel" value="<cfoutput>#form.vesselID#</cfoutput>"><cfoutput>#getVessel.name#</cfoutput></td>
+						<td><input type="hidden" name="vessel" value="<cfoutput>#form.vesselID#</cfoutput>" />
 					</tr>	
 					<tr>
 						<td align="left">Agent:</td>
-						<td><input type="hidden" name="agent" value="<cfoutput>#form.userID#</cfoutput>"><cfoutput>#getAgent.name#</cfoutput></td>
+						<td><input type="hidden" name="agent" value="<cfoutput>#form.userID#</cfoutput>" />
 					</tr>	
 					<tr>
 						<td align="left">Start Date:</td>
-						<td><input type="hidden" name="StartDate" value="<cfoutput>#Variables.StartDate#</cfoutput>"><cfoutput>#DateFormat(Variables.StartDate, 'mmm d, yyyy')#</cfoutput></td>
+						<td><input type="hidden" name="StartDate" value="<cfoutput>#Variables.StartDate#</cfoutput>)" /><cfoutput>#DateFormat(Variables.StartDate, 'mmm d, yyyy'" />
 					</tr>
 					<tr>
 						<td align="left">End Date:</td>
-						<td><input type="hidden" name="EndDate" value="<cfoutput>#Variables.EndDate#</cfoutput>"><cfoutput>#DateFormat(Variables.EndDate, 'mmm d, yyyy')#</cfoutput></td>
+						<td><input type="hidden" name="EndDate" value="<cfoutput>#Variables.EndDate#</cfoutput>)" /><cfoutput>#DateFormat(Variables.EndDate, 'mmm d, yyyy'" />
 					</tr>
 					<tr>
 						<td id="bookingDate" align="left">Booking Time:</td>
@@ -245,13 +245,13 @@ function EditSubmit ( selectedform )
 					</tr>
 					<tr>
 						<td align="left">Status:</td>
-						<td><input type="hidden" name="Status" value="<cfoutput>#Variables.Status#</cfoutput>"><cfif Variables.Status EQ "P">Pending<cfelseif Variables.Status EQ "T">Tentative<cfelse>Confirmed</cfif></td>
+						<td><input type="hidden" name="Status" value="<cfoutput>#Variables.Status#</cfoutput>"><cfif Variables.Status EQ "P">Pending<cfelseif Variables.Status EQ "T" />
 					</tr>
 					<tr>
 						<td align="left">Section:</td>
 						<td>
-							<input type="hidden" name="NorthJetty" value="<cfoutput>#Variables.NorthJetty#</cfoutput>">
-							<input type="hidden" name="SouthJetty" value="<cfoutput>#Variables.SouthJetty#</cfoutput>">
+							<input type="hidden" name="NorthJetty" value="<cfoutput>#Variables.NorthJetty#</cfoutput>" />
+							<input type="hidden" name="SouthJetty" value="<cfoutput>#Variables.SouthJetty#</cfoutput>" />
 							<cfif Variables.NorthJetty EQ 1>
 								North Landing Wharf
 							<cfelseif Variables.SouthJetty EQ 1>
@@ -262,16 +262,16 @@ function EditSubmit ( selectedform )
 				</table>
 				
 				<br />
-				<table width="100%" cellspacing="0" cellpadding="1" border="0" align="center">
+				<table style="width:100%;" cellspacing="0" cellpadding="1" border="0" align="center">
 					<tr>
 						<td colspan="2" align="center">
 							<!---a href="javascript:EditSubmit('bookingreq');" class="textbutton">Confirm</a>
 							<a href="javascript:history.go(-1);" class="textbutton">Back</a>
 							<cfoutput><a href="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" class="textbutton">Cancel</a></cfoutput>
 							<br--->
-							<input type="Submit" value="Submit" class="textbutton">
-							<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='addJettyBooking.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#'"></cfoutput>
-							<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='jettybookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#';"></cfoutput>
+							<input type="submit" value="submit" class="textbutton" />
+							<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='addJettyBooking.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#'" />
+							<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='jettybookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#';" />
 						</td>
 					</tr>
 				</table>

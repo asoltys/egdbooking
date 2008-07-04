@@ -31,7 +31,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 				<cfoutput>
-				<IMG src="#RootDir#images/EGD_aerial_small.jpg" usemap="##aerial" alt="Aerial view of the Esquimalt Graving Dock" width="435" height="342" title="Aerial view of the Esquimalt Graving Dock" border="0">
+				<img src="#RootDir#images/EGD_aerial_small.jpg" usemap="##aerial" alt="Aerial view of the Esquimalt Graving Dock" width="435" height="342" title="Aerial view of the Esquimalt Graving Dock" border="0">
 				<MAP name="aerial" id="aerial">
 					<area href="javascript:void(0);" alt="Operations Centre Building" title="Operations Centre Building" shape="rect" coords="84,207,111,231">
 					<area href="javascript:void(0);" alt="North Landing Wharf" title="North Landing Wharf" shape="rect" coords="2,301,175,340">
@@ -50,7 +50,7 @@
 				<p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=eng">Booking Application</a> - Book drydock and jetty space online.</p>
 				<p><a href="#RootDir#utils/resume-summary_ch.cfm?lang=eng">Booking Summary</a> - View all bookings.</p>
 				<p><i>The following links will direct you to an external site:</i><br />
-				(<IMG src="#RootDir#images/www1.gif" width="31" height="9" border="0" alt="www site" title="www site">) <a href="http://laws.justice.gc.ca/en/p-38.2/sor-89-332/92221.html">EGD Regulations</a></p>
+				(<img src="#RootDir#images/www1.gif" width="31" height="9" border="0" alt="www site" title="www site">) <a href="http://laws.justice.gc.ca/en/p-38.2/sor-89-332/92221.html">EGD Regulations</a></p>
 				<p>&nbsp;</p>
 				</cfoutput>
 			</div>

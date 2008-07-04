@@ -67,7 +67,7 @@
 				<cfform action="deny_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post" name="deny">
 					
 					<cfoutput>
-					<input type="hidden" name="BookingID" value="#Form.BookingID#">
+					<input type="hidden" name="BookingID" value="#Form.BookingID#" />
 					<table align="center" style="padding-top:5px;">
 						<tr>
 							<td><strong>Booking Details:</strong></td>
@@ -94,9 +94,9 @@
 						</tr>
 					</table>	
 					
-					<div align="center">
-					<input type="submit" value="Submit" class="textbutton">
-					<input type="button" onClick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" value="Cancel" class="textbutton">
+					<div style="text-align:center;">
+					<input type="submit" value="submit" class="textbutton" />
+					<input type="button" onClick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" value="Cancel" class="textbutton" />
 					</cfoutput>
 					</div>
 				</cfform>

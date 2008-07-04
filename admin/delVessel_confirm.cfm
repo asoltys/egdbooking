@@ -94,7 +94,7 @@
 				<cfform action="delVessel_action.cfm?lang=#lang#" method="post" name="delVesselConfirmForm">
 					Are you sure you want to delete <cfoutput><strong>#getVessel.Name#</strong></cfoutput>?
 					
-					<input type="hidden" name="vesselID" value="<cfoutput>#form.vesselID#</cfoutput>">
+					<input type="hidden" name="vesselID" value="<cfoutput>#form.vesselID#</cfoutput>" />
 			<br /><br />
 					<cfoutput query="getVessel">
 					<table align="center" style="padding-top:10px;">
@@ -136,10 +136,10 @@
 						</tr>
 					</table>
 					<br />
-					<div align="center">
-						<input type="submit" class="textbutton" value="submit">
-						<input type="button" value="Back" onClick="self.location.href='delVessel.cfm?lang=#lang#'" class="textbutton">
-						<input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton">
+					<div style="text-align:center;">
+						<input type="submit" class="textbutton" value="submit" />
+						<input type="button" value="Back" onClick="self.location.href='delVessel.cfm?lang=#lang#'" class="textbutton" />
+						<input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
 					</div>
 					</cfoutput>
 				</cfform>
@@ -151,7 +151,7 @@
 					<cfif getVesselDockBookings.recordCount GT 0>
 						<br /><br />
 						&nbsp;&nbsp;&nbsp;<strong>Drydock</strong>
-						<table style="padding-left:20px;" width="100%">
+						<table style="padding-left:20px; width:100%;" >
 							<tr>
 								<th id="start" width="25%"><strong>Start Date</strong></th>
 								<th id="end" width="60%"><strong>End Date</strong></th>
@@ -174,7 +174,7 @@
 					<cfif getVesselJettyBookings.recordCount GT 0>
 						<br />
 						&nbsp;&nbsp;&nbsp;<strong>Jetty</strong>
-						<table style="padding-left:20px;" width="100%">
+						<table style="padding-left:20px; width:100%;">
 							<tr>
 								<th id="start" width="25%"><strong>Start Date</strong></th>
 								<th id="end" width="25%"><strong>End Date</strong></th>
@@ -201,9 +201,9 @@
 						</table>
 					</cfif>
 						
-					<p><div align="center">
-						<input type="button" value="Back" onClick="self.location.href='delVessel.cfm?lang=<cfoutput>#lang#</cfoutput>'" class="textbutton">
-						<input type="button" value="Return to Administrative Functions" onClick="self.location.href='menu.cfm?lang=<cfoutput>#lang#</cfoutput>'" class="textbutton">
+					<p><div style="text-align:center;">
+						<input type="button" value="Back" onClick="self.location.href='delVessel.cfm?lang=<cfoutput>#lang#</cfoutput>'" class="textbutton" />
+						<input type="button" value="Return to Administrative Functions" onClick="self.location.href='menu.cfm?lang=<cfoutput>#lang#</cfoutput>'" class="textbutton" />
 					</div></p>
 				</div>
 			</cfif>

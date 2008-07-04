@@ -43,7 +43,7 @@
 				  <TEXTAREA name="datatowrite" cols="40" rows="5"><cfif #intromsg# is not ""><cfoutput>#intromsg#</cfoutput></cfif>
 				</TEXTAREA>
 				  <br />
-				  <input id="submit" type="submit" value="Update">
+				  <input id="submit" type="submit" value="Update" />
 				</cfform>
 			</div>	
 			<!-- CONTENT ENDS | FIN DU CONTENU -->

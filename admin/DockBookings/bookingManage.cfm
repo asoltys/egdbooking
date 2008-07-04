@@ -141,7 +141,7 @@ function EditSubmit ( selectedform )
 				
 				<p>Please enter a range of dates for which you would like to see the bookings:</p>
 				<form action="bookingManage.cfm?lang=#lang#" method="get" name="dateSelect">
-					<input type="hidden" name="lang" value="<cfoutput>#lang#</cfoutput>">
+					<input type="hidden" name="lang" value="<cfoutput>#lang#</cfoutput>" />
 					<table align="center" style="width: 100%;" >
 						<tr>
 							<td id="Startdate">
@@ -149,7 +149,7 @@ function EditSubmit ( selectedform )
 							</td>
 							<td headers="" colspan="2">
 								<cfoutput>
-									<input type="text" name="startDate" size="15" maxlength="10" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" class="textField" onchange="setLaterDate('self', 'dateSelect', #Variables.bookingLen#)" onfocus="setEarlierDate('self', 'dateSelect', #Variables.bookingLen#)"> #language.dateform#
+									<input type="text" name="startDate" size="15" maxlength="10" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" class="textField" onchange="setLaterDate('self', 'dateSelect', #Variables.bookingLen#)" onfocus="setEarlierDate('self', 'dateSelect', #Variables.bookingLen#)" /> #language.dateform#
 								</cfoutput>
 								<a href="javascript:void(0);" onclick="javascript:getCalendar('dateSelect', 'start')" class="textbutton">calendar</a>
 							</td>
@@ -160,14 +160,14 @@ function EditSubmit ( selectedform )
 							</td>
 							<td headers="" colspan="2">
 								<cfoutput>
-									<input type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" class="textField" onchange="setEarlierDate('self', 'dateSelect', #Variables.bookingLen#)" onfocus="setLaterDate('self', 'dateSelect', #Variables.bookingLen#)"> #language.dateform#
+									<input type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" class="textField" onchange="setEarlierDate('self', 'dateSelect', #Variables.bookingLen#)" onfocus="setLaterDate('self', 'dateSelect', #Variables.bookingLen#)" /> #language.dateform#
 								</cfoutput>
 								<a href="javascript:void(0);" onclick="javascript:getCalendar('dateSelect', 'end')" class="textbutton">calendar</a>
 							</td>
 						</tr>
 						<tr>
 							<td>Show only:</td>
-							<td headers="Pending" align="right" width="15%"><input type="checkbox" id="showPend" name="show" value="p"<cfif showPend eq true> checked</cfif>></td>
+							<td headers="Pending" align="right" style="width:15%;"><input type="checkbox" id="showPend" name="show" value="p"<cfif showPend eq true> checked</cfif>></td>
 							<td id="Pending" align="left"><label for="showPend" class="pending">Pending</label></td>
 						</tr>
 						<tr>
@@ -181,7 +181,7 @@ function EditSubmit ( selectedform )
 							<td id="Confirmed" align="left"><label for="showConf" class="confirmed">Confirmed</label></td>
 						</tr>
 						<tr>
-							<td colspan="3" align="right"><!--a href="javascript:validate('dateSelect');" class="textbutton">Submit</a--><input type="submit" class="textbutton" value="submit"></td>
+							<td colspan="3" align="right"><!--a href="javascript:validate('dateSelect');" class="textbutton">Submit</a--><input type="submit" class="textbutton" value="submit" />
 						</tr>
 					</table>
 				</form>
@@ -196,14 +196,14 @@ function EditSubmit ( selectedform )
 					<cfoutput>
 					<cfparam name="form.expandAll" default="">
 					<form action="bookingManage.cfm?#urltoken#" method="post" name="expandAll">
-						<input type="hidden" name="startDate" value="#variables.startdate#">
-						<input type="hidden" name="endDate" value="#variables.endDate#">
+						<input type="hidden" name="startDate" value="#variables.startdate#" />
+						<input type="hidden" name="endDate" value="#variables.endDate#" />
 						<cfif form.expandAll NEQ "yes">
-							<input type="hidden" name="expandAll" value="yes">
+							<input type="hidden" name="expandAll" value="yes" />
 						<cfelse>
-							<input type="hidden" name="expandAll" value="no">
+							<input type="hidden" name="expandAll" value="no" />
 						</cfif>
-						<input type="hidden" name="show" value="#url.show#">
+						<input type="hidden" name="show" value="#url.show#" />
 					</form>
 							
 					<h2>Drydock <cfif #countPending.numPend# NEQ 0>(#countPending.numPend# #language.pending#)</cfif></h2>
@@ -265,14 +265,14 @@ function EditSubmit ( selectedform )
 						<cfoutput query="getBookings">
 						<cfset Variables.id = #BookingID#>
 							<form name="booking#id#" action="bookingManage.cfm?#urltoken###id#id#" method="post">
-								<input type="hidden" name="startDate" value="#form.startDate#">
-								<input type="hidden" name="endDate" value="#form.endDate#">
+								<input type="hidden" name="startDate" value="#form.startDate#" />
+								<input type="hidden" name="endDate" value="#form.endDate#" />
 								<cfif (isDefined("form.ID") AND form.ID EQ #id#) OR (isDefined('url.bookingid') AND url.bookingid EQ id)>
-									<input type="hidden" name="ID" value="0">
+									<input type="hidden" name="ID" value="0" />
 								<cfelse>
-									<input type="hidden" name="ID" value="#id#">
+									<input type="hidden" name="ID" value="#id#" />
 								</cfif>
-								<input type="hidden" name="show" value="#variables.show#">
+								<input type="hidden" name="show" value="#variables.show#" />
 							</form>
 						</cfoutput>
 					</cfif>
@@ -288,30 +288,30 @@ function EditSubmit ( selectedform )
 								<cfset Variables.id = #BookingID#>
 								
 								<form method="post" action="deleteBooking_confirm.cfm?#urltoken#" name="delete#ID#">
-									<input type="hidden" name="BookingID" value="#id#">
+									<input type="hidden" name="BookingID" value="#id#" />
 								</form>
 								<form method="post" action="chgStatus_2c.cfm?#urltoken#" name="chgStatus_2c#ID#">
-									<input type="hidden" name="BookingID" value="#id#">
+									<input type="hidden" name="BookingID" value="#id#" />
 								</form>
 								
 								<form method="post" action="chgStatus_2p.cfm?#urltoken#" name="chgStatus_2p#ID#">
-									<input type="hidden" name="BookingID" value="#id#">
+									<input type="hidden" name="BookingID" value="#id#" />
 								</form>
 								
 								<form method="post" action="chgStatus_2t.cfm?#urltoken#" name="chgStatus_2t#ID#">
-									<input type="hidden" name="BookingID" value="#id#">
+									<input type="hidden" name="BookingID" value="#id#" />
 								</form>
 				
 								<form method="post" action="deny.cfm?#urltoken#" name="deny#ID#">
-									<input type="hidden" name="BookingID" value="#id#">
+									<input type="hidden" name="BookingID" value="#id#" />
 								</form>
 				
 								<form method="post" action="editBooking.cfm?#urltoken#" name="editBooking#ID#">
-									<input type="hidden" name="BookingID" value="#id#">
+									<input type="hidden" name="BookingID" value="#id#" />
 								</form>
 								
 								<form method="post" action="feesForm_admin.cfm?#urltoken#" name="viewForm#ID#">
-									<input type="hidden" name="BookingID" value="#id#">
+									<input type="hidden" name="BookingID" value="#id#" />
 								</form>
 									
 						<tr>
@@ -337,12 +337,12 @@ function EditSubmit ( selectedform )
 							</cfquery>
 							
 							<tr><td colspan="5">
-								<div align="center">
+								<div style="text-align:center;">
 									<div style="width:70%">
 										<div style="text-align:right;"><a href="javascript:EditSubmit('editBooking#ID#');">Edit Booking</a></div>
-										<table width="100%" class="bookingDetails">
+										<table style="width:100%;" class="bookingDetails">
 											<tr>
-												<td id="Start" width="30%">Start Date:</td>
+												<td id="Start" style="width:30%;">Start Date:</td>
 												<td headers="Start">#dateformat(getData.startDate, "mmm d, yyyy")#</td>
 											</tr>
 											<tr>
@@ -405,8 +405,8 @@ function EditSubmit ( selectedform )
 												<cfelse>
 												<cfset datediffhighlight = "0">
 												</cfif>
-												<cfinput id="EndHighlight" name="EndHighlight" type="text" value="#datediffhighlight#" size="3" maxlength="3" required="yes" class="textField" message="Please enter an End Highlight Date."> Days
-												<input type="submit" name="submitForm" class="textbutton" value="Update">
+												<cfinput id="EndHighlight" name="EndHighlight" type="text" value="#datediffhighlight#" size="3" maxlength="3" required="yes" class="textField" message="Please enter an End Highlight Date." /> Days
+												<input type="submit" name="submitForm" class="textbutton" value="Update" />
 												</cfform> 
 												</td>
 											</tr>
@@ -499,10 +499,10 @@ function EditSubmit ( selectedform )
 						<cfoutput query="getMaintenance">
 							<cfset Variables.id = #BookingID#>
 							<form name="MaintenanceEdit#id#" action="editMaintBlock.cfm?#urltoken#" method="post">
-								<input type="hidden" name="BookingID" value="#id#">
+								<input type="hidden" name="BookingID" value="#id#" />
 							</form>
 							<form name="MaintenanceDel#id#" action="deleteMaintBlock_confirm.cfm?#urltoken#" method="post">
-								<input type="hidden" name="BookingID" value="#id#">
+								<input type="hidden" name="BookingID" value="#id#" />
 							</form>
 						</cfoutput>
 					</cfif>

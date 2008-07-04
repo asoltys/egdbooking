@@ -85,8 +85,8 @@ function EditSubmit ( selectedform )
 					<p><label for="selectCompany">Select Company:</label> <cfselect query="getCompanies" id="selectCompany" name="compID" value="CompanyID" display="Name" selected="#Variables.compID#" />
 					&nbsp;&nbsp;&nbsp;
 					<!--a href="javascript:EditSubmit('chooseUserForm');" class="textbutton">Submit</a-->
-					<input type="submit" name="submitForm" class="textbutton" value="submit">
-					<cfoutput><input type="button" value="Back" onclick="self.location.href='bookingmanage.cfm?#urltoken#'" class="textbutton"></cfoutput></p>
+					<input type="submit" name="submitForm" class="textbutton" value="submit" />
+					<cfoutput><input type="button" value="Back" onclick="self.location.href='bookingmanage.cfm?#urltoken#'" class="textbutton" />
 				</cfform>
 				
 				<cfif Variables.compID NEQ "">
@@ -123,8 +123,8 @@ function EditSubmit ( selectedform )
 								WHERE CompanyID = #Variables.compID#
 							</cfquery>
 							
-							<td id="Company" width="20%">Company:</td>
-							<td headers="Company" width="80%">#getCompanyName.Name#</td>
+							<td id="Company" style="width:20%;">Company:</td>
+							<td headers="Company" style="width:80%;">#getCompanyName.Name#</td>
 						</tr>
 						<tr>
 							<td id="Vessel">Vessel:</td>
@@ -149,7 +149,7 @@ function EditSubmit ( selectedform )
 								<td id="startDate"><label for="start">Start Date:</label></td>
 								<td headers="startDate">
 									<cfoutput>
-									<cfinput name="startDate" type="text" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'addBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'addBookingForm', #Variables.bookingLen#)"> #language.dateform#</cfoutput>
+									<cfinput name="startDate" type="text" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'addBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'addBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 									<a href="javascript:void(0);" onclick="javascript:getCalendar('addBookingForm', 'start')" class="textbutton">calendar</a>
 								</td>
 							</tr>
@@ -157,7 +157,7 @@ function EditSubmit ( selectedform )
 								<td id="endDate"><label for="end">End Date:</label></td>
 								<td headers="endDate">
 									<cfoutput>
-									<cfinput name="endDate" type="text" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField"> #language.dateform#</cfoutput>
+									<cfinput name="endDate" type="text" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" /> #language.dateform#</cfoutput>
 									<a href="javascript:void(0);" onclick="javascript:getCalendar('addBookingForm', 'end')" class="textbutton">calendar</a>
 								</td>
 							</tr>
@@ -165,8 +165,8 @@ function EditSubmit ( selectedform )
 								<td id="bookingDT">Booking Time:</td>
 								<td headers="bookingDT">
 									<cfoutput>
-										<cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" class="textField">
-										<cfinput name="bookingTime" type="text" value="#TimeFormat(Variables.TheBookingTime, 'HH:mm:ss')#" size="5" maxlength="8" required="yes" message="Please enter a valid booking time." validate="time" class="textField">
+										<cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" class="textField" />
+										<cfinput name="bookingTime" type="text" value="#TimeFormat(Variables.TheBookingTime, 'HH:mm:ss')#" size="5" maxlength="8" required="yes" message="Please enter a valid booking time." validate="time" class="textField" />
 									</cfoutput>
 									<a href="javascript:void(0);" onclick="javascript:getCalendar('addBookingForm', 'booking')" class="textbutton">calendar</a>
 								</td>
@@ -175,15 +175,15 @@ function EditSubmit ( selectedform )
 							<tr><td colspan="2">Please set the status of the booking:</td></tr>
 							<tr>
 								<td id="pend" align="right">&nbsp;&nbsp;&nbsp;<label for="pending">Pending</label></td>
-								<td headers="pend"><input type="radio" name="Status" id="pending" value="P" <cfif Variables.Status EQ "P">checked</cfif>></td>
+								<td headers="pend"><input type="radio" name="Status" id="pending" value="P" <cfif Variables.Status EQ "P" />
 							</tr>
 							<tr>
 								<td id="tent" align="right">&nbsp;&nbsp;&nbsp;<label for="tentative">Tentative</label></td>
-								<td headers="tent"><input type="radio" name="Status" id="tentative" value="T" <cfif Variables.Status EQ "T">checked</cfif>></td>
+								<td headers="tent"><input type="radio" name="Status" id="tentative" value="T" <cfif Variables.Status EQ "T" />
 							</tr>
 							<tr>
 								<td id="conf" align="right">&nbsp;&nbsp;&nbsp;<label for="confirmed">Confirmed</label></td>
-								<td headers="conf"><input type="radio" name="Status" id="confirmed" value="C" <cfif Variables.Status EQ "C">checked</cfif>></td>
+								<td headers="conf"><input type="radio" name="Status" id="confirmed" value="C" <cfif Variables.Status EQ "C" />
 							</tr>
 						</cfif>
 						<tr><td>&nbsp;</td></tr>
@@ -191,10 +191,10 @@ function EditSubmit ( selectedform )
 							<td colspan="2" align="center">
 								<cfif getVessels.recordCount GE 1 AND getAgents.recordCount GE 1>
 									<!--a href="javascript:document.addBookingForm.submitForm.click();" class="textbutton">Submit</a-->
-									<input type="hidden" name="compID" value="#Variables.compID#">
-									<input type="submit" name="submitForm" class="textbutton" value="submit">
+									<input type="hidden" name="compID" value="#Variables.compID#" />
+									<input type="submit" name="submitForm" class="textbutton" value="submit" />
 								</cfif>
-								<cfoutput><input type="button" value="Back" onclick="self.location.href='bookingmanage.cfm?#urltoken#'" class="textbutton"></cfoutput><br />
+								<cfoutput><input type="button" value="Back" onclick="self.location.href='bookingmanage.cfm?#urltoken#'" class="textbutton" />
 								
 							</td>
 						</tr>

@@ -62,17 +62,17 @@
 				</cfif>
 				
 				<cfform action="removeNewUserCompany_action.cfm?info=#url.info#&companies=#url.companies#" method="post" name="remCompanyConfirmForm">
-					<div align="center">Are you sure you want to remove <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
+					<div style="text-align:center;">Are you sure you want to remove <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
 					
-					<p><div align="center">
-						<input type="button" value="Remove" onClick="document.remCompanyConfirmForm.submit();" class="textbutton">
-						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='addNewUserCompany.cfm?info=#url.info#&companies=#url.companies#'" class="textbutton"></cfoutput>
-					<!---<input type="submit" value="Delete" class="button">
-					<input type="button" value="Cancel" onClick="javascript:location.href='delVessel.cfm'" class="button">--->
+					<p><div style="text-align:center;">
+						<input type="button" value="Remove" onClick="document.remCompanyConfirmForm.submit();" class="textbutton" />
+						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='addNewUserCompany.cfm?info=#url.info#&companies=#url.companies#'" class="textbutton" />
+					<!---<input type="submit" value="Delete" class="button" />
+					<input type="button" value="Cancel" onClick="javascript:location.href='delVessel.cfm'" class="button" />
 					</div></p>
 					
-					<cfoutput><input type="hidden" name="CompanyID" value="#form.CompanyID#"></cfoutput>
-					<!---<cfoutput><input type="hidden" name="userID" value="#url.userID#"></cfoutput>--->
+					<cfoutput><input type="hidden" name="CompanyID" value="#form.CompanyID#" />
+					<!---<cfoutput><input type="hidden" name="userID" value="#url.userID#" />
 				</cfform>	
 
 			</div>

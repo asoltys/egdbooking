@@ -210,10 +210,10 @@
 				<cfoutput>
 				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action2.cfm?lang=#lang#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
 				<p>#language.bookingFound# #LSDateFormat(Variables.FoundStartDate, 'mmm d, yyyy')# - #LSDateFormat(Variables.FoundEndDate, 'mmm d, yyyy')#.</p>
-				<table width="100%">
+				<table style="width:100%;">
 					<tr>
-						<td width="30%" id="Agent">#language.Agent#:</td>
-						<td width="70%" headers="Agent">
+						<td style="width:30%;" id="Agent">#language.Agent#:</td>
+						<td style="width:70%;" headers="Agent">
 							<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 								#session.lastName#, #session.firstName#
 							</cflock>
@@ -238,14 +238,14 @@
 					</tr>
 					<tr>
 						<td align="left" id="Status">#language.requestedStatus#:</td>
-						<td headers="Status"><input type="hidden" name="Status" value="<cfoutput>#Form.Status#</cfoutput>"><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></td>
+						<td headers="Status"><input type="hidden" name="Status" value="<cfoutput>#Form.Status#</cfoutput>"><cfif form.status eq "tentative" />
 					</tr>
 					<tr><td>&nbsp;</td></tr>
 					<tr>
 						<td colspan="2" align="center">
-							<input type="Submit" value="#language.requestBooking#" class="textbutton">
-							<input type="button" value="#language.Back#" class="textbutton" onClick="history.go(-1);">
-							<input type="button" value="#language.Cancel#" class="textbutton" onClick="self.location.href='bookingRequest_choose.cfm?lang=<cfoutput>#lang#</cfoutput>';">
+							<input type="submit" value="#language.requestBooking#" class="textbutton" />
+							<input type="button" value="#language.Back#" class="textbutton" onClick="history.go(-1);" />
+							<input type="button" value="#language.Cancel#" class="textbutton" onClick="self.location.href='bookingRequest_choose.cfm?lang=<cfoutput>#lang#</cfoutput>';" />
 							<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
 						</td>
 					</tr>

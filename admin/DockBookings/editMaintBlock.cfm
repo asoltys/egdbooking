@@ -109,14 +109,14 @@ function EditSubmit ( selectedform )
 			<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 			
 			<cfform name="EditMaintBlock" action="editMaintBlock_process.cfm?#urltoken#" method="post">
-			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#"></cfoutput>
-			<table width="100%">
+			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
+			<table style="width:100%;">
 			<tr>
 				<td id="Start">Start Date:</td>
 				<td headers="Start">
 					<cfoutput>
 					<!---input class="textField" type="Text" name="startDateShow" id="start" disabled value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17"--->
-					<cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'editMaintBlock', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'editMaintBlock', #Variables.bookingLen#)"> #language.dateform#</cfoutput>
+					<cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'editMaintBlock', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'editMaintBlock', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 					<a href="javascript:void(0);" onclick="javascript:getCalendar('EditMaintBlock', 'start')" class="textbutton">calendar</a>
 					<!---a href="javascript:void(0);" onClick="javascript:document.EditMaintBlock.startDateShow.value=''; document.EditMaintBlock.startDate.value='';" class="textbutton">clear</a--->
 				</td>
@@ -126,7 +126,7 @@ function EditSubmit ( selectedform )
 				<td headers="End">
 					<cfoutput>
 					<!---input type="text" name="endDateShow" id="end" class="textField" disabled value="#DateFormat(endDate, 'mmm d, yyyy')#" size="17"--->
-					<cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" onChange="setEarlierDate('self', 'editMaintBlock', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'editMaintBlock', #Variables.bookingLen#)"> #language.dateform#</cfoutput>
+					<cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" onChange="setEarlierDate('self', 'editMaintBlock', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'editMaintBlock', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 					<a href="javascript:void(0);" onclick="javascript:getCalendar('EditMaintBlock', 'end')" class="textbutton">calendar</a>
 					<!---a href="javascript:void(0);" onClick="javascript:document.EditMaintBlock.endDateShow.value=''; document.EditMaintBlock.endDate.value='';" class="textbutton">clear</a--->
 				</td>
@@ -134,21 +134,21 @@ function EditSubmit ( selectedform )
 			<tr><td colspan="2">Please choose the sections of the dock that you wish to book for maintenance.</td></tr>
 			<tr>
 				<td id="Section1_header"><label for="Section1">Section 1</label></td>
-				<td headers="Section1_header"><cfinput type="Checkbox" id="Section1" name="Section1" checked="#Variables.Section1#"></td></tr>
+				<td headers="Section1_header"><cfinput type="Checkbox" id="Section1" name="Section1" checked="#Variables.Section1#" /></td></tr>
 			<tr>
 				<td id="Section2_header"><label for="Section2">Section 2</label></td>
-				<td headers="Section2_header"><cfinput type="Checkbox" id="Section2" name="Section2" checked="#Variables.Section2#"></td>
+				<td headers="Section2_header"><cfinput type="Checkbox" id="Section2" name="Section2" checked="#Variables.Section2#" /></td>
 			</tr>
 			<tr>
 				<td id="Section3_header"><label for="Section3">Section 3</label></td>
-				<td headers="Section3_header"><cfinput type="Checkbox" id="Section3" name="Section3" checked="#Variables.Section3#"></td>
+				<td headers="Section3_header"><cfinput type="Checkbox" id="Section3" name="Section3" checked="#Variables.Section3#" /></td>
 			</tr>
 			<tr><td>&nbsp;</td></tr>
 			<tr>
 				<td colspan="2" align="center">
 					<!--a href="javascript:EditSubmit('EditMaintBlock');" class="textbutton">Submit</a-->
-					<input type="submit" name="submitForm" class="textbutton" value="submit">
-					<cfoutput><input type="button" value="Cancel" onClick="self.location.href='bookingmanage.cfm?#urltoken#'" class="textbutton"></cfoutput>
+					<input type="submit" name="submitForm" class="textbutton" value="submit" />
+					<cfoutput><input type="button" value="Cancel" onClick="self.location.href='bookingmanage.cfm?#urltoken#'" class="textbutton" />
 				</td>
 			</tr>
 			</table>

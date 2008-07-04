@@ -183,7 +183,7 @@ WHERE	SouthJetty = 1
 <h2>#language.Drydock#</h2>
 </cfoutput>
 <!--- Begin Dry Dock table --->
-<table width="90%" border="1" cellpadding="2">
+<table style="width:90%;" border="1" cellpadding="2">
 	<cfoutput>
 	<thead>
 	<tr bgcolor="##EEEEEE">
@@ -218,7 +218,7 @@ WHERE	SouthJetty = 1
 					AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
 					AND Variables.count eq 0 
 					AND Status neq 'c'>#language.deepsea#<CFELSE>#VesselName#</CFIF></td>
-			<td headers="section"><div align="center"><CFIF Status eq 'c'>
+			<td headers="section"><div style="text-align:center;"><CFIF Status eq 'c'>
 									<CFIF Section1 eq true>1</CFIF>
 									<CFIF Section2 eq true>
 										<CFIF Section1> &amp; </CFIF>
@@ -245,7 +245,7 @@ WHERE	SouthJetty = 1
 
 <h2><cfoutput>#language.NorthLandingWharf#</cfoutput></h2>
 <!-- Begin North Jetty table -->
-<table width="90%" border="1" cellpadding="2">
+<table style="width:90%;" border="1" cellpadding="2">
 	<cfoutput>
 	<thead>
 	<tr bgcolor="##EEEEEE">
@@ -280,7 +280,7 @@ WHERE	SouthJetty = 1
 					AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
 					AND Variables.count eq 0 
 					AND Status neq 'c'>#language.deepsea#<CFELSE>#VesselName#</CFIF></td>
-			<td headers="section2"><div align="center"><CFIF Status eq 'c'>#language.Booked#
+			<td headers="section2"><div style="text-align:center;"><CFIF Status eq 'c'>#language.Booked#
 										<CFELSEIF Status eq 't'>#language.tentative#
 										<CFELSE>#language.Pending#
 										</CFIF></div></td>
@@ -297,7 +297,7 @@ WHERE	SouthJetty = 1
 
 <h2><cfoutput>#language.SouthJetty#</cfoutput></h2>
 <!-- Begin South Jetty table -->
-<table width="90%" border="1" cellpadding="2">
+<table style="width:90%;" border="1" cellpadding="2">
 	<cfoutput>
 	<thead>
 	<tr bgcolor="##EEEEEE">
@@ -332,7 +332,7 @@ WHERE	SouthJetty = 1
 					AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
 					AND Variables.count eq 0 
 					AND Status neq 'c'>#language.deepsea#<CFELSE>#VesselName#</CFIF></td>
-			<td headers="section3"><div align="center"><CFIF Status eq 'c'>#language.Booked#
+			<td headers="section3"><div style="text-align:center;"><CFIF Status eq 'c'>#language.Booked#
 										<CFELSEIF Status eq 't'>#language.tentative#
 										<CFELSE>#language.Pending#
 										</CFIF></div></td>
@@ -350,11 +350,11 @@ WHERE	SouthJetty = 1
 <br /><br />
 
 <!--- Legend of company abbreviations --->
-<table border="1" cellpadding="2" width="60%">
+<table border="1" cellpadding="2" style="width:60%;">
 <CAPTION><cfoutput><strong>#language.legend#:</strong></cfoutput></CAPTION>
 	<tr>
 <cfoutput query="getCompanies">
-		<td width="30%">#Abbreviation# - #CompanyName#</td>
+		<td style="width:30%;">#Abbreviation# - #CompanyName#</td>
 	<CFIF CurrentRow mod 3 eq 0>
 	</tr>
 	<tr>

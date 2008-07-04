@@ -180,7 +180,7 @@
 					</CFIF>
 				</h2>
 
-				<table width="90%" class="bookingDetails" align="center">
+				<table style="width:90%;" class="bookingDetails" align="center">
 					<CFIF NOT Anonymous OR userVessel.recordCount GT 0 OR IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 					<tr>
 						<td id="Agent">#language.Agent#:</td>
@@ -199,7 +199,7 @@
 					</tr>
 					<CFIF NOT Anonymous OR userVessel.recordCount GT 0 OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true) OR (isDock AND DStatus eq 'c') OR (NOT isDock AND JStatus eq 'c')>
 					<tr>
-						<td id="Company" width="35%">#language.Company#:</td>
+						<td id="Company" style="width:35%;">#language.Company#:</td>
 						<td headers="Company">#CompanyName#</td>
 					</tr>
 					<tr>
@@ -261,7 +261,7 @@
 					</cfif>
 				</table>
 
-				<div align="center">
+				<div style="text-align:center;">
 					<cfif #Session.ReadOnly# EQ "1">
 						<a href="#returnTo#?lang=#lang#&date=#url.date#" class="textbutton">#language.Back#</a>
 					<cfelse>

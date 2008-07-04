@@ -107,8 +107,8 @@
 				
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				
-				<cfif isDefined("url.BookingID")><cfoutput><div align="center" style="font-weight:bold;">#getDetails.CompanyName#: #getDetails.VesselName#</div></cfoutput>
-				<cfoutput><div align="center" style="font-weight:bold;">#LSDateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #LSDateFormat(getDetails.EndDate, 'mmm d, yyyy')#</div></cfoutput></cfif>
+				<cfif isDefined("url.BookingID")><cfoutput><div style="text-align:center;" style="font-weight:bold;">#getDetails.CompanyName#: #getDetails.VesselName#</div></cfoutput>
+				<cfoutput><div style="text-align:center;" style="font-weight:bold;">#LSDateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #LSDateFormat(getDetails.EndDate, 'mmm d, yyyy')#</div></cfoutput></cfif>
 				<br />
 				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the selected services for the booking.">
 				<cfoutput>
@@ -178,7 +178,7 @@
 				</cfoutput>
 				</table>
 				<br />
-				<div align="right">
+				<div style="text-align:right;">
 					<cfif isDefined("url.referrer") AND url.referrer eq "archive">
 						<cfoutput><a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&CompanyID=#url.CompanyID#" class="textbutton">#language.Back#</a></cfoutput>
 					<cfelse>

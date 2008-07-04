@@ -65,16 +65,16 @@ function EditSubmit ( selectedform )
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				<cfoutput>
-				<div align="center">
+				<div style="text-align:center;">
 					<p>Are you sure you want to reject <strong>#getUser.FirstName# #getUser.LastName#</strong>'s 
 						request to join <strong>#getCompany.companyName#</strong>?</p>
 						<cfif countCompany.recordCount EQ 1><p>User will also be <strong>deleted</strong>!</p></cfif> <!--- Joao Edit --->
 					<form action="userReject_action.cfm?lang=#lang#" name="rejectUser" method="post">
-						<input type="hidden" name="UserID" value="#Form.UserID#">
-						<input type="hidden" name="CompanyId" value="#Form.CompanyId#">
+						<input type="hidden" name="UserID" value="#Form.UserID#" />
+						<input type="hidden" name="CompanyId" value="#Form.CompanyId#" />
 						<!---a href="javascript:EditSubmit('rejectUser');" class="textbutton">Submit</a--->
-						<input type="submit" class="textbutton" value="Reject">
-						<input type="button" value="Cancel" onClick="self.location.href='userApprove.cfm?lang=#lang#'" class="textbutton">
+						<input type="submit" class="textbutton" value="Reject" />
+						<input type="button" value="Cancel" onClick="self.location.href='userApprove.cfm?lang=#lang#'" class="textbutton" />
 					</form>
 				</div>
 				</cfoutput>

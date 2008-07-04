@@ -83,7 +83,7 @@ function EditSubmit ( selectedform )
 				Are you sure you want to change this booking's status to tentative?
 			<br /><br />
 				<cfoutput>
-				<input type="hidden" name="BookingID" value="#Form.BookingID#">
+				<input type="hidden" name="BookingID" value="#Form.BookingID#" />
 				<table align="center" style="padding-top:5px;">
 					<tr>
 						<td><strong>Booking Details:</strong></td>
@@ -129,10 +129,10 @@ function EditSubmit ( selectedform )
 				</table>	
 				</cfoutput>
 				
-				<p><div align="center">
+				<p><div style="text-align:center;">
 				<!--a href="javascript:EditSubmit('change2tentative');" class="textbutton">Submit</a-->
-				<input type="submit" name="submitForm" class="textbutton" value="submit">
-				<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" class="textbutton"></cfoutput>
+				<input type="submit" name="submitForm" class="textbutton" value="submit" />
+				<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" class="textbutton" />
 				</div></p>
 			</cfform>
 			

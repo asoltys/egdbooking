@@ -96,11 +96,11 @@
 
 					<h2>#language.login#</h2>
 					<!-- Display the login form and pass contents to login_action.cfm -->
-					<form action="ols-login_action.cfm?lang=<cfoutput>#lang#</cfoutput>" method="post" id="login_form">
+					<form action="ols-login_action.cfm?lang=#lang#" method="post" id="login_form">
 						<table border="0" cellspacing="2" cellpadding="2" align="center">
 							<tr>
 								<td align="right"><label for="email">#language.Email#:</label></td>
-								<td><input type="text" name="email" id="email" size="40" maxlength="100" class="textField" value="<cfoutput>#email#</cfoutput>" /></td>
+								<td><input type="text" name="email" id="email" size="40" maxlength="100" class="textField" value="#email#" /></td>
 							</tr>
 							<tr>
 								<td align="right"><label for="password">#language.Password#:</label></td>
@@ -108,15 +108,15 @@
 							</tr>
 							<tr>
 								<td>&nbsp;</td>
-								<td align="right"><input type="submit" name="submitForm" value="#language.Login#" class="textbutton" />								</td>
+								<td align="right"><input type="submit" name="submitForm" value="#language.Login#" class="textbutton" /></td>
 							</tr>
 						</table>
-						<div align="center">#language.Remember#
+						<div style="text-align:center;">#language.Remember#
 								<input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked</CFIF>/>
 						</div>
 					</form>
-					<div align="center"><a href="utilisateurajout-useradd.cfm?lang=<cfoutput>#lang#</cfoutput>">#language.addUser#</a></div>
-					<div align="center"><a href="passeoubli-passforgot.cfm?lang=<cfoutput>#lang#</cfoutput>">#language.Forgot#</a></div>
+					<div style="text-align:center;"><a href="utilisateurajout-useradd.cfm?lang=#lang#">#language.addUser#</a></div>
+					<div style="text-align:center;"><a href="passeoubli-passforgot.cfm?lang=#lang#">#language.Forgot#</a></div>
 				</cfoutput>
 				</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->
@@ -125,4 +125,4 @@
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 
 <!--- Allows the WPSS toolkit to bypass the login and validate the pages beyond this point --->
-<cflocation url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
+<cflocation url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;userid=97">

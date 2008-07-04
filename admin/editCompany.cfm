@@ -93,8 +93,8 @@ function EditSubmit ( selectedform )
 				<cfform action="editCompany.cfm?lang=#lang#" method="post" name="chooseCompanyForm">
 					<cfselect name="companyID" query="getCompanyList" value="companyID" display="Name" selected="#form.companyID#" />
 					<!---a href="javascript:EditSubmit('chooseCompanyForm');" class="textbutton">View</a--->
-					<input type="submit" value="View" class="textbutton">
-					<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='menu.cfm?lang=#lang#'"></cfoutput>
+					<input type="submit" value="View" class="textbutton" />
+					<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='menu.cfm?lang=#lang#'" />
 				</cfform>
 				
 				<cfif form.CompanyID NEQ "">
@@ -127,54 +127,54 @@ function EditSubmit ( selectedform )
 					</cfif>
 					
 					<cfoutput>
-					<cfform action="editCompany_action.cfm?lang=#lang#" method="post" name="editCompanyForm" onSubmit="if(!checkFilledIn('editCompanyForm')) { return false;
+					<cfform action="editCompany_action.cfm?lang=#lang#" method="post" name="editCompanyForm" onsubmit="if(!checkFilledIn('editCompanyForm')) { return false;
 	}">
 					<table align="center">
 						<tr>
 							<td id="companyName_Header"><label for="name">Company Name:</label></td>
-							<td headers="companyName_Header"><cfinput name="name" id="name" type="text" size="40" maxlength="75" required="yes" value="#Variables.name#" CLASS="textField" message="Please enter the company name."></td>
+							<td headers="companyName_Header"><cfinput name="name" id="name" type="text" size="40" maxlength="75" required="yes" value="#Variables.name#" CLASS="textField" message="Please enter the company name." /></td>
 						</tr>
 						<tr>
 							<td id="abbrev_Header"><label for="abbr">Abbreviation:</label></td>
-							<td headers="abbrev_Header"><cfinput name="abbr" id="abbr" type="text" size="5" maxlength="3" value="#Variables.abbr#" required="yes" CLASS="textField" message="Please enter the company abbreviation."></td>
+							<td headers="abbrev_Header"><cfinput name="abbr" id="abbr" type="text" size="5" maxlength="3" value="#Variables.abbr#" required="yes" CLASS="textField" message="Please enter the company abbreviation." /></td>
 						</tr>
 						<tr>
 							<td id="address1_Header"><label for="address1">Address 1:</label></td>
-							<td headers="address1_Header"><cfinput name="address1" id="address1" type="text" size="40" maxlength="75" required="yes" value="#Variables.address1#" CLASS="textField" message="Please enter the address."></td>
+							<td headers="address1_Header"><cfinput name="address1" id="address1" type="text" size="40" maxlength="75" required="yes" value="#Variables.address1#" CLASS="textField" message="Please enter the address." /></td>
 						</tr>
 						<tr>
 							<td id="address2_Header"><label for="address2">Address 2 (optional):</label></td>
-							<td headers="address2_Header"><cfinput name="address2" id="address2" type="text" size="40" maxlength="75" value="#Variables.address2#" CLASS="textField"></td>
+							<td headers="address2_Header"><cfinput name="address2" id="address2" type="text" size="40" maxlength="75" value="#Variables.address2#" CLASS="textField" /></td>
 						</tr>
 						<tr>
 							<td id="city_Header"><label for="city">City:</label></td>
-							<td headers="city_Header"><cfinput name="city" id="city" type="text" size="25" maxlength="40" required="yes" value="#Variables.city#" CLASS="textField" message="Please enter the city."></td>
+							<td headers="city_Header"><cfinput name="city" id="city" type="text" size="25" maxlength="40" required="yes" value="#Variables.city#" CLASS="textField" message="Please enter the city." /></td>
 						</tr>
 						<tr>
 							<td id="province_Header"><label for="province">Province:</label></td>
-							<td headers="province_Header"><cfinput name="province" id="province" type="text" size="25" maxlength="40" required="no" value="#Variables.province#" CLASS="textField" message="Please enter the province/state."></td>
+							<td headers="province_Header"><cfinput name="province" id="province" type="text" size="25" maxlength="40" required="no" value="#Variables.province#" CLASS="textField" message="Please enter the province/state." /></td>
 						</tr>
 						<tr>
 							<td id="country_Header"><label for="country">Country:</label></td>
-							<td headers="country_Header"><cfinput name="country" id="country" type="text" size="25" maxlength="40" required="yes" value="#Variables.country#" CLASS="textField" message="Please enter the country."></td>
+							<td headers="country_Header"><cfinput name="country" id="country" type="text" size="25" maxlength="40" required="yes" value="#Variables.country#" CLASS="textField" message="Please enter the country." /></td>
 						</tr>
 						<tr>
 							<td id="zip_Header"><label for="zip">Postal / Zip Code:</label></td>
-							<td headers="zip_Header"><cfinput name="zip" id="zip" type="text" size="12" maxlength="10" required="no" value="#Variables.zip#" CLASS="textField" message="Please enter the postal code or zip code."></td>
+							<td headers="zip_Header"><cfinput name="zip" id="zip" type="text" size="12" maxlength="10" required="no" value="#Variables.zip#" CLASS="textField" message="Please enter the postal code or zip code." /></td>
 						</tr>
 						<tr>
 							<td id="phone_Header"><label for="phone">Phone:</label></td>
-							<td headers="phone_Header"><cfinput name="phone" id="phone" type="text" size="25" maxlength="32" required="yes" value="#Variables.phone#" CLASS="textField" message="Please check that the phone number is valid."></td>
+							<td headers="phone_Header"><cfinput name="phone" id="phone" type="text" size="25" maxlength="32" required="yes" value="#Variables.phone#" CLASS="textField" message="Please check that the phone number is valid." /></td>
 						</tr>
 						<tr>
 							<td id="fax_Header"><label for="fax">Fax (optional):</label></td>
-							<td headers="fax_Header"><cfinput name="fax" id="fax" type="text" size="25" maxlength="32" value="#variables.fax#" CLASS="textField"></td>
+							<td headers="fax_Header"><cfinput name="fax" id="fax" type="text" size="25" maxlength="32" value="#variables.fax#" CLASS="textField" /></td>
 						</tr>
 						<tr>
 							<td id="" colspan="2" align="center" style="padding-top:20px;">
-								<input type="hidden" name="companyID" value="#form.companyID#">
-								<input type="Submit" class="textbutton" value="Submit">
-								<input type="button" value="Cancel" onClick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton">
+								<input type="hidden" name="companyID" value="#form.companyID#" />
+								<input type="submit" class="textbutton" value="submit" />
+								<input type="button" value="Cancel" onClick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" />
 							</td>
 						</tr>
 					</table>

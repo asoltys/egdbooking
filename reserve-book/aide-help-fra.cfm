@@ -92,10 +92,10 @@ a:hover {
 	<body bgcolor="#FFFFFF" text="#000000">
 	
 			
-	<div align="center" class="style1">
-	  <table width="58%"  border="0" cellspacing="0" cellpadding="0">
+	<div style="text-align:center;" class="style1">
+	  <table style="width:58%;"  border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td width="100%">
+          <td style="width:100%;">
             <p><a name="Top"></a><h1>Cale sèche d'Esquimalt (CSE)</h1>       
             <h1>Système de r&eacute;servation en ligne : Guide de l'utilisateur</h1>       
             <P class="style1">Table des matières</p>       
@@ -261,7 +261,7 @@ a:hover {
               d'entreprise</strong><br />
             </div>
             <div style="padding-left:60px;">
-              <div align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cliquez sur     
+              <div style="text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cliquez sur     
                 le lien &laquo; ici&nbsp;&raquo; sous le menu d&eacute;roulant (figure 1)     
                 pour cr&eacute;er un profil d'entreprise. Tous les champs sont     
                 obligatoires, sauf &laquo; Adresse 2&nbsp;&raquo; et &laquo;&nbsp;Fax&nbsp;&raquo;.     
@@ -272,8 +272,8 @@ a:hover {
               </div>
             </div>
 				<br />
-                <div align="center"><IMG src="../images/aide-help/entrpajout-compadd-fra.gif" alt="Figure 1 : Ajouter une nouvelle entreprise"></div>
-                <div align="center">Figure 1 : Ajouter une nouvelle entreprise <br />
+                <div style="text-align:center;"><img src="../images/aide-help/entrpajout-compadd-fra.gif" alt="Figure 1 : Ajouter une nouvelle entreprise"></div>
+                <div style="text-align:center;">Figure 1 : Ajouter une nouvelle entreprise <br />
                 
               </div>
             <div style="padding-left:40px;"><br />
@@ -339,12 +339,12 @@ a:hover {
               chemin que vous avez suivi jusqu'à maintenant dans le site, ce     
               qui peut être très utile si vous voulez revenir en arrière.</div>       
             <br />
-                <div align="center"><IMG src="../images/aide-help/utilisateur-user-menu-fra.gif" alt="Figure 2 : barre de menus"></div>
-                <div align="center">Figure 2: barre de menus <br />
+                <div style="text-align:center;"><img src="../images/aide-help/utilisateur-user-menu-fra.gif" alt="Figure 2 : barre de menus"></div>
+                <div style="text-align:center;">Figure 2: barre de menus <br />
                 </div>
 			<br />
-                <div align="center"><IMG src="../images/aide-help/userBreadcrumbs-f.gif" alt="Figure 3 : piste de navigation"></div>
-                <div align="center">Figure 3: piste de navigation <br />
+                <div style="text-align:center;"><img src="../images/aide-help/userBreadcrumbs-f.gif" alt="Figure 3 : piste de navigation"></div>
+                <div style="text-align:center;">Figure 3: piste de navigation <br />
             <br />
             </div>
 			<div style="padding-left:40px;"><strong>3.1.1 Entreprises</strong></div>
@@ -360,8 +360,8 @@ a:hover {
               vous attendez l'approbation de repr&eacute;sentation appara&reg;tra tout juste     
               en dessous de votre liste d'entreprises.<br />      
 			  <br />
-                <div align="center"><IMG src="../images/aide-help/userCompanies-f.gif" alt="Figure 4 : vos entreprises"></div>
-                <div align="center">Figure 4: vos entreprises <br />
+                <div style="text-align:center;"><img src="../images/aide-help/userCompanies-f.gif" alt="Figure 4 : vos entreprises"></div>
+                <div style="text-align:center;">Figure 4: vos entreprises <br />
                 </div>
 			</div>
 			<br />
@@ -403,8 +403,8 @@ a:hover {
     d'utilisateur.<br />   
     <br />
   </div>
-	<div align="center"><IMG src="../images/aide-help/utilisateur-user-profilmod-profileedit-fra.gif" alt="Figure 5 : modifier votre nom"></div>
-	<div align="center">Figure 5 : modifier votre nom <br /><br />
+	<div style="text-align:center;"><img src="../images/aide-help/utilisateur-user-profilmod-profileedit-fra.gif" alt="Figure 5 : modifier votre nom"></div>
+	<div style="text-align:center;">Figure 5 : modifier votre nom <br /><br />
   </div>
   <div style="padding-left:40px;"><strong>3.2.2 Changement de mot de passe</strong><br />
   </div> 
@@ -415,8 +415,8 @@ a:hover {
     utiliser aussi bien les unes que les autres. Pour des raisons de s&eacute;curit&eacute;,     
     nous vous sugg&eacute;rons d'utiliser des lettres et des chiffres dans votre mot     
     de passe, et de le changer fr&eacute;quemment.</div>       
-  <br /><div align="center"><IMG src="../images/aide-help/passechangement-passchange-fra.gif" alt="Figure 7 : modifier votre mot de passe"></div>
-	<div align="center">Figure 7: modifier votre mot de passe <br />
+  <br /><div style="text-align:center;"><img src="../images/aide-help/passechangement-passchange-fra.gif" alt="Figure 7 : modifier votre mot de passe"></div>
+	<div style="text-align:center;">Figure 7: modifier votre mot de passe <br />
   </div>
             <p><a href="#Top">Retour à la table des matières</a> </p>    
   
@@ -665,8 +665,8 @@ a:hover {
       a &eacute;t&eacute; soumise. On peut faire afficher une version facile à imprimer en    
       cliquant sur le bouton &laquo;&nbsp;Voir la version imprimable&nbsp;&raquo;.<br />       
     </div>
-	<div align="center"><IMG src="../images/aide-help/utilisateur-user-resume-summary-fra.gif" alt="Figure 8 : Vue d'ensemble des r&eacute;servations"></div>
-	<div align="center">Figure 8 : Vue d'ensemble des r&eacute;servations <br /><br />   
+	<div style="text-align:center;"><img src="../images/aide-help/utilisateur-user-resume-summary-fra.gif" alt="Figure 8 : Vue d'ensemble des r&eacute;servations"></div>
+	<div style="text-align:center;">Figure 8 : Vue d'ensemble des r&eacute;servations <br /><br />   
  	 </div>
             <a href="#Top">Retour à la table des matières</a> <br />   
     <br />

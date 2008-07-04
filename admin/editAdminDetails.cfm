@@ -58,7 +58,7 @@ function EditSubmit ( selectedform )
 				<cfoutput>
 				<cfform name="emailForm" action="editAdminDetails_action.cfm?lang=#lang#">
 				<p>Select any of the following administrators to receive email notification about user activities:</p>
-				<table align="center" width="85%">
+				<table align="center" style="width:85%;">
 					<cfloop query="getAdministrators">
 					<cfif ListContains(getEmails.email, "#email#") NEQ 0>
 						<cfset variables.checked = "yes">
@@ -66,14 +66,14 @@ function EditSubmit ( selectedform )
 						<cfset variables.checked = "no">
 					</cfif>
 						<tr>
-							<td>#AdminName#</td><td>#email#</td><td><cfinput type="checkbox" name="Email#userID#" value="#userID#" checked="#variables.checked#"></td>
+							<td>#AdminName#</td><td>#email#</td><td><cfinput type="checkbox" name="Email#userID#" value="#userID#" checked="#variables.checked#" /></td>
 						</tr>
 					</cfloop>
 				</table>
 				
 				<br />
-				<div align="right"><input type="submit" value="submit" class="textbutton">
-				<input type="button" onClick="javascript:self.location.href='menu.cfm?lang=#lang#'" value="Cancel" class="textbutton"></br>
+				<div style="text-align:right;"><input type="submit" value="submit" class="textbutton" />
+				<input type="button" onClick="javascript:self.location.href='menu.cfm?lang=#lang#'" value="Cancel" class="textbutton" />
 				</cfform>
 				
 				</cfoutput>

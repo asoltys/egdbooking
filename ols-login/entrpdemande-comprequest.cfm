@@ -188,13 +188,13 @@ function EditSubmit ( selectedform )
 						<cfinclude template="#RootDir#includes/getStructure.cfm">
 					</cfif>
 			
-					<cfif lang EQ 'e'><table align="center" width="85%"><cfelse><table align="center" width="100%"></cfif>
+					<cfif lang EQ 'e'><table align="center" width="85%"><cfelse><table align="center" style="width:100%;"></cfif>
 							<tr>
 								<td colspan="3">#language.yourCompanies#: </td>
 							</tr>
 						<cfif NOT isDefined("url.companies")>
 							<tr>
-								<td width="8%">&nbsp;</td><td>#language.NoCompanies#</td>
+								<td style="width:8%;">&nbsp;</td><td>#language.NoCompanies#</td>
 							</tr>
 							<cfset companyList = ArrayToList(ArrayNew(1))>
 							<cfelse>
@@ -211,7 +211,7 @@ function EditSubmit ( selectedform )
 			
 							<cfif Len(companyList) EQ 0>
 								<tr>
-									<td width="8%">&nbsp;</td><td>#language.NoCompanies#</td>
+									<td style="width:8%;">&nbsp;</td><td>#language.NoCompanies#</td>
 								</tr>
 							</cfif>
 			
@@ -231,13 +231,13 @@ function EditSubmit ( selectedform )
 									WHERE	CompanyID = '#ID#'
 								</cfquery>
 								<tr>
-									<td width="5%">
+									<td style="width:5%;">
 										<form action="entrpsup-comprem_confirm.cfm?lang=#lang#&companies=#companies#&info=#Variables.info#" method="post" id="remCompany#ID#">
 											<input type="hidden" name="CompanyID" value="#ID#" />
 										</form> 						</td>
 									<td>#detailsID.Name#</td>
-									<cfif lang EQ 'e'><td align="left" valign="top" width="45%"><cfelse></td>
-									<td align="left" valign="top" width="50%"></cfif><a href="javascript:EditSubmit('remCompany#ID#');" class="textbutton">#language.Remove#</a>
+									<cfif lang EQ 'e'><td align="left" valign="top" style="width:45%;"><cfelse></td>
+									<td align="left" valign="top" style="width:50%;"></cfif><a href="javascript:EditSubmit('remCompany#ID#');" class="textbutton">#language.Remove#</a>
 									&nbsp;<i>#language.awaitingApproval#</i></td>
 								</tr>
 								<cfset counter = counter + 1>
@@ -252,7 +252,7 @@ function EditSubmit ( selectedform )
 					</cfif>
 			
 					<cfform action="entrpdemande-comprequest.cfm?lang=#lang#&companies=#companies#&info=#Variables.info#" name="addUserCompanyForm" method="post">
-						<cfif lang EQ 'e'><table align="center" width="88%"><cfelse><table align="center" width="95%"></cfif>
+						<cfif lang EQ 'e'><table align="center" width="88%"><cfelse><table align="center" style="width:95%;"></cfif>
 						<tr>
 							<td valign="top"><label for="companies">#language.AddCompany#:</label></td>
 							<td>
@@ -278,9 +278,9 @@ function EditSubmit ( selectedform )
 						<input type="hidden" name="password1" value="#Variables.password1#" />
 						<input type="hidden" name="companies" value="#companies#" />
 						<br />
-						<div align="right"><input type="submit" value="#language.SubmitUserRequest#" class="textbutton" />
+						<div style="text-align:right;"><input type="submit" value="#language.SubmitUserRequest#" class="textbutton" />
 						<cfif lang EQ 'fra'></div><br />
-						<div align="right"></cfif>
+						<div style="text-align:right;"></cfif>
 						<input type="button" onclick="self.location.href='addUser.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#'" value="#language.editProfile#" class="textbutton" />
 						<input type="button" onclick="self.location.href='ols-login.cfm?lang=#lang#'" value="#language.cancel#" class="textbutton" />
 						</div>

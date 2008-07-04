@@ -32,7 +32,7 @@ function popUp(pageID) {
 					</a></h1>
 					
 				<cfoutput>
-				<IMG src="#RootDir#images/EGD_aerial_small.jpg" usemap="##aerial" alt="Aerial view of the Esquimalt Graving Dock" width="435" height="342" title="Aerial view of the Esquimalt Graving Dock" border="0">
+				<img src="#RootDir#images/EGD_aerial_small.jpg" usemap="##aerial" alt="Aerial view of the Esquimalt Graving Dock" width="435" height="342" title="Aerial view of the Esquimalt Graving Dock" border="0">
 				<MAP name="aerial" id="aerial">
 					<area href="javascript:void(0);" alt="B&acirc;timent du centre des op&eacute;rations" title="B&acirc;timent du centre des op&eacute;rations" shape="rect" coords="84,207,111,231">
 					<area href="javascript:void(0);" alt="Quai de d&eacute;barquement nord" title="Quai de d&eacute;barquement nord" shape="rect" coords="2,301,175,340">

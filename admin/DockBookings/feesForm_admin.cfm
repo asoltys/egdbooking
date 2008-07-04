@@ -93,8 +93,8 @@ function EditSubmit ( selectedform )
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				
 				<br />
-				<cfoutput><div align="center" style="font-weight:bold;">#getDetails.CompanyName#: #getDetails.VesselName#</div></cfoutput>
-				<cfoutput><div align="center" style="font-weight:bold;">#DateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#</div></cfoutput>
+				<cfoutput><div style="text-align:center;" style="font-weight:bold;">#getDetails.CompanyName#: #getDetails.VesselName#</div></cfoutput>
+				<cfoutput><div style="text-align:center;" style="font-weight:bold;">#DateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#</div></cfoutput>
 				<br />
 				<cfform name="serviceSelect" action="feesForm_admin_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#">
 				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the selected services for the booking and allows the administrator to edit the information.">
@@ -106,7 +106,7 @@ function EditSubmit ( selectedform )
 					</tr>
 					
 					<tr>
-						<td id="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="Checkbox" <cfif getForm.other EQ 1>checked</cfif> onClick="if (this.checked) this.form.otherBox.focus();"></td>
+						<td id="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="Checkbox" <cfif getForm.other EQ 1>checked</cfif> onClick="if (this.checked) this.form.otherBox.focus();" />
 						<td id="itemHeader" align="center" valign="top">&nbsp;</td>
 						<td id="serviceHeader" align="left" valign="top">
 							<table>
@@ -144,10 +144,10 @@ function EditSubmit ( selectedform )
 				<cfoutput><input type="hidden" name="bookingID" value=#Variables.bookingID#></cfoutput>
 				
 				<br />
-				<div align="right">
+				<div style="text-align:right;">
 					<!--a href="javascript:EditSubmit('serviceSelect');" class="textbutton">Submit</a-->
-					<input type="submit" name="submitForm" class="textbutton" value="submit">
-					<cfoutput><input type="button" value="Back" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" class="textbutton"></cfoutput>
+					<input type="submit" name="submitForm" class="textbutton" value="submit" />
+					<cfoutput><input type="button" value="Back" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" class="textbutton" />
 				</div>
 								
 				</cfform>

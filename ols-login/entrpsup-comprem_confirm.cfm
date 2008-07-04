@@ -74,16 +74,16 @@ function EditSubmit ( selectedform )
 				</cfif>
 				
 				<cfform action="entrpsup-comprem_action.cfm?lang=#lang#&companies=#companies#&info=#url.info#" method="post" name="remCompanyConfirmForm">
-					<div align="center">#language.areYouSure# <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
+					<div style="text-align:center;">#language.areYouSure# <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
 				
-					<p><div align="center">
+					<p><div style="text-align:center;">
 						<!---a href="javascript:EditSubmit('remCompanyConfirmForm');" class="textbutton">#language.Remove#</a>
 						<a href="entrpdemande-comprequest.cfm?lang=#lang#&companies=#companies#&info=#url.info#" class="textbutton">#language.Cancel#</a--->
-						<input type="submit" value="#language.Remove#" class="textbutton">
-						<input type="button" value="#language.Cancel#" onClick="javascript:self.location.href='addUserCompanies.cfm?lang=#lang#&companies=#companies#&info=#url.info#'" class="textbutton">
+						<input type="submit" value="#language.Remove#" class="textbutton" />
+						<input type="button" value="#language.Cancel#" onClick="javascript:self.location.href='addUserCompanies.cfm?lang=#lang#&companies=#companies#&info=#url.info#'" class="textbutton" />
 					</div></p>
 				
-					<input type="hidden" name="CompanyID" value="#form.CompanyID#">
+					<input type="hidden" name="CompanyID" value="#form.CompanyID#" />
 				</cfform>
 				</cfoutput>
 

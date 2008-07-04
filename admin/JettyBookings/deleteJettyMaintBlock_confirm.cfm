@@ -59,23 +59,23 @@
 				
 				<p>Please confirm the following maintenance block information.</p>
 				<cfform action="deleteJettyMaintBlock_action.cfm?#urltoken#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
-				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#"></cfoutput>
+				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 				
-				<table width="80%" align="center">	
+				<table style="width:80%;" align="center">	
 					<tr><td align="left"><div style="font-weight:bold;">Booking:</div></td></tr>
 					<tr>
-						<td id="Start" align="left" width="25%">Start Date:</td>
-						<td headers="Start"><input type="hidden" name="StartDate" value="<cfoutput>#Variables.Start#</cfoutput>"><cfoutput>#DateFormat(Variables.Start, 'mmm d, yyyy')#</cfoutput></td>
+						<td id="Start" align="left" style="width:25%;">Start Date:</td>
+						<td headers="Start"><input type="hidden" name="StartDate" value="<cfoutput>#Variables.Start#</cfoutput>)" /><cfoutput>#DateFormat(Variables.Start, 'mmm d, yyyy'" />
 					</tr>
 					<tr>
 						<td id="End" align="left">End Date:</td>
-						<td headers="End"><input type="hidden" name="EndDate" value="<cfoutput>#Variables.End#</cfoutput>"><cfoutput>#DateFormat(Variables.End, 'mmm d, yyyy')#</cfoutput></td>
+						<td headers="End"><input type="hidden" name="EndDate" value="<cfoutput>#Variables.End#</cfoutput>)" /><cfoutput>#DateFormat(Variables.End, 'mmm d, yyyy'" />
 					</tr>
 					<tr>
 						<td id="Sections" align="left">Sections:</td>
 						<td headers="Sections">
-							<input type="hidden" name="NorthJetty" value="<cfoutput>#Variables.NorthJetty#</cfoutput>">
-							<input type="hidden" name="SouthJetty" value="<cfoutput>#Variables.SouthJetty#</cfoutput>">
+							<input type="hidden" name="NorthJetty" value="<cfoutput>#Variables.NorthJetty#</cfoutput>" />
+							<input type="hidden" name="SouthJetty" value="<cfoutput>#Variables.SouthJetty#</cfoutput>" />
 							<cfif Variables.NorthJetty EQ 1>
 								North Landing Wharf
 							</cfif>
@@ -90,11 +90,11 @@
 				</table>
 				
 				<br />
-				<table width="100%" cellspacing="0" cellpadding="1" border="0" align="center">
+				<table style="width:100%;" cellspacing="0" cellpadding="1" border="0" align="center">
 					<tr>
 						<td colspan="2" align="center">
-							<input type="Submit" value="<cfoutput>#variables.actionCap#</cfoutput> Maintenance" class="textbutton">
-							<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='jettybookingmanage.cfm?#urltoken#';"></cfoutput>
+							<input type="submit" value="<cfoutput>#variables.actionCap#</cfoutput> Maintenance" class="textbutton" />
+							<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='jettybookingmanage.cfm?#urltoken#';" />
 						</td>
 					</tr>
 				</table>
