@@ -36,7 +36,7 @@
 </cfif>
 
 <!--- The following allows the WPSS toolkits to bypass the login and validate the pages beyond --->
-<!---
+
 <CFSET Session.LoggedIn = "1">
 <!--- Set the session variables for the session --->
 <CFSCRIPT>
@@ -45,7 +45,7 @@ Session.FirstName = "i\'m the";
 Session.LastName = "supervisor";
 Session.EMail = "mushroom@example.com";
 </CFSCRIPT>
---->
+
 
 <!--- comment out the following check to allow WPSS toolkit to bypass login and validate the pages beyond --->
 <!---
