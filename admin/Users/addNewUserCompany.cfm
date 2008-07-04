@@ -216,7 +216,7 @@ function EditSubmit ( selectedform )
 								</cfloop>
 							</cfselect>
 							<input type="submit" name="submitCompany" value="Add" class="textbutton" />
-							<font size="-2">If the desired company is not listed, click <a href="addCompany.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#">here</a> to create one.</font>
+							<font size="-2">If the desired company is not listed, click <a href="addCompany.cfm?lang=#lang#&amp;info=#Variables.info#&amp;companies=#companies#">here</a> to create one.</font>
 						</td>
 					</tr>
 				</table>

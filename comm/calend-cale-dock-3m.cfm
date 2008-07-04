@@ -134,8 +134,8 @@
 
 
 				<cfoutput>
-				<div style="float:left;"><a href="calend-cale-dock-3m.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
-				<div style="float:right;"><a href="calend-cale-dock-3m.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
+				<div style="float:left;"><a href="calend-cale-dock-3m.cfm?lang=#lang#&amp;month=#prevmonth#&amp;year=#prevyear#">#language.prev#</a></div>
+				<div style="float:right;"><a href="calend-cale-dock-3m.cfm?lang=#lang#&amp;month=#nextmonth#&amp;year=#nextyear#">#language.next#</a></div>
 				<div style="width:100%; text-align:center;">
 				<form id="selection" name="selection" action="" style="margin: 0; padding:0; ">
 					<select name="selMonth">
@@ -170,8 +170,8 @@
 				</cfloop>
 
 				<cfoutput>
-					<div style="float:left;"><a href="calend-cale-dock-3m.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
-					<div style="text-align:right;"><a href="calend-cale-dock-3m.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
+					<div style="float:left;"><a href="calend-cale-dock-3m.cfm?lang=#lang#&amp;month=#prevmonth#&amp;year=#prevyear#">#language.prev#</a></div>
+					<div style="text-align:right;"><a href="calend-cale-dock-3m.cfm?lang=#lang#&amp;month=#nextmonth#&amp;year=#nextyear#">#language.next#</a></div>
 				</cfoutput>
 
 				<CFSET pos="bottom">

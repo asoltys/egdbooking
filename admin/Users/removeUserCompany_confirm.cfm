@@ -39,7 +39,7 @@ function EditSubmit ( selectedform )
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#form.userID#">Edit User Profile</a> &gt; 
+			<a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#&amp;userID=#form.userID#">Edit User Profile</a> &gt; 
 			Confirm Remove Company</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->

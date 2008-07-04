@@ -95,7 +95,7 @@
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
-			<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&companyID=#url.companyID#">#language.welcomePage#</a> &gt;
+			<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;companyID=#url.companyID#">#language.welcomePage#</a> &gt;
 			#language.archivedBookings#
 			</cfoutput>
 		</p>
@@ -127,15 +127,15 @@
 									<CFSET rowClass = "">
 								</CFIF>
 								<tr class="#rowClass#" valign="top">
-									<td style="width:60%;" valign="top"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#&referrer=#variables.referrer#&companyID=#url.companyID#">#Name#</a></td>
+									<td style="width:60%;" valign="top"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#&amp;referrer=#variables.referrer#&amp;companyID=#url.companyID#">#Name#</a></td>
 									<td style="width:15%;" valign="top">
 										<cfif status EQ "P"><i>#language.pending#</i>
 										<cfelseif status EQ "C"><i>#language.confirmed#</i>
 										<cfelseif status EQ "T"><i>#language.tentative#</i></cfif>
 									</td>
 									<td align="right" style="width:25%;" valign="top">
-										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&BookingID=#BookingID#&referrer=#variables.referrer#&companyID=#url.companyID#">#language.editTariff#</a></div>
-										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&BookingID=#BookingID#&referrer=#variables.referrer#&companyID=#url.companyID#">#language.viewTariff#</a></div></cfif>
+										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BookingID=#BookingID#&amp;referrer=#variables.referrer#&amp;companyID=#url.companyID#">#language.editTariff#</a></div>
+										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BookingID=#BookingID#&amp;referrer=#variables.referrer#&amp;companyID=#url.companyID#">#language.viewTariff#</a></div></cfif>
 									</td>
 								</tr>
 								<tr class="#rowClass#"><td colspan="3" valign="top">
@@ -166,7 +166,7 @@
 									<CFSET rowClass = "">
 								</CFIF>
 								<tr class="#rowClass#" valign="top">
-									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#&referrer=#variables.referrer#&companyID=#url.companyID#">#Name#</a></td>
+									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#&amp;referrer=#variables.referrer#&amp;companyID=#url.companyID#">#Name#</a></td>
 									<td style="width:40%;" align="left">
 										<cfif NOT status eq 'c'><i>#language.pending#</i>
 										<cfelse><i>#language.confirmed#</i></cfif>
@@ -202,7 +202,7 @@
 									<CFSET rowClass = "">
 								</CFIF>
 								<tr class="#rowClass#" valign="top">
-									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#&referrer=#variables.referrer#&companyID=#url.companyID#">#Name#</a></td>
+									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#&amp;referrer=#variables.referrer#&amp;companyID=#url.companyID#">#Name#</a></td>
 									<td style="width:40%;" align="left">
 										<cfif NOT status eq 'c'><i>#language.pending#</i>
 										<cfelse><i>#language.confirmed#</i></cfif>
@@ -225,7 +225,7 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#language.None#
 					</cfif>
 				<br />
-				<div style="text-align:center;"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&companyID=#url.companyID#" class="textbutton">#language.returnTo#</a></div>
+				<div style="text-align:center;"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;companyID=#url.companyID#" class="textbutton">#language.returnTo#</a></div>
 							
 				</div>
 				</cfoutput>

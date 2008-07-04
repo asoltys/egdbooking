@@ -2,7 +2,7 @@
 	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Booking Space at the Esquimalt Graving Dock"" />
 	<meta name=""keywords"" content=""Booking Space at the Esquimalt Graving Dock"" />
 	<meta name=""description"" content=""Introduction page for the booking application."" />
-	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""Wharfs, Ships, Ferries, Pleasure Craft, Vessels, Repair, Maintenance, Management"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Booking Space at the Esquimalt Graving Dock</title>">
 <cfinclude template="#RootDir#includes/tete-header-eng.cfm">
 

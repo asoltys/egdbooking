@@ -23,7 +23,7 @@
 		<cfset language.lastnameError = "Please enter your last name.">
 	<cfelse>
 		<cfset language.unmatchedPasswordsError = "Les mots de passe ne concordent pas, veuillez les retaper.">
-		<cfset language.pass1ShortError = "Votre mot de passe doit être compos&eacute; d'au moins six caract&egrave;res.">
+		<cfset language.pass1ShortError = "Votre mot de passe doit &ecirc;tre compos&eacute; d'au moins six caract&egrave;res.">
 		<cfset language.firstnameError = "Veuillez entrer votre pr&eacute;nom.">
 		<cfset language.lastnameError = "Veuillez entrer votre nom de famille.">
 	</cfif>
@@ -266,7 +266,7 @@ function EditSubmit ( selectedform )
 								</cfselect>
 								<input type="submit" name="submitCompany" value="#language.add#" class="textbutton" />
 								<br />
-								<font size="-2">#language.notListed# <a href="entrpajout-compadd.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#">#language.here#</a> #language.toCreate#</font>				</td>
+								<font size="-2">#language.notListed# <a href="entrpajout-compadd.cfm?lang=#lang#&amp;info=#Variables.info#&amp;companies=#companies#">#language.here#</a> #language.toCreate#</font>				</td>
 						</tr>
 						</table>
 					</cfform>
@@ -291,4 +291,5 @@ function EditSubmit ( selectedform )
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 		
+
 

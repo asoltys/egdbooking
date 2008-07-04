@@ -161,7 +161,7 @@
 						</cfif>
 						<br />
 						<cfoutput>
-						<div style="text-align:center;"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#" class="textbutton">#language.OK#</a></div></cfoutput>
+						<div style="text-align:center;"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CompanyID=#getVesselDetail.companyID#" class="textbutton">#language.OK#</a></div></cfoutput>
 				</cfif>
 			</div>
 

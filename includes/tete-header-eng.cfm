@@ -60,7 +60,7 @@
 
 <cfparam name="Variables.onLoad" default="">
 
-<body onLoad="<cfoutput>#Variables.onLoad#</cfoutput>">
+<body onload="<cfoutput>#Variables.onLoad#</cfoutput>">
 
 <div class="page">
 	<div class="core">

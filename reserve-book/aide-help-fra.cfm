@@ -105,7 +105,7 @@ a:hover {
               Introduction</a></strong><br />
             </div>
             <div style="padding-left:20px;"><em><a href="#SystemReqs">2.1   
-            			 Configuration exigée</a><br />       
+            			 Configuration exig�&copy;e</a><br />       
               <a href="#CreateAccount">2.2 Cr&eacute;er un compte d'utilisateur</a></em><br />       
             </div>
             <div style="padding-left:40px;">2.2.1 Par où commencer<br />       
@@ -730,4 +730,5 @@ a:hover {
       </table>
 	<a href="egd_userdoc-eng.cfm">egd_userdoc-eng</a></body>
 </html>
+
 

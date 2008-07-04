@@ -6,11 +6,11 @@
 	<cfset language.deepsea = "Deepsea Vessel">
 	<cfset language.detailsFor = "Details For">
 <CFELSEIF url.lang eq 'fra'>
-	<CFSET language.maintenance = "Période de maintenance">
-	<cfset language.bookings = "réservations">
-	<cfset language.pending = "réservations en traitement">
-	<cfset language.tentative = "réservations provisoire">
-	<cfset language.deepsea = "Navire océanique">
+	<CFSET language.maintenance = "P&eacute;riode de maintenance">
+	<cfset language.bookings = "r&eacute;servations">
+	<cfset language.pending = "r&eacute;servations en traitement">
+	<cfset language.tentative = "r&eacute;servations provisoire">
+	<cfset language.deepsea = "Navire oc&eacute;anique">
 	<cfset language.detailsFor = "D&eacute;tails pour">
 </CFIF>
 
@@ -31,3 +31,4 @@
 <cfloop index="daysCounter" from="1" to="7" step="1">
 	<cfset DaysofWeek[daysCounter] = LSDateFormat(CreateDate(6,1,daysCounter),"dddd")>
 </cfloop>
+

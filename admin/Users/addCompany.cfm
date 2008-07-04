@@ -29,7 +29,7 @@
 		<CFELSE>
 			 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 		</CFIF>
-	<a href="#RootDir#admin/Users/addNewUserCompany.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#">Create New User</a> &gt; 
+	<a href="#RootDir#admin/Users/addNewUserCompany.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#">Create New User</a> &gt; 
 	</cfoutput>
 	Create New Company
 </div>

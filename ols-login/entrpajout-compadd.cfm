@@ -31,7 +31,7 @@
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.login#</a> &gt; 
-			<a href="#RootDir#ols-login/addUserCompanies.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#">#language.createUser#</a> &gt; 
+			<a href="#RootDir#ols-login/addUserCompanies.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#">#language.createUser#</a> &gt; 
 			#language.CreateComp#
 			</cfoutput>
 		</p>

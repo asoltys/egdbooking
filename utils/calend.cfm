@@ -78,7 +78,7 @@
 </head>
 </cfoutput>
 
-<body onLoad="setCalendar()">
+<body onload="setCalendar()">
 
 <!-- FIP HEADER BEGINS | DEBUT DE L'EN-TETE PCIM -->
 <CFIF lang EQ "eng">

@@ -6,7 +6,7 @@
 <cfelse>
 	<cfset language.title = "Fermer la session">
 	<cfset language.subjects = "#language.masterSubjects#">
-	<cfset language.thankYou = "Merci d'avoir utilisé le système de réservation en ligne de la Cale sèche d'Esquimalt. Votre session est maintenant terminée.">
+	<cfset language.thankYou = "Merci d'avoir utilis&eacute; le syst&egrave;me de r&eacute;servation en ligne de la Cale s&egrave;che d'Esquimalt. Votre session est maintenant termin&eacute;e.">
 	<cfset language.returnlogin = "Retourner &agrave; l'ouverture d'une session">
 </cfif>
 
@@ -45,4 +45,5 @@
 		</div>
 
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+
 

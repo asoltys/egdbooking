@@ -1,6 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<cfif lang eq "fra">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<cfelse>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+</cfif>
 
 <cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
 <cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,"\"), "\")>

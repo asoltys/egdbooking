@@ -23,7 +23,7 @@
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#">Edit User Profile</a> &gt; 
+			<a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#&amp;userID=#url.userID#">Edit User Profile</a> &gt; 
 			Create New Company
 			</cfoutput>
 		</p>

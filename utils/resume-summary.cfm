@@ -30,9 +30,9 @@
 
 <cfhtmlhead text="
 	<meta name=""dc.title"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.bookingsSummary#"" />
-	<meta name=""keywords"" content="""" />
-	<meta name=""description"" content="""" />
-	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
+	<meta name=""keywords"" content=""#language.masterKeywords#"" />
+	<meta name=""description"" content=""#language.description#"" />
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
 	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.bookingsSummary#</title>
 	
 ">

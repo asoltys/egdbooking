@@ -16,16 +16,16 @@
 	<cfset language.password = "Password">
 	<cfset language.Remember = "Remember Me">
 <cfelse>
-	<cfset language.title = "Entrer dans l'application de réservation">
+	<cfset language.title = "Entrer dans l'application de r&eacute;servation">
 	<cfset language.login = "Ouvrir la session">
 	<cfset language.description ="Page d'ouverture de session pour la demande de r&eacute;servation.">
 	<cfset language.browser = "Veuillez v&eacute;rifier que votre navigateur Web r&eacute;pond aux exigences suivantes avant de continuer&nbsp;:">
-	<cfset language.criteria = '<li><a href"http://browser.netscape.com/ns8/" target="browser">Netscape 4.7+</a> (<a href="http://browser.netscape.com/ns8/download/archive72x.jsp" target="browser">liens vers des versions antérieures</a>), <a href="http://www.microsoft.com/windows/ie/downloads/critical/ie6sp1/default.mspx" target="browser">Internet Explorer 5+</a>, ou <a href="http://www.mozilla.org/products/firefox/" target="browser">Mozilla Firefox</a></li>'
+	<cfset language.criteria = '<li><a href"http://browser.netscape.com/ns8/" target="browser">Netscape 4.7+</a> (<a href="http://browser.netscape.com/ns8/download/archive72x.jsp" target="browser">liens vers des versions ant&eacute;rieures</a>), <a href="http://www.microsoft.com/windows/ie/downloads/critical/ie6sp1/default.mspx" target="browser">Internet Explorer 5+</a>, ou <a href="http://www.mozilla.org/products/firefox/" target="browser">Mozilla Firefox</a></li>'
 		<!---& '<li>Permet le chiffrement de 128 bits du JavaScript</li>'--->
-		& '<li>JavaScript activé</li>'
-		& '<li>Témoins activés</li>'
-		& '<li>Poss&egrave;de <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="browser">Adobe Acrobat Reader</a> installé</li>'>
-	<cfset language.displayproblem = "L'application ne fonctionnera peut-être pas correctement sans ces composantes.">
+		& '<li>JavaScript activ&eacute;</li>'
+		& '<li>T&eacute;moins activ&eacute;s</li>'
+		& '<li>Poss&egrave;de <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="browser">Adobe Acrobat Reader</a> install&eacute;</li>'>
+	<cfset language.displayproblem = "L'application ne fonctionnera peut-&ecirc;tre pas correctement sans ces composantes.">
 	<cfset language.jserror = "La fonction JavaScript n'est pas activ&eacute;e. Des parties de l'application ne fonctionnent pas correctement.">
 	<cfset language.forgot = "Oubli du mot de passe">
 	<cfset language.addUser = "Ajout d'un nouveau compte d'utilisateur">
@@ -126,3 +126,4 @@
 
 <!--- Allows the WPSS toolkit to bypass the login and validate the pages beyond this point --->
 <cflocation url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;userid=97">
+
