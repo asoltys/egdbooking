@@ -41,15 +41,12 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.AddVessel#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.AddVessel#"" />
 	<meta name=""keywords"" content=""#language.keywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
-	<meta name=""dc.date.published"" content=""2005-07-25"" />
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
-	<meta name=""dc.date.modified"" content=""2005-07-25"" />
-	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.AddVessel#</title>">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 
 
@@ -84,8 +81,6 @@
 	<cfset Variables.Anonymous = 1>
 </cfif>
 	
-<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
-
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;

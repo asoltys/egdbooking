@@ -31,11 +31,8 @@
 	<meta name=""keywords"" content="""" />
 	<meta name=""description"" content="""" />
 	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
-	<meta name=""dc.date.published"" content=""2005-07-25"" />
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
-	<meta name=""dc.date.modified"" content=""2005-07-25"" />
-	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm Delete Vessel</title>">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfif isDefined("form.vesselID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
@@ -61,8 +58,6 @@
 			INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
 	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #form.VesselID# AND Bookings.Deleted = 0
 </cfquery>
-
-<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">

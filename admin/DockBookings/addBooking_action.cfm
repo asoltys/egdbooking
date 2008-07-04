@@ -1,6 +1,5 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-
 <cfif IsDefined("Session.Return_Structure")>
 	<cfoutput>#StructDelete(Session, "Return_Structure")#</cfoutput>
 </cfif>

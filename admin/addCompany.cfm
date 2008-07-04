@@ -1,15 +1,11 @@
 <cfinclude template="#RootDir#includes/companyInfoVariables.cfm">
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Create New Company"">
+	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Create New Company"" />
 	<meta name=""keywords"" content="""" />
 	<meta name=""description"" content="""" />
 	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
-	<meta name=""dc.date.published"" content=""2005-07-25"" />
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
-	<meta name=""dc.date.modified"" content=""2005-07-25"" />
-	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Create New Company</title>">
-
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 <cfinclude template="#RootDir#includes/checkFilledIn_js.cfm">
 
 <cfparam name="variables.name" default="">
@@ -56,8 +52,6 @@
 	<cfset variables.phone="#form.phone#">
 	<cfset variables.fax="#form.fax#">
 </cfif> --->
-
-<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">

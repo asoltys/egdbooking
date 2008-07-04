@@ -3,12 +3,12 @@
 <head>
 	<!-- VERSION 1.04 DU GABARIT NSI 2.0 | CLF 2.0 TEMPLATE VERSION 1.04 -->
 	<!-- VERSION 1.0 DU GABARIT TPSGC | PWGSC TEMPLATE VERSION 1.0 -->
-	<!-- DEBUT DE L'EN-TETE | headER BEGINS -->
+	<!-- DEBUT DE L'EN-TETE | HEADER BEGINS -->
 	<!-- DEBUT DU TITRE FRANCAIS / ANGLAIS | FRENCH / ENGLISH title BEGINS -->
 	<title>Esquimalt Graving Dock | Cale s&egrave;che e'Esquimalt</title>
 	<!-- FIN DU TITRE FRANCAIS / ANGLAIS | FRENCH / ENGLISH title ENDS   -->
 
-	<!-- DEBUT DES metaDONNEES BILINGUES | BILINGUAL metaDATA BEGINS -->
+	<!-- DEBUT DES METADONNEES BILINGUES | BILINGUAL METADATA BEGINS -->
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1/"  />
 	<link rel="schema.dc" href="http://purl.org/dc/terms/ " />
@@ -36,7 +36,7 @@
 
 	<meta name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
 	<meta name="pwgsc.contact.email" content="questions@tpsgc.gc.ca" />
-	<!-- FIN DES metaDONNEES BILINGUES | BILINGUAL metaDATA ENDS -->
+	<!-- FIN DES METADONNEES BILINGUES | BILINGUAL METADATA ENDS -->
 
 	<!-- DEBUT DES SCRIPTS/CSS DU GABARIT | TEMPLATE SCRIPTS/CSS BEGIN -->
 	<link href="/egd_internet_clf2/clf20/css/wp-pa.css" media="screen, print" rel="stylesheet" type="text/css" />
@@ -49,12 +49,12 @@
 	<!-- FIN DES SCRIPTS/CSS PERSONNALISES | CUSTOM SCRIPTS/CSS END -->
 
 </head>
-<!-- FIN DE L'EN-TETE | headER ENDS -->
+<!-- FIN DE L'EN-TETE | HEADER ENDS -->
 <body>
 <div class="mcontainter"><div class="core">
-	<!-- DEBUT DE L'EN-TETE PCIM | FIP headER BEGINS -->
+	<!-- DEBUT DE L'EN-TETE PCIM | FIP HEADER BEGINS -->
 	<div class="fip"><img src="/egd_internet_clf2/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada | Travaux publics et Services gouvernementaux Canada" /></div>
-	<!-- FIN DE L'EN-TETE PCIM | FIP headER ENDS -->
+	<!-- FIN DE L'EN-TETE PCIM | FIP HEADER ENDS -->
 
 	<!-- DEBUT DU CONTENU | CONTENT BEGINS --> 
 	<!-- DEBUT DE L'ESPACE DE MESSAGE | MESSAGE SPACE BEGINS -->

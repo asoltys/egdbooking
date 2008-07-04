@@ -1,11 +1,11 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/tr/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 <cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
 <cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,"\"), "\")>
 <cfdirectory action="LIST" directory="#PageDir#" name="GetFile" filter="#PageFileName#">
 <cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
-
 
 <cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
 	<cfset language.bookingsSummary = "Bookings Summary">
@@ -34,56 +34,46 @@
 </cfif>
 
 <head>
-	<!--INTERNET TEMPLATE VERSION 2.1-->
-	<!--metaDATA PROFILE START-->
+	<!-- CLF 2.0 TEMPLATE VERSION 1.04 | VERSION 1.04 DU GABARIT NSI 2.0 -->
+	<!-- PWGSC TEMPLATE VERSION 1.0 | VERSION 1.0 DU GABARIT TPSGC -->
+	<!-- HEADER BEGINS | DEBUT DE L'EN-TETE -->
+	<!-- METADATA BEGINS | DEBUT DES METADONNEES -->
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1" />
+	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+	<link rel="schema.dc" href="http://purl.org/dc/terms/" />
 	
-	<CFIF lang eq 'eng'>
-	<meta name="MSSmartTagsPreventParsing" content="True" />
-	<meta name="dc.language" scheme="IS0639-2" content="eng" />
-	<meta name="dc.creator" lang="eng" content="Government of Canada, Public Works and Government Services Canada, Esquimalt Graving Dock" />
-	<meta name="dc.publisher" lang="eng" content="Public Works and Government Services Canada" />
-	<CFELSE>
-	<meta name="MSSmartTagsPreventParsing" content="Vrai" />
-	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1" />
-	<meta name="dc.language" scheme="IS0639-2" content="fre" />
-	<meta name="dc.creator" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada, Cale s&egrave;che d'Esquimalt" />
-	<meta name="dc.publisher" content="Travaux publics et Services gouvernementaux Canada" />
-	</CFIF>
-	
-<cfoutput>
-	<meta name="pwgsc.contact.email" content="questions@tpsgc.gc.ca" />
-	<meta name="dc.rights" lang="#langVar#" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-fra.html" />
-	<meta name="robots" content="noindex,nofollow" />
+	<cfif lang eq "eng">
+	<meta name="dc.language" scheme="ISO639-2/T" content="eng" />
+	<meta name="dc.creator" content="Government of Canada, Public Works and Government Services Canada" />
+	<meta name="dc.publisher" content="Government of Canada, Public Works and Government Services Canada" />
+	<meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html" />
+	<cfelse>
+	<meta name="dc.language" scheme="ISO639-2/T" content="fra" />
+	<meta name="dc.creator" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada" />
+	<meta name="dc.publisher" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada" />
+	<meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-fra.html" />
+	</cfif>
 
-	<meta name="dc.title" lang="#langVar#" content="#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#" />
-	<meta name="keywords" lang="#langVar#" content="#Language.masterKeywords#" />
-	<meta name="description" lang="#langVar#" content="#language.description#" />
-	<meta name="dc.subject" scheme="gccore" lang="#langVar#" content="#Language.masterSubjects#" />
-	<meta name="dc.date.published" content="2005-07-25" />
-	<meta name="dc.date.reviewed" content="2005-07-25" />
-	<meta name="dc.date.modified" content="2005-07-25" />
-	<meta name="dc.date.created" content="2005-07-25"  />
+	<meta name="dc.title" content="#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#" />
+	<meta name="keywords" content="#language.masterKeywords# #language.title#" />
+	<meta name="description" content="#language.title#" />
+	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
+
+	<meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
+	<meta name="dcterms.modified" scheme="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
 	
-	<meta name="pwgsc.date.retention" content="" />
+	<meta name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
+	<meta name="pwgsc.contact.email" content="questions@tpsgc.gc.ca" />
 	
-	<!-- leave blank -->
-	<meta name="dc.contributor" lang="#langVar#" content="">
-	<meta name="dc.identifier" lang="#langVar#" content="">
-	<meta name="dc.audience" lang="#langVar#" content="">
-	<meta name="dc.type" lang="#langVar#" content="">
-	<meta name="dc.format" lang="#langVar#" content="">
-	<meta name="dc.coverage" lang="#langVar#" content="">
-	<!--metaDATA PROFILE END-->
+	<!-- METADATA ENDS | FIN DES METADONNEES -->
 	
-	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#</title>
+	<title><cfoutput>#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#</cfoutput> </title>
 	
 	<!-- CSS needed for correct printout of table headers in IE 6.0 -->
 	<style type='text/css'>
         thead{display:table-header-group}
 	</style>
-</cfoutput> 
+
 </head>
 <body>
 
@@ -172,7 +162,7 @@ WHERE	SouthJetty = 1
 
 <cfoutput>
 
-<!-- FIP headER BEGINS | DEBUT DE L'EN-TETE PCIM -->
+<!-- FIP HEADER BEGINS | DEBUT DE L'EN-TETE PCIM -->
 <CFIF lang EQ "eng">
 <div style="float:right; position:relative; z-index:1; height:33px;">
 	<img src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
@@ -184,7 +174,7 @@ WHERE	SouthJetty = 1
 </div>
 <a name="tphp" id="tphp"><img src="/clf20/images/sig-fra.gif" width="364" height="33" alt="Travaux publics et Services gouvernementaux Canada" /></a>
 </CFIF>
-<!-- FIP headER ENDS | FIN DE L'EN-TETE PCIM -->
+<!-- FIP HEADER ENDS | FIN DE L'EN-TETE PCIM -->
 
 <h1>#language.EsqGravingDock# #language.BookingsSummary#</h1>
 

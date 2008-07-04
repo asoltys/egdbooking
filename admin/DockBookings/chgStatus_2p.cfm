@@ -33,8 +33,6 @@
 	<cfset Variables.End = CreateODBCDate(getBooking.EndDate)>
 </cfif>
 
-<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
-
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;

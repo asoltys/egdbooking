@@ -20,19 +20,18 @@
 
 
 <cfhtmlhead text="
-<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.forgot#"">
+<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.forgot#"" />
 <meta name=""keywords"" content=""#language.keywords#"" />
 <meta name=""description"" content=""#language.description#"" />
-<meta name=""dc.subject"" scheme=""gccore"" content=""#language.masterSubjects#"">
+<meta name=""dc.subject"" scheme=""gccore"" content=""#language.masterSubjects#"" />
 <meta name=""dc.date.published"" content=""2005-07-25"" />
 <meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 <meta name=""dc.date.modified"" content=""2005-07-25"" />
 <meta name=""dc.date.created"" content=""2005-07-25"" />
 <title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.forgot#</title>">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfset Variables.onLoad = "javascript:document.forgotForm.email.focus();">
-
-<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">

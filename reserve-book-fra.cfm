@@ -3,11 +3,8 @@
 	<meta name=""keywords"" content=""cale seche d'Esquimalt, reservation pour travaux, reparation de navires, bateaux, entretien de navires, cale seche, bassin de radoub, chantier naval"" />
 	<meta name=""description"" content=""Reservation pour travaux le Cale seche d'Esquimalt"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
-	<meta name=""dc.date.published"" content=""2005-07-25"" />
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
-	<meta name=""dc.date.modified"" content=""2005-07-25"" />
-	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>TPSGC - CALE S&Egrave;CHE D'ESQUIMALT - Booking Space at the Esquimalt Graving Dock</title>">
+<cfinclude template="#RootDir#includes/tete-header-fra.cfm">
 
 <cfoutput>
 <script type="text/javascript">
@@ -18,8 +15,6 @@ function popUp(pageID) {
 /* ]]> */
 </script>
 </cfoutput>
-
-<cfinclude template="#RootDir#includes/tete-header-fra.cfm">
 
 		<!-- DEBUT DE LA PISTE DE NAVIGATION | BREAD CRUMB BEGINS -->
 		<p class="breadcrumb">

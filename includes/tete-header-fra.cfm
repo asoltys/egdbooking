@@ -1,4 +1,5 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/tr/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 
 <cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
@@ -8,7 +9,7 @@
 <head>
 <!-- VERSION 1.04 DU GABARIT NSI 2.0 | CLF 2.0 TEMPLATE VERSION 1.04 -->
 <!-- VERSION 1.0 DU GABARIT TPSGC | PWGSC TEMPLATE VERSION 1.0 -->
-<!-- DEBUT DE L'EN-TETE | headER BEGINS -->
+<!-- DEBUT DE L'EN-TETE | HEADER BEGINS -->
 <!-- DEBUT DU TITRE | title BEGINS -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
@@ -17,27 +18,23 @@
 <meta name="dc.language" scheme="ISO639-2/T" content="fra" />
 <meta name="dc.creator" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada" />
 <meta name="dc.publisher" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada" />
-<meta name="dc.audience" content=" " />
-<meta name="dc.contributor" content=" " />
-<meta name="dc.coverage" content=" " />
-<meta name="dc.date.created" content="2008-06-13" />
-<meta name="dc.date.modified" content="2008-06-12\" />
-<meta name="dc.format" content=" " />
-<meta name="dc.identifier" content=" " />
 <meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-fra.html" />
 <meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
-<meta name="dcterms.modified" scheme="W3CDTF" content="2008-06-12\" />
+<meta name="dcterms.modified" scheme="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
 
-<meta name="pwgsc.contact.email" content="questions@tpsgc-pwgsc.gc.ca" />
-<!-- FIN DES metaDONNEES | metaDATA ENDS -->
+<meta name="pwgsc.contact.email" content="questions@tpsgc.gc.ca" />
+<!-- FIN DES METADONNEES | METADATA ENDS -->
 <!-- DEBUT DES CSS DU GABARIT TPSGC | PWGSC TEMPLATE CSS BEGIN -->
-<link href="/egd_internet_clf2/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
-<link href="/egd_internet_clf2/clf20/css/2col.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="/clf20/css/2col.css" media="screen, print" rel="stylesheet" type="text/css" />
 <style type="text/css" media="all">
-@import url(/egd_internet_clf2/clf20/css/base2.css);
+/* <![CDATA[ */ 
+	@import url(/egd_internet_clf2/clf20/css/base2.css);
+/* ]]> */
 </style>
+<!-- FIN DES SCRIPTS/CSS DU GABARIT | TEMPLATE SCRIPTS/CSS END -->
 <!-- DEBUT DE L'AMELIORATION PROGRESSIVE | PROGRESSIVE ENHANCEMENT BEGINS -->
-<script src="/egd_internet_clf2/clf20/scripts/pe-ap.js" type="text/javascript"></script>
+<script src="/clf20/scripts/pe-ap.js" type="text/javascript"></script>
 <script type="text/javascript">
 	/* <![CDATA[ */
 		var params = {
@@ -63,6 +60,6 @@
 <body>
 <div class="page">
 	<div class="core">
-		<!-- headER BEGINS | DEBUT DE L'EN-TETE -->
+		<!-- HEADER BEGINS | DEBUT DE L'EN-TETE -->
 		<cfinclude template="/clf20/ssi/tete-header-fra.html">
-		<!-- headER ENDS | FIN DE L'EN-TETE -->
+		<!-- HEADER ENDS | FIN DE L'EN-TETE -->

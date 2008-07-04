@@ -8,13 +8,12 @@
 <meta name=""dc.date.modified"" content=""2005-07-25"" />
 <meta name=""dc.date.created"" content=""2005-07-25"" />
 <title>PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions</title>">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <!---clear form structure--->
 <cfif IsDefined("Session.Form_Structure")>
 	<cfset StructDelete(Session, "Form_Structure")>
 </cfif>
-
-<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">

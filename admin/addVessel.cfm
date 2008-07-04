@@ -1,14 +1,10 @@
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add New Vessel"">
+	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add New Vessel"" />
 	<meta name=""keywords"" content=""Add Vessel"" />
 	<meta name=""description"" content=""Allows user to create a new vessel in the Esquimalt Graving Dock booking website."" />
 	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
-	<meta name=""dc.date.published"" content=""2005-07-25"" />
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
-	<meta name=""dc.date.modified"" content=""2005-07-25"" />
-	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Add New Vessel</title>">
-
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 <cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT CompanyID, Name
 	FROM Companies
@@ -45,8 +41,6 @@
 		<cfif isDefined("form.anonymous")><cfset Variables.anonymous = true><cfelse><cfset Variables.anonymous = false></cfif>
 	</cfif>
 </cfif>
-
-<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">

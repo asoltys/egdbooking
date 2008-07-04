@@ -8,9 +8,9 @@
 <meta name=""dc.date.modified"" content=""2005-07-25"" />
 <meta name=""dc.date.created"" content=""2005-07-25"" />
 <title>PWGSC - ESQUIMALT GRAVING DOCK - View Tariff Form of Dock Charges</title>">
-
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="getFees" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	item, serviceE AS service, fee, abbreviation, flex

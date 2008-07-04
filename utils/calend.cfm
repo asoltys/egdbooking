@@ -23,7 +23,7 @@
 <cfoutput>
 <head>
 	<!--INTERNET TEMPLATE VERSION 2.1-->
-	<!--metaDATA PROFILE START-->
+	<!--METADATA PROFILE START-->
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1" />
 	<link rel="schema.dc" href="http://purl.org/dc/terms/ " />
@@ -62,7 +62,7 @@
 	<meta name="dc.type" content="">
 	<meta name="dc.format" content="">
 	<meta name="dc.coverage" content="">
-	<!--metaDATA PROFILE END-->
+	<!--METADATA PROFILE END-->
 	
 	<link href="/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
 	<link href="/clf20/css/1col.css" media="screen, print" rel="stylesheet" type="text/css" />

@@ -34,9 +34,25 @@
 <cfif IsDefined("Session.AdminLoggedIn")>
 	<cflocation url="#RootDir#admin/menu.cfm?lang=#lang#" addtoken="no">
 </cfif>
+
+<!--- The following allows the WPSS toolkits to bypass the login and validate the pages beyond --->
+<!---
+<CFSET Session.LoggedIn = "1">
+<!--- Set the session variables for the session --->
+<CFSCRIPT>
+Session.UserID = "97";
+Session.FirstName = "i\'m the";
+Session.LastName = "supervisor";
+Session.EMail = "mushroom@example.com";
+</CFSCRIPT>
+--->
+
+<!--- comment out the following check to allow WPSS toolkit to bypass login and validate the pages beyond --->
+<!---
 <cfif NOT IsDefined("Session.LoggedIn") AND GetFileFromPath(GetCurrentTemplatePath()) NEQ "public.cfm">
 	<cflocation url="#RootDir#ols-login/ols-login.cfm?lang=#lang#" addtoken="no">
 </cfif>
+--->
 
 </cflock>
 

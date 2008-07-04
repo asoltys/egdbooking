@@ -15,15 +15,12 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.Booking#"">
+	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.Booking#"" />
 	<meta name=""keywords"" content=""#language.keywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
-	<meta name=""dc.date.published"" content=""2005-07-25"" />
-	<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
-	<meta name=""dc.date.modified"" content=""2005-07-25"" />
-	<meta name=""dc.date.created"" content=""2005-07-25"" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.Booking#</title>">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cflock scope="session" throwontimeout="no" timeout="60" type="readonly">
 	<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -123,7 +120,7 @@
 		Docks ON Bookings.BookingID = Docks.BookingID INNER JOIN
 		Users ON Bookings.UserID = Users.UserID
 	WHERE Companies.CompanyID = '#Variables.companyID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND (Status ='P' OR Status = 'Y' OR Status = 'Z')
-	</cfquery>
+</cfquery>
 <cfquery name="countTentative" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numTent
 	FROM Bookings INNER JOIN
@@ -252,8 +249,6 @@
 	<cfset language.confirming = "confirmation ">
 </cfif>
 
-
-<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">

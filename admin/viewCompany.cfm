@@ -11,11 +11,11 @@
 <head>
 <!-- CLF 2.0 TEMPLATE VERSION 1.04 | VERSION 1.04 DU GABARIT NSI 2.0 -->
 <!-- PWGSC TEMPLATE VERSION 1.0 | VERSION 1.0 DU GABARIT TPSGC -->
-<!-- headER BEGINS | DEBUT DE L'EN-TETE -->
+<!-- HEADER BEGINS | DEBUT DE L'EN-TETE -->
 <!-- title BEGINS | DEBUT DU TITRE -->
 <title>PWGSC - ESQUIMALT GRAVING DOCK - View Company Details</title>
 <!-- title ENDS | FIN DU TITRE -->
-<!-- metaDATA BEGINS | DEBUT DES metaDONNEES -->
+<!-- METADATA BEGINS | DEBUT DES METADONNEES -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
 <link rel="schema.dc" href="http://purl.org/dc/terms/" />
@@ -24,18 +24,13 @@
 <meta name="dc.language" scheme="ISO639-2/T" content="eng" />
 <meta name="dc.creator" content="Government of Canada, Public Works and Government Services Canada" />
 <meta name="dc.publisher" content="Government of Canada, Public Works and Government Services Canada" />
-<meta name="dc.audience" content=" " />
-<meta name="dc.contributor" content=" " />
-<meta name="dc.coverage" content=" " />
-<meta name="dc.format" content=" " />
-<meta name="dc.identifier" content=" " />
 <meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html" />
 <meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
 <meta name="dcterms.modified" scheme="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
 <meta name="description" content="Allows user to view information on a company.">
 <meta name="keywords" content="" />
 <meta name="pwgsc.contact.email" content="questions@tpsgc-pwgsc.gc.ca" />
-<!-- metaDATA ENDS | FIN DES metaDONNEES -->
+<!-- METADATA ENDS | FIN DES METADONNEES -->
 <!-- TEMPLATE SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS DU GABARIT -->
 <cfoutput>
 <link href="/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
@@ -104,14 +99,14 @@ var params = {
 
 <div style="width:480px; background-color:#FFFFFF;">
 	<div class="core">
-		<!-- FIP headER BEGINS | DEBUT DE L'EN-TETE PCIM -->
+		<!-- FIP HEADER BEGINS | DEBUT DE L'EN-TETE PCIM -->
 		<div class="fip">
 		<a name="tphp" id="tphp"><img src="/egd_internet_clf2/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></a>
 		</div>
 		<div class="cwm">
 			<img src="/egd_internet_clf2/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
 		</div>
-		<!-- FIP headER ENDS | FIN DE L'EN-TETE PCIM -->
+		<!-- FIP HEADER ENDS | FIN DE L'EN-TETE PCIM -->
 
 		<div class="center" style="margin-left:-10px;">
 				<h1><a name="cont" id="cont">
