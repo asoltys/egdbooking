@@ -1,4 +1,4 @@
-<!-- ====== /egd_internet_clf2/cse-egd/includes/MENU-MI-FRA.html ====== -->
+<!-- ====== /includes/MENU-MI-FRA.html ====== -->
 <ul class="leftNav">
 	<li>
 	<h2><a href="/egd_internet_clf2/cse-egd/index-fra.html"><acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym></a></h2>
@@ -21,4 +21,4 @@
 		</ul>
 	</li>
 </ul>
-<!-- ====== /egd_internet_clf2/cse-egd/includes/MENU-MI-FRA.html ====== -->
+<!-- ====== /includes/MENU-MI-FRA.html ====== -->

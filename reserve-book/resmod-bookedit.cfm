@@ -10,7 +10,7 @@
 	<cfset language.fax = "Fax">
 	<cfset language.emailAddress = "Email">
 	<cfset language.or = "or">
-	<cfset language.acrobatrequired = 'The following file requires <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</a> to be installed.  The links will open in a new window.'>
+	<cfset language.acrobatrequired = 'The following file requires <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" rel="external">Adobe Acrobat Reader</a> to be installed.  The links will open in a new window.'>
 	<cfset language.mail = "Mailing Address">
 	<cfset language.mailing = "Operations Manager<br />Esquimalt Graving Dock<br />825 Admirals Road<br />Esquimalt, BC<br />V9A 2P1<br />Canada">
 <cfelse>
@@ -24,7 +24,7 @@
 	<cfset language.fax = "Fac-simil&eacute;">
 	<cfset language.emailAddress = "Adresse de courriel">
 	<cfset language.or = "ou">
-	<cfset language.acrobatrequired = 'Il faut le logiciel <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank">Adobe Acrobat Reader</a> pour le fichier suivant. Le lien ouvrira une nouvelle fen&ecirc;tre.'>
+	<cfset language.acrobatrequired = 'Il faut le logiciel <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" rel="external">Adobe Acrobat Reader</a> pour le fichier suivant. Le lien ouvrira une nouvelle fen&ecirc;tre.'>
 	<cfset language.mail = "Adresse postale">
 	<cfset language.mailing = "Directeur des op&eacute;rations<br />Cale s&egrave;che d'Esquimalt<br />825 Admirals Road<br />Esquimalt (C.-B.)<br />V9A 2P1<br />Canada">
 </cfif>
