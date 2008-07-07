@@ -44,7 +44,7 @@ function popUp(pageID) {
 					<area href="javascript:void(0);" alt="Vue a&eacute;rienne de la Cale s&egrave;che d'Esquimalt" title="Vue a&eacute;rienne de la Cale s&egrave;che d'Esquimalt" shape="rect" coords="0,0,435,342" />
 				</map>
 				<p>Afin de r&eacute;server une place pour un navire &agrave; l'une des installations de la Cale s&egrave;che d'Esquimalt, veuillez lancer <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=fra">l'application des r&eacute;servations</a>.
-				  Si vous &eacute;prouvez des probl&egrave;mes avec l'application des r&eacute;servations, pri&egrave;re d'utiliser la <a href="http://www.tpsgc.gc.ca/pacific/egd/contact_us-f.html">page Contactez-nous</a>.</p>
+				  Si vous &eacute;prouvez des probl&egrave;mes avec l'application des r&eacute;servations, pri&egrave;re d'utiliser la <a href="/egd_internet_clf2/cse-egd/cn-cu-fra.html">page Contactez-nous</a>.</p>
 				<p>Les frais de r&eacute;servation de la cale s&egrave;che d&rsquo;Esquimalt sont de 3&nbsp;500&nbsp;$ canadiens, plus  210,00&nbsp;$ de taxe sur les produits et services&nbsp;(TPS), ce qui donne en  tout 3&nbsp;710,00&nbsp;$ payables en esp&egrave;ces, par ch&egrave;que certifi&eacute; d&rsquo;une banque  canadienne ou par mandat international. Le 1 er avril 2008, des int&eacute;r&ecirc;ts seront appliqu&eacute;s sur un compte en suspens plus de 30 jours.  Les demandes de r&eacute;servation sont  provisoires jusqu&rsquo;&agrave; ce que les frais de r&eacute;servation soient pay&eacute;s. Les frais de r&eacute;servation ne sont pas remboursables.</p>
 				<p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=fra">Application des r&eacute;servations</a> -
 					R&eacute;server la cale s&egrave;che et les jet&eacute;es en ligne.</p>
