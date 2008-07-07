@@ -48,4 +48,4 @@
 <cfset Session.Success.Link = "#RootDir#admin/DockBookings/bookingmanage.cfm?#urltoken#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 	
-<!---cflocation addtoken="no" url="bookingmanage.cfm?lang=#lang#$amp;startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#$amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#$amp;show=#url.show#"--->
+<!---cflocation addtoken="no" url="bookingmanage.cfm?lang=#lang#&amp;startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&amp;show=#url.show#"--->

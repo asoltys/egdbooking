@@ -62,14 +62,14 @@ function EditSubmit ( selectedform )
 				</cfif>
 
 				<cfoutput>
-				<cfform action="removeUserCompany_action.cfm?lang=#lang#$amp;userID=#form.userID#" method="post" name="remCompanyConfirmForm">
+				<cfform action="removeUserCompany_action.cfm?lang=#lang#&amp;userID=#form.userID#" method="post" name="remCompanyConfirmForm">
 					<div style="text-align:center;">Are you sure you want to remove <strong>#getUser.UserName#</strong> from <strong>#getCompany.Name#</strong>?</div>
 					
 					<p><div style="text-align:center;">
 						<!--a href="javascript:EditSubmit('remCompanyConfirmForm');" class="textbutton">Submit</a>
 						<a href="editUser.cfm?userID=#form.userID#" class="textbutton">Cancel</a-->
 						<input type="submit" name="submitForm" value="Remove" class="textbutton" />
-						<input type="button" name="cancel" value="Cancel" class="textbutton" onclick="self.location.href='editUser.cfm?lang=#lang#$amp;userID=#form.userID#'" />
+						<input type="button" name="cancel" value="Cancel" class="textbutton" onclick="self.location.href='editUser.cfm?lang=#lang#&amp;userID=#form.userID#'" />
 					</div></p>
 					
 					<input type="hidden" name="CompanyID" value="#form.CompanyID#" />

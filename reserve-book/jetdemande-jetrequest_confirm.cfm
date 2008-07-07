@@ -258,7 +258,7 @@
 					<tr>
 						<td colspan="2" align="center">
 							<input type="submit" value="#language.confirm#" class="textbutton" />
-							<input type="button" value="#language.Back#" class="textbutton" onclick="self.location.href='jettyRequest.cfm?lang=#lang#$amp;companyID=#url.companyID#'" />
+							<input type="button" value="#language.Back#" class="textbutton" onclick="self.location.href='jettyRequest.cfm?lang=#lang#&amp;companyID=#url.companyID#'" />
 						</td>
 					</tr>
 				</table>

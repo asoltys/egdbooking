@@ -103,6 +103,6 @@
 	<cfset Session.Success.Back = "Retour &agrave;">
 </cfif>
 <cfset Session.Success.paperFormLink = "#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#" >
-<cfset Session.Success.Link = "#returnTo#?#urltoken#$amp;CompanyID=#url.CompanyID##variables.dateValue#">
+<cfset Session.Success.Link = "#returnTo#?#urltoken#&amp;CompanyID=#url.CompanyID##variables.dateValue#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 

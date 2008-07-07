@@ -17,4 +17,4 @@
 	<cfset companies = URLEncodedFormat(ToBase64(cfusion_encrypt(companyList, "shanisnumber1")))>
 </cfif>
 
-<cflocation addtoken="no" url="addNewUserCompany.cfm?lang=#lang#$amp;companies=#companies#$amp;info=#url.info#">
+<cflocation addtoken="no" url="addNewUserCompany.cfm?lang=#lang#&amp;companies=#companies#&amp;info=#url.info#">

@@ -196,22 +196,22 @@ function EditSubmit ( selectedform )
 				
 				<cfoutput query="getBooking">
 
-					<form method="post" action="chgStatus_2c.cfm?#urltoken#$amp;referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2c#BookingID#" style="margin: 0; padding: 0; ">
+					<form method="post" action="chgStatus_2c.cfm?#urltoken#&amp;referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2c#BookingID#" style="margin: 0; padding: 0; ">
 						<input type="hidden" name="BookingID" value="#BookingID#" />
 					</form>
 					
-					<form method="post" action="chgStatus_2p.cfm?#urltoken#$amp;referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2p#BookingID#" style="margin: 0; padding: 0; ">
+					<form method="post" action="chgStatus_2p.cfm?#urltoken#&amp;referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2p#BookingID#" style="margin: 0; padding: 0; ">
 						<input type="hidden" name="BookingID" value="#BookingID#" />
 					</form>
 					
-					<form method="post" action="chgStatus_2t.cfm?#urltoken#$amp;referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2t#BookingID#" style="margin: 0; padding: 0; ">
+					<form method="post" action="chgStatus_2t.cfm?#urltoken#&amp;referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2t#BookingID#" style="margin: 0; padding: 0; ">
 						<input type="hidden" name="BookingID" value="#BookingID#" />
 					</form>
 				</cfoutput>
 				
 				<cfinclude template="#RootDir#includes/calendar_js.cfm">
 				
-				<cfform action="editJettyBooking_process.cfm?#urltoken#$amp;referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" method="post" enablecab="No" name="editBookingForm" preservedata="Yes">
+				<cfform action="editJettyBooking_process.cfm?#urltoken#&amp;referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" method="post" enablecab="No" name="editBookingForm" preservedata="Yes">
 				<cfoutput>
 				<table style="width:100%;">
 					<tr>
@@ -292,7 +292,7 @@ function EditSubmit ( selectedform )
 							<cfif isdefined('overwrite')>
 							<input type="submit" name="submitForm" class="textbutton" value="overwrite" />
 							</cfif>
-							<input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken#$amp;bookingID=#variables.bookingID##variables.dateValue####variables.bookingID#'" class="textbutton" />
+							<input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken#&amp;bookingID=#variables.bookingID##variables.dateValue####variables.bookingID#'" class="textbutton" />
 							<br />
 							<input type="Hidden" name="BookingID" value="#Variables.BookingID#" />
 							<input type="Hidden" name="Submitted" value="yes" />

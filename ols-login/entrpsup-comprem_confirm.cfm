@@ -26,7 +26,7 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfif NOT IsDefined('form.companyID')>
-	<cflocation addtoken="no" url="entrpdemande-comprequest.cfm?lang=#lang#$amp;info=#url.info#">
+	<cflocation addtoken="no" url="entrpdemande-comprequest.cfm?lang=#lang#&amp;info=#url.info#">
 </cfif>
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -73,14 +73,14 @@ function EditSubmit ( selectedform )
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				</cfif>
 				
-				<cfform action="entrpsup-comprem_action.cfm?lang=#lang#$amp;companies=#companies#$amp;info=#url.info#" method="post" name="remCompanyConfirmForm">
+				<cfform action="entrpsup-comprem_action.cfm?lang=#lang#&amp;companies=#companies#&amp;info=#url.info#" method="post" name="remCompanyConfirmForm">
 					<div style="text-align:center;">#language.areYouSure# <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
 				
 					<p><div style="text-align:center;">
 						<!---a href="javascript:EditSubmit('remCompanyConfirmForm');" class="textbutton">#language.Remove#</a>
-						<a href="entrpdemande-comprequest.cfm?lang=#lang#$amp;companies=#companies#$amp;info=#url.info#" class="textbutton">#language.Cancel#</a--->
+						<a href="entrpdemande-comprequest.cfm?lang=#lang#&amp;companies=#companies#&amp;info=#url.info#" class="textbutton">#language.Cancel#</a--->
 						<input type="submit" value="#language.Remove#" class="textbutton" />
-						<input type="button" value="#language.Cancel#" onclick="javascript:self.location.href='addUserCompanies.cfm?lang=#lang#$amp;companies=#companies#$amp;info=#url.info#'" class="textbutton" />
+						<input type="button" value="#language.Cancel#" onclick="javascript:self.location.href='addUserCompanies.cfm?lang=#lang#&amp;companies=#companies#&amp;info=#url.info#'" class="textbutton" />
 					</div></p>
 				
 					<input type="hidden" name="CompanyID" value="#form.CompanyID#" />

@@ -86,7 +86,7 @@
 
 <cfif getCompanies.recordCount EQ 0 OR getDetails.recordCount EQ 0>
 	<cfif url.referrer eq "archive">
-		<cflocation addtoken="no" url="#returnTo#?lang=#lang#$amp;companyID=#url.companyID#">
+		<cflocation addtoken="no" url="#returnTo#?lang=#lang#&amp;companyID=#url.companyID#">
 	<cfelse>
 		<cflocation addtoken="no" url="#returnTo#?lang=#lang#">
 	</cfif>
@@ -134,7 +134,7 @@ function EditSubmit ( selectedform )
 				#LSDateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #LSDateFormat(getDetails.EndDate, 'mmm d, yyyy')#</p></cfoutput>
 				
 				
-				<cfform name="serviceSelect" action="#RootDir#reserve-book/tarifmod-tariffedit_action.cfm?lang=#lang#$amp;BookingID=#url.BookingID#$amp;referrer=#url.referrer#">
+				<cfform name="serviceSelect" action="#RootDir#reserve-book/tarifmod-tariffedit_action.cfm?lang=#lang#&amp;BookingID=#url.BookingID#&amp;referrer=#url.referrer#">
 				<cfoutput>
 				<table border="0" cellpadding="3" cellspacing="0" summary="#language.tableSummary#">
 					<tr>
@@ -207,10 +207,10 @@ function EditSubmit ( selectedform )
 				<div style="text-align:right;">
 				<cfoutput>
 					<!---a href="javascript:EditSubmit('serviceSelect');" class="textbutton">#language.Submit#</a>
-					<a href="reserve-booking.cfm?lang=#lang#$amp;CompanyID=#url.CompanyID#" class="textbutton">#language.Back#</a--->
+					<a href="reserve-booking.cfm?lang=#lang#&amp;CompanyID=#url.CompanyID#" class="textbutton">#language.Back#</a--->
 					<input type="hidden" name="CompanyID" value="#getDetails.CompanyID#" class="textField" />
 					<input type="submit" value="#language.Submit#" class="textbutton" />
-					<input type="button" value="#language.Back#" onclick="self.location.href='#returnTo#?lang=#lang#$amp;CompanyID=#getDetails.CompanyID#'" class="textbutton" />
+					<input type="button" value="#language.Back#" onclick="self.location.href='#returnTo#?lang=#lang#&amp;CompanyID=#getDetails.CompanyID#'" class="textbutton" />
 				</cfoutput>
 				</div>
 				</cfform>

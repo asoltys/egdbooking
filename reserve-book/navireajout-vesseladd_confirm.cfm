@@ -37,7 +37,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#$amp;CompanyID=#CompanyID#" addtoken="no">
+	<cflocation url="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" addtoken="no">
 </cfif>
 
 <cfhtmlhead text="
@@ -64,7 +64,7 @@
 </cfquery>
 
 <cfif getCompany.recordCount EQ 0>
-	<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#$amp;CompanyID=#url.companyID#">
+	<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CompanyID=#url.companyID#">
 </cfif>
 
 <cfset Variables.CompanyID = getCompany.CompanyID>
@@ -111,7 +111,7 @@
 					<div id="actionErrors">#language.boatTooBig# (#Variables.MaxLength#m x #Variables.MaxWidth#m).</div>
 				</cfif>
 				
-				<cfform name="addVessel" action="#RootDir#reserve-book/navireajout-vesseladd_action.cfm?lang=#lang#$amp;CompanyID=#url.companyID#" method="post">
+				<cfform name="addVessel" action="#RootDir#reserve-book/navireajout-vesseladd_action.cfm?lang=#lang#&amp;CompanyID=#url.companyID#" method="post">
 			
 				<table align="center">
 					<tr>
@@ -154,11 +154,11 @@
 						<td colspan="2" align="center" style="padding-top:20px;">
 							<!---a href="javascript:document.addVessel.submitForm.click();" class="textbutton">#language.Submit#</a>
 							<a href="javascript:history.go(-1);" class="textbutton">#language.Back#</a>
-							<a href="reserve-booking.cfm?lang=#lang#$amp;CompanyID=#CompanyID#" class="textbutton">#language.Cancel#</a>
+							<a href="reserve-booking.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" class="textbutton">#language.Cancel#</a>
 							<br--->
 							<input type="submit" name="submitForm" value="#language.Submit#" class="textbutton" />
-							<input type="button" name="back" value="#language.Back#" onclick="self.location.href='addVessel.cfm?lang=#lang#$amp;CompanyID=#CompanyID#'" class="textbutton" />
-							<input type="button" name="cancel" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#$amp;CompanyID=#CompanyID#'" class="textbutton" />
+							<input type="button" name="back" value="#language.Back#" onclick="self.location.href='addVessel.cfm?lang=#lang#&amp;CompanyID=#CompanyID#'" class="textbutton" />
+							<input type="button" name="cancel" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#&amp;CompanyID=#CompanyID#'" class="textbutton" />
 						</td>
 					</tr>
 				</table>

@@ -18,7 +18,7 @@
 	<cfparam name="form.id" default="">
 	
 	<cfif not isdefined('form.status')>
-		<cflocation addtoken="no" url="jettyBookingManage.cfm?lang=#lang#$amp;id=#form.id#$amp;startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#$amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#$amp;show=#url.show#">
+		<cflocation addtoken="no" url="jettyBookingManage.cfm?lang=#lang#&amp;id=#form.id#&amp;startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&amp;show=#url.show#">
 	</cfif>
 	
 	<cfif IsDefined("Session.Return_Structure")>
@@ -115,11 +115,11 @@
 	<cfset Session.Success.Title = "Change Booking Status">
 	<cfset Session.Success.Message = "Booking status for <b>#getDetails.vesselName#</b> from #LSDateFormat(CreateODBCDate(getDetails.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getDetails.endDate), 'mmm d, yyyy')# is now <b>#newStatus#</b>.  Email notification of this change has been sent to the agent.">
 	<cfset Session.Success.Back = "Back to #url.referrer#">
-	<cfset Session.Success.Link = "#returnTo#?#urltoken##dateValue#$amp;bookingID=#Form.ID####form.id#">
+	<cfset Session.Success.Link = "#returnTo#?#urltoken##dateValue#&amp;bookingID=#Form.ID####form.id#">
 	<cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 <cfelse>
-	<cflocation addtoken="no" url="#returnTo#?#urltoken##dateValue#$amp;bookingID=#Form.ID#">
+	<cflocation addtoken="no" url="#returnTo#?#urltoken##dateValue#&amp;bookingID=#Form.ID#">
 </cfif>
 
-<!---cflocation addtoken="no" url="jettyBookingmanage.cfm?lang=#lang#$amp;id=#form.id#$amp;startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#$amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#$amp;show=#url.show#"--->
+<!---cflocation addtoken="no" url="jettyBookingmanage.cfm?lang=#lang#&amp;id=#form.id#&amp;startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&amp;show=#url.show#"--->
 

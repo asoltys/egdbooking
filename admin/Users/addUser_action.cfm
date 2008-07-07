@@ -36,7 +36,7 @@
 </CFIF>--->
 
 <cfif isDefined("url.info")>
-	<cfset variables.location = "addNewUserCompany.cfm?lang=#lang#$amp;info=#url.info#">
+	<cfset variables.location = "addNewUserCompany.cfm?lang=#lang#&amp;info=#url.info#">
 <cfelse>
 	<cfset variables.location = "addNewUserCompany.cfm?lang=#lang#">
 </cfif>

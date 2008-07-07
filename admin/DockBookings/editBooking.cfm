@@ -167,20 +167,20 @@ function EditSubmit ( selectedform )
 				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 				
 				<cfoutput query="getBooking">
-					<form method="post" action="chgStatus_2c.cfm?#urltoken#$amp;referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2c#BookingID#" style="margin: 0; padding: 0; ">
+					<form method="post" action="chgStatus_2c.cfm?#urltoken#&amp;referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2c#BookingID#" style="margin: 0; padding: 0; ">
 						<input type="hidden" name="BookingID" value="#BookingID#" />
 					</form>
 					
-					<form method="post" action="chgStatus_2p.cfm?#urltoken#$amp;referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2p#BookingID#" style="margin: 0; padding: 0; ">
+					<form method="post" action="chgStatus_2p.cfm?#urltoken#&amp;referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2p#BookingID#" style="margin: 0; padding: 0; ">
 						<input type="hidden" name="BookingID" value="#BookingID#" />
 					</form>
 					
-					<form method="post" action="chgStatus_2t.cfm?#urltoken#$amp;referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2t#BookingID#" style="margin: 0; padding: 0; ">
+					<form method="post" action="chgStatus_2t.cfm?#urltoken#&amp;referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2t#BookingID#" style="margin: 0; padding: 0; ">
 						<input type="hidden" name="BookingID" value="#BookingID#" />
 					</form>
 				</cfoutput>
 				
-				<cfform action="editBooking_process.cfm?#urltoken#$amp;referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" method="post" enablecab="No" name="editBookingForm" preservedata="Yes">
+				<cfform action="editBooking_process.cfm?#urltoken#&amp;referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" method="post" enablecab="No" name="editBookingForm" preservedata="Yes">
 				<cfoutput>
 				<input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 				
@@ -288,23 +288,23 @@ function EditSubmit ( selectedform )
 						<td colspan="2" align="center">
 							<!--a href="javascript:document.editBookingForm.submitForm.click();" class="textbutton">Submit</a-->
 							<input type="submit" class="textbutton" value="submit" />
-							<input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken#$amp;bookingID=#variables.bookingID##variables.dateValue#'" class="textbutton" />
-							<!--- <a href="bookingmanage.cfm?lang=#lang#$amp;startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#$amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#$amp;show=#url.show#" class="textbutton">Cancel</a> --->
+							<input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken#&amp;bookingID=#variables.bookingID##variables.dateValue#'" class="textbutton" />
+							<!--- <a href="bookingmanage.cfm?lang=#lang#&amp;startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&amp;show=#url.show#" class="textbutton">Cancel</a> --->
 						</td>
 					</tr>
 				</table>
 				</cfoutput>
 				</cfform>
 				<!--- <cfoutput>
-				<form method="post" action="chgStatus_2c.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#$amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#$amp;show=#url.show#" name="chgStatus_2c#BookingID#">
+				<form method="post" action="chgStatus_2c.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&amp;show=#url.show#" name="chgStatus_2c#BookingID#">
 					<input type="hidden" name="BookingID" value="#BookingID#" />
 				</form>
 				
-				<form method="post" action="chgStatus_2p.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#$amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#$amp;show=#url.show#" name="chgStatus_2p#BookingID#">
+				<form method="post" action="chgStatus_2p.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&amp;show=#url.show#" name="chgStatus_2p#BookingID#">
 					<input type="hidden" name="BookingID" value="#BookingID#" />
 				</form>
 				
-				<form method="post" action="chgStatus_2t.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#$amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#$amp;show=#url.show#" name="chgStatus_2t#BookingID#">
+				<form method="post" action="chgStatus_2t.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&amp;show=#url.show#" name="chgStatus_2t#BookingID#">
 					<input type="hidden" name="BookingID" value="#BookingID#" />
 				</form>
 				</cfoutput> --->

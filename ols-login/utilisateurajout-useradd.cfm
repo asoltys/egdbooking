@@ -92,7 +92,7 @@ function EditSubmit ( selectedform )
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 					</cfif>
 					<cfif isDefined("url.companies")>
-						<cfset Variables.action = "entrpdemande-comprequest.cfm?lang=#lang#$amp;companies=#url.companies#">
+						<cfset Variables.action = "entrpdemande-comprequest.cfm?lang=#lang#&amp;companies=#url.companies#">
 						<cfelse>
 						<cfset Variables.action = "entrpdemande-comprequest.cfm?lang=#lang#">
 					</cfif>

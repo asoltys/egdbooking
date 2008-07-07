@@ -95,7 +95,7 @@
 						<cfoutput query="getVesselDetail">
 							<p align="center">#language.areYouSure# <strong>#name#</strong>?</p>
 							<div style="text-align:center;">
-							<form name="DelVessel" action="#RootDir#reserve-book/naviresup-vesseldel_action.cfm?lang=#lang#$amp;CompanyID=#CompanyID#" method="post">
+							<form name="DelVessel" action="#RootDir#reserve-book/naviresup-vesseldel_action.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" method="post">
 								<input type="hidden" name="VesselID" value="#vesselID#" />
 								<input type="submit" value="#language.Delete#" class="textbutton" />
 								<input type="button" value="#language.Cancel#" onclick="history.go(-1);" class="textbutton" />

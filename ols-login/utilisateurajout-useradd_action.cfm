@@ -50,7 +50,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="entrpdemande-comprequest.cfm?lang=#lang#$amp;info=#url.info#" addtoken="no">
+	<cflocation url="entrpdemande-comprequest.cfm?lang=#lang#&amp;info=#url.info#" addtoken="no">
 </cfif>
 
 <!---<cfquery name="getDeletedUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">

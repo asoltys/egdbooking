@@ -74,7 +74,7 @@
 						<cfinclude template="#RootDir#includes/getStructure.cfm">
 					</cfif>
 	
-					<cfform action="entrpajout-compadd_action.cfm?lang=#lang#$amp;info=#url.info#$amp;companies=#url.companies#" name="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
+					<cfform action="entrpajout-compadd_action.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#" name="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
 	}">
 						<table align="center">
 							<tr>
@@ -116,7 +116,7 @@
 							<tr>
 								<td colspan="2" align="center" style="padding-top:20px;">
 									<input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
-									<input type="button" value="#language.Cancel#" onclick="self.location.href='addUserCompanies.cfm?lang=#lang#$amp;info=#url.info#$amp;companies=#url.companies#'" class="textbutton" />							</td>
+									<input type="button" value="#language.Cancel#" onclick="self.location.href='addUserCompanies.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#'" class="textbutton" />							</td>
 							</tr>
 						</table>
 					</cfform>

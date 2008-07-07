@@ -142,7 +142,7 @@
 						<a href="#RootDir#reserve-book/naviremod-vesseledit.cfm?lang=#lang#&amp;vesselID=#url.vesselID#" class="textbutton">#language.EditVessel#</a>
 						<a href="#RootDir#reserve-book/naviresup-vesseldel.cfm?lang=#lang#&amp;vesselID=#url.vesselID#" class="textbutton">#language.DeleteVessel#</a>
 						</cfif>
-						<!---<a href="reserve-booking.cfm?lang=#lang#$amp;CompanyID=#getVesselDetail.companyID#" class="textbutton">#language.Back#</a>--->
+						<!---<a href="reserve-booking.cfm?lang=#lang#&amp;CompanyID=#getVesselDetail.companyID#" class="textbutton">#language.Back#</a>--->
 					</div>
 				</cfoutput>
 

@@ -73,7 +73,7 @@
 <cfif getCompanies.recordCount EQ 0 OR getDetails.recordCount EQ 0>
 	<cfif isDefined("url.bookingID")>
 		<cfif isDefined("url.referrer") AND url.referrer eq "archive">
-			<cflocation addtoken="no" url="#RootDir#reserve-book/archives.cfm?lang=#lang#$amp;companyId=#url.companyID#">
+			<cflocation addtoken="no" url="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;companyId=#url.companyID#">
 		<cfelse>
 			<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 		</cfif>

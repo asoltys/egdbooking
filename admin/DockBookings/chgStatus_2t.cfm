@@ -79,7 +79,7 @@ function EditSubmit ( selectedform )
 				</cfif>
 			</cfif>
 			
-			<cfform action="chgStatus_2t_action.cfm?#urltoken#$amp;referrer=#URLEncodedFormat(url.referrer)#" method="post" name="change2tentative">
+			<cfform action="chgStatus_2t_action.cfm?#urltoken#&amp;referrer=#URLEncodedFormat(url.referrer)#" method="post" name="change2tentative">
 				Are you sure you want to change this booking's status to tentative?
 			<br /><br />
 				<cfoutput>
@@ -132,7 +132,7 @@ function EditSubmit ( selectedform )
 				<p><div style="text-align:center;">
 				<!--a href="javascript:EditSubmit('change2tentative');" class="textbutton">Submit</a-->
 				<input type="submit" name="submitForm" class="textbutton" value="submit" />
-				<cfoutput><input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken##dateValue#$amp;referrer=#URLEncodedFormat(url.referrer)#$amp;bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" class="textbutton" />
+				<cfoutput><input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" class="textbutton" />
 				</div></p>
 			</cfform>
 			

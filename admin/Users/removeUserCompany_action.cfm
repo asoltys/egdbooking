@@ -5,7 +5,7 @@
 		WHERE	UserCompanies.UserID = #form.UserID# AND UserCompanies.CompanyID = #form.companyID#
 	</cfquery>
 	
-	<cflocation addtoken="no" url="editUser.cfm?lang=#lang#$amp;userID=#form.userID#">
+	<cflocation addtoken="no" url="editUser.cfm?lang=#lang#&amp;userID=#form.userID#">
 	
 <cfelseif isDefined("url.userID")>
 	<cfquery name="removeUserCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
