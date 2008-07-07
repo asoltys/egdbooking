@@ -189,7 +189,7 @@ function EditSubmit ( selectedform )
 								<input type="submit" name="submitForm" value="Add" class="textbutton" />
 								<cfoutput><input type="hidden" name="userID" value="#form.userID#" />
 								<br />
-								<cfoutput><font size="-2">If the desired company is not listed, click <a href="editUser_addCompany.cfm?lang=#lang#&amp;userID=#form.userID#">here</a> to create one.</font></cfoutput>
+								<cfoutput><font size="-2">If the desired company is not listed, click <a href="editUser_addCompany.cfm?lang=#lang#&userID=#form.userID#">here</a> to create one.</font></cfoutput>
 							</td>
 						</tr>	
 					</table>

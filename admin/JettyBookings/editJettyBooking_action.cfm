@@ -80,7 +80,7 @@
 <cfset Session.Success.Title = "Edit Jetty Booking Information">
 <cfset Session.Success.Message = "Booking for <b>#getVessel.vesselName#</b> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been updated.">
 <cfset Session.Success.Back = "Back to #url.referrer#">
-<cfset Session.Success.Link = "#returnTo#?#urltoken#&amp;bookingID=#form.bookingID##variables.dateValue####form.bookingid#">
+<cfset Session.Success.Link = "#returnTo#?#urltoken#&bookingID=#form.bookingID##variables.dateValue####form.bookingid#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
 <!---cflocation url="jettyBookingmanage.cfm?#urltoken#" addToken="no"--->

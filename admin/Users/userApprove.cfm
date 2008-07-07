@@ -113,7 +113,7 @@ function EditSubmit ( selectedform )
 							</CFIF>
 							<table id="listManage" border="0" cellspacing="0" cellpadding="2" style="width:100%;">
 								<tr bgcolor="##FFFFFF">
-									<td colspan="3" style="width:50%;"><i><a href="javascript:void(0);" onclick="popUp('admin/viewCompany.cfm?lang=#lang#&amp;companyID=#CompanyID#');">#CompanyName#</a></i></td>
+									<td colspan="3" style="width:50%;"><i><a href="javascript:void(0);" onclick="popUp('admin/viewCompany.cfm?lang=#lang#&companyID=#CompanyID#');">#CompanyName#</a></i></td>
 									<td colspan="3" align="right" style="width:50%;"><CFIF CompApproved eq 0><i><a href="../CompanyApprove.cfm?lang=#lang#">awaiting company approval</a></i><CFELSE>&nbsp;</CFIF></td>
 								</tr>
 				

@@ -263,57 +263,57 @@
 
 				<div style="text-align:center;">
 					<cfif #Session.ReadOnly# EQ "1">
-						<a href="#returnTo#?lang=#lang#&amp;date=#url.date#" class="textbutton">#language.Back#</a>
+						<a href="#returnTo#?lang=#lang#&date=#url.date#" class="textbutton">#language.Back#</a>
 					<cfelse>
 
 						<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 							<cfif isDock>
-								<a href="#RootDir#admin/DockBookings/feesForm_admin.cfm?#urltoken#&amp;bookingid=#url.bookingid#&amp;referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">#language.tariff#</a>
-								<a href="#RootDir#admin/DockBookings/editBooking.cfm?lang=#lang#&amp;bookingid=#url.bookingid#&amp;referrer=Booking%20Details&date=#url.date#" class="textbutton">
+								<a href="#RootDir#admin/DockBookings/feesForm_admin.cfm?#urltoken#&bookingid=#url.bookingid#&referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">#language.tariff#</a>
+								<a href="#RootDir#admin/DockBookings/editBooking.cfm?lang=#lang#&bookingid=#url.bookingid#&referrer=Booking%20Details&date=#url.date#" class="textbutton">
 							<cfelse>
-								<a href="#RootDir#admin/JettyBookings/editJettyBooking.cfm?lang=#lang#&amp;bookingid=#url.bookingid#&amp;companyID=#companyID#&amp;referrer=Booking%20Details&date=#url.date#" class="textbutton">
+								<a href="#RootDir#admin/JettyBookings/editJettyBooking.cfm?lang=#lang#&bookingid=#url.bookingid#&companyID=#companyID#&referrer=Booking%20Details&date=#url.date#" class="textbutton">
 							</cfif>#language.EditBooking#</a>
 
 							<cfif isDock AND (DateCompare(PacificNow, getBookingDetail.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBookingDetail.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBookingDetail.endDate, 'd') NEQ 1))>
-								<a href="#RootDir#admin/DockBookings/deleteBooking_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;CompanyID=#getBookingDetail.CompanyID#&amp;referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">#language.CancelBooking#</a>
+								<a href="#RootDir#admin/DockBookings/deleteBooking_confirm.cfm?lang=#lang#&bookingID=#url.bookingID#&CompanyID=#getBookingDetail.CompanyID#&referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">#language.CancelBooking#</a>
 							<cfelseif isDock AND DateCompare(PacificNow, getBookingDetail.endDate, 'd') EQ 1>
-								<a href="#RootDir#admin/DockBookings/deleteBooking_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;CompanyID=#getBookingDetail.CompanyID#&amp;referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">#language.DeleteBooking#</a>
+								<a href="#RootDir#admin/DockBookings/deleteBooking_confirm.cfm?lang=#lang#&bookingID=#url.bookingID#&CompanyID=#getBookingDetail.CompanyID#&referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">#language.DeleteBooking#</a>
 							<cfelseif NOT isDock AND (DateCompare(PacificNow, getBookingDetail.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBookingDetail.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBookingDetail.endDate, 'd') NEQ 1))>
-								<a href="#RootDir#admin/JettyBookings/deleteJettyBooking_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;CompanyID=#getBookingDetail.CompanyID#&amp;referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">#language.CancelBooking#</a>
+								<a href="#RootDir#admin/JettyBookings/deleteJettyBooking_confirm.cfm?lang=#lang#&bookingID=#url.bookingID#&CompanyID=#getBookingDetail.CompanyID#&referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">#language.CancelBooking#</a>
 							<cfelseif NOT isDock AND DateCompare(PacificNow, getBookingDetail.endDate, 'd') EQ 1>
-								<a href="#RootDir#admin/JettyBookings/deleteJettyBooking_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;CompanyID=#getBookingDetail.CompanyID#&amp;referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">#language.DeleteBooking#</a>
+								<a href="#RootDir#admin/JettyBookings/deleteJettyBooking_confirm.cfm?lang=#lang#&bookingID=#url.bookingID#&CompanyID=#getBookingDetail.CompanyID#&referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">#language.DeleteBooking#</a>
 							</cfif>
-							<a href="#returnTo#?lang=#lang#&amp;date=#url.date#" class="textbutton">#language.Back#</a>
+							<a href="#returnTo#?lang=#lang#&date=#url.date#" class="textbutton">#language.Back#</a>
 						<CFELSE>
 							<CFIF isUsers.RecordCount neq 0>
 								<cfif DateCompare(PacificNow, getBookingDetail.startDate, 'd') EQ -1 AND (getBookingDetail.DStatus NEQ 'C' AND getBookingDetail.JStatus NEQ 'C') AND userVessel.recordCount GT 0>
 
 									<CFIF (isDefined("DStatus") AND DStatus eq 't') OR (isDefined("JStatus") AND JStatus eq 't')>
 										<CFIF isDock>
-											<a href="#RootDir#reserve-book/resconf-bookconf_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;date=#url.date#&amp;jetty=0" class="textbutton">#language.confirmbooking#</a>
+											<a href="#RootDir#reserve-book/resconf-bookconf_confirm.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)#&date=#url.date#&jetty=0" class="textbutton">#language.confirmbooking#</a>
 										<CFELSE>
-											<a href="#RootDir#reserve-book/resconf-bookconf_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;date=#url.date#&amp;jetty=1" class="textbutton">#language.confirmbooking#</a>
+											<a href="#RootDir#reserve-book/resconf-bookconf_confirm.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)#&date=#url.date#&jetty=1" class="textbutton">#language.confirmbooking#</a>
 										</CFIF>
 									</CFIF>
-									<a href="#RootDir#reserve-book/resmod-bookedit.cfm?lang=#lang#&amp;BookingID=#url.bookingid#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;date=#url.date#" class="textbutton">#language.EditBooking#</a>
+									<a href="#RootDir#reserve-book/resmod-bookedit.cfm?lang=#lang#&BookingID=#url.bookingid#&referrer=#URLEncodedFormat(url.referrer)#&date=#url.date#" class="textbutton">#language.EditBooking#</a>
 									<CFIF isDock>
-										<a href="#RootDir#reserve-book/resannul-bookcancel_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;date=#url.date#&amp;jetty=0" class="textbutton">#language.requestCancelBooking#</a>
+										<a href="#RootDir#reserve-book/resannul-bookcancel_confirm.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)#&date=#url.date#&jetty=0" class="textbutton">#language.requestCancelBooking#</a>
 									<CFELSE>
-										<a href="#RootDir#reserve-book/resannul-bookcancel_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;date=#url.date#&amp;jetty=1" class="textbutton">#language.requestCancelBooking#</a>
+										<a href="#RootDir#reserve-book/resannul-bookcancel_confirm.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)#&date=#url.date#&jetty=1" class="textbutton">#language.requestCancelBooking#</a>
 									</CFIF>
 
 								<cfelseif (getBookingDetail.DStatus EQ 'C' OR getBookingDetail.JStatus EQ 'C' OR DateCompare(PacificNow, getBookingDetail.StartDate, 'd') NEQ -1) AND DateCompare(PacificNow, getBookingDetail.endDate, 'd') NEQ 1 AND userVessel.recordCount GT 0>
 									<CFIF isDock>
-										<a href="#RootDir#reserve-book/resannul-bookcancel_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;date=#url.date#&amp;jetty=0" class="textbutton">#language.requestCancelBooking#</a>
+										<a href="#RootDir#reserve-book/resannul-bookcancel_confirm.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)#&date=#url.date#&jetty=0" class="textbutton">#language.requestCancelBooking#</a>
 									<CFELSE>
-										<a href="#RootDir#reserve-book/resannul-bookcancel_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;date=#url.date#&amp;jetty=1" class="textbutton">#language.requestCancelBooking#</a>
+										<a href="#RootDir#reserve-book/resannul-bookcancel_confirm.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)#&date=#url.date#&jetty=1" class="textbutton">#language.requestCancelBooking#</a>
 									</CFIF>
 								</cfif>
 							</CFIF>
 							<cfif url.referrer eq "Archive">
-								<a href="#returnTo#?lang=#lang#&amp;date=#url.date#&amp;companyID=#url.companyID#" class="textbutton">#language.Back#</a>
+								<a href="#returnTo#?lang=#lang#&date=#url.date#&companyID=#url.companyID#" class="textbutton">#language.Back#</a>
 							<cfelse>
-								<a href="#returnTo#?lang=#lang#&amp;date=#url.date#" class="textbutton">#language.Back#</a>
+								<a href="#returnTo#?lang=#lang#&date=#url.date#" class="textbutton">#language.Back#</a>
 							</cfif>
 						</CFIF>
 					</cfif>

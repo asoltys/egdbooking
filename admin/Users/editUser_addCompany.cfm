@@ -23,7 +23,7 @@
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#&amp;userID=#url.userID#">Edit User Profile</a> &gt; 
+			<a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#">Edit User Profile</a> &gt; 
 			Create New Company
 			</cfoutput>
 		</p>
@@ -54,7 +54,7 @@
 				<cfset Variables.onLoad = "javascript:document.addCompanyForm.name.focus();">
 				
 				<cfoutput>
-				<cfform action="editUser_addCompany_action.cfm?lang=#lang#&amp;userID=#url.userID#" name="addCompanyForm" method="post">
+				<cfform action="editUser_addCompany_action.cfm?lang=#lang#&userID=#url.userID#" name="addCompanyForm" method="post">
 					<table align="center">
 						<tr>
 							<td id="companyName"><label for="name">Company Name:</label></td>
@@ -99,7 +99,7 @@
 						<tr>
 							<td colspan="2" align="center" style="padding-top:20px;">
 								<input type="submit" class="textbutton" value="submit" />
-								<input type="button" value="Cancel" onclick="self.location.href='editUser.cfm?lang=#lang#&amp;userID=#url.userID#'" class="textbutton" />
+								<input type="button" value="Cancel" onclick="self.location.href='editUser.cfm?lang=#lang#&userID=#url.userID#'" class="textbutton" />
 							</td>
 						</tr>
 					</table>

@@ -86,7 +86,7 @@
 					<cfset variables.dateValue = "">
 				</cfif>
 				
-				<cfform action="deleteBooking_action.cfm?#urltoken#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" name="delBookingConfirm">
+				<cfform action="deleteBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" name="delBookingConfirm">
 					<p align="center">Are you sure you want to <cfoutput>#variables.action#</cfoutput> the following booking?</p>
 					
 					<input type="hidden" name="BookingID" value="<cfoutput>#Variables.BookingID#</cfoutput>" />
@@ -141,7 +141,7 @@
 					<br />
 					<div style="text-align:center;">
 						<input type="submit" name="submitForm" class="textbutton" value="#variables.action#" />
-						<input type="button" onclick="self.location.href='#returnTo#?#urltoken#&amp;bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" value="Back" class="textbutton" />
+						<input type="button" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" value="Back" class="textbutton" />
 					</div>
 				
 					</cfoutput>

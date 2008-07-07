@@ -11,7 +11,7 @@
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Errors>
- 	<cflocation url="feesForm_admin.cfm?lang=#lang#&amp;bookingID=#form.bookingId#" addtoken="no">
+ 	<cflocation url="feesForm_admin.cfm?lang=#lang#&bookingID=#form.bookingId#" addtoken="no">
 </cfif>
 
 <cfquery name="submitTariffForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -201,7 +201,7 @@
 <cfset Session.Success.Title = "Tariff of Dock Charges">
 <cfset Session.Success.Message = "Tariff form for <b>#getBooking.vesselName#</b>, booked from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')#, has been updated.">
 <cfset Session.Success.Back = "Back to #url.referrer#">
-<cfset Session.Success.Link = "#returnTo#?#urltoken#&amp;bookingid=#form.bookingID##variables.dateValue###id#form.bookingid#">
+<cfset Session.Success.Link = "#returnTo#?#urltoken#&bookingid=#form.bookingID##variables.dateValue###id#form.bookingid#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
-<!---cflocation addtoken="no" url="bookingmanage.cfm?lang=#lang#&amp;startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&amp;show=#url.show#"--->
+<!---cflocation addtoken="no" url="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#"--->

@@ -60,7 +60,7 @@
 				<cfelseif IsDefined("Form.BookingID")>
 					<cfset Variables.BookingID = Form.BookingID>
 				<cfelse>
-					<cflocation url="#returnTo#?#urltoken##dateValue#&amp;referrer=#url.referrer#" addtoken="no">
+					<cflocation url="#returnTo#?#urltoken##dateValue#&referrer=#url.referrer#" addtoken="no">
 				</cfif>
 				
 				<cfquery name="theBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -100,7 +100,7 @@
 				</cfif>
 				
 				
-				<cfform action="chgStatus_2t_action.cfm?#urltoken#&amp;referrer=#URLEncodedFormat(url.referrer)#" method="post" name="change2tentative">
+				<cfform action="chgStatus_2t_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post" name="change2tentative">
 					Are you sure you want to change this booking's status to tentative?
 				<br /><br />
 					<cfoutput>
@@ -135,7 +135,7 @@
 					<tr>
 						<td>
 						<input type="submit" value="submit" class="textbutton" />
-						<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton" />
+						<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton" />
 						</td>
 					</tr>
 					</table>

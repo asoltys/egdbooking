@@ -49,7 +49,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="entrpajout-compadd.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#" addtoken="no">
+	<cflocation url="entrpajout-compadd.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#" addtoken="no">
 </cfif>
 
 
@@ -144,5 +144,5 @@
 
 <cfset companies = URLEncodedFormat(ToBase64(cfusion_encrypt(companyList, "shanisnumber1")))>
 
-<cflocation addtoken="no" url="entrpdemande-comprequest.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#companies#">
+<cflocation addtoken="no" url="entrpdemande-comprequest.cfm?lang=#lang#&info=#url.info#&companies=#companies#">
 

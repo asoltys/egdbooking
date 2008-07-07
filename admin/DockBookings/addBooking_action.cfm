@@ -34,7 +34,7 @@
 		
 	<cfset Session.Return_Structure.Errors = Errors>
 	
- 	<cflocation url="addBooking_process.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&amp;show=#url.show#" addtoken="no"> 
+ 	<cflocation url="addBooking_process.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" addtoken="no"> 
 <cfelse>
 
 <cftransaction>
@@ -140,7 +140,7 @@
 	<cfset Session.Success.Link = "#RootDir#admin/DockBookings/bookingmanage.cfm?#urltoken#">
 	<cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
-	<!---cflocation url="bookingmanage.cfm?lang=#lang#&amp;startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&amp;show=#url.show#" addtoken="no"--->
+	<!---cflocation url="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" addtoken="no"--->
 </CFIF>
 
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

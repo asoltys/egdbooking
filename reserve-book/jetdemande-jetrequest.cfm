@@ -113,7 +113,7 @@
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 				
-				<cfform action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#&amp;companyID=#variables.companyID#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#&companyID=#variables.companyID#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
 				<table style="width:100%; padding-left:10px;" >
 					<tr>
 						<td style="width:30%;" id="Agent">

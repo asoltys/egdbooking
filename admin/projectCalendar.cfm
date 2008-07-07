@@ -456,7 +456,7 @@ var params = {
 							&nbsp;
 						</CFIF>					</td>
 					<td id="date#offset#_header" axis="date" class="day<CFIF DayofWeek(taday) eq 7> sat<CFELSEIF DayofWeek(taday) eq 1> sun</CFIF><CFIF Day(taday) eq 1> firstday</CFIF>" style="border-right: 1px solid ##888888; text-align: center;">
-						<a href="javascript:window.opener.location.href='#RootDir#comm/detail.cfm?lang=#lang#&amp;date=#DateFormat(taday, 'm/d/yyyy')#'; void(0);">#DateFormat(taday, "d")#</a>
+						<a href="javascript:window.opener.location.href='#RootDir#comm/detail.cfm?lang=#lang#&date=#DateFormat(taday, 'm/d/yyyy')#'; void(0);">#DateFormat(taday, "d")#</a>
 					</td>
 			
 					<!--- This part loops over the five columns of the calendar: dock 1, 2, 3, tentative, and pending.  --->

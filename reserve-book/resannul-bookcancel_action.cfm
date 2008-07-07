@@ -94,6 +94,6 @@
 	<cfset Session.Success.Message = "<div align='left'>Votre demande d'annulation de la r&eacute;servation pour le <b>#getBooking.vesselName#</b> du #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')#  est en cours de traitement. L'administration de la CSE a &eacute;t&eacute; avis&eacute;e de votre demande. Vous recevrez sous peu un courriel de suivi en r&eacute;ponse &agrave; votre demande.</div>">
 	<cfset Session.Success.Back = "Retour &agrave;">
 </cfif>
-<cfset Session.Success.Link = "#returnTo#?#urltoken#&amp;CompanyID=#url.CompanyID##variables.dateValue#">
+<cfset Session.Success.Link = "#returnTo#?#urltoken#&CompanyID=#url.CompanyID##variables.dateValue#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 

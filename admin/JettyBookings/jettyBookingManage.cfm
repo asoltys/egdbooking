@@ -427,7 +427,7 @@ function EditSubmit ( selectedform )
 											</tr>
 											<tr class="containsbutton">
 												<td id="Company">Company:</td>
-												<td headers="Company">#getData.companyName# <a class="textbutton" href="changeCompany.cfm?BookingIDURL=#BookingID#&amp;CompanyURL=#getData.companyName#&amp;vesselNameURL=#getData.vesselName#&amp;UserNameURL=#getData.UserName#">Change</a></td>
+												<td headers="Company">#getData.companyName# <a class="textbutton" href="changeCompany.cfm?BookingIDURL=#BookingID#&CompanyURL=#getData.companyName#&vesselNameURL=#getData.vesselName#&UserNameURL=#getData.UserName#">Change</a></td>
 											</tr>
 											<tr>
 												<td id="Time">Booking Time:</td>

@@ -125,5 +125,5 @@
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 
 <!--- Allows the WPSS toolkit to bypass the login and validate the pages beyond this point --->
-<cflocation url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;userid=97">
+<cflocation url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&userid=97">
 

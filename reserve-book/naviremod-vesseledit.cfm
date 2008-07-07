@@ -114,7 +114,7 @@
 				
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				
-				<cfform name="editVessel" action="#RootDir#reserve-book/naviremod-vesseledit_confirm.cfm?lang=#lang#&amp;CompanyID=#getVesselDetail.companyID#&amp;VesselID=#VesselID#" method="post">
+				<cfform name="editVessel" action="#RootDir#reserve-book/naviremod-vesseledit_confirm.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#&VesselID=#VesselID#" method="post">
 					<cfif getVesselDockBookings.recordCount GT 0 OR getVesselJettyBookings.recordCount GT 0>
 					<div id="actionErrors">#language.notEditVesselDimensions#</div>
 					</cfif>
@@ -184,7 +184,7 @@
 								<br-->
 								<input type="submit" value="#language.Submit#" name="submitForm" class="textbutton" />
 								<input type="reset" value="#language.Reset#" name="resetForm" class="textbutton" />
-								<input type="button" value="#language.Cancel#" name="cancel" class="textbutton" onclick="self.location.href='#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CompanyID=#GetVesselDetail.companyID#'" />
+								<input type="button" value="#language.Cancel#" name="cancel" class="textbutton" onclick="self.location.href='#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#GetVesselDetail.companyID#'" />
 							</td>
 						</tr>
 					</table>

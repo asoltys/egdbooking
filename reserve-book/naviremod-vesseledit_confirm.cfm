@@ -43,7 +43,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" addtoken="no">
+	<cflocation url="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&CompanyID=#CompanyID#" addtoken="no">
 </cfif>
 
 <cfhtmlhead text="
@@ -85,7 +85,7 @@
 </cfquery>
 
 <cfif getVesselDetail.recordCount EQ 0>
-	<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CompanyID=#url.companyID#">
+	<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#url.companyID#">
 </cfif>
 
 <cfset Variables.Name = Form.Name>
@@ -109,7 +109,7 @@
 					<div id="actionErrors">#language.Note# (#Variables.MaxLength#m x #Variables.MaxWidth#m).</div>
 				</cfif>
 				</cfoutput>
-				<cfform name="editVessel" action="#RootDir#reserve-book/naviremod-vesseledit_action.cfm?lang=#lang#&amp;CompanyID=#url.companyID#" method="post">
+				<cfform name="editVessel" action="#RootDir#reserve-book/naviremod-vesseledit_action.cfm?lang=#lang#&CompanyID=#url.companyID#" method="post">
 				<cfoutput>
 					<table align="center">
 						<tr>
@@ -151,8 +151,8 @@
 						<tr>
 							<td colspan="2" align="center" style="padding-top:20px;">
 								<input type="submit" value="#language.Submit#" class="textbutton" />
-								<input type="button" onclick="javascript:self.location.href='editVessel.cfm?lang=#lang#&amp;CompanyID=#url.companyID#&amp;vesselID=#url.vesselID#'" value="#language.Back#" class="textbutton" />
-								<input type="button" onclick="javascript:self.location.href='booking.cfm?lang=#lang#&amp;CompanyID=#CompanyID#'" value="#language.Cancel#" class="textbutton" />
+								<input type="button" onclick="javascript:self.location.href='editVessel.cfm?lang=#lang#&CompanyID=#url.companyID#&vesselID=#url.vesselID#'" value="#language.Back#" class="textbutton" />
+								<input type="button" onclick="javascript:self.location.href='booking.cfm?lang=#lang#&CompanyID=#CompanyID#'" value="#language.Cancel#" class="textbutton" />
 								<br />
 								<input type="submit" name="submitForm" style="visibility:hidden;" />
 								<input type="hidden" name="vesselID" value="#url.vesselID#" />

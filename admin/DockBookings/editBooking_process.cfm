@@ -203,7 +203,7 @@ function EditSubmit ( selectedform )
 			<cfset Variables.EndDate = #CreateODBCDate(Variables.EndDate)#>
 			
 			<p>Please confirm the following information.</p>
-			<cfform action="editBooking_action.cfm?#urltoken#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
+			<cfform action="editBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
 			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 			<div style="font-weight:bold;">Booking:</div>
 			<table style="width:100%; padding-left:15px;" align="center" >
@@ -269,8 +269,8 @@ function EditSubmit ( selectedform )
 						<cfoutput><a href="bookingmanage.cfm?#urltoken#" class="textbutton">Cancel</a></cfoutput>
 						<br--->
 						<input type="submit" value="Confirm" class="textbutton" />
-						<cfoutput><input type="button" value="Back" class="textbutton" onclick="self.location.href='editBooking.cfm?#urltoken#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'" />
-						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken#&amp;bookingID=#variables.bookingID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'" class="textbutton" />
+						<cfoutput><input type="button" value="Back" class="textbutton" onclick="self.location.href='editBooking.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'" />
+						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'" class="textbutton" />
 						<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
 					</td>
 				</tr>

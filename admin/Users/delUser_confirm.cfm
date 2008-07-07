@@ -144,7 +144,7 @@ function EditSubmit ( selectedform )
 						<!---a href="javascript:EditSubmit('delUserConfirmForm');" class="textbutton">Delete</a>
 						<a href="delUser.cfm" class="textbutton">Back</a>
 						<a href="<cfoutput>#RootDir#</cfoutput>admin/menu.cfm?lang=#lang#" class="textbutton">Cancel</a--->
-						<cfif getCompanies.recordCount GT 1><cfoutput><input type="button" value="remove user from #getCompany.companyName#" onclick="self.location.href='removeUserCompany_action.cfm?userID=#form.userID#&amp;companyID=#form.companyID#'" class="textbutton" />
+						<cfif getCompanies.recordCount GT 1><cfoutput><input type="button" value="remove user from #getCompany.companyName#" onclick="self.location.href='removeUserCompany_action.cfm?userID=#form.userID#&companyID=#form.companyID#'" class="textbutton" />
 						<input type="submit" value="Delete user account" class="textbutton" />
 						<cfoutput><input type="button" value="Back" onclick="self.location.href='delUser.cfm?lang=#lang#'" class="textbutton" />
 						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" />

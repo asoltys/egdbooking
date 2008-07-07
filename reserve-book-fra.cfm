@@ -49,7 +49,7 @@ function popUp(pageID) {
 				<p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=fra">Application des r&eacute;servations</a> -
 					R&eacute;server la cale s&egrave;che et les jet&eacute;es en ligne.</p>
 				<p><a href="#RootDir#utils/resume-summary_ch.cfm?lang=fra">R&eacute;sum&eacute; des r&eacute;servations</a> - Voir toutes les r&eacute;servations.</p>
-				<p><i>Les liens suivants vous m&egrave;neront &agrave; des sites externes:</i><br />
+				<p><em>Les liens suivants vous m&egrave;neront &agrave; des sites externes:</em><br />
 				(<img src="#RootDir#images/www1.gif" width="31" height="9" alt="emplacement de WWW" title="emplacement de WWW" />)  <a href="http://lois.justice.gc.ca/fr/P-38.2/DORS-89-332/index.html">R&egrave;glement CSE</a></p>
 				</cfoutput>
 			</div>

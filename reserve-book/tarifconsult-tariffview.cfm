@@ -73,7 +73,7 @@
 <cfif getCompanies.recordCount EQ 0 OR getDetails.recordCount EQ 0>
 	<cfif isDefined("url.bookingID")>
 		<cfif isDefined("url.referrer") AND url.referrer eq "archive">
-			<cflocation addtoken="no" url="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;companyId=#url.companyID#">
+			<cflocation addtoken="no" url="#RootDir#reserve-book/archives.cfm?lang=#lang#&companyId=#url.companyID#">
 		<cfelse>
 			<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 		</cfif>
@@ -180,9 +180,9 @@
 				<br />
 				<div style="text-align:right;">
 					<cfif isDefined("url.referrer") AND url.referrer eq "archive">
-						<cfoutput><a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;CompanyID=#url.CompanyID#" class="textbutton">#language.Back#</a></cfoutput>
+						<cfoutput><a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&CompanyID=#url.CompanyID#" class="textbutton">#language.Back#</a></cfoutput>
 					<cfelse>
-						<cfoutput><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CompanyID=#getDetails.CompanyID#" class="textbutton">#language.Back#</a></cfoutput>
+						<cfoutput><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#getDetails.CompanyID#" class="textbutton">#language.Back#</a></cfoutput>
 					</cfif>
 				</div>
 
