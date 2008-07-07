@@ -17,6 +17,10 @@
 
 /* GENERAL CONTROL DEFINITIONS ------------------------- */
 
+img {
+	border: none;
+}
+
 /* Overrides the institution definition of colLayout
    having 100% height, which is buggy on our test 
    server. */
