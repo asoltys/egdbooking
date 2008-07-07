@@ -158,19 +158,15 @@ function EditSubmit ( selectedform )
 					<tr>
 						<td id="start_A"><label for="startDateA">#language.StartDate#:</label></td>
 						<td headers="start_A">
-							<!---input class="textField" type="Text" name="startDateShow" id="start" disabled value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17"--->
 							<cfinput id="startDateA" name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" class="textField" onChange="setLaterDate('self', 'bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreq', #Variables.bookingLen#)" /> #language.dateform#
 							<a href="javascript:void(0);" onclick="javascript:getCalendar('bookingreq', 'start')" class="textbutton">#language.calendar#</a>
-							<!---a href="javascript:void(0);" onClick="javascript:document.bookingreq.startDateShow.value=''; document.bookingreq.startDate.value='';" class="textbutton">clear</a--->
 						</td>
 					</tr>
 					<tr>
 						<td id="end_A"><label for="endDateA">#language.EndDate#:</label></td>
 						<td headers="end_A">
-							<!---input type="text" name="endDateShow" id="end" class="textField" disabled value="#DateFormat(endDate, 'mmm d, yyyy')#" size="17"--->
 							<cfinput id="endDateA" type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#" class="textField" required="yes" message="#language.InvalidEndError#" validate="date" onChange="setLaterDate('self', 'bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreq', #Variables.bookingLen#)" /> #language.dateform#
 							<a href="javascript:void(0);" onclick="javascript:getCalendar('bookingreq', 'end')" class="textbutton">#language.calendar#</a>
-							<!---a href="javascript:void(0);" onClick="javascript:document.bookingreq.startDateShow.value=''; document.bookingreq.startDate.value='';" class="textbutton">clear</a--->
 						</td>
 					</tr>
 					<tr>
@@ -184,13 +180,9 @@ function EditSubmit ( selectedform )
 					<tr><td>&nbsp;</td></tr>
 					<tr>
 						<td colspan="2" align="center">
-							<!---a href="javascript:validate('bookingreq');" class="textbutton">Submit</a>
-							<a href="javascript:document.bookingreq.reset();" class="textbutton">Reset</a>
-							<a href="resdemande-bookrequest.cfm" class="textbutton">Cancel</a>
-							<br--->
 							<input type="submit" value="#language.Submit#" class="textbutton" />
 							<input type="reset" value="#language.Reset#" class="textbutton" />
-							<input type="button" value="#language.Cancel#" class="textbutton" onClick="javascript:self.location.href='bookingRequest_choose.cfm?lang=#lang#';" />
+							<input type="button" value="#language.Cancel#" class="textbutton" onclick="javascript:self.location.href='bookingRequest_choose.cfm?lang=#lang#';" />
 						</td>
 					</tr>
 				</table>
@@ -234,7 +226,7 @@ function EditSubmit ( selectedform )
 							<!---input class="textField" type="Text" name="startDateShow" id="start" disabled value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17"--->
 							<cfinput id="StartDateB" name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" class="textField" onChange="setLaterDate('self', 'bookingreqB', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreqB', #Variables.bookingLen#)" /> #language.dateform#
 							<a href="javascript:void(0);" onclick="javascript:getCalendar('bookingreqB', 'start')" class="textbutton">#language.calendar#</a>
-							<!---a href="javascript:void(0);" onClick="javascript:document.bookingreq.startDateShow.value=''; document.bookingreq.startDate.value='';" class="textbutton">clear</a--->
+							<!---a href="javascript:void(0);" onclick="javascript:document.bookingreq.startDateShow.value=''; document.bookingreq.startDate.value='';" class="textbutton">clear</a--->
 						</td>
 					</tr>
 					<tr>
@@ -243,7 +235,7 @@ function EditSubmit ( selectedform )
 							<!---input type="text" name="endDateShow" id="end" class="textField" disabled value="#DateFormat(endDate, 'mmm d, yyyy')#" size="17"--->
 							<cfinput id="EndDateB" name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" class="textField" onChange="setLaterDate('self', 'bookingreqB', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreqB', #Variables.bookingLen#)" /> #language.dateform#
 							<a href="javascript:void(0);" onclick="javascript:getCalendar('bookingreqB', 'end')" class="textbutton">#language.calendar#</a>
-							<!---a href="javascript:void(0);" onClick="javascript:document.bookingreq.startDateShow.value=''; document.bookingreq.startDate.value='';" class="textbutton">clear</a--->
+							<!---a href="javascript:void(0);" onclick="javascript:document.bookingreq.startDateShow.value=''; document.bookingreq.startDate.value='';" class="textbutton">clear</a--->
 						</td>
 					</tr>
 					<tr>
@@ -269,7 +261,7 @@ function EditSubmit ( selectedform )
 							<br--->
 							<input type="submit" value="#language.Submit#" class="textbutton" />
 							<input type="reset" value="#language.Reset#" class="textbutton" />
-							<input type="button" value="#language.Cancel#" class="textbutton" onClick="javascript:self.location.href='bookingRequest_choose.cfm?lang=#lang#';" />
+							<input type="button" value="#language.Cancel#" class="textbutton" onclick="javascript:self.location.href='bookingRequest_choose.cfm?lang=#lang#';" />
 						</td>
 					</tr>
 				</table>

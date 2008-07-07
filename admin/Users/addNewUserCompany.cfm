@@ -222,7 +222,7 @@ function EditSubmit ( selectedform )
 				</table>
 				</cfform>
 				
-				<!---<br /><div style="text-align:center;"><cfoutput><input type="button" value="Done" onClick="self.location.href='#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#'" class="textbutton" />
+				<!---<br /><div style="text-align:center;"><cfoutput><input type="button" value="Done" onclick="self.location.href='#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#'" class="textbutton" />
 				
 				<cfform name="newUserForm" action="addUser_action.cfm?lang=#lang#&info=#Variables.info#">
 					<input type="hidden" name="firstname" value="#Variables.firstname#" />
@@ -230,9 +230,9 @@ function EditSubmit ( selectedform )
 					<input type="hidden" name="email" value="#Variables.email#" />
 					<input type="hidden" name="password1" value="#Variables.password1#" />
 					<input type="hidden" name="companies" value="#companies#" />
-					<br /><div style="text-align:right;"><input type="submit" onClick="javascript:EditSubmit('newUserForm');" value="Submit New User" class="textbutton" />
-					<input type="button" onClick="javascript:self.location.href='addUser.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#'" value="Edit Profile" class="textbutton" />
-					<input type="button" onClick="javascript:self.location.href='../menu.cfm?lang=#lang#'" value="Cancel" class="textbutton" />
+					<br /><div style="text-align:right;"><input type="submit" onclick="javascript:EditSubmit('newUserForm');" value="Submit New User" class="textbutton" />
+					<input type="button" onclick="javascript:self.location.href='addUser.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#'" value="Edit Profile" class="textbutton" />
+					<input type="button" onclick="javascript:self.location.href='../menu.cfm?lang=#lang#'" value="Cancel" class="textbutton" />
 				</cfform>
 				
 				</cfoutput>

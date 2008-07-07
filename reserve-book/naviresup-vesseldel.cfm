@@ -98,7 +98,7 @@
 							<form name="DelVessel" action="#RootDir#reserve-book/naviresup-vesseldel_action.cfm?lang=#lang#&CompanyID=#CompanyID#" method="post">
 								<input type="hidden" name="VesselID" value="#vesselID#" />
 								<input type="submit" value="#language.Delete#" class="textbutton" />
-								<input type="button" value="#language.Cancel#" onClick="history.go(-1);" class="textbutton" />
+								<input type="button" value="#language.Cancel#" onclick="history.go(-1);" class="textbutton" />
 							</form>
 							</div>
 						</cfoutput>

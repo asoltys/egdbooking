@@ -107,14 +107,14 @@
 				</tr>
 				<tr>
 					<td id="Anonymous_Header"><label for="Anonymous">Keep this vessel anonymous:</label></td>
-					<td headers="Anonymous_Header"><input id="Anonymous" type="checkbox" name="Anonymous" value="Yes" <cfif variables.anonymous>checked</cfif>></td>
+					<td headers="Anonymous_Header"><input id="Anonymous" type="checkbox" name="Anonymous" value="Yes" <cfif variables.anonymous>checked="true"</cfif> /></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center" style="padding-top:20px;">
 						<!---a href="javascript:document.addVessel.submitForm.click();" class="textbutton">Submit</a>
 						<br--->
 						<input type="submit" name="submitForm" value="submit" class="textbutton" />
-						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
+						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
 					</td>
 				</tr>
 				</table>

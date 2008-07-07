@@ -62,7 +62,7 @@
 					<form action="companyReject_action.cfm?lang=#lang#" method="post">
 						<input type="hidden" name="CompanyID" value="#Form.CompanyID#" />
 						<input type="submit" value="Reject" class="textbutton" />
-						<input type="button" value="Cancel" class="textbutton" onClick="javascript:location.href='companyApprove.cfm?lang=#lang#'" />
+						<input type="button" value="Cancel" class="textbutton" onclick="javascript:location.href='companyApprove.cfm?lang=#lang#'" />
 					</form>
 					</cfoutput>
 					</p>

@@ -99,7 +99,7 @@ function EditSubmit ( selectedform )
 					&nbsp;&nbsp;&nbsp;
 					<!--a href="javascript:EditSubmit('chooseUserForm');" class="textbutton">Submit</a-->
 					<input type="submit" name="submitForm" class="textbutton" value="submit" />
-					<cfoutput><input type="button" value="Back" onClick="self.location.href='jettybookingmanage.cfm?#urltoken#'" class="textbutton" />
+					<cfoutput><input type="button" value="Back" onclick="self.location.href='jettybookingmanage.cfm?#urltoken#'" class="textbutton" />
 				</cfform>
 				
 				<cfif Variables.compID NEQ "">
@@ -163,20 +163,16 @@ function EditSubmit ( selectedform )
 								<td id="Startdate"><label for="start">Start Date:</label></td>
 								<td headers="Startdate">
 									<cfoutput>
-									<!---input class="textField" type="Text" name="startDateShow" id="start" disabled value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17"--->
 									<cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'addBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'addBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 									<a href="javascript:void(0);" onclick="javascript:getCalendar('addBookingForm', 'start')" class="textbutton">calendar</a>
-									<!---a href="javascript:void(0);" onClick="javascript:document.addBookingForm.startDateShow.value=''; document.addBookingForm.startDate.value='';" class="textbutton">clear</a--->
 								</td>
 							</tr>
 							<tr>
 								<td id="Enddate"><label for="end">End Date:</label></td>
 								<td headers="Enddate">
 									<cfoutput>
-									<!---input type="text" name="endDateShow" id="end" class="textField" disabled value="#DateFormat(endDate, 'mmm d, yyyy')#" size="17"--->
 									<cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" onChange="setEarlierDate('self', 'addBookingForm', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'addBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 									<a href="javascript:void(0);" onclick="javascript:getCalendar('addBookingForm', 'end')" class="textbutton">calendar</a>
-									<!---a href="javascript:void(0);" onClick="javascript:document.addBookingForm.endDateShow.value=''; document.addBookingForm.endDate.value='';" class="textbutton">clear</a--->
 								</td>
 							</tr>
 							<tr>
@@ -214,11 +210,11 @@ function EditSubmit ( selectedform )
 								<table align="center">
 									<tr>
 										<td id="nj" style="width:50%;"><label for="northJetty">North Landing Wharf</label></td>
-										<td headers="nj"><input type="radio" name="Jetty" id="northJetty" value="north" <cfif Variables.NorthJetty EQ 1 OR Variables.SOuthJetty EQ 0>checked</cfif>></td>
+										<td headers="nj"><input type="radio" name="Jetty" id="northJetty" value="north" <cfif Variables.NorthJetty EQ 1 OR Variables.SOuthJetty EQ 0>checked="true"</cfif> /></td>
 									</tr>
 									<tr>
 										<td id="sj"><label for="southJetty">South Jetty</label></td>
-										<td headers="sj"><input type="radio" name="Jetty" id="southJetty" value="south" <cfif Variables.SouthJetty EQ 1>checked</cfif>></td>
+										<td headers="sj"><input type="radio" name="Jetty" id="southJetty" value="south" <cfif Variables.SouthJetty EQ 1>checked="checeked"</cfif> /></td>
 									</tr>
 								</table>
 								</td>
@@ -235,7 +231,7 @@ function EditSubmit ( selectedform )
 									<input type="submit" name="submitForm" class="textbutton" value="override" />
 									</cfif>
 								</cfif>
-								<cfoutput><input type="button" value="Back" onClick="self.location.href='jettybookingmanage.cfm?#urltoken#'" class="textbutton" />
+								<cfoutput><input type="button" value="Back" onclick="self.location.href='jettybookingmanage.cfm?#urltoken#'" class="textbutton" />
 							</td>
 						</tr>
 					</table>

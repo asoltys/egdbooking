@@ -65,10 +65,10 @@
 					<div style="text-align:center;">Are you sure you want to remove <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
 					
 					<p><div style="text-align:center;">
-						<input type="button" value="Remove" onClick="document.remCompanyConfirmForm.submit();" class="textbutton" />
-						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='addNewUserCompany.cfm?info=#url.info#&companies=#url.companies#'" class="textbutton" />
+						<input type="button" value="Remove" onclick="document.remCompanyConfirmForm.submit();" class="textbutton" />
+						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='addNewUserCompany.cfm?info=#url.info#&companies=#url.companies#'" class="textbutton" />
 					<!---<input type="submit" value="Delete" class="button" />
-					<input type="button" value="Cancel" onClick="javascript:location.href='delVessel.cfm'" class="button" />
+					<input type="button" value="Cancel" onclick="javascript:location.href='delVessel.cfm'" class="button" />
 					</div></p>
 					
 					<cfoutput><input type="hidden" name="CompanyID" value="#form.CompanyID#" />

@@ -220,14 +220,14 @@
 						the dock that you wish to book:</td></tr>
 					<tr>
 						<td id="header1" style="width:25%;" align="right">&nbsp;&nbsp;&nbsp;<label for="Section1">Section 1</label></td>
-						<td headers="header1"><cfinput type="Checkbox" name="Section1B" id="Section1" /></td></tr>
+						<td headers="header1"><cfinput type="checkbox" name="Section1B" id="Section1" /></td></tr>
 					<tr>
 						<td id="header2" align="right">&nbsp;&nbsp;&nbsp;<label for="Section2">Section 2</label></td>
-						<td headers="header2"><cfinput type="Checkbox" name="Section2B" id="Section2" /></td>
+						<td headers="header2"><cfinput type="checkbox" name="Section2B" id="Section2" /></td>
 					</tr>
 					<tr>
 						<td id="header3" align="right">&nbsp;&nbsp;&nbsp;<label for="Section3">Section 3</label></td>
-						<td headers="header3"><cfinput type="Checkbox" name="Section3B" id="Section3" /></td>
+						<td headers="header3"><cfinput type="checkbox" name="Section3B" id="Section3" /></td>
 					</tr>
 					</table>
 				</cfif>
@@ -239,8 +239,8 @@
 				<td colspan="2" align="center">
 					<input type="hidden" value="<cfoutput>#Form.Status#</cfoutput>" name="Status" />
 					<input type="submit" value="submit" class="textbutton" />
-					<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='addBooking.cfm?#urltoken#'" />
-					<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='bookingmanage.cfm?#urltoken#';" />
+					<cfoutput><input type="button" value="Back" class="textbutton" onclick="self.location.href='addBooking.cfm?#urltoken#'" />
+					<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='bookingmanage.cfm?#urltoken#';" />
 				</td>
 			</tr>
 			</table>

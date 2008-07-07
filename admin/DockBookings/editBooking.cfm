@@ -205,20 +205,16 @@ function EditSubmit ( selectedform )
 						<td id="Start">Start Date:</td>
 						<td headers="Start">
 							<cfoutput>
-							<!---input class="textField" type="Text" name="startDateShow" id="start" disabled value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17"--->
 							<cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'editBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'editBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 							<a href="javascript:void(0);" onclick="javascript:getCalendar('editBookingForm', 'start')" class="textbutton">calendar</a>
-							<!---a href="javascript:void(0);" onClick="javascript:document.bookingreq.startDateShow.value=''; document.editBookingForm.startDate.value='';" class="textbutton">clear</a--->
 						</td>
 					</tr>
 					<tr>
 						<td id="End">End Date:</td>
 						<td headers="End">
 							<cfoutput>
-							<!---input type="text" name="endDateShow" id="end" class="textField" disabled value="#DateFormat(endDate, 'mmm d, yyyy')#" size="17"---> 
 							<cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" onChange="setEarlierDate('self', 'editBookingForm', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'editBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 							<a href="javascript:void(0);" onclick="javascript:getCalendar('editBookingForm', 'end')" class="textbutton">calendar</a>
-							<!---a href="javascript:void(0);" onClick="javascript:document.editBookingForm.startDateShow.value=''; document.editBookingForm.startDate.value='';" class="textbutton">clear</a--->
 						</td>
 					</tr>
 					<tr>
@@ -277,22 +273,22 @@ function EditSubmit ( selectedform )
 					<tr><td colspan="2">Please choose the sections of the dock that you wish to book</td></tr>
 					<tr>
 						<td id="Section1_header" style="width:25%;" align="right">&nbsp;&nbsp;&nbsp;<label for="Section1">Section 1</label></td>
-						<td headers="Section1_header"><input type="Checkbox" id="Section1" name="Section1" <cfoutput>#Variables.Section1#</cfoutput>></td>
+						<td headers="Section1_header"><input type="checkbox" id="Section1" name="Section1" <cfoutput>#Variables.Section1#</cfoutput>></td>
 					</tr>
 					<tr>
 						<td id="Section2_header" align="right">&nbsp;&nbsp;&nbsp;<label for="Section2">Section 2</label></td>
-						<td headers="Section2_header"><input type="Checkbox" id="Section2" name="Section2" <cfoutput>#Variables.Section2#</cfoutput>></td>
+						<td headers="Section2_header"><input type="checkbox" id="Section2" name="Section2" <cfoutput>#Variables.Section2#</cfoutput>></td>
 					</tr>
 					<tr>
 						<td id="Section3_header" align="right">&nbsp;&nbsp;&nbsp;<label for="Section3">Section 3</label></td>
-						<td headers="Section3_header"><input type="Checkbox" id="Section3" name="Section3" <cfoutput>#Variables.Section3#</cfoutput>></td>
+						<td headers="Section3_header"><input type="checkbox" id="Section3" name="Section3" <cfoutput>#Variables.Section3#</cfoutput>></td>
 					</tr>
 					</cfif>
 					<tr>
 						<td colspan="2" align="center">
 							<!--a href="javascript:document.editBookingForm.submitForm.click();" class="textbutton">Submit</a-->
 							<input type="submit" class="textbutton" value="submit" />
-							<input type="button" value="Cancel" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue#'" class="textbutton" />
+							<input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue#'" class="textbutton" />
 							<!--- <a href="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" class="textbutton">Cancel</a> --->
 						</td>
 					</tr>

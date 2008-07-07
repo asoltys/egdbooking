@@ -245,8 +245,8 @@
 							<input type="submit" value="Back" class="textbutton" />
 						</cfoutput>
 					</cfform---->
-						<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='editJettyBooking.cfm?#urltoken#&bookingID=#form.bookingID##variables.dateValue#';" />
-						<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#form.bookingID##variables.dateValue####form.bookingID#';" />
+						<cfoutput><input type="button" value="Back" class="textbutton" onclick="self.location.href='editJettyBooking.cfm?#urltoken#&bookingID=#form.bookingID##variables.dateValue#';" />
+						<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#form.bookingID##variables.dateValue####form.bookingID#';" />
 						<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
 				</div>
 				</cfform>

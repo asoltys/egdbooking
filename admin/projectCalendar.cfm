@@ -437,11 +437,11 @@ var params = {
 				<thead>
 					<tr style="border-bottom: 1px solid ##888888; ">
 					<th style="background: White; border-right: 1px solid ##888888" colspan="2">&nbsp;</th>
-					<th id="1_header" axis="assignment_axis" class="sec1 confirmed" width="120" align="center">DRYDOCK 1</th>
-					<th id="2_header" axis="assignment_axis" class="sec2 confirmed" width="120" align="center">DRYDOCK 2</th>
-					<th id="3_header" axis="assignment_axis" class="sec3 confirmed" width="120" align="center">DRYDOCK 3</th>
-					<th id="4_header" axis="assignment_axis" class="tentative" width="120">TENTATIVE</th>
-					<th id="5_header" axis="assignment_axis" class="pending" width="120">PENDING</th>
+					<th width="120" align="center" class="sec1 confirmed" id="1_header" style="width:120px;" axis="assignment_axis">DRYDOCK 1</th>
+					<th width="120" align="center" class="sec2 confirmed" id="2_header" style="width:120px;" axis="assignment_axis">DRYDOCK 2</th>
+					<th width="120" align="center" class="sec3 confirmed" id="3_header" style="width:120px;" axis="assignment_axis">DRYDOCK 3</th>
+					<th width="120" class="tentative" id="4_header" style="width:120px;" axis="assignment_axis">TENTATIVE</th>
+					<th width="120" class="pending" id="5_header" style="width:120px;" axis="assignment_axis">PENDING</th>
 				</tr></thead>
 				
 				<tbody>
@@ -493,12 +493,12 @@ var params = {
 									style="background: ###getColour(StructFind(nevermore, 'colourCode'))#; ">
 								<CFIF StructFind(nevermore, "firstday") AND StructFind(nevermore, "firstdock") eq true>
 									<!--- The first day of the booking can have custom text --->
-									<!---A href="javascript:void(0)" onClick="foo(event, '#snowflakes#', '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOver="foo(event, '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOut="foo(event);">
+									<!---A href="javascript:void(0)" onclick="foo(event, '#snowflakes#', '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOver="foo(event, '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOut="foo(event);">
 										<div class="text">#Left(StructFind(nevermore, "vesselName" & StructFind(nevermore, "boatCount")), 10)#...</div>
 									</a--->
 									<div class="text">#snowflakes#</div>
 								<CFELSE>
-									<!---A href="javascript:void(0)" onClick="foo(event, '#snowflakes#', '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOver="foo(event, '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOut="foo(event);"--->
+									<!---A href="javascript:void(0)" onclick="foo(event, '#snowflakes#', '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOver="foo(event, '#StructFind(nevermore, "boatCount")# booking(s)');" onMouseOut="foo(event);"--->
 										<div class="text">&nbsp;<br />
 										&nbsp;<br />&nbsp;<br />&nbsp;<!---CFIF StructFind(nevermore, "yours") eq true>?<CFELSE>#StructFind(nevermore, "boatCount")#</CFIF---></div>
 									<!---/A--->

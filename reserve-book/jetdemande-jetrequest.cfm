@@ -153,19 +153,15 @@
 							<label for="start">#language.StartDate#:</label>
 						</td>
 						<td headers="StartDate">
-							<!---input class="textField" type="Text" name="startDateShow" id="start" disabled value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17"--->
 							<cfinput id="start" name="startDate" type="text" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" class="textField" onChange="setLaterDate('self', 'bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreq', #Variables.bookingLen#)" /> #language.dateform#
 							<a href="javascript:void(0)" onclick = "javascript:getCalendar('bookingreq', 'start')" class="textbutton">#language.calendar#</a>
-							<!---a href="javascript:void(0);" onClick="javascript:document.bookingreq.startDateShow.value=''; document.bookingreq.startDateHidden.value='';" class="textbutton">clear</a--->
 						</td>
 					</tr>
 					<tr>
 						<td id="EndDate"><label for="end">#language.EndDate#:</label></td>
 						<td headers="EndDate">
-							<!---input type="text" name="endDateShow" id="end" class="textField" disabled value="#DateFormat(endDate, 'mmm d, yyyy')#" size="17"--->
 							<cfinput id="end" name="endDate" type="text" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" class="textField" onChange="setLaterDate('self', 'bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreq', #Variables.bookingLen#)" /> #language.dateform#
 							<a href="javascript:void(0)" onclick = "javascript:getCalendar('bookingreq', 'end')" class="textbutton">#language.calendar#</a>
-							<!---a href="javascript:void(0);" onClick="javascript:document.bookingreq.startDateShow.value=''; document.bookingreq.startDateHidden.value='';" class="textbutton">clear</a--->
 						</td>
 					</tr>
 					<tr>
@@ -193,7 +189,7 @@
 						<td colspan="2" align="center">
 							<input type="submit" value="#language.Submit#" class="textbutton" />
 							<input type="reset" value="#language.Reset#" class="textbutton" />
-							<input type="button" value="#language.Cancel#" class="textbutton" onClick="javascript:self.location.href='bookingRequest_choose.cfm?lang=#lang#';" />
+							<input type="button" value="#language.Cancel#" class="textbutton" onclick="javascript:self.location.href='bookingRequest_choose.cfm?lang=#lang#';" />
 						</td>
 					</tr>
 				</table>

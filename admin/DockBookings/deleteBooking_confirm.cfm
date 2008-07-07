@@ -141,7 +141,7 @@
 					<br />
 					<div style="text-align:center;">
 						<input type="submit" name="submitForm" class="textbutton" value="#variables.action#" />
-						<input type="button" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" value="Back" class="textbutton" />
+						<input type="button" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" value="Back" class="textbutton" />
 					</div>
 				
 					</cfoutput>

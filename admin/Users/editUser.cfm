@@ -127,7 +127,7 @@ function EditSubmit ( selectedform )
 							<cfif #variables.ReadOnly# NEQ "1">
 							<td headers="ReadOnly"><cfinput type="radio" name="ReadOnly" value="0" checked>No<cfinput type="radio" name="ReadOnly" value="1" />Yes
 							<cfelse>
-							<td headers="ReadOnly"><cfinput type="radio" name="ReadOnly" value="0" />No<cfinput type="radio" name="ReadOnly" value="1" checked>Yes
+							<td headers="ReadOnly"><cfinput type="radio" name="ReadOnly" value="0" />No<cfinput type="radio" name="ReadOnly" value="1" checked="true" />Yes
 							</cfif>
 							</td>
 						</tr>
@@ -216,12 +216,12 @@ function EditSubmit ( selectedform )
 								<br-->
 								<input type="submit" value="Change Password" class="textbutton" />
 								<cfoutput><input type="hidden" name="userID" value="#form.userID#" />
-								<!---<input type="button" value="Cancel" class="button" onClick="javascript:location.href='#RootDir#reserve-book-e.cfm'" />
+								<!---<input type="button" value="Cancel" class="button" onclick="javascript:location.href='#RootDir#reserve-book-e.cfm'" />
 							</td>
 						</tr>
 					</table>
 					<br />
-					<div style="text-align:right;"><cfoutput><input type="button" name="cancel" value="Cancel" class="textbutton" onClick="self.location.href='../menu.cfm?lang=#lang#'" />
+					<div style="text-align:right;"><cfoutput><input type="button" name="cancel" value="Cancel" class="textbutton" onclick="self.location.href='../menu.cfm?lang=#lang#'" />
 				</cfform>
 				
 				<p><em>*Email notification of profile updates is automatically sent to the user after their password is changed or a company is added to their profile.</em></p>

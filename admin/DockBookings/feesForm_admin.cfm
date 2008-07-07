@@ -99,14 +99,14 @@ function EditSubmit ( selectedform )
 				<cfform name="serviceSelect" action="feesForm_admin_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#">
 				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the selected services for the booking and allows the administrator to edit the information.">
 					<tr>
-						<th id="checkHeader" class="feesformheader" width="5%">&nbsp;</th>
-						<th id="itemHeader" class="feesformheader" width="4%"><strong>Item</strong></th>
+						<th class="feesformheader" id="checkHeader" style="width:5%;">&nbsp;</th>
+						<th class="feesformheader" id="itemHeader" style="width:4%;"><strong>Item</strong></th>
 						<th id="serviceHeader" class="feesformheader"><strong>Services and Facilities</strong></th>
-						<th id="feeHeader" class="feesformheader" width="19%"><strong>Fees</strong></th>
+						<th class="feesformheader" id="feeHeader" style="width:19%;"><strong>Fees</strong></th>
 					</tr>
 					
 					<tr>
-						<td id="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="Checkbox" <cfif getForm.other EQ 1>checked</cfif> onClick="if (this.checked) this.form.otherBox.focus();" />
+						<td id="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="checkbox" <cfif getForm.other EQ 1>checked="true"</cfif> onclick="if (this.checked) this.form.otherBox.focus();" />
 						<td id="itemHeader" align="center" valign="top">&nbsp;</td>
 						<td id="serviceHeader" align="left" valign="top">
 							<table>
@@ -131,7 +131,7 @@ function EditSubmit ( selectedform )
 							<td id="checkHeader" align="right" valign="top">
 								<cfif fee NEQ "">
 									<cfset Variables.Abbr = "getForm." & #abbreviation#>
-									<input name="#abbreviation#" id="#abbreviation#" type="Checkbox" <cfif Evaluate(Variables.Abbr) EQ 1>checked</cfif>>		
+									<input name="#abbreviation#" id="#abbreviation#" type="checkbox" <cfif Evaluate(Variables.Abbr) EQ 1>checked="true"</cfif> />
 								</cfif>
 							</td>
 							<td id="itemHeader" align="center" valign="top"><strong><label for="#abbreviation#">#item#</label></strong></td>
@@ -147,7 +147,7 @@ function EditSubmit ( selectedform )
 				<div style="text-align:right;">
 					<!--a href="javascript:EditSubmit('serviceSelect');" class="textbutton">Submit</a-->
 					<input type="submit" name="submitForm" class="textbutton" value="submit" />
-					<cfoutput><input type="button" value="Back" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" class="textbutton" />
+					<cfoutput><input type="button" value="Back" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" class="textbutton" />
 				</div>
 								
 				</cfform>

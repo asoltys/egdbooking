@@ -73,7 +73,7 @@ function EditSubmit ( selectedform )
 				
 				<br />
 				<div style="text-align:right;"><input type="submit" value="submit" class="textbutton" />
-				<input type="button" onClick="javascript:self.location.href='menu.cfm?lang=#lang#'" value="Cancel" class="textbutton" />
+				<input type="button" onclick="javascript:self.location.href='menu.cfm?lang=#lang#'" value="Cancel" class="textbutton" />
 				</cfform>
 				
 				</cfoutput>

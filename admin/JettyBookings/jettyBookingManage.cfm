@@ -178,7 +178,6 @@ function EditSubmit ( selectedform )
 								<label for="start">Start Date:</label>							</td>
 							<td headers="Startdate" colspan="2">
 								<cfoutput>
-								<!---input class="textField" type="Text" name="startDateShow" id="start" disabled value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17"--->
 								<input type="text" name="startDate" size="15" maxlength="10" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" class="textField" onchange="setLaterDate('self', 'dateSelect', #Variables.bookingLen#)" onfocus="setEarlierDate('self', 'dateSelect', #Variables.bookingLen#)" />
 								<a href="javascript:void(0);" onclick="javascript:getCalendar('dateSelect', 'start')" class="textbutton">calendar</a>
 							</td>
@@ -194,18 +193,18 @@ function EditSubmit ( selectedform )
 						</tr>
 						<tr>
 							<td>Show only:</td>	
-							<td headers="Pending" align="right" style="width:15%;"><input type="checkbox" name="show" value="p" id="showPend"<cfif showPend EQ true> checked="true"</cfif>></td>
+							<td headers="Pending" align="right" style="width:15%;"><input type="checkbox" name="show" value="p" id="showPend"<cfif showPend EQ true> checked="true"</cfif> /></td>
 							<td id="Pending" align="left"><label for="showPend" class="pending">Pending</label></td>	
 						</tr>
 						<tr>
 							<td>&nbsp;</td>
-							<td headers="Tentative" align="right"><input type="checkbox" id="showTent" name="show" value="t"<cfif showTent eq true> checked</cfif>></td>
+							<td headers="Tentative" align="right"><input type="checkbox" id="showTent" name="show" value="t"<cfif showTent eq true> checked="true"</cfif> /></td>
 							<td id="Tentative" align="left"><label for="showTent" class="tentative">Tentative</label></td>
 						</tr>
 				
 						<tr>
 							<td>&nbsp;</td>
-							<td headers="Confirmed" align="right"><input type="checkbox" name="show" value="c" id="showConf" <cfif showConf EQ true>checked="true"</cfif>></td>
+							<td headers="Confirmed" align="right"><input type="checkbox" name="show" value="c" id="showConf" <cfif showConf EQ true>checked="true"</cfif> /></td>
 							<td id="Confirmed" align="left"><label for="showConf" class="confirmed">Confirmed</label></td>
 						</tr>
 						<tr>

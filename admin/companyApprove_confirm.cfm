@@ -88,7 +88,7 @@ function EditSubmit ( selectedform )
 						<input type="hidden" name="abbrev" value="#Form.abbrev#" />
 						<!---a href="javascript:EditSubmit('rejectUser');" class="textbutton">Submit</a--->
 						<input type="submit" class="textbutton" value="Approve" />
-						<input type="button" value="Cancel" onClick="javascript:location.href='companyApprove.cfm?lang=#lang#'" class="textbutton" />
+						<input type="button" value="Cancel" onclick="javascript:location.href='companyApprove.cfm?lang=#lang#'" class="textbutton" />
 					</form>
 				</div>
 				</cfoutput>

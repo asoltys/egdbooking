@@ -138,8 +138,8 @@
 					<br />
 					<div style="text-align:center;">
 						<input type="submit" class="textbutton" value="submit" />
-						<input type="button" value="Back" onClick="self.location.href='delVessel.cfm?lang=#lang#'" class="textbutton" />
-						<input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
+						<input type="button" value="Back" onclick="self.location.href='delVessel.cfm?lang=#lang#'" class="textbutton" />
+						<input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
 					</div>
 					</cfoutput>
 				</cfform>
@@ -153,9 +153,9 @@
 						&nbsp;&nbsp;&nbsp;<strong>Drydock</strong>
 						<table style="padding-left:20px; width:100%;" >
 							<tr>
-								<th id="start" width="25%"><strong>Start Date</strong></th>
-								<th id="end" width="60%"><strong>End Date</strong></th>
-								<th id="status" width="15%"><strong>Status</strong></th>
+								<th id="start" style="width:25%;"><strong>Start Date</strong></th>
+								<th id="end" style="width:60%;"><strong>End Date</strong></th>
+								<th id="status" style="width:15%;"><strong>Status</strong></th>
 							</tr>
 							<cfoutput query="getVesselDockBookings">
 								<tr>
@@ -176,10 +176,10 @@
 						&nbsp;&nbsp;&nbsp;<strong>Jetty</strong>
 						<table style="padding-left:20px; width:100%;">
 							<tr>
-								<th id="start" width="25%"><strong>Start Date</strong></th>
-								<th id="end" width="25%"><strong>End Date</strong></th>
-								<th id="jetty" width="35%"><strong>Jetty</strong></th>
-								<th id="status" width="15%"><strong>Status</strong></th>
+								<th id="start" style="width:25%;"><strong>Start Date</strong></th>
+								<th id="end" style="width:25%;"><strong>End Date</strong></th>
+								<th id="jetty" style="width:35%;"><strong>Jetty</strong></th>
+								<th id="status" style="width:15%;"><strong>Status</strong></th>
 							</tr>
 							<cfoutput query="getVesselJettyBookings">
 								<tr>
@@ -202,8 +202,8 @@
 					</cfif>
 						
 					<p><div style="text-align:center;">
-						<input type="button" value="Back" onClick="self.location.href='delVessel.cfm?lang=<cfoutput>#lang#</cfoutput>'" class="textbutton" />
-						<input type="button" value="Return to Administrative Functions" onClick="self.location.href='menu.cfm?lang=<cfoutput>#lang#</cfoutput>'" class="textbutton" />
+						<input type="button" value="Back" onclick="self.location.href='delVessel.cfm?lang=<cfoutput>#lang#</cfoutput>'" class="textbutton" />
+						<input type="button" value="Return to Administrative Functions" onclick="self.location.href='menu.cfm?lang=<cfoutput>#lang#</cfoutput>'" class="textbutton" />
 					</div></p>
 				</div>
 			</cfif>

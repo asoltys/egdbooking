@@ -112,7 +112,7 @@
 							</tr>
 						</table>
 						<div style="text-align:center;">#language.Remember#
-								<input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked</CFIF>/>
+								<input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked="true"</CFIF> />
 						</div>
 					</form>
 					<div style="text-align:center;"><a href="utilisateurajout-useradd.cfm?lang=#lang#">#language.addUser#</a></div>

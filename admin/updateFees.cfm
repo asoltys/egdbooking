@@ -65,9 +65,9 @@ function EditSubmit ( selectedform )
 				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the available services and their current fees, and allows the administrator to edit the fees.">
 					<tr>
 						<!---th id="checkHeader" class="feesformheader" width="5%">&nbsp;</th--->
-						<th id="itemHeader"  width="4%"><strong>Item</strong></th>
+						<th id="itemHeader" style="width:4%;"><strong>Item</strong></th>
 						<th id="serviceHeader"><strong>Services and Facilities</strong></th>
-						<th id="feeHeader" width="19%"><strong>Fees</strong></th>
+						<th id="feeHeader" style="width:19%;"><strong>Fees</strong></th>
 					</tr>
 					
 					<cfoutput query="getFees">
@@ -93,7 +93,7 @@ function EditSubmit ( selectedform )
 										<cfset variables.checked = "true">
 									</cfif>
 									$<cfinput name="#abbreviation#Fee" type="text" value="#variables.value#" size="9" id="#abbreviation#" CLASS="textField" />
-									<br /><cfinput type="Checkbox" name="#abbreviation#Flex" id="#abbreviation#Flex" checked="#variables.checked#"><label for="#abbreviation#Flex" />prices vary</label>
+									<br /><cfinput type="checkbox" name="#abbreviation#Flex" id="#abbreviation#Flex" checked="#variables.checked#"><label for="#abbreviation#Flex" />prices vary</label>
 								</cfif>				
 							</td>
 						</tr>
@@ -104,7 +104,7 @@ function EditSubmit ( selectedform )
 				<div style="text-align:right;">
 					<!--a href="javascript:EditSubmit('serviceSelect');" class="textbutton">Submit</a-->
 					<input type="submit" name="submitForm" class="textbutton" value="submit" />
-					<cfoutput><input type="button" value="Cancel" onClick="self.location.href='otherForms.cfm?lang=#lang#'" class="textbutton" />
+					<cfoutput><input type="button" value="Cancel" onclick="self.location.href='otherForms.cfm?lang=#lang#'" class="textbutton" />
 				</div>
 				</cfform>
 			</div>

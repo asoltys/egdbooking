@@ -99,7 +99,7 @@
 						<tr>
 							<td colspan="2" align="center" style="padding-top:20px;">
 								<input type="submit" class="textbutton" value="submit" />
-								<input type="button" value="Cancel" onClick="self.location.href='editUser.cfm?lang=#lang#&userID=#url.userID#'" class="textbutton" />
+								<input type="button" value="Cancel" onclick="self.location.href='editUser.cfm?lang=#lang#&userID=#url.userID#'" class="textbutton" />
 							</td>
 						</tr>
 					</table>

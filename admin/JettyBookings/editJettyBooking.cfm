@@ -1,6 +1,3 @@
-<!---cfinclude template="#RootDir#includes/restore_params.cfm">
-<cfinclude template="#RootDir#includes/build_form_struct.cfm"--->
-
 <cfhtmlhead text="
 	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Jetty Booking"">
 	<meta name=""keywords"" content="""" />
@@ -194,43 +191,11 @@ function EditSubmit ( selectedform )
 				</cfquery>
 				
 				
-				<!---cfif isDefined("form.vesselID") AND form.vesselID NEQ "">
-					<cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-						SELECT	Name
-						FROM	Vessels
-						WHERE	VesselID = "#Form.vesselID#"
-					</cfquery>
-					<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-						SELECT	Name
-						FROM	Companies
-						WHERE	CompanyID = "#Form.CompanyID#"
-					</cfquery>
-				
-					<cfset variables.vesselName = #getVessel.name#>
-					<cfset variables.companyName = #getCompany.name#>
-					<cfset variables.vesselID = #form.vesselID#>
-					<cfset variables.userID = #form.userID#>
-					<cfset variables.startDate = #form.startDate#>
-					<cfset variables.endDate = #form.endDate#>
-					<cfset variables.jetty = #form.vesselID#>
-					<cfset variables.confirmed = #form.confirmed#>
-					<cfset variables.companyID = #form.companyID#>
-				</cfif--->
-				
 				<!-------------------------------------------------------------------------------------------------------------------------->
 				
 				
 				<cfoutput query="getBooking">
-					<!--- <form method="post" action="jettyBookingManage_action.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)#" name="confBooking#bookingID#">
-						<input type="hidden" name="ID" value="#bookingid#" />
-						<input type="hidden" name="Status" value="C" />
-					</form>
-					
-					<form method="post" action="jettyBookingManage_action.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)#" name="UnConfBooking#bookingID#">
-						<input type="hidden" name="ID" value="#bookingid#" />
-						<input type="hidden" name="Status" value="P" />
-					</form> --->
-									
+
 					<form method="post" action="chgStatus_2c.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2c#BookingID#" style="margin: 0; padding: 0; ">
 						<input type="hidden" name="BookingID" value="#BookingID#" />
 					</form>
@@ -268,10 +233,8 @@ function EditSubmit ( selectedform )
 					<tr>
 						<td id="startdate"><label for="start">Start Date:</label></td>
 						<td headers="startdate">
-							<!---input class="textField" type="Text" name="startDateShow" id="start" disabled value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17"--->
 							<cfinput name="startDate" type="text" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'editBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'editBookingForm', #Variables.bookingLen#)" /> #language.dateform#
 							<a href="javascript:void(0);" onclick="javascript:getCalendar('editBookingForm', 'start')" class="textbutton">calendar</a>
-							<!---a href="javascript:void(0);" onClick="javascript:document.editBookingForm.startDateShow.value=''; document.editBookingForm.startDate.value='';" class="textbutton">clear</a--->
 						</td>
 					</tr>
 					<tr>
@@ -317,11 +280,11 @@ function EditSubmit ( selectedform )
 					</tr>
 					<tr>
 						<td id="nj">&nbsp;&nbsp;&nbsp;<label for="northJetty">North Landing Wharf</label></td>
-						<td headers="nj"><input type="radio" name="Jetty" id="northJetty" value="north" <cfif Variables.NorthJetty EQ 1>checked</cfif>></td>		
+						<td headers="nj"><input type="radio" name="Jetty" id="northJetty" value="north" <cfif Variables.NorthJetty EQ 1>checked="true"</cfif> /></td>		
 					</tr>
 					<tr>
 						<td id="sj">&nbsp;&nbsp;&nbsp;<label for="southJetty">South Jetty</label></td>
-						<td headers="sj"><input type="radio" name="Jetty" id="southJetty" value="south" <cfif Variables.SouthJetty EQ 1>checked</cfif>></td>
+						<td headers="sj"><input type="radio" name="Jetty" id="southJetty" value="south" <cfif Variables.SouthJetty EQ 1>checked="true"</cfif> /></td>
 					</tr>		
 					<tr>
 						<td colspan="2" align="center">
@@ -329,10 +292,9 @@ function EditSubmit ( selectedform )
 							<cfif isdefined('overwrite')>
 							<input type="submit" name="submitForm" class="textbutton" value="overwrite" />
 							</cfif>
-							<input type="button" value="Cancel" onClick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue####variables.bookingID#'" class="textbutton" />
+							<input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue####variables.bookingID#'" class="textbutton" />
 							<br />
 							<input type="Hidden" name="BookingID" value="#Variables.BookingID#" />
-							<!---input type="Hidden" name="CompanyID" value="#Variables.CompanyID#"--->
 							<input type="Hidden" name="Submitted" value="yes" />
 						</td>
 					</tr>

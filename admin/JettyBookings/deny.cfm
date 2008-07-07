@@ -96,7 +96,7 @@
 					
 					<div style="text-align:center;">
 					<input type="submit" value="submit" class="textbutton" />
-					<input type="button" onClick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" value="Cancel" class="textbutton" />
+					<input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" value="Cancel" class="textbutton" />
 					</cfoutput>
 					</div>
 				</cfform>

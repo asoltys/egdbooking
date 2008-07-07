@@ -173,7 +173,7 @@
 						</tr>--->
 						<tr>
 							<td id="anon"><label for="anonymous">#language.anonymous#:</label></td>
-							<td headers="anon"><input id="anonymous" type="checkbox" name="Anonymous" <cfif variables.Anonymous EQ 1>checked </cfif>value="Yes" />
+							<td headers="anon"><input id="anonymous" type="checkbox" name="Anonymous" <cfif variables.Anonymous EQ 1>checked="true" </cfif>value="Yes" />
 						</tr>
 						<tr><td colspan="2"><P class="smallFont">*#language.anonymousWarning#</p></td></tr>
 						<tr>
@@ -184,7 +184,7 @@
 								<br-->
 								<input type="submit" value="#language.Submit#" name="submitForm" class="textbutton" />
 								<input type="reset" value="#language.Reset#" name="resetForm" class="textbutton" />
-								<input type="button" value="#language.Cancel#" name="cancel" class="textbutton" onClick="self.location.href='#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#GetVesselDetail.companyID#'" />
+								<input type="button" value="#language.Cancel#" name="cancel" class="textbutton" onclick="self.location.href='#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#GetVesselDetail.companyID#'" />
 							</td>
 						</tr>
 					</table>

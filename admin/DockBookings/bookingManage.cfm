@@ -167,17 +167,17 @@ function EditSubmit ( selectedform )
 						</tr>
 						<tr>
 							<td>Show only:</td>
-							<td headers="Pending" align="right" style="width:15%;"><input type="checkbox" id="showPend" name="show" value="p"<cfif showPend eq true> checked</cfif>></td>
+							<td headers="Pending" align="right" style="width:15%;"><input type="checkbox" id="showPend" name="show" value="p"<cfif showPend eq true> checked="true"</cfif> /></td>
 							<td id="Pending" align="left"><label for="showPend" class="pending">Pending</label></td>
 						</tr>
 						<tr>
 							<td>&nbsp;</td>
-							<td headers="Tentative" align="right"><input type="checkbox" id="showTent" name="show" value="t"<cfif showTent eq true> checked</cfif>></td>
+							<td headers="Tentative" align="right"><input type="checkbox" id="showTent" name="show" value="t"<cfif showTent eq true> checked="true"</cfif> /></td>
 							<td id="Tentative" align="left"><label for="showTent" class="tentative">Tentative</label></td>
 						</tr>
 						<tr>
 							<td>&nbsp;</td>
-							<td headers="Confirmed" align="right"><input type="checkbox" id="showConf" name="show" value="c"<cfif showConf eq true> checked</cfif>></td>
+							<td headers="Confirmed" align="right"><input type="checkbox" id="showConf" name="show" value="c"<cfif showConf eq true> checked="true"</cfif> /></td>
 							<td id="Confirmed" align="left"><label for="showConf" class="confirmed">Confirmed</label></td>
 						</tr>
 						<tr>

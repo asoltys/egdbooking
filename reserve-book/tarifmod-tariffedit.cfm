@@ -138,14 +138,14 @@ function EditSubmit ( selectedform )
 				<cfoutput>
 				<table border="0" cellpadding="3" cellspacing="0" summary="#language.tableSummary#">
 					<tr>
-						<th id="checkHeader" class="feesformheader" width="5%">&nbsp;</th>
-						<th id="itemHeader" class="feesformheader" width="4%"><strong>#language.Item#</strong></th>
+						<th class="feesformheader" id="checkHeader" style="width:5%;">&nbsp;</th>
+						<th class="feesformheader" id="itemHeader" style="width:4%;"><strong>#language.Item#</strong></th>
 						<th id="serviceHeader" class="feesformheader"><strong>#language.Services#</strong></th>
-						<th id="feeHeader" class="feesformheader" width="19%"><strong>#language.Fees#</strong></th>
+						<th class="feesformheader" id="feeHeader" style="width:19%;"><strong>#language.Fees#</strong></th>
 					</tr>
 				
 					<tr>
-						<td headers="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="Checkbox" <cfif getForm.other EQ 1>checked</cfif> onClick="if (this.checked) this.form.otherBox.focus();" />
+						<td headers="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="checkbox" <cfif getForm.other EQ 1>checked="true"</cfif> onclick="if (this.checked) this.form.otherBox.focus();" />
 						<td headers="itemHeader" align="center" valign="top">&nbsp;</td>
 						<td headers="serviceHeader" align="left" valign="top">
 							<table>
@@ -171,7 +171,7 @@ function EditSubmit ( selectedform )
 					<td headers="checkHeader" align="right" valign="top">
 						<cfif fee NEQ "">
 							<cfset Variables.Abbr = "getForm." & #abbreviation#>
-							<input name="#abbreviation#" id="#abbreviation#" type="Checkbox"<cfif Evaluate(Variables.Abbr) EQ 1> checked</cfif>>
+							<input name="#abbreviation#" id="#abbreviation#" type="checkbox"<cfif Evaluate(Variables.Abbr) EQ 1> checked="true"</cfif> />
 						</cfif>
 					</td>
 					<td headers="itemHeader" align="center" valign="top">
@@ -210,7 +210,7 @@ function EditSubmit ( selectedform )
 					<a href="reserve-booking.cfm?lang=#lang#&CompanyID=#url.CompanyID#" class="textbutton">#language.Back#</a--->
 					<input type="hidden" name="CompanyID" value="#getDetails.CompanyID#" class="textField" />
 					<input type="submit" value="#language.Submit#" class="textbutton" />
-					<input type="button" value="#language.Back#" onClick="self.location.href='#returnTo#?lang=#lang#&CompanyID=#getDetails.CompanyID#'" class="textbutton" />
+					<input type="button" value="#language.Back#" onclick="self.location.href='#returnTo#?lang=#lang#&CompanyID=#getDetails.CompanyID#'" class="textbutton" />
 				</cfoutput>
 				</div>
 				</cfform>

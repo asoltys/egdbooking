@@ -73,7 +73,7 @@
 					<cfform action="delCompany_confirm.cfm?lang=#lang#" method="post" name="delCompanyForm">
 						<cfselect name="companyID" query="getcompanyList" value="companyID" display="name" selected="#variables.companyID#"/>
 						<input type="submit" name="submitForm" class="textbutton" value="Delete" />
-						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" />
+						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" />
 					</cfform>
 				</div>
 

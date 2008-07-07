@@ -256,7 +256,7 @@
 					<tr>
 					  <td><input type="submit" value="Confirm" class="textbutton" />
 						<cfoutput>
-						  <input type="button" onClick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton" />
+						  <input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton" />
 						</cfoutput> </td>
 					</tr>
 				  </table>

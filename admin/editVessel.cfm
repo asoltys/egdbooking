@@ -98,7 +98,7 @@
 					</tr>
 					<tr><td colspan="2" align="right">
 						<input type="submit" name="submitForm" class="textbutton" value="Edit" />
-						<cfoutput><input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#';" class="textbutton" />
+						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#';" class="textbutton" />
 					</td></tr>
 				</table>
 				</cfform>
@@ -186,7 +186,7 @@
 						</tr>
 						<tr>
 							<td id="Anonymous_Header"><label for="Anonymous">Keep this vessel anonymous:</label></td>
-							<td headers="Anonymous_Header"><input id="Anonymous" type="checkbox" name="Anonymous"<cfif variables.Anonymous EQ 1> checked</cfif> value="Yes" />
+							<td headers="Anonymous_Header"><input id="Anonymous" type="checkbox" name="Anonymous"<cfif variables.Anonymous EQ 1> checked="true"</cfif> value="Yes" />
 						</tr><!---
 						<tr>
 							<td id="Highlight_Header"><label for="Anonymous">Highlight for this many days:</label></td>
@@ -208,7 +208,7 @@
 								<input type="hidden" name="vesselID" value="<cfoutput>#form.vesselID#</cfoutput>" />
 								<input type="hidden" name="companyID" value="<cfoutput>#form.companyID#</cfoutput>" />
 								<input type="submit" value="submit" class="textbutton" />
-								<cfoutput><input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
+								<cfoutput><input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
 							</td>
 						</tr>
 					</table>

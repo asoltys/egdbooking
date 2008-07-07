@@ -144,8 +144,8 @@
 								<a href="menu.cfm?lang=#lang#" class="textbutton">Cancel</a>
 								<br--->
 								<input type="submit" value="Confirm" class="textbutton" />
-								<input type="button" value="Back" onClick="self.location.href='editVessel.cfm?lang=#lang#'" class="textbutton" />
-								<input type="button" value="Cancel" onClick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
+								<input type="button" value="Back" onclick="self.location.href='editVessel.cfm?lang=#lang#'" class="textbutton" />
+								<input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
 							</td>
 						</tr>
 					</table>

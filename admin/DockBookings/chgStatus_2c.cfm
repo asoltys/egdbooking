@@ -163,14 +163,14 @@
 					<tr><td colspan="2">Please choose the sections of the dock that you wish to book</td></tr>
 					<tr>
 						<td id="section1_header">&nbsp;&nbsp;<label for="Section1">Section 1</label></td>
-						<td headers="section1_header"><input type="Checkbox" id="Section1" name="Section1" <CFIF Section1>checked</CFIF>></td></tr>
+						<td headers="section1_header"><input type="checkbox" id="Section1" name="Section1" <CFIF Section1>checked="true"</CFIF> /></td></tr>
 					<tr>
 						<td id="section2_header">&nbsp;&nbsp;<label for="Section2">Section 2</label></td>
-						<td headers="section2_header"><input type="Checkbox" id="Section2" name="Section2" <CFIF Section2>checked</CFIF>></td>
+						<td headers="section2_header"><input type="checkbox" id="Section2" name="Section2" <CFIF Section2>checked="true"</CFIF> /></td>
 					</tr>
 					<tr>
 						<td id="section3_header">&nbsp;&nbsp;<label for="Section3">Section 3</label></td>
-						<td headers="section3_header"><input type="Checkbox" id="Section3" name="Section3" <CFIF Section3>checked</CFIF>></td>
+						<td headers="section3_header"><input type="checkbox" id="Section3" name="Section3" <CFIF Section3>checked="true"</CFIF> /></td>
 					</tr>
 				</cfif>
 				<tr><td>&nbsp;</td></tr>
@@ -179,7 +179,7 @@
 				<tr>
 					<td>
 						<input type="submit" value="Confirm" class="textbutton" />
-						<cfoutput><input type="button" onClick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton" />
+						<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton" />
 					</td>
 				</tr>
 				</table>

@@ -113,20 +113,16 @@ function EditSubmit ( selectedform )
 					<td id="Start">Start Date:</td>
 					<td headers="Start">
 						<cfoutput>
-						<!---input class="textField" type="Text" name="startDateShow" id="start" disabled value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17"--->
 						<cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'AddJettyMaintBlock', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'AddJettyMaintBlock', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 						<a href="javascript:void(0);" onclick="javascript:getCalendar('AddJettyMaintBlock', 'start')" class="textbutton">calendar</a>
-						<!---a href="javascript:void(0);" onClick="javascript:document.AddJettyMaintBlock.startDateShow.value=''; document.AddMaintBlock.startDate.value='';" class="textbutton">clear</a--->
 					</td>
 				</tr>
 				<tr>
 					<td id="End">End Date:</td>
 					<td headers="End">
 						<cfoutput>
-						<!---input type="text" name="endDateShow" id="end" class="textField" disabled value="#DateFormat(endDate, 'mmm d, yyyy')#" size="17"--->
 						<cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" onChange="setEarlierDate('self', 'AddJettyMaintBlock', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'AddJettyMaintBlock', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 						<a href="javascript:void(0);" onclick="javascript:getCalendar('AddJettyMaintBlock', 'end')" class="textbutton">calendar</a>
-						<!---a href="javascript:void(0);" onClick="javascript:document.AddJettyMaintBlock.endDateShow.value=''; document.AddMaintBlock.endDate.value='';" class="textbutton">clear</a--->
 					</td>
 				</tr>
 				<tr>
@@ -134,20 +130,17 @@ function EditSubmit ( selectedform )
 				</tr>
 				<tr>
 					<td id="nj">&nbsp;&nbsp;&nbsp;<label for="northJetty">North Landing Wharf</label></td>
-					<td headers="nj"><cfinput type="Checkbox" name="NorthJetty" id="northJetty" checked="#Variables.NorthJetty#" /></td>
+					<td headers="nj"><cfinput type="checkbox" name="NorthJetty" id="northJetty" checked="#Variables.NorthJetty#" /></td>
 				</tr>
 				<tr>
 					<td id="sj">&nbsp;&nbsp;&nbsp;<label for="southJetty">South Jetty</label></td>
-					<td headers="sj"><cfinput type="Checkbox" name="SouthJetty" id="southJetty" checked="#Variables.SouthJetty#" /></td>
+					<td headers="sj"><cfinput type="checkbox" name="SouthJetty" id="southJetty" checked="#Variables.SouthJetty#" /></td>
 				</tr>
 				<tr><td>&nbsp;</td></tr>
 				<tr>
 					<td colspan="2" align="center">
-						<!---a href="javascript:EditSubmit('AddJettyMaintBlock');" class="textbutton">Submit</a>
-						<cfoutput><a href="jettybookingmanage.cfm?#urltoken#&show=#url.show#" class="textbutton">Cancel</a></cfoutput>
-						<br--->
 						<input type="submit" value="submit" class="textbutton" />
-						<cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='jettybookingmanage.cfm?#urltoken#';" />
+						<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='jettybookingmanage.cfm?#urltoken#';" />
 					</td>
 				</tr>
 				</table>

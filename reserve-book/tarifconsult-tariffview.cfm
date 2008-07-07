@@ -113,20 +113,20 @@
 				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the selected services for the booking.">
 				<cfoutput>
 					<tr>
-						<th id="checkHeader" class="feesformheader" width="5%">&nbsp;</th>
-						<th id="itemHeader" class="feesformheader" width="4%"><strong>#language.Item#</strong></th>
+						<th class="feesformheader" id="checkHeader" style="width:5%;">&nbsp;</th>
+						<th class="feesformheader" id="itemHeader" style="width:4%;"><strong>#language.Item#</strong></th>
 						<th id="serviceHeader" class="feesformheader"><strong>#language.Services#</strong></th>
-						<th id="feeHeader" class="feesformheader" width="19%"><strong>#language.Fees#</strong></th>
+						<th class="feesformheader" id="feeHeader" style="width:19%;"><strong>#language.Fees#</strong></th>
 					</tr>
 				
 					<tr>
-						<td headers="checkHeader" align="right" valign="top"><input name="other" type="Checkbox" <cfif isDefined("url.bookingID")><cfif getForm.other EQ 1>checked</cfif></cfif> disabled></td>
+						<td headers="checkHeader" align="right" valign="top"><input name="other" type="checkbox" <cfif isDefined("url.bookingID")><cfif getForm.other EQ 1>checked="true"</cfif></cfif> disabled="disabled" /></td>
 						<td headers="itemHeader" align="center" valign="top">&nbsp;</td>
 						<td headers="serviceHeader" align="left" valign="top">
 							<table>
 								<tr>
 									<td valign="top">#language.Misc#:</td>
-									<td><textarea name="otherText" cols="32" rows="3" disabled><cfif isDefined("url.bookingID")><cfif getForm.other EQ 1>#getForm.otherText#</cfif></cfif></textarea></td>
+									<td><textarea name="otherText" cols="32" rows="3" disabled="disabled"><cfif isDefined("url.bookingID")><cfif getForm.other EQ 1>#getForm.otherText#</cfif></cfif></textarea></td>
 								</tr>
 								<tr><td colspan="2">(#language.miscText#)</td></tr>
 							</table>
@@ -146,7 +146,7 @@
 						<td headers="checkHeader" align="right" valign="top">
 							<cfif fee NEQ "">
 								<cfset Variables.Abbr = "getForm." & #abbreviation#>
-								<input name="#abbreviation#" id="#abbreviation#" type="Checkbox" <cfif isDefined("url.bookingID")><cfif Evaluate(Variables.Abbr) EQ 1>checked</cfif></cfif> disabled>
+								<input name="#abbreviation#" id="#abbreviation#" type="checkbox" <cfif isDefined("url.bookingID")><cfif Evaluate(Variables.Abbr) EQ 1>checked="true"</cfif></cfif> disabled="disabled" />
 							</cfif>
 						</td>
 						<td headers="itemHeader" align="center" valign="top">

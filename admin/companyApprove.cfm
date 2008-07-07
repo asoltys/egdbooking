@@ -75,9 +75,9 @@ function EditSubmit ( selectedform )
 						
 						<tr align="left">
 							<th id="firstname">Name</th>
-							<th id="abbrev" width="120">&nbsp;</th>
-							<th id="approve" width="60">&nbsp;</th>
-							<th id="reject" width="50">&nbsp;</th>
+							<th width="120" id="abbrev" style="width:120px;">&nbsp;</th>
+							<th width="60" id="approve" style="width:60px;">&nbsp;</th>
+							<th width="50" id="reject" style="width:50px;">&nbsp;</th>
 						</tr>
 						
 						<cfoutput query="GetNewCompanies">
@@ -87,7 +87,7 @@ function EditSubmit ( selectedform )
 							<cfset rowClass = "">
 						</cfif>
 						<tr class="#rowClass#">
-							<td headers="firstname"><a href="javascript:void(0);" onClick="popUp('admin/viewCompany.cfm?lang=#lang#&companyID=#CompanyID#');">#Name#</a></td>
+							<td headers="firstname"><a href="javascript:void(0);" onclick="popUp('admin/viewCompany.cfm?lang=#lang#&companyID=#CompanyID#');">#Name#</a></td>
 							<td headers="abbrev"><cfform action="companyApprove_confirm.cfm?lang=#lang#" method="post" name="App#CompanyID#" style="margin-top: 0; margin-bottom: 0; "><label for="abbreviation">Abbrev.: </label><cfinput type="text" name="abbrev" id="abbreviation" maxlength="3" size="4" required="yes" message="Please enter the company abbreviation." /></td>
 							<td headers="approve"><input type="hidden" name="CompanyID" value="#CompanyID#" /><a href="javascript:EditSubmit('App#CompanyID#')" class="textbutton" />
 							<td headers="reject"><form action="companyReject.cfm?lang=#lang#" method="post" name="Del#CompanyID#" style="margin-top: 0; margin-bottom: 0; "><input type="hidden" name="CompanyID" value="#CompanyID#" /><a href="javascript:EditSubmit('Del#CompanyID#')" class="textbutton" />

@@ -45,20 +45,20 @@
 			<cfoutput>
 			<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the selected services for the booking.">
 				<tr>
-					<th id="checkHeader" class="feesformheader" width="5%">&nbsp;</th>
-					<th id="itemHeader" class="feesformheader" width="4%"><strong>Item</strong></th>
+					<th class="feesformheader" id="checkHeader" style="width:5%;">&nbsp;</th>
+					<th class="feesformheader" id="itemHeader" style="width:4%;"><strong>Item</strong></th>
 					<th id="serviceHeader" class="feesformheader"><strong>Services and Facilities</strong></th>
-					<th id="feeHeader" class="feesformheader" width="19%"><strong>Fees</strong></th>
+					<th class="feesformheader" id="feeHeader" style="width:19%;"><strong>Fees</strong></th>
 				</tr>
 
 				<tr>
-					<td headers="checkHeader" align="right" valign="top"><input name="other" type="Checkbox" disabled></td>
+					<td headers="checkHeader" align="right" valign="top"><input name="other" type="checkbox" disabled="disabled" /></td>
 					<td headers="itemHeader" align="center" valign="top">&nbsp;</td>
 					<td headers="serviceHeader" align="left" valign="top">
 						<table>
 							<tr>
 								<td valign="top">Misc:</td>
-								<td><textarea name="otherText" cols="37" rows="1" disabled></textarea></td>
+								<td><textarea name="otherText" cols="37" rows="1" disabled="disabled"></textarea></td>
 							</tr>
 						</table>
 					</td>
@@ -76,7 +76,7 @@
 				<tr class="#rowClass#">
 					<td headers="checkHeader" align="right" valign="top">
 						<cfif fee NEQ "">
-							<input name="#abbreviation#" id="#abbreviation#" type="Checkbox" disabled>
+							<input name="#abbreviation#" id="#abbreviation#" type="checkbox" disabled="disabled" />
 						</cfif>
 					</td>
 					<td headers="itemHeader" align="center" valign="top">

@@ -175,7 +175,7 @@ function EditSubmit ( selectedform )
 						<th>Period</th>
 						<th>Vessel</th>
 						<th>Company</th>
-						<th width="30%">Sections</th>
+						<th style="width:30%;">Sections</th>
 					</tr>
 					
 					<cfset counter = 0>
@@ -241,9 +241,9 @@ function EditSubmit ( selectedform )
 							<cfoutput><a href="bookingmanage.cfm?#urltoken#" class="textbutton">Cancel</a></cfoutput>
 							<br--->
 							<input type="submit" value="submit" class="textbutton" />
-							<cfoutput><input type="button" value="Back" class="textbutton" onClick="self.location.href='editJettyMaintBlock.cfm?#urltoken#'" />
-							<!--- <cfoutput><input type="button" value="Cancel" class="textbutton" onClick="self.location.href='jettybookingmanage.cfm?#urltoken#;" />
-							<cfoutput><input type="button" value="Cancel" onClick="self.location.href='jettyBookingManage.cfm?#urltoken#'" class="textbutton" />
+							<cfoutput><input type="button" value="Back" class="textbutton" onclick="self.location.href='editJettyMaintBlock.cfm?#urltoken#'" />
+							<!--- <cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='jettybookingmanage.cfm?#urltoken#;" />
+							<cfoutput><input type="button" value="Cancel" onclick="self.location.href='jettyBookingManage.cfm?#urltoken#'" class="textbutton" />
 						</td>
 					</tr>
 				</table>

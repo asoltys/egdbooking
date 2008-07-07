@@ -99,7 +99,7 @@
 				#DateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#</p>
 					<p align="left">#language.optional#</p>
 					<div style="text-align:center;">
-						<input type="button" value="#language.later#" class="textbutton" onClick="javascript:self.location.href='otherForms.cfm?lang=#lang#';" />
+						<input type="button" value="#language.later#" class="textbutton" onclick="javascript:self.location.href='otherForms.cfm?lang=#lang#';" />
 					</div>
 				</cfoutput>
 				<br />
@@ -107,14 +107,14 @@
 				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the available services for a booking and allows the user to select the desired services.">
 				<cfoutput>
 					<tr>
-						<th id="checkHeader" class="feesformheader" width="5%">&nbsp;</th>
-						<th id="itemHeader" class="feesformheader" width="4%"><strong>#language.Item#</strong></th>
+						<th class="feesformheader" id="checkHeader" style="width:5%;">&nbsp;</th>
+						<th class="feesformheader" id="itemHeader" style="width:4%;"><strong>#language.Item#</strong></th>
 						<th id="serviceHeader" class="feesformheader"><strong>#language.Services#</strong></th>
-						<th id="feeHeader" class="feesformheader" width="19%"><strong>#language.Fees#</strong></th>
+						<th class="feesformheader" id="feeHeader" style="width:19%;"><strong>#language.Fees#</strong></th>
 					</tr>
 				
 					<tr>
-						<td id="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="Checkbox" onClick="if (this.checked) this.form.otherBox.focus();" />
+						<td id="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="checkbox" onclick="if (this.checked) this.form.otherBox.focus();" />
 						<td id="itemHeader" align="center" valign="top">&nbsp;</td>
 						<td id="serviceHeader" align="left" valign="top">
 							<table>
@@ -139,7 +139,7 @@
 					<tr class="#rowClass#">
 						<td id="checkHeader" align="right" valign="top">
 							<cfif fee NEQ "">
-								<input name="#abbreviation#" id="#abbreviation#" type="Checkbox" />
+								<input name="#abbreviation#" id="#abbreviation#" type="checkbox" />
 							</cfif>
 						</td>
 						<td headers="itemHeader" align="center" valign="top">
@@ -175,7 +175,7 @@
 				<input type="hidden" name="bookingID" value="#url.bookingID#" />
 				<p><div style="text-align:right;">
 					<input type="submit" value="#language.Submit#" class="textbutton" />
-					<!---<input type="button" onClick="javascript:self.location.href='javascript:history.go(-1);'" value="#language.Back#" class="textbutton" />
+					<!---<input type="button" onclick="javascript:self.location.href='javascript:history.go(-1);'" value="#language.Back#" class="textbutton" />
 				</div></p>
 				</cfoutput>
 				</cfform>
