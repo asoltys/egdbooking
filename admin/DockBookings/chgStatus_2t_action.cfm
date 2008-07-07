@@ -100,11 +100,11 @@
 	<cfset Session.Success.Title = "Change Booking Status">
 	<cfset Session.Success.Message = "Booking status for <b>#getDetails.vesselName#</b> from #LSDateFormat(CreateODBCDate(getDetails.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getDetails.endDate), 'mmm d, yyyy')# is now <b>Tentative</b>.  Email notification of this change has been sent to the agent.">
 	<cfset Session.Success.Back = "Back to #url.referrer#">
-	<cfset Session.Success.Link = "#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Form.BookingId###id#form.bookingid#">
+	<cfset Session.Success.Link = "#returnTo#?#urltoken##dateValue#$amp;referrer=#URLEncodedFormat(url.referrer)#$amp;bookingID=#Form.BookingId###id#form.bookingid#">
 	<cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 <cfelse>
-	<cflocation addtoken="no" url="#returnTo#?#urltoken##dateValue#&bookingID=#Form.BookingId#">
+	<cflocation addtoken="no" url="#returnTo#?#urltoken##dateValue#$amp;bookingID=#Form.BookingId#">
 </cfif>
 
-<!---cflocation addtoken="no" url="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.bookingID#"--->
+<!---cflocation addtoken="no" url="bookingmanage.cfm?lang=#lang#$amp;startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#$amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#$amp;show=#url.show####form.bookingID#"--->
 

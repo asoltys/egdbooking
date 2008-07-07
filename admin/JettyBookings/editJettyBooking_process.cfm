@@ -171,7 +171,7 @@
 				<!---------------------------------------------------------------------------------------------------------------------->
 				
 				<p>Please confirm the following information.</p>
-				<cfform action="editJettyBooking_action.cfm?#urltoken#&BookingID=#form.BookingID#&editStart=#form.startDate#&editEnd=#form.endDate#&jetty=#form.jetty#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="editJettyBooking_action.cfm?#urltoken#$amp;BookingID=#form.BookingID#$amp;editStart=#form.startDate#$amp;editEnd=#form.endDate#$amp;jetty=#form.jetty#$amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
 				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 				<div style="font-weight:bold;">Booking:</div>
 				<table style="width:100%; padding-left:15px;" align="center" >
@@ -245,8 +245,8 @@
 							<input type="submit" value="Back" class="textbutton" />
 						</cfoutput>
 					</cfform---->
-						<cfoutput><input type="button" value="Back" class="textbutton" onclick="self.location.href='editJettyBooking.cfm?#urltoken#&bookingID=#form.bookingID##variables.dateValue#';" />
-						<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#form.bookingID##variables.dateValue####form.bookingID#';" />
+						<cfoutput><input type="button" value="Back" class="textbutton" onclick="self.location.href='editJettyBooking.cfm?#urltoken#$amp;bookingID=#form.bookingID##variables.dateValue#';" />
+						<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='#returnTo#?#urltoken#$amp;bookingID=#form.bookingID##variables.dateValue####form.bookingID#';" />
 						<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
 				</div>
 				</cfform>

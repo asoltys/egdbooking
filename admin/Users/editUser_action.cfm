@@ -17,7 +17,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="editUser.cfm?lang=#lang#&userID=#form.userID#" addtoken="no">
+	<cflocation url="editUser.cfm?lang=#lang#$amp;userID=#form.userID#" addtoken="no">
 </cfif>
 
 
@@ -38,4 +38,4 @@
 <!--- doesn't seem to need a success notice since it gets sent back to the same page with 
 	the new info on it.  It really should be painfully obvious. --->
 
-<cflocation addtoken="no" url="editUser.cfm?lang=#lang#&userID=#form.userID#">
+<cflocation addtoken="no" url="editUser.cfm?lang=#lang#$amp;userID=#form.userID#">

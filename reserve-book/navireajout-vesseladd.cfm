@@ -85,7 +85,7 @@
 					<cfset variables.tonnage = form.tonnage>
 				</cfif>
 			
-				<cfform action="#RootDir#reserve-book/navireajout-vesseladd_confirm.cfm?lang=#lang#&CompanyID=#CompanyID#" method="post" name="addVessel">
+				<cfform action="#RootDir#reserve-book/navireajout-vesseladd_confirm.cfm?lang=#lang#$amp;CompanyID=#CompanyID#" method="post" name="addVessel">
 				<table align="center">
 				<tr>
 					<td id="CompanyName" style="width:40%;"><label for="companyID">#language.CompanyName#:</label></td>
@@ -136,7 +136,7 @@
 					<td colspan="2" align="center" style="padding-top:20px;">
 						<!---a href="javascript:document.addVessel.submitForm.click();" class="textbutton">#language.Submit#</a--->
 						<input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
-						<cfoutput><input type="button" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#&CompanyID=#CompanyID#'" class="textbutton" />
+						<cfoutput><input type="button" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#$amp;CompanyID=#CompanyID#'" class="textbutton" />
 						<br />
 					</td>
 				</tr>

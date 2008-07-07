@@ -40,9 +40,9 @@
 			<cfif URL.CompanyID eq CompanyID><cfset Variables.CompanyID = #URL.CompanyID#></cfif>
 		</cfoutput>
 	<cfelseif IsDefined("Session.LastChoice.CompanyID")>
-		<cflocation url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#Session.LastChoice.CompanyID#" addtoken="no">
+		<cflocation url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#$amp;CompanyID=#Session.LastChoice.CompanyID#" addtoken="no">
 	<cfelse>
-		<cflocation url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#Variables.CompanyID#" addtoken="no">
+		<cflocation url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#$amp;CompanyID=#Variables.CompanyID#" addtoken="no">
 	</cfif>
 	<cfset Session.LastChoice.CompanyID = Variables.CompanyID>
 	<cfset Session.Flow.CompanyID = Variables.CompanyID>
@@ -333,8 +333,8 @@
 								<cfelse>
 									<cfset rowClass = "">
 								</cfif>
-								<!---form method="post" action="tarifmod-tariffedit.cfm?lang=#lang#&BookingID=#BookingID#" name="editForm#bookingID#"></form>
-								<form method="post" action="tarifconsult-tariffview.cfm?lang=#lang#&BookingID=#BookingID#" name="viewForm#bookingID#"></form--->
+								<!---form method="post" action="tarifmod-tariffedit.cfm?lang=#lang#$amp;BookingID=#BookingID#" name="editForm#bookingID#"></form>
+								<form method="post" action="tarifconsult-tariffview.cfm?lang=#lang#$amp;BookingID=#BookingID#" name="viewForm#bookingID#"></form--->
 								<tr class="#rowClass#" valign="top">
 									<td style="width:60%;" valign="top"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 									<td style="width:15%;" valign="top">

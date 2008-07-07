@@ -53,7 +53,7 @@
 	<cfset Session.Success.Message = "Une nouvelle r&eacute;servation du <b>#getDetails.vesselName#</b> au #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# a &eacute;t&eacute; cr&eacute;&eacute;e et est en attente d'approbation.">
 	<cfset Session.Success.Back = "Pr&eacute;ciser les services et les installations">
 </cfif>
-<cfset Session.Success.Link = "#RootDir#reserve-book/tarif-tariff.cfm?lang=#lang#&BookingID=#getID.BookingID#">
+<cfset Session.Success.Link = "#RootDir#reserve-book/tarif-tariff.cfm?lang=#lang#$amp;BookingID=#getID.BookingID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
 <cflocation url="" addtoken="no">

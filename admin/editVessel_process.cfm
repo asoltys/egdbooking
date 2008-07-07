@@ -21,7 +21,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="editVessel.cfm?VesselID=#form.VesselID#&CompanyID=#form.CompanyID#" addtoken="no">
+	<cflocation url="editVessel.cfm?VesselID=#form.VesselID#$amp;CompanyID=#form.CompanyID#" addtoken="no">
 </cfif>
 
 <cfhtmlhead text="
@@ -62,7 +62,7 @@
 				</cfquery>
 
 				<cfif getVesselDetail.recordCount EQ 0>
-					<cflocation addtoken="no" url="booking.cfm?lang=#lang#&CompanyID=#url.companyID#">
+					<cflocation addtoken="no" url="booking.cfm?lang=#lang#$amp;CompanyID=#url.companyID#">
 				</cfif>
 
 				<cfset Variables.Name = Form.Name>

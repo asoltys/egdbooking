@@ -136,7 +136,7 @@
 <cfset Session.Success.Message = "Booking for <b>#getBooking.vesselName#</b> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been updated.">
 <cfset Session.Success.Back = "Back to #url.referrer#">
 
-<cfset Session.Success.Link = "#returnTo#?#urltoken#&bookingid=#form.bookingid#&#variables.dateValue###id#form.bookingid#">
+<cfset Session.Success.Link = "#returnTo#?#urltoken#$amp;bookingid=#form.bookingid#$amp;#variables.dateValue###id#form.bookingid#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
-<!---CFLOCATION addtoken="no" url="#RootDir#admin/DockBookings/bookingManage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.bookingID#"--->
+<!---CFLOCATION addtoken="no" url="#RootDir#admin/DockBookings/bookingManage.cfm?lang=#lang#$amp;startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#$amp;enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#$amp;show=#url.show####form.bookingID#"--->

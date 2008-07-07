@@ -17,7 +17,7 @@
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Errors>
- 	<cflocation url="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&bookingID=#url.bookingId#" addtoken="no">
+ 	<cflocation url="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#$amp;bookingID=#url.bookingId#" addtoken="no">
 </cfif>
 
 <cfquery name="submitTariffForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -188,6 +188,6 @@
 	<cfset Session.Success.Message = "Le formulaire de tarif pour <b>#getBooking.vesselName#</b>, qui fait l'objet d'une r&eacute;servation du #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')#, a &eacute;t&eacute; mis &agrave; jour.">
 	<cfif url.referrer eq "archive"><cfset Session.Success.Back = "Retour aux archives des r&eacute;servations "><cfelse><cfset Session.Success.Back = "Retour &agrave; Accueil&nbsp;- R&eacute;servation"></cfif>
 </cfif>
-<cfset Session.Success.Link = "#returnTo#?lang=#lang#&CompanyID=#FORM.CompanyID#">
+<cfset Session.Success.Link = "#returnTo#?lang=#lang#$amp;CompanyID=#FORM.CompanyID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 

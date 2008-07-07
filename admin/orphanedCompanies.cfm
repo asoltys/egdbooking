@@ -90,7 +90,7 @@ function EditSubmit ( selectedform )
 							<cfset rowClass = "">
 						</cfif>
 						<tr class="#rowCLass#">
-							<td headers="firstname"><a href="javascript:void(0);" onclick="popUp('admin/viewCompany.cfm?lang=#lang#&companyID=#CompanyID#');">#Name#</a></td>
+							<td headers="firstname"><a href="javascript:void(0);" onclick="popUp('admin/viewCompany.cfm?lang=#lang#$amp;companyID=#CompanyID#');">#Name#</a></td>
 							<!---td headers="approve"><input type="hidden" name="CompanyID" value="#CompanyID#" /><a href="javascript:EditSubmit('App#CompanyID#')" class="textbutton" />
 							<td headers="delete"><form action="delCompany_confirm.cfm?lang=#lang#" method="post" name="Del#CompanyID#" style="margin-top: 0; margin-bottom: 0; "><input type="hidden" name="CompanyID" value="#CompanyID#" /><a href="javascript:EditSubmit('Del#CompanyID#')" class="textbutton" />
 						</tr>

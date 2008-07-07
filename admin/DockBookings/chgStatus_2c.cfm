@@ -58,7 +58,7 @@
 				<cfelseif IsDefined("Form.BookingID")>
 					<cfset Variables.BookingID = Form.BookingID>
 				<cfelse>
-					<cflocation url="#returnTo#?#urltoken##dateValue#&referrer=#url.referrer#" addtoken="no">
+					<cflocation url="#returnTo#?#urltoken##dateValue#$amp;referrer=#url.referrer#" addtoken="no">
 				</cfif>
 				
 				<cfinclude template="includes/getConflicts.cfm">
@@ -138,7 +138,7 @@
 					<p>Please confirm the following information.</p>
 				</cfif>
 							<!--- -------------------------------------------------------------------------------------------- --->
-				<cfform name="BookingConfirm" action="chgStatus_2c_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post">
+				<cfform name="BookingConfirm" action="chgStatus_2c_action.cfm?#urltoken#$amp;referrer=#URLEncodedFormat(url.referrer)#" method="post">
 				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 				<table style="width:85%; padding-left:15px;" >
 				<tr>
@@ -179,7 +179,7 @@
 				<tr>
 					<td>
 						<input type="submit" value="Confirm" class="textbutton" />
-						<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton" />
+						<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#$amp;referrer=#URLEncodedFormat(url.referrer)#$amp;bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton" />
 					</td>
 				</tr>
 				</table>

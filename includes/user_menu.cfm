@@ -44,7 +44,7 @@ function checkIt() {
 	<cfset Variables.BookingRequestString = "&CompanyID=#URL.CompanyID#">
 </cfif>
 <cfif IsDefined("URL.Date") AND DateCompare(#url.date#, #PacificNow#, 'd') EQ 1>
-	<cfset Variables.BookingRequestString = "#Variables.BookingRequestString#&Date=#URL.Date#">
+	<cfset Variables.BookingRequestString = "#Variables.BookingRequestString#$amp;Date=#URL.Date#">
 </cfif>
 
 <CFSET variables.datetoken = "">

@@ -58,7 +58,7 @@
 				</cfif>
 				
 				<cfif isDefined("url.companies")>
-					<cfset Variables.action = "addNewUserCompany.cfm?lang=#lang#&companies=#url.companies#">
+					<cfset Variables.action = "addNewUserCompany.cfm?lang=#lang#$amp;companies=#url.companies#">
 				<cfelse>
 					<cfset Variables.action = "addNewUserCompany.cfm?lang=#lang#">
 				</cfif>

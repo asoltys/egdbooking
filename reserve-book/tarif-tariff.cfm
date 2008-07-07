@@ -103,7 +103,7 @@
 					</div>
 				</cfoutput>
 				<br />
-				<cfform name="serviceSelect" action="#RootDir#reserve-book/tarif-tariff_action.cfm?lang=#lang#&BookingID=#url.BookingID#">
+				<cfform name="serviceSelect" action="#RootDir#reserve-book/tarif-tariff_action.cfm?lang=#lang#$amp;BookingID=#url.BookingID#">
 				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the available services for a booking and allows the user to select the desired services.">
 				<cfoutput>
 					<tr>

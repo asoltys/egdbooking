@@ -61,7 +61,7 @@
 				</cfquery>
 
 				<cfif getCompany.recordCount EQ 0>
-					<cflocation addtoken="no" url="booking.cfm?lang=#lang#&CompanyID=#url.companyID#">
+					<cflocation addtoken="no" url="booking.cfm?lang=#lang#$amp;CompanyID=#url.companyID#">
 				</cfif>
 
 				<cfset Variables.CompanyID = getCompany.CompanyID>

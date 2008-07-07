@@ -269,9 +269,9 @@
 						<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 							<cfif isDock>
 								<a href="#RootDir#admin/DockBookings/feesForm_admin.cfm?#urltoken#&amp;bookingid=#url.bookingid#&amp;referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">#language.tariff#</a>
-								<a href="#RootDir#admin/DockBookings/editBooking.cfm?lang=#lang#&bookingid=#url.bookingid#&referrer=Booking%20Details&date=#url.date#" class="textbutton">
+								<a href="#RootDir#admin/DockBookings/editBooking.cfm?lang=#lang#$amp;bookingid=#url.bookingid#$amp;referrer=Booking%20Details&date=#url.date#" class="textbutton">
 							<cfelse>
-								<a href="#RootDir#admin/JettyBookings/editJettyBooking.cfm?lang=#lang#&bookingid=#url.bookingid#&companyID=#companyID#&referrer=Booking%20Details&date=#url.date#" class="textbutton">
+								<a href="#RootDir#admin/JettyBookings/editJettyBooking.cfm?lang=#lang#$amp;bookingid=#url.bookingid#$amp;companyID=#companyID#$amp;referrer=Booking%20Details&date=#url.date#" class="textbutton">
 							</cfif>#language.EditBooking#</a>
 
 							<cfif isDock AND (DateCompare(PacificNow, getBookingDetail.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBookingDetail.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBookingDetail.endDate, 'd') NEQ 1))>

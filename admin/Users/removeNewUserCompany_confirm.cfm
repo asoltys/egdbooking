@@ -14,7 +14,7 @@
 </CFIF>
 
 <cfif NOT IsDefined('form.companyID')>
-	<cflocation addtoken="no" url="editUser.cfm?lang=#lang#&userID=#form.userID#">
+	<cflocation addtoken="no" url="editUser.cfm?lang=#lang#$amp;userID=#form.userID#">
 </cfif>--->
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -61,12 +61,12 @@
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				</cfif>
 				
-				<cfform action="removeNewUserCompany_action.cfm?info=#url.info#&companies=#url.companies#" method="post" name="remCompanyConfirmForm">
+				<cfform action="removeNewUserCompany_action.cfm?info=#url.info#$amp;companies=#url.companies#" method="post" name="remCompanyConfirmForm">
 					<div style="text-align:center;">Are you sure you want to remove <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
 					
 					<p><div style="text-align:center;">
 						<input type="button" value="Remove" onclick="document.remCompanyConfirmForm.submit();" class="textbutton" />
-						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='addNewUserCompany.cfm?info=#url.info#&companies=#url.companies#'" class="textbutton" />
+						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='addNewUserCompany.cfm?info=#url.info#$amp;companies=#url.companies#'" class="textbutton" />
 					<!---<input type="submit" value="Delete" class="button" />
 					<input type="button" value="Cancel" onclick="javascript:location.href='delVessel.cfm'" class="button" />
 					</div></p>
