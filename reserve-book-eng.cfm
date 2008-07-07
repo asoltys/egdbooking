@@ -50,8 +50,7 @@
 				<p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=eng">Booking Application</a> - Book drydock and jetty space online.</p>
 				<p><a href="#RootDir#utils/resume-summary_ch.cfm?lang=eng">Booking Summary</a> - View all bookings.</p>
 				<p><i>The following links will direct you to an external site:</i><br />
-				(<img src="#RootDir#images/www1.gif" width="31" height="9" alt="www site" title="www site" />) <a href="http://laws.justice.gc.ca/en/p-38.2/sor-89-332/92221.html" />EGD Regulations</a></p>
-				<p>&nbsp;</p>
+				(<img src="#RootDir#images/www1.gif" width="31" height="9" alt="www site" title="www site" />) <a href="http://laws.justice.gc.ca/en/p-38.2/sor-89-332/92221.html">EGD Regulations</a></p>
 				</cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
