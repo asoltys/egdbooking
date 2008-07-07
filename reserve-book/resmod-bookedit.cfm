@@ -34,8 +34,8 @@
 	<meta name=""keywords"" content=""#language.keywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#</title>
-">
+	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#</title>">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <CFPARAM name="url.referrer" default="Booking Home">
 <CFIF url.referrer eq "Details For">

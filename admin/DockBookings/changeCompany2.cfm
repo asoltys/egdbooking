@@ -3,8 +3,8 @@
 	<meta name=""keywords"" content="""" />
 	<meta name=""description"" content="""" />
 	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
-	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Booking</title>
-">
+	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Booking</title>">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="getUserName" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 SELECT UserCompanies.UserID, Users.FirstName, Users.LastName

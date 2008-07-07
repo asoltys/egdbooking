@@ -228,7 +228,7 @@ function setDate(day) {
 				<OPTION><cfoutput>#DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')#</cfoutput></OPTION>
 			</CFLOOP>
 		</SELECT>
-		<!--- <a href ="javascript:go()"><img src="go.gif" border = "0"></a> --->
+		<!--- <a href ="javascript:go()"><img src="go.gif" border = "0" /></a> --->
 	</cfform>
 </div>
 

@@ -41,8 +41,8 @@
 	<meta name=""keywords"" content=""#Language.masterKeywords#, #language.keywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
-	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.drydockCalendar#</title>
-">
+	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.drydockCalendar#</title>">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <CFSET Variables.onLoad="setCalendar()">
 

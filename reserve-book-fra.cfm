@@ -32,7 +32,7 @@ function popUp(pageID) {
 					</a></h1>
 					
 				<cfoutput>
-				<img src="#RootDir#images/EGD_aerial_small.jpg" usemap="##aerial" alt="Aerial view of the Esquimalt Graving Dock" width="435" height="342" title="Aerial view of the Esquimalt Graving Dock" border="0">
+				<img src="#RootDir#images/EGD_aerial_small.jpg" usemap="##aerial" alt="Aerial view of the Esquimalt Graving Dock" width="435" height="342" title="Aerial view of the Esquimalt Graving Dock" border="0" />
 				<map name="aerial" id="aerial">
 					<area href="javascript:void(0);" alt="B&acirc;timent du centre des op&eacute;rations" title="B&acirc;timent du centre des op&eacute;rations" shape="rect" coords="84,207,111,231" />
 					<area href="javascript:void(0);" alt="Quai de d&eacute;barquement nord" title="Quai de d&eacute;barquement nord" shape="rect" coords="2,301,175,340" />
@@ -50,7 +50,7 @@ function popUp(pageID) {
 					R&eacute;server la cale s&egrave;che et les jet&eacute;es en ligne.</p>
 				<p><a href="#RootDir#utils/resume-summary_ch.cfm?lang=fra">R&eacute;sum&eacute; des r&eacute;servations</a> - Voir toutes les r&eacute;servations.</p>
 				<p><i>Les liens suivants vous m&egrave;neront &agrave; des sites externes:</i><br />
-				(<img src="#RootDir#images/www1.gif" width="31" height="9" border="0" alt="emplacement de WWW" title="emplacement de WWW">)  <a href="http://lois.justice.gc.ca/fr/P-38.2/DORS-89-332/index.html">R&egrave;glement CSE</a></p>
+				(<img src="#RootDir#images/www1.gif" width="31" height="9" border="0" alt="emplacement de WWW" title="emplacement de WWW">)  <a href="http://lois.justice.gc.ca/fr/P-38.2/DORS-89-332/index.html" />R&egrave;glement CSE</a></p>
 				</cfoutput>
 			</div>
 		<!-- FIN DU CONTENU | CONTENT ENDS -->

@@ -265,7 +265,7 @@ a:hover {
             <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Continuing to the next page allows you to add to your profile the company or companies that you represent. To do so, select the company that you represent from the drop down menu and click &quot;add.&quot; This can be repeated as many times as necessary. If the company that you represent is not listed, see 2.2.4. Being associated with a company is required for logging in to the system. As an administrator you will likely only need to be associated with the administrating company (EGD). If you are unsure of which company to add yourself to, contact the current EGD administration using the &quot;Contact Us&quot; link in the side menu bar (Figure 1).<br />
             </div>
 			<br />
-                <div style="text-align:center;"><img src="../../images/sideMenuBar.gif"></div>
+                <div style="text-align:center;"><img(.+)" /></div>
                 <div style="text-align:center;">Figure 1: Side menu bar <br /><br />
                 
               </div>
@@ -276,7 +276,7 @@ a:hover {
               </div>
             </div>
 				<br />
-                <div style="text-align:center;"><img src="../../images/createCompanyLink.gif" width="523" height="106"></div>
+                <div style="text-align:center;"><img(.+)" /></div>
                 <div style="text-align:center;">Figure 2: Adding a new company <br />
                 
               </div>
@@ -310,12 +310,12 @@ a:hover {
             </div>
             <div style="padding-left:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Upon logging in, you will be presented with the booking system &quot;Administrative Functions&quot; page. You can access all of the administrative functionality from this page. All major functions are also readily available in the menu bar (Figure 3) just below the title of each page. You also have the option of navigating throughout the site at any time using the breadcrumbs displayed between the EGD banner and the page title (Figure 4). Breadcrumbs track the path you have taken through the site, so they can be used to navigate backwards through the pages used to get to where you currently are.</div>
            <br />
-                <div style="text-align:center;"><img src="../../images/adminMenuBar.gif"></div>
+                <div style="text-align:center;"><img(.+)" /></div>
                 <div style="text-align:center;">Figure 3: Menu bar <br />
                 
               </div>
 			  <br />
-                <div style="text-align:center;"><img src="../../images/breadcrumbs.gif"></div>
+                <div style="text-align:center;"><img(.+)" /></div>
                 <div style="text-align:center;">Figure 4: Breadcrumbs <br />
                 
               </div>
@@ -333,7 +333,7 @@ a:hover {
 <div style="padding-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You will be alerted of pending company approvals at the top of the &quot;Administrative Functions&quot; page just below the user-company approvals alert (Figure 5). There is a line that states how many company requests need to be approved. You can approve a company either by clicking on the link within that sentence, or by clicking on the &quot;Approve&quot; button under the &quot;Companies&quot; heading.<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to approve a company, you must first enter the company abbreviation into the text field labeled &quot;Abbrev.&quot; This abbreviation must be unique to the system as the abbreviation is used to display a vessel's company in the bookings summary. If you choose to reject the company, it will be deleted from the system and all users that were pending approval to represent the company will receive email notification of the company rejection.</div>
 <br />
-	<div style="text-align:center;"><img src="../../images/userCompanyApprovals.gif"></div>
+	<div style="text-align:center;"><img(.+)" /></div>
 	<div style="text-align:center;">Figure 5: Approval alerts <br />
 	
   </div>
@@ -352,7 +352,7 @@ a:hover {
   <div style="padding-left:80px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The first section (Figure 6) is used to edit first and last names. Email addresses cannot be edited as they act as login IDs. In order to use a different email address, you would have to create a new user account for yourself or the user.<br />
   </div>
   <br />
-	<div style="text-align:center;"><img src="../../images/editUserName.gif"></div>
+	<div style="text-align:center;"><img(.+)" /></div>
 	<div style="text-align:center;">Figure 6: Editing user name <br /><br />
   </div>
   	<div style="text-align:center;">Figure 7: Editing user company associations <br /><br />
@@ -362,7 +362,7 @@ a:hover {
   <div style="padding-left:80px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The third section (Figure 8) is for changing a user's password. A password for the EGD system must be 6-10 characters long. Passwords are not case-sensitive, so using uppercase letters is not any different from using lowercase.<br />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It is recommended that you make passwords more robust by using a combination of letters and numbers. Frequently changing your own password will also increase the security of your account.
   </div>
-	<div style="text-align:center;"><img src="../../images/editUserPassword.gif"></div>
+	<div style="text-align:center;"><img(.+)" /></div>
 	<div style="text-align:center;">Figure 8: Editing user password <br /><br />
   </div>
   <div style="padding-left:40px;"><strong>3.3.3 Deleting Users</strong><br /></div>
@@ -486,10 +486,10 @@ a:hover {
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The project calendar provides the vessel name, docking dates and booking status. You can view the details for all bookings for a particular date, including jetty bookings, by clicking the date link in the left-hand column (Figure 10). There are explicit printing instructions at the top of the project calendar should you wish to print it.<br />
     </div>
     <br />
-	<div style="text-align:center;"><img src="../../images/calMenu.gif"></div>
+	<div style="text-align:center;"><img(.+)" /></div>
 	<div style="text-align:center;">Figure 9: Booking overview menu <br /><br />
  	 </div>
-		<div style="text-align:center;"><img src="../../images/dateSideBar.gif"></div>
+		<div style="text-align:center;"><img(.+)" /></div>
 		<div style="text-align:center;">Figure 10: Project calendar date column <br /><br />
 	  </div>
     <a href="#Top">return to index</a> <br />

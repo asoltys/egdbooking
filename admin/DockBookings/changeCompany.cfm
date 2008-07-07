@@ -3,8 +3,8 @@
 	<meta name=""keywords"" content="""" />
 	<meta name=""description"" content="""" />
 	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
-	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Booking</title>
-">
+	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Booking</title>">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">

@@ -33,9 +33,8 @@
 	<meta name=""keywords"" content=""#language.masterKeywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
-	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.bookingsSummary#</title>
-	
-">
+	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.bookingsSummary#</title>">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <!-- Start JavaScript Block -->
 <!-- End JavaScript Block -->

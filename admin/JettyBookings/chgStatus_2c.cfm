@@ -7,8 +7,9 @@
 	<meta name=""keywords"" content="""" />
 	<meta name=""description"" content="""" />
 	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
-	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm Booking</title>
-">
+	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm Booking</title>">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
+
 <CFPARAM name="url.referrer" default="Booking Management">
 <CFIF url.referrer eq "Edit Jetty Booking" OR url.referrer eq "Booking Details">
   <CFSET returnTo = "#RootDir#admin/JettyBookings/editJettyBooking.cfm">

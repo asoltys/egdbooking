@@ -34,9 +34,8 @@
 	<meta name=""keywords"" content=""#language.keywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.RequestBooking#</title>
-	
-">
+	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.RequestBooking#</title>">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">	
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
