@@ -18,7 +18,7 @@
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
-			<cfinclude template="/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-eng.cfm">
+			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-eng.cfm">
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -45,7 +45,7 @@
 				<p>To reserve space for a vessel at any of the facilities of the Esquimalt Graving
 				  Dock, please proceed to the <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=eng">Booking 
 				  Application</a>.  If you experience any problems with the booking application, please
-				  use the <a href="/egd_internet_clf2/cse-egd/cn-cu-eng.html">contact us</a> page.</p>
+				  use the <a href="#egd_url#/cse-egd/cn-cu-eng.html">contact us</a> page.</p>
 				<p>The Esquimalt Graving Dock booking fee is $3,500 Cdn. plus $175.00 Goods &amp; Services Tax (GST) for a total of $3675.00 payable in cash, certified cheque drawn on a Canadian bank or by an international money order. Effective April 1, 2008, interest will be applied on any account outstanding over 30 days.  Reservation requests are tentative until the booking fee is paid. Booking fees are non-refundable.</p>
 				<p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=eng">Booking Application</a> - Book drydock and jetty space online.</p>
 				<p><a href="#RootDir#utils/resume-summary_ch.cfm?lang=eng">Booking Summary</a> - View all bookings.</p>

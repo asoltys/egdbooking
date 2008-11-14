@@ -8,7 +8,7 @@
 
 		<!-- DEBUT DE LA PISTE DE NAVIGATION | BREAD CRUMB BEGINS -->
 		<p class="breadcrumb">
-			<cfinclude template="/clf20/ssi/bread-pain-fra.html"><cfinclude template="#RootDir#includes/bread-pain-fra.cfm">&gt;
+			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-fra.html"><cfinclude template="#RootDir#includes/bread-pain-fra.cfm">&gt;
 			<cfoutput>#language.title#</cfoutput>
 		</p>
 		<!-- FIN DE LA PISTE DE NAVIGATION | BREAD CRUMB ENDS -->

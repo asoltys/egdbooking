@@ -64,14 +64,15 @@
 	<meta name="dc.coverage" content="">
 	<!--METADATA PROFILE END-->
 	
-	<link href="/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
-	<link href="/clf20/css/1col.css" media="screen, print" rel="stylesheet" type="text/css" />
-	<link href="/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
-	<link href="/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
-	<cfoutput><style type="text/css">
+	
+	<link href="#CLF_URL#/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
+	<link href="#CLF_URL#/clf20/css/1col.css" media="screen, print" rel="stylesheet" type="text/css" />
+	<link href="#CLF_URL#/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+	<link href="#CLF_URL#/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+	<style type="text/css">
 		@import url(#RootDir#css/advanced.css);
 		@import url(#RootDir#css/custom.css);
-	</style></cfoutput>
+	</style>
 	
 	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.Calendar#</title>
 
@@ -83,14 +84,14 @@
 <!-- FIP HEADER BEGINS | DEBUT DE L'EN-TETE PCIM -->
 <CFIF lang EQ "eng">
 <div style="float:right; position:relative; z-index:1; height:33px;">
-	<img src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
+	<img src="<cfoutput>#CLF_URL#</cfoutput>/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
 </div>
-<A name="tphp" id="tphp"><img src="/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></A>
+<A name="tphp" id="tphp"><img src="<cfoutput>#CLF_URL#</cfoutput>/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></A>
 <CFELSE>
 <div style="float:right; position:relative; z-index:1; height:33px;">
-	<img src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbole du gouvernement du Canada" />
+	<img src="<cfoutput>#CLF_URL#</cfoutput>/clf20/images/wmms.gif" width="83" height="20" alt="Symbole du gouvernement du Canada" />
 </div>
-<A name="tphp" id="tphp"><img src="/clf20/images/sig-fra.gif" width="364" height="33" alt="Travaux publics et Services gouvernementaux Canada" /></A>
+<A name="tphp" id="tphp"><img src="<cfoutput>#CLF_URL#</cfoutput>/clf20/images/sig-fra.gif" width="364" height="33" alt="Travaux publics et Services gouvernementaux Canada" /></A>
 </CFIF>
 <!-- FIP HEADER ENDS | FIN DE L'EN-TETE PCIM -->
 

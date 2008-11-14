@@ -9,7 +9,7 @@
 				</span>
 				<!-- FIN DE LA DATE DE MODIFICATION | DATE MODIFIED ENDS -->
 			</div>
-			<cfinclude template="/egd_internet_clf2/clf20/ssi/foot-pied-fra.html">
+			<cfinclude template="#CLF_Path#/clf20/ssi/foot-pied-fra.html">
 		</div>
 		<!-- FIN DU PIED DE LA PAGE | FOOTER ENDS -->
 	</div>

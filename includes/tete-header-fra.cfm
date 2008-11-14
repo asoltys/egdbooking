@@ -25,42 +25,46 @@
 <meta name="pwgsc.contact.email" content="questions@tpsgc.gc.ca" />
 <!-- FIN DES METADONNEES | METADATA ENDS -->
 <!-- DEBUT DES CSS DU GABARIT TPSGC | PWGSC TEMPLATE CSS BEGIN -->
-<link href="/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
-<link href="/clf20/css/2col.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="<cfoutput>#CLF_URL#</cfoutput>/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="<cfoutput>#CLF_URL#</cfoutput>/clf20/css/2col.css" media="screen, print" rel="stylesheet" type="text/css" />
 <style type="text/css" media="all">
 /* <![CDATA[ */ 
-	@import url(/clf20/css/base2.css);
+	@import url(<cfoutput>#CLF_URL#</cfoutput>/clf20/css/base2.css);
 /* ]]> */
 </style>
 <!-- FIN DES SCRIPTS/CSS DU GABARIT | TEMPLATE SCRIPTS/CSS END -->
 <!-- DEBUT DE L'AMELIORATION PROGRESSIVE | PROGRESSIVE ENHANCEMENT BEGINS -->
-<script src="/clf20/scripts/pe-ap.js" type="text/javascript"></script>
-<cfoutput><script src="#Rootdir#scripts/external.js" type="text/javascript"></script></cfoutput>
+<cfoutput>
+<script src="#CLF_URL#/clf20/scripts/pe-ap.js" type="text/javascript"></script>
+<script src="#Rootdir#scripts/external.js" type="text/javascript"></script>
 <script type="text/javascript">
 	/* <![CDATA[ */
 		var params = {
 			lng:"fra",
-			pngfix:"/egd_internet_clf2/clf20/images/inv.gif"
+			pngfix:"#CLF_URL#/clf20/images/inv.gif"
 		};
 		PE.progress(params);
 	/* ]]> */
-	</script>
+</script>
+</cfoutput>
 <!-- FIN DE L'AMELIORATION PROGRESSIVE | PROGRESSIVE ENHANCEMENT ENDS -->
 <!-- DEBUT DES SCRIPTS/CSS PERSONNALISES | CUSTOM SCRIPTS/CSS BEGIN -->
-<link href="/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
-<link href="/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
 <cfoutput>
+<link href="#CLF_URL#/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="#CLF_URL#/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+
 <link href="#RootDir#css/custom.css" media="screen, print" rel="stylesheet" type="text/css" />
 <style type="text/css" media="screen,print">@import url(#RootDir#css/advanced.css);</style>
-</cfoutput>
+
 <!-- FIN DES SCRIPTS/CSS PERSONNALISES | CUSTOM SCRIPTS/CSS END -->
 <!-- DEBUT DU CSS DU GABARIT POUR L'IMPRESSION | TEMPLATE PRINT CSS BEGINS -->
-<link href="/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
+<link href="#CLF_URL#/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
+</cfoutput>
 <!-- FIN DU CSS DU GABARIT POUR L'IMPRESSION | TEMPLATE PRINT CSS ENDS -->
 </head>
 <body>
 <div class="page">
 	<div class="core">
 		<!-- HEADER BEGINS | DEBUT DE L'EN-TETE -->
-		<cfinclude template="/clf20/ssi/tete-header-fra.html">
+		<cfinclude template="#CLF_Path#/clf20/ssi/tete-header-fra.html">
 		<!-- HEADER ENDS | FIN DE L'EN-TETE -->

@@ -1,0 +1,15 @@
+/* CLF 2.0 TEMPLATE VERSION 1.04 | VERSION 1.04 DU GABARIT NSI 2.0 */
+/* GENERAL CSS BEGINS | DEBUT DU CSS GENERAL */
+body {
+	font-size: 100%;
+}
+div.headcontainer {
+	font-size: 110%;
+}
+/* GENERAL CSS ENDS | FIN DU CSS GENERAL */
+
+/* FOOTER CSS BEGINS | DEBUT DU CSS DU PIED DE LA PAGE */
+div#inlft a, div#inlft a:visited, div#inrgt a, div#inrgt a:visited, p.impnot {
+	font-size: 80%;
+}
+/* FOOTER CSS ENDS | FIN DU CSS DU PIED DE LA PAGE */

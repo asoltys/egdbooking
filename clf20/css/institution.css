@@ -1,0 +1,571 @@
+/* CLF 2.0 TEMPLATE VERSION 1.04 | VERSION 1.04 DU GABARIT NSI 2.0 */
+/* PWGSC TEMPLATE V1.0b | V1.0b DU GABARIT TPSGC */
+
+/* ------------------ release history
+PWGSC/TPSGC v1.0 initial release september 07
+PWGSC/TPSGC v1.0a released november 2008 with minor changes
+PWGSC/TPSGC v1.0b released september 2008 with added features 
+------------------------------------ */
+
+/* GENERAL CSS BEGINS | DEBUT DU CSS GENERAL */
+
+/* ---------------------------------------------
+validate any changes or updates to this file by 
+direct input on the W3C CSS Validation service
+http://jigsaw.w3.org/css-validator/validator.html
+and check colour contrast on foreground and background 
+http://www.visionaustralia.org.au/info.aspx?page=1571
+------------------------------------------------- */
+
+/* option1 is the main box for Corporate COMM use
+option1 is used on main page of the www.tpsgc-pwgsc.gc.ca site
+----------------------------------------------- */
+
+	.option1 {
+		margin: 0 0 8px;
+		padding: 26px 0 0;
+		background: #ddb url(/clf20/images/navimages/box1Top.png) top center no-repeat;
+		width: 405px;
+		}
+
+	.option1 img {
+		padding: 0 0 5px 8px;
+		}
+
+	.option1 h1, .option1 h2 { /* DT NOV 20 added h1 */
+		background: url(/clf20/images/navimages/h1arrow.png) center left no-repeat;
+		margin-left: 20px;
+		margin-top: 0;
+		margin-bottom: 5px;
+		padding-left: 25px;
+		color: #369 /*DT modified sept 7 #555*/;
+		font-size: 140%;
+		}
+		
+	.option1 p {
+		background: #ffe;
+		border: 1px solid #369 /*DT modified sept 7 #264*/;
+		border-top: none;
+		margin: 0;
+		padding: 5px;
+		}
+
+/* 
+Manadatory main1 is for the content area of 3 column home page 
+------------------------------- */
+	.main1 {
+		margin: 0 0 8px;
+		padding-left: 8px;
+		padding-right: 7px;
+		padding-top: 8px;
+		border: 1px solid #369 /*DT modified sept 7 #264*/;
+		/* width: 200px;*/
+		}
+
+/* Option2 & Option3 
+DT: used classes so that the box options can be repeated multiple times
+on the same page.
+----------------------------------------------- */
+	.option2,
+	.option3 {
+		margin: 0 0 8px;
+		padding-left: 8px;
+		padding-right: 7px;
+		border: 1px solid #369 /*DT modified sept 7 #264*/;
+		}
+
+
+/* Option3
+Only one heading to be used per box with option 3
+----------------------------------------------- */
+	.option3 {
+		padding: 0;
+		}
+
+	.option3 h2 {
+		background: #369 /*DT modified sept 7 #264*/;
+		margin: 0;
+		padding: 3px;
+		font-size: 120%;
+		color: white;
+		}
+
+	.option3 p {
+		margin: 0;
+		padding: 5px;
+		}
+
+	.option4 {
+		margin: 0 0 8px;
+		padding: 8px;
+		border: 1px dashed #369 /*DT modified sept 7 #264*/;
+		background: #eec;
+		}
+
+	.option4 h2, h3, h4, h5 {
+		margin-top: 0;
+		}
+
+/* Left Navigation
+----------------------------------------------- */
+	.leftNav h2 {
+		font-size: 100%;/* DT font-size: 10.0pt;*/
+		font-weight: 700;
+		/*line-height: 1.6em;*/
+		margin: 0 0 2px;
+		padding: 2px 0 2px 5px;
+		background-color: #369 /*DT modified sept 7 #264*/;
+		color: white;
+		}
+
+	div.left .leftNav h2 a {
+		color: white;
+		text-decoration: none;
+		}
+		
+	div.left .leftNav h2 a:hover {
+		color: white;
+		background-color: #369 /*DT modified sept 7 #264*/;
+		text-decoration: underline;
+		}
+		
+	.leftNav {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		}
+		
+/* ---------------
+nested 2nd level navigation left */
+	div.left .leftNav ul ul li a {
+		/* margin: 0 20px 0 15px;
+		padding: 0 0 5px;*/
+		text-decoration: none;
+		margin: 0 10px 0 8px;
+		padding: 0 0 5px;
+		}
+
+/* left nav hover arrow */
+	div.left .leftNav ul ul li a:hover {
+		background: white url(/clf20/images/navimages/snArrowLiTwo.png) center right no-repeat;
+		border: none;
+		}
+/* ---------------------- */
+
+	.leftNav ul,
+	.leftNav.snThree {
+		background: url(/clf20/images/navimages/leftNavBackground-flat.png) bottom left no-repeat; /* the image background may have to be removed to comply with P3, R8.3 */
+		margin: 0 0 5px;
+		padding: 0 0 1px;
+		}
+
+	.leftNav ul li,
+	.leftNav.snThree li {
+		list-style: none;
+		margin: 0;
+		padding: 2px 0;
+		}
+
+	.leftNav ul li a,
+	.leftNav.snThree li a {
+		display: block;
+		width: 136px;
+		color: black;
+		text-decoration: none;
+		margin: 0 0 0 2px;
+		padding: 3px 10px 3px 2px;
+		}
+
+	div.left .leftNav ul li a:hover {
+		background: white url(/clf20/images/navimages/leftNavHover.png) center right no-repeat;
+		border: none;
+		}
+
+/* Sidenav Site Specific (snTwo) */
+	div.left .leftNav.snTwo ul li a:hover,
+	.leftNav.snThree li a:hover {
+		background: white url(/clf20/images/navimages/snArrowLiTwo.png) center right no-repeat;
+		}
+
+/* Right Navigation
+----------------------------------------------- */
+	.rightNav h2 {
+		font-size: 100%; /* DT font-size: 10.0pt; */
+		font-weight: bold; /* SR font-weight: normal;*/
+		/*line-height: 1.6em; */
+		margin: 0;
+		padding: 5px;
+		background-color: #369 /*DT modified sept 7 #264*/;
+		color: white;
+		}
+
+	.rightNav {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		}
+
+	.rightNav ul {
+		background: url(/clf20/images/navimages/rightNavBottom.png) bottom left no-repeat;
+		margin: 0 0 5px;
+		padding: 7px 0 12px;
+		}
+
+	.right > .rightNav ul {
+		margin-top: -1px;
+		}
+
+	.rightNav ul li {
+		list-style: disc;
+		margin: 0 5px 0 23px;
+		padding: 4px 0;
+		}
+
+	.rightNav ul li a {
+		color: black;
+		margin: 0;
+		padding: 0;
+		}
+
+	.right .rightNav ul li a:hover {
+		color: black;
+		background: #ddb;
+		text-decoration: none;
+		}
+
+/* GENERAL CSS ENDS | FIN DU CSS GENERAL */
+
+/* below only used on the main www.tpsgc-pwgsc.gc.ca site */
+.contentspacer 
+{
+  line-height: 3px;
+}
+
+div.maincontentborder {
+	padding: 5px;
+	border: solid #264 1px;
+	min-width: 135px;
+}
+/* helps to center the image on the main content box */
+#box1, #box2 { padding-left: 8px; }
+
+* html #box1, * html #box2 { padding-left: 8px; }
+
+#box3 {
+    padding: 0;
+ 	margin: 0;
+ }
+
+.contentborder {
+	padding: 5px;
+	border: solid #264 1px;
+	min-width: 135px;
+}
+
+.clearBoth {
+	clear: both;
+}
+
+.clearLeft {
+	clear: left;
+}
+
+.clearRight {
+	clear: right;
+}
+/* ---------------------------------------------------
+CUSTOM CSS BASED ON CHANGE REQUESTS September 2008
+ ---------------------------------------------------- */
+
+/* ---------- START HORIZONTAL LIST
+Provides horizontal list navigation for 
+documents, publications, reports or results 
+that span more than one page. 
+------------------------------------- */
+ul.doc-navigation {
+	border: 1px solid #369;
+	margin: 0.3em 0;
+	padding: 5px;
+	line-height: 1.7;
+	text-align: center;
+}
+	
+ul.doc-navigation li {
+	display: inline;
+}
+	
+ul.doc-navigation li a {
+	padding: 0 1em;
+	font-weight: bold;
+}
+
+
+/* ---------- Double-spaced List
+--------------------------- */
+ul.double-space,
+ol.double-space {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+/* Apply a space after a list item */
+ul.double-space li,
+ol.double-space li {
+	padding-bottom: 1em;
+}
+
+/* Include a space at the top of the list */
+ul.double-space ul,
+ol.double-space ol,
+ul.double-space ol,
+ol.double-space ul {
+	padding-top: 1em;
+}
+
+
+/* Remove the extra spacing after the list */
+ul.single-space,
+ol.single-space {
+	margin-bottom: 0;
+}
+
+/* Remove the extra space after the list item. */
+ul.single-space li,
+ol.single-space li {
+	padding-bottom: 0;
+}
+
+/* ---------- Display DL as 2 Column 
+----------------------------------- */
+dl.two-column {
+	margin:  0;
+	padding: 0;
+}
+
+/* Common styles for left and right columns */
+dl.two-column dt, dl.two-column dd {
+	width: 60%;
+	padding: 0.5em 0 1em 0;
+	margin: 0;
+	float: left;
+	border-top: 1px dotted #ccc;
+}
+
+/* Styles specific to the left column for terms */
+dl.two-column dt {
+	width: 38%;
+	font-weight: bold;
+	padding-right: 2%;
+}
+
+dl.basic dt {
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+
+dl.basic dd {
+	margin-bottom: 1em;
+}
+
+/* ----- BASIC TABLE FORMAT 
+-------------------------- */
+table.basic {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 1em;
+}
+	
+table.basic caption {
+	font-weight: bold;
+	padding: 10px;
+}
+	
+table.basic td, table.basic th {
+	padding: 5px;
+	border: 1px solid #369;
+	vertical-align: top;
+}
+
+table.basic th {
+	background: #bbccdd;
+	color: #000;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/* A header with a row scope can use a different alignment. */
+table.basic th.row {
+	text-align: left;
+	vertical-align: top;
+}
+
+/* ---------- MORE TABLE FORMATTING 
+------------------------ */
+
+/* Cell Highlight */
+tr.highlight, td.highlight {
+	background: #eee;
+}
+
+/* Secondary Header for Basic Table */
+/* A secondary headers looks different to emphasize a different level of hierarchy */
+table.basic th.secondary {
+	background: #fff;
+	color: #369;
+}
+
+/* Void Table Cell */
+table tr td.void, table tr th.void {
+	background: none;
+	border-width: 0;
+}
+
+
+/* ------------- ALTERNATE FORMAT 
+FORMATS LINKS TO ALTERNATE FORMATS 
+SUCH AS PDF, LWP, DOC, ETC... 
+------------------------------------- */
+.alternate-format {
+	text-align:right;
+	border-bottom: 1px solid #369;
+	border-left: 1px solid #369;
+	padding: 2px 0 10px 10px;
+	margin: 0 0 10px 10px;
+	float: right;
+	font-size: 90%;
+	font-weight: bold;
+}
+
+/* formats help link within alternate-format class */
+.alternate-format a.help {
+	font-size: 90%;
+	font-weight: normal;
+}
+
+/* ---------------- DOC INFO 
+USED FOR PUBLICATIONS ISBN-TYPE INFO 
+AT THE BEGINNING OF A WEB PAGE 
+--------------------------- */
+div.doc-info {
+	font-size: 90%;
+	border: 1px solid #369;
+	padding: 8px 8px 0 8px ;
+	margin-bottom: 1.4em;
+}
+
+div.doc-info p {
+	margin: 0 0 1em 0;
+}
+
+/* ---------------- NOTICE 
+Provides a CALLOUT design feature 
+--------------------------------- */
+/* FULL WIDTH CALLOUT */
+div.notice, div.notice-left, div.notice-right {
+	background: #CCDDEE /* not web smart #D0E1ED */;
+	padding: 2px 20px;
+	margin-bottom: 1em;
+}
+/* CALLOUT Left float */
+div.notice-left {
+	width: 35%;
+	float: left;
+	margin-right: 1em;
+}
+/* CALLOUT Right float */
+div.notice-right {
+	width: 35%;
+	float: right;
+	margin-left: 1em;
+}
+/* sets callout font size color */
+div.notice h2, div.notice-left h2, div.notice-right h2,
+div.notice h3, div.notice-left h3, div.notice-right h3,
+div.notice h4, div.notice-left h4, div.notice-right h4,
+div.notice h5, div.notice-left h5, div.notice-right h5,
+div.notice h6, div.notice-left h6, div.notice-right h6 {
+	font-size: 1em; /* 10pt; absolute fonts sizes are not permitted, use either em or % */
+	color: #000;
+	border-bottom: 1px solid #369;
+	margin-top: 1em;
+}
+
+div.notice p, div.notice-left p, div.notice-right p {
+	font-size: 1em; /* 10pt; absolute fonts sizes are not permitted, use either em or % */
+	color: #000;
+	margin-top: 1em;
+}
+
+/* ------------- CRITICAL MESSAGES
+can be used for critical-type notices, 
+announcements or error messages 
+more than once on a page
+------------------------------------ */
+div.critical {
+	padding: 2px 5px;
+	margin-bottom: 1em;
+	border: 3px solid #D00;
+	text-align: center;
+	font-weight: bold;
+}
+
+div.critical h2, 
+div.critical h3,
+div.critical h4,
+div.critical h5,
+div.critical h6, 
+div.critical p {
+	color: #D00;
+}
+
+/* ------------------------ 
+REO specific error handling included to 
+synchronize with PWGSC critical class, 
+uses id=, can only be used once on a page 
+------------------------- */
+#actionErrors,
+#actionMessages {
+	font-weight: bold;
+	color: #D00;
+	padding: 2px 5px;
+	border: 3px solid #D00;
+	margin-bottom: 1em;
+	display: block;
+	text-align:center;
+	}
+/* ------------------------ 
+PILT specific error handling for input forms
+synchronized with PWGSC critical class, 
+uses class="inputError"  so that it can be used for multiple errors on
+input fields on the same page 
+------------------------- */
+
+.inputError {
+	border: 2px solid #D00;
+}
+
+/* ------------------- HEADING SIZES -------------
+CSS used to over-ride default heading sizes September 2008
+Reduced Heading sizes, H1 and H2 were too similar
+-------------------------------------------------- */
+h1 {
+	font-size: 160%;
+}
+
+h2 {
+	font-size: 140%;
+}
+
+h3 {
+	font-size: 125%;
+}
+
+h4 {
+	font-size: 115%;
+}
+h5 {
+	font-size: 110%;
+}
+h6 {
+	font-size: 100%;
+}

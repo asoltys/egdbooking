@@ -39,13 +39,13 @@
 	<!-- FIN DES METADONNEES BILINGUES | BILINGUAL METADATA ENDS -->
 
 	<!-- DEBUT DES SCRIPTS/CSS DU GABARIT | TEMPLATE SCRIPTS/CSS BEGIN -->
-	<link href="/egd_internet_clf2/clf20/css/wp-pa.css" media="screen, print" rel="stylesheet" type="text/css" />
-	<style type="text/css" media="all">@import url(/egd_internet_clf2/clf20/css/wp-pa2.css);</style>
+	<link href="<cfoutput>#CLF_URL#</cfoutput>/clf20/css/wp-pa.css" media="screen, print" rel="stylesheet" type="text/css" />
+	<style type="text/css" media="all">@import url(<cfoutput>#CLF_URL#</cfoutput>/clf20/css/wp-pa2.css);</style>
 	<!-- FIN DES SCRIPTS/CSS DU GABARIT | TEMPLATE SCRIPTS/CSS END -->
 
 	<!-- DEBUT DES SCRIPTS/CSS PERSONNALISES | CUSTOM SCRIPTS/CSS BEGIN -->
-	<link href="/egd_internet_clf2/clf20/css/wp-pa-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
-	<link href="/egd_internet_clf2/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+	<link href="<cfoutput>#CLF_URL#</cfoutput>/clf20/css/wp-pa-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+	<link href="<cfoutput>#CLF_URL#</cfoutput>/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
 	<!-- FIN DES SCRIPTS/CSS PERSONNALISES | CUSTOM SCRIPTS/CSS END -->
 
 </head>
@@ -53,7 +53,7 @@
 <body>
 <div class="mcontainter"><div class="core">
 	<!-- DEBUT DE L'EN-TETE PCIM | FIP HEADER BEGINS -->
-	<div class="fip"><img src="/egd_internet_clf2/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada | Travaux publics et Services gouvernementaux Canada" /></div>
+	<div class="fip"><img src="<cfoutput>#CLF_URL#</cfoutput>/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada | Travaux publics et Services gouvernementaux Canada" /></div>
 	<!-- FIN DE L'EN-TETE PCIM | FIP HEADER ENDS -->
 
 	<!-- DEBUT DU CONTENU | CONTENT BEGINS --> 
@@ -81,7 +81,7 @@
 		<div class="lb"><div class="langbtn"><a href="reserve-book-fra.cfm" lang="fr" xml:lang="fr">Fran&ccedil;ais</a></div></div>
 		<!-- FIN DU LIEN FRANCAIS | FRENCH link ENDS -->
 	</div>
-	<div class="wm"><img src="/egd_internet_clf2/clf20/images/wmms.gif" alt="Symbol of the Government of Canada | Symbole du gouvernement du Canada" width="83" height="20" /></div>
+	<div class="wm"><img src="<cfoutput>#CLF_URL#</cfoutput>/clf20/images/wmms.gif" alt="Symbol of the Government of Canada | Symbole du gouvernement du Canada" width="83" height="20" /></div>
 	<!-- FIN DU CONTENU | CONTENT ENDS -->
 
 	<!-- DEBUT DU PIED DE LA PAGE | FOOTER BEGINS --> 

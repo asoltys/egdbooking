@@ -36,32 +36,33 @@
 <!-- METADATA ENDS | FIN DES METADONNEES -->
 <!-- TEMPLATE SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS DU GABARIT -->
 <cfoutput>
-<link href="/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
-<link href="/clf20/css/1col.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="#CLF_URL#/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="#CLF_URL#/clf20/css/1col.css" media="screen, print" rel="stylesheet" type="text/css" />
 <style type="text/css" media="all">@import url(/clf20/css/base2.css);</style>
-</cfoutput>
+
 <!-- TEMPLATE SCRIPTS/CSS END | FIN DES SCRIPTS/CSS DU GABARIT -->
 <!-- PROGRESSIVE ENHANCEMENT BEGINS | DEBUT DE L'AMELIORATION PROGRESSIVE -->
-<script src="/clf20/scripts/pe-ap.js" type="text/javascript"></script>
+<script src="#CLF_URL#/clf20/scripts/pe-ap.js" type="text/javascript"></script>
 <script type="text/javascript">
 /* <![CDATA[ */
 var params = {
 			lng:"eng",
-			pngfix:"/clf20/images/inv.gif"
+			pngfix:"#CLF_URL#/clf20/images/inv.gif"
 		};
 		PE.progress(params);
 	/* ]]> */
 </script>
 <!-- PROGRESSIVE ENHANCEMENT ENDS | FIN DE L'AMELIORATION PROGRESSIVE -->
 <!-- CUSTOM SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS PERSONNALISES -->
-<cfoutput>
-<link href="/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
-<link href="/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+
+<link href="#CLF_URL#/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="#CLF_URL#/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
 <style type="text/css" media="screen,print">@import url(#RootDir#css/advanced.css);</style>
-</cfoutput>
+
 <!-- CUSTOM SCRIPTS/CSS END | FIN DES SCRIPTS/CSS PERSONNALISES -->
 <!-- TEMPLATE PRINT CSS BEGINS | DEBUT DU CSS DU GABARIT POUR L'IMPRESSION -->
-<link href="/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
+<link href="#CLF_URL#/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
+</cfoutput>
 <!-- TEMPLATE PRINT CSS ENDS | FIN DU CSS DU GABARIT POUR L'IMPRESSION -->
 </head>
 
@@ -71,10 +72,11 @@ var params = {
 	<div class="core">
 		<!-- FIP HEADER BEGINS | DEBUT DE L'EN-TETE PCIM -->
 		<div class="fip">
-		<a name="tphp" id="tphp"><img src="/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></a>
+		
+		<a name="tphp" id="tphp"><img src="<cfoutput>#CLF_URL#</cfoutput>/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></a>
 		</div>
 		<div class="cwm">
-			<img src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
+			<img src="<cfoutput>#CLF_URL#</cfoutput>/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
 		</div>
 		<!-- FIP HEADER ENDS | FIN DE L'EN-TETE PCIM -->
 

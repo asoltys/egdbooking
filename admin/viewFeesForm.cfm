@@ -20,7 +20,7 @@
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
-			<cfinclude template="/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm"> &gt; <CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm"> &gt; <CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 			<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 		<CFELSE>
 			 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;

@@ -170,14 +170,14 @@ WHERE	SouthJetty = 1
 <!-- FIP HEADER BEGINS | DEBUT DE L'EN-TETE PCIM -->
 <CFIF lang EQ "eng">
 <div style="float:right; position:relative; z-index:1; height:33px;">
-	<img src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
+	<img src="#CLF_URL#/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
 </div>
-<a name="tphp" id="tphp"><img src="/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></a>
+<a name="tphp" id="tphp"><img src="#CLF_URL#/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></a>
 <CFELSE>
 <div style="float:right; position:relative; z-index:1; height:33px;">
-	<img src="/clf20/images/wmms.gif" width="83" height="20" alt="Symbole du gouvernement du Canada" />
+	<img src="#CLF_URL#/clf20/images/wmms.gif" width="83" height="20" alt="Symbole du gouvernement du Canada" />
 </div>
-<a name="tphp" id="tphp"><img src="/clf20/images/sig-fra.gif" width="364" height="33" alt="Travaux publics et Services gouvernementaux Canada" /></a>
+<a name="tphp" id="tphp"><img src="#CLF_URL#/clf20/images/sig-fra.gif" width="364" height="33" alt="Travaux publics et Services gouvernementaux Canada" /></a>
 </CFIF>
 <!-- FIP HEADER ENDS | FIN DE L'EN-TETE PCIM -->
 
@@ -390,7 +390,7 @@ WHERE	SouthJetty = 1
 				</div>
 				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.html ====== -->
 				<div class="screenonly" style="float:left; width:33.25%; text-align:center">
-					<a href="#tphp" title="Return to Top of Page"><img class="uparrow" src="/egd_internet_clf2/clf20/images/tphp.gif" width="19" height="12" alt="" /><br />Top of Page</a>
+					<a href="#tphp" title="Return to Top of Page"><img class="uparrow" src="#CLF_URL#/clf20/images/tphp.gif" width="19" height="12" alt="" /><br />Top of Page</a>
 				</div>
 				<div style="float:left; width:33.25%; text-align:right">
 					<a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html">Important Notices</a>

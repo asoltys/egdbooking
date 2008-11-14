@@ -1,0 +1,30 @@
+/* CLF 2.0 TEMPLATE VERSION 1.04 | VERSION 1.04 DU GABARIT NSI 2.0 */
+
+/* GENERAL CSS BEGINS | DEBUT DU CSS GENERAL */
+
+/* GENERAL CSS ENDS | FIN DU CSS GENERAL */
+
+/* MESSAGE SPACE CSS BEGINS | DEBUT DU CSS DE L'ESPACE DE MESSAGE */
+
+div.msgarea h1, div.msgareaalt h1 {
+	text-align: center;
+	color: #FFF;
+	font-weight: bold;
+}
+div.msgarea {
+	background: url(/clf20/images/wp-pa.jpg) #335544 /* #369 DT May 2008 */ no-repeat;
+}
+div.msgareaalt {
+	background: url(/clf20/images/wp-pa-alt.jpg) #335544 /* #369 DT May 2008 */ no-repeat;
+}
+.msgarea h1 {
+	padding-top: 55px;
+}
+div.msgareaalt h1 {
+	padding-top: 160px;
+}
+div.headcontainer {
+	background-color: #DDDDBB;
+	color: #000;
+}
+/* MESSAGE SPACE CSS ENDS | FIN DU CSS DE L'ESPACE DE MESSAGE */
