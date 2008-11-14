@@ -18,6 +18,16 @@
 <meta name="dc.language" scheme="ISO639-2/T" content="fra" />
 <meta name="dc.creator" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada" />
 <meta name="dc.publisher" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada" />
+
+<meta name="dc.audience" content=" " />
+<meta name="dc.contributor" content=" " />
+<meta name="dc.coverage" content=" " />
+<meta name="dc.date.created" content="2008-06-13" />
+<meta name="dc.date.modified" content="2008-11-12" />
+<meta name="dc.format" content=" " />
+<meta name="dc.identifier" content=" " />
+<meta name="dc.type" content="">
+
 <meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-fra.html" />
 <meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
 <meta name="dcterms.modified" scheme="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
