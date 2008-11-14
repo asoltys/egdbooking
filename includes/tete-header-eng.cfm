@@ -18,11 +18,22 @@
 <meta name="dc.language" scheme="ISO639-2/T" content="eng" />
 <meta name="dc.creator" content="Government of Canada, Public Works and Government Services Canada" />
 <meta name="dc.publisher" content="Government of Canada, Public Works and Government Services Canada" />
+
+<meta name="dc.audience" content=" " />
+<meta name="dc.contributor" content=" " />
+<meta name="dc.coverage" content=" " />
+<meta name="dc.date.created" content="2008-06-13" />
+<meta name="dc.date.modified" content="2008-11-12" />
+<meta name="dc.format" content=" " />
+<meta name="dc.identifier" content=" " />
+
 <meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html" />
 <meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
 <meta name="dcterms.modified" scheme="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
-
 <meta name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
+
+
+
 <!-- METADATA ENDS | FIN DES METADONNEES -->
 <!-- TEMPLATE SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS DU GABARIT -->
 <link href="<cfoutput>#CLF_URL#</cfoutput>/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
