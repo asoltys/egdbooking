@@ -12,29 +12,20 @@
 	<cfset language.bookingsSummary = "r&eacute;sum&eacute; des r&eacute;servations">
 </cfif>
 
+<cfsavecontent variable="js">
 <script type="text/javascript">
 /* <![CDATA[ */
-// used to prevent display problems with old versions of Netscape 4.7 and older
-
-function checkIt() {
-	//detect Netscape 4.7-
-	if (navigator.appName=="Netscape"&&parseFloat(navigator.appVersion)<=4.7) {
-		return false;
-	}
-		
-	return true;
-	}
-
 function popUp(pageID) {
 	if (checkIt()) {
 		window.open("<cfoutput>#RootDir#</cfoutput>" + pageID + ".cfm?lang=<cfoutput>#lang#</cfoutput>", "", "width=800, height=400, resizable=yes, menubar=yes, scrollbars=yes, toolbar=no");
 	} else {
-		// window.open(pageID + ".cfm?lang=<cfoutput>#lang#</cfoutput>", pageID);
 		alert("<cfoutput>#language.warning#</cfoutput>");
 	}
 }
 /* ]]> */
 </script>
+</cfsavecontent>
+<cfhtmlhead text="#js#" />
 
 <cfoutput>
 <div style="text-align:center;" style="font-size: 8pt; min-height: 20px; padding-top: 15px;">
