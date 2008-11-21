@@ -43,7 +43,7 @@
 
 <cfquery name="getUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name, UserCompanies.Approved, Companies.CompanyID
-	FROM	UserCompanies INNER JOIN Users ON UserCompanies.UserID = Users.UserID 
+	FROM	UserCompanies INNER JOIN Users ON UserCompanies.UserID = Users.UserID
 			INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
 	WHERE	Users.UserID = #form.UserID# AND UserCompanies.Deleted = 0
 	ORDER BY UserCompanies.Approved DESC, Companies.Name
@@ -76,7 +76,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -94,22 +94,22 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
 							Also display any errors returned --->
 					<cfinclude template="#RootDir#includes/getStructure.cfm"><br />
 				</cfif>
-				
+
 				<div style="text-align:left;">
-					<cfform action="editUser.cfm?lang=#lang#" name="chooseUserForm" method="post">
+					<cfform action="editUser.cfm?lang=#lang#" id="chooseUserForm" method="post">
 						<cfselect name="UserID" query="getUserList" value="UserID" display="UserName" selected="#form.userID#" />
 						<!--a href="javascript:EditSubmit('chooseUserForm');" class="textbutton">Edit</a-->
 						<input type="submit" name="submitForm" value="View" class="textbutton" />
 					</cfform>
 				</div>
-				
-				<cfform action="editUser_action.cfm?lang=#lang#" name="editUserForm" method="post">
+
+				<cfform action="editUser_action.cfm?lang=#lang#" id="editUserForm" method="post">
 					<table align="center" style="width:81%;">
 						<tr>
 							<td colspan="2"><strong>Edit Profile:</strong></td>
@@ -145,16 +145,16 @@ function EditSubmit ( selectedform )
 						</tr>
 						</table>
 				</cfform>
-				
+
 				<hr width="65%" align="center">
-				
+
 				<cfoutput query="getUserCompanies">
 					<form method="post" action="removeUserCompany_confirm.cfm?lang=#lang#" name="remCompany#CompanyID#">
 						<input type="hidden" name="CompanyID" value="#CompanyID#" />
 						<input type="hidden" name="userID" value="#form.userID#" />
 					</form>
 				</cfoutput>
-				
+
 				<table align="center" style="width:81%;">
 				<tr>
 					<cfoutput><td valign="top"colspan="2"><cfif getUserCompanies.recordCount GT 1><strong>User Companies:</strong><cfelse><strong>User Company:</strong></cfif></td></cfoutput>
@@ -167,8 +167,8 @@ function EditSubmit ( selectedform )
 					</tr>
 				</cfoutput>
 				</table>
-				
-				<cfform action="addUserCompany_action.cfm?lang=#lang#" name="addUserCompanyForm" method="post">
+
+				<cfform action="addUserCompany_action.cfm?lang=#lang#" id="addUserCompanyForm" method="post">
 					<table align="center" style="width:81%;">
 						<tr><td>&nbsp;</td></tr>
 						<tr>
@@ -191,13 +191,13 @@ function EditSubmit ( selectedform )
 								<br />
 								<cfoutput><font size="-2">If the desired company is not listed, click <a href="editUser_addCompany.cfm?lang=#lang#&userID=#form.userID#">here</a> to create one.</font></cfoutput>
 							</td>
-						</tr>	
+						</tr>
 					</table>
 				</cfform>
-				
+
 				<hr width="65%" align="center"><br />
-				
-				<cfform action="changePassword.cfm?lang=#lang#" method="post" name="changePassForm">
+
+				<cfform action="changePassword.cfm?lang=#lang#" method="post" id="changePassForm">
 						<table align="center" style="width:81%;">
 						<tr>
 							<td colspan="2"><strong>Change Password:</strong></td>
@@ -223,7 +223,7 @@ function EditSubmit ( selectedform )
 					<br />
 					<div style="text-align:right;"><cfoutput><input type="button" name="cancel" value="Cancel" class="textbutton" onclick="self.location.href='../menu.cfm?lang=#lang#'" />
 				</cfform>
-				
+
 				<p><em>*Email notification of profile updates is automatically sent to the user after their password is changed or a company is added to their profile.</em></p>
 
 			</div>

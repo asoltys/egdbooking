@@ -9,7 +9,7 @@
 <cfquery name="getUserList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT UserID, LastName + ', ' + FirstName AS UserName
 	FROM Users
-	WHERE Deleted = 0 
+	WHERE Deleted = 0
 	AND NOT EXISTS (SELECT	UserID
 					FROM	Administrators
 					WHERE	Users.UserID = Administrators.UserID)
@@ -33,7 +33,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -52,28 +52,28 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-			
+
 			<cfif IsDefined("Session.Return_Structure")>
 				<!--- Populate the Variables Structure with the Return Structure.
 						Also display any errors returned --->
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 			</cfif>
-			
+
 			<!---<div style="text-align:left;">
-				<cfform action="addAdministrator_action.cfm?lang=#lang#" name="chooseUserForm" method="post">
+				<cfform action="addAdministrator_action.cfm?lang=#lang#" id="chooseUserForm" method="post">
 					<cfselect name="UserID" query="getUserList" value="UserID" display="UserName" />
 					<a href="javascript:EditSubmit('chooseUserForm');">Add</a>
 				</cfform>
 			</div>--->
-			
-			<cfform action="addAdministrator_action.cfm?lang=#lang#" name="addAdministratorForm" method="post">
+
+			<cfform action="addAdministrator_action.cfm?lang=#lang#" id="addAdministratorForm" method="post">
 				Select User: <cfselect name="UserID" query="getUserList" value="UserID" display="UserName" />
 				&nbsp;&nbsp;&nbsp;
 				<!--a href="javascript:EditSubmit('addAdministratorForm');" class="textbutton">Submit</a-->
 				<input type="submit" name="submitForm" value="submit" class="textbutton" />
 				<cfoutput><input type="button" name="cancel" value="Cancel" class="textbutton" onclick="self.location.href='../menu.cfm?lang=#lang#'" />
 			</cfform>
-			
+
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

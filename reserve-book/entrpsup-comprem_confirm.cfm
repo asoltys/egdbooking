@@ -62,30 +62,30 @@
 
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
 							Also display any errors returned --->
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				</cfif>
-				
+
 				<cfoutput>
-				<cfform action="#RootDir#reserve-book/entrpsup-comprem_action.cfm?lang=#lang#" method="post" name="remCompanyConfirmForm">
+				<cfform action="#RootDir#reserve-book/entrpsup-comprem_action.cfm?lang=#lang#" method="post" id="remCompanyConfirmForm">
 					<div style="text-align:center;">#language.AreYouSure# <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
-				
+
 					<p><div style="text-align:center;">
 						<!--a href="javascript:document.remCompanyConfirmForm.submit();" class="textbutton">Submit</a>
 						<a href="profilmod-profileedit.cfm" class="textbutton">Cancel</a-->
 					<input type="submit" value="#language.Remove#" class="textbutton" />
 					<input type="button" value="#language.Cancel#" onclick="javascript:location.href='editUser.cfm?lang=#lang#&clrfs=true'" class="textbutton" />
 					</div></p>
-				
+
 					<cfoutput><input type="hidden" name="CompanyID" value="#form.CompanyID#" />
 				</cfform>
-				
+
 				</cfoutput>
 			</div>
-				
+
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

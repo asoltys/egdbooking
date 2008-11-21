@@ -72,27 +72,27 @@ function EditSubmit ( selectedform )
 
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<cfoutput>#StructDelete(Session, "Return_Structure")#</cfoutput>
 				</cfif>
-				
+
 				<cfset Errors = ArrayNew(1)>
 				<cfset Success = ArrayNew(1)>
 				<cfset Proceed_OK = "Yes">
-				
+
 				<!--- <cfoutput>#ArrayAppend(Success, "The booking has been successfully added.")#</cfoutput> --->
-				
+
 				<!--- Validate the form data --->
 				<cfif DateCompare(Form.StartDate,Form.EndDate) EQ 1>
 					<cfoutput>#ArrayAppend(Errors, "#language.endBeforeStartError#")#</cfoutput>
 					<cfset Proceed_OK = "No">
 				</cfif>
-				
+
 				<cfset Variables.VesselID = Form.VesselID>
 				<cfset Variables.StartDate = CreateODBCDate(Form.StartDate)>
 				<cfset Variables.EndDate = CreateODBCDate(Form.EndDate)>
-				
+
 				<cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT 	VesselID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
 					FROM 	Vessels, Companies
@@ -101,12 +101,12 @@ function EditSubmit ( selectedform )
 					AND 	Vessels.Deleted = 0
 					AND		Companies.Deleted = 0
 				</cfquery>
-				
+
 				<cfif getVessel.RecordCount EQ 0>
 					<cfoutput>#ArrayAppend(Errors, "#language.noVesselError#")#</cfoutput>
 					<cfset Proceed_OK = "No">
 				</cfif>
-				
+
 				<!---Check to see that vessel hasn't already been booked during this time--->
 				<!--- 25 October 2005: This query now only looks at the drydock bookings --->
 				<cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -115,17 +115,17 @@ function EditSubmit ( selectedform )
 								INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
 								INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
 					WHERE 	Bookings.VesselID = '#Variables.VesselID#'
-					AND 	
-					<!---Explanation of hellishly long condition statement: The client wants to be able to overlap the start and end dates 
-						of bookings, so if a booking ends on May 6, another one can start on May 6.  This created problems with single day 
-						bookings, so if you are changing this query...watch out for them.  The first 3 lines check for any bookings longer than 
-						a day that overlaps with the new booking if it is more than a day.  The next 4 lines check for single day bookings that 
+					AND
+					<!---Explanation of hellishly long condition statement: The client wants to be able to overlap the start and end dates
+						of bookings, so if a booking ends on May 6, another one can start on May 6.  This created problems with single day
+						bookings, so if you are changing this query...watch out for them.  The first 3 lines check for any bookings longer than
+						a day that overlaps with the new booking if it is more than a day.  The next 4 lines check for single day bookings that
 						fall within a booking that is more than one day.--->
 							(
 								(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# < Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
 							OR 	(	Bookings.StartDate < #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
 							OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
-							OR  (	(Bookings.StartDate = Bookings.EndDate OR #Variables.StartDate# = #Variables.EndDate#) AND Bookings.StartDate <> #Variables.StartDate# AND Bookings.EndDate <> #Variables.EndDate# AND 
+							OR  (	(Bookings.StartDate = Bookings.EndDate OR #Variables.StartDate# = #Variables.EndDate#) AND Bookings.StartDate <> #Variables.StartDate# AND Bookings.EndDate <> #Variables.EndDate# AND
 										((	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# < Bookings.EndDate)
 									OR 	(	Bookings.StartDate < #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate)
 									OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate)))
@@ -133,28 +133,28 @@ function EditSubmit ( selectedform )
 					AND		Bookings.Deleted = 0
 					AND Docks.Status = 'C'
 				</cfquery>
-				
+
 				<!--- 25 October 2005: The next two queries have been modified to only get results from the drydock bookings --->
 				<cfquery name="getNumStartDateBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	Bookings.BookingID, Vessels.Name, Bookings.StartDate
 					FROM	Bookings
 								INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
 								INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-					WHERE	StartDate = #Variables.StartDate# 
+					WHERE	StartDate = #Variables.StartDate#
 								AND Bookings.VesselID = '#Variables.VesselID#'
 								AND Bookings.Deleted = 0
 				</cfquery>
-				
+
 				<cfquery name="getNumEndDateBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	Bookings.BookingID, Vessels.Name, Bookings.EndDate
 					FROM	Bookings
 								INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
 								INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
 					WHERE	EndDate = #Variables.EndDate#
-								AND Bookings.VesselID = '#Variables.VesselID#' 
+								AND Bookings.VesselID = '#Variables.VesselID#'
 								AND Bookings.Deleted = 0
 				</cfquery>
-				
+
 				<cfif DateCompare(PacificNow, Form.StartDate, 'd') NEQ -1>
 					<cfoutput>#ArrayAppend(Errors, "#language.futureStartError#")#</cfoutput>
 					<cfset Proceed_OK = "No">
@@ -168,18 +168,18 @@ function EditSubmit ( selectedform )
 					<cfoutput>#ArrayAppend(Errors, "#getNumEndDateBookings.Name# #language.tplBookingError# #LSdateFormat(getNumEndDateBookings.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
 					<cfset Proceed_OK = "No">
 				</cfif>
-				
+
 				<cfif DateDiff("d",Form.StartDate,Form.EndDate) LT 0>
 					<cfoutput>#ArrayAppend(Errors, "#language.bookingTooShortError#")#</cfoutput>
 						<cfoutput>#ArrayAppend(Errors, "#language.StartDate#: #LSDateFormat(CreateODBCDate(Form.StartDate), 'mmm d, yyyy')#")#</cfoutput>
 					<cfset Proceed_OK = "No">
 				</cfif>
-				
+
 				<cfif getVessel.Width GT Variables.MaxWidth OR getVessel.Length GT Variables.MaxLength>
 					<cfoutput>#ArrayAppend(Errors, "#language.theVessel#, #getVessel.VesselName#, #language.tooLarge#.")#</cfoutput>
 					<cfset Proceed_OK = "No">
 				</cfif>
-				
+
 				<cfif Proceed_OK EQ "No">
 					<!--- Save the form data in a session structure so it can be sent back to the form page --->
 					<cfset Session.Return_Structure.StartDate = Form.StartDate>
@@ -188,11 +188,11 @@ function EditSubmit ( selectedform )
 					<cfset Session.Return_Structure.CompanyID = Form.CompanyID>
 					<cfset Session.Return_Structure.Status = Form.Status>
 					<cfset Session.Return_Structure.Errors = Errors>
-				
+
 					<cflocation url="#RootDir#reserve-book/caledemande-dockrequest.cfm?lang=#lang#" addtoken="no">
 				</cfif>
-				
-				
+
+
 				<!--- Gets all Bookings that would be affected by the requested booking --->
 				<cfinclude template="#RootDir#reserve-book/includes/towerCheck.cfm">
 				<cfset Variables.spaceFound = findSpace(-1, #Variables.StartDate#, #Variables.EndDate#, #getVessel.Length#, #getVessel.Width#)>
@@ -212,7 +212,7 @@ function EditSubmit ( selectedform )
 					</td>
 				</tr>
 				</table>
-				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action.cfm?lang=#lang#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action.cfm?lang=#lang#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
 				<table align="center">
 					<tr><td align="right" style="width:40%;"><div style="font-weight:bold;">#language.new#:</div></td></tr>
 					<tr>
@@ -238,7 +238,7 @@ function EditSubmit ( selectedform )
 				</table>
 				<!---<cfif NOT Variables.spaceFound>
 					<cfinclude template="#RootDir#includes/showConflicts.cfm">
-				
+
 				</cfif>--->
 				<table align="center">
 					<tr><td>&nbsp;</td></tr>
@@ -254,7 +254,7 @@ function EditSubmit ( selectedform )
 						</td>
 					</tr>
 				</table>
-				
+
 				</cfform>
 				</cfoutput>
 

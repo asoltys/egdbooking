@@ -32,7 +32,7 @@
 
 // Validates dates inside the form.
 function validate(formName) {
-	var formObj = eval("document.forms[\'" + formName + "\']");
+		var formObj = $('formName');
 	if (!checkDate(formName)) {
 		alert("<cfoutput>#language.endBeforeStartError#</cfoutput>");
 		return false;
@@ -75,11 +75,10 @@ function checkDate(dObj1, dObj2) {
  * and when startDate is selected.  Since a JS change in the field doesn't trigger the
  * onChange event, it is also called onSelect and in calendar.cfm's setDate(day) function.
  *
- * where		whether it's 'self' or 'opener' since there are two types of forms
  * numLater		the number of days in between the two dates.
  */
-function setLaterDate(where, formName, numLater) {
-	var formObj = eval(where + ".document.forms[\'" + formName + "\']");
+function setLaterDate(formName, numLater) {
+	var formObj = $('formName');
 
 	var startDObj = new Date();
 	var endDObj   = new Date();
@@ -120,11 +119,10 @@ function setLaterDate(where, formName, numLater) {
  * and when startDate is selected.  Since a JS change in the field doesn't trigger the
  * onChange event, it is also called onSelect and in calendar.cfm's setDate(day) function.
  *
- * where		whether it's 'self' or 'opener' since there are two types of forms
  * numLater		the number of days in between the two dates.
  */
-function setEarlierDate(where, formName, numEarlier) {
-	var formObj = eval(where + ".document.forms[\'" + formName + "\']");
+function setEarlierDate(formName, numEarlier) {
+	var formObj = $('formName');
 
 	var startDObj = new Date();
 	var endDObj   = new Date();

@@ -38,7 +38,7 @@
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -57,32 +57,32 @@
 					</a></h1>
 
 			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-			
+
 			<cfif IsDefined("Session.Return_Structure")>
 				<!--- Populate the Variables Structure with the Return Structure.
 						Also display any errors returned --->
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 			</cfif>
-			
-			<cfform action="delVessel_confirm.cfm?lang=#lang#" method="post" name="delVesselForm">
+
+			<cfform action="delVessel_confirm.cfm?lang=#lang#" method="post" id="delVesselForm">
 			<table style="width:100%;">
 				<tr>
 					<td>Company:</td>
 					<td>
-						<CF_TwoSelectsRelated 
-							QUERY="companyVessels" 
-							NAME1="CompanyID" 
-							NAME2="VesselID" 
-							DISPLAY1="CompanyName" 
-							DISPLAY2="VesselName" 
-							VALUE1="companyID" 
-							VALUE2="vesselID" 
-							SIZE1="1" 
-							SIZE2="1" 
-							htmlBETWEEN="</td></tr><tr><td>Vessel:</td><td>" 
-							AUTOSELECTFIRST="Yes" 
-							EMPTYTEXT1="(choose a company)" 
-							EMPTYTEXT2="(choose a vessel)" 
+						<CF_TwoSelectsRelated
+							QUERY="companyVessels"
+							NAME1="CompanyID"
+							NAME2="VesselID"
+							DISPLAY1="CompanyName"
+							DISPLAY2="VesselName"
+							VALUE1="companyID"
+							VALUE2="vesselID"
+							SIZE1="1"
+							SIZE2="1"
+							htmlBETWEEN="</td></tr><tr><td>Vessel:</td><td>"
+							AUTOSELECTFIRST="Yes"
+							EMPTYTEXT1="(choose a company)"
+							EMPTYTEXT2="(choose a vessel)"
 							DEFAULT1 ="#variables.companyID#"
 							DEFAULT2 ="#variables.vesselID#"
 							FORMNAME="delVesselForm">
@@ -96,7 +96,7 @@
 				</tr>
 			</table>
 			</cfform>
-						
+
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

@@ -18,13 +18,13 @@
 
 
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	Bookings.StartDate, Bookings.EndDate, Vessels.Name AS VesselName, Vessels.*, 
-			Users.LastName + ', ' + Users.FirstName AS UserName, 
-			Companies.Name AS CompanyName, Jetties.NorthJetty, Jetties.SouthJetty, 
+	SELECT 	Bookings.StartDate, Bookings.EndDate, Vessels.Name AS VesselName, Vessels.*,
+			Users.LastName + ', ' + Users.FirstName AS UserName,
+			Companies.Name AS CompanyName, Jetties.NorthJetty, Jetties.SouthJetty,
 			Jetties.Status
 	FROM 	Bookings INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
-			INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID 
-			INNER JOIN Users ON Bookings.UserID = Users.UserID 
+			INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
+			INNER JOIN Users ON Bookings.UserID = Users.UserID
 			INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
 	WHERE	Bookings.BookingID = '#Variables.BookingID#'
 </cfquery>
@@ -51,7 +51,7 @@
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -71,15 +71,15 @@
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
-				
+
+
 				<cfif isDefined("url.date")>
 					<cfset variables.dateValue = "&date=#url.date#">
 				<cfelse>
 					<cfset variables.dateValue = "">
 				</cfif>
-				
-				<cfform action="deleteJettyBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" name="delBookingConfirm">
+
+				<cfform action="deleteJettyBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" id="delBookingConfirm">
 					<p><div style="text-align:center;">Are you sure you want to <cfoutput>#variables.action#</cfoutput> the following booking?</div></p>
 					<input type="hidden" name="BookingID" value="<cfoutput>#variables.BookingID#</cfoutput>" />
 					<cfoutput query="getBooking">
@@ -133,7 +133,7 @@
 						<input type="submit" name="submitForm" class="textbutton" value="<cfoutput>#variables.action#</cfoutput> booking" />
 						<cfoutput><input type="button" onclick="javascript:self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue####variables.bookingID#'" value="Back" class="textbutton" />
 					</div>
-				
+
 				</cfform>
 
 			</div>

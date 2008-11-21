@@ -80,7 +80,7 @@
 <cfif IsDefined("Form.Anonymous")>
 	<cfset Variables.Anonymous = 1>
 </cfif>
-	
+
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
@@ -110,9 +110,9 @@
 				<cfif Variables.Width GT Variables.MaxWidth OR Variables.Length GT Variables.MaxLength>
 					<div id="actionErrors">#language.boatTooBig# (#Variables.MaxLength#m x #Variables.MaxWidth#m).</div>
 				</cfif>
-				
-				<cfform name="addVessel" action="#RootDir#reserve-book/navireajout-vesseladd_action.cfm?lang=#lang#&CompanyID=#url.companyID#" method="post">
-			
+
+				<cfform id="addVessel" action="#RootDir#reserve-book/navireajout-vesseladd_action.cfm?lang=#lang#&CompanyID=#url.companyID#" method="post">
+
 				<table align="center">
 					<tr>
 						<td id="CompanyName">#language.CompanyName#:</td>

@@ -20,7 +20,7 @@
 	SELECT companies.companyID, companies.name AS CompanyName, users.UserID, lastname + ', ' + firstname AS UserName
 	FROM Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
 		 INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
-	WHERE Users.Deleted = 0 AND Companies.Deleted = 0 AND Companies.Approved = 1 
+	WHERE Users.Deleted = 0 AND Companies.Deleted = 0 AND Companies.Approved = 1
 			AND UserCompanies.Deleted = 0 AND UserCompanies.Approved = 1
 	ORDER BY Companies.Name, Users.lastname, Users.firstname
 </cfquery>
@@ -39,7 +39,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -57,10 +57,10 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<cfparam name="form.userID" default="">
 				<cfinclude template="#RootDir#includes/restore_params.cfm">
-				
+
 				<cfif isDefined("form.companyID")>
 					<cfset variables.companyID = #form.companyID#>
 				<cfelse>
@@ -71,39 +71,39 @@ function EditSubmit ( selectedform )
 				<cfelse>
 					<cfset variables.userID = 0>
 				</cfif>
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
 							Also display any errors returned --->
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				</cfif>
 
-				<cfform action="delUser_confirm.cfm?lang=#lang#" method="post" name="delUserForm">
+				<cfform action="delUser_confirm.cfm?lang=#lang#" method="post" id="delUserForm">
 				<table style="width:100%;">
 					<tr>
 						<td>Company:</td>
 						<td>
-							<!---<cfform action="delUser_confirm.cfm?lang=#lang#" method="post" name="delUserForm">
+							<!---<cfform action="delUser_confirm.cfm?lang=#lang#" method="post" id="delUserForm">
 							<cfselect name="UserID" query="getUserList" value="UserID" display="UserName" />--->
-							<CF_TwoSelectsRelated 
-								QUERY="companyUsers" 
-								NAME1="CompanyID" 
-								NAME2="UserID" 
-								DISPLAY1="CompanyName" 
-								DISPLAY2="UserName" 
-								VALUE1="companyID" 
+							<CF_TwoSelectsRelated
+								QUERY="companyUsers"
+								NAME1="CompanyID"
+								NAME2="UserID"
+								DISPLAY1="CompanyName"
+								DISPLAY2="UserName"
+								VALUE1="companyID"
 								VALUE2="userID"
-								SIZE1="1" 
-								SIZE2="1" 
-								htmlBETWEEN="</td></tr><tr><td valign='baseline'>User:</td><td>" 
-								AUTOSELECTFIRST="Yes" 
-								EMPTYTEXT1="(choose a company)" 
+								SIZE1="1"
+								SIZE2="1"
+								htmlBETWEEN="</td></tr><tr><td valign='baseline'>User:</td><td>"
+								AUTOSELECTFIRST="Yes"
+								EMPTYTEXT1="(choose a company)"
 								EMPTYTEXT2="(choose a user)"
 								DEFAULT1 ="#variables.companyID#"
-								DEFAULT2 ="#variables.userID#" 
+								DEFAULT2 ="#variables.userID#"
 								FORMNAME="delUserForm">
 						</td>
-					</tr>	
+					</tr>
 					<!--a href="javascript:EditSubmit('delUserForm');" class="textbutton">Submit</a-->
 					<tr><td>&nbsp;</td></tr>
 					<tr><td colspan="2" align="center">

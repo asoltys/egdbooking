@@ -16,7 +16,7 @@
 	WHERE Companies.companyID = #form.companyID#
 </cfquery>
 
-<!---get a list of companies besides the one to be deleted, 
+<!---get a list of companies besides the one to be deleted,
 so the users who belong to that current company can choose another company--->
 <cfquery name="getCompanyList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT CompanyID, Name
@@ -29,10 +29,10 @@ so the users who belong to that current company can choose another company--->
 <!---get the user list from the company to be deleted--->
 <cfquery name="getCompanyUsers" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Users.UserID, LastName + ', ' + FirstName AS UserName
-	FROM Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID 
+	FROM Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
 			INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
-	WHERE UserCompanies.companyID = #form.companyID# AND Users.Deleted = 0 
-	AND UserCompanies.Deleted = 0 AND UserCompanies.Approved = 1 
+	WHERE UserCompanies.companyID = #form.companyID# AND Users.Deleted = 0
+	AND UserCompanies.Deleted = 0 AND UserCompanies.Approved = 1
 	AND	Companies.Deleted = 0 AND Companies.Approved = 1
 	AND (SELECT COUNT(*) AS MatchFui
 				FROM UserCompanies
@@ -41,7 +41,7 @@ so the users who belong to that current company can choose another company--->
 
 <cfquery name="getDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Bookings.BookingID, Name, StartDate, EndDate, Status
-	FROM Vessels INNER JOIN Bookings ON Vessels.VesselID = Bookings.VesselID 
+	FROM Vessels INNER JOIN Bookings ON Vessels.VesselID = Bookings.VesselID
 			INNER JOIN Docks ON Bookings.BookingId = Docks.BookingId
 	WHERE companyID = #form.companyID# AND Docks.Status = 'c' AND Bookings.Deleted = 0
 			AND EndDate >= #CreateODBCDate(PacificNow)#
@@ -49,7 +49,7 @@ so the users who belong to that current company can choose another company--->
 
 <cfquery name="getJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Bookings.BookingID, Name, StartDate, EndDate, Status
-	FROM Vessels INNER JOIN Bookings ON Vessels.VesselID = Bookings.VesselID 
+	FROM Vessels INNER JOIN Bookings ON Vessels.VesselID = Bookings.VesselID
 			INNER JOIN Jetties ON Bookings.BookingId = Jetties.BookingId
 	WHERE companyID = #form.companyID# AND Jetties.Status = 'c' AND Bookings.Deleted = 0
 			AND EndDate >= #CreateODBCDate(PacificNow)#
@@ -77,7 +77,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -96,13 +96,13 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
 							Also display any errors returned --->
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				</cfif>
-				
+
 				<cfif getDockBookings.recordCount GT 0 OR getJettyBookings.recordCount GT 0 OR getVessels.recordCount GT 0 OR getCompanyUsers.recordCount GT 0>
 					<cfif getDockBookings.recordCount GT 0 OR getJettyBookings.recordCount GT 0>
 					<cfoutput>
@@ -137,7 +137,7 @@ function EditSubmit ( selectedform )
 						All confirmed bookings must be cancelled before #getCompany.Name# can be deleted.<br /><br />
 					</cfoutput>
 					</cfif>
-				
+
 					<cfif getVessels.recordCount GT 0>
 						<cfoutput>
 						<strong>#getCompany.Name#</strong> cannot be deleted as it is currently responsible for the following vessel(s):
@@ -152,7 +152,7 @@ function EditSubmit ( selectedform )
 						<br />All vessels must be deleted before #getCompany.Name# can be deleted.<br /><br />
 					</cfoutput>
 					</cfif>
-					
+
 					<cfif getCompanyUsers.recordCount GT 0>
 						<cfoutput>
 						<strong>#getCompany.Name#</strong> cannot be deleted as it is currently the only company responsible for the following user(s):
@@ -167,18 +167,18 @@ function EditSubmit ( selectedform )
 						<br />All users that are associated with only #getCompany.name# must be deleted before #getCompany.Name# can be deleted.<br /><br />
 					</cfoutput>
 					</cfif>
-					
+
 					<cfoutput>
 					<div style="text-align:center;">
 						<input type="button" value="Back" onclick="self.location.href='delCompany.cfm?lang=#lang#'" class="textbutton" />
 						<input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
 					</div>
 					</cfoutput>
-					
+
 				<cfelse>
-				<cfform action="delCompany_action.cfm?lang=#lang#" method="post" name="delCompanyConfirmForm">
+				<cfform action="delCompany_action.cfm?lang=#lang#" method="post" id="delCompanyConfirmForm">
 					Are you sure you want to delete <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?
-					
+
 					<cfoutput>
 					<p><div style="text-align:center;">
 					<!--a href="javascript:EditSubmit('delCompanyConfirmForm');" class="textbutton">Submit</a>
@@ -188,10 +188,10 @@ function EditSubmit ( selectedform )
 					<input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
 					</div></p>
 					</cfoutput>
-					
+
 					<input type="hidden" name="companyID" value="<cfoutput>#form.CompanyID#</cfoutput>" />
-				
-				
+
+
 					<cfoutput>
 					<table align="center" style="padding-top:10px;">
 						<tr>
@@ -231,10 +231,10 @@ function EditSubmit ( selectedform )
 						</tr>
 					</table>
 					</cfoutput>
-				
-				</cfform>	
+
+				</cfform>
 				</cfif>
-				
+
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

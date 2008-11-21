@@ -50,8 +50,8 @@ function EditSubmit ( selectedform )
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
-			<a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.login#</a> &gt; 
-			<a href="#RootDir#ols-login/addUserCompanies.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#">#language.createUser#</a> &gt; 
+			<a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.login#</a> &gt;
+			<a href="#RootDir#ols-login/addUserCompanies.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#">#language.createUser#</a> &gt;
 			#language.confirmRem#
 			</cfoutput>
 		</p>
@@ -72,17 +72,17 @@ function EditSubmit ( selectedform )
 							Also display any errors returned --->
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				</cfif>
-				
-				<cfform action="entrpsup-comprem_action.cfm?lang=#lang#&companies=#companies#&info=#url.info#" method="post" name="remCompanyConfirmForm">
+
+				<cfform action="entrpsup-comprem_action.cfm?lang=#lang#&companies=#companies#&info=#url.info#" method="post" id="remCompanyConfirmForm">
 					<div style="text-align:center;">#language.areYouSure# <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
-				
+
 					<p><div style="text-align:center;">
 						<!---a href="javascript:EditSubmit('remCompanyConfirmForm');" class="textbutton">#language.Remove#</a>
 						<a href="entrpdemande-comprequest.cfm?lang=#lang#&companies=#companies#&info=#url.info#" class="textbutton">#language.Cancel#</a--->
 						<input type="submit" value="#language.Remove#" class="textbutton" />
 						<input type="button" value="#language.Cancel#" onclick="javascript:self.location.href='addUserCompanies.cfm?lang=#lang#&companies=#companies#&info=#url.info#'" class="textbutton" />
 					</div></p>
-				
+
 					<input type="hidden" name="CompanyID" value="#form.CompanyID#" />
 				</cfform>
 				</cfoutput>

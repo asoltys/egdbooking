@@ -26,7 +26,7 @@
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -44,15 +44,15 @@
 					Confirm Booking
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
-					
+
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<!--- -------------------------------------------------------------------------------------------- --->
 				<cfparam name="Variables.BookingID" default="">
 				<cfparam name="Variables.Section1" default="false">
 				<cfparam name="Variables.Section2" default="false">
 				<cfparam name="Variables.Section3" default="false">
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfelseif IsDefined("Form.BookingID")>
@@ -60,14 +60,14 @@
 				<cfelse>
 					<cflocation url="#returnTo#?#urltoken##dateValue#&referrer=#url.referrer#" addtoken="no">
 				</cfif>
-				
+
 				<cfinclude template="includes/getConflicts.cfm">
 				<cfset conflictArray = getConflicts_Conf(Variables.BookingID)>
 				<cfif ArrayLen(conflictArray) GT 0>
 					<cfset Variables.waitListText = "The following vessels are on the wait list ahead of this booking.  The companies/agents should be given 24 hours notice to submit a downpayment.">
 					<cfinclude template="includes/displayWaitList.cfm">
 				</cfif>
-				
+
 				<cfinclude template="includes/getOverlaps.cfm">
 				<cfset overlapQuery = getOverlaps_Conf(Variables.BookingID)>
 				<cfif overlapQuery.RecordCount GT 0>
@@ -87,7 +87,7 @@
 							<td headers="Vessel" valign="top">#trim(overlapQuery.Name)#</td>
 							<td headers="Dates" valign="top">#DateFormat(overlapQuery.StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#DateFormat(overlapQuery.StartDate, ", yyyy")#</CFIF> -<br />#DateFormat(overlapQuery.EndDate, "mmm d, yyyy")#</td>
 							<td headers="Vessel" valign="top">
-							<cfif #trim(overlapQuery.Status)# EQ "C">Confirmed 
+							<cfif #trim(overlapQuery.Status)# EQ "C">Confirmed
 							<cfelseif #trim(overlapQuery.Status)# EQ "T">Tentative
 							<cfelseif #trim(overlapQuery.Status)# EQ "P">Pending
 							<cfelse>Cancelling
@@ -99,7 +99,7 @@
 					</table>
 				</div>
 				</cfif>
-					
+
 				<cfquery name="theBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	BookingID, StartDate, EndDate, Vessels.VesselID, Vessels.Length, Vessels.Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName, BookingTime
 					FROM	Bookings, Vessels, Companies
@@ -107,38 +107,38 @@
 					AND		Vessels.VesselID = Bookings.VesselID
 					AND		Companies.CompanyID = Vessels.CompanyID
 				</cfquery>
-				
+
 				<cfset Variables.VesselID = theBooking.VesselID>
 				<cfset Variables.VesselName = theBooking.VesselName>
 				<cfset Variables.CompanyName = theBooking.CompanyName>
 				<cfset Variables.Start = CreateODBCDate(theBooking.StartDate)>
 				<cfset Variables.End = CreateODBCDate(theBooking.EndDate)>
-				
+
 				<cfif url.referrer EQ "Edit Booking" AND isDefined("form.startDate")>
 					<cfset Variables.Start = CreateODBCDate(form.StartDate)>
 					<cfset Variables.End = CreateODBCDate(form.EndDate)>
 				</cfif>
-				
+
 				<cfinclude template="includes/towerCheck.cfm">
-				
+
 				<cfset Variables.reOrder = BookingTower.ReorderTower()>
 				<cfif NOT Variables.reOrder> <!--- Check if the booking can be slotted in without problems --->
 					<cflock scope="session" type="exclusive" timeout="30">
 						<cfset Session.PassStructure.reOrder = false>
 					</cflock>
 					<p>The submitted booking request conflicts with other bookings.  Would you like to add the booking anyway?</p>
-					
+
 				<cfelse>
 					<cflock timeout="60" throwontimeout="No" type="exclusive" scope="session">
 						<cfset Session.PassStructure = StructNew()>
 						<cfset Session.PassStructure.Tower = BookingTower.getTower()>
 						<cfset Session.PassStructure.reOrder = true>
-					</cflock>	
-					
+					</cflock>
+
 					<p>Please confirm the following information.</p>
 				</cfif>
 							<!--- -------------------------------------------------------------------------------------------- --->
-				<cfform name="BookingConfirm" action="chgStatus_2c_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post">
+				<cfform id="BookingConfirm" action="chgStatus_2c_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post">
 				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 				<table style="width:85%; padding-left:15px;" >
 				<tr>
@@ -148,12 +148,12 @@
 				<tr>
 					<td id="Company" align="left">Company:</td>
 					<td headers="Company"><cfoutput>#Variables.CompanyName#</cfoutput></td>
-				</tr>		
+				</tr>
 				<tr>
 					<td id="Start" align="left">Start Date:</td>
 					<td headers="Start"><cfoutput>#DateFormat(Variables.Start,"mmm dd, yyyy")#</cfoutput></td>
 				</tr>
-				
+
 				<tr>
 					<td id="End" align="left">End Date:</td>
 					<td headers="End"><cfoutput>#DateFormat(Variables.End,"mmm dd, yyyy")#</cfoutput></td>
@@ -183,11 +183,11 @@
 					</td>
 				</tr>
 				</table>
-				
+
 				<cfif NOT Variables.reOrder>
 					<cfinclude template="#RootDir#includes/showConflicts.cfm">
 				</cfif>
-				
+
 				</cfform>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

@@ -94,13 +94,13 @@ var params = {
 
 			<cfoutput>#Language.ScreenMessage#</cfoutput>
 
-			<cfform action="projectCalendar.cfm?lang=#lang#" method="post" enablecab="No" name="procal" preservedata="Yes">
+			<cfform action="projectCalendar.cfm?lang=#lang#" method="post" enablecab="No" id="procal" preservedata="Yes">
 			<cfoutput>
 			<table style="width:60%;">
 				<tr>
 					<td id="From_Header">&nbsp; <LABEL for="From">From Date:</LABEL></td>
 					<td headers="From_Header">
-						<cfinput id="Start" type="text" name="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="Please enter a valid From Date." onChange="setLaterDate('self', 'procal', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'procal', #Variables.BookingLen#)" /> #language.dateform#
+						<cfinput id="Start" type="text" name="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="Please enter a valid From Date." onChange="setLaterDate('procal', #Variables.bookingLen#)" onFocus="setEarlierDate('procal', #Variables.BookingLen#)" /> #language.dateform#
 						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						<a href="javascript:void(0);" onclick="document.procal.startDate.value='';" class="textbutton">clear</a>
 					</td>
@@ -108,7 +108,7 @@ var params = {
 				<tr>
 					<td id="To_Header">&nbsp; <LABEL for="To">To Date:</LABEL></td>
 					<td headers="To_Header">
-						<cfinput id="End" type="text" name="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="Please enter a valid From Date." onChange="setEarlierDate('self', 'procal', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'procal', #Variables.BookingLen#)" /> #language.dateform#
+						<cfinput id="End" type="text" name="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="Please enter a valid From Date." onChange="setEarlierDate('procal', #Variables.bookingLen#)" onFocus="setLaterDate('procal', #Variables.BookingLen#)" /> #language.dateform#
 						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						<a href="javascript:void(0);" onclick="document.procal.endDate.value='';" class="textbutton">clear</a>
 					</td>

@@ -35,7 +35,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -54,14 +54,14 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
 							Also display any errors returned --->
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				</cfif>
-				
-				<cfform name="updateFees" action="updateFees_action.cfm?lang=#lang#">
+
+				<cfform id="updateFees" action="updateFees_action.cfm?lang=#lang#">
 				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the available services and their current fees, and allows the administrator to edit the fees.">
 					<tr>
 						<!---th id="checkHeader" class="feesformheader" width="5%">&nbsp;</th--->
@@ -69,17 +69,17 @@ function EditSubmit ( selectedform )
 						<th id="serviceHeader"><strong>Services and Facilities</strong></th>
 						<th id="feeHeader" style="width:19%;"><strong>Fees</strong></th>
 					</tr>
-					
+
 					<cfoutput query="getFees">
 						<cfif item NEQ "" AND item mod 2>
 							<cfset rowClass = "highlight">
 						<cfelseif item NEQ "">
 							<cfset rowClass = "">
 						</cfif>
-						
+
 						<cfset variables.feeName = "variables." & #abbreviation# & "Fee">
 						<cfset variables.flexName = "variables." & #abbreviation# & "Flex">
-				
+
 						<tr class="#rowClass#">
 							<td id="itemHeader" align="center" valign="top"><strong><label for="#abbreviation#">#item#</label></strong></td>
 							<td id="serviceHeader" align="left" valign="top"><label for="#abbreviation#">#service#</label></td>
@@ -94,12 +94,12 @@ function EditSubmit ( selectedform )
 									</cfif>
 									$<cfinput name="#abbreviation#Fee" type="text" value="#variables.value#" size="9" id="#abbreviation#" CLASS="textField" />
 									<br /><cfinput type="checkbox" name="#abbreviation#Flex" id="#abbreviation#Flex" checked="#variables.checked#"><label for="#abbreviation#Flex" />prices vary</label>
-								</cfif>				
+								</cfif>
 							</td>
 						</tr>
 					</cfoutput>
 				</table>
-				
+
 				<br />
 				<div style="text-align:right;">
 					<!--a href="javascript:EditSubmit('serviceSelect');" class="textbutton">Submit</a-->

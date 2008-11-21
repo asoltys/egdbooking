@@ -25,7 +25,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -52,22 +52,22 @@ function EditSubmit ( selectedform )
 				<cfparam name = "Variables.EndDate" default = "#CreateODBCDate(Form.EndDate)#">
 				<cfparam name = "Variables.NorthJetty" default = "0">
 				<cfparam name = "Variables.SouthJetty" default = "0">
-				
+
 				<cfif IsDefined("Form.NorthJetty")>
 					<cfset Variables.NorthJetty = 1>
 				</cfif>
 				<cfif IsDefined("Form.SouthJetty")>
 					<cfset Variables.SouthJetty = 1>
 				</cfif>
-				
+
 				<!--- <cfset Variables.StartDate = CreateODBCDate(#Variables.StartDate#)>
 				<cfset Variables.EndDate = CreateODBCDate(#Variables.EndDate#)> --->
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<cfoutput>#StructDelete(Session, "Return_Structure")#</cfoutput>
 				</cfif>
-				
-				
+
+
 				<cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT 	NorthJetty, SouthJetty, StartDate, EndDate
 					FROM 	Bookings, Jetties
@@ -79,26 +79,26 @@ function EditSubmit ( selectedform )
 							OR 	(	Bookings.StartDate <= #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate )
 							OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate )
 							)
-					AND		(	
+					AND		(
 								(	NorthJetty = '1' AND '#Variables.NorthJetty#' = '1')
 							OR	( 	SouthJetty = '1' AND '#Variables.SouthJetty#' = '1')
 							)
 				</cfquery>
-				
+
 				<cfset Variables.StartDate = DateFormat(Variables.StartDate, 'mm/dd/yyy')>
 				<cfset Variables.EndDate = DateFormat(Variables.EndDate, 'mm/dd/yyy')>
-				
+
 				<cfset Errors = ArrayNew(1)>
 				<cfset Success = ArrayNew(1)>
 				<cfset Proceed_OK = "Yes">
-				
+
 				<!--- Validate the form data --->
 				<cfif (NOT isDefined("Form.NorthJetty")) AND (NOT isDefined("Form.SouthJetty"))>
 					<cfoutput>#ArrayAppend(Errors, "You must choose at least one of the jetties for maintenance bookings.")#</cfoutput>
 					no sections
 					<cfset Proceed_OK = "No">
 				</cfif>
-				
+
 				<cfif checkDblBooking.RecordCount GT 0>
 					<cfif checkDblBooking.NorthJetty AND checkDblBooking.SouthJetty>
 						<cfoutput>#ArrayAppend(Errors, "There is already a maintenance booking for both jetties from #DateFormat(checkDblBooking.startDate, 'mmm d, yyyy')# to #DateFormat(checkDblBooking.endDate, 'mmm d, yyyy')#.")#</cfoutput>
@@ -109,17 +109,17 @@ function EditSubmit ( selectedform )
 					</cfif>
 					<cfset Proceed_OK = "No">
 				</cfif>
-				
+
 				<cfif Variables.StartDate GT Variables.EndDate>
 					<cfoutput>#ArrayAppend(Errors, "The Start Date must be before the End Date.")#</cfoutput>
 					<cfset Proceed_OK = "No">
 				</cfif>
-				
+
 				<cfif DateDiff("d",Variables.StartDate,Variables.EndDate) LT 0>
 					<cfoutput>#ArrayAppend(Errors, "The minimum booking time is 1 day.")#</cfoutput>
 					<cfset Proceed_OK = "No">
 				</cfif>
-				
+
 				<cfif DateCompare(PacificNow, Variables.StartDate, 'd') EQ 1>
 					<cfoutput>#ArrayAppend(Errors, "The Start Date can not be in the past.")#</cfoutput>
 					<cfset Proceed_OK = "No">
@@ -127,21 +127,21 @@ function EditSubmit ( selectedform )
 					<cfoutput>#ArrayAppend(Errors, "There are section already been booked for maintenance during this time.")#</cfoutput>
 					<cfset Proceed_OK = "No"> --->
 				</cfif>
-				
-				
+
+
 				<cfif Proceed_OK EQ "No">
 					<!--- Save the form data in a session structure so it can be sent back to the form page --->
 					<cfset Session.Return_Structure.StartDate = Variables.StartDate>
 					<cfset Session.Return_Structure.EndDate = Variables.EndDate>
 					<cfset Session.Return_Structure.NorthJetty = Variables.NorthJetty>
 					<cfset Session.Return_Structure.SouthJetty = Variables.SouthJetty>
-							
+
 					<cfset Session.Return_Structure.Errors = Errors>
-					
-					<cflocation url="addJettyMaintBlock.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" addToken="no"> 
+
+					<cflocation url="addJettyMaintBlock.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" addToken="no">
 				</cfif>
-					
-				
+
+
 				<!-- Gets all Bookings that would be affected by the maintenance block --->
 				<cfquery name="checkConflicts" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	NorthJetty, SouthJetty, StartDate, EndDate, V.Name AS VesselName, C.Name AS CompanyName
@@ -155,14 +155,14 @@ function EditSubmit ( selectedform )
 						AND	(<CFIF Variables.NorthJetty>NorthJetty = '1'</CFIF>
 						<CFIF Variables.SouthJetty><CFIF Variables.NorthJetty>OR	</CFIF>SouthJetty = '1'</CFIF>)
 				</cfquery>
-				
+
 				<cfset Variables.StartDate = #CreateODBCDate(Variables.StartDate)#>
 				<cfset Variables.EndDate = #CreateODBCDate(Variables.EndDate)#>
-				
+
 				<CFIF checkConflicts.RecordCount GT 0>
-				
+
 					<p>The requested date range for the maintenance block <b class="red">conflicts</b> with the following bookings:</p>
-				
+
 					<table class="basic smallFont">
 					<tr align="left" valign="top">
 						<th>Period</th>
@@ -170,7 +170,7 @@ function EditSubmit ( selectedform )
 						<th>Company</th>
 						<th style="width:30%;">Sections</th>
 					</tr>
-					
+
 					<cfset counter = 0>
 					<cfoutput query="checkConflicts">
 						<CFIF counter mod 2 eq 1>
@@ -190,16 +190,16 @@ function EditSubmit ( selectedform )
 						<cfset counter = counter + 1>
 					</cfoutput>
 					</table>
-					
+
 					<p>If you would like to go ahead and book the maintenance block, please <b class="red">confirm</b> the following information, or <b class="red">go back</b> to change the information.</p>
-				
+
 				<CFELSE>
 					<p>Please confirm the following maintenance block information.</p>
 				</CFIF>
-				
-				<cfform action="addJettyMaintBlock_action.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
+
+				<cfform action="addJettyMaintBlock_action.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
 				<div style="font-weight:bold;padding-left:85px">Booking:</div>
-				<table style="width:100%; padding-left:100px;" align="center" >	
+				<table style="width:100%; padding-left:100px;" align="center" >
 					<tr>
 						<td align="left" style="width:20%;">Start Date:</td>
 						<td><input type="hidden" name="StartDate" value="<cfoutput>#Variables.StartDate#</cfoutput>)" /><cfoutput>#DateFormat(Variables.StartDate, 'mmm d, yyyy'" />
@@ -217,8 +217,8 @@ function EditSubmit ( selectedform )
 								North Landing Wharf
 							</cfif>
 							<cfif Variables.SouthJetty EQ 1>
-								<cfif Variables.NorthJetty EQ 1> 
-									&amp; 
+								<cfif Variables.NorthJetty EQ 1>
+									&amp;
 								</cfif>
 								South Jetty
 							</cfif>
@@ -237,7 +237,7 @@ function EditSubmit ( selectedform )
 						</td>
 					</tr>
 				</table>
-				
+
 				</cfform>
 			</div>
 

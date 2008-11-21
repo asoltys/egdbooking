@@ -42,7 +42,7 @@
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -62,10 +62,10 @@
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<p>Are you sure you want to deny the confirmation and change this booking's status to tentative?</p>
-				<cfform action="deny_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post" name="deny">
-					
+				<cfform action="deny_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post" id="deny">
+
 					<cfoutput>
 					<input type="hidden" name="BookingID" value="#Form.BookingID#" />
 					<table align="center" style="padding-top:5px;">
@@ -92,8 +92,8 @@
 							<td id="Jetty" align="left">Jetty:</td>
 							<td headers="Jetty"><cfoutput>#Variables.Jetty#</cfoutput></td>
 						</tr>
-					</table>	
-					
+					</table>
+
 					<div style="text-align:center;">
 					<input type="submit" value="submit" class="textbutton" />
 					<input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" value="Cancel" class="textbutton" />

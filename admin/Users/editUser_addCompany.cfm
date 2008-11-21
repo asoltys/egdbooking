@@ -19,11 +19,11 @@
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#">Edit User Profile</a> &gt; 
+			<a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#">Edit User Profile</a> &gt;
 			Create New Company
 			</cfoutput>
 		</p>
@@ -48,13 +48,13 @@
 				<cfparam name="Variables.zip" default="">
 				<cfparam name="Variables.phone" default="">
 				<cfparam name="Variables.fax" default="">
-				
+
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfset Variables.onLoad = "javascript:document.addCompanyForm.name.focus();">
-				
+
 				<cfoutput>
-				<cfform action="editUser_addCompany_action.cfm?lang=#lang#&userID=#url.userID#" name="addCompanyForm" method="post">
+				<cfform action="editUser_addCompany_action.cfm?lang=#lang#&userID=#url.userID#" id="addCompanyForm" method="post">
 					<table align="center">
 						<tr>
 							<td id="companyName"><label for="name">Company Name:</label></td>
@@ -109,5 +109,5 @@
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
-			
+
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

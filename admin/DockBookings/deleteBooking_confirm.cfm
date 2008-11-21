@@ -18,13 +18,13 @@
 
 
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	Bookings.StartDate, Bookings.EndDate, Vessels.Name AS VesselName, Vessels.*, 
-			Users.LastName + ', ' + Users.FirstName AS UserName, 
+	SELECT 	Bookings.StartDate, Bookings.EndDate, Vessels.Name AS VesselName, Vessels.*,
+			Users.LastName + ', ' + Users.FirstName AS UserName,
 			Companies.Name AS CompanyName, Docks.Section1, Docks.Section2, Docks.Section3,
 			Docks.Status
 	FROM 	Bookings INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
-			INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID 
-			INNER JOIN Users ON Bookings.UserID = Users.UserID 
+			INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
+			INNER JOIN Users ON Bookings.UserID = Users.UserID
 			INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
 	WHERE	Bookings.BookingID = '#Variables.BookingID#'
 </cfquery>
@@ -50,7 +50,7 @@
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -70,7 +70,7 @@
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<cfif getBooking.Status EQ 'c' AND DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1>
 					<cfinclude template="includes/getConflicts.cfm">
 					<cfset conflictArray = getConflicts_remConf(Variables.BookingID)>
@@ -79,16 +79,16 @@
 						<cfinclude template="includes/displayWaitList.cfm">
 					</cfif>
 				</cfif>
-				
+
 				<cfif isDefined("url.date")>
 					<cfset variables.dateValue = "&date=#url.date#">
 				<cfelse>
 					<cfset variables.dateValue = "">
 				</cfif>
-				
-				<cfform action="deleteBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" name="delBookingConfirm">
+
+				<cfform action="deleteBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" id="delBookingConfirm">
 					<p align="center">Are you sure you want to <cfoutput>#variables.action#</cfoutput> the following booking?</p>
-					
+
 					<input type="hidden" name="BookingID" value="<cfoutput>#Variables.BookingID#</cfoutput>" />
 					<cfoutput query="getBooking">
 					<table align="center" style="padding-top:10px;padding-bottom:10px;padding-left:30px;" style="width:70%;">
@@ -143,9 +143,9 @@
 						<input type="submit" name="submitForm" class="textbutton" value="#variables.action#" />
 						<input type="button" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" value="Back" class="textbutton" />
 					</div>
-				
+
 					</cfoutput>
-				
+
 				</cfform>
 
 			</div>

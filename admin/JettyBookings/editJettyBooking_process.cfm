@@ -27,7 +27,7 @@
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -45,13 +45,13 @@
 					Edit Jetty Booking Information
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
-					
+
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<!--- Error Validation ------------------------------------------------------------------------------------------------->
 				<cfset Errors = ArrayNew(1)>
 				<cfset Proceed_OK = "Yes">
-				
+
 				<cfparam name = "Form.StartDate" default="">
 				<cfparam name = "Form.EndDate" default="">
 				<cfparam name = "Variables.BookingID" default="#Form.BookingID#">
@@ -60,25 +60,25 @@
 				<cfparam name = "Form.VesselID" default="">
 				<cfparam name = "Form.UserID" default="">
 				<cfparam name = "Variables.UserID" default = "#Form.UserID#">
-				
+
 				<cfset Variables.Jetty = Form.Jetty>
-				
+
 				<cfif (NOT IsDefined("Form.BookingID") OR Form.BookingID eq '') AND (NOT IsDefined("URL.BookingID") OR URL.BookingID eq '')>
 					<cflocation addtoken="no" url="#RootDir#admin/DockBookings/bookingManage.cfm?#urltoken#">
 				</cfif>
-				
+
 				<cfif Variables.StartDate EQ "">
 					<cfoutput>#ArrayAppend(Errors, "The Start Date has not been entered in.")#</cfoutput>
 					<cfset Proceed_OK = "No">
 				</cfif>
-				
+
 				<cfset Variables.StartDate = CreateODBCDate(#Variables.StartDate#)>
 				<cfset Variables.EndDate = CreateODBCDate(#Variables.EndDate#)>
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<cfoutput>#StructDelete(Session, "Return_Structure")#</cfoutput>
 				</cfif>
-				
+
 				<cfquery name="getData" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT 	Vessels.VesselID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName, Jetties.Status
 					FROM 	Vessels, Companies, Bookings, Jetties
@@ -95,12 +95,12 @@
 					WHERE 	UserID = '#Variables.UserID#'
 				</cfquery>
 				<cfset Variables.VesselID = getData.VesselID>
-				
+
 				<!---Check to see that vessel hasn't already been booked during this time--->
 				<cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT 	Bookings.VesselID, Name, StartDate, EndDate
-					FROM 	Bookings 
-								INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID 
+					FROM 	Bookings
+								INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
 								INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
 					WHERE 	Bookings.VesselID = '#Variables.VesselID#'
 					AND 	Bookings.BookingID != '#Form.BookingID#'
@@ -109,41 +109,41 @@
 							OR 	(	Bookings.StartDate <= #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate )
 							OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate)
 							)
-					AND		Bookings.Deleted = 0 
+					AND		Bookings.Deleted = 0
 					<cfif IsDefined("Form.Jetty") AND form.Jetty EQ "north">
-						AND 	Jetties.NorthJetty = 1 
+						AND 	Jetties.NorthJetty = 1
 					<cfelse>
-						AND 	Jetties.SouthJetty = 1 
+						AND 	Jetties.SouthJetty = 1
 					</cfif>
 				</cfquery>
-				
+
 				<cfset Variables.StartDate = DateFormat(Variables.StartDate, 'mm/dd/yyyy')>
 				<cfset Variables.EndDate = DateFormat(Variables.EndDate, 'mm/dd/yyyy')>
 				<cfset Variables.TheBookingDate = CreateODBCDate(#Form.bookingDate#)>
 				<cfset Variables.TheBookingTime = CreateODBCTime(#Form.bookingTime#)>
-				
+
 				<!--- Validate the form data --->
 				<cfif Variables.StartDate GT Variables.EndDate>
 					<cfoutput>#ArrayAppend(Errors, "The Start Date must be before the End Date.")#</cfoutput>
 					<cfset Proceed_OK = "No">
 				</cfif>
-				
+
 				<cfif DateDiff("d",Variables.StartDate,Variables.EndDate) LT 0>
 					<cfoutput>#ArrayAppend(Errors, "The minimum booking time is 1 day.")#</cfoutput>
 					<cfset Proceed_OK = "No">
 				</cfif>
-				
+
 				<cfif checkDblBooking.RecordCount GT 0>
 					<!---<cfoutput>#ArrayAppend(Errors, "#checkDblBooking.Name# has already been booked from #dateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# to #dateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.")#</cfoutput>--->
 					<cfoutput><div style="border: 1px solid ##1F1FC9; border-style:dashed; background: ##F5F5F5; padding:25px;">#checkDblBooking.Name# has already been booked from #dateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# to #dateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.</div></cfoutput>
 					<cfset Proceed_OK = "Yes">
 				</cfif>
-				
+
 				<cfif getData.Width GTE Variables.MaxWidth OR getData.Length GTE Variables.MaxLength>
 					<cfoutput>#ArrayAppend(Errors, "The vessel, #getData.VesselName#, is too large for the drydock.")#</cfoutput>
 					<cfset Proceed_OK = "No">
 				</cfif>
-				
+
 				<cfif Proceed_OK EQ "No">
 					<!--- Save the form data in a session structure so it can be sent back to the form page --->
 					<cfset Session.Return_Structure.StartDate = Form.StartDate>
@@ -160,18 +160,18 @@
 						<cfset Session.Return_Structure.NorthJetty = 0>
 						<cfset Session.Return_Structure.SouthJetty = 1>
 					</cfif>
-					
+
 					<cfset Session.Return_Structure.Submitted = Form.Submitted>
 					<cfset Session.Return_Structure.Errors = Errors>
 					<cfif #Form.submitForm# neq 'overwrite'>
-					<cflocation url="editJettyBooking.cfm?#urltoken##variables.dateValue#" addToken="no"> 
+					<cflocation url="editJettyBooking.cfm?#urltoken##variables.dateValue#" addToken="no">
 					</cfif>
 				</cfif>
-				
+
 				<!---------------------------------------------------------------------------------------------------------------------->
-				
+
 				<p>Please confirm the following information.</p>
-				<cfform action="editJettyBooking_action.cfm?#urltoken#&BookingID=#form.BookingID#&editStart=#form.startDate#&editEnd=#form.endDate#&jetty=#form.jetty#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="editJettyBooking_action.cfm?#urltoken#&BookingID=#form.BookingID#&editStart=#form.startDate#&editEnd=#form.endDate#&jetty=#form.jetty#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
 				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 				<div style="font-weight:bold;">Booking:</div>
 				<table style="width:100%; padding-left:15px;" align="center" >
@@ -182,7 +182,7 @@
 					<tr>
 						<td id="Company" align="left">Company:</td>
 						<td headers="Company"><cfoutput>#getData.CompanyName#</cfoutput></td>
-					</tr>			
+					</tr>
 					<tr>
 						<td id="Agent" align="left">Agent:</td>
 						<td headers="Agent"><input type="hidden" name="userID" value="<cfoutput>#Variables.userID#</cfoutput>" />
@@ -224,30 +224,12 @@
 						</td>
 					</tr>
 				</table>
-				
+
 				<br />
 				<div style="text-align:center;">
 						<input type="submit" value="Confirm" class="textbutton" />
-				
-					<!----cfform name="backForm" action="editJettybooking.cfm?lang=#lang#">
-						<cfoutput>
-							<input type="hidden" name="vesselID" value="#getData.vesselID#" />
-							<input type="hidden" name="userID" value="#form.userID#" />
-							<input type="hidden" name="startDate" value="#form.startDate#" />
-							<input type="hidden" name="endDate" value="#form.endDate#" />
-							<input type="hidden" name="jetty" value="#form.jetty#" />
-							<cfif isDefined("form.Confirmed")>
-								<input type="hidden" name="confirmed" value="#form.confirmed#" />
-							<cfelse>
-								<input type="hidden" name="confirmed" value="off" />
-							</cfif>
-							<input type="hidden" name="companyID" value="#form.companyID#" />
-							<input type="submit" value="Back" class="textbutton" />
-						</cfoutput>
-					</cfform---->
 						<cfoutput><input type="button" value="Back" class="textbutton" onclick="self.location.href='editJettyBooking.cfm?#urltoken#&bookingID=#form.bookingID##variables.dateValue#';" />
 						<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#form.bookingID##variables.dateValue####form.bookingID#';" />
-						<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
 				</div>
 				</cfform>
 

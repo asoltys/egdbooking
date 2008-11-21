@@ -180,7 +180,7 @@ function EditSubmit ( selectedform )
 					</form>
 				</cfoutput>
 
-				<cfform action="editBooking_process.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" method="post" enablecab="No" name="editBookingForm" preservedata="Yes">
+				<cfform action="editBooking_process.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" method="post" enablecab="No" id="editBookingForm" preservedata="Yes">
 				<cfoutput>
 				<input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 
@@ -205,7 +205,7 @@ function EditSubmit ( selectedform )
 						<td id="Start">Start Date:</td>
 						<td headers="Start">
 							<cfoutput>
-							<cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'editBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'editBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
+							<cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('editBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('editBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
@@ -213,7 +213,7 @@ function EditSubmit ( selectedform )
 						<td id="End">End Date:</td>
 						<td headers="End">
 							<cfoutput>
-							<cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" onChange="setEarlierDate('self', 'editBookingForm', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'editBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
+							<cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" onChange="setEarlierDate('editBookingForm', #Variables.bookingLen#)" onFocus="setLaterDate('editBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>

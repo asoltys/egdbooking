@@ -122,7 +122,7 @@ function EditSubmit ( selectedform )
 
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
-				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_confirm.cfm?lang=#lang#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_confirm.cfm?lang=#lang#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
 
 				<table style="width:100%; padding-left:10px;" >
 					<tr>
@@ -158,14 +158,14 @@ function EditSubmit ( selectedform )
 					<tr>
 						<td id="start_A"><label for="startDateA">#language.StartDate#:</label></td>
 						<td headers="start_A">
-							<cfinput id="startDateA" name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" class="textField" onChange="setLaterDate('self', 'bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreq', #Variables.bookingLen#)" /> #language.dateform#
+							<cfinput id="startDateA" name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" class="textField" onChange="setLaterDate('bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreq', #Variables.bookingLen#)" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
 						<td id="end_A"><label for="endDateA">#language.EndDate#:</label></td>
 						<td headers="end_A">
-							<cfinput id="endDateA" type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#" class="textField" required="yes" message="#language.InvalidEndError#" validate="date" onChange="setLaterDate('self', 'bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreq', #Variables.bookingLen#)" /> #language.dateform#
+							<cfinput id="endDateA" type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#" class="textField" required="yes" message="#language.InvalidEndError#" validate="date" onChange="setLaterDate('bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreq', #Variables.bookingLen#)" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
@@ -195,7 +195,7 @@ function EditSubmit ( selectedform )
 
 				<cfoutput>
 				<p>#language.daysToBook#  #language.dateInclusive#</p>
-				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_confirm2.cfm?lang=#lang#" method="post" enablecab="No" name="bookingreqB" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_confirm2.cfm?lang=#lang#" method="post" enablecab="No" id="bookingreqB" preservedata="Yes">
 				<table style="width:100%; padding-left:10px;" >
 					<tr>
 						<td id="comp">
@@ -223,14 +223,14 @@ function EditSubmit ( selectedform )
 					<tr>
 						<td id="start_B"><label for="StartDateB">#language.StartDate#:</label></td>
 						<td headers="start_B">
-							<cfinput id="StartDateB" name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" class="textField" onChange="setLaterDate('self', 'bookingreqB', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreqB', #Variables.bookingLen#)" /> #language.dateform#
+							<cfinput id="StartDateB" name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" class="textField" onChange="setLaterDate('bookingreqB', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreqB', #Variables.bookingLen#)" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
 						<td id="end_B"><label for="EndDateB">#language.EndDate#:</label></td>
 						<td headers="end_B">
-							<cfinput id="EndDateB" name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" class="textField" onChange="setLaterDate('self', 'bookingreqB', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreqB', #Variables.bookingLen#)" /> #language.dateform#
+							<cfinput id="EndDateB" name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" class="textField" onChange="setLaterDate('bookingreqB', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreqB', #Variables.bookingLen#)" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>

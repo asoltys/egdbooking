@@ -20,16 +20,16 @@
 <CFINCLUDE template="#RootDir#includes/checkFilledIn_js.cfm">
 
 <div class="breadcrumbs">
-	<a href="<cfoutput>http://www.pwgsc.gc.ca/home-#lang#.html</cfoutput>">PWGSC</a> &gt; 
-	Pacific Region &gt; 
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/index-e.html">Esquimalt Graving Dock</a> &gt; 
+	<a href="<cfoutput>http://www.pwgsc.gc.ca/home-#lang#.html</cfoutput>">PWGSC</a> &gt;
+	Pacific Region &gt;
+	<a href="http://www.pwgsc.gc.ca/pacific/egd/index-e.html">Esquimalt Graving Dock</a> &gt;
   <cfoutput>
 		<a href="#RootDir#reserve-book-#lang#.cfm">Booking</a> &gt;<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-			<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+			<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 		<CFELSE>
 			 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 		</CFIF>
-	<a href="#RootDir#admin/Users/addNewUserCompany.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#">Create New User</a> &gt; 
+	<a href="#RootDir#admin/Users/addNewUserCompany.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#">Create New User</a> &gt;
 	</cfoutput>
 	Create New Company
 </div>
@@ -52,7 +52,7 @@
 <cfinclude template="#RootDir#includes/getStructure.cfm">
 
 <cfoutput>
-<cfform action="addCompany_action.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#" name="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
+<cfform action="addCompany_action.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#" id="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
 	}">
 	<table align="center">
 		<tr>

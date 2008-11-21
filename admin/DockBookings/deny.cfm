@@ -46,7 +46,7 @@
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -64,7 +64,7 @@
 					Change Booking Status
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
-					
+
 <CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 
 <cfif getBooking.Status EQ "C">
@@ -76,7 +76,7 @@
 	</cfif>
 </cfif>
 
-<cfform action="deny_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post" name="deny">
+<cfform action="deny_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post" id="deny">
 	Are you sure you want to deny the confirmation and change this booking's status to tentative?
 <br />
 <br />
@@ -124,9 +124,9 @@
 			<td id="End">End Date:</td>
 			<td headers="End">#DateFormat(Variables.End, "mmm d, yyyy")#</td>
 		</tr>
-	</table>	
+	</table>
 	</cfoutput>
-	
+
 	<div style="text-align:center;"><p>
 	<input type="submit" value="submit" class="textbutton" />
 	<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" value="Cancel" class="textbutton" />

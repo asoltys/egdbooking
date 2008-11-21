@@ -113,7 +113,7 @@
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 
-				<cfform action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#&amp;companyID=#variables.companyID#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#&amp;companyID=#variables.companyID#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
 				<table style="width:100%; padding-left:10px;" >
 					<tr>
 						<td style="width:30%;" id="Agent">
@@ -153,14 +153,14 @@
 							<label for="start">#language.StartDate#:</label>
 						</td>
 						<td headers="StartDate">
-							<cfinput id="start" name="startDate" type="text" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" class="textField" onChange="setLaterDate('self', 'bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreq', #Variables.bookingLen#)" /> #language.dateform#
+							<cfinput id="start" name="startDate" type="text" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" class="textField" onChange="setLaterDate('bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreq', #Variables.bookingLen#)" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
 						<td id="EndDate"><label for="end">#language.EndDate#:</label></td>
 						<td headers="EndDate">
-							<cfinput id="end" name="endDate" type="text" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" class="textField" onChange="setLaterDate('self', 'bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreq', #Variables.bookingLen#)" /> #language.dateform#
+							<cfinput id="end" name="endDate" type="text" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" class="textField" onChange="setLaterDate('bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreq', #Variables.bookingLen#)" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>

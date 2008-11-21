@@ -21,7 +21,7 @@
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -56,7 +56,7 @@
 </cfif>
 
 <div style="text-align:center;">
-	<cfform action="delAdministrator_confirm.cfm?lang=#lang#" method="post" name="delAdministratorForm">
+	<cfform action="delAdministrator_confirm.cfm?lang=#lang#" method="post" id="delAdministratorForm">
 		<cfselect name="UserID" query="getAdminList" value="UserID" display="UserName" selected="#variables.userID#" />
 		<input type="submit" value="Remove" class="textbutton" />
 		<cfoutput><input type="button" value="Cancel" onclick="self.location.href='../menu.cfm?lang=#lang#'" class="textbutton" />

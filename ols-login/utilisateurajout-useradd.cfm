@@ -96,7 +96,7 @@ function EditSubmit ( selectedform )
 						<cfelse>
 						<cfset Variables.action = "entrpdemande-comprequest.cfm?lang=#lang#">
 					</cfif>
-					<cfform action="#Variables.action#" name="addUserForm" method="post">
+					<cfform action="#Variables.action#" id="addUserForm" method="post">
 						<table align="center" style="width:100%;" style="padding-left:10px;">
 							<tr>
 								<td id="firstname_header"><label for="firstname">#language.FirstName#:</label></td>

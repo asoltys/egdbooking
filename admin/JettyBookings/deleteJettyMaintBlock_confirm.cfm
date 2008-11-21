@@ -35,7 +35,7 @@
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -55,13 +55,13 @@
 					</a></h1>
 
 				<cfinclude template="#RootDir#includes/admin_menu.cfm">
-				
-				
+
+
 				<p>Please confirm the following maintenance block information.</p>
-				<cfform action="deleteJettyMaintBlock_action.cfm?#urltoken#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="deleteJettyMaintBlock_action.cfm?#urltoken#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
 				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
-				
-				<table style="width:80%;" align="center">	
+
+				<table style="width:80%;" align="center">
 					<tr><td align="left"><div style="font-weight:bold;">Booking:</div></td></tr>
 					<tr>
 						<td id="Start" align="left" style="width:25%;">Start Date:</td>
@@ -80,15 +80,15 @@
 								North Landing Wharf
 							</cfif>
 							<cfif Variables.SouthJetty EQ 1>
-								<cfif Variables.NorthJetty EQ 1> 
-									&amp; 
+								<cfif Variables.NorthJetty EQ 1>
+									&amp;
 								</cfif>
 								South Jetty
 							</cfif>
 						</td>
 					</tr>
 				</table>
-				
+
 				<br />
 				<table style="width:100%;" cellspacing="0" cellpadding="1" border="0" align="center">
 					<tr>
@@ -98,7 +98,7 @@
 						</td>
 					</tr>
 				</table>
-				
+
 				</cfform>
 
 			</div>

@@ -19,10 +19,10 @@
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->
 	<cfset Session.Return_Structure.CompanyID = Form.CompanyID>
 	<cfset Session.Return_Structure.UserID = Form.UserID>
-			
+
 	<cfset Session.Return_Structure.Errors = Errors>
-	
- 	<cflocation url="delUser.cfm?lang=#lang#" addToken="no"> 
+
+ 	<cflocation url="delUser.cfm?lang=#lang#" addToken="no">
 </cfif>
 
 <cfhtmlhead text="
@@ -39,18 +39,18 @@
 		FROM	Users
 		WHERE	UserID = #form.UserID#
 	</cfquery>
-	
+
 	<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Name AS CompanyName
 		FROM	Companies
 		WHERE	CompanyID = #form.CompanyID#
 	</cfquery>
-	
+
 	<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Companies.Name AS CompanyName
 		FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
 				INNER JOIN Companies ON UserCompanies.companyID = Companies.companyID
-		WHERE	Users.UserID = #form.UserID# AND UserCompanies.Approved = 1 
+		WHERE	Users.UserID = #form.UserID# AND UserCompanies.Approved = 1
 				AND UserCompanies.Deleted = 0 AND Companies.Approved = 1 AND Companies.Deleted = 0
 	</cfquery>
 </cflock>
@@ -69,7 +69,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -87,16 +87,16 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
 							Also display any errors returned --->
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				</cfif>
-				
+
 				Are you sure you want to delete <cfoutput><strong>#getUser.UserName#</strong></cfoutput>?
 				<!---All vessels associated with this user will also be deleted, along with all bookings associated with those vessels.--->
-				
+
 				<br /><br />
 				<cfoutput query="getUser">
 					<table align="center">
@@ -138,8 +138,8 @@ function EditSubmit ( selectedform )
 						</cfloop>--->
 					</table>
 				</cfoutput>
-				
-				<cfform action="delUser_action.cfm?lang=#lang#" method="post" name="delUserConfirmForm">
+
+				<cfform action="delUser_action.cfm?lang=#lang#" method="post" id="delUserConfirmForm">
 					<div style="text-align:center;">
 						<!---a href="javascript:EditSubmit('delUserConfirmForm');" class="textbutton">Delete</a>
 						<a href="delUser.cfm" class="textbutton">Back</a>
@@ -149,7 +149,7 @@ function EditSubmit ( selectedform )
 						<cfoutput><input type="button" value="Back" onclick="self.location.href='delUser.cfm?lang=#lang#'" class="textbutton" />
 						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" />
 					</div>
-					
+
 					<input type="hidden" name="userID" value="<cfoutput>#form.UserID#</cfoutput>" />
 				</cfform>
 

@@ -70,9 +70,9 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<cfoutput> 
+				<cfoutput>
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-			
+
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfinclude template="#RootDir#includes/restore_params.cfm">
 				<cfif isDefined("session.form_structure")>
@@ -84,8 +84,8 @@
 					<cfset variables.lloydsid = form.lloydsId>
 					<cfset variables.tonnage = form.tonnage>
 				</cfif>
-			
-				<cfform action="#RootDir#reserve-book/navireajout-vesseladd_confirm.cfm?lang=#lang#&CompanyID=#CompanyID#" method="post" name="addVessel">
+
+				<cfform action="#RootDir#reserve-book/navireajout-vesseladd_confirm.cfm?lang=#lang#&CompanyID=#CompanyID#" method="post" id="addVessel">
 				<table align="center">
 				<tr>
 					<td id="CompanyName" style="width:40%;"><label for="companyID">#language.CompanyName#:</label></td>

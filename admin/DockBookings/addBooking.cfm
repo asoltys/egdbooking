@@ -81,7 +81,7 @@ function EditSubmit ( selectedform )
 					</cfif>
 				</cfif>
 
-				<cfform action="addBooking.cfm?#urltoken#" method="post" name="chooseUserForm">
+				<cfform action="addBooking.cfm?#urltoken#" method="post" id="chooseUserForm">
 					<p><label for="selectCompany">Select Company:</label> <cfselect query="getCompanies" id="selectCompany" name="compID" value="CompanyID" display="Name" selected="#Variables.compID#" />
 					&nbsp;&nbsp;&nbsp;
 					<!--a href="javascript:EditSubmit('chooseUserForm');" class="textbutton">Submit</a-->
@@ -96,7 +96,7 @@ function EditSubmit ( selectedform )
 						<cfset Session.Company = "#form.compID#">
 					</cflock>
 
-					<cfform action="addBooking_process.cfm?#urltoken#" method="post" name="addBookingForm">
+					<cfform action="addBooking_process.cfm?#urltoken#" method="post" id="addBookingForm">
 					<cfoutput>
 
 					<cfquery name="getVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -149,7 +149,7 @@ function EditSubmit ( selectedform )
 								<td id="startDate"><label for="start">Start Date:</label></td>
 								<td headers="startDate">
 									<cfoutput>
-									<cfinput name="startDate" type="text" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'addBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'addBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
+									<cfinput name="startDate" type="text" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('addBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('addBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 									<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 								</td>
 							</tr>

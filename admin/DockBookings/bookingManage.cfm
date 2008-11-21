@@ -140,7 +140,7 @@ function EditSubmit ( selectedform )
 				<cfinclude template="#RootDir#includes/calendar_js.cfm">
 
 				<p>Please enter a range of dates for which you would like to see the bookings:</p>
-				<form action="bookingManage.cfm?lang=#lang#" method="get" name="dateSelect">
+				<form action="bookingManage.cfm?lang=#lang#" method="get" id="dateSelect">
 					<input type="hidden" name="lang" value="<cfoutput>#lang#</cfoutput>" />
 					<table align="center" style="width: 100%;" >
 						<tr>
@@ -149,7 +149,7 @@ function EditSubmit ( selectedform )
 							</td>
 							<td headers="" colspan="2">
 								<cfoutput>
-									<input type="text" name="startDate" size="15" maxlength="10" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" class="textField" onchange="setLaterDate('self', 'dateSelect', #Variables.bookingLen#)" onfocus="setEarlierDate('self', 'dateSelect', #Variables.bookingLen#)" /> #language.dateform#
+									<input type="text" name="startDate" size="15" maxlength="10" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" class="textField" onchange="setLaterDate('dateSelect', #Variables.bookingLen#)" onfocus="setEarlierDate('dateSelect', #Variables.bookingLen#)" /> #language.dateform#
 								</cfoutput>
 								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 							</td>
@@ -160,7 +160,7 @@ function EditSubmit ( selectedform )
 							</td>
 							<td headers="" colspan="2">
 								<cfoutput>
-									<input type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" class="textField" onchange="setEarlierDate('self', 'dateSelect', #Variables.bookingLen#)" onfocus="setLaterDate('self', 'dateSelect', #Variables.bookingLen#)" /> #language.dateform#
+									<input type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" class="textField" onchange="setEarlierDate('dateSelect', #Variables.bookingLen#)" onfocus="setLaterDate('dateSelect', #Variables.bookingLen#)" /> #language.dateform#
 								</cfoutput>
 								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 							</td>
@@ -195,7 +195,7 @@ function EditSubmit ( selectedform )
 				<cfif isdefined('proceed') and proceed EQ "yes">
 					<cfoutput>
 					<cfparam name="form.expandAll" default="">
-					<form action="bookingManage.cfm?#urltoken#" method="post" name="expandAll">
+					<form action="bookingManage.cfm?#urltoken#" method="post" id="expandAll">
 						<input type="hidden" name="startDate" value="#variables.startdate#" />
 						<input type="hidden" name="endDate" value="#variables.endDate#" />
 						<cfif form.expandAll NEQ "yes">
@@ -397,7 +397,7 @@ function EditSubmit ( selectedform )
 											<tr class="containsbutton">
 												<td><label for="EndHighlight">Highlight for:</label></td>
 												<td>
-												<cfform action="highlight_action.cfm?BookingID=#BookingID#" method="post" name="updateHighlight">
+												<cfform action="highlight_action.cfm?BookingID=#BookingID#" method="post" id="updateHighlight">
 												<cfif EndHighlight NEQ "">
 												<cfset datediffhighlight = DateDiff("d", PacificNow, EndHighlight)>
 												<cfset datediffhighlight = datediffhighlight+"1">

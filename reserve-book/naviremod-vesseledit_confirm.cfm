@@ -109,7 +109,7 @@
 					<div id="actionErrors">#language.Note# (#Variables.MaxLength#m x #Variables.MaxWidth#m).</div>
 				</cfif>
 				</cfoutput>
-				<cfform name="editVessel" action="#RootDir#reserve-book/naviremod-vesseledit_action.cfm?lang=#lang#&CompanyID=#url.companyID#" method="post">
+				<cfform id="editVessel" action="#RootDir#reserve-book/naviremod-vesseledit_action.cfm?lang=#lang#&CompanyID=#url.companyID#" method="post">
 				<cfoutput>
 					<table align="center">
 						<tr>
@@ -161,7 +161,7 @@
 					</table>
 				</cfoutput>
 				</cfform>
-			
+
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

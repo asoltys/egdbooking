@@ -37,7 +37,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -57,12 +57,12 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<div style="text-align:center;">
-					<p>Are you sure you want to approve <cfoutput><strong>#getUser.FirstName# #getUser.LastName#</strong></cfoutput>'s 
+					<p>Are you sure you want to approve <cfoutput><strong>#getUser.FirstName# #getUser.LastName#</strong></cfoutput>'s
 						request to join <cfoutput><strong>#getCompany.companyName#</strong></cfoutput>?</p>
 					<cfoutput>
-					<form action="userApprove_action.cfm?lang=#lang#" name="approveUser" method="post">
+					<form action="userApprove_action.cfm?lang=#lang#" id="approveUser" method="post">
 						<input type="hidden" name="UserID" value="#Form.UserID#" />
 						<input type="hidden" name="CompanyId" value="#Form.CompanyId#" />
 						<!---a href="javascript:EditSubmit('rejectUser');" class="textbutton">Submit</a--->

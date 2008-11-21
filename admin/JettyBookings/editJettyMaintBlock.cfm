@@ -112,7 +112,7 @@ function EditSubmit ( selectedform )
 					</cfif>
 				</cfif>
 				<!--- -------------------------------------------------------------------------------------------- --->
-				<cfform name="EditJettyMaintBlock" action="editJettyMaintBlock_process.cfm?#urltoken#" method="post">
+				<cfform id="EditJettyMaintBlock" action="editJettyMaintBlock_process.cfm?#urltoken#" method="post">
 				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 				<table style="width:100%;">
 				<tr>

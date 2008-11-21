@@ -35,11 +35,11 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#form.userID#">Edit User Profile</a> &gt; 
+			<a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#form.userID#">Edit User Profile</a> &gt;
 			Confirm Remove Company</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
@@ -54,7 +54,7 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
 							Also display any errors returned --->
@@ -62,19 +62,19 @@ function EditSubmit ( selectedform )
 				</cfif>
 
 				<cfoutput>
-				<cfform action="removeUserCompany_action.cfm?lang=#lang#&userID=#form.userID#" method="post" name="remCompanyConfirmForm">
+				<cfform action="removeUserCompany_action.cfm?lang=#lang#&userID=#form.userID#" method="post" id="remCompanyConfirmForm">
 					<div style="text-align:center;">Are you sure you want to remove <strong>#getUser.UserName#</strong> from <strong>#getCompany.Name#</strong>?</div>
-					
+
 					<p><div style="text-align:center;">
 						<!--a href="javascript:EditSubmit('remCompanyConfirmForm');" class="textbutton">Submit</a>
 						<a href="editUser.cfm?userID=#form.userID#" class="textbutton">Cancel</a-->
 						<input type="submit" name="submitForm" value="Remove" class="textbutton" />
 						<input type="button" name="cancel" value="Cancel" class="textbutton" onclick="self.location.href='editUser.cfm?lang=#lang#&userID=#form.userID#'" />
 					</div></p>
-					
+
 					<input type="hidden" name="CompanyID" value="#form.CompanyID#" />
 					<input type="hidden" name="userID" value="#form.userID#" />
-				</cfform>	
+				</cfform>
 				</cfoutput>
 
 			</div>

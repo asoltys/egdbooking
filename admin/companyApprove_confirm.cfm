@@ -59,7 +59,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -79,11 +79,11 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<cfoutput>
 				<div style="text-align:center;">
 					<p>Are you sure you want to approve <strong>#getCompany.companyName#</strong>?</p>
-					<form action="companyApprove_action.cfm?lang=#lang#" name="approveCompany" method="post">
+					<form action="companyApprove_action.cfm?lang=#lang#" id="approveCompany" method="post">
 						<input type="hidden" name="CompanyId" value="#Form.CompanyId#" />
 						<input type="hidden" name="abbrev" value="#Form.abbrev#" />
 						<!---a href="javascript:EditSubmit('rejectUser');" class="textbutton">Submit</a--->
@@ -92,9 +92,9 @@ function EditSubmit ( selectedform )
 					</form>
 				</div>
 				</cfoutput>
-				
+
 			</div>
-			
+
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 

@@ -25,15 +25,15 @@
 	<CFSET form.companyID = url.companyID>
 </CFIF>
 <!---<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
-	
+
 	<cfparam name="form.companyID" default="#session.companyID#">
-	
+
 	<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT *
 		FROM Companies
 		WHERE companyID = #form.companyID#
 	</cfquery>
-	
+
 </cflock>--->
 
 <cfparam name="variables.name" default="">
@@ -64,7 +64,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -83,20 +83,20 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
 							Also display any errors returned --->
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				</cfif>
-				
-				<cfform action="editCompany.cfm?lang=#lang#" method="post" name="chooseCompanyForm">
+
+				<cfform action="editCompany.cfm?lang=#lang#" method="post" id="chooseCompanyForm">
 					<cfselect name="companyID" query="getCompanyList" value="companyID" display="Name" selected="#form.companyID#" />
 					<!---a href="javascript:EditSubmit('chooseCompanyForm');" class="textbutton">View</a--->
 					<input type="submit" value="View" class="textbutton" />
 					<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='menu.cfm?lang=#lang#'" />
 				</cfform>
-				
+
 				<cfif form.CompanyID NEQ "">
 					<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT	*
@@ -106,11 +106,11 @@ function EditSubmit ( selectedform )
 							AND	Approved = '1'
 						ORDER BY	Name
 					</cfquery>
-				
+
 					<CFIF getCompany.RecordCount eq 0>
 						<CFLOCATION addtoken="no" url="editCompany.cfm">
 					</CFIF>
-					
+
 					<cfif NOT isDefined("url.companyID")>
 						<cfoutput query="getCompany">
 							<CFSET "Variables.name" = Name>
@@ -125,9 +125,9 @@ function EditSubmit ( selectedform )
 							<CFSET "Variables.abbr" = Abbreviation>
 						</cfoutput>
 					</cfif>
-					
+
 					<cfoutput>
-					<cfform action="editCompany_action.cfm?lang=#lang#" method="post" name="editCompanyForm" onsubmit="if(!checkFilledIn('editCompanyForm')) { return false;
+					<cfform action="editCompany_action.cfm?lang=#lang#" method="post" id="editCompanyForm" onsubmit="if(!checkFilledIn('editCompanyForm')) { return false;
 	}">
 					<table align="center">
 						<tr>
@@ -178,7 +178,7 @@ function EditSubmit ( selectedform )
 							</td>
 						</tr>
 					</table>
-				
+
 					</cfform>
 					</cfoutput>
 				</CFIF>

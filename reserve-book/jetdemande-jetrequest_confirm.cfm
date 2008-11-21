@@ -41,7 +41,7 @@
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.NewBooking#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
- 
+
 
 <cfif IsDefined("Session.Return_Structure")>
 	<cfoutput>#StructDelete(Session, "Return_Structure")#</cfoutput>
@@ -77,17 +77,17 @@
 				INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
 				INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
 	WHERE 	Bookings.VesselID = '#Form.VesselID#'
-	AND 	
-	<!---Explanation of hellishly long condition statement: The client wants to be able to overlap the start and end dates 
-		of bookings, so if a booking ends on May 6, another one can start on May 6.  This created problems with single day 
-		bookings, so if you are changing this query...watch out for them.  The first 3 lines check for any bookings longer than 
-		a day that overlaps with the new booking if it is more than a day.  The next 4 lines check for single day bookings that 
+	AND
+	<!---Explanation of hellishly long condition statement: The client wants to be able to overlap the start and end dates
+		of bookings, so if a booking ends on May 6, another one can start on May 6.  This created problems with single day
+		bookings, so if you are changing this query...watch out for them.  The first 3 lines check for any bookings longer than
+		a day that overlaps with the new booking if it is more than a day.  The next 4 lines check for single day bookings that
 		fall within a booking that is more than one day.--->
 			(
 				(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# < Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
 			OR 	(	Bookings.StartDate < #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
 			OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
-			OR  (	(Bookings.StartDate = Bookings.EndDate OR #Variables.StartDate# = #Variables.EndDate#) AND Bookings.StartDate <> #Variables.StartDate# AND Bookings.EndDate <> #Variables.EndDate# AND 
+			OR  (	(Bookings.StartDate = Bookings.EndDate OR #Variables.StartDate# = #Variables.EndDate#) AND Bookings.StartDate <> #Variables.StartDate# AND Bookings.EndDate <> #Variables.EndDate# AND
 						((	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# < Bookings.EndDate)
 					OR 	(	Bookings.StartDate < #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate)
 					OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate)))
@@ -97,7 +97,7 @@
 		AND Jetties.NorthJetty = 1
 	<cfelse>
 		AND Jetties.SouthJetty = 1
-	</cfif>	
+	</cfif>
 </cfquery>
 
 <!--- 25 October 2005: The next two queries have been modified to only get results from the jetties bookings --->
@@ -113,7 +113,7 @@
 				AND Jetties.NorthJetty = 1
 			<cfelse>
 				AND Jetties.SouthJetty = 1
-			</cfif>	
+			</cfif>
 </cfquery>
 
 <cfquery name="getNumEndDateBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -121,14 +121,14 @@
 	FROM	Bookings
 				INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
 				INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-	WHERE	EndDate = #Variables.EndDate# 
+	WHERE	EndDate = #Variables.EndDate#
 					AND Bookings.VesselID = '#Form.VesselID#'
 					AND Bookings.Deleted = 0
 				<cfif IsDefined("Form.Jetty") AND form.Jetty EQ "north">
 					AND Jetties.NorthJetty = 1
 				<cfelse>
 					AND Jetties.SouthJetty = 1
-				</cfif>	
+				</cfif>
 </cfquery>
 
 <!--- Validate the form data --->
@@ -202,10 +202,10 @@
 					</a></h1>
 
 				<cfoutput>
-				
+
 				<p>#language.bookingAvailable#</p>
-				
-				<cfform action="#RootDir#reserve-book/jetdemande-jetrequest_action.cfm?lang=#lang#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
+
+				<cfform action="#RootDir#reserve-book/jetdemande-jetrequest_action.cfm?lang=#lang#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
 				<table style="width:100%; padding-left:10px;" >
 					<tr>
 						<td style="width:30%;" id="Agent">
@@ -262,8 +262,8 @@
 						</td>
 					</tr>
 				</table>
-				
-				
+
+
 				</cfform>
 				</cfoutput>
 

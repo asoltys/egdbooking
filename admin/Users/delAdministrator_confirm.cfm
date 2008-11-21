@@ -31,7 +31,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -50,14 +50,14 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
 							Also display any errors returned --->
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				</cfif>
-				
-				<cfform action="delAdministrator_action.cfm?lang=#lang#" method="post" name="delAdministratorConfirmForm">
+
+				<cfform action="delAdministrator_action.cfm?lang=#lang#" method="post" id="delAdministratorConfirmForm">
 					<div style="text-align:center;">
 						Are you sure you want to remove <cfoutput><strong>#getAdmin.UserName#</strong></cfoutput> from administration?
 						<br /><br />
@@ -67,12 +67,12 @@ function EditSubmit ( selectedform )
 						<input type="submit" value="Remove" class="textbutton" />
 						<cfoutput><input type="button" value="Back" onclick="self.location.href='delAdministrator.cfm?lang=#lang#'" class="textbutton" />
 						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" />
-				
+
 					</div>
-					
+
 					<input type="hidden" name="userID" value="<cfoutput>#form.UserID#</cfoutput>" />
 				</cfform>
-			
+
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

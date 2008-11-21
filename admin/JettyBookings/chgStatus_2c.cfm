@@ -60,23 +60,23 @@
 				<!--- -------------------------------------------------------------------------------------------- --->
 				<cfquery name="theBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT
-						Bookings.BookingID, 
-						StartDate, 
-						EndDate, 
+						Bookings.BookingID,
+						StartDate,
+						EndDate,
 						Vessels.VesselID,
-						Vessels.Length, 
-						Vessels.Name AS VesselName, 
-						Companies.Name AS CompanyName, 
+						Vessels.Length,
+						Vessels.Name AS VesselName,
+						Companies.Name AS CompanyName,
 						NorthJetty,
 						SouthJetty
-					FROM 
+					FROM
 						Bookings INNER JOIN Jetties
 							ON Bookings.BookingID = Jetties.BookingID
 						INNER JOIN Vessels
 							ON Vessels.VesselID = Bookings.VesselID
-						INNER JOIN Companies 
+						INNER JOIN Companies
 							ON Companies.CompanyID = Vessels.CompanyID
-					WHERE 
+					WHERE
 						Bookings.BookingID = '#Variables.BookingID#'
 				</cfquery>
 				<!---Check to see if jetty has already reached capacity (304m for NLW and 301m for South Jetty)--->
@@ -222,7 +222,7 @@
 				</cfif>
 				<p>Please confirm the following information.</p>
 				<!--- -------------------------------------------------------------------------------------------- --->
-				<cfform name="BookingConfirm" action="chgStatus_2c_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post">
+				<cfform id="BookingConfirm" action="chgStatus_2c_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post">
 				  <cfoutput>
 					<input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 				  </cfoutput>

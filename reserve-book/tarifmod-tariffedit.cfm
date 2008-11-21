@@ -125,16 +125,16 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-				
+
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
-				
+
 				<cfoutput>
 				<p align="center" style="font-weight:bold;">
 				#getDetails.CompanyName#: #getDetails.VesselName#<br />
 				#LSDateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #LSDateFormat(getDetails.EndDate, 'mmm d, yyyy')#</p></cfoutput>
-				
-				
-				<cfform name="serviceSelect" action="#RootDir#reserve-book/tarifmod-tariffedit_action.cfm?lang=#lang#&BookingID=#url.BookingID#&referrer=#url.referrer#">
+
+
+				<cfform id="serviceSelect" action="#RootDir#reserve-book/tarifmod-tariffedit_action.cfm?lang=#lang#&BookingID=#url.BookingID#&referrer=#url.referrer#">
 				<cfoutput>
 				<table border="0" cellpadding="3" cellspacing="0" summary="#language.tableSummary#">
 					<tr>
@@ -143,7 +143,7 @@ function EditSubmit ( selectedform )
 						<th id="serviceHeader" class="feesformheader"><strong>#language.Services#</strong></th>
 						<th class="feesformheader" id="feeHeader" style="width:19%;"><strong>#language.Fees#</strong></th>
 					</tr>
-				
+
 					<tr>
 						<td headers="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="checkbox" <cfif getForm.other EQ 1>checked="true"</cfif> onclick="if (this.checked) this.form.otherBox.focus();" />
 						<td headers="itemHeader" align="center" valign="top">&nbsp;</td>
@@ -159,14 +159,14 @@ function EditSubmit ( selectedform )
 						<td headers="feeHeader" align="right" valign="top">&nbsp;</td>
 					</tr>
 				</cfoutput>
-				
+
 				<cfoutput query="getFees">
 					<cfif item NEQ "" AND item mod 2>
 						<cfset rowClass = "highlight">
 					<cfelseif item NEQ "">
 						<cfset rowClass = "">
 					</cfif>
-			
+
 					<tr class="#rowClass#">
 					<td headers="checkHeader" align="right" valign="top">
 						<cfif fee NEQ "">
@@ -202,7 +202,7 @@ function EditSubmit ( selectedform )
 				</tr>
 				</cfoutput>
 				</table>
-				
+
 				<br />
 				<div style="text-align:right;">
 				<cfoutput>

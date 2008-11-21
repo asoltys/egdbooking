@@ -18,7 +18,7 @@
 	<cfset language.companyName = "Raison sociale">
 	<cfset language.reset = "R&eacute;initialiser">
 	<cfset language.anonymousWarning = "Les navires anonymes ne sont anonymes qu'aux utilisateurs d'autres entreprises. Les administrateurs de la cale s&egrave;che d'Esquimalt ont acc&egrave;s &agrave; la totalit&eacute; de l'information concernant les navires, peu importe l'anonymat.">
-	<cfset language.notEditVesselDimensions = "Vous ne pouvez pas modifier les dimensions du navire, parce que ce dernier fait l'objet de r&eacute;servations confirm&eacute;es. Pour apporter des changements aux dimensions, pri&egrave;re de communiquer avec l'administration de la CSE."> 
+	<cfset language.notEditVesselDimensions = "Vous ne pouvez pas modifier les dimensions du navire, parce que ce dernier fait l'objet de r&eacute;servations confirm&eacute;es. Pour apporter des changements aux dimensions, pri&egrave;re de communiquer avec l'administration de la CSE.">
 
 </cfif>
 
@@ -56,14 +56,14 @@
 				<CFIF NOT IsDefined('url.VesselID') AND Not IsNumeric('url.VesselID')>
 					<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 				</CFIF>
-				
+
 				<cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT Vessels.*, Companies.CompanyID, Companies.Name AS CompanyName
 					FROM  Vessels INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
 					WHERE VesselID = #url.VesselID#
 					AND Vessels.Deleted = 0
 				</cfquery>
-				
+
 				<cfquery name="getVesselDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	*
 					FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
@@ -71,7 +71,7 @@
 					WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #url.VesselID# AND Bookings.Deleted = 0
 							AND Status = 'c'
 				</cfquery>
-				
+
 				<cfquery name="getVesselJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	*
 					FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
@@ -79,11 +79,11 @@
 					WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #url.VesselID# AND Bookings.Deleted = 0
 							AND Status = 'c'
 				</cfquery>
-				
+
 				<cfif getVesselDetail.recordCount EQ 0>
 					<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 				</cfif>
-				
+
 				<cfif isDefined("form.Name")>
 					<cfset variables.companyName = #form.companyName#>
 					<cfset variables.Name = #form.Name#>
@@ -109,12 +109,12 @@
 					<cfset variables.tonnage = #getVesselDetail.tonnage#>
 					<cfset variables.anonymous = #getVesselDetail.anonymous#>
 				</cfif>
-				
+
 				<cfoutput>
-				
+
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-				
-				<cfform name="editVessel" action="#RootDir#reserve-book/naviremod-vesseledit_confirm.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#&VesselID=#VesselID#" method="post">
+
+				<cfform id="editVessel" action="#RootDir#reserve-book/naviremod-vesseledit_confirm.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#&VesselID=#VesselID#" method="post">
 					<cfif getVesselDockBookings.recordCount GT 0 OR getVesselJettyBookings.recordCount GT 0>
 					<div id="actionErrors">#language.notEditVesselDimensions#</div>
 					</cfif>

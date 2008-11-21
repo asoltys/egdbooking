@@ -34,7 +34,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -51,12 +51,12 @@ function EditSubmit ( selectedform )
 					Edit Email List
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
-		
+
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
-				
+
 				<cfoutput>
-				<cfform name="emailForm" action="editAdminDetails_action.cfm?lang=#lang#">
+				<cfform id="emailForm" action="editAdminDetails_action.cfm?lang=#lang#">
 				<p>Select any of the following administrators to receive email notification about user activities:</p>
 				<table align="center" style="width:85%;">
 					<cfloop query="getAdministrators">
@@ -70,12 +70,12 @@ function EditSubmit ( selectedform )
 						</tr>
 					</cfloop>
 				</table>
-				
+
 				<br />
 				<div style="text-align:right;"><input type="submit" value="submit" class="textbutton" />
 				<input type="button" onclick="javascript:self.location.href='menu.cfm?lang=#lang#'" value="Cancel" class="textbutton" />
 				</cfform>
-				
+
 				</cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

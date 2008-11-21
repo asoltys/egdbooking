@@ -15,17 +15,17 @@
 				INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
 				INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
 	WHERE 	Bookings.VesselID = '#Form.VesselID#'
-	AND 	
-	<!---Explanation of hellishly long condition statement: The client wants to be able to overlap the start and end dates 
-		of bookings, so if a booking ends on May 6, another one can start on May 6.  This created problems with single day 
-		bookings, so if you are changing this query...watch out for them.  The first 3 lines check for any bookings longer than 
-		a day that overlaps with the new booking if it is more than a day.  The next 4 lines check for single day bookings that 
+	AND
+	<!---Explanation of hellishly long condition statement: The client wants to be able to overlap the start and end dates
+		of bookings, so if a booking ends on May 6, another one can start on May 6.  This created problems with single day
+		bookings, so if you are changing this query...watch out for them.  The first 3 lines check for any bookings longer than
+		a day that overlaps with the new booking if it is more than a day.  The next 4 lines check for single day bookings that
 		fall within a booking that is more than one day.--->
 			(
 				(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# < Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
 			OR 	(	Bookings.StartDate < #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
 			OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
-			OR  (	(Bookings.StartDate = Bookings.EndDate OR #Variables.StartDate# = #Variables.EndDate#) AND Bookings.StartDate <> #Variables.StartDate# AND Bookings.EndDate <> #Variables.EndDate# AND 
+			OR  (	(Bookings.StartDate = Bookings.EndDate OR #Variables.StartDate# = #Variables.EndDate#) AND Bookings.StartDate <> #Variables.StartDate# AND Bookings.EndDate <> #Variables.EndDate# AND
 						((	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# < Bookings.EndDate)
 					OR 	(	Bookings.StartDate < #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate)
 					OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate)))
@@ -35,8 +35,8 @@
 		AND Jetties.NorthJetty = 1
 	<cfelse>
 		AND Jetties.SouthJetty = 1
-	</cfif>	
-	
+	</cfif>
+
 </cfquery>
 
 
@@ -53,7 +53,7 @@
 				AND Jetties.NorthJetty = 1
 			<cfelse>
 				AND Jetties.SouthJetty = 1
-			</cfif>	
+			</cfif>
 </cfquery>
 
 <cfquery name="getNumEndDateBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -68,7 +68,7 @@
 				AND Jetties.NorthJetty = 1
 			<cfelse>
 				AND Jetties.SouthJetty = 1
-			</cfif>	
+			</cfif>
 </cfquery>
 
 
@@ -89,7 +89,7 @@
 	<cfset Proceed_OK = "No">
 <cfelseif isDefined("checkDblBooking.VesselID") AND checkDblBooking.VesselID NEQ "">
 	<cfoutput>#ArrayAppend(Errors, "#checkDblBooking.Name# has already been booked from #dateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# to #dateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
-	<cfset Proceed_OK = "No"> 
+	<cfset Proceed_OK = "No">
 <cfelseif getNumStartDateBookings.recordCount GTE 1>
 	<cfoutput>#ArrayAppend(Errors, "#getNumStartDateBookings.Name# already has a booking for #LSdateFormat(getNumStartDateBookings.StartDate, 'mm/dd/yyy')#.")#</cfoutput>
 	<cfset Proceed_OK = "No">
@@ -182,12 +182,12 @@ function EditSubmit ( selectedform )
 <!-- End JavaScript Block -->
 
 <div class="breadcrumbs">
-	<a href="<cfoutput>http://www.pwgsc.gc.ca/home-#lang#.html</cfoutput>">PWGSC</a> &gt; 
-	Pacific Region &gt; 
-	<a href="http://www.pwgsc.gc.ca/pacific/egd/index-e.html">Esquimalt Graving Dock</a> &gt; 
+	<a href="<cfoutput>http://www.pwgsc.gc.ca/home-#lang#.html</cfoutput>">PWGSC</a> &gt;
+	Pacific Region &gt;
+	<a href="http://www.pwgsc.gc.ca/pacific/egd/index-e.html">Esquimalt Graving Dock</a> &gt;
 	<cfoutput>
 		<a href="#RootDir#reserve-book-#lang#.cfm">Booking</a> &gt;<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-			<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+			<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 		<CFELSE>
 			 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 		</CFIF>
@@ -207,9 +207,9 @@ function EditSubmit ( selectedform )
 <cfset Variables.EndDate = #CreateODBCDate(Variables.EndDate)#>
 
 <p>Please confirm the following maintenance block information.</p>
-<cfform action="addJettyBooking_action.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
+<cfform action="addJettyBooking_action.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
 <div style="font-weight:bold;">Booking:</div>
-<table style="width:100%;" align="center">	
+<table style="width:100%;" align="center">
 	<tr>
 		<td align="left" style="width:20%;">Company:</td>
 		<td><input type="hidden" name="company" value="<cfoutput>#form.companyID#</cfoutput>" />
@@ -217,11 +217,11 @@ function EditSubmit ( selectedform )
 	<tr>
 		<td align="left">Vessel:</td>
 		<td><input type="hidden" name="vessel" value="<cfoutput>#form.vesselID#</cfoutput>" />
-	</tr>	
+	</tr>
 	<tr>
 		<td align="left">Agent:</td>
 		<td><input type="hidden" name="agent" value="<cfoutput>#form.userID#</cfoutput>" />
-	</tr>	
+	</tr>
 	<tr>
 		<td align="left">Start Date:</td>
 		<td><input type="hidden" name="StartDate" value="<cfoutput>#Variables.StartDate#</cfoutput>)" /><cfoutput>#DateFormat(Variables.StartDate, 'mmm d, yyyy'" />

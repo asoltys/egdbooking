@@ -71,7 +71,7 @@
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				<cfinclude template="#RootDir#includes/getStructure.cfm"><br />
 
-				<cfform action="editVessel.cfm?lang=#lang#" method="post" name="chooseVesselForm">
+				<cfform action="editVessel.cfm?lang=#lang#" method="post" id="chooseVesselForm">
 				<table style="width:100%;">
 					<!---<cfselect name="vesselID" query="getVessels" display="name" value="vesselID" selected="#form.vesselID#" />--->
 					<tr>
@@ -149,7 +149,7 @@
 						<cflocation addtoken="no" url="menu.cfm?lang=#lang#">
 					</cfif>
 
-					<cfform name="editVessel" action="EditVessel_process.cfm?lang=#lang#" method="post">
+					<cfform id="editVessel" action="EditVessel_process.cfm?lang=#lang#" method="post">
 					<table align="center">
 						<tr>
 							<td id="Company_Header" style="width:42%;">Company Name:</td>

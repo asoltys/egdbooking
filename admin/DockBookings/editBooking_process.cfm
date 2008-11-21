@@ -38,7 +38,7 @@ function EditSubmit ( selectedform )
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-			<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+			<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -57,13 +57,13 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-			
+
 			<cfset Errors = ArrayNew(1)>
 			<cfset Success = ArrayNew(1)>
 			<cfset Proceed_OK = "Yes">
-			
+
 			<!---<cfoutput>#ArrayAppend(Success, "The booking has been successfully added.")#</cfoutput>--->
-			
+
 			<cfparam name = "Form.StartDate" default="">
 			<cfparam name = "Form.EndDate" default="">
 			<cfparam name = "Variables.BookingID" default="#Form.BookingID#">
@@ -76,12 +76,12 @@ function EditSubmit ( selectedform )
 			<cfparam name = "Variables.Section1" default = 0>
 			<cfparam name = "Variables.Section2" default = 0>
 			<cfparam name = "Variables.Section3" default = 0>
-			
+
 			<cfif (NOT IsDefined("Form.BookingID") OR Form.BookingID eq '') AND (NOT IsDefined("URL.BookingID") OR URL.BookingID eq '')>
 				<cflocation addtoken="no" url="#RootDir#admin/DockBookings/bookingManage.cfm?#urltoken#">
 			</cfif>
-			
-			
+
+
 			<cfif IsDefined("Form.Section1")>
 				<cfset Variables.Section1 = 1>
 			</cfif>
@@ -91,18 +91,18 @@ function EditSubmit ( selectedform )
 			<cfif IsDefined("Form.Section3")>
 				<cfset Variables.Section3 = 1>
 			</cfif>
-			
+
 			<cfif Variables.StartDate EQ "">
 				<cflocation addtoken="no" url="editBooking.cfm?lang=#lang##variables.dateValue#">
 			</cfif>
-			
+
 			<cfset Variables.StartDate = CreateODBCDate(#Variables.StartDate#)>
 			<cfset Variables.EndDate = CreateODBCDate(#Variables.EndDate#)>
-			
+
 			<cfif IsDefined("Session.Return_Structure")>
 				<cfoutput>#StructDelete(Session, "Return_Structure")#</cfoutput>
 			</cfif>
-			
+
 			<cfquery name="getData" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT 	Vessels.VesselID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName, Docks.Status
 				FROM 	Vessels, Companies, Bookings, Docks
@@ -119,13 +119,13 @@ function EditSubmit ( selectedform )
 				WHERE 	UserID = '#Variables.UserID#'
 			</cfquery>
 			<cfset Variables.VesselID = getData.VesselID>
-			
+
 			<!---Check to see that vessel hasn't already been booked during this time--->
 			<cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT 	Bookings.VesselID, Name, StartDate, EndDate
 				FROM 	Bookings
-							INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID 
-							INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID 
+							INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
+							INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
 				WHERE 	Bookings.VesselID = '#Variables.VesselID#'
 				AND 	Bookings.BookingID != '#Form.BookingID#'
 				AND 	(
@@ -135,23 +135,23 @@ function EditSubmit ( selectedform )
 						)
 				AND		Bookings.Deleted = 0
 			</cfquery>
-			
+
 			<cfset Variables.StartDate = DateFormat(Variables.StartDate, 'mm/dd/yyyy')>
 			<cfset Variables.EndDate = DateFormat(Variables.EndDate, 'mm/dd/yyyy')>
 			<cfset Variables.TheBookingDate = CreateODBCDate(#Form.bookingDate#)>
 			<cfset Variables.TheBookingTime = CreateODBCTime(#Form.bookingTime#)>
-			
+
 			<!--- Validate the form data --->
 			<cfif Variables.StartDate GT Variables.EndDate>
 				<cfoutput>#ArrayAppend(Errors, "The Start Date must be before the End Date.")#</cfoutput>
 				<cfset Proceed_OK = "No">
 			</cfif>
-			
+
 			<cfif DateDiff("d",Variables.StartDate,Variables.EndDate) LT 0>
 				<cfoutput>#ArrayAppend(Errors, "The minimum booking time is 1 day.")#</cfoutput>
 				<cfset Proceed_OK = "No">
 			</cfif>
-			
+
 			<!--- <cfif DateCompare(PacificNow, Variables.StartDate, 'd') EQ 1>
 				<cfoutput>#ArrayAppend(Errors, "The Start Date can not be in the past.")#</cfoutput>
 				<cfset Proceed_OK = "No"> --->
@@ -160,17 +160,17 @@ function EditSubmit ( selectedform )
 				<cfoutput><div id="actionErrors">#checkDblBooking.Name# has already been booked from #dateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# to #dateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.</div></cfoutput>
 				<cfset Proceed_OK = "Yes">
 			</cfif>
-			
+
 			<cfif getData.Width GTE Variables.MaxWidth OR getData.Length GTE Variables.MaxLength>
 				<cfoutput>#ArrayAppend(Errors, "The vessel, #getData.VesselName#, is too large for the drydock.")#</cfoutput>
 				<cfset Proceed_OK = "No">
 			</cfif>
-			
+
 			<cfif getData.Status EQ 'c' AND NOT isDefined("form.section1") AND NOT isDefined("form.section2") AND NOT isDefined("form.section3")>
 				<cfoutput>#ArrayAppend(Errors, "At least one section of the dock must be selected for confirmed bookings.")#</cfoutput>
 				<cfset Proceed_OK = "No">
 			</cfif>
-			
+
 			<cfif Proceed_OK EQ "No">
 				<!--- Save the form data in a session structure so it can be sent back to the form page --->
 				<cfset Session.Return_Structure.StartDate = Variables.StartDate>
@@ -182,12 +182,12 @@ function EditSubmit ( selectedform )
 				<cfset Session.Return_Structure.Section3 = Variables.Section3>
 				<cfset Session.Return_Structure.TheBookingDate = Variables.TheBookingDate>
 				<cfset Session.Return_Structure.TheBookingTime = Variables.TheBookingTime>
-						
+
 				<cfset Session.Return_Structure.Errors = Errors>
-				
-				<cflocation url="editBooking.cfm?#urltoken##variables.dateValue#" addToken="no"> 
+
+				<cflocation url="editBooking.cfm?#urltoken##variables.dateValue#" addToken="no">
 			</CFIF>
-				
+
 			<!--- <cfif IsDefined("Form.Section1")>
 				<cfset Variables.Section1 = 1>
 			</cfif>
@@ -197,13 +197,13 @@ function EditSubmit ( selectedform )
 			<cfif IsDefined("Form.Section3")>
 				<cfset Variables.Section3 = 1>
 			</cfif> --->
-			
+
 			<!-- Gets all Bookings that would be affected by the requested booking --->
 			<cfset Variables.StartDate = #CreateODBCDate(Variables.StartDate)#>
 			<cfset Variables.EndDate = #CreateODBCDate(Variables.EndDate)#>
-			
+
 			<p>Please confirm the following information.</p>
-			<cfform action="editBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
+			<cfform action="editBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
 			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 			<div style="font-weight:bold;">Booking:</div>
 			<table style="width:100%; padding-left:15px;" align="center" >
@@ -214,7 +214,7 @@ function EditSubmit ( selectedform )
 				<tr>
 					<td id="Company" align="left">Company:</td>
 					<td headers="Company"><cfoutput>#getData.CompanyName#</cfoutput></td>
-				</tr>		
+				</tr>
 				<tr>
 					<td id="Agent" align="left">Agent:</td>
 					<td headers="Agent"><input type="hidden" name="userID" value="<cfoutput>#Variables.userID#</cfoutput>" />
@@ -256,11 +256,11 @@ function EditSubmit ( selectedform )
 				</tr>
 				</cfif>
 			</table>
-			
+
 			<br />
 			<table style="width:100%;" cellspacing="0" cellpadding="1" border="0" align="center">
-			
-			
+
+
 				<tr>
 					<td colspan="2" align="center">
 						<!--a href="javascript:EditSubmit('bookingreq');" class="textbutton">Submit</a-->
@@ -275,7 +275,7 @@ function EditSubmit ( selectedform )
 					</td>
 				</tr>
 			</table>
-			
+
 			</cfform>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

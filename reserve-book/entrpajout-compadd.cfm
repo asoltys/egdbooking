@@ -78,11 +78,11 @@
 				<CFELSE>
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				</CFIF>
-			
+
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 
 				<cfoutput>
-				<cfform action="#RootDir#reserve-book/entrpajout-compadd_action.cfm?lang=#lang#" name="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
+				<cfform action="#RootDir#reserve-book/entrpajout-compadd_action.cfm?lang=#lang#" id="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
 	}">
 					<table align="center">
 						<tr>

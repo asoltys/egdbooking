@@ -47,7 +47,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -67,7 +67,7 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<cfinclude template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<cfif DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1>
 					<cfinclude template="includes/getConflicts.cfm">
 					<cfset conflictArray = getConflicts_remConf(Variables.BookingID)>
@@ -76,13 +76,13 @@ function EditSubmit ( selectedform )
 						<cfinclude template="includes/displayWaitList.cfm">
 					</cfif>
 				</cfif>
-				
-				
+
+
 				<p>Please confirm the following maintenance block information.</p>
-				<cfform action="deleteMaintBlock_action.cfm?#urltoken#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
+				<cfform action="deleteMaintBlock_action.cfm?#urltoken#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
 				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
-				
-				<table style="width:80%;" align="center">	
+
+				<table style="width:80%;" align="center">
 					<tr><td align="left"><div style="font-weight:bold;">Booking:</div></td></tr>
 					<tr>
 						<td id="Start" align="left" style="width:25%;">Start Date:</td>
@@ -102,13 +102,13 @@ function EditSubmit ( selectedform )
 								Section 1
 							</cfif>
 							<cfif Variables.Section2 EQ 1>
-								<cfif Variables.Section1 EQ 1> 
-									&amp; 
+								<cfif Variables.Section1 EQ 1>
+									&amp;
 								</cfif>
 								Section 2
 							</cfif>
 							<cfif Variables.Section3 EQ 1>
-								<cfif Variables.Section1  EQ 1 OR Variables.Section2 EQ 1> 
+								<cfif Variables.Section1  EQ 1 OR Variables.Section2 EQ 1>
 									&amp;
 								</cfif>
 								Section 3
@@ -116,7 +116,7 @@ function EditSubmit ( selectedform )
 						</td>
 					</tr>
 				</table>
-				
+
 				<br />
 				<table style="width:100%;" cellspacing="0" cellpadding="1" border="0" align="center">
 					<tr>
@@ -130,7 +130,7 @@ function EditSubmit ( selectedform )
 						</td>
 					</tr>
 				</table>
-				
+
 				</cfform>
 
 			</div>

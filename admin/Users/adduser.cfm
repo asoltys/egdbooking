@@ -31,7 +31,7 @@
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -50,20 +50,20 @@
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
 							Also display any errors returned --->
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				</cfif>
-				
+
 				<cfif isDefined("url.companies")>
 					<cfset Variables.action = "addNewUserCompany.cfm?lang=#lang#&companies=#url.companies#">
 				<cfelse>
 					<cfset Variables.action = "addNewUserCompany.cfm?lang=#lang#">
 				</cfif>
-				
-				<cfform action="#Variables.action#" name="addUserForm" method="post">
+
+				<cfform action="#Variables.action#" id="addUserForm" method="post">
 					<table align="center">
 						<tr>
 							<td id="First"><label for="firstName">First Name:</label></td>

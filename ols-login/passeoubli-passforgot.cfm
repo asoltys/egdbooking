@@ -37,7 +37,7 @@
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm"> &gt;
 			<cfoutput>
-			<a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.login#</a> &gt; 
+			<a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.login#</a> &gt;
 			#language.forgot#
 			</cfoutput>
 		</p>
@@ -51,7 +51,7 @@
 					<cfoutput>#language.forgot#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
-					
+
 				<cfoutput>
 					<cfif IsDefined("Session.Return_Structure")>
 						<cfinclude template="#RootDir#includes/getStructure.cfm">
@@ -59,8 +59,8 @@
 					</cfif>
 
 					<div style="text-align:center;">#language.enterEmail#<br />#language.getPassword#</div><br />
-	
-					<cfform action="passeoubli-passforgot_action.cfm?lang=#lang#" name="forgotForm">
+
+					<cfform action="passeoubli-passforgot_action.cfm?lang=#lang#" id="forgotForm">
 						<table align="center">
 							<tr>
 								<td><label for="email">#language.Email#:</label>&nbsp;&nbsp;<cfinput class="textField" type="Text" name="email" id="email" size="30" validate="regular_expression" pattern=".+@.+..+"  message="#language.emailError#" /></td>
@@ -70,7 +70,7 @@
 							</tr>
 						</table>
 					</cfform>
-	
+
 					<div style="text-align:center;"><a href="ols-login.cfm?lang=#lang#">#language.returnlogin#</a></div>
 				</cfoutput>
 				</div>

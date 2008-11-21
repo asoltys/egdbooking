@@ -165,17 +165,17 @@ function EditSubmit ( selectedform )
 					<cfoutput>#language.CreateUser#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
-		
+
 				<cfoutput>
 					<!---decrpyt user info--->
 					<cfif isDefined("url.info")><cfset Variables.userInfo = cfusion_decrypt(ToString(ToBinary(url.info)), "boingfoip")></cfif>
-			
+
 					<!---store user info--->
 					<cfif isDefined("url.info")><cfset Variables.firstname = ListGetAt(userInfo, 1)><cfelseif isDefined("form.firstname")><cfset Variables.firstname = form.firstname></cfif>
 					<cfif isDefined("url.info")><cfset Variables.lastname = ListGetAt(userInfo, 2)><cfelseif isDefined("form.lastname")><cfset Variables.lastname = form.lastname></cfif>
 					<cfif isDefined("url.info")><cfset Variables.email = ListGetAt(userInfo, 3)><cfelseif isDefined("form.email")><cfset Variables.email = form.email></cfif>
 					<cfif isDefined("url.info")><cfset Variables.password1 = ListGetAt(userInfo, 4)><cfelseif isDefined("form.password1")><cfset Variables.password1 = form.password1></cfif>
-			
+
 					<!---encrypt user info--->
 					<cfset Variables.userInfo = ArrayToList(ArrayNew(1))>
 					<cfset Variables.userInfo = ListAppend(Variables.userInfo, Variables.firstname)>
@@ -183,11 +183,11 @@ function EditSubmit ( selectedform )
 					<cfset Variables.userInfo = ListAppend(Variables.userInfo, Variables.email)>
 					<cfset Variables.userInfo = ListAppend(Variables.userInfo, Variables.password1)>
 					<cfset Variables.info = ToBase64(cfusion_encrypt(Variables.userInfo, "boingfoip"))>
-			
+
 					<cfif isDefined("Session.Return_Structure")>
 						<cfinclude template="#RootDir#includes/getStructure.cfm">
 					</cfif>
-			
+
 					<cfif lang EQ 'e'><table align="center" width="85%"><cfelse><table align="center" style="width:100%;"></cfif>
 							<tr>
 								<td colspan="3">#language.yourCompanies#: </td>
@@ -208,13 +208,13 @@ function EditSubmit ( selectedform )
 									<cfset companyList = ListAppend(companyList, "#form.companyID#")>
 								</cfif>
 							</cfif>
-			
+
 							<cfif Len(companyList) EQ 0>
 								<tr>
 									<td style="width:8%;">&nbsp;</td><td>#language.NoCompanies#</td>
 								</tr>
 							</cfif>
-			
+
 							<cfset counter = 1>
 							<cfloop index = "ID" list = "#companyList#">
 								<cfif Len(companyList) EQ 0>
@@ -222,8 +222,8 @@ function EditSubmit ( selectedform )
 									<cfelse>
 									<cfset companies = URLEncodedFormat(ToBase64(cfusion_encrypt(companyList, "shanisnumber1")))>
 								</cfif>
-			
-			
+
+
 								<cfset detailsID = "companyDetails#ID#">
 								<cfquery name="detailsID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 									SELECT	Name, Approved
@@ -244,14 +244,14 @@ function EditSubmit ( selectedform )
 							</cfloop>
 						</cfif>
 					</table><br />
-			
+
 					<cfif Len(companyList) EQ 0>
 						<cfset companies = companyList>
 						<cfelse>
 						<cfset companies = URLEncodedFormat(ToBase64(cfusion_encrypt(companyList, "shanisnumber1")))>
 					</cfif>
-			
-					<cfform action="entrpdemande-comprequest.cfm?lang=#lang#&companies=#companies#&info=#Variables.info#" name="addUserCompanyForm" method="post">
+
+					<cfform action="entrpdemande-comprequest.cfm?lang=#lang#&companies=#companies#&info=#Variables.info#" id="addUserCompanyForm" method="post">
 						<cfif lang EQ 'e'><table align="center" width="88%"><cfelse><table align="center" style="width:95%;"></cfif>
 						<tr>
 							<td valign="top"><label for="companies">#language.AddCompany#:</label></td>
@@ -270,8 +270,8 @@ function EditSubmit ( selectedform )
 						</tr>
 						</table>
 					</cfform>
-			
-					<cfform name="newUserForm" action="utilisateurajout-useradd_action.cfm?lang=#lang#&info=#Variables.info#">
+
+					<cfform id="newUserForm" action="utilisateurajout-useradd_action.cfm?lang=#lang#&info=#Variables.info#">
 						<input type="hidden" name="firstname" value="#Variables.firstname#" />
 						<input type="hidden" name="lastname" value="#Variables.lastname#" />
 						<input type="hidden" name="email" value="#Variables.email#" />
@@ -290,6 +290,6 @@ function EditSubmit ( selectedform )
 			<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
-		
+
 
 

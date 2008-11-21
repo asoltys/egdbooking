@@ -85,7 +85,7 @@
 					<div id="actionErrors">Note: The ship measurements exceed the maximum dimensions of the dock (<cfoutput>#Variables.MaxLength#m x #Variables.MaxWidth#m</cfoutput>).</div>
 				</cfif>
 				<cfoutput>
-				<cfform name="addVessel" action="addVessel_action.cfm?lang=#lang#" method="post">
+				<cfform id="addVessel" action="addVessel_action.cfm?lang=#lang#" method="post">
 					<table align="center">
 						<tr>
 							<td id="CompanyID">Company Name:</td>

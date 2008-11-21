@@ -132,15 +132,15 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
 							Also display any errors returned --->
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				</cfif>
-				
+
 				<cfoutput>
-				<cfform action="#RootDir#reserve-book/profilmod-profileedit_action.cfm?lang=#lang#" name="editUserForm" method="post">
+				<cfform action="#RootDir#reserve-book/profilmod-profileedit_action.cfm?lang=#lang#" id="editUserForm" method="post">
 				<table align="center" style="width:81%;">
 				<tr>
 					<td colspan="2"><strong>#language.EditProfile#:</strong></td>
@@ -163,9 +163,9 @@ function EditSubmit ( selectedform )
 				</table>
 				</cfform>
 				</cfoutput>
-				
+
 				<hr width="65%" align="center"><br />
-				
+
 				<table align="center" style="width:81%;">
 				<tr>
 					<cfoutput><td valign="top"colspan="2"><cfif getUserCompanies.recordCount GT 1><strong>#language.yourCompanies#:</strong><cfelse><strong>#language.yourCompany#:</strong></cfif></td></cfoutput>
@@ -187,9 +187,9 @@ function EditSubmit ( selectedform )
 				</table>
 
 				<hr width="65%" align="center"><br />
-				
+
 				<cfoutput>
-					<cfform action="#RootDir#reserve-book/passechange.cfm?lang=eng" method="post" name="changePassForm">
+					<cfform action="#RootDir#reserve-book/passechange.cfm?lang=eng" method="post" id="changePassForm">
 					<table align="center" style="width:81%;">
 					<tr>
 						<td colspan="2"><strong>#language.ChangePassword#:</strong></td>

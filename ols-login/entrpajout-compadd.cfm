@@ -30,8 +30,8 @@
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
-			<a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.login#</a> &gt; 
-			<a href="#RootDir#ols-login/addUserCompanies.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#">#language.createUser#</a> &gt; 
+			<a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.login#</a> &gt;
+			<a href="#RootDir#ols-login/addUserCompanies.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#">#language.createUser#</a> &gt;
 			#language.CreateComp#
 			</cfoutput>
 		</p>
@@ -56,7 +56,7 @@
 					<cfparam name="Variables.zip" default="">
 					<cfparam name="Variables.phone" default="">
 					<cfparam name="Variables.fax" default="">
-	
+
 					<cfinclude template="#RootDir#includes/restore_params.cfm">
 					<cfif isDefined("session.form_structure") AND isDefined("form.name")>
 						<cfset variables.name="#form.name#">
@@ -69,12 +69,12 @@
 						<cfset variables.phone="#form.phone#">
 						<cfset variables.fax="#form.fax#">
 					</cfif>
-	
+
 					<cfif isDefined("Session.Return_Structure")>
 						<cfinclude template="#RootDir#includes/getStructure.cfm">
 					</cfif>
-	
-					<cfform action="entrpajout-compadd_action.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#" name="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
+
+					<cfform action="entrpajout-compadd_action.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#" id="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
 	}">
 						<table align="center">
 							<tr>

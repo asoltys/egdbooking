@@ -14,7 +14,7 @@
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -33,16 +33,16 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-			
+
 			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-			
-			
+
+
 			<cfset Errors = ArrayNew(1)>
 			<cfset Success = ArrayNew(1)>
 			<cfset Proceed_OK = "Yes">
-			
+
 			<!---<cfoutput>#ArrayAppend(Success, "The booking has been successfully added.")#</cfoutput>--->
-			
+
 			<cfparam name = "Form.StartDate" default="">
 			<cfparam name = "Form.EndDate" default="">
 			<cfparam name = "Variables.StartDate" default = "#Form.StartDate#">
@@ -51,27 +51,27 @@
 			<cfparam name = "Variables.VesselID" default = "#Form.VesselID#">
 			<cfparam name = "Form.UserID" default="">
 			<cfparam name = "Variables.UserID" default = "#Form.UserID#">
-			
+
 			<cfif IsDefined("Session.Return_Structure")>
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 			</cfif>
-			
+
 			<cfif Variables.StartDate EQ "">
 				<cflocation addtoken="no" url="addBooking.cfm?#urltoken#">
 			</cfif>
-			
+
 			<cfset Variables.StartDate = CreateODBCDate(#Variables.StartDate#)>
 			<cfset Variables.EndDate = CreateODBCDate(#Variables.EndDate#)>
 			<cfset Variables.TheBookingDate = CreateODBCDate(#Form.bookingDate#)>
 			<cfset Variables.TheBookingTime = CreateODBCTime(#Form.bookingTime#)>
-			
+
 			<cfif IsDefined("Session.Return_Structure")>
 				<cfoutput>#StructDelete(Session, "Return_Structure")#</cfoutput>
 			</cfif>
-			
+
 			<cfset Variables.StartDate = DateFormat(Variables.StartDate, 'mm/dd/yyy')>
 			<cfset Variables.EndDate = DateFormat(Variables.EndDate, 'mm/dd/yyy')>
-			
+
 			<!--- Validate the form data --->
 			<cfif Variables.StartDate GT Variables.EndDate>
 				<cfoutput>#ArrayAppend(Errors, "The Start Date must be before the End Date.")#</cfoutput>
@@ -80,12 +80,12 @@
 				<cfoutput>#ArrayAppend(Errors, "The minimum booking time is 1 day.")#</cfoutput>
 				<cfset Proceed_OK = "No">
 			</cfif>
-			
+
 			<cfif DateCompare(PacificNow, Variables.StartDate, 'd') EQ 1>
 				<cfoutput>#ArrayAppend(Errors, "The Start Date can not be in the past.")#</cfoutput>
 				<cfset Proceed_OK = "No">
 			</cfif>
-			
+
 			<cfif Proceed_OK EQ "No">
 				<!--- Save the form data in a session structure so it can be sent back to the form page --->
 				<cfset Session.Return_Structure.StartDate = Variables.StartDate>
@@ -97,11 +97,11 @@
 				<cfset Session.Return_Structure.compId = Form.compID>
 				<cfset Session.Return_Structure.Status = Form.Status>
 				<cfset Session.Return_Structure.Errors = Errors>
-				
-				<cflocation url="addBooking.cfm?#urltoken#" addToken="no"> 
+
+				<cflocation url="addBooking.cfm?#urltoken#" addToken="no">
 			</CFIF>
-				
-			
+
+
 			<cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT 	VesselID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
 				FROM 	Vessels, Companies
@@ -110,13 +110,13 @@
 				AND 	Vessels.Deleted = 0
 				AND		Companies.Deleted = 0
 			</cfquery>
-			
+
 			<cfquery name="getAgent" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT 	lastname + ', ' + firstname AS UserName
 				FROM 	Users
 				WHERE 	UserID = '#Variables.UserID#'
 			</cfquery>
-			
+
 			 <!--- Gets all Bookings that would be affected by the requested booking --->
 			<cfset theBooking.width = getVessel.width>
 			<cfset theBooking.length = getVessel.length>
@@ -124,21 +124,21 @@
 			<cfset Variables.StartDate = #CreateODBCDate(Variables.StartDate)#>
 			<cfset Variables.EndDate = #CreateODBCDate(Variables.EndDate)#>
 			<cfinclude template="includes/towerCheck.cfm">
-			
+
 			<cfset Variables.reOrder = BookingTower.ReorderTower()>
 			<cfif NOT Variables.reOrder> <!--- Check if the booking can be slotted in without problems --->
 				<cflock scope="session" type="exclusive" timeout="30">
 					<cfset Session.PassStructure.reOrder = false>
 				</cflock>
 				<p>The submitted booking request <strong>conflicts</strong> with other bookings.  Would you like to add the booking anyway?</p>
-				
+
 			<cfelse>
 				<cflock timeout="60" throwontimeout="No" type="exclusive" scope="session">
 					<cfset Session.PassStructure = StructNew()>
 					<cfset Session.PassStructure.Tower = BookingTower.getTower()>
 					<cfset Session.PassStructure.reOrder = true>
-				</cflock>	
-				
+				</cflock>
+
 				<cfif form.Status EQ "C">
 					<cfinclude template="includes/getConflicts.cfm">
 					<cfset conflictArray = getConflicts_Conf(theBooking.BookingID)>
@@ -147,10 +147,10 @@
 						<cfinclude template="includes/displayWaitList.cfm">
 					</cfif>
 				</cfif>
-				
+
 			</cfif>
-			
-			<cfform action="addBooking_action.cfm?#urltoken#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
+
+			<cfform action="addBooking_action.cfm?#urltoken#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
 			<br />
 			<div style="font-weight:bold;">New Booking:</div>
 			<table style="width:100%; padding-left:20px;" align="center">
@@ -161,7 +161,7 @@
 				<tr>
 					<td id="Company" align="left">Company:</td>
 					<td headers="Company"><cfoutput>#getVessel.CompanyName#</cfoutput></td>
-				</tr>	
+				</tr>
 				<tr>
 					<td id="Agent" align="left">Agent:</td>
 					<td headers="Agent"><input type="hidden" name="userID" value="<cfoutput>#Variables.userID#</cfoutput>" />
@@ -211,12 +211,12 @@
 					</td>
 				</tr>
 			</table>
-			
+
 			<br />
 			<cfif NOT Variables.reOrder>
 				<cfif Form.Status EQ "C">
 					<table style="width:100%;" cellspacing="0" cellpadding="1" border="0" align="center">
-					<tr><td colspan="2">This booking conflicts with other bookings. Please choose the sections of 
+					<tr><td colspan="2">This booking conflicts with other bookings. Please choose the sections of
 						the dock that you wish to book:</td></tr>
 					<tr>
 						<td id="header1" style="width:25%;" align="right">&nbsp;&nbsp;&nbsp;<label for="Section1">Section 1</label></td>
@@ -244,7 +244,7 @@
 				</td>
 			</tr>
 			</table>
-			
+
 			</cfform>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

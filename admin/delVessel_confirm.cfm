@@ -19,10 +19,10 @@
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->
 	<cfset Session.Return_Structure.CompanyID = Form.CompanyID>
 	<cfset Session.Return_Structure.UserID = Form.VesselID>
-			
+
 	<cfset Session.Return_Structure.Errors = Errors>
-	
- 	<cflocation url="delVessel.cfm?lang=#lang#" addToken="no"> 
+
+ 	<cflocation url="delVessel.cfm?lang=#lang#" addToken="no">
 </cfif>
 
 
@@ -47,14 +47,14 @@
 <!-- 2005-09-27: Added new resriction on the following two queries, Deleted must be 0 -->
 <cfquery name="getVesselDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
-	FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID 
+	FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
 			INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
 	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #form.VesselID# AND Bookings.Deleted = 0
 </cfquery>
 
 <cfquery name="getVesselJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
-	FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID 
+	FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
 			INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
 	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #form.VesselID# AND Bookings.Deleted = 0
 </cfquery>
@@ -64,7 +64,7 @@
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -83,17 +83,17 @@
 					</a></h1>
 
 			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-			
+
 			<cfif IsDefined("Session.Return_Structure")>
 				<!--- Populate the Variables Structure with the Return Structure.
 						Also display any errors returned --->
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 			</cfif>
-			
+
 			<cfif getVesselDockBookings.recordCount EQ 0 AND getVesselJettyBookings.recordCount EQ 0>
-				<cfform action="delVessel_action.cfm?lang=#lang#" method="post" name="delVesselConfirmForm">
+				<cfform action="delVessel_action.cfm?lang=#lang#" method="post" id="delVesselConfirmForm">
 					Are you sure you want to delete <cfoutput><strong>#getVessel.Name#</strong></cfoutput>?
-					
+
 					<input type="hidden" name="vesselID" value="<cfoutput>#form.vesselID#</cfoutput>" />
 			<br /><br />
 					<cfoutput query="getVessel">
@@ -143,11 +143,11 @@
 					</div>
 					</cfoutput>
 				</cfform>
-				
+
 			<cfelse>
-					
+
 					<cfoutput><strong>#getVessel.name#</strong></cfoutput> cannot be deleted as it is booked for the following dates:<br />
-					
+
 					<cfif getVesselDockBookings.recordCount GT 0>
 						<br /><br />
 						&nbsp;&nbsp;&nbsp;<strong>Drydock</strong>
@@ -170,7 +170,7 @@
 							</cfoutput>
 						</table>
 					</cfif>
-						
+
 					<cfif getVesselJettyBookings.recordCount GT 0>
 						<br />
 						&nbsp;&nbsp;&nbsp;<strong>Jetty</strong>
@@ -200,7 +200,7 @@
 							</cfoutput>
 						</table>
 					</cfif>
-						
+
 					<p><div style="text-align:center;">
 						<input type="button" value="Back" onclick="self.location.href='delVessel.cfm?lang=<cfoutput>#lang#</cfoutput>'" class="textbutton" />
 						<input type="button" value="Return to Administrative Functions" onclick="self.location.href='menu.cfm?lang=<cfoutput>#lang#</cfoutput>'" class="textbutton" />

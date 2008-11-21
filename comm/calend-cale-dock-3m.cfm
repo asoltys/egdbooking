@@ -137,7 +137,7 @@
 				<div style="float:left;"><a href="calend-cale-dock-3m.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
 				<div style="float:right;"><a href="calend-cale-dock-3m.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
 				<div style="width:100%; text-align:center;">
-				<form id="selection" name="selection" action="" style="margin: 0; padding:0; ">
+				<form id="selection" action="" style="margin: 0; padding:0; ">
 					<select name="selMonth">
 						<CFLOOP index="i" from="1" to="12">
 							<option value="#i#">#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
