@@ -96,7 +96,7 @@
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-				
+
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfinclude template="#RootDir#includes/restore_params.cfm">
 				<cfif isDefined("session.form_structure")>
@@ -107,12 +107,12 @@
 					<cfset Variables.Jetty = #form.jetty#>
 					<cfset Variables.Status = #form.status#>
 				</cfif>
-				
+
 				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
-				
+
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
-				
+
 				<cfform action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#&companyID=#variables.companyID#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
 				<table style="width:100%; padding-left:10px;" >
 					<tr>
@@ -154,14 +154,14 @@
 						</td>
 						<td headers="StartDate">
 							<cfinput id="start" name="startDate" type="text" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" class="textField" onChange="setLaterDate('self', 'bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreq', #Variables.bookingLen#)" /> #language.dateform#
-							<a href="javascript:void(0)" onclick = "javascript:getCalendar('bookingreq', 'start')" class="textbutton">#language.calendar#</a>
+							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
 						<td id="EndDate"><label for="end">#language.EndDate#:</label></td>
 						<td headers="EndDate">
 							<cfinput id="end" name="endDate" type="text" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" class="textField" onChange="setLaterDate('self', 'bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreq', #Variables.bookingLen#)" /> #language.dateform#
-							<a href="javascript:void(0)" onclick = "javascript:getCalendar('bookingreq', 'end')" class="textbutton">#language.calendar#</a>
+							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>

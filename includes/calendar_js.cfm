@@ -38,7 +38,7 @@ function validate(formName) {
 		return false;
 	}
 	return true;
-	}
+}
 
 
 /*
@@ -154,81 +154,6 @@ function setEarlierDate(where, formName, numEarlier) {
 		eval(where + ".document." + formName + ".startDate.value=\'" + theDate + "\'");
 	}
 }
-
-
-/* Loads the calendar window.
- */
-function getCalendar(formName, fieldName) {
-	var formObj = eval("document.forms[\'" + formName + "\']");
-
-	var startDObj = new Date();
-	var endDObj = new Date();
-	var genDObj = new Date();
-	makeDObj(formObj.startDate.value, startDObj);
-	makeDObj(formObj.endDate.value, endDObj);
-	if (fieldName == "booking") { makeDObj(formObj.bookingDate.value, genDObj) };
-
-	var startYear  = startDObj.getFullYear();
-	var startMonth = startDObj.getMonth() + 1;
-	var startDay   = startDObj.getDate();
-
-	var endYear  = endDObj.getFullYear();
-	var endMonth = endDObj.getMonth() + 1;
-	var endDay   = endDObj.getDate();
-
-	var genDate = new Array(genDObj.getFullYear(), genDObj.getMonth()+1, genDObj.getDate());
-
-	var yearValue;
-	var monthValue;
-	var flag = true;
-	var miniCal = '';
-
-	//get start date
-	if (fieldName == "start") {
-		//check start year is valid
-		if ((startMonth >= 1) && (startMonth <= 12)) {
-			yearValue = startYear;
-			monthValue = startMonth;
-		} else {
-			yearValue = <cfoutput>#DatePart("yyyy", PacificNow)#</cfoutput>;
-			monthValue = <cfoutput>#DatePart("m", PacificNow)#</cfoutput>
-		}
-	}
-
-	if (fieldName == "end") {
-		if (endMonth >= 1 && endMonth <=12) {
-			yearValue = endYear;
-			monthValue = endMonth;
-		} else {
-			yearValue = <cfoutput>#DatePart("yyyy", PacificNow)#</cfoutput>;
-			monthValue = <cfoutput>#DatePart("m", PacificNow)#</cfoutput>;
-		}
-
-	}
-
-	if (fieldName == "booking") {
-		if (genDate[1] >= 1 && genDate[1] <= 12) {
-			yearValue = genDate[0];
-			monthValue = genDate[1];
-		} else {
-			yearValue = <cfoutput>#DatePart("yyyy",PacificNow)#</cfoutput>;
-			monthValue = <cfoutput>#DatePart("m", PacificNow)#</cfoutput>;
-		}
-	}
-
-	if (flag) {
-		miniCal = window.open("<cfoutput>#RootDir#</cfoutput>utils/calend.cfm?lang=<cfoutput>#lang#</cfoutput>&formName=" + formName + "&year=" + yearValue + "&month=" + monthValue + "&fieldName=" + fieldName<CFIF IsDefined('Variables.BookingLen')> + "&len=" + <cfoutput>#Variables.BookingLen#</cfoutput></CFIF>, "CalendarWindow", "left=30,top=30,width=450,height=250,resizable=yes,scrollbars=no");
-
-		if (window.focus) {
-			miniCal.focus();
-		}
-
-		return false;
-	}
-
-}
-
-
 
 function go(location) {
 	formObj = document.forms['selection'];

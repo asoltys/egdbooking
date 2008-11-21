@@ -72,7 +72,7 @@ var params = {
 	<div class="core">
 		<!-- FIP HEADER BEGINS | DEBUT DE L'EN-TETE PCIM -->
 		<div class="fip">
-		
+
 		<a name="tphp" id="tphp"><img src="<cfoutput>#CLF_URL#</cfoutput>/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></a>
 		</div>
 		<div class="cwm">
@@ -101,7 +101,7 @@ var params = {
 					<td id="From_Header">&nbsp; <LABEL for="From">From Date:</LABEL></td>
 					<td headers="From_Header">
 						<cfinput id="Start" type="text" name="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="Please enter a valid From Date." onChange="setLaterDate('self', 'procal', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'procal', #Variables.BookingLen#)" /> #language.dateform#
-						<a href="javascript:void(0);" onclick="getCalendar('procal', 'start');" class="textbutton">calendar</a>
+						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						<a href="javascript:void(0);" onclick="document.procal.startDate.value='';" class="textbutton">clear</a>
 					</td>
 				</tr>
@@ -109,7 +109,7 @@ var params = {
 					<td id="To_Header">&nbsp; <LABEL for="To">To Date:</LABEL></td>
 					<td headers="To_Header">
 						<cfinput id="End" type="text" name="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="Please enter a valid From Date." onChange="setEarlierDate('self', 'procal', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'procal', #Variables.BookingLen#)" /> #language.dateform#
-						<a href="javascript:void(0);" onclick="getCalendar('procal', 'end');" class="textbutton">calendar</a>
+						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						<a href="javascript:void(0);" onclick="document.procal.endDate.value='';" class="textbutton">clear</a>
 					</td>
 				</tr>
