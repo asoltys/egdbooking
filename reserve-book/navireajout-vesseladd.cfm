@@ -85,7 +85,7 @@
 					<cfset variables.tonnage = form.tonnage>
 				</cfif>
 
-				<cfform action="#RootDir#reserve-book/navireajout-vesseladd_confirm.cfm?lang=#lang#&CompanyID=#CompanyID#" method="post" id="addVessel">
+				<cfform action="#RootDir#reserve-book/navireajout-vesseladd_confirm.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" method="post" id="addVessel">
 				<table align="center">
 				<tr>
 					<td id="CompanyName" style="width:40%;"><label for="companyID">#language.CompanyName#:</label></td>
