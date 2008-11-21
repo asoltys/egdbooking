@@ -70,7 +70,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<cfoutput>
+				<cfoutput> 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 			
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
@@ -94,7 +94,7 @@
 							<cfselect name="companyID" id="companyID" query="getCompanies" display="Name" value="companyID" selected="#variables.companyID#" />
 						<cfelse>
 							<cfoutput>#getCompanies.Name#</cfoutput>
-							<cfoutput><input type="hidden" name="companyID" value="#getCompanies.companyID#" />
+							<cfoutput><input type="hidden" name="companyID" value="#getCompanies.companyID#" /></cfoutput>
 						</cfif>
 						<!---<cfoutput>#getCompany.Name#</cfoutput>--->
 					</td>
@@ -136,7 +136,7 @@
 					<td colspan="2" align="center" style="padding-top:20px;">
 						<!---a href="javascript:document.addVessel.submitForm.click();" class="textbutton">#language.Submit#</a--->
 						<input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
-						<cfoutput><input type="button" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#&CompanyID=#CompanyID#'" class="textbutton" />
+						<cfoutput><input type="button" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#&CompanyID=#CompanyID#'" class="textbutton" /></cfoutput>
 						<br />
 					</td>
 				</tr>
