@@ -249,7 +249,7 @@ function EditSubmit ( selectedform )
 							<br--->
 							<input type="submit" value="#language.Submit#" class="textbutton" />
 							<input type="button" value="#language.Back#" class="textbutton" onclick="self.location.href='bookingRequest.cfm?lang=#lang#'" />
-							<input type="button" value="#language.Cancel#" class="textbutton" onclick="self.location.href='bookingRequest_choose.cfm?lang=<cfoutput>#lang#</cfoutput>';" />
+							<input type="button" value="#language.Cancel#" class="textbutton" onclick="self.location.href='reserve-booking.cfm?lang=<cfoutput>#lang#</cfoutput>';" />
 							<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
 						</td>
 					</tr>

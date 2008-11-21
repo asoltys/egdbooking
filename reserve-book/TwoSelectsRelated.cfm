@@ -139,7 +139,7 @@
 
 
 <!--- OUTPUT FIRST SELECT BOX --->
-<cfoutput><select NAME="#Attributes.Name1#" onChange="#FunctionName#" SIZE="#Attributes.Size1#" <CFIF Attributes.Width1 is not "">style="width:#Attributes.Width1#"</CFIF>></cfoutput>
+<cfoutput><select name="#Attributes.Name1#" onChange="#FunctionName#" size="#Attributes.Size1#" <CFIF Attributes.Width1 is not "">style="width:#Attributes.Width1#"</CFIF>></cfoutput>
 
 	<!--- SPECIAL FIRST ITEM, IF REQUESTED --->
 	<CFIF Attributes.EmptyText1 is not ""><cfoutput><option value="">#Attributes.EmptyText1#</cfoutput></CFIF>
@@ -155,7 +155,7 @@
 <cfoutput>#Attributes.htmlBetween#</cfoutput>
 
 <!--- OUTPUT SECOND SELECT BOX --->
-<cfoutput><select NAME="#Attributes.Name2#" SIZE="#Attributes.Size2#" <CFIF Attributes.onChange is not "">onChange="#Attributes.OnChange#"</CFIF> <CFIF Attributes.Width2 is not "">style="width:#Attributes.Width2#"</CFIF>></cfoutput>
+<cfoutput><select name="#Attributes.Name2#" size="#Attributes.Size2#" <CFIF Attributes.onChange is not "">onChange="#Attributes.OnChange#"</CFIF> <CFIF Attributes.Width2 is not "">style="width:#Attributes.Width2#"</CFIF>></cfoutput>
 	<!--- SPECIAL FIRST ITEM, IF REQUESTED --->
 	<CFIF Attributes.EmptyText2 is not ""><cfoutput><option value="">#Attributes.EmptyText2#</cfoutput></CFIF>
 
@@ -164,7 +164,7 @@
 	<CFIF Attributes.EmptyText1 NEQ ""> <!--- Changed this line from IS to NEQ -- Elton --->
 		<CFLOOP QUERY="MyQuery">
 		  <CFIF MyQuery[Attributes.Value1][MyQuery.CurrentRow] is Attributes.Default1>
-			  <cfoutput><option value="#MyQuery[Attributes.Value2][MyQuery.CurrentRow]#" <CFIF (MyQuery[Attributes.Value1][MyQuery.CurrentRow] is Attributes.Default1) AND (MyQuery[Attributes.Value2][MyQuery.CurrentRow] is Attributes.Default2)>SELECTED</CFIF>>#MyQuery[Attributes.Display2][MyQuery.CurrentRow]#</cfoutput>
+			  <cfoutput><option value="#MyQuery[Attributes.Value2][MyQuery.CurrentRow]#" <CFIF (MyQuery[Attributes.Value1][MyQuery.CurrentRow] is Attributes.Default1) AND (MyQuery[Attributes.Value2][MyQuery.CurrentRow] is Attributes.Default2)>selected</CFIF>>#MyQuery[Attributes.Display2][MyQuery.CurrentRow]#</cfoutput>
 			</CFIF>
 		</CFLOOP>
 	</CFIF>

@@ -182,7 +182,7 @@ function EditSubmit ( selectedform )
 						<td colspan="2" align="center">
 							<input type="submit" value="#language.Submit#" class="textbutton" />
 							<input type="reset" value="#language.Reset#" class="textbutton" />
-							<input type="button" value="#language.Cancel#" class="textbutton" onclick="javascript:self.location.href='bookingRequest_choose.cfm?lang=#lang#';" />
+							<input type="button" value="#language.Cancel#" class="textbutton" onclick="javascript:self.location.href='reserve-booking.cfm?lang=#lang#';" />
 						</td>
 					</tr>
 				</table>
@@ -253,7 +253,7 @@ function EditSubmit ( selectedform )
 						<td colspan="2" align="center">
 							<input type="submit" value="#language.Submit#" class="textbutton" />
 							<input type="reset" value="#language.Reset#" class="textbutton" />
-							<input type="button" value="#language.Cancel#" class="textbutton" onclick="javascript:self.location.href='bookingRequest_choose.cfm?lang=#lang#';" />
+							<input type="button" value="#language.Cancel#" class="textbutton" onclick="javascript:self.location.href='reserve-booking.cfm?lang=#lang#';" />
 						</td>
 					</tr>
 				</table>
