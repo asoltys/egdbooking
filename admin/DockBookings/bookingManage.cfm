@@ -53,9 +53,9 @@
 		FROM Docks, Bookings
 		WHERE (
 				(Bookings.StartDate = '#dateformat(variables.startDate, "mm/dd/yyyy")#' AND Bookings.EndDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
-				OR	(Bookings.startDate <= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#') 
-				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#') 				
-				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')	
+				OR	(Bookings.startDate <= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
+				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
+				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 			)
 		AND Docks.BookingID = Bookings.BookingID AND (Status = 'P' OR Status = 'X' OR Status = 'Y' OR Status = 'Z') AND Bookings.Deleted = '0'
 </cfquery>
@@ -64,9 +64,9 @@
 		FROM Docks, Bookings
 		WHERE (
 				(Bookings.StartDate = '#dateformat(variables.startDate, "mm/dd/yyyy")#' AND Bookings.EndDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
-				OR	(Bookings.startDate <= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#') 
-				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#') 				
-				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')	
+				OR	(Bookings.startDate <= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
+				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
+				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 			)
 		AND Docks.BookingID = Bookings.BookingID AND Status = 'T' AND Bookings.Deleted = '0'
 		<!--- Eliminates any Tentative bookings with a start date before today --->
@@ -77,9 +77,9 @@
 		FROM Docks, Bookings
 		WHERE (
 				(Bookings.StartDate = '#dateformat(variables.startDate, "mm/dd/yyyy")#' AND Bookings.EndDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
-				OR	(Bookings.startDate <= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#') 
-				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#') 				
-				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')	
+				OR	(Bookings.startDate <= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
+				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
+				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 			)
 		AND Docks.BookingID = Bookings.BookingID AND Status = 'C' AND Bookings.Deleted = '0'
 </cfquery>
@@ -120,8 +120,8 @@ function EditSubmit ( selectedform )
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
-			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm"> &gt; 
-			<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm"> &gt;
+			<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			Drydock Booking Management
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
@@ -136,9 +136,9 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<cfinclude template="#RootDir#includes/calendar_js.cfm">
-				
+
 				<p>Please enter a range of dates for which you would like to see the bookings:</p>
 				<form action="bookingManage.cfm?lang=#lang#" method="get" name="dateSelect">
 					<input type="hidden" name="lang" value="<cfoutput>#lang#</cfoutput>" />
@@ -151,7 +151,7 @@ function EditSubmit ( selectedform )
 								<cfoutput>
 									<input type="text" name="startDate" size="15" maxlength="10" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" class="textField" onchange="setLaterDate('self', 'dateSelect', #Variables.bookingLen#)" onfocus="setEarlierDate('self', 'dateSelect', #Variables.bookingLen#)" /> #language.dateform#
 								</cfoutput>
-								<a href="javascript:void(0);" onclick="javascript:getCalendar('dateSelect', 'start')" class="textbutton">calendar</a>
+								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 							</td>
 						</tr>
 						<tr>
@@ -162,7 +162,7 @@ function EditSubmit ( selectedform )
 								<cfoutput>
 									<input type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" class="textField" onchange="setEarlierDate('self', 'dateSelect', #Variables.bookingLen#)" onfocus="setLaterDate('self', 'dateSelect', #Variables.bookingLen#)" /> #language.dateform#
 								</cfoutput>
-								<a href="javascript:void(0);" onclick="javascript:getCalendar('dateSelect', 'end')" class="textbutton">calendar</a>
+								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 							</td>
 						</tr>
 						<tr>
@@ -185,13 +185,13 @@ function EditSubmit ( selectedform )
 						</tr>
 					</table>
 				</form>
-				
+
 				<cfif form.startDate NEQ "" and form.endDate NEQ "">
 					<cfif isDate(form.startDate)>
 						<cfset proceed = "yes">
 					</cfif>
 				</cfif>
-				
+
 				<cfif isdefined('proceed') and proceed EQ "yes">
 					<cfoutput>
 					<cfparam name="form.expandAll" default="">
@@ -205,9 +205,9 @@ function EditSubmit ( selectedform )
 						</cfif>
 						<input type="hidden" name="show" value="#url.show#" />
 					</form>
-							
+
 					<h2>Drydock <cfif #countPending.numPend# NEQ 0>(#countPending.numPend# #language.pending#)</cfif></h2>
-					
+
 					<div style="float:left;"><a href="addBooking.cfm?#urltoken#" class="textbutton">Add New Drydock Booking</a></div>
 					<div style="text-align:right;">
 						<cfif form.expandAll NEQ "yes">
@@ -216,30 +216,30 @@ function EditSubmit ( selectedform )
 							<a href="javascript:EditSubmit('expandAll');">Collapse All</a>
 						</cfif>
 					</div>
-					
+
 					<P align="center">Total:&nbsp;&nbsp;
 						<i class="pending">Pending - #countPending.numPend#</i>&nbsp;&nbsp;
 						<i class="tentative">Tentative - #countTentative.numTent#</i>&nbsp;&nbsp;
 						<i class="confirmed">Confirmed - #countConfirmed.numConf#</i>
 					</p>
-						
+
 					</cfoutput>
-					
+
 					<cfquery name="getBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT 	Bookings.EndHighlight AS EndHighlight, Bookings.*, Vessels.Name AS VesselName, Docks.Status
 						FROM 	Bookings INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
 									INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
 						WHERE  ((Bookings.startDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'
-								AND Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#') 
+								AND Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 							OR (Bookings.startDate <= '#dateformat(variables.startDate, "mm/dd/yyyy")#'
-								AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#') 
+								AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 							OR (Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'
-								AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'))		
+								AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'))
 							AND Bookings.Deleted = 0
 							AND Vessels.Deleted = 0
 							<!--- Eliminates any Tentative bookings with a start date before today --->
 							AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= #PacificNow#))
-								
+
 						<cfif variables.showPend EQ true AND variables.showTent EQ false AND variables.showConf EQ false>
 							AND (Docks.Status = 'P' OR Docks.Status = 'Y' OR Docks.Status = 'X' OR Docks.Status = 'Z')
 						</cfif>
@@ -248,19 +248,19 @@ function EditSubmit ( selectedform )
 						</cfif>
 						<cfif variables.showConf EQ true AND variables.showPend EQ false AND variables.showTent EQ false>
 							AND Docks.Status = 'C'
-						</cfif>	
+						</cfif>
 						<cfif variables.showPend EQ true AND variables.showTent EQ true AND variables.showConf EQ false>
 							AND ((Docks.Status = 'P' OR Docks.Status = 'Y' OR Docks.Status = 'X' OR Docks.Status = 'Z') OR (Docks.Status = 'T'))
-						</cfif>	
+						</cfif>
 						<cfif variables.showPend EQ true AND variables.showTent EQ false AND variables.showConf EQ true>
 							AND ((Docks.Status = 'C') OR (Docks.Status = 'P' OR Docks.Status = 'Y' OR Docks.Status = 'X' OR Docks.Status = 'Z'))
-						</cfif>	
+						</cfif>
 						<cfif variables.showPend EQ false AND variables.showTent EQ true AND variables.showConf EQ true>
 							AND ((Docks.Status = 'C') OR (Docks.Status = 'T'))
-						</cfif>	
+						</cfif>
 						ORDER BY Bookings.startDate, Bookings.endDate, Vessels.Name
 					</cfquery>
-						
+
 					<cfif getBookings.RecordCount GT 0>
 						<cfoutput query="getBookings">
 						<cfset Variables.id = #BookingID#>
@@ -286,56 +286,56 @@ function EditSubmit ( selectedform )
 						<cfif getBookings.RecordCount GT 0>
 							<cfoutput query="getBookings">
 								<cfset Variables.id = #BookingID#>
-								
+
 								<form method="post" action="deleteBooking_confirm.cfm?#urltoken#" name="delete#ID#">
 									<input type="hidden" name="BookingID" value="#id#" />
 								</form>
 								<form method="post" action="chgStatus_2c.cfm?#urltoken#" name="chgStatus_2c#ID#">
 									<input type="hidden" name="BookingID" value="#id#" />
 								</form>
-								
+
 								<form method="post" action="chgStatus_2p.cfm?#urltoken#" name="chgStatus_2p#ID#">
 									<input type="hidden" name="BookingID" value="#id#" />
 								</form>
-								
+
 								<form method="post" action="chgStatus_2t.cfm?#urltoken#" name="chgStatus_2t#ID#">
 									<input type="hidden" name="BookingID" value="#id#" />
 								</form>
-				
+
 								<form method="post" action="deny.cfm?#urltoken#" name="deny#ID#">
 									<input type="hidden" name="BookingID" value="#id#" />
 								</form>
-				
+
 								<form method="post" action="editBooking.cfm?#urltoken#" name="editBooking#ID#">
 									<input type="hidden" name="BookingID" value="#id#" />
 								</form>
-								
+
 								<form method="post" action="feesForm_admin.cfm?#urltoken#" name="viewForm#ID#">
 									<input type="hidden" name="BookingID" value="#id#" />
 								</form>
-									
+
 						<tr>
 							<td headers="start" nowrap>#LSdateformat(startDate, "mmm d, yyyy")#</td>
 							<td headers="end" nowrap>#LSdateformat(endDate, "mmm d, yyyy")#</td>
 							<td headers="vessel"><a href="javascript:EditSubmit('booking#id#');" name="id#id#" id="id#id#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#VesselName#</a></td>
 							<td headers="status"><cfif status EQ "C"><div class="confirmed">Confirmed</div><cfelseif status EQ "T"><div class="tentative">Tentative</div><cfelseif status EQ "P"><div class="pending">Pending T</div><cfelseif status EQ "Y" OR status EQ "Z"><div class="pending">Pending C</div><cfelseif status EQ "X"><a href="javascript:EditSubmit('delete#ID#');"><div class="pending">Pending X</div></a></cfif></td>
 						</tr>
-								
+
 						<cfif (isDefined('form.id') AND form.id EQ id) OR (isDefined('url.bookingid') AND url.bookingid EQ id) OR form.expandAll EQ "yes">
 							<cfquery name="getData" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-								SELECT 	Bookings.EndHighlight AS EndHighlight, Bookings.StartDate, Bookings.EndDate, Vessels.Name AS VesselName, Vessels.*, 
-										Users.LastName + ', ' + Users.FirstName AS UserName, 
+								SELECT 	Bookings.EndHighlight AS EndHighlight, Bookings.StartDate, Bookings.EndDate, Vessels.Name AS VesselName, Vessels.*,
+										Users.LastName + ', ' + Users.FirstName AS UserName,
 										Companies.Name AS CompanyName, Docks.Section1, Docks.Section2, Docks.Section3,
 										Docks.Status, BookingTime, BookingTimeChange, BookingTimeChangeStatus
 								FROM 	Bookings, Docks, Vessels, Users, Companies
 								WHERE	Bookings.VesselID = Vessels.VesselID
 								AND		Vessels.CompanyID = Companies.CompanyID
-		
+
 								AND		Bookings.UserID = Users.UserID
 								AND		Bookings.BookingID = '#ID#'
 								AND		Docks.BookingID = Bookings.BookingID
 							</cfquery>
-							
+
 							<tr><td colspan="5">
 								<div style="text-align:center;">
 									<div style="width:70%">
@@ -407,19 +407,19 @@ function EditSubmit ( selectedform )
 												</cfif>
 												<cfinput id="EndHighlight" name="EndHighlight" type="text" value="#datediffhighlight#" size="3" maxlength="3" required="yes" class="textField" message="Please enter an End Highlight Date." /> Days
 												<input type="submit" name="submitForm" class="textbutton" value="Update" />
-												</cfform> 
+												</cfform>
 												</td>
 											</tr>
 											<tr>
 												<td>Highlight Until:</td>
-												<td> 
+												<td>
 												<cfif datediffhighlight NEQ "0">#DateFormat(EndHighlight, "mmm dd, yyyy")#</cfif>&nbsp;
 												</td>
 											</tr>
 											<tr class="containsbutton">
 												<td id="Status" valign="top">Status:</td>
 												<td headers="Status">
-													
+
 													<cfif getData.Status EQ "C">
 														<strong>Confirmed</strong>
 														<a href="javascript:EditSubmit('chgStatus_2t#ID#');" class="textbutton">Make Tentative</a>
@@ -430,7 +430,7 @@ function EditSubmit ( selectedform )
 														<a href="javascript:EditSubmit('chgStatus_2p#ID#');" class="textbutton">Make Pending</a>
 													<cfelse>
 														<a href="javascript:EditSubmit('chgStatus_2c#ID#');" class="textbutton">Make Confirmed</a>
-														<a href="javascript:EditSubmit('chgStatus_2t#ID#');" class="textbutton">Make Tentative</a>	
+														<a href="javascript:EditSubmit('chgStatus_2t#ID#');" class="textbutton">Make Tentative</a>
 														<strong>Pending</strong>
 														<cfif getData.Status EQ "Y">
 															<a href="javascript:EditSubmit('deny#ID#');" class="textbutton">Deny Request</a>
@@ -439,13 +439,13 @@ function EditSubmit ( selectedform )
 													</div>
 												</td>
 											</tr>
-											
+
 											<cfif DateCompare(PacificNow, getData.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getData.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getData.endDate, 'd') NEQ 1)>
 												<cfset variables.actionCap = "Cancel Booking">
 											<cfelse>
 												<cfset variables.actionCap = "Delete Booking">
 											</cfif>
-											
+
 											<tr class="containsbutton">
 												<td colspan="2" style="text-align:center;">
 												<a href="javascript:EditSubmit('viewForm#ID#');" class="textbutton">View / Edit Tariff Form</a>
@@ -459,7 +459,7 @@ function EditSubmit ( selectedform )
 							</td></tr>
 								</cfif>
 							</cfoutput>
-							
+
 						<cfelse>
 							<tr>
 								<td colspan="4">
@@ -467,7 +467,7 @@ function EditSubmit ( selectedform )
 								</td>
 							</tr>
 						</cfif>
-						
+
 					</table>
 					<div style="float:left;"><a href="addBooking.cfm?#urltoken#" class="textbutton">Add New Drydock Booking</a></div>
 					<div style="text-align:right;">
@@ -477,24 +477,24 @@ function EditSubmit ( selectedform )
 							<a href="javascript:EditSubmit('expandAll');">Collapse All</a>
 						</cfif>
 					</div>
-					
+
 					<hr />
 					<h2>Maintenance</h2>
 					<cfoutput><a href="addMaintBlock.cfm?#urltoken#" class="textbutton">Add New Maintenance Block</a></cfoutput>
-				
+
 					<cfquery name="getMaintenance" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT  Bookings.*, Docks.Section1, Docks.Section2, Docks.Section3
 						FROM 	Bookings INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
 						WHERE	(
-									(Bookings.startDate >= '#dateformat(form.startDate, "mm/dd/yyyy")#'	AND Bookings.startDate <= '#dateformat(form.endDate, "mm/dd/yyyy")#') 
-								OR	(Bookings.startDate <= '#dateformat(form.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(form.endDate, "mm/dd/yyyy")#') 
+									(Bookings.startDate >= '#dateformat(form.startDate, "mm/dd/yyyy")#'	AND Bookings.startDate <= '#dateformat(form.endDate, "mm/dd/yyyy")#')
+								OR	(Bookings.startDate <= '#dateformat(form.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(form.endDate, "mm/dd/yyyy")#')
 								OR 	(Bookings.endDate >= '#dateformat(form.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(form.endDate, "mm/dd/yyyy")#')
-								)		
+								)
 						AND 	Bookings.Deleted = 0
-						AND 	Docks.Status = 'M'	
-						ORDER BY Bookings.startDate, Bookings.endDate	
+						AND 	Docks.Status = 'M'
+						ORDER BY Bookings.startDate, Bookings.endDate
 					</cfquery>
-					
+
 					<cfif getMaintenance.RecordCount GT 0>
 						<cfoutput query="getMaintenance">
 							<cfset Variables.id = #BookingID#>
@@ -520,7 +520,7 @@ function EditSubmit ( selectedform )
 								<cfelse>
 									<cfset variables.actionCap = "Delete">
 								</cfif>
-					
+
 								<cfset Variables.id = #BookingID#>
 								<tr>
 									<td headers="Start" nowrap>#dateformat(startDate, "mmm d, yyyy")#</td>
@@ -546,9 +546,9 @@ function EditSubmit ( selectedform )
 							</tr>
 						</cfif>
 					</table>
-					
+
 					<cfoutput><a href="addMaintBlock.cfm?#urltoken#" class="textbutton">Add New Maintenance Block</a></cfoutput>
-					
+
 				</cfif>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

@@ -5,13 +5,13 @@
 	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Add Maintenance Block</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
-	
+
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -31,7 +31,7 @@
 					</a></h1>
 
 			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-			
+
 			<!--- -------------------------------------------------------------------------------------------- --->
 			<cfparam name="Variables.BookingID" default="">
 			<cfparam name="Variables.Section1" default="false">
@@ -39,7 +39,7 @@
 			<cfparam name="Variables.Section3" default="false">
 			<cfparam name="Variables.StartDate" default="#DateAdd('d', 1, PacificNow)#">
 			<cfparam name="Variables.EndDate" default="#DateAdd('d', 1, PacificNow)#">
-			
+
 			<cfif IsDefined("Session.Return_Structure")>
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfif Variables.Section1 EQ 1>
@@ -68,11 +68,11 @@
 					<cfif isDefined("form.section3")><cfset Variables.Section3 = true></cfif>
 				</cfif>
 			</cfif>
-			
-			
+
+
 			<!--- -------------------------------------------------------------------------------------------- --->
 			<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
-			
+
 			<cfform name="AddMaintBlock" action="addMaintBlock_process.cfm?#urltoken#" method="post">
 			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 			<table style="width:100%;">
@@ -81,7 +81,7 @@
 				<td headers="Start">
 					<cfoutput>
 					<cfinput name="startDate" type="text" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'AddMaintBlock', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'AddMaintBlock', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
-					<a href="javascript:void(0);" onclick="javascript:getCalendar('AddMaintBlock', 'start')" class="textbutton">calendar</a>
+					<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 				</td>
 			</tr>
 			<tr>
@@ -89,7 +89,7 @@
 				<td headers="End">
 					<cfoutput>
 					<cfinput name="endDate" type="text" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" onChange="setEarlierDate('self', 'AddMaintBlock', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'AddMaintBlock', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
-					<a href="javascript:void(0);" onclick="javascript:getCalendar('AddMaintBlock', 'end')" class="textbutton">calendar</a>
+					<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 				</td>
 			</tr>
 			<tr><td colspan="2">Please choose the sections of the dock that you wish to book for maintenance.</td></tr>
@@ -113,7 +113,7 @@
 			</tr>
 			</table>
 			</cfform>
-			
+
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

@@ -96,7 +96,7 @@
 							<td headers="startCell">
 								<!---input type="Text" class="textField" name="startDateShow" value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17" maxlength="12" validate="date" message="Please enter a valid Start Date." disabled--->
 								<cfinput id="start" type="text" name="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="#language.invalidfromDate#" onChange="setLaterDate('self', 'bookSum', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookSum', #Variables.bookingLen#)" /> #language.dateform#
-								<a href="javascript:void(0);" onclick="javascript:getCalendar('bookSum', 'start');" class="textbutton">#language.calendar#</a>
+								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 								<a href="javascript:document.bookSum.startDate.value=''; void(0);" class="textbutton">#language.clear#</a>
 							</td>
 						</tr>
@@ -105,7 +105,7 @@
 							<td headers="endCell">
 								<!---input type="Text" class="textField" name="endDateShow" value="#DateFormat(endDate, 'mmm d, yyyy')#" size="17" maxlength="12" validate="date" message="Please enter a valid End Date." disabled--->
 								<cfinput id="end" type="text" name="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="#language.invalidtoDate#" onChange="setLaterDate('self', 'bookSum', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookSum', #Variables.bookingLen#)" /> #language.dateform#
-								<a href="javascript:void(0);" onclick="javascript:getCalendar('bookSum', 'end');" class="textbutton">#language.calendar#</a>
+								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 								<a href="javascript:document.bookSum.toDate.value=''; void(0);" class="textbutton">#language.clear#</a>
 							</td>
 						</tr>

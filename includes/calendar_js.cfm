@@ -166,7 +166,7 @@ function getCalendar(formName, fieldName) {
 	var genDObj = new Date();
 	makeDObj(formObj.startDate.value, startDObj);
 	makeDObj(formObj.endDate.value, endDObj);
-	if (fieldName == "booking")	makeDObj(formObj.bookingDate.value, genDObj);
+	if (fieldName == "booking") { makeDObj(formObj.bookingDate.value, genDObj) };
 
 	var startYear  = startDObj.getFullYear();
 	var startMonth = startDObj.getMonth() + 1;
@@ -186,33 +186,23 @@ function getCalendar(formName, fieldName) {
 	//get start date
 	if (fieldName == "start") {
 		//check start year is valid
-		// if (!isNaN(startYear)) {
-			if (startMonth >= 1 && startMonth <=12) {
-				yearValue = startYear;
-				monthValue = startMonth;
-	} else {
-				yearValue = <cfoutput>#DatePart("yyyy", PacificNow)#</cfoutput>;
-				monthValue = <cfoutput>#DatePart("m", PacificNow)#</cfoutput>
-			}
-		//} else {
-			//alert ("please specify a year first");
-			//flag = false;
-		//}
+		if ((startMonth >= 1) && (startMonth <= 12)) {
+			yearValue = startYear;
+			monthValue = startMonth;
+		} else {
+			yearValue = <cfoutput>#DatePart("yyyy", PacificNow)#</cfoutput>;
+			monthValue = <cfoutput>#DatePart("m", PacificNow)#</cfoutput>
+		}
 	}
 
 	if (fieldName == "end") {
-		//if (!isNaN(endYear)) {
-			if (endMonth >= 1 && endMonth <=12) {
-				yearValue = endYear;
-				monthValue = endMonth;
-	} else {
-				yearValue = <cfoutput>#DatePart("yyyy", PacificNow)#</cfoutput>;
-				monthValue = <cfoutput>#DatePart("m", PacificNow)#</cfoutput>;
-	}
-		//} else {
-			//alert ("please specify a year first");
-			//flag = false;
-		//}
+		if (endMonth >= 1 && endMonth <=12) {
+			yearValue = endYear;
+			monthValue = endMonth;
+		} else {
+			yearValue = <cfoutput>#DatePart("yyyy", PacificNow)#</cfoutput>;
+			monthValue = <cfoutput>#DatePart("m", PacificNow)#</cfoutput>;
+		}
 
 	}
 
@@ -220,10 +210,10 @@ function getCalendar(formName, fieldName) {
 		if (genDate[1] >= 1 && genDate[1] <= 12) {
 			yearValue = genDate[0];
 			monthValue = genDate[1];
-	} else {
+		} else {
 			yearValue = <cfoutput>#DatePart("yyyy",PacificNow)#</cfoutput>;
 			monthValue = <cfoutput>#DatePart("m", PacificNow)#</cfoutput>;
-	}
+		}
 	}
 
 	if (flag) {
@@ -231,7 +221,7 @@ function getCalendar(formName, fieldName) {
 
 		if (window.focus) {
 			miniCal.focus();
-	}
+		}
 
 		return false;
 	}

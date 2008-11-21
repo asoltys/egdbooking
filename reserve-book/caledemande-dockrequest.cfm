@@ -107,7 +107,7 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-				
+
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfinclude template="#RootDir#includes/restore_params.cfm">
 				<cfif isDefined("session.form_structure")>
@@ -117,13 +117,13 @@ function EditSubmit ( selectedform )
 					<cfset Variables.endDate = #form.endDate#>
 					<cfset Variables.status = #form.status#>
 				</cfif>
-				
+
 				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
-				
+
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_confirm.cfm?lang=#lang#" method="post" enablecab="No" name="bookingreq" preservedata="Yes">
-				
+
 				<table style="width:100%; padding-left:10px;" >
 					<tr>
 						<td style="width:30%;" id="agent_header">#language.Agent#:</td>
@@ -159,14 +159,14 @@ function EditSubmit ( selectedform )
 						<td id="start_A"><label for="startDateA">#language.StartDate#:</label></td>
 						<td headers="start_A">
 							<cfinput id="startDateA" name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" class="textField" onChange="setLaterDate('self', 'bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreq', #Variables.bookingLen#)" /> #language.dateform#
-							<a href="javascript:void(0);" onclick="javascript:getCalendar('bookingreq', 'start')" class="textbutton">#language.calendar#</a>
+							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
 						<td id="end_A"><label for="endDateA">#language.EndDate#:</label></td>
 						<td headers="end_A">
 							<cfinput id="endDateA" type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#" class="textField" required="yes" message="#language.InvalidEndError#" validate="date" onChange="setLaterDate('self', 'bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreq', #Variables.bookingLen#)" /> #language.dateform#
-							<a href="javascript:void(0);" onclick="javascript:getCalendar('bookingreq', 'end')" class="textbutton">#language.calendar#</a>
+							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
@@ -188,11 +188,11 @@ function EditSubmit ( selectedform )
 				</table>
 				</cfform>
 				</cfoutput>
-				
+
 				<hr width="50%">
 				<div style="text-align:center;" class="red" style="font-weight: bold; text-transform: uppercase; "><cfoutput>#language.or#</cfoutput></div>
 				<hr width="50%">
-				
+
 				<cfoutput>
 				<p>#language.daysToBook#  #language.dateInclusive#</p>
 				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_confirm2.cfm?lang=#lang#" method="post" enablecab="No" name="bookingreqB" preservedata="Yes">
@@ -223,19 +223,15 @@ function EditSubmit ( selectedform )
 					<tr>
 						<td id="start_B"><label for="StartDateB">#language.StartDate#:</label></td>
 						<td headers="start_B">
-							<!---input class="textField" type="Text" name="startDateShow" id="start" disabled value="#DateFormat(startDate, 'mmm d, yyyy')#" size="17"--->
 							<cfinput id="StartDateB" name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" class="textField" onChange="setLaterDate('self', 'bookingreqB', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreqB', #Variables.bookingLen#)" /> #language.dateform#
-							<a href="javascript:void(0);" onclick="javascript:getCalendar('bookingreqB', 'start')" class="textbutton">#language.calendar#</a>
-							<!---a href="javascript:void(0);" onclick="javascript:document.bookingreq.startDateShow.value=''; document.bookingreq.startDate.value='';" class="textbutton">clear</a--->
+							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
 						<td id="end_B"><label for="EndDateB">#language.EndDate#:</label></td>
 						<td headers="end_B">
-							<!---input type="text" name="endDateShow" id="end" class="textField" disabled value="#DateFormat(endDate, 'mmm d, yyyy')#" size="17"--->
 							<cfinput id="EndDateB" name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" class="textField" onChange="setLaterDate('self', 'bookingreqB', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'bookingreqB', #Variables.bookingLen#)" /> #language.dateform#
-							<a href="javascript:void(0);" onclick="javascript:getCalendar('bookingreqB', 'end')" class="textbutton">#language.calendar#</a>
-							<!---a href="javascript:void(0);" onclick="javascript:document.bookingreq.startDateShow.value=''; document.bookingreq.startDate.value='';" class="textbutton">clear</a--->
+							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
@@ -255,10 +251,6 @@ function EditSubmit ( selectedform )
 					<tr><td>&nbsp;</td></tr>
 					<tr>
 						<td colspan="2" align="center">
-							<!---a href="javascript:EditSubmit('bookingreqB');" class="textbutton">Submit</a>
-							<a href="javascript:document.bookingreq.reset();" class="textbutton">Reset</a>
-							<a href="resdemande-bookrequest.cfm" class="textbutton">Cancel</a>
-							<br--->
 							<input type="submit" value="#language.Submit#" class="textbutton" />
 							<input type="reset" value="#language.Reset#" class="textbutton" />
 							<input type="button" value="#language.Cancel#" class="textbutton" onclick="javascript:self.location.href='bookingRequest_choose.cfm?lang=#lang#';" />

@@ -26,7 +26,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -44,14 +44,14 @@ function EditSubmit ( selectedform )
 					Edit Maintenance Block
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
-					
+
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 
 				<!--- -------------------------------------------------------------------------------------------- --->
 				<cfparam name="Variables.BookingID" default="">
 				<cfparam name="Variables.NorthJetty" default="false">
 				<cfparam name="Variables.SouthJetty" default="false">
-				
+
 				<cfif NOT IsDefined("Session.form_Structure")>
 					<cfinclude template="#RootDir#includes/build_form_struct.cfm">
 					<cfinclude template="#RootDir#includes/restore_params.cfm">
@@ -61,7 +61,7 @@ function EditSubmit ( selectedform )
 						<cfset Variables.bookingID = #form.bookingID#>
 					</cfif>
 				</cfif>
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfelseif IsDefined("Form.BookingID") AND Form.BookingID NEQ "">
@@ -73,7 +73,7 @@ function EditSubmit ( selectedform )
 						AND		Status = 'M'
 						AND		Bookings.BookingID = '#Form.BookingID#'
 					</cfquery>
-					
+
 					<cfset Variables.StartDate = getBooking.StartDate>
 					<cfset Variables.EndDate = getBooking.EndDate>
 					<cfset Variables.NorthJetty = getBooking.NorthJetty>
@@ -82,7 +82,7 @@ function EditSubmit ( selectedform )
 				<cfelse>
 					<cflocation addtoken="no" url="jettyBookingManage.cfm?lang=#lang#">
 				</cfif>
-				
+
 				<cfif Variables.NorthJetty EQ 1>
 					<cfset Variables.NorthJetty = true>
 				<cfelse>
@@ -93,7 +93,7 @@ function EditSubmit ( selectedform )
 				<cfelse>
 					<cfset Variables.SouthJetty = false>
 				</cfif>
-				
+
 				<cfif IsDefined("Session.form_Structure")>
 					<cfinclude template="#RootDir#includes/restore_params.cfm">
 					<cfif isDefined("form.StartDate")>
@@ -119,14 +119,14 @@ function EditSubmit ( selectedform )
 					<td id="Start">Start Date:</td>
 					<td headers="Start">
 						<cfoutput><cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" /> #language.dateform#</cfoutput>
-						<a href="javascript:void(0);" onclick="javascript:getCalendar('EditJettyMaintBlock', 'start')" class="textbutton">calendar</a>
+						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 					</td>
 				</tr>
 				<tr>
 					<td id="End">End Date:</td>
 					<td headers="End">
 						<cfoutput><cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" /> #language.dateform#</cfoutput>
-						<a href="javascript:void(0);" onclick="javascript:getCalendar('EditJettyMaintBlock', 'end')" class="textbutton">calendar</a>
+						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 					</td>
 				</tr>
 				<tr><td colspan="2">Please select the jetty/jetties that you wish to book for maintenance:</td></tr>

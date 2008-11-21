@@ -13,7 +13,7 @@
 	ORDER BY Name
 </cfquery>
 
-	
+
 <!-- Start JavaScript Block -->
 <script type="text/javascript">
 /* <![CDATA[ */
@@ -30,7 +30,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -50,7 +50,7 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				
+
 				<cfparam name="form.compID" default="">
 				<cfparam name="Variables.compID" default="#form.compID#">
 				<cfparam name="Variables.vesselID" default="">
@@ -92,8 +92,8 @@ function EditSubmit ( selectedform )
 						</cfif>
 					</cfif>
 				</cfif>
-				
-				
+
+
 				<cfform action="addJettyBooking.cfm?#urltoken#" method="post" name="chooseUserForm">
 					<p><label for="selectCompany">Select Company:</label> <cfselect query="getCompanies" id="selectCompany" name="compID" value="CompanyID" display="Name" selected="#Variables.compID#" />
 					&nbsp;&nbsp;&nbsp;
@@ -101,34 +101,34 @@ function EditSubmit ( selectedform )
 					<input type="submit" name="submitForm" class="textbutton" value="submit" />
 					<cfoutput><input type="button" value="Back" onclick="self.location.href='jettybookingmanage.cfm?#urltoken#'" class="textbutton" />
 				</cfform>
-				
+
 				<cfif Variables.compID NEQ "">
 					<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
-					
+
 					<cflock timeout=20 scope="Session" type="Exclusive">
 						<cfset Session.Company = "#form.compID#">
 					</cflock>
-				
+
 					<cfform action="addJettyBooking_process.cfm?#urltoken#" method="post" name="addBookingForm">
 					<cfoutput>
-					
+
 					<cfquery name="getVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT VesselID, Name
 						FROM Vessels
 						WHERE CompanyID = #Variables.compID# AND Deleted = 0
 						ORDER BY Name
 					</cfquery>
-					
+
 					<cfquery name="getAgents" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT	Users.UserID, lastname + ', ' + firstname AS UserName
 						FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
 								INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
-						WHERE	Companies.companyID = #Variables.compID# AND Users.Deleted = 0 
+						WHERE	Companies.companyID = #Variables.compID# AND Users.Deleted = 0
 								AND UserCompanies.Deleted = 0 AND UserCompanies.Approved = 1
 						ORDER BY lastname, firstname
 					</cfquery>
-				
-					
+
+
 					<table align="center" style="padding-left:10px;" style="width:100%;">
 						<tr>
 							<cfquery name="getCompanyName" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -136,7 +136,7 @@ function EditSubmit ( selectedform )
 								FROM Companies
 								WHERE CompanyID = #Variables.compID#
 							</cfquery>
-							
+
 							<td id="Company" style="width:20%;">Company:</td>
 							<td headers="Company" style="width:80%;"><input type="hidden" name="companyID" value="#variables.compID#" />
 						</tr>
@@ -164,7 +164,7 @@ function EditSubmit ( selectedform )
 								<td headers="Startdate">
 									<cfoutput>
 									<cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'addBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'addBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
-									<a href="javascript:void(0);" onclick="javascript:getCalendar('addBookingForm', 'start')" class="textbutton">calendar</a>
+									<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 								</td>
 							</tr>
 							<tr>
@@ -172,7 +172,7 @@ function EditSubmit ( selectedform )
 								<td headers="Enddate">
 									<cfoutput>
 									<cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" onChange="setEarlierDate('self', 'addBookingForm', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'addBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
-									<a href="javascript:void(0);" onclick="javascript:getCalendar('addBookingForm', 'end')" class="textbutton">calendar</a>
+									<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 								</td>
 							</tr>
 							<tr>
@@ -182,7 +182,7 @@ function EditSubmit ( selectedform )
 										<cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" class="textField" />
 										<cfinput name="bookingTime" type="text" value="#TimeFormat(Variables.TheBookingTime, 'HH:mm:ss')#" size="5" maxlength="8" required="yes" message="Please enter a valid booking time." validate="time" class="textField" />
 									</cfoutput>
-									<a href="javascript:void(0);" onclick="javascript:getCalendar('addBookingForm', 'booking')" class="textbutton">calendar</a>
+									<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 								</td>
 							</tr>
 							<tr><td colspan="2"><p><b>Note: Booking dates are inclusive</b>; i.e. a three day booking is denoted as from May 1 to May 3.</p></td></tr>

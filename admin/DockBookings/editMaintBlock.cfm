@@ -23,7 +23,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -43,13 +43,13 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-			
+
 			<!--- -------------------------------------------------------------------------------------------- --->
 			<cfparam name="Variables.BookingID" default="">
 			<cfparam name="Variables.Section1" default="false">
 			<cfparam name="Variables.Section2" default="false">
 			<cfparam name="Variables.Section3" default="false">
-			
+
 			<cfif NOT IsDefined("Session.form_Structure")>
 				<cfinclude template="#RootDir#includes/build_form_struct.cfm">
 				<cfinclude template="#RootDir#includes/restore_params.cfm">
@@ -59,7 +59,7 @@ function EditSubmit ( selectedform )
 					<cfset Variables.bookingID = #form.bookingID#>
 				</cfif>
 			</cfif>
-			
+
 			<cfif IsDefined("Session.Return_Structure")>
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 			<cfelseif IsDefined("Form.BookingID")>
@@ -71,14 +71,14 @@ function EditSubmit ( selectedform )
 					AND		Status = 'M'
 					AND		Bookings.BookingID = '#Form.BookingID#'
 				</cfquery>
-				
+
 				<cfset Variables.StartDate = getBooking.StartDate>
 				<cfset Variables.EndDate = getBooking.EndDate>
 				<cfset Variables.Section1 = getBooking.Section1>
 				<cfset Variables.Section2 = getBooking.Section2>
 				<cfset Variables.Section3 = getBooking.Section3>
 				<cfset Variables.BookingID = getBooking.BookingID>
-				
+
 			</cfif>
 			<cfif Variables.Section1 EQ 1>
 				<cfset Variables.Section1 = true>
@@ -95,7 +95,7 @@ function EditSubmit ( selectedform )
 			<cfelse>
 				<cfset Variables.Section3 = false>
 			</cfif>
-			
+
 			<cfif IsDefined("Session.form_Structure")>
 				<cfif isDefined("form.startDate")>
 					<cfset Variables.StartDate = #form.startDate#>
@@ -107,7 +107,7 @@ function EditSubmit ( selectedform )
 			</cfif>
 			<!--- -------------------------------------------------------------------------------------------- --->
 			<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
-			
+
 			<cfform name="EditMaintBlock" action="editMaintBlock_process.cfm?#urltoken#" method="post">
 			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 			<table style="width:100%;">
@@ -116,7 +116,7 @@ function EditSubmit ( selectedform )
 				<td headers="Start">
 					<cfoutput>
 					<cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'editMaintBlock', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'editMaintBlock', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
-					<a href="javascript:void(0);" onclick="javascript:getCalendar('EditMaintBlock', 'start')" class="textbutton">calendar</a>
+					<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 				</td>
 			</tr>
 			<tr>
@@ -124,7 +124,7 @@ function EditSubmit ( selectedform )
 				<td headers="End">
 					<cfoutput>
 					<cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" onChange="setEarlierDate('self', 'editMaintBlock', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'editMaintBlock', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
-					<a href="javascript:void(0);" onclick="javascript:getCalendar('EditMaintBlock', 'end')" class="textbutton">calendar</a>
+					<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 				</td>
 			</tr>
 			<tr><td colspan="2">Please choose the sections of the dock that you wish to book for maintenance.</td></tr>
@@ -149,7 +149,7 @@ function EditSubmit ( selectedform )
 			</tr>
 			</table>
 			</cfform>
-			
+
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

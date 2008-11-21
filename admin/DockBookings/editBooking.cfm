@@ -35,7 +35,7 @@ function EditSubmit ( selectedform )
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm"> &gt;
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt; 
+				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
@@ -64,7 +64,7 @@ function EditSubmit ( selectedform )
 				<cfparam name="Variables.Section1" default="">
 				<cfparam name="Variables.Section2" default="">
 				<cfparam name="Variables.Section3" default="">
-				
+
 				<cfif NOT IsDefined("Session.form_Structure")>
 					<cfinclude template="#RootDir#includes/build_form_struct.cfm">
 					<cfinclude template="#RootDir#includes/restore_params.cfm">
@@ -74,11 +74,11 @@ function EditSubmit ( selectedform )
 						<cfset Variables.bookingID = #form.bookingID#>
 					</cfif>
 				</cfif>
-				
+
 				<cfif (NOT IsDefined("Form.BookingID") OR Form.BookingID eq '') AND (NOT IsDefined("URL.BookingID") OR URL.BookingID eq '') AND NOT IsDefined("Session.Return_Structure")>
 					<cflocation addtoken="no" url="#RootDir#admin/DockBookings/bookingManage.cfm?#urltoken#">
 				</cfif>
-				
+
 				<cfif IsDefined("Session.Return_Structure")>
 					<!--- Populate the Variables Structure with the Return Structure.
 							Also display any errors returned --->
@@ -87,7 +87,7 @@ function EditSubmit ( selectedform )
 						SELECT	Vessels.Name AS VesselName,
 								Bookings.StartDate, Bookings.EndDate,
 								Status, Docks.Section1, Docks.Section2, Docks.Section3,
-								Companies.Name AS CompanyName, 
+								Companies.Name AS CompanyName,
 								Companies.CompanyID, Bookings.UserID
 						FROM	Vessels, Docks, Bookings, Companies
 						WHERE	Vessels.VesselID = Bookings.VesselID
@@ -114,7 +114,7 @@ function EditSubmit ( selectedform )
 						SELECT	Vessels.Name AS VesselName,
 								Bookings.StartDate, Bookings.EndDate, Bookings.BookingTime,
 								Status, Section1, Section2, Section3,
-								Companies.Name AS CompanyName, 
+								Companies.Name AS CompanyName,
 								Companies.CompanyID, Bookings.UserID
 						FROM	Vessels, Docks, Bookings, Companies
 						WHERE	Vessels.VesselID = Bookings.VesselID
@@ -122,12 +122,12 @@ function EditSubmit ( selectedform )
 							AND	Docks.BookingID = Bookings.BookingID
 							AND	Bookings.BookingID = '#Variables.BookingID#'
 					</cfquery>
-					
+
 					<cfset Variables.StartDate = getBooking.StartDate>
 					<cfset Variables.EndDate = getBooking.EndDate>
 					<cfset Variables.TheBookingDate = DateFormat(getBooking.BookingTime, 'mm/dd/yyyy')>
 					<cfset Variables.TheBookingTime = TimeFormat(getBooking.BookingTime, 'HH:mm:ss')>
-					
+
 					<cfif getBooking.Section1 EQ 1>
 						<cfset Variables.Section1 = "checked">
 					</cfif>
@@ -138,7 +138,7 @@ function EditSubmit ( selectedform )
 						<cfset Variables.Section3 = "checked">
 					</cfif>
 				</cfif>
-				
+
 				<cfif IsDefined("Session.form_Structure")>
 					<cfif isDefined("form.startDate")>
 						<cfset Variables.StartDate = #form.startDate#>
@@ -148,42 +148,42 @@ function EditSubmit ( selectedform )
 						<cfif isDefined("form.section3")><cfset Variables.Section3 = "checked"><cfelse><cfset Variables.Section3 = ""></cfif>
 					</cfif>
 				</cfif>
-					
+
 				<cfquery name="getAgents" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	Users.UserID, lastname + ', ' + firstname AS UserName
 					FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
 							INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
-					WHERE	Companies.companyID = #getBooking.companyID# AND Users.Deleted = 0 
+					WHERE	Companies.companyID = #getBooking.companyID# AND Users.Deleted = 0
 							AND UserCompanies.Deleted = 0 AND UserCompanies.Approved = 1
 					ORDER BY lastname, firstname
 				</cfquery>
-				
+
 				<cfif url.referrer NEQ "Booking Details">
 					<cfset variables.referrer = "Edit Booking">
 				<cfelse>
 					<cfset variables.referrer = "Booking Details">
 				</cfif>
-				
+
 				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
-				
+
 				<cfoutput query="getBooking">
 					<form method="post" action="chgStatus_2c.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2c#BookingID#" style="margin: 0; padding: 0; ">
 						<input type="hidden" name="BookingID" value="#BookingID#" />
 					</form>
-					
+
 					<form method="post" action="chgStatus_2p.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2p#BookingID#" style="margin: 0; padding: 0; ">
 						<input type="hidden" name="BookingID" value="#BookingID#" />
 					</form>
-					
+
 					<form method="post" action="chgStatus_2t.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2t#BookingID#" style="margin: 0; padding: 0; ">
 						<input type="hidden" name="BookingID" value="#BookingID#" />
 					</form>
 				</cfoutput>
-				
+
 				<cfform action="editBooking_process.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" method="post" enablecab="No" name="editBookingForm" preservedata="Yes">
 				<cfoutput>
 				<input type="hidden" name="BookingID" value="#Variables.BookingID#" />
-				
+
 				<table style="width:100%;">
 					<tr>
 						<td id="Vessel">Vessel:</td>
@@ -206,7 +206,7 @@ function EditSubmit ( selectedform )
 						<td headers="Start">
 							<cfoutput>
 							<cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('self', 'editBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('self', 'editBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
-							<a href="javascript:void(0);" onclick="javascript:getCalendar('editBookingForm', 'start')" class="textbutton">calendar</a>
+							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
@@ -214,7 +214,7 @@ function EditSubmit ( selectedform )
 						<td headers="End">
 							<cfoutput>
 							<cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" onChange="setEarlierDate('self', 'editBookingForm', #Variables.bookingLen#)" onFocus="setLaterDate('self', 'editBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
-							<a href="javascript:void(0);" onclick="javascript:getCalendar('editBookingForm', 'end')" class="textbutton">calendar</a>
+							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
@@ -224,27 +224,9 @@ function EditSubmit ( selectedform )
 								<cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" class="textField" />
 								<cfinput name="bookingTime" type="text" value="#TimeFormat(Variables.TheBookingTime, 'HH:mm:ss')#" size="5" maxlength="8" required="yes" message="Please enter a valid booking time." validate="time" class="textField" />
 							</cfoutput>
-							<a href="javascript:void(0);" onclick="javascript:getCalendar('editBookingForm', 'booking')" class="textbutton">calendar</a>
+							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
-				<!--- 	<tr>
-						<td>Status:</td>
-						<td>
-							<cfif getBooking.confirmed EQ 1>
-								Confirmed
-								&nbsp;&nbsp;&nbsp;<a href="javascript:EditSubmit('chgStatus_2p#BookingID#');" class="textbutton">Pending</a>
-								&nbsp;<a href="javascript:EditSubmit('chgStatus_2t#BookingID#');" class="textbutton">Tentative</a>
-							<cfelseif getBooking.tentative EQ 1>
-								Tentative
-								&nbsp;&nbsp;&nbsp;<a href="javascript:EditSubmit('chgStatus_2p#BookingID#');" class="textbutton">Pending</a>
-								&nbsp;<a href="javascript:EditSubmit('chgStatus_2c#BookingID#');" class="textbutton">Confirmed</a>
-							<cfelse>
-								Pending
-								&nbsp;&nbsp;&nbsp;<a href="javascript:EditSubmit('chgStatus_2t#BookingID#');" class="textbutton">Tentative</a>
-								&nbsp;<a href="javascript:EditSubmit('chgStatus_2c#BookingID#');" class="textbutton">Confirmed</a>
-							</cfif>
-						</td>
-					</tr> --->
 					<tr>
 						<td id="Status" valign="top">Status:</td>
 						<td headers="Status">
@@ -258,7 +240,7 @@ function EditSubmit ( selectedform )
 								<a href="javascript:EditSubmit('chgStatus_2p#BookingID#');" class="textbutton">Make Pending</a>
 							<cfelse>
 								<a href="javascript:EditSubmit('chgStatus_2c#BookingID#');" class="textbutton">Make Confirmed</a>
-								<a href="javascript:EditSubmit('chgStatus_2t#BookingID#');" class="textbutton">Make Tentative</a>	
+								<a href="javascript:EditSubmit('chgStatus_2t#BookingID#');" class="textbutton">Make Tentative</a>
 								<strong>Pending</strong>
 								<cfif getBooking.Status EQ "Y">
 									<a href="javascript:EditSubmit('deny#BookingID#');" class="textbutton">Deny Request</a>
@@ -267,7 +249,7 @@ function EditSubmit ( selectedform )
 						</td>
 					</tr>
 				</table>
-				
+
 				<table style="width:100%;">
 					<cfif getBooking.Status EQ 'c'>
 					<tr><td colspan="2">Please choose the sections of the dock that you wish to book</td></tr>
@@ -299,11 +281,11 @@ function EditSubmit ( selectedform )
 				<form method="post" action="chgStatus_2c.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" name="chgStatus_2c#BookingID#">
 					<input type="hidden" name="BookingID" value="#BookingID#" />
 				</form>
-				
+
 				<form method="post" action="chgStatus_2p.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" name="chgStatus_2p#BookingID#">
 					<input type="hidden" name="BookingID" value="#BookingID#" />
 				</form>
-				
+
 				<form method="post" action="chgStatus_2t.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" name="chgStatus_2t#BookingID#">
 					<input type="hidden" name="BookingID" value="#BookingID#" />
 				</form>

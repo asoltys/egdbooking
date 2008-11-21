@@ -10,6 +10,7 @@
 <!-- VERSION 1.04 DU GABARIT NSI 2.0 | CLF 2.0 TEMPLATE VERSION 1.04 -->
 <!-- VERSION 1.0 DU GABARIT TPSGC | PWGSC TEMPLATE VERSION 1.0 -->
 <!-- DEBUT DE L'EN-TETE | HEADER BEGINS -->
+
 <!-- DEBUT DU TITRE | title BEGINS -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
@@ -38,15 +39,17 @@
 <link href="<cfoutput>#CLF_URL#</cfoutput>/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
 <link href="<cfoutput>#CLF_URL#</cfoutput>/clf20/css/2col.css" media="screen, print" rel="stylesheet" type="text/css" />
 <style type="text/css" media="all">
-/* <![CDATA[ */ 
+/* <![CDATA[ */
 	@import url(<cfoutput>#CLF_URL#</cfoutput>/clf20/css/base2.css);
 /* ]]> */
 </style>
 <!-- FIN DES SCRIPTS/CSS DU GABARIT | TEMPLATE SCRIPTS/CSS END -->
-<!-- DEBUT DE L'AMELIORATION PROGRESSIVE | PROGRESSIVE ENHANCEMENT BEGINS -->
+
+<!-- PROGRESSIVE ENHANCEMENT BEGINS | DEBUT DE L'AMELIORATION PROGRESSIVE -->
 <cfoutput>
 <script src="#CLF_URL#/clf20/scripts/pe-ap.js" type="text/javascript"></script>
 <script src="#Rootdir#scripts/external.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 	/* <![CDATA[ */
 		var params = {
@@ -57,16 +60,22 @@
 	/* ]]> */
 </script>
 </cfoutput>
-<!-- FIN DE L'AMELIORATION PROGRESSIVE | PROGRESSIVE ENHANCEMENT ENDS -->
-<!-- DEBUT DES SCRIPTS/CSS PERSONNALISES | CUSTOM SCRIPTS/CSS BEGIN -->
+<!-- PROGRESSIVE ENHANCEMENT ENDS | FIN DE L'AMELIORATION PROGRESSIVE -->
+
+<!-- CUSTOM SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS PERSONNALISES -->
 <cfoutput>
 <link href="#CLF_URL#/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
 <link href="#CLF_URL#/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
 
 <link href="#RootDir#css/custom.css" media="screen, print" rel="stylesheet" type="text/css" />
 <style type="text/css" media="screen,print">@import url(#RootDir#css/advanced.css);</style>
+<link href="#RootDir#css/calendar.css" media="screen" rel="stylesheet" type="text/css"/>
 
-<!-- FIN DES SCRIPTS/CSS PERSONNALISES | CUSTOM SCRIPTS/CSS END -->
+<script src="#RootDir#scripts/prototype.js" type="text/javascript"></script>
+<script src="#RootDir#scripts/calendar.js" type="text/javascript"></script>
+<script src="#RootDir#scripts/common.js" type="text/javascript"></script>
+<!-- CUSTOM SCRIPTS/CSS END | FIN DES SCRIPTS/CSS PERSONNALISES -->
+
 <!-- DEBUT DU CSS DU GABARIT POUR L'IMPRESSION | TEMPLATE PRINT CSS BEGINS -->
 <link href="#CLF_URL#/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
 </cfoutput>
