@@ -56,12 +56,12 @@
 	<meta name="pwgsc.date.retention" content="" />
 	
 	<!-- leave blank -->
-	<meta name="dc.contributor" content="">
-	<meta name="dc.identifier" content="">
-	<meta name="dc.audience" content="">
-	<meta name="dc.type" content="">
-	<meta name="dc.format" content="">
-	<meta name="dc.coverage" content="">
+	<meta name="dc.contributor" content="" />
+	<meta name="dc.identifier" content="" />
+	<meta name="dc.audience" content="" />
+	<meta name="dc.type" content="" />
+	<meta name="dc.format" content="" />
+	<meta name="dc.coverage" content="" />
 	<!--METADATA PROFILE END-->
 	
 	

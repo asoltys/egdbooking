@@ -28,20 +28,20 @@
 
 	<cfset Variables.BookingRequestString = "">
 	<cfif IsDefined("URL.VesselID")>
-		<cfset Variables.BookingRequestString = "&VesselID=#URL.VesselID#">
+		<cfset Variables.BookingRequestString = "&amp;VesselID=#URL.VesselID#">
 	<cfelseif IsDefined("URL.CompanyID")>
-		<cfset Variables.BookingRequestString = "&CompanyID=#URL.CompanyID#">
+		<cfset Variables.BookingRequestString = "&amp;CompanyID=#URL.CompanyID#">
 	</cfif>
 	<cfif IsDefined("URL.Date") AND DateCompare(#url.date#, #PacificNow#, 'd') EQ 1>
-		<cfset Variables.BookingRequestString = "#Variables.BookingRequestString#&Date=#URL.Date#">
+		<cfset Variables.BookingRequestString = "#Variables.BookingRequestString#&amp;Date=#URL.Date#">
 	</cfif>
 
 	<CFSET variables.datetoken = "">
 	<CFIF IsDefined('url.month')>
-		<CFSET variables.datetoken = variables.datetoken & "&month=#url.month#">
+		<CFSET variables.datetoken = variables.datetoken & "&amp;month=#url.month#">
 	</CFIF>
 	<CFIF IsDefined('url.year')>
-		<CFSET variables.datetoken = variables.datetoken & "&year=#url.year#">
+		<CFSET variables.datetoken = variables.datetoken & "&amp;year=#url.year#">
 	</CFIF>
 
 

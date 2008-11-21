@@ -68,7 +68,7 @@
 	<meta name="dc.date.modified" content="2008-11-12" />
 	<meta name="dc.format" content=" " />
 	<meta name="dc.identifier" content=" " />
-	<meta name="dc.type" content="">
+	<meta name="dc.type" content="" />
 		
 	<meta name="dc.title" content="#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#" />
 	<meta name="keywords" content="#language.masterKeywords# #language.title#" />

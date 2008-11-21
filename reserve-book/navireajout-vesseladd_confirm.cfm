@@ -157,8 +157,8 @@
 							<a href="reserve-booking.cfm?lang=#lang#&CompanyID=#CompanyID#" class="textbutton">#language.Cancel#</a>
 							<br--->
 							<input type="submit" name="submitForm" value="#language.Submit#" class="textbutton" />
-							<input type="button" name="back" value="#language.Back#" onclick="self.location.href='addVessel.cfm?lang=#lang#&CompanyID=#CompanyID#'" class="textbutton" />
-							<input type="button" name="cancel" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#&CompanyID=#CompanyID#'" class="textbutton" />
+							<input type="button" name="back" value="#language.Back#" onclick="self.location.href='addVessel.cfm?lang=#lang#&amp;CompanyID=#CompanyID#'" class="textbutton" />
+							<input type="button" name="cancel" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#&amp;CompanyID=#CompanyID#'" class="textbutton" />
 						</td>
 					</tr>
 				</table>

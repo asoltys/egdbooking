@@ -210,7 +210,7 @@ function EditSubmit ( selectedform )
 					<a href="reserve-booking.cfm?lang=#lang#&CompanyID=#url.CompanyID#" class="textbutton">#language.Back#</a--->
 					<input type="hidden" name="CompanyID" value="#getDetails.CompanyID#" class="textField" />
 					<input type="submit" value="#language.Submit#" class="textbutton" />
-					<input type="button" value="#language.Back#" onclick="self.location.href='#returnTo#?lang=#lang#&CompanyID=#getDetails.CompanyID#'" class="textbutton" />
+					<input type="button" value="#language.Back#" onclick="self.location.href='#returnTo#?lang=#lang#&amp;CompanyID=#getDetails.CompanyID#'" class="textbutton" />
 				</cfoutput>
 				</div>
 				</cfform>

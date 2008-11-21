@@ -180,9 +180,9 @@
 				<br />
 				<div style="text-align:right;">
 					<cfif isDefined("url.referrer") AND url.referrer eq "archive">
-						<cfoutput><a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&CompanyID=#url.CompanyID#" class="textbutton">#language.Back#</a></cfoutput>
+						<cfoutput><a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;CompanyID=#url.CompanyID#" class="textbutton">#language.Back#</a></cfoutput>
 					<cfelse>
-						<cfoutput><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#getDetails.CompanyID#" class="textbutton">#language.Back#</a></cfoutput>
+						<cfoutput><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CompanyID=#getDetails.CompanyID#" class="textbutton">#language.Back#</a></cfoutput>
 					</cfif>
 				</div>
 

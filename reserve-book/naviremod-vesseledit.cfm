@@ -184,7 +184,7 @@
 								<br-->
 								<input type="submit" value="#language.Submit#" name="submitForm" class="textbutton" />
 								<input type="reset" value="#language.Reset#" name="resetForm" class="textbutton" />
-								<input type="button" value="#language.Cancel#" name="cancel" class="textbutton" onclick="self.location.href='#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#GetVesselDetail.companyID#'" />
+								<input type="button" value="#language.Cancel#" name="cancel" class="textbutton" onclick="self.location.href='#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CompanyID=#GetVesselDetail.companyID#'" />
 							</td>
 						</tr>
 					</table>
