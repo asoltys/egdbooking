@@ -175,7 +175,6 @@
 				<input type="hidden" name="bookingID" value="#url.bookingID#" />
 				<p><div style="text-align:right;">
 					<input type="submit" value="#language.Submit#" class="textbutton" />
-					<!---<input type="button" onclick="javascript:self.location.href='javascript:history.go(-1);'" value="#language.Back#" class="textbutton" />
 				</div></p>
 				</cfoutput>
 				</cfform>

@@ -238,7 +238,7 @@
 					</tr>
 					<tr>
 						<td align="left" id="Status">#language.requestedStatus#:</td>
-						<td headers="Status"><input type="hidden" name="Status" value="<cfoutput>#Form.Status#</cfoutput>"><cfif form.status eq "tentative" />
+						<td headers="Status"><input type="hidden" name="Status" value="<cfoutput>#Form.Status#</cfoutput>"><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></td>
 					</tr>
 					<tr><td>&nbsp;</td></tr>
 					<tr>

@@ -41,15 +41,6 @@
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.NewBooking#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<!-- Start JavaScript Block -->
-<script type="text/javascript">
-/* <![CDATA[ */
-function EditSubmit ( selectedform )
-	{
-	  document.forms[selectedform].submit();
-	}
-/* ]]> */
-</script>
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
@@ -225,32 +216,24 @@ function EditSubmit ( selectedform )
 					</tr>
 					<tr>
 						<td align="left" id="StartDate">&nbsp;&nbsp;&nbsp;#language.StartDate#:</td>
-						<td headers="StartDate"><input type="hidden" name="StartDate" value="#Variables.StartDate#)" />#LSDateFormat(Variables.StartDate, 'mmm d, yyyy'" />
+						<td headers="StartDate"><input type="hidden" name="StartDate" value="#Variables.StartDate#" />#LSDateFormat(Variables.StartDate, 'mmm d, yyyy')#</td>
 					</tr>
 					<tr>
 						<td align="left" id="EndDate">&nbsp;&nbsp;&nbsp;#language.EndDate#:</td>
-						<td headers="EndDate"><input type="hidden" name="EndDate" value="#Variables.EndDate#)" />#LSDateFormat(Variables.EndDate, 'mmm d, yyyy'" />
+						<td headers="EndDate"><input type="hidden" name="EndDate" value="#Variables.EndDate#" />#LSDateFormat(Variables.EndDate, 'mmm d, yyyy')#</td>
 					</tr>
 					<tr>
 						<td align="left" id="Status">&nbsp;&nbsp;&nbsp;#language.requestedStatus#:</td>
-						<td headers="Status"><input type="hidden" name="Status" value="#Form.Status#"><cfif form.status eq "tentative" />
+						<td headers="Status"><input type="hidden" name="Status" value="#Form.Status#"><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></td>
 					</tr>
 				</table>
-				<!---<cfif NOT Variables.spaceFound>
-					<cfinclude template="#RootDir#includes/showConflicts.cfm">
-
-				</cfif>--->
 				<table align="center">
 					<tr><td>&nbsp;</td></tr>
 					<tr>
 						<td colspan="2" align="center">
-							<!---a href="javascript:EditSubmit('bookingreq');" class="textbutton">#language.confirm#</a>
-							<a href="resdemande-bookrequest.cfm?lang=<cfoutput>#lang#</cfoutput>" class="textbutton">#language.Cancel#</a>
-							<br--->
 							<input type="submit" value="#language.Submit#" class="textbutton" />
 							<input type="button" value="#language.Back#" class="textbutton" onclick="self.location.href='bookingRequest.cfm?lang=#lang#'" />
 							<input type="button" value="#language.Cancel#" class="textbutton" onclick="self.location.href='reserve-booking.cfm?lang=<cfoutput>#lang#</cfoutput>';" />
-							<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
 						</td>
 					</tr>
 				</table>
