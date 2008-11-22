@@ -212,7 +212,6 @@
 							#language.Agent#:
 						</td>
 						<td headers="Agent" style="width:70%;">
-							<!---<cfinput class="textField" type="Text" name="Name" value="#Variables.Name#" message="Name is a mandatory field" required="Yes" size="65" />--->
 							<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 								#session.lastName#, #session.firstName#
 							</cflock>
@@ -232,15 +231,15 @@
 						<td id="StartDate">
 							#language.StartDate#:
 						</td>
-						<td headers="StartDate"><input type="hidden" name="startDate" value="#CreateODBCDate(startDate)#)" />#LSDateFormat(CreateODBCDate(startDate), 'mmm d, yyyy'" />
+						<td headers="StartDate"><input type="hidden" name="startDate" value="#CreateODBCDate(startDate)#)" />#LSDateFormat(CreateODBCDate(startDate), 'mmm d, yyyy')#</td>
 					</tr>
 					<tr>
 						<td id="EndDate">#language.EndDate#:</td>
-						<td headers="EndDate"><input type="hidden" name="endDate" value="#CreateODBCDate(endDate)#)" />#LSDateFormat(CreateODBCDate(endDate), 'mmm d, yyyy'" />
+						<td headers="EndDate"><input type="hidden" name="endDate" value="#CreateODBCDate(endDate)#)" />#LSDateFormat(CreateODBCDate(endDate), 'mmm d, yyyy')#</td>
 					</tr>
 					<tr id="ReqStatus">
 						<td headers="ReqStatus">#language.requestedStatus#:</td>
-						<td headers="Status"><input type="hidden" name="Status" value="<cfoutput>#Form.Status#</cfoutput>"><cfif form.status eq "tentative" />
+						<td headers="Status"><input type="hidden" name="Status" value="<cfoutput>#Form.Status#</cfoutput>"><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></td>
 					</tr>
 					<tr>
 						<td id="RequestedJetty">

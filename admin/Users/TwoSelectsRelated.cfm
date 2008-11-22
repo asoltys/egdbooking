@@ -124,7 +124,7 @@
 
 
 <!--- OUTPUT FIRST SELECT BOX --->
-<cfoutput><select id="#Attributes.id1#" size="#Attributes.Size1#" <cfif Attributes.Width1 is not "">style="width:#Attributes.Width1#"</cfif>></cfoutput>
+<cfoutput><select id="#Attributes.id1#" name="#Attributes.id1# size="#Attributes.Size1#" <cfif Attributes.Width1 is not "">style="width:#Attributes.Width1#"</cfif>></cfoutput>
 
 	<!--- SPECIAL FIRST ITEM, IF REQUESTED --->
 	<cfif Attributes.EmptyText1 is not ""><cfoutput><option value="">#Attributes.EmptyText1#</option></cfoutput></cfif>
@@ -140,7 +140,7 @@
 <cfoutput>#Attributes.htmlBetween#</cfoutput>
 
 <!--- OUTPUT SECOND SELECT BOX --->
-<cfoutput><select id="#Attributes.id2#" size="#Attributes.Size2#" <cfif Attributes.onChange is not "">onChange="#Attributes.OnChange#"</cfif> <cfif Attributes.Width2 is not "">style="width:#Attributes.Width2#"</cfif>></cfoutput>
+<cfoutput><select id="#Attributes.id2#" name="#Attributes.id2#" size="#Attributes.Size2#" <cfif Attributes.onChange is not "">onChange="#Attributes.OnChange#"</cfif> <cfif Attributes.Width2 is not "">style="width:#Attributes.Width2#"</cfif>></cfoutput>
 	<!--- SPECIAL FIRST ITEM, IF REQUESTED --->
 	<cfif Attributes.EmptyText2 is not ""><cfoutput><option value="">#Attributes.EmptyText2#</option></cfoutput></cfif>
 
