@@ -87,8 +87,8 @@ function EditSubmit ( selectedform )
 							<cfselect name="UserID" query="getUserList" value="UserID" display="UserName" />--->
 							<CF_TwoSelectsRelated
 								QUERY="companyUsers"
-								NAME1="CompanyID"
-								NAME2="UserID"
+								id1="CompanyID"
+								id2="UserID"
 								DISPLAY1="CompanyName"
 								DISPLAY2="UserName"
 								VALUE1="companyID"

@@ -27,12 +27,17 @@
 	<cfset language.requestedStatus = "&Eacute;tat demand&eacute;">
 </cfif>
 
-<cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.drydockRequest#"" />
-	<meta name=""keywords"" content=""#language.keywords#"" />
-	<meta name=""description"" content=""#language.description#"" />
-	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.drydockRequest#</title>">
+<cfsavecontent variable="js">
+	<cfoutput>
+	<meta name="dc.title" content="#language.PWGSC# - #language.EsqGravingDockCaps# - #language.drydockRequest#" />
+	<meta name="keywords" content="#language.keywords#" />
+	<meta name="description" content="#language.description#" />
+	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
+	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.drydockRequest#</title>
+	</cfoutput>
+</cfsavecontent>
+<cfhtmlhead text="#js#">
+
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
@@ -77,15 +82,6 @@
 	</cfif>
 </cflock>
 
-<!-- Start JavaScript Block -->
-<script type="text/javascript">
-/* <![CDATA[ */
-function EditSubmit ( selectedform )
-{
-  document.forms[selectedform].submit();
-	}
-/* ]]> */
-</script>
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
@@ -134,27 +130,26 @@ function EditSubmit ( selectedform )
 						</td>
 					</tr>
 					<tr>
-						<td id="company_header">
+						<td id="Company">
 							#language.Company#:
 						</td>
-						<td headers="company_header">
+						<td headers="Company">
 							<CF_TwoSelectsRelated
-								QUERY="companyVessels"
-								NAME1="CompanyID"
-								NAME2="VesselID"
+								query="companyVessels"
+								id1="CompanyID"
+								id2="VesselID"
 								DISPLAY1="CompanyName"
 								DISPLAY2="VesselName"
 								VALUE1="CompanyID"
 								VALUE2="VesselID"
 								DEFAULT1="#Variables.CompanyID#"
 								DEFAULT2="#Variables.VesselID#"
-								htmlBETWEEN="</td></tr><tr><td id='vessel_header'>#language.vessel#:</td><td headers='vessel_header'>"
+								htmlBETWEEN="</td></tr><tr><td id='vessel'>#language.vessel#:</td><td headers='vessel'>"
 								AUTOSELECTFIRST="Yes"
 								EMPTYTEXT1="(#language.chooseCompany#)"
 								EMPTYTEXT2="(#language.chooseVessel#)"
 								FORMNAME="bookingreq">
 						</td>
-					</tr>
 					<tr>
 						<td id="start_A"><label for="startDateA">#language.StartDate#:</label></td>
 						<td headers="start_A">
@@ -204,8 +199,8 @@ function EditSubmit ( selectedform )
 						<td headers="comp">
 							<CF_TwoSelectsRelated
 								QUERY="companyVessels"
-								NAME1="CompanyID"
-								NAME2="VesselID"
+								id1="CompanyID"
+								id2="VesselID"
 								DISPLAY1="CompanyName"
 								DISPLAY2="VesselName"
 								VALUE1="companyID"

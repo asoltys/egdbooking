@@ -79,8 +79,8 @@
 						<td>
 							<CF_TwoSelectsRelated
 								QUERY="companyVessels"
-								NAME1="CompanyID"
-								NAME2="VesselID"
+								id1="CompanyID"
+								id2="VesselID"
 								DISPLAY1="CompanyName"
 								DISPLAY2="VesselName"
 								VALUE1="companyID"

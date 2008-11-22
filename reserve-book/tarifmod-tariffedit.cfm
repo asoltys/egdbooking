@@ -92,15 +92,6 @@
 	</cfif>
 </cfif>
 
-<!-- Start JavaScript Block -->
-<script type="text/javascript">
-/* <![CDATA[ */
-function EditSubmit ( selectedform )
-	{
-	  document.forms[selectedform].submit();
-	}
-/* ]]> */
-</script>
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
@@ -206,8 +197,6 @@ function EditSubmit ( selectedform )
 				<br />
 				<div style="text-align:right;">
 				<cfoutput>
-					<!---a href="javascript:EditSubmit('serviceSelect');" class="textbutton">#language.Submit#</a>
-					<a href="reserve-booking.cfm?lang=#lang#&CompanyID=#url.CompanyID#" class="textbutton">#language.Back#</a--->
 					<input type="hidden" name="CompanyID" value="#getDetails.CompanyID#" class="textField" />
 					<input type="submit" value="#language.Submit#" class="textbutton" />
 					<input type="button" value="#language.Back#" onclick="self.location.href='#returnTo#?lang=#lang#&amp;CompanyID=#getDetails.CompanyID#'" class="textbutton" />

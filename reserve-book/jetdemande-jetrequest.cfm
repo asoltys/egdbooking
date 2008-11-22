@@ -120,7 +120,6 @@
 							#language.Agent#:
 						</td>
 						<td style="width:70%;" headers="Agent">
-							<!---<cfinput class="textField" type="Text" name="Name" value="#Variables.Name#" message="Name is a mandatory field" required="Yes" size="65" />--->
 							<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 								#session.lastName#, #session.firstName#
 							</cflock>
@@ -132,9 +131,9 @@
 						</td>
 						<td headers="Company">
 							<CF_TwoSelectsRelated
-								QUERY="companyVessels"
-								NAME1="CompanyID"
-								NAME2="VesselID"
+								query="companyVessels"
+								id1="CompanyID"
+								id2="VesselID"
 								DISPLAY1="CompanyName"
 								DISPLAY2="VesselName"
 								VALUE1="CompanyID"
