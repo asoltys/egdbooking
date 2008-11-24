@@ -104,38 +104,6 @@
 						AND	Status = 'm'
 				</cfquery>
 
-				<script type="text/javascript">
-				/* <![CDATA[ */
-				//function to refresh the calendar if users select a month or a year
-				function go() {
-					formObj = document.selection;
-					var yearIndex = formObj.selYear.selectedIndex;
-					var monthIndex = formObj.selMonth.selectedIndex;
-					var year = formObj.selYear.options[yearIndex].text;
-					var month = formObj.selMonth.options[monthIndex].value;
-					window.location = "threemonthCalendar.cfm?month="+ month + "&year=" + year;
-				}
-
-				//populate the calendar based on the url query string
-				function setCalendar() {
-
-					formObj = document.selection;
-					//set the month
-					for (var j = 0; j < formObj.selMonth.length; j++) {
-					   if (formObj.selMonth.options[j].value == <cfoutput>#url.month#</cfoutput>) {
-						   formObj.selMonth.options.selectedIndex = j;
-					}
-				}
-					//set the year
-					for (var i = 0; i < formObj.selYear.length; i++) {
-					   if (formObj.selYear.options[i].text == <cfoutput>#url.year#</cfoutput>) {
-							 formObj.selYear.options.selectedIndex = i;
-						}
-					}
-				}
-				/* ]]> */
-				</script>
-
 				<p><cfoutput>#language.viewInfo#</cfoutput></p>
 
 				<CFSET pos="top">

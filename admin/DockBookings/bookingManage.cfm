@@ -181,7 +181,7 @@ function EditSubmit ( selectedform )
 							<td id="Confirmed" align="left"><label for="showConf" class="confirmed">Confirmed</label></td>
 						</tr>
 						<tr>
-							<td colspan="3" align="right"><!--a href="javascript:validate('dateSelect');" class="textbutton">Submit</a--><input type="submit" class="textbutton" value="submit" />
+							<td colspan="3" align="right"><input type="submit" class="textbutton" value="submit" />
 						</tr>
 					</table>
 				</form>
