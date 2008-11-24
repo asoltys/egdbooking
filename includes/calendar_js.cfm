@@ -157,13 +157,13 @@ function setCalendar() {
 	var formObj = $('selection');
 	//set the month
 	for (var j = 0; j < formObj.selMonth.length; j++) {
-	   if (formObj.selMonth.options[j].value == <CFIF IsDefined('url.month')><cfoutput>#url.month#</cfoutput><CFELSE>''</CFIF>) {
+	   if (formObj.selMonth.options[j].value === <CFIF IsDefined('url.month')><cfoutput>#url.month#</cfoutput><CFELSE>''</CFIF>) {
 	       formObj.selMonth.options.selectedIndex = j;
 		}
 	}
 	//set the year
     for (var i = 0; i < formObj.selYear.length; i++) {
-	   if (formObj.selYear.options[i].text == <CFIF IsDefined('url.year')><cfoutput>#url.year#</cfoutput><CFELSE>''</CFIF>) {
+	   if (formObj.selYear.options[i].text === <CFIF IsDefined('url.year')><cfoutput>#url.year#</cfoutput><CFELSE>''</CFIF>) {
 	         formObj.selYear.options.selectedIndex = i;
 		}
 	}
