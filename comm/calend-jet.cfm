@@ -108,8 +108,6 @@
 						AND	Status = 'm'
 				</cfquery>
 
-				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
-
 				<p><cfoutput>#Language.viewInfo#</cfoutput></p>
 				<CFSET pos="top">
 				<CFINCLUDE template="includes/jetty_key.cfm">

@@ -91,16 +91,16 @@
 			}
 
 			tot = NewOpt.length;
-			lst = $('#Attributes.FormName#').#Attributes.id2#.options.length;
+			lst = $('#Attributes.id2#').options.length;
 
 			for (i = lst; i > 0; i--) {
-			  $('#Attributes.FormName#').#Attributes.id2#.options[i] = null;
+			  $('#Attributes.id2#').options[i] = null;
 			}
 			for (i = 0; i < tot; i++) {
-			  $('#Attributes.FormName#').#Attributes.id2#.options[i] = NewOpt[i];
+			  $('#Attributes.id2#').options[i] = NewOpt[i];
 			}
 			<cfif Attributes.AutoSelectFirst is "yes">
-			  $('#Attributes.FormName#').#Attributes.id2#.options[0].selected = true;
+			  $('#Attributes.id2#').options[0].selected = true;
 			</cfif>
 		}
 	/* ]]> */
