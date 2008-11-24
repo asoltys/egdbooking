@@ -52,11 +52,10 @@
 		// loosely adapted from Nick Heinle's code originally at http://webreference.com/javascript/960902/select_boxes.html
 		// Modified to use prototype by Lois Chan 2008-11-21
 
-		//var FirstArray = new Array;
-		var NewOpt = new Array;
+		var NewOpt, NewVal;
 
 		Event.observe(window, 'load', function() {
-			$('#Attributes.id1#').observe('change', function() { #FunctionName# });
+			$('#Attributes.id1#').observe('change', function() { #FunctionName#; });
 		});
 
 		function #FunctionName# {
@@ -74,8 +73,8 @@
 <!--- WITHIN THE "IF" STATMENT, PRE-POPULATE ARRAY WITH CORRESPONDING ITEMS FOR SECOND SELECT  --->
 <cfoutput QUERY="MyQuery" GROUP="#Attributes.Display1#">
 				case '#CompanyID#':
-					NewOpt = new Array;
-					NewVal = new Array;
+					NewOpt = [];
+					NewVal = [];
 		<cfset Counter2 = IIF(Attributes.EmptyText2 is not "", 1, 0)>
 		<cfif Attributes.EmptyText2 is not ""><cfoutput>NewOpt[0] = new Option("#Attributes.EmptyText2#", ""); </cfoutput></cfif>
 		<cfoutput>NewOpt[#Counter2#] = new Option("#ReplaceList(MyQuery[Attributes.Display2][MyQuery.CurrentRow], "\,#Chr(9)#,#Chr(13)##Chr(10)#,',"",#Chr(13)#,#Chr(10)#",  "\\,\t,\n,\',\"",\r,\f")#", "#ReplaceList(MyQuery[Attributes.Value2][MyQuery.CurrentRow], "\,#Chr(9)#,#Chr(13)##Chr(10)#,',"",#Chr(13)#,#Chr(10)#",  "\\,\t,\n,\',\"",\r,\f")#"); <cfset Counter2 = Counter2 + 1></cfoutput>

@@ -123,17 +123,17 @@
 				<table style="width:100%; padding-left:10px;" >
 					<tr>
 						<td style="width:30%;" id="agent_header">#language.Agent#:</td>
-						<td style="width:70%;" headers="agent_header">
+						<td style="width:70%;">
 							<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 								#session.lastName#, #session.firstName#
 							</cflock>
 						</td>
 					</tr>
 					<tr>
-						<td id="Company">
+						<td>
 							#language.Company#:
 						</td>
-						<td headers="Company">
+						<td>
 							<CF_TwoSelectsRelated
 								query="companyVessels"
 								id1="CompanyID"
@@ -151,15 +151,15 @@
 								FORMNAME="bookingreq">
 						</td>
 					<tr>
-						<td id="start_A"><label for="startDateA">#language.StartDate#:</label></td>
-						<td headers="start_A">
+						<td><label for="startDateA">#language.StartDate#:</label></td>
+						<td>
 							<cfinput id="startDateA" name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" class="textField" onChange="setLaterDate('bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreq', #Variables.bookingLen#)" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
-						<td id="end_A"><label for="endDateA">#language.EndDate#:</label></td>
-						<td headers="end_A">
+						<td><label for="endDateA">#language.EndDate#:</label></td>
+						<td>
 							<cfinput id="endDateA" type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#" class="textField" required="yes" message="#language.InvalidEndError#" validate="date" onChange="setLaterDate('bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreq', #Variables.bookingLen#)" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
@@ -193,10 +193,10 @@
 				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_confirm2.cfm?lang=#lang#" method="post" enablecab="No" id="bookingreqB" preservedata="Yes">
 				<table style="width:100%; padding-left:10px;" >
 					<tr>
-						<td id="comp">
+						<td>
 							#language.Company#:
 						</td>
-						<td headers="comp">
+						<td>
 							<CF_TwoSelectsRelated
 								QUERY="companyVessels"
 								id1="CompanyID"
@@ -216,22 +216,22 @@
 					</tr>
 					<tr><td>#language.DateRange#</td></tr>
 					<tr>
-						<td id="start_B"><label for="StartDateB">#language.StartDate#:</label></td>
-						<td headers="start_B">
+						<td><label for="StartDateB">#language.StartDate#:</label></td>
+						<td>
 							<cfinput id="StartDateB" name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" class="textField" onChange="setLaterDate('bookingreqB', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreqB', #Variables.bookingLen#)" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
-						<td id="end_B"><label for="EndDateB">#language.EndDate#:</label></td>
-						<td headers="end_B">
+						<td><label for="EndDateB">#language.EndDate#:</label></td>
+						<td>
 							<cfinput id="EndDateB" name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" class="textField" onChange="setLaterDate('bookingreqB', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreqB', #Variables.bookingLen#)" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
-						<td id="num"><label for="NumDays">#language.NumDays#:</label></td>
-						<td headers="num">
+						<td><label for="NumDays">#language.NumDays#:</label></td>
+						<td>
 							<cfinput id="NumDays" class="textField" type="Text" name="numDays" value="#Variables.numDays#" required="yes" size="15" maxlength="10" validate="integer" message="#language.numDaysError#" />
 						</td>
 					</tr>
