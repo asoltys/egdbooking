@@ -30,21 +30,9 @@
   *  while parsing the literal string.
   */
 
-// Validates dates inside the form.
-function validate(formName) {
-		var formObj = $('formName');
-	if (!checkDate(formName)) {
-		alert("<cfoutput>#language.endBeforeStartError#</cfoutput>");
-		return false;
-	}
-	return true;
-}
-
-
 /*
  * Breaks the date-String down to ints.  Takes an date object and update it with tokens.
- * Below assumption changes?  Have no fear -- just
- * edit it here!
+ * Below assumption changes?  Have no fear -- just edit it here!
  *
  * ASSUMES that date is in 'mm/dd/yyyy' format.
  *
@@ -154,7 +142,7 @@ function setEarlierDate(formName, numEarlier) {
 }
 
 function go(location) {
-	formObj = document.forms['selection'];
+	formObj = $('selection');
 	var yearIndex = formObj.selYear.selectedIndex;
 	var monthIndex = formObj.selMonth.selectedIndex;
 	var year = formObj.selYear.options[yearIndex].text;
@@ -166,18 +154,18 @@ function go(location) {
  */
 function setCalendar() {
 
-	var formObj = document.forms['selection'];
+	var formObj = $('selection');
 	//set the month
 	for (var j = 0; j < formObj.selMonth.length; j++) {
 	   if (formObj.selMonth.options[j].value == <CFIF IsDefined('url.month')><cfoutput>#url.month#</cfoutput><CFELSE>''</CFIF>) {
 	       formObj.selMonth.options.selectedIndex = j;
-	}
+		}
 	}
 	//set the year
     for (var i = 0; i < formObj.selYear.length; i++) {
 	   if (formObj.selYear.options[i].text == <CFIF IsDefined('url.year')><cfoutput>#url.year#</cfoutput><CFELSE>''</CFIF>) {
 	         formObj.selYear.options.selectedIndex = i;
-	}
+		}
 	}
 }
 
