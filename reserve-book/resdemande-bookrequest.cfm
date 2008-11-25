@@ -35,7 +35,7 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.RequestBooking#</title>">
-<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">	
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
@@ -58,7 +58,7 @@
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				<cfoutput>
-	
+
 				<cfset Variables.BookingRequestString = "">
 				<cfif IsDefined("URL.VesselID")>
 					<cfset Variables.BookingRequestString = "&VesselID=#URL.VesselID#">
@@ -68,17 +68,17 @@
 				<cfif IsDefined("URL.Date")>
 					<cfset Variables.BookingRequestString = "#Variables.BookingRequestString#&Date=#URL.Date#">
 				</cfif>
-				
+
 				<p>#language.choose#</p>
 				<ul>
 					<li><a href="#RootDir#reserve-book/caledemande-dockrequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.drydockBooking#</a></li>
 					<li><a href="#RootDir#reserve-book/jetdemande-jetrequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.jettyBooking#</a></li>
 				</ul>
-				<br />
-				<p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=<cfoutput>#lang#</cfoutput>" class="textbutton">#language.mainPage#</a></p>
-				
+
+				<div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=<cfoutput>#lang#</cfoutput>" class="textbutton">#language.mainPage#</a></div>
+
 				</cfoutput>
-			
+
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

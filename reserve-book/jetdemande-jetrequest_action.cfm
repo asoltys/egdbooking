@@ -57,11 +57,11 @@
 		INNER JOIN	Bookings ON Bookings.VesselID = Vessels.VesselID
 	WHERE	BookingID = ('#getID.BookingID#')
 </cfquery>
-	
+
 <cflock scope="session" throwontimeout="no" timeout="30" type="READONLY">
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	firstname + ' ' + lastname AS UserName, Email, Companies.Name AS CompanyName
-		FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID 
+		FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
 				INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
 		WHERE	Users.UserID = #session.userID# AND Companies.CompanyID = '#getDetails.companyID#'
 	</cfquery>
@@ -73,7 +73,7 @@
 <cfif Form.jetty EQ "south"><cfset northorsouth = "South Jetty"></cfif>
 
 <cfoutput>
-	<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Jetty Booking Requested" type="html"> 
+	<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Jetty Booking Requested" type="html">
 <p>#getUser.userName# of #getUser.companyName# has requested a <strong>#variables.status#</strong> #northorsouth# booking for #getDetails.VesselName# from #DateFormat(form.StartDate, 'mmm d, yyyy')# to #DateFormat(form.EndDate, 'mmm d, yyyy')#.</p>
 	</cfmail>
 </cfoutput>
@@ -89,5 +89,5 @@
 	<cfset Session.Success.Message = "Une nouvelle r&eacute;servation pour <b>#getDetails.vesselName#</b> du #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# a &eacute;t&eacute; faite avec succ&egrave;s.">
 	<cfset Session.Success.Back = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
 </cfif>
-<cfset Session.Success.Link = "#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&companyID=#getCompany.CompanyID#">
+<cfset Session.Success.Link = "#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;companyID=#getCompany.CompanyID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">

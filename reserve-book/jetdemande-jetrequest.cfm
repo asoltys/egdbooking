@@ -123,84 +123,64 @@
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 
 				<cfform action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#&amp;companyID=#variables.companyID#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
-				<table style="width:100%; padding-left:10px;" >
-					<tr>
-						<td style="width:30%;" id="Agent">
-							#language.Agent#:
-						</td>
-						<td style="width:70%;" headers="Agent">
+					<fieldset>
+						<label>#language.Agent#:</label>
+						<p>
 							<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 								#session.lastName#, #session.firstName#
 							</cflock>
-						</td>
-					</tr>
-					<tr>
-						<td id="Company">
-							#language.Company#:
-						</td>
-						<td headers="Company">
-							<CF_TwoSelectsRelated
-								query="companyVessels"
-								id1="CompanyID"
-								id2="VesselID"
-								DISPLAY1="CompanyName"
-								DISPLAY2="VesselName"
-								VALUE1="CompanyID"
-								VALUE2="VesselID"
-								DEFAULT1="#Variables.CompanyID#"
-								DEFAULT2="#Variables.VesselID#"
-								htmlBETWEEN="</td></tr><tr><td id='vessel'>#language.vessel#:</td><td headers='vessel'>"
-								AUTOSELECTFIRST="Yes"
-								EMPTYTEXT1="(#language.chooseCompany#)"
-								EMPTYTEXT2="(#language.chooseVessel#)"
-								FORMNAME="bookingreq">
-						</td>
-					</tr>
-					<tr>
-						<td id="StartDate">
-							<label for="start">#language.StartDate#:</label>
-						</td>
-						<td headers="StartDate">
-							<cfinput id="start" name="startDate" type="text" class="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" /> #language.dateform#
-							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
-						</td>
-					</tr>
-					<tr>
-						<td id="EndDate"><label for="end">#language.EndDate#:</label></td>
-						<td headers="EndDate">
-							<cfinput id="end" name="endDate" type="text" class="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" /> #language.dateform#
-							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
-						</td>
-					</tr>
-					<tr>
-						<td id="ReqStatus"><label for="status">#language.requestedStatus#:</label></td>
-						<td headers="ReqStatus"><cfselect id="status" name="status" required="yes">
-								<option value="tentative" <cfif Variables.Status EQ "tentative">selected</cfif>>#language.tentative#</option>
-								<option value="confirmed" <cfif Variables.Status EQ "confirmed">selected</cfif>>#language.confirmed#</option>
-							</cfselect>
-						</td>
-					</tr>
-					<tr><td>&nbsp;</td></tr>
-					<tr>
-						<td id="jheader">
-							<label for="jettySelect">#language.RequestedJetty#:</label>
-						</td>
-						<td headers="jheader">
-							<cfselect name="jetty" required="yes" id="jettySelect">
-								<option value="north" <cfif Variables.Jetty EQ "north">selected</cfif>>#language.NorthLandingWharf#
-								<option value="south" <cfif Variables.Jetty EQ "south">selected</cfif>>#language.SouthJetty#
-							</cfselect>
-						</td>
-					</tr>
-					<tr><td>&nbsp;</td></tr>
-					<tr>
-						<td colspan="2" align="center">
-							<input type="submit" value="#language.Submit#" class="textbutton" />
-							<input type="reset" value="#language.Reset#" class="textbutton" />
-							<input type="button" value="#language.Cancel#" class="textbutton" onclick="javascript:self.location.href='reserve-booking.cfm?lang=#lang#';" />
-						</td>
-					</tr>
-				</table>
+						</p>
+
+
+						<label for="CompanyID">#language.Company#:</label>
+						<CF_TwoSelectsRelated
+							query="companyVessels"
+							id1="CompanyID"
+							id2="VesselID"
+							DISPLAY1="CompanyName"
+							DISPLAY2="VesselName"
+							VALUE1="CompanyID"
+							VALUE2="VesselID"
+							DEFAULT1="#Variables.CompanyID#"
+							DEFAULT2="#Variables.VesselID#"
+							htmlBETWEEN="<br /><label for=""VesselID"">#language.vessel#:</label>"
+							AUTOSELECTFIRST="Yes"
+							EMPTYTEXT1="(#language.chooseCompany#)"
+							EMPTYTEXT2="(#language.chooseVessel#)"
+							FORMNAME="bookingreq">
+						<br />
+
+						<label for="StartDate">#language.StartDate#:</label>
+						<cfinput id="StartDate" name="startDate" type="text" class="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" /> #language.dateform#
+						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
+						<br />
+
+
+						<label for="EndDate">#language.EndDate#:</label>
+						<cfinput id="EndDate" name="endDate" type="text" class="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" /> #language.dateform#
+						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
+						<br />
+
+						<label for="status">#language.requestedStatus#:</label>
+						<cfselect id="status" name="status" required="yes">
+							<option value="tentative" <cfif Variables.Status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
+							<option value="confirmed" <cfif Variables.Status EQ "confirmed">selected="selected"</cfif>>#language.confirmed#</option>
+						</cfselect>
+						<br />
+
+						<label for="jettySelect">#language.RequestedJetty#:</label>
+						<cfselect name="jetty" required="yes" id="jettySelect">
+							<option value="north" <cfif Variables.Jetty EQ "north">selected="selected"</cfif>>#language.NorthLandingWharf#</option>
+							<option value="south" <cfif Variables.Jetty EQ "south">selected="selected"</cfif>>#language.SouthJetty#</option>
+						</cfselect>
+					</fieldset>
+
+					<div class="buttons">
+						<input type="submit" value="#language.Submit#" class="textbutton" />
+						<input type="reset" value="#language.Reset#" class="textbutton" />
+						<input type="button" value="#language.Cancel#" class="textbutton" onclick="javascript:self.location.href='reserve-booking.cfm?lang=#lang#';" />
+					</div>
+
 				</cfform>
 				<p>#language.warning#</p>
 				</cfoutput>

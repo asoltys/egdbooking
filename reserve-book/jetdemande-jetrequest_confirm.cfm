@@ -206,62 +206,55 @@
 				<p>#language.bookingAvailable#</p>
 
 				<cfform action="#RootDir#reserve-book/jetdemande-jetrequest_action.cfm?lang=#lang#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
-				<table style="width:100%; padding-left:10px;" >
-					<tr>
-						<td style="width:30%;" id="Agent">
-							#language.Agent#:
-						</td>
-						<td headers="Agent" style="width:70%;">
+					<fieldset>
+						<label>#language.Agent#:</label>
+						<p>
 							<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 								#session.lastName#, #session.firstName#
 							</cflock>
-						</td>
-					</tr>
-					<tr>
-						<td id="Company">
-							#language.Company#:
-						</td>
-						<td headers="Company"><input type="hidden" name="CompanyID" value="#getInfo.CompanyID#" />
-					</tr>
-					<tr>
-						<td id="vessel">#language.vessel#:</td>
-						<td headers="vessel"><input type="hidden" name="VesselID" value="#getInfo.VesselID#" />
-					</tr>
-					<tr>
-						<td id="StartDate">
-							#language.StartDate#:
-						</td>
-						<td headers="StartDate"><input type="hidden" name="startDate" value="#CreateODBCDate(startDate)#)" />#LSDateFormat(CreateODBCDate(startDate), 'mmm d, yyyy')#</td>
-					</tr>
-					<tr>
-						<td id="EndDate">#language.EndDate#:</td>
-						<td headers="EndDate"><input type="hidden" name="endDate" value="#CreateODBCDate(endDate)#)" />#LSDateFormat(CreateODBCDate(endDate), 'mmm d, yyyy')#</td>
-					</tr>
-					<tr id="ReqStatus">
-						<td headers="ReqStatus">#language.requestedStatus#:</td>
-						<td headers="Status"><input type="hidden" name="Status" value="<cfoutput>#Form.Status#</cfoutput>"><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></td>
-					</tr>
-					<tr>
-						<td id="RequestedJetty">
-							<label for="jettySelect">#language.RequestedJetty#:</label>
-						</td>
-						<td headers="RequestedJetty"><input id="jettySelect" type="hidden" name="jetty" value="#Form.Jetty#" />
+						</p>
+
+
+						<label>#language.Company#:</label>
+						<input type="hidden" name="CompanyID" value="#getInfo.CompanyID#" />
+						<p>#getInfo.CompanyName#</p>
+
+
+						<label>#language.vessel#:</label>
+						<input type="hidden" name="VesselID" value="#getInfo.VesselID#" />
+						<p>#getInfo.VesselName#</p>
+
+
+						<label>#language.StartDate#:</label>
+						<input type="hidden" name="startDate" value="#CreateODBCDate(startDate)#" />
+						<p>#LSDateFormat(CreateODBCDate(startDate), 'mmm d, yyyy')#</p>
+
+
+						<label>#language.EndDate#:</label>
+						<input type="hidden" name="endDate" value="#CreateODBCDate(endDate)#" />
+						<p>#LSDateFormat(CreateODBCDate(endDate), 'mmm d, yyyy')#</p>
+
+
+						<label>#language.requestedStatus#:</label>
+						<input type="hidden" name="Status" value="#Form.Status#" />
+						<p><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></p>
+
+
+						<label>#language.RequestedJetty#:</label>
+						<input id="jettySelect" type="hidden" name="jetty" value="#Form.Jetty#" />
+						<p>
 							<cfif Form.Jetty EQ "north">
 								#language.northJetty#
 							<cfelse>
 								#language.southJetty#
 							</cfif>
-						</td>
-					</tr>
-					<tr><td>&nbsp;</td></tr>
-					<tr>
-						<td colspan="2" align="center">
-							<input type="submit" value="#language.confirm#" class="textbutton" />
-							<input type="button" value="#language.Back#" class="textbutton" onclick="self.location.href='jettyRequest.cfm?lang=#lang#&amp;CompanyID=#url.companyID#'" />
-						</td>
-					</tr>
-				</table>
+						</p>
+					</fieldset>
 
+					<div class="buttons">
+						<input type="submit" value="#language.confirm#" class="textbutton" />
+						<input type="button" value="#language.Back#" class="textbutton" onclick="self.location.href='jettyRequest.cfm?lang=#lang#&amp;CompanyID=#url.companyID#'" />
+					</div>
 
 				</cfform>
 				</cfoutput>
