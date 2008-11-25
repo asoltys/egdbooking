@@ -80,7 +80,7 @@
 				<td id="Start">Start Date:</td>
 				<td headers="Start">
 					<cfoutput>
-					<cfinput name="startDate" type="text" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('AddMaintBlock', #Variables.bookingLen#)" onFocus="setEarlierDate('AddMaintBlock', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
+					<cfinput name="startDate" type="text" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" onChange="setLaterDate('AddMaintBlock', #Variables.bookingLen#)" onFocus="setEarlierDate('AddMaintBlock', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 					<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 				</td>
 			</tr>
@@ -88,7 +88,7 @@
 				<td id="End">End Date:</td>
 				<td headers="End">
 					<cfoutput>
-					<cfinput name="endDate" type="text" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" onChange="setEarlierDate('AddMaintBlock', #Variables.bookingLen#)" onFocus="setLaterDate('AddMaintBlock', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
+					<cfinput name="endDate" type="text" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" onChange="setEarlierDate('AddMaintBlock', #Variables.bookingLen#)" onFocus="setLaterDate('AddMaintBlock', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 					<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 				</td>
 			</tr>

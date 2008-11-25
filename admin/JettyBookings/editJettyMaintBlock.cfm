@@ -118,14 +118,14 @@ function EditSubmit ( selectedform )
 				<tr>
 					<td id="Start">Start Date:</td>
 					<td headers="Start">
-						<cfoutput><cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" /> #language.dateform#</cfoutput>
+						<cfoutput><cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" /> #language.dateform#</cfoutput>
 						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 					</td>
 				</tr>
 				<tr>
 					<td id="End">End Date:</td>
 					<td headers="End">
-						<cfoutput><cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" /> #language.dateform#</cfoutput>
+						<cfoutput><cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" /> #language.dateform#</cfoutput>
 						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 					</td>
 				</tr>

@@ -125,11 +125,11 @@
 						</tr>
 						<tr>
 							<td id="vessel"><label for="name">#language.vessel#:</label></td>
-							<td headers="vessel"><cfinput id="name" name="name" type="text" value="#variables.Name#" size="37" maxlength="100" required="yes" CLASS="textField" message="#language.nameError#" /></td>
+							<td headers="vessel"><cfinput id="name" name="name" type="text" value="#variables.Name#" size="37" maxlength="100" required="yes" message="#language.nameError#" /></td>
 						</tr>
 						<tr>
 							<td id="lloyds"><label for="LloydsID">#language.LloydsID#:</label></td>
-							<td headers="lloyds"><cfinput id="LloydsID" name="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" CLASS="textField" ></td>
+							<td headers="lloyds"><cfinput id="LloydsID" name="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" ></td>
 						</tr>
 						<cfif getVesselDockBookings.recordCount GT 0 OR getVesselJettyBookings.recordCount GT 0>
 						<tr>
@@ -143,24 +143,24 @@
 						<cfelse>
 						<tr>
 							<td id="len"><label for="length">#language.Length#:</label></td>
-							<td headers="len"><cfinput id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="#language.lengthError#">  <span class="smallFont" style="color:red;" />#language.Max#: #Variables.MaxLength# m</span></td>
+							<td headers="len"><cfinput id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" message="#language.lengthError#">  <span class="smallFont" style="color:red;" />#language.Max#: #Variables.MaxLength# m</span></td>
 						</tr>
 						<tr>
 							<td id="wid"><label for="width">#language.Width#:</label></td>
-							<td headers="wid"><cfinput id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="#language.widthError#">  <span class="smallFont" style="color:red;" />#language.Max#: #Variables.MaxWidth# m</span></td>
+							<td headers="wid"><cfinput id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" required="yes" validate="float" message="#language.widthError#">  <span class="smallFont" style="color:red;" />#language.Max#: #Variables.MaxWidth# m</span></td>
 						</tr>
 						</cfif>
 						<tr>
 							<td id="setup"><label for="blocksetuptime">#language.BlockSetup# #language.days#:</label></td>
-							<td headers="setup"><cfinput id="blocksetuptime" name="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" required="yes" validate="float" CLASS="textField" message="#language.setupError#" /></td>
+							<td headers="setup"><cfinput id="blocksetuptime" name="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" required="yes" validate="float" message="#language.setupError#" /></td>
 						</tr>
 						<tr>
 							<td id="teardown"><label for="blockteardowntime">#language.BlockTeardown# #language.days#:</label></td>
-							<td headers="teardown"><cfinput id="blockteardowntime" name="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" required="yes" validate="float" CLASS="textField" message="#language.teardownError#" /></td>
+							<td headers="teardown"><cfinput id="blockteardowntime" name="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" required="yes" validate="float" message="#language.teardownError#" /></td>
 						</tr>
 						<tr>
 							<td id="ton"><label for="tonnage">#language.Tonnage#:</label></td>
-							<td headers="ton"><cfinput id="tonnage" name="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="#language.tonnageError#" /></td>
+							<td headers="ton"><cfinput id="tonnage" name="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" required="yes" validate="float" message="#language.tonnageError#" /></td>
 						</tr>
 						<!---<tr>
 							<td>Fuel Type:</td>

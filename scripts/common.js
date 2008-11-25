@@ -10,9 +10,9 @@ Event.observe(window, 'load', function() {
     e.observe('click', function(e) {
       previous_value = e.element().previous().getValue();
       displayDatePicker(e.element().previous());
-    })
-  })
-})
+    });
+  });
+});
 
 function createObject()
 {
@@ -61,10 +61,11 @@ function getURLparam( key )
   var regexS = key + "=[^&##]*";
   var regex = new RegExp( regexS );
   var results = regex.exec( window.location.href );
-  if( results == null )
+  if( results === null ) {
     return "";
-  else
+  } else {
     return results[1];
+  }
 }
 
 /* ---------------------------------------------------------------------------------- setURLparam
@@ -76,37 +77,31 @@ function getURLparam( key )
 
 function setURLparam(key, value, old_location)
 {
-  var new_location
+  var new_location;
+
   if (!old_location) {
-    old_location =  window.location.href
+    old_location =  window.location.href;
   }
 
-  if (getURLparam(key) != "")
-  {
+  if (getURLparam(key) != "") {
     var regexS = key + "=([^&##]*)"
-    var regex = new RegExp( regexS )
-    new_location = old_location.replace(regex, key + "=" + value)
-  }
-  else
-  {
-    var url_string = /[^##]*/.exec(old_location)
-    var anchor_string = /##.*/.exec(old_location)
+    var regex = new RegExp( regexS );
+    new_location = old_location.replace(regex, key + "=" + value);
+  } else {
+    var url_string = /[^##]*/.exec(old_location);
+    var anchor_string = /##.*/.exec(old_location);
 
-    if (/\?/.test(url_string))
-    {
-      new_location = url_string + "&" + key + "=" + value
-    }
-    else
-    {
-      new_location = url_string + "?" + key + "=" + value
+    if (/\?/.test(url_string)) {
+      new_location = url_string + "&" + key + "=" + value;
+    } else {
+      new_location = url_string + "?" + key + "=" + value;
     }
 
-    if (anchor_string)
-    {
-      new_location = new_location + anchor_string
+    if (anchor_string) {
+      new_location = new_location + anchor_string;
     }
   }
-  return new_location
+  return new_location;
 }
 
 /* ---------------------------------------------------------------------------------------- fmt00
@@ -117,11 +112,11 @@ function setURLparam(key, value, old_location)
  * ----------------------------------------------------------------------------------------------
  */
 
-function fmt00(number){
- if (parseInt(number) < 0) var neg = true;
- if (Math.abs(parseInt(number)) < 10){
-  number = "0"+ Math.abs(number);
- }
- if (neg) number = "-"+number;
- return number;
+function fmt00(number) {
+  if (parseInt(number) < 0) var neg = true;
+  if (Math.abs(parseInt(number)) < 10) {
+    number = "0"+ Math.abs(number);
+  }
+  if (neg) { number = "-"+number };
+  return number;
 }

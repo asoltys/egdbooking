@@ -101,31 +101,31 @@
 				</tr>
 				<tr>
 					<td id="vesselName"><label for="name">#language.vesselName#:</label></td>
-					<td headers="vesselName"><cfinput name="name" id="name" type="text" value="#variables.name#" size="35" maxlength="100" required="yes" CLASS="textField" message="#language.nameError#" /></td>
+					<td headers="vesselName"><cfinput name="name" id="name" type="text" value="#variables.name#" size="35" maxlength="100" required="yes" message="#language.nameError#" /></td>
 				</tr>
 				<tr>
 					<td id="LloydsID_header"><label for="LloydsID">#language.LloydsID#:</label></td>
-					<td headers="LloydsID_header"><cfinput name="LloydsID" id="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" CLASS="textField" ></td>
+					<td headers="LloydsID_header"><cfinput name="LloydsID" id="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" ></td>
 				</tr>
 				<tr>
 					<td id="length_header"><label for="length">#language.Length#:</label></td>
-					<td headers="length_header"><cfinput name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="#language.lengthError#">  <span class="smallFont" style="color:red;" />#language.Max#: #Variables.MaxLength# m</span></td>
+					<td headers="length_header"><cfinput name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" message="#language.lengthError#">  <span class="smallFont" style="color:red;" />#language.Max#: #Variables.MaxLength# m</span></td>
 				</tr>
 				<tr>
 					<td id="width_header"><label for="width">#language.Width#:</label></td>
-					<td headers="width_header"><cfinput name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="#language.widthError#">  <span class="smallFont" style="color:red;" />#language.Max#: #Variables.MaxWidth# m</span></td>
+					<td headers="width_header"><cfinput name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" required="yes" validate="float" message="#language.widthError#">  <span class="smallFont" style="color:red;" />#language.Max#: #Variables.MaxWidth# m</span></td>
 				</tr>
 				<tr>
 					<td id="blocksetuptime_header"><label for="blocksetuptime">#language.BlockSetup# #language.days#:</label></td>
-					<td headers="blocksetuptime_header"><cfinput name="blocksetuptime" id="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" required="yes" validate="float" CLASS="textField" message="#language.setupError#" /></td>
+					<td headers="blocksetuptime_header"><cfinput name="blocksetuptime" id="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" required="yes" validate="float" message="#language.setupError#" /></td>
 				</tr>
 				<tr>
 					<td id="blockteardowntime_header"><label for="blockteardowntime">#language.BlockTeardown# #language.days#:</label></td>
-					<td headers="blockteardowntime_header"><cfinput name="blockteardowntime" id="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" required="yes" validate="float" CLASS="textField" message="#language.teardownError#" /></td>
+					<td headers="blockteardowntime_header"><cfinput name="blockteardowntime" id="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" required="yes" validate="float" message="#language.teardownError#" /></td>
 				</tr>
 				<tr>
 					<td id="Tonnage_header"><label for="tonnage">#language.Tonnage#:</label></td>
-					<td headers="Tonnage_header"><cfinput name="tonnage" id="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" required="yes" validate="float" CLASS="textField" message="#language.tonnageError#" /></td>
+					<td headers="Tonnage_header"><cfinput name="tonnage" id="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" required="yes" validate="float" message="#language.tonnageError#" /></td>
 				</tr>
 				<tr>
 					<td id="Anonymous_header"><label for="Anonymous">#language.anonymous#:</label></td>

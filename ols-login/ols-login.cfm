@@ -100,11 +100,11 @@
 						<table border="0" cellspacing="2" cellpadding="2" align="center">
 							<tr>
 								<td align="right"><label for="email">#language.Email#:</label></td>
-								<td><input type="text" name="email" id="email" size="40" maxlength="100" class="textField" value="#email#" /></td>
+								<td><input type="text" name="email" id="email" size="40" maxlength="100" value="#email#" /></td>
 							</tr>
 							<tr>
 								<td align="right"><label for="password">#language.Password#:</label></td>
-								<td><input type="password" name="Password" id="password" size="25" maxlength="40" class="textField" /></td>
+								<td><input type="password" name="Password" id="password" size="25" maxlength="40" /></td>
 							</tr>
 							<tr>
 								<td>&nbsp;</td>

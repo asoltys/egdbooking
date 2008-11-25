@@ -34,6 +34,12 @@
 	<meta name="description" content="#language.description#" />
 	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.drydockRequest#</title>
+
+	<script type="text/javascript">
+		Event.observe(window, 'load', function() {
+			;
+		}
+	</script>
 	</cfoutput>
 </cfsavecontent>
 <cfhtmlhead text="#js#">
@@ -153,14 +159,14 @@
 					<tr>
 						<td><label for="startDateA">#language.StartDate#:</label></td>
 						<td>
-							<cfinput id="startDateA" name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" class="textField" onChange="setLaterDate('bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreq', #Variables.bookingLen#)" /> #language.dateform#
+							<cfinput id="startDateA" name="startDate" class="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" onChange="setLaterDate('bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreq', #Variables.bookingLen#)" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
 						<td><label for="endDateA">#language.EndDate#:</label></td>
 						<td>
-							<cfinput id="endDateA" type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#" class="textField" required="yes" message="#language.InvalidEndError#" validate="date" onChange="setLaterDate('bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreq', #Variables.bookingLen#)" /> #language.dateform#
+							<cfinput id="endDateA" name="endDate" class="endDate" type="text" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#" required="yes" message="#language.InvalidEndError#" validate="date" onChange="setLaterDate('bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreq', #Variables.bookingLen#)" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
@@ -218,21 +224,21 @@
 					<tr>
 						<td><label for="StartDateB">#language.StartDate#:</label></td>
 						<td>
-							<cfinput id="StartDateB" name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" class="textField" onChange="setLaterDate('bookingreqB', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreqB', #Variables.bookingLen#)" /> #language.dateform#
+							<cfinput id="StartDateB" name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" onChange="setLaterDate('bookingreqB', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreqB', #Variables.bookingLen#)" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
 						<td><label for="EndDateB">#language.EndDate#:</label></td>
 						<td>
-							<cfinput id="EndDateB" name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" class="textField" onChange="setLaterDate('bookingreqB', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreqB', #Variables.bookingLen#)" /> #language.dateform#
+							<cfinput id="EndDateB" name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" onChange="setLaterDate('bookingreqB', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreqB', #Variables.bookingLen#)" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
 						<td><label for="NumDays">#language.NumDays#:</label></td>
 						<td>
-							<cfinput id="NumDays" class="textField" type="Text" name="numDays" value="#Variables.numDays#" required="yes" size="15" maxlength="10" validate="integer" message="#language.numDaysError#" />
+							<cfinput id="NumDays" type="Text" name="numDays" value="#Variables.numDays#" required="yes" size="15" maxlength="10" validate="integer" message="#language.numDaysError#" />
 						</td>
 					</tr>
 					<tr>

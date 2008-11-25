@@ -92,7 +92,7 @@ function EditSubmit ( selectedform )
 										<cfset variables.value = "">
 										<cfset variables.checked = "true">
 									</cfif>
-									$<cfinput name="#abbreviation#Fee" type="text" value="#variables.value#" size="9" id="#abbreviation#" CLASS="textField" />
+									$<cfinput name="#abbreviation#Fee" type="text" value="#variables.value#" size="9" id="#abbreviation#" />
 									<br /><cfinput type="checkbox" name="#abbreviation#Flex" id="#abbreviation#Flex" checked="#variables.checked#"><label for="#abbreviation#Flex" />prices vary</label>
 								</cfif>
 							</td>

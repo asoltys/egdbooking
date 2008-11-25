@@ -37,12 +37,12 @@
  *
  * DON'T FORGET the radix of 10 for parseInt() or it could use octal instead of decimal.
  */
-function makeDObj(dateString, dObj) {
+function makeDateObj(dateString, dateObj) {
 	var tokens = [];
 	dateString.scan(/\d+/, function(match) { tokens.push(match[0]); } );
-	dObj.setFullYear(parseInt(tokens[2], 10));  // year
-	dObj.setMonth(parseInt(tokens[0], 10) - 1);  // month
-	dObj.setDate(parseInt(tokens[1], 10));  // day
+	dateObj.setFullYear(parseInt(tokens[2], 10));  // year
+	dateObj.setMonth(parseInt(tokens[0], 10) - 1);  // month
+	dateObj.setDate(parseInt(tokens[1], 10));  // day
 }
 
 /* checks if the start day and end day are logically right:
@@ -50,13 +50,26 @@ function makeDObj(dateString, dObj) {
  * return true if dates are right
  */
 
-function checkDate(dObj1, dObj2) {
+function datesAreValid(dateObj1, dateObj2) {
 	var dateValid = true;
 
-	if (dObj1 > dObj2) {
+	if (dateObj1 > dateObj2) {
 		dateValid = false;
 	}
 	return dateValid;
+}
+
+function setOtherDate(myDateID, otherDateID, days) {
+	var myDate = $(myDateID);
+	var otherDate = $(otherDateID);
+	var myDateObj = new Date();
+	var otherDateObj = new Date();
+
+	makeDateObj($F(myDate), myDateObj);
+
+	otherDateObj.setDate(myDateObj.getDate() + parseInt(days, 10));
+	alert("otherDateObj >> " + otherDateObj);
+
 }
 
 /* Makes the endDate always later than the startDate.  Used when endDate is changed,
@@ -65,38 +78,28 @@ function checkDate(dObj1, dObj2) {
  *
  * numLater		the number of days in between the two dates.
  */
-function setLaterDate(formName, numLater) {
+function setLaterDate(endDateFieldID, numLater) {
 	var formObj = $(formName);
 
-	var startDObj = new Date();
-	var endDObj   = new Date();
-	makeDObj(formObj.startDate.value, startDObj);
-	makeDObj(formObj.endDate.value, endDObj);
+	var startDateObj = new Date();
+	var endDateObj   = new Date();
+	makeDateObj(formObj.startDate.value, startDateObj);
+	makeDateObj(formObj.endDate.value, endDateObj);
 
 	// alert("numLater >> " + numLater);
 
-	if (!checkDate(startDObj, endDObj)) {
-		var gar = startDObj.getDate() + parseInt(numLater, 10);
+	if (!datesAreValid(startDateObj, endDateObj)) {
+		var gar = startDateObj.getDate() + parseInt(numLater, 10);
 
-		endDObj.setDate(gar);
-		alert("endDObj.setDate(gar) >> " + endDObj.toString());
-		var month = endDObj.getMonth() + 1;
-		var day = endDObj.getDate();
+		endDateObj.setDate(gar);
+		alert("endDateObj.setDate(gar) >> " + endDateObj.toString());
+		var month = endDateObj.getMonth() + 1;
+		var day = endDateObj.getDate();
 
-		// set the date in the form
-		// adds a leading zero to make it purdy
-		month = month + '';
-		day = day + '';
+		month = fmt00(month);
+		day = fmt00(day);
 
-		if (month.length == 1) {
-			month = '0' + month;
-		}
-
-		if (day.length == 1) {
-			day = '0' + day;
-		}
-
-		var theDate = month + "/" + day + "/" + endDObj.getFullYear();
+		var theDate = month + "/" + day + "/" + endDateObj.getFullYear();
 		// alert(theDate);
 		$(formName).endDate.value = theDate;
 	}
@@ -112,31 +115,21 @@ function setLaterDate(formName, numLater) {
 function setEarlierDate(formName, numEarlier) {
 	var formObj = $(formName);
 
-	var startDObj = new Date();
-	var endDObj   = new Date();
-	makeDObj(formObj.startDate.value, startDObj);
-	makeDObj(formObj.endDate.value, endDObj);
+	var startDateObj = new Date();
+	var endDateObj   = new Date();
+	makeDateObj(formObj.startDate.value, startDateObj);
+	makeDateObj(formObj.endDate.value, endDateObj);
 
-	if (!checkDate(startDObj, endDObj)) {
-		var gar = endDObj.getDate() - numEarlier;
-		startDObj.setDate(gar);
-		var month = startDObj.getMonth() + 1;
-		var day = startDObj.getDate();
+	if (!datesAreValid(startDateObj, endDateObj)) {
+		var gar = endDateObj.getDate() - numEarlier;
+		startDateObj.setDate(gar);
+		var month = startDateObj.getMonth() + 1;
+		var day = startDateObj.getDate();
 
-		// set the date in the form
-		// adds a leading zero to make it purdy
-		month = month + '';
-		day = day + '';
+		month = fmt00(month);
+		day = fmt00(day);
 
-		if (month.length == 1) {
-			month = '0' + month;
-		}
-
-		if (day.length == 1) {
-			day = '0' + day;
-		}
-
-		var theDate = month + "/" + day + "/" + startDObj.getFullYear();
+		var theDate = month + "/" + day + "/" + startDateObj.getFullYear();
 		$(formName).startDate.value = theDate;
 	}
 }

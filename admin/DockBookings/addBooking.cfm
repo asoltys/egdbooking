@@ -149,7 +149,7 @@ function EditSubmit ( selectedform )
 								<td id="startDate"><label for="start">Start Date:</label></td>
 								<td headers="startDate">
 									<cfoutput>
-									<cfinput name="startDate" type="text" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('addBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('addBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
+									<cfinput name="startDate" type="text" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" onChange="setLaterDate('addBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('addBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
 									<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 								</td>
 							</tr>
@@ -157,7 +157,7 @@ function EditSubmit ( selectedform )
 								<td id="endDate"><label for="end">End Date:</label></td>
 								<td headers="endDate">
 									<cfoutput>
-									<cfinput name="endDate" type="text" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField" /> #language.dateform#</cfoutput>
+									<cfinput name="endDate" type="text" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" /> #language.dateform#</cfoutput>
 									<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 								</td>
 							</tr>
@@ -165,8 +165,8 @@ function EditSubmit ( selectedform )
 								<td id="bookingDT">Booking Time:</td>
 								<td headers="bookingDT">
 									<cfoutput>
-										<cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" class="textField" />
-										<cfinput name="bookingTime" type="text" value="#TimeFormat(Variables.TheBookingTime, 'HH:mm:ss')#" size="5" maxlength="8" required="yes" message="Please enter a valid booking time." validate="time" class="textField" />
+										<cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" />
+										<cfinput name="bookingTime" type="text" value="#TimeFormat(Variables.TheBookingTime, 'HH:mm:ss')#" size="5" maxlength="8" required="yes" message="Please enter a valid booking time." validate="time" />
 									</cfoutput>
 									<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 								</td>

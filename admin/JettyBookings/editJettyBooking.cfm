@@ -233,14 +233,14 @@ function EditSubmit ( selectedform )
 					<tr>
 						<td id="startdate"><label for="start">Start Date:</label></td>
 						<td headers="startdate">
-							<cfinput name="startDate" type="text" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" class="textField" onChange="setLaterDate('editBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('editBookingForm', #Variables.bookingLen#)" /> #language.dateform#
+							<cfinput name="startDate" type="text" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" onChange="setLaterDate('editBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('editBookingForm', #Variables.bookingLen#)" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
 						<td id="enddate"><label for="end">End Date:</label></td>
 						<td headers="enddate">
-							<cfinput name="endDate" type="text" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" class="textField"> <font class="light" onChange="setEarlierDate('editBookingForm', #Variables.bookingLen#)" onFocus="setLaterDate('editBookingForm', #Variables.bookingLen#)" />#language.dateform#</font>
+							<cfinput name="endDate" type="text" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date"> <font class="light" onChange="setEarlierDate('editBookingForm', #Variables.bookingLen#)" onFocus="setLaterDate('editBookingForm', #Variables.bookingLen#)" />#language.dateform#</font>
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
@@ -248,8 +248,8 @@ function EditSubmit ( selectedform )
 						<td id="bookingDT">Booking Time:</td>
 						<td headers="bookingDT">
 							<cfoutput>
-								<cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" class="textField" />
-								<cfinput name="bookingTime" type="text" value="#TimeFormat(Variables.TheBookingTime, 'HH:mm:ss')#" size="5" maxlength="8" required="yes" message="Please enter a valid booking time." validate="time" class="textField" />
+								<cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" />
+								<cfinput name="bookingTime" type="text" value="#TimeFormat(Variables.TheBookingTime, 'HH:mm:ss')#" size="5" maxlength="8" required="yes" message="Please enter a valid booking time." validate="time" />
 							</cfoutput>
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>

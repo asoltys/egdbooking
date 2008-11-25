@@ -147,11 +147,11 @@ function EditSubmit ( selectedform )
 				</tr>
 				<tr>
 					<td id="first"><label for="firstName">#language.FirstName#:</label></td>
-					<td headers="first"><cfinput name="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40" required="yes" id="firstName" CLASS="textField" message="#language.firstNameError#" /></td>
+					<td headers="first"><cfinput name="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40" required="yes" id="firstName" message="#language.firstNameError#" /></td>
 				</tr>
 				<tr>
 					<td id="last"><label for="lastName">#language.LastName#:</label></td>
-					<td headers="last"><cfinput name="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40" required="yes" id="lastName" CLASS="textField" message="#language.lastNameError#" /></td>
+					<td headers="last"><cfinput name="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40" required="yes" id="lastName" message="#language.lastNameError#" /></td>
 				</tr>
 				<tr>
 					<td id="email">#language.Email#:</td>
@@ -196,11 +196,11 @@ function EditSubmit ( selectedform )
 					</tr>
 					<tr>
 						<td id="pass1"><label for="password">#language.Password# <span class="smallFont">(*6 - 10 #language.characters#)</span>:</label></td>
-						<td headers="pass1"><cfinput type="password" id="password" name="password1" required="yes" size="25" maxlength="10" class="textField" message="#language.password1Error#" /></td>
+						<td headers="pass1"><cfinput type="password" id="password" name="password1" required="yes" size="25" maxlength="10" message="#language.password1Error#" /></td>
 					</tr>
 					<tr>
 						<td id="pass2"><label for="password2">#language.RepeatPassword#:</label></td>
-						<td headers="pass2"><cfinput type="password" id="password2" name="password2" required="yes" size="25" maxlength="10" class="textField" message="#language.password2Error#" /></td>
+						<td headers="pass2"><cfinput type="password" id="password2" name="password2" required="yes" size="25" maxlength="10" message="#language.password2Error#" /></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center"><input type="submit" name="submitForm" value="#language.ChangePassword#" class="textbutton" />

@@ -99,7 +99,7 @@
 			  $('#Attributes.id2#').options[i] = NewOpt[i];
 			}
 			<cfif Attributes.AutoSelectFirst is "yes">
-			  $('#Attributes.id2#').options[0].selected = true;
+			  $('#Attributes.id2#').options[0].select();
 			</cfif>
 		}
 	/* ]]> */

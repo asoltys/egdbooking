@@ -178,7 +178,7 @@ function EditSubmit ( selectedform )
 								<label for="start">Start Date:</label>							</td>
 							<td headers="Startdate" colspan="2">
 								<cfoutput>
-								<input type="text" name="startDate" size="15" maxlength="10" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" class="textField" onchange="setLaterDate('dateSelect', #Variables.bookingLen#)" onfocus="setEarlierDate('dateSelect', #Variables.bookingLen#)" />
+								<input type="text" name="startDate" size="15" maxlength="10" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" onchange="setLaterDate('dateSelect', #Variables.bookingLen#)" onfocus="setEarlierDate('dateSelect', #Variables.bookingLen#)" />
 								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 							</td>
 						</tr>
@@ -187,7 +187,7 @@ function EditSubmit ( selectedform )
 								<label for="end">End Date:</label>							</td>
 							<td headers="Enddate" colspan="2">
 								<cfoutput>
-								<input type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" class="textField" onchange="setEarlierDate('dateSelect', #Variables.bookingLen#)" onfocus="setLaterDate('dateSelect', #Variables.bookingLen#)" />
+								<input type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" onchange="setEarlierDate('dateSelect', #Variables.bookingLen#)" onfocus="setLaterDate('dateSelect', #Variables.bookingLen#)" />
 								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 							</td>
 						</tr>
@@ -448,7 +448,7 @@ function EditSubmit ( selectedform )
 												<cfelse>
 												<cfset datediffhighlight = "0">
 												</cfif>
-												<cfinput id="EndHighlight" name="EndHighlight" type="text" value="#datediffhighlight#" size="3" maxlength="3" required="yes" CLASS="textField" message="Please enter an End Highlight Date." /> Days
+												<cfinput id="EndHighlight" name="EndHighlight" type="text" value="#datediffhighlight#" size="3" maxlength="3" required="yes" message="Please enter an End Highlight Date." /> Days
 												<input type="submit" name="submitForm" class="textbutton" value="Update" />
 												</cfform>
 												</td>

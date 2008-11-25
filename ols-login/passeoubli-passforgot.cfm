@@ -63,7 +63,7 @@
 					<cfform action="passeoubli-passforgot_action.cfm?lang=#lang#" id="forgotForm">
 						<table align="center">
 							<tr>
-								<td><label for="email">#language.Email#:</label>&nbsp;&nbsp;<cfinput class="textField" type="Text" name="email" id="email" size="30" validate="regular_expression" pattern=".+@.+..+"  message="#language.emailError#" /></td>
+								<td><label for="email">#language.Email#:</label>&nbsp;&nbsp;<cfinput type="Text" name="email" id="email" size="30" validate="regular_expression" pattern=".+@.+..+"  message="#language.emailError#" /></td>
 							</tr>
 							<tr>
 								<td align="right"><input type="submit" value="#language.Submit#" class="textbutton" />

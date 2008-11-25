@@ -84,7 +84,7 @@
 						<tr>
 							<td id="startCell"><label for="start">&nbsp; #language.fromDate#</label></td>
 							<td headers="startCell">
-								<cfinput id="start" type="text" name="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="#language.invalidfromDate#" onChange="setLaterDate('bookSum', #Variables.bookingLen#)" onFocus="setEarlierDate(#Variables.bookingLen#)" /> #language.dateform#
+								<cfinput id="start" type="text" name="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" validate="date" message="#language.invalidfromDate#" onChange="setLaterDate('bookSum', #Variables.bookingLen#)" onFocus="setEarlierDate(#Variables.bookingLen#)" /> #language.dateform#
 								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 								<a href="javascript:document.bookSum.startDate.value=''; void(0);" class="textbutton">clear</a>
 							</td>
@@ -92,7 +92,7 @@
 						<tr>
 						<td id="endCell"><label for="end">&nbsp; #language.toDate#</label></td>
 							<td headers="endCell">
-								<cfinput id="end" type="text" name="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" class="textField" validate="date" message="#language.invalidtoDate#" onChange="setLaterDate('bookSum', #Variables.bookingLen#)" onFocus="setEarlierDate(#Variables.bookingLen#)" /> #language.dateform#
+								<cfinput id="end" type="text" name="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" validate="date" message="#language.invalidtoDate#" onChange="setLaterDate('bookSum', #Variables.bookingLen#)" onFocus="setEarlierDate(#Variables.bookingLen#)" /> #language.dateform#
 								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 								<a href="javascript:document.bookSum.toDate.value=''; void(0);" class="textbutton">clear</a>
 							</td>

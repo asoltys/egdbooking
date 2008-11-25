@@ -116,11 +116,11 @@ function EditSubmit ( selectedform )
 						</tr>
 						<tr>
 							<td id="First"><label for="firstName">First Name:</label></td>
-							<td headers="First"><cfinput name="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40" required="yes" id="firstName" CLASS="textField" message="Please enter a first name." /></td>
+							<td headers="First"><cfinput name="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40" required="yes" id="firstName" message="Please enter a first name." /></td>
 						</tr>
 						<tr>
 							<td id="Last"><label for="lastName">Last Name:</label></td>
-							<td headers="Last"><cfinput name="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40" required="yes" id="lastName" CLASS="textField" message="Please enter a last name." /></td>
+							<td headers="Last"><cfinput name="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40" required="yes" id="lastName" message="Please enter a last name." /></td>
 						</tr>
 						<tr>
 							<td id="Email">Read Only:</td>
@@ -204,11 +204,11 @@ function EditSubmit ( selectedform )
 						</tr>
 						<tr>
 							<td id="Password"><label for="pass">Password <span class="smallFont">(*6 - 10 characters)</span>:</label></td>
-							<td headers="Password"><cfinput type="password" id="pass" name="password1" required="yes" size="25" maxlength="10" class="textField" message="Please enter a password." /></td>
+							<td headers="Password"><cfinput type="password" id="pass" name="password1" required="yes" size="25" maxlength="10" message="Please enter a password." /></td>
 						</tr>
 						<tr>
 							<td id="Repeat"><label for="repeatPass">Repeat Password:</label></td>
-							<td headers="Repeat"><cfinput type="password" id="repeatPass" name="password2" required="yes" size="25" maxlength="10" class="textField" message="Please repeat the password for verification." /></td>
+							<td headers="Repeat"><cfinput type="password" id="repeatPass" name="password2" required="yes" size="25" maxlength="10" message="Please repeat the password for verification." /></td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center">

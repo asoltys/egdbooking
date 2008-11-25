@@ -87,39 +87,39 @@
 					<table align="center">
 						<tr>
 							<td id="companyName_header"><label for="name">#language.companyName#:</label></td>
-							<td headers="companyName_header"><cfinput id="name" name="name" value="#variables.name#" type="text" size="40" maxlength="75" required="yes" CLASS="textField" message="#language.nameError#" /></td>
+							<td headers="companyName_header"><cfinput id="name" name="name" value="#variables.name#" type="text" size="40" maxlength="75" required="yes" message="#language.nameError#" /></td>
 						</tr>
 						<tr>
 							<td id="Address1_header"><label for="address1">#language.Address# 1:</label></td>
-							<td headers="Address1_header"><cfinput id="address1" name="address1" value="#variables.address1#" type="text" size="40" maxlength="75" required="yes" CLASS="textField" message="#language.addressError#" /></td>
+							<td headers="Address1_header"><cfinput id="address1" name="address1" value="#variables.address1#" type="text" size="40" maxlength="75" required="yes" message="#language.addressError#" /></td>
 						</tr>
 						<tr>
 							<td id="Address2_header"><label for="address2">#language.Address# 2 #language.optional#:</label></td>
-							<td headers="Address2_header"><cfinput id="address2" name="address2" value="#variables.address2#" type="text" size="40" maxlength="75" CLASS="textField" /></td>
+							<td headers="Address2_header"><cfinput id="address2" name="address2" value="#variables.address2#" type="text" size="40" maxlength="75" /></td>
 						</tr>
 						<tr>
 							<td id="City_header"><label for="city">#language.City#:</label></td>
-							<td headers="City_header"><cfinput id="city" name="city" type="text" value="#variables.city#" size="25" maxlength="40" required="yes" CLASS="textField" message="#language.cityError#" /></td>
+							<td headers="City_header"><cfinput id="city" name="city" type="text" value="#variables.city#" size="25" maxlength="40" required="yes" message="#language.cityError#" /></td>
 						</tr>
 						<tr>
 							<td id="Province_header"><label for="province">#language.Province#:</label></td>
-							<td headers="Province_header"><cfinput id="province" name="province" value="#variables.province#" type="text" size="25" maxlength="40" required="no" CLASS="textField" message="#language.provinceError#" /></td>
+							<td headers="Province_header"><cfinput id="province" name="province" value="#variables.province#" type="text" size="25" maxlength="40" required="no" message="#language.provinceError#" /></td>
 						</tr>
 						<tr>
 							<td id="Country_header"><label for="country">#language.Country#:</label></td>
-							<td headers="Country_header"><cfinput id="country" name="country" value="#variables.country#" type="text" size="25" maxlength="40" required="yes" CLASS="textField" message="#language.countryError#" /></td>
+							<td headers="Country_header"><cfinput id="country" name="country" value="#variables.country#" type="text" size="25" maxlength="40" required="yes" message="#language.countryError#" /></td>
 						</tr>
 						<tr>
 							<td id="zip_header"><label for="zip">#language.zip#:</label></td>
-							<td headers="zip_header"><cfinput id="zip" name="zip" value="#variables.zip#" type="text" size="10" maxlength="10" required="no" CLASS="textField" message="#language.zipError#" /></td>
+							<td headers="zip_header"><cfinput id="zip" name="zip" value="#variables.zip#" type="text" size="10" maxlength="10" required="no" message="#language.zipError#" /></td>
 						</tr>
 						<tr>
 							<td id="Phone_header"><label for="phone">#language.Phone#:</label></td>
-							<td headers="Phone_header"><cfinput id="phone" name="phone" value="#variables.phone#" type="text" size="10" maxlength="32" required="yes" CLASS="textField" message="#language.phoneError#" /></td>
+							<td headers="Phone_header"><cfinput id="phone" name="phone" value="#variables.phone#" type="text" size="10" maxlength="32" required="yes" message="#language.phoneError#" /></td>
 						</tr>
 						<tr>
 							<td id="fax_header"><label for="fax">#language.Fax# #language.optional#:</label></td>
-							<td headers="fax_header"><cfinput id="fax" name="fax" value="#variables.fax#" type="text" size="10" maxlength="32" CLASS="textField" /></td>
+							<td headers="fax_header"><cfinput id="fax" name="fax" value="#variables.fax#" type="text" size="10" maxlength="32" /></td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center" style="padding-top:20px;">
