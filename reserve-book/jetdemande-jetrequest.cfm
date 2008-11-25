@@ -24,12 +24,23 @@
 	<cfset language.requestedStatus = "&Eacute;tat demand&eacute;">
 </cfif>
 
-<cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.submitJettyBooking#"" />
-	<meta name=""keywords"" content=""#language.keywords#"" />
-	<meta name=""description"" content=""#language.description#"" />
-	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.submitJettyBooking#</title>">
+<cfsavecontent variable="js">
+	<cfoutput>
+	<meta name="dc.title" content="#language.PWGSC# - #language.EsqGravingDockCaps# - #language.submitJettyBooking#" />
+	<meta name="keywords" content="#language.keywords#" />
+	<meta name="description" content="#language.description#" />
+	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
+	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.submitJettyBooking#</title>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		var bookingLength = 0;
+		/* ]]> */
+	</script>
+	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
+	</cfoutput>
+</cfsavecontent>
+<cfhtmlhead text="#js#">
+
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
@@ -108,8 +119,6 @@
 					<cfset Variables.Status = #form.status#>
 				</cfif>
 
-				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
-
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 
@@ -152,14 +161,14 @@
 							<label for="start">#language.StartDate#:</label>
 						</td>
 						<td headers="StartDate">
-							<cfinput id="start" name="startDate" type="text" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" onChange="setLaterDate('bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreq', #Variables.bookingLen#)" /> #language.dateform#
+							<cfinput id="start" name="startDate" type="text" class="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
 						<td id="EndDate"><label for="end">#language.EndDate#:</label></td>
 						<td headers="EndDate">
-							<cfinput id="end" name="endDate" type="text" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" onChange="setLaterDate('bookingreq', #Variables.bookingLen#)" onFocus="setEarlierDate('bookingreq', #Variables.bookingLen#)" /> #language.dateform#
+							<cfinput id="end" name="endDate" type="text" class="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>

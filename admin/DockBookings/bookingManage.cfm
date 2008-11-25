@@ -1,23 +1,25 @@
-<cfhtmlhead text="
-	<meta name=""dc.title"" content=""pwgsc - esquimalt graving dock - Drydock Booking Management"">
-	<meta name=""keywords"" content="""" />
-	<meta name=""description"" content="""" />
-	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
-	<title>PWGSC - ESQUIMALT GRAVING DOCK - Drydock Booking Management</title>">
+<cfsavecontent variable="js">
+	<cfoutput>
+	<meta name="dc.title" content="pwgsc - esquimalt graving dock - Drydock Booking Management">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="dc.subject" scheme="gccore" content="" />
+	<title>PWGSC - ESQUIMALT GRAVING DOCK - Drydock Booking Management</title>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		var bookingLength = 2;
+		/* ]]> */
+	</script>
+	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
+	</cfoutput>
+</cfsavecontent>
+<cfhtmlhead text="#js#">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <!---clear form structure--->
 <cfif IsDefined("Session.Form_Structure")>
 	<cfset StructDelete(Session, "Form_Structure")>
 </cfif>
-
-<!--- these look totally useless.  Lois Chan, July 2005 --->
-<!---cfif IsDefined("form.startDate")>
-	<cfset url.StartDate = "#form.StartDate#">
-</cfif>
-<cfif IsDefined("form.EndDate")>
-	<cfset url.EndDate = "#form.EndDate#">
-</cfif--->
 
 <!--checking if enddate is defined instead of show is not a mistake!-->
 <cfif IsDefined("form.EndDate") AND IsDate("form.EndDate")>
@@ -137,8 +139,6 @@ function EditSubmit ( selectedform )
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 
-				<cfinclude template="#RootDir#includes/calendar_js.cfm">
-
 				<p>Please enter a range of dates for which you would like to see the bookings:</p>
 				<form action="bookingManage.cfm?lang=#lang#" method="get" id="dateSelect">
 					<input type="hidden" name="lang" value="<cfoutput>#lang#</cfoutput>" />
@@ -149,7 +149,7 @@ function EditSubmit ( selectedform )
 							</td>
 							<td headers="" colspan="2">
 								<cfoutput>
-									<input type="text" name="startDate" size="15" maxlength="10" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" onchange="setLaterDate('dateSelect', #Variables.bookingLen#)" onfocus="setEarlierDate('dateSelect', #Variables.bookingLen#)" /> #language.dateform#
+									<input name="startDate" type="text" class="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 								</cfoutput>
 								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 							</td>
@@ -160,7 +160,7 @@ function EditSubmit ( selectedform )
 							</td>
 							<td headers="" colspan="2">
 								<cfoutput>
-									<input type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" onchange="setEarlierDate('dateSelect', #Variables.bookingLen#)" onfocus="setLaterDate('dateSelect', #Variables.bookingLen#)" /> #language.dateform#
+									<input name="endDate" type="text" class="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 								</cfoutput>
 								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 							</td>

@@ -1,9 +1,23 @@
-<cfhtmlhead text="
-	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Jetty Booking"">
-	<meta name=""keywords"" content="""" />
-	<meta name=""description"" content="""" />
-	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
-	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Jetty Booking</title>">
+<cfsavecontent variable="js">
+	<cfoutput>
+	<meta name=""dc.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Edit Jetty Booking">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="dc.subject" scheme="gccore" content="" />
+	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Jetty Booking</title>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function EditSubmit ( selectedform )
+			{
+			  document.forms[selectedform].submit();
+			}
+		var bookingLength = 0;
+		/* ]]> */
+	</script>
+	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
+	</cfoutput>
+</cfsavecontent>
+<cfhtmlhead text="#js#">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <CFPARAM name="url.referrer" default="Booking Management">
@@ -20,18 +34,6 @@
 <cfelse>
 	<cfset variables.dateValue = "">
 </cfif>
-
-<!-- Start JavaScript Block -->
-<script type="text/javascript">
-/* <![CDATA[ */
-function EditSubmit ( selectedform )
-	{
-	  document.forms[selectedform].submit();
-	}
-/* ]]> */
-</script>
-<!-- End JavaScript Block -->
-
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
@@ -209,8 +211,6 @@ function EditSubmit ( selectedform )
 					</form>
 				</cfoutput>
 
-				<cfinclude template="#RootDir#includes/calendar_js.cfm">
-
 				<cfform action="editJettyBooking_process.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" method="post" enablecab="No" id="editBookingForm" preservedata="Yes">
 				<cfoutput>
 				<table style="width:100%;">
@@ -233,14 +233,14 @@ function EditSubmit ( selectedform )
 					<tr>
 						<td id="startdate"><label for="start">Start Date:</label></td>
 						<td headers="startdate">
-							<cfinput name="startDate" type="text" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" onChange="setLaterDate('editBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('editBookingForm', #Variables.bookingLen#)" /> #language.dateform#
+							<cfinput type="text" name="startDate" message="Please enter a start date." validate="date" required="yes" class="startDate" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>
 					<tr>
 						<td id="enddate"><label for="end">End Date:</label></td>
 						<td headers="enddate">
-							<cfinput name="endDate" type="text" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date"> <font class="light" onChange="setEarlierDate('editBookingForm', #Variables.bookingLen#)" onFocus="setLaterDate('editBookingForm', #Variables.bookingLen#)" />#language.dateform#</font>
+							<cfinput type="text" name="endDate" message="Please enter an end date." validate="date" required="yes" class="endDate" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10"> <font class="light" />#language.dateform#</font>
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						</td>
 					</tr>

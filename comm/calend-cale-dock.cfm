@@ -156,7 +156,7 @@
 						<input type="submit" value="Go" />
 					</form>
 				</div>
-				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
+
 				</cfoutput>
 
 				<!--- THE MEAT OF THE CALENDAR HAS BEEN MOVED --->

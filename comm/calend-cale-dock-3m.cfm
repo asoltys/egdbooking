@@ -156,7 +156,6 @@
 						<input type="submit" value="Go" />
 					</form>
 				</div>
-				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 				</cfoutput>
 
 				<!--- MEGA table BEGINS HERE --->

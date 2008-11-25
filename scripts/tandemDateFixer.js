@@ -14,6 +14,29 @@
   *  while parsing the literal string.
   */
 
+
+Event.observe(window, 'load', function() {
+  $$('input.startDate').each(function(e) {
+    e.observe('change', function() {
+      setLaterDate(e.up('form'), bookingLength);
+    });
+
+    e.observe('click', function() {
+      setEarlierDate(e.up('form'), bookingLength);
+    });
+  });
+
+  $$('input.endDate').each(function(e) {
+    e.observe('change', function() {
+      setEarlierDate(e.up('form'), bookingLength);
+    });
+
+    e.observe('click', function() {
+      setLaterDate(e.up('form'), bookingLength);
+    });
+  });
+});
+
 /*
  * Breaks the date-String down to ints.  Takes an date object and update it with tokens.
  * Below assumption changes?  Have no fear -- just edit it here!

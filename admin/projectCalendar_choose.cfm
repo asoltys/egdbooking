@@ -90,8 +90,6 @@ var params = {
 			<cfparam name="Variables.endDate" default="#DateAdd('m', 3, PacificNow)#">
 			<cfset Variables.BookingLen = Variables.endDate - Variables.startDate>
 
-			<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
-
 			<cfoutput>#Language.ScreenMessage#</cfoutput>
 
 			<cfform action="projectCalendar.cfm?lang=#lang#" method="post" enablecab="No" id="procal" preservedata="Yes">
@@ -100,7 +98,7 @@ var params = {
 				<tr>
 					<td id="From_Header">&nbsp; <LABEL for="From">From Date:</LABEL></td>
 					<td headers="From_Header">
-						<cfinput id="Start" type="text" name="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" validate="date" message="Please enter a valid From Date." onChange="setLaterDate('procal', #Variables.bookingLen#)" onFocus="setEarlierDate('procal', #Variables.BookingLen#)" /> #language.dateform#
+						<cfinput type="text" name="startDate" message="Please enter a valid From Date." validate="date" class="startDate" id="Start" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						<a href="javascript:void(0);" onclick="document.procal.startDate.value='';" class="textbutton">clear</a>
 					</td>
@@ -108,7 +106,7 @@ var params = {
 				<tr>
 					<td id="To_Header">&nbsp; <LABEL for="To">To Date:</LABEL></td>
 					<td headers="To_Header">
-						<cfinput id="End" type="text" name="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" validate="date" message="Please enter a valid From Date." onChange="setEarlierDate('procal', #Variables.bookingLen#)" onFocus="setLaterDate('procal', #Variables.BookingLen#)" /> #language.dateform#
+						<cfinput type="text" name="endDate" message="Please enter a valid From Date." validate="date" class="endDate" id="End" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						<a href="javascript:void(0);" onclick="document.procal.endDate.value='';" class="textbutton">clear</a>
 					</td>

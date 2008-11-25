@@ -34,31 +34,12 @@
 	<meta name="description" content="#language.description#" />
 	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.drydockRequest#</title>
-
-	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
 	<script type="text/javascript">
-		Event.observe(window, 'load', function() {
-			$$('input.startDate').each(function(e) {
-				e.observe('change', function() {
-					setLaterDate(e.up('form'), 2);
-				});
-
-				e.observe('click', function() {
-					setEarlierDate(e.up('form'), 2);
-				});
-			});
-
-			$$('input.endDate').each(function(e) {
-				e.observe('change', function() {
-					setEarlierDate(e.up('form'), 2);
-				});
-
-				e.observe('click', function() {
-					setLaterDate(e.up('form'), 2);
-				});
-			});
-		});
+		/* <![CDATA[ */
+		var bookingLength = 2;
+		/* ]]> */
 	</script>
+	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
 	</cfoutput>
 </cfsavecontent>
 <cfhtmlhead text="#js#">
@@ -138,8 +119,6 @@
 					<cfset Variables.endDate = #form.endDate#>
 					<cfset Variables.status = #form.status#>
 				</cfif>
-
-				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>

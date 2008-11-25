@@ -3,14 +3,22 @@
 	<cfset StructDelete(Session, "Form_Structure")>
 </cfif>
 
-<cfhtmlhead text="
-	<meta name=""dc.title"" content=""pwgsc - esquimalt graving dock - Jetty Booking Management"">
-	<meta name=""keywords"" content="""" />
-	<meta name=""description"" content="""" />
-	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
-	<title>PWGSC - ESQUIMALT GRAVING DOCK - Jetty Booking Management</title>">
-
-<cfinclude template="#RootDir#includes/calendar_js.cfm">
+<cfsavecontent variable="js">
+	<cfoutput>
+	<meta name="dc.title" content="pwgsc - esquimalt graving dock - Jetty Booking Management">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="dc.subject" scheme="gccore" content="" />
+	<title>PWGSC - ESQUIMALT GRAVING DOCK - Jetty Booking Management</title>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		var bookingLength = 0;
+		/* ]]> */
+	</script>
+	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
+	</cfoutput>
+</cfsavecontent>
+<cfhtmlhead text="#js#">
 
 <!--checking if enddate is defined instead of showConf is not a mistake!-->
 <cfif IsDefined("form.EndDate")>
@@ -178,7 +186,7 @@ function EditSubmit ( selectedform )
 								<label for="start">Start Date:</label>							</td>
 							<td headers="Startdate" colspan="2">
 								<cfoutput>
-								<input type="text" name="startDate" size="15" maxlength="10" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" onchange="setLaterDate('dateSelect', #Variables.bookingLen#)" onfocus="setEarlierDate('dateSelect', #Variables.bookingLen#)" />
+								<input name="startDate" type="text" class="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
 								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 							</td>
 						</tr>
@@ -187,7 +195,7 @@ function EditSubmit ( selectedform )
 								<label for="end">End Date:</label>							</td>
 							<td headers="Enddate" colspan="2">
 								<cfoutput>
-								<input type="text" name="endDate" size="15" maxlength="10" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" onchange="setEarlierDate('dateSelect', #Variables.bookingLen#)" onfocus="setLaterDate('dateSelect', #Variables.bookingLen#)" />
+								<input name="endDate" type="text" class="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
 								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 							</td>
 						</tr>

@@ -1,9 +1,19 @@
-<cfhtmlhead text="
-	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add Maintenance Block"">
-	<meta name=""keywords"" content="""" />
-	<meta name=""description"" content="""" />
-	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
-	<title>PWGSC - ESQUIMALT GRAVING DOCK - Add Maintenance Block</title>">
+<cfsavecontent variable="js">
+	<cfoutput>
+	<meta name=""dc.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Add Maintenance Block">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="dc.subject" scheme="gccore" content="" />
+	<title>PWGSC - ESQUIMALT GRAVING DOCK - Add Maintenance Block</title>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		var bookingLength = 0;
+		/* ]]> */
+	</script>
+	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
+	</cfoutput>
+</cfsavecontent>
+<cfhtmlhead text="#js#">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
@@ -71,7 +81,6 @@
 
 
 			<!--- -------------------------------------------------------------------------------------------- --->
-			<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 
 			<cfform id="AddMaintBlock" action="addMaintBlock_process.cfm?#urltoken#" method="post">
 			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
@@ -80,7 +89,7 @@
 				<td id="Start">Start Date:</td>
 				<td headers="Start">
 					<cfoutput>
-					<cfinput name="startDate" type="text" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" onChange="setLaterDate('AddMaintBlock', #Variables.bookingLen#)" onFocus="setEarlierDate('AddMaintBlock', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
+					<cfinput type="text" name="startDate" message="Please enter a start date." validate="date" required="yes" class="startDate" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
 					<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 				</td>
 			</tr>
@@ -88,7 +97,7 @@
 				<td id="End">End Date:</td>
 				<td headers="End">
 					<cfoutput>
-					<cfinput name="endDate" type="text" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" onChange="setEarlierDate('AddMaintBlock', #Variables.bookingLen#)" onFocus="setLaterDate('AddMaintBlock', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
+					<cfinput type="text" name="endDate" message="Please enter an end date." validate="date" required="yes" class="endDate" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
 					<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 				</td>
 			</tr>

@@ -42,13 +42,22 @@
 	<cfset language.clear = "effacer">
 
 </cfif>
-
-<cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#"" />
-	<meta name=""keywords"" content=""#language.masterKeywords#"" />
-	<meta name=""description"" content=""#language.description#"" />
-	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
-	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#</title>">
+<cfsavecontent variable="js">
+	<cfoutput>
+	<meta name="dc.title" content="#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#" />
+	<meta name="keywords" content="#language.masterKeywords#" />
+	<meta name="description" content="#language.description#" />
+	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
+	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#</title>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		var bookingLength = 0;
+		/* ]]> */
+	</script>
+	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
+	</cfoutput>
+</cfsavecontent>
+<cfhtmlhead text="#js#">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
@@ -74,8 +83,6 @@
 				<cfparam name="Variables.endDate" default="">
 
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
-
-				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 				<cfoutput>
 				#Language.ScreenMessage#
 
@@ -84,7 +91,7 @@
 						<tr>
 							<td id="startCell"><label for="start">&nbsp; #language.fromDate#</label></td>
 							<td headers="startCell">
-								<cfinput id="start" type="text" name="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" validate="date" message="#language.invalidfromDate#" onChange="setLaterDate('bookSum', #Variables.bookingLen#)" onFocus="setEarlierDate(#Variables.bookingLen#)" /> #language.dateform#
+								<cfinput type="text" name="startDate" message="#language.invalidfromDate#" validate="date" class="startDate" id="start" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 								<a href="javascript:document.bookSum.startDate.value=''; void(0);" class="textbutton">clear</a>
 							</td>
@@ -92,7 +99,7 @@
 						<tr>
 						<td id="endCell"><label for="end">&nbsp; #language.toDate#</label></td>
 							<td headers="endCell">
-								<cfinput id="end" type="text" name="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" validate="date" message="#language.invalidtoDate#" onChange="setLaterDate('bookSum', #Variables.bookingLen#)" onFocus="setEarlierDate(#Variables.bookingLen#)" /> #language.dateform#
+								<cfinput type="text" name="endDate" message="#language.invalidtoDate#" validate="date" class="endDate" id="end" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 								<a href="javascript:document.bookSum.toDate.value=''; void(0);" class="textbutton">clear</a>
 							</td>

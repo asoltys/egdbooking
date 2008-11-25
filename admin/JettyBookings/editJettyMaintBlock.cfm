@@ -9,8 +9,6 @@
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Maintenance Block</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
-
 <!-- Start JavaScript Block -->
 <script type="text/javascript">
 /* <![CDATA[ */
@@ -118,14 +116,14 @@ function EditSubmit ( selectedform )
 				<tr>
 					<td id="Start">Start Date:</td>
 					<td headers="Start">
-						<cfoutput><cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" /> #language.dateform#</cfoutput>
+						<cfoutput><cfinput type="text" name="startDate" message="Please enter a start date." validate="date" required="yes" class="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
 						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 					</td>
 				</tr>
 				<tr>
 					<td id="End">End Date:</td>
 					<td headers="End">
-						<cfoutput><cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" /> #language.dateform#</cfoutput>
+						<cfoutput><cfinput type="text" name="endDate" message="Please enter an end date." validate="date" required="yes" class="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
 						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 					</td>
 				</tr>

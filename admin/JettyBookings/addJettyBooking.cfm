@@ -1,9 +1,20 @@
-<cfhtmlhead text="
-	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add Jetty Booking"">
-	<meta name=""keywords"" content="""" />
-	<meta name=""description"" content="""" />
-	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
-	<title>PWGSC - ESQUIMALT GRAVING DOCK - Add Jetty Booking</title>">
+<cfsavecontent variable="js">
+	<cfoutput>
+	<meta name="dc.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Add Jetty Booking">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="dc.subject" scheme="gccore" content="" />
+	<title>PWGSC - ESQUIMALT GRAVING DOCK - Add Jetty Booking</title>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		var bookingLength = 0;
+		/* ]]> */
+	</script>
+	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
+	</cfoutput>
+</cfsavecontent>
+<cfhtmlhead text="#js#">
+
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -103,7 +114,6 @@ function EditSubmit ( selectedform )
 				</cfform>
 
 				<cfif Variables.compID NEQ "">
-					<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">
 
 					<cflock timeout=20 scope="Session" type="Exclusive">
 						<cfset Session.Company = "#form.compID#">
@@ -163,7 +173,7 @@ function EditSubmit ( selectedform )
 								<td id="Startdate"><label for="start">Start Date:</label></td>
 								<td headers="Startdate">
 									<cfoutput>
-									<cfinput name="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a start date." validate="date" onChange="setLaterDate('addBookingForm', #Variables.bookingLen#)" onFocus="setEarlierDate('addBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
+									<cfinput type="text" name="startDate" message="Please enter a start date." validate="date" required="yes" class="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
 									<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 								</td>
 							</tr>
@@ -171,7 +181,7 @@ function EditSubmit ( selectedform )
 								<td id="Enddate"><label for="end">End Date:</label></td>
 								<td headers="Enddate">
 									<cfoutput>
-									<cfinput name="endDate" type="text" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter an end date." validate="date" onChange="setEarlierDate('addBookingForm', #Variables.bookingLen#)" onFocus="setLaterDate('addBookingForm', #Variables.bookingLen#)" /> #language.dateform#</cfoutput>
+									<cfinput type="text" name="endDate" message="Please enter an end date." validate="date" required="yes" class="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
 									<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 								</td>
 							</tr>
