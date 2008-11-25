@@ -39,7 +39,7 @@
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT 	VesselID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
 	FROM 	Vessels, Companies
-	WHERE 	VesselID = '#Form.VesselID#'
+	WHERE 	VesselID = '#Form.bookingByRange_VesselID#'
 	AND		Companies.CompanyID = Vessels.CompanyID
 	AND 	Vessels.Deleted = 0
 	AND		Companies.Deleted = 0
@@ -103,7 +103,7 @@
 <cfset Variables.EndDate = "">
 <cfset Variables.FoundStartDate = "">
 <cfset Variables.FoundEndDate = "">
-<cfset Variables.VesselID = Form.VesselID>  <!--- Added 25/01/2006 DS to fix CF error in bookings --->
+<cfset Variables.VesselID = Form.bookingByRange_VesselID>  <!--- Added 25/01/2006 DS to fix CF error in bookings --->
 
 <cfloop condition="finish EQ false AND found EQ false">
 
@@ -172,12 +172,6 @@
 </cfloop>
 <cfif NOT found>
 	<cfoutput>#ArrayAppend(Errors, "There were no slots found for that time period.")#</cfoutput>
-	<!--- Save the form data in a session structure so it can be sent back to the form page --->
-	<!--- <cfset Session.Return_Structure.NumDays = Form.NumDays>
-	<cfset Session.Return_Structure.VesselID = Form.VesselID>
-	<cfset Session.Return_Structure.CompanyID = Form.CompanyID>
-	<cfset Session.Return_Structure.StartDate = Form.StartDate>
-	<cfset Session.Return_Structure.EndDate = Form.EndDate> --->
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Errors>
 
@@ -209,47 +203,38 @@
 
 				<cfoutput>
 				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action2.cfm?lang=#lang#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
-				<p>#language.bookingFound# #LSDateFormat(Variables.FoundStartDate, 'mmm d, yyyy')# - #LSDateFormat(Variables.FoundEndDate, 'mmm d, yyyy')#.</p>
-				<table style="width:100%;">
-					<tr>
-						<td style="width:30%;" id="Agent">#language.Agent#:</td>
-						<td style="width:70%;" headers="Agent">
-							<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
-								#session.lastName#, #session.firstName#
-							</cflock>
-						</td>
-					</tr>
-					<tr>
-						<td id="vessel">#language.vessel#:</td>
-						<td headers="vessel"><input type="hidden" name="vesselID" value="#Form.VesselID#" />#getVessel.VesselName#</td>
-					</tr>
-					<tr>
-						<td id="Company">#language.Company#:</td>
-						<td headers="Company">#getVessel.CompanyName#</td>
-					</tr>
-					<tr>
-						<td id="StartDate">#language.StartDate#:</td>
-						<td headers="StartDate"><input type="hidden" name="startDate" value="#Variables.FoundStartDate#" />#LSDateFormat(CreateODBCDate(Variables.StartDate), 'mmm d, yyyy')#</td>
-					</tr>
+					<p>#language.bookingFound# #LSDateFormat(Variables.FoundStartDate, 'mmm d, yyyy')# - #LSDateFormat(Variables.FoundEndDate, 'mmm d, yyyy')#.</p>
+					<label>#language.Agent#:</label>
+					<p>
+						<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
+							#session.lastName#, #session.firstName#
+						</cflock>
+					</p>
 
-					<tr>
-						<td id="EndDate">#language.EndDate#:</td>
-						<td headers="EndDate"><input type="hidden" name="EndDate" value="#Variables.FoundEndDate#" />#LSDateFormat(Variables.EndDate, 'mmm d, yyyy')#</td>
-					</tr>
-					<tr>
-						<td align="left" id="Status">#language.requestedStatus#:</td>
-						<td headers="Status"><input type="hidden" name="Status" value="<cfoutput>#Form.Status#</cfoutput>"><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></td>
-					</tr>
-					<tr><td>&nbsp;</td></tr>
-					<tr>
-						<td colspan="2" align="center">
-							<input type="submit" value="#language.requestBooking#" class="textbutton" />
-							<input type="button" value="#language.Back#" class="textbutton" onclick="history.go(-1);" />
-							<input type="button" value="#language.Cancel#" class="textbutton" onclick="self.location.href='reserve-booking.cfm?lang=<cfoutput>#lang#</cfoutput>';" />
-							<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
-						</td>
-					</tr>
-				</table>
+					<label>#language.vessel#:</label>
+					<input type="hidden" name="vesselID" value="#Form.bookingByRange_VesselID#" />
+					<p>#getVessel.VesselName#</p>
+
+					<label>#language.Company#:</label>
+					<p>#getVessel.CompanyName#</p>
+
+					<label>#language.StartDate#:</label>
+					<input type="hidden" name="startDate" value="#Variables.FoundStartDate#" />
+					<p>#LSDateFormat(CreateODBCDate(Variables.StartDate), 'mmm d, yyyy')#</p>
+
+					<label>#language.EndDate#:</label>
+					<input type="hidden" name="EndDate" value="#Variables.FoundEndDate#" />
+					<p>#LSDateFormat(Variables.EndDate, 'mmm d, yyyy')#</p>
+
+					<label>#language.requestedStatus#:</label>
+					<input type="hidden" name="Status" value="<cfoutput>#Form.Status#</cfoutput>">
+					<p><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></p>
+
+					<div class="buttons">
+						<input type="submit" value="#language.requestBooking#" class="textbutton" />
+						<input type="button" value="#language.Back#" class="textbutton" onclick="history.go(-1);" />
+						<input type="button" value="#language.Cancel#" class="textbutton" onclick="self.location.href='reserve-booking.cfm?lang=<cfoutput>#lang#</cfoutput>';" />
+					</div>
 
 				</cfform>
 				</cfoutput>

@@ -168,12 +168,36 @@ h2.conflict {
 
 /* FORMS ----------------------------------------------- */
 
+form {
+	border: 1px solid #336699;
+	background-color: #ccddee;
+	padding: 1em;
+}
+
+form fieldset {
+	border: 0;
+}
+
+form p {
+	margin-top: 0;
+}
+
+form legend {
+	font-weight: bold;
+	padding-left: 0;
+	border-bottom: 1px solid #336699;
+}
+
 form label {
 	float: left;
 	width: 15em;
-	padding: 0 0 0.5em 0;
+	padding: 0.2em 0 0.6em 0;
 }
 
 form input, form select {
 	margin: 0 0 0.5em 0;
+}
+
+div.buttons {
+	text-align: center;
 }

@@ -45,33 +45,33 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-			<div class="content">
+				<div class="content">
 
-			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-			<CFELSE>
-				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-			</CFIF>
+					<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+						<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
+					<CFELSE>
+						<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
+					</CFIF>
 
 
-			<cfoutput>
-			<p align="center">#Variables.Success.Message#
-			<cfif IsDefined('Session.Success.paperFormLink')>
-				<br /><br />
-				*** Confirmation of Booking requires the submittal of the Schedule 1 and Indemnification Clause forms available through the "Mandatory Forms" button below. Payment of the necessary deposit is also required - please contact the Esquimalt Graving Dock for details.
-			</cfif>
-			</p>
-			<p align="center">
+					<cfoutput>
+						<p>#Variables.Success.Message#
+						<cfif IsDefined('Session.Success.paperFormLink')>
+							<br /><br />
+							*** Confirmation of Booking requires the submittal of the Schedule 1 and Indemnification Clause forms available through the "Mandatory Forms" button below. Payment of the necessary deposit is also required - please contact the Esquimalt Graving Dock for details.
+						</cfif>
+						</p>
+						<div class="buttons">
 
-			<cfif IsDefined('Session.Success.paperFormLink')>
-				<a href="#Session.Success.paperFormLink#" class="textbutton">Mandatory Forms</a>&nbsp;
-			</cfif>
+						<cfif IsDefined('Session.Success.paperFormLink')>
+							<a href="#Session.Success.paperFormLink#" class="textbutton">Mandatory Forms</a>&nbsp;
+						</cfif>
 
-			<a href="#Variables.Success.Link#" class="textbutton">#Variables.Success.Back#</a>
-			</p>
-			</cfoutput>
+						<a href="#Variables.Success.Link#" class="textbutton">#Variables.Success.Back#</a>
+						</div>
+					</cfoutput>
 
-			</div>
+				</div>
 			</div>
 
 			<cfif IsDefined("Session.Form_Structure")>

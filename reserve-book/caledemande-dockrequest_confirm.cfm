@@ -80,14 +80,14 @@
 					<cfset Proceed_OK = "No">
 				</cfif>
 
-				<cfset Variables.VesselID = Form.VesselID>
+				<cfset Variables.VesselID = Form.booking_VesselID>
 				<cfset Variables.StartDate = CreateODBCDate(Form.StartDate)>
 				<cfset Variables.EndDate = CreateODBCDate(Form.EndDate)>
 
 				<cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT 	VesselID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
 					FROM 	Vessels, Companies
-					WHERE 	VesselID = '#Form.VesselID#'
+					WHERE 	VesselID = '#Form.booking_VesselID#'
 					AND		Companies.CompanyID = Vessels.CompanyID
 					AND 	Vessels.Deleted = 0
 					AND		Companies.Deleted = 0
@@ -175,8 +175,8 @@
 					<!--- Save the form data in a session structure so it can be sent back to the form page --->
 					<cfset Session.Return_Structure.StartDate = Form.StartDate>
 					<cfset Session.Return_Structure.EndDate = Form.EndDate>
-					<cfset Session.Return_Structure.VesselID = Form.VesselID>
-					<cfset Session.Return_Structure.CompanyID = Form.CompanyID>
+					<cfset Session.Return_Structure.VesselID = Form.booking_VesselID>
+					<cfset Session.Return_Structure.CompanyID = Form.booking_CompanyID>
 					<cfset Session.Return_Structure.Status = Form.Status>
 					<cfset Session.Return_Structure.Errors = Errors>
 
@@ -188,55 +188,42 @@
 				<cfinclude template="#RootDir#reserve-book/includes/towerCheck.cfm">
 				<cfset Variables.spaceFound = findSpace(-1, #Variables.StartDate#, #Variables.EndDate#, #getVessel.Length#, #getVessel.Width#)>
 				<cfoutput>
-				<table style="width:100%;" cellspacing="0" cellpadding="1" border="0">
-				<tr>
-					<td>
-						<table style="width:100%;" cellspacing="0" cellpadding="10" border="0">
-						<tr>
-							<cfif NOT variables.spaceFound>
-								<td>#language.bookingConflicts#</td>
-							<cfelse>
-								<td>#language.bookingAvailable#</td>
-							</cfif>
-						</tr>
-						</table>
-					</td>
-				</tr>
-				</table>
+				<p>
+					<cfif NOT variables.spaceFound>
+						#language.bookingConflicts#
+					<cfelse>
+						#language.bookingAvailable#
+					</cfif>
+				</p>
 				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action.cfm?lang=#lang#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
-				<table align="center">
-					<tr><td align="right" style="width:40%;"><div style="font-weight:bold;">#language.new#:</div></td></tr>
-					<tr>
-						<td align="left" id="vessel">&nbsp;&nbsp;&nbsp;#language.vessel#:</td>
-						<td style="width:60%;" headers="vessel"><input type="hidden" name="vesselID" value="#Variables.VesselID#" />#getVessel.VesselName#</td>
-					</tr>
-					<tr>
-						<td align="left" id="Company">&nbsp;&nbsp;&nbsp;#language.Company#:</td>
-						<td headers="Company">#getVessel.CompanyName#</td>
-					</tr>
-					<tr>
-						<td align="left" id="StartDate">&nbsp;&nbsp;&nbsp;#language.StartDate#:</td>
-						<td headers="StartDate"><input type="hidden" name="StartDate" value="#Variables.StartDate#" />#LSDateFormat(Variables.StartDate, 'mmm d, yyyy')#</td>
-					</tr>
-					<tr>
-						<td align="left" id="EndDate">&nbsp;&nbsp;&nbsp;#language.EndDate#:</td>
-						<td headers="EndDate"><input type="hidden" name="EndDate" value="#Variables.EndDate#" />#LSDateFormat(Variables.EndDate, 'mmm d, yyyy')#</td>
-					</tr>
-					<tr>
-						<td align="left" id="Status">&nbsp;&nbsp;&nbsp;#language.requestedStatus#:</td>
-						<td headers="Status"><input type="hidden" name="Status" value="#Form.Status#"><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></td>
-					</tr>
-				</table>
-				<table align="center">
-					<tr><td>&nbsp;</td></tr>
-					<tr>
-						<td colspan="2" align="center">
-							<input type="submit" value="#language.Submit#" class="textbutton" />
-							<input type="button" value="#language.Back#" class="textbutton" onclick="self.location.href='bookingRequest.cfm?lang=#lang#'" />
-							<input type="button" value="#language.Cancel#" class="textbutton" onclick="self.location.href='reserve-booking.cfm?lang=<cfoutput>#lang#</cfoutput>';" />
-						</td>
-					</tr>
-				</table>
+				<h2>#language.new#:</h2>
+					<fieldset>
+						<label>#language.vessel#:</label>
+						<p>#getVessel.VesselName#</p>
+						<input type="hidden" name="vesselID" value="#Variables.VesselID#" />
+
+						<label>#language.Company#:</label>
+						<p>#getVessel.CompanyName#</p>
+
+						<label>#language.StartDate#:</label>
+						<input type="hidden" name="StartDate" value="#Variables.StartDate#" />
+						<p>#LSDateFormat(Variables.StartDate, 'mmm d, yyyy')#</p>
+
+						<label>#language.EndDate#:</label>
+						<input type="hidden" name="EndDate" value="#Variables.EndDate#" />
+						<p>#LSDateFormat(Variables.EndDate, 'mmm d, yyyy')#</p>
+
+						<label>#language.requestedStatus#:</label>
+						<input type="hidden" name="Status" value="#Form.Status#">
+						<p><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></p>
+					</fieldset>
+
+					<div class="buttons">
+						<input type="submit" value="#language.Submit#" class="textbutton" />
+						<input type="button" value="#language.Back#" class="textbutton" onclick="self.location.href='bookingRequest.cfm?lang=#lang#'" />
+						<input type="button" value="#language.Cancel#" class="textbutton" onclick="self.location.href='reserve-booking.cfm?lang=<cfoutput>#lang#</cfoutput>';" />
+					</div>
+
 
 				</cfform>
 				</cfoutput>
