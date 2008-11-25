@@ -59,32 +59,14 @@ tr.week {
    The table draws the left bottom borders. The other borders are
    left up to the individial cells to draw. */
 table.calendar {
-	font-size: 115%;
-	text-align: left;
-	border-left: 1px solid #369;
-	border-bottom: 1px solid #369;
-	border-collapse: collapse;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-table.calendar th {
-	text-align: center;
-	vertical-align: top;
-	width: 14%;
-	padding: 2px;
-	background-color: #BBCCDD;
-	font-size: 80%;
-	font-weight: bold;
-	border-top: 1px solid #369;
-	border-right: 1px solid #369;
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 table.calendar td {
 	background-color: #FFFFFF;
-	font-size: 80%;
 	text-align: left;
 	vertical-align: top;
-	border-top: 1px solid #369;
-	border-right: 1px solid #369;
+	width: 14%;
 }
 
 /* These are smallified version of the calendar table for
@@ -102,11 +84,50 @@ table.calendar.small td {
 
 /* Table layout for legends and keys. */
 table.keytable {
-	border: 1px solid #cccccc;
+	border: 1px solid #ccc;
+	border-collapse: collapse;
 	width: 300px;
 	font-size: 90%;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+table.keytable th, table.keytable td {
+	border: 1px solid #ccc;
+}
+
+div.keytableWrapper {
+	clear: both;
+	padding-left: 25%;
+	padding-right: 25%;
+}
+
+/* Styles for the month/year selectors. */
+div.selector {
+	text-align: center;
+}
+
+div.selector a.previousLink {
+	float: left;
+}
+
+div.selector a.nextLink {
+	float: right;
+	text-align: right;
+}
+
+/* SUMMARIES ------------------------------------------- */
+/*  */
+th.vessel, th.docking, th.booking {
+	width: 30%;
+}
+
+th.section {
+	width: 10%;
+}
+
+td[headers='section'], th[headers='section2'], th[headers='section3'] {
+	text-align: center;
 }
 
 /* STATUSES -------------------------------------------- */
@@ -136,7 +157,7 @@ div.center .pending, div.center a.pending, div.center a.pending:visited, div.cen
 table.bookingDetails {
 	border-left: 1px solid #369;
 	border-bottom: 1px solid #369;
-	margin-bottom: 10px;
+	margin-bottom: 1em;
 	border-collapse: collapse;
 }
 
@@ -172,6 +193,12 @@ form {
 	border: 1px solid #336699;
 	background-color: #ccddee;
 	padding: 1em;
+}
+
+form.noBorder {
+	background-color: #fff;
+	border: 0 none;
+	padding: 0;
 }
 
 form fieldset {

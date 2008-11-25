@@ -117,7 +117,6 @@
 
 				<p><cfoutput>#Language.viewInfo#</cfoutput></p>
 
-				<CFSET pos="top">
 				<CFINCLUDE template="includes/dock_key.cfm">
 
 				<CFIF url.month eq 1>
@@ -138,36 +137,39 @@
 
 
 				<cfoutput>
-				<div style="float:left;"><a href="calend-cale-dock.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
-				<div style="float:right;"><a href="calend-cale-dock.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
-				<div style="width:100%; text-align:center;">
-					<form id="dateSelect" action="calend-cale-dock-3m.cfm?lang=#lang#" method="post" style="margin: 0; padding:0; ">
-						<select name="month" id="month">
-							<CFLOOP index="i" from="1" to="12">
-								<option value="#i#" <cfif i eq url.month>selected="selected"</cfif>>#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
-								</CFLOOP>
+				<div class="selector">
+					<a href="calend-cale-dock.cfm?lang=#lang#&amp;month=#prevmonth#&amp;year=#prevyear#" class="previousLink">#language.prev#</a>
+					<a href="calend-cale-dock.cfm?lang=#lang#&amp;month=#nextmonth#&amp;year=#nextyear#" class="nextLink">#language.next#</a>
+
+					<form id="dateSelect" class="noBorder" action="calend-cale-dock.cfm?lang=#lang#" method="post">
+						<fieldset>
+							<select name="month" id="month">
+								<CFLOOP index="i" from="1" to="12">
+									<option value="#i#" <cfif i eq url.month>selected="selected"</cfif>>#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
+									</CFLOOP>
+								</select>
+							<select name="year" id="year">
+								<CFLOOP index="i" from="-5" to="25">
+									<cfset year = #DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
+									<option <cfif year eq url.year>selected="selected"</cfif>>#year#</option>
+									</CFLOOP>
 							</select>
-						<select name="year" id="year">
-							<CFLOOP index="i" from="-5" to="25">
-								<cfset year = #DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
-								<option <cfif year eq url.year>selected="selecetd"</cfif>>#year#</option>
-								</CFLOOP>
-							</select>
-						<input type="submit" value="Go" />
+							<input type="submit" value="Go" />
+						</fieldset>
 					</form>
 				</div>
-
 				</cfoutput>
 
 				<!--- THE MEAT OF THE CALENDAR HAS BEEN MOVED --->
 				<CFINCLUDE template="includes/calendar_core.cfm">
 
 				<cfoutput>
-				<div style="float:left;"><a href="calend-cale-dock.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
-				<div style="text-align:right;"><a href="calend-cale-dock.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
+				<div class="selector">
+					<a href="calend-cale-dock.cfm?lang=#lang#&amp;month=#prevmonth#&amp;year=#prevyear#" class="previousLink">#language.prev#</a>
+					<a href="calend-cale-dock.cfm?lang=#lang#&amp;month=#nextmonth#&amp;year=#nextyear#" class="nextLink">#language.next#</a>
+				</div>
 				</cfoutput>
 
-				<CFSET pos="bottom">
 				<CFINCLUDE template="includes/dock_key.cfm">
 
 			</div>

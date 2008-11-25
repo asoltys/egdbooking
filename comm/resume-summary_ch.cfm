@@ -95,32 +95,22 @@
 				#Language.ScreenMessage#
 
 				<cfform action="resume-summary.cfm?lang=#lang#" method="post" enablecab="No" id="bookSum" preservedata="Yes">
-					<table style="width:100%;">
-						<tr>
-							<td id="startCell"><label for="start">&nbsp; #language.fromDate#</label></td>
-							<td headers="startCell">
-								<cfinput id="start" type="text" name="startDate" class="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" validate="date" message="#language.invalidfromDate#" /> #language.dateform#
-								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
-								<a href="javascript:$('bookSum').startDate.value=''; void(0);" class="textbutton">#language.clear#</a>
-							</td>
-						</tr>
-						<tr>
-							<td id="endCell"><label for="end">&nbsp; #language.toDate#</label></td>
-							<td headers="endCell">
-								<cfinput type="text" name="endDate" message="#language.invalidtoDate#" validate="date" class="endDate" id="end" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
-								<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
-								<a href="javascript:$('bookSum').endDate.value=''; void(0);" class="textbutton">#language.clear#</a>
-							</td>
-						</tr>
-						<tr><td colspan="2">&nbsp;</td></tr>
-						<tr>
-							<td>&nbsp;</td>
-							<td>
-								<input type="submit" value="#language.submit#" class="textbutton" />
-								<input type="reset" value="#language.reset#" class="textbutton" />
-							</td>
-						</tr>
-					</table>
+					<fieldset>
+						<label for="start">&nbsp; #language.fromDate#</label>
+						<cfinput id="start" type="text" name="startDate" class="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" validate="date" message="#language.invalidfromDate#" /> #language.dateform#
+						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
+						<a href="javascript:$('bookSum').startDate.value=''; void(0);" class="textbutton">#language.clear#</a>
+
+						<label for="end">&nbsp; #language.toDate#</label>
+						<cfinput type="text" name="endDate" message="#language.invalidtoDate#" validate="date" class="endDate" id="end" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
+						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
+						<a href="javascript:$('bookSum').endDate.value=''; void(0);" class="textbutton">#language.clear#</a>
+
+						<div class="buttons">
+							<input type="submit" value="#language.submit#" class="textbutton" />
+							<input type="reset" value="#language.reset#" class="textbutton" />
+						</div>
+					</fieldset>
 
 				</cfform>
 				</cfoutput>
