@@ -1,7 +1,12 @@
 <cfif IsDefined("Session.Form_Structure")>
 	<cfset StructDelete(Session, "Form_Structure")>
 </cfif>
-
+<cfif IsDefined('form.month')>
+	<cfset url.month = form.month />
+</cfif>
+<cfif IsDefined('form.year')>
+	<cfset url.year = form.year />
+</cfif>
 <cfif lang EQ "eng">
 	<cfset language.ScreenMessage = "There are no events available for display">
 	<cfset language.jettyCalendar = "North Landing Wharf/South Jetty Calendar">
@@ -41,8 +46,6 @@
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
 	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.jettyCalendar#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
-
-<CFSET Variables.onLoad="setCalendar()">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
@@ -132,18 +135,19 @@
 				<div style="float:left;"><a href="calend-jet.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
 				<div style="float:right;"><a href="calend-jet.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
 				<div style="width:100%; text-align:center;">
-					<form id="selection" action="" style="margin: 0; padding:0; ">
-						<select name="selMonth">
+					<form id="dateSelect" action="calend-cale-dock-3m.cfm?lang=#lang#" method="post" style="margin: 0; padding:0; ">
+						<select name="month" id="month">
 							<CFLOOP index="i" from="1" to="12">
-								<option value="#i#">#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
-							</CFLOOP>
-						</select>
-						<select name="selYear">
+								<option value="#i#" <cfif i eq url.month>selected="selected"</cfif>>#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
+								</CFLOOP>
+							</select>
+						<select name="year" id="year">
 							<CFLOOP index="i" from="-5" to="25">
-								<option>#DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')#</option>
-							</CFLOOP>
-						</select>
-							<a href="javascript:go('calend-jet')" class="textbutton">#language.Go#</a>
+								<cfset year = #DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
+								<option <cfif year eq url.year>selected="selecetd"</cfif>>#year#</option>
+								</CFLOOP>
+							</select>
+						<input type="submit" value="Go" />
 					</form>
 				</div>
 				<CFINCLUDE template="#RootDir#includes/calendar_js.cfm">

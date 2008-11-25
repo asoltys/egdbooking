@@ -1,18 +1,18 @@
 /*
-   Site-specific Style-sheet for Esquimalt Graving 
-   Dock Booking 
-   
+   Site-specific Style-sheet for Esquimalt Graving
+   Dock Booking
+
    Date Created: 2008-06-27
    Creator: lois.chan@pwgsc.gc.ca
-   
-   This style-sheet is maintained by AMI&TOS Pacific for 
+
+   This style-sheet is maintained by AMI&TOS Pacific for
    EGD Booking. Updates to this style sheet will be at
    the discretion of AMI&TOS Pacific.
 
    --------------------------------------------------------
-   
+
    These custom classes are used in all of the EGDBk site.
-   
+
 */
 
 /* GENERAL CONTROL DEFINITIONS ------------------------- */
@@ -22,7 +22,7 @@ img {
 }
 
 /* Overrides the institution definition of colLayout
-   having 100% height, which is buggy on our test 
+   having 100% height, which is buggy on our test
    server. */
 div.core div.colLayout {
 	height: auto;
@@ -77,7 +77,7 @@ table.calendar th {
 	font-weight: bold;
 	border-top: 1px solid #369;
 	border-right: 1px solid #369;
-} 
+}
 table.calendar td {
 	background-color: #FFFFFF;
 	font-size: 80%;
@@ -87,7 +87,7 @@ table.calendar td {
 	border-right: 1px solid #369;
 }
 
-/* These are smallified version of the calendar table for 
+/* These are smallified version of the calendar table for
    smaller calendars. */
 table.calendar.small {
 	font-size: 90%;
@@ -131,7 +131,7 @@ div.center .pending, div.center a.pending, div.center a.pending:visited, div.cen
 }
 
 /* BOOKING DETAILS ------------------------------------- */
-/* Booking details organised in form of table. These 
+/* Booking details organised in form of table. These
    classes work in concert to create the table. The table  */
 table.bookingDetails {
 	border-left: 1px solid #369;
@@ -156,9 +156,9 @@ table.bookingDetails td {
 	color: #FFFFFF;
 }
 
-/* CONFLICTS ------------- ----------------------------- */
+/* CONFLICTS ------------------------------------------- */
 
-/* Smaller-than-normal H2 definition so the page doesn't 
+/* Smaller-than-normal H2 definition so the page doesn't
    look so ridiculous with three or four large headings. */
 h2.conflict {
 	font-size: 120%;
@@ -166,3 +166,14 @@ h2.conflict {
 }
 
 
+/* FORMS ----------------------------------------------- */
+
+form label {
+	float: left;
+	width: 15em;
+	padding: 0 0 0.5em 0;
+}
+
+form input, form select {
+	margin: 0 0 0.5em 0;
+}

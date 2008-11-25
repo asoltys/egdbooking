@@ -1,20 +1,20 @@
 /*
-   Site-specific Advanced Style-sheet for Esquimalt Graving 
+   Site-specific Advanced Style-sheet for Esquimalt Graving
    Dock Booking
-   
+
    Date Created: 2008-06-27
    Creator: lois.chan@pwgsc.gc.ca
-   
-   This style-sheet is maintained by AMI&TOS Pacific for 
+
+   This style-sheet is maintained by AMI&TOS Pacific for
    EGD Booking. Updates to this style sheet will be at
    the discretion of AMI&TOS Pacific.
 
    --------------------------------------------------------
-   
+
    These CSS entries are only loaded by a
-   <style>@import</style> tag, which is not supported by 
+   <style>@import</style> tag, which is not supported by
    browsers that don't support these classes anyway.
-   
+
 */
 
 /* Removes margins on hidden and form elements because they
@@ -24,7 +24,7 @@ form, hidden {
 	margin-bottom: 0px;
 }
 
-/* Make a chunk of text look like a button by drawing a 
+/* Make a chunk of text look like a button by drawing a
    border around it. Can be used with any class elements,
    including DIV, SPAN, and A. */
 .textbutton {
@@ -39,13 +39,26 @@ form, hidden {
 	white-space: nowrap;
 }
 
-/* Increases padding on rows that have inline text 
+input[type="button"],
+input[type="submit"] {
+	font-family: sans-serif, arial;
+	font-size: 85%;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: 1px solid #CCCCCC;
+	background-color: White;
+	color: #369;
+	padding: 1px 2px 1px 2px;
+	white-space: nowrap;
+}
+
+/* Increases padding on rows that have inline text
    buttons. */
 tr.containsbutton td {
 	padding: 5px;
 }
 
-/* Highlights the button onmouseover. #FFFCFC, when viewed 
+/* Highlights the button onmouseover. #FFFCFC, when viewed
    on a 256-colour screen, would be white. */
 .textbutton:hover {
 	background: #FFFCFC;
