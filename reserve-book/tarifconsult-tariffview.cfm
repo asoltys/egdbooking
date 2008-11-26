@@ -104,52 +104,55 @@
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-				
+
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
-				
-				<cfif isDefined("url.BookingID")><cfoutput><div style="text-align:center;" style="font-weight:bold;">#getDetails.CompanyName#: #getDetails.VesselName#</div></cfoutput>
-				<cfoutput><div style="text-align:center;" style="font-weight:bold;">#LSDateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #LSDateFormat(getDetails.EndDate, 'mmm d, yyyy')#</div></cfoutput></cfif>
-				<br />
-				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the selected services for the booking.">
+
+				<cfif isDefined("url.BookingID")>
+				<cfoutput>
+					<h2>#getDetails.CompanyName#: #getDetails.VesselName#</h2>
+					<h3>#LSDateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #LSDateFormat(getDetails.EndDate, 'mmm d, yyyy')#</h3>
+				</cfoutput></cfif>
+
+				<table summary="#language.tablesummary#">
 				<cfoutput>
 					<tr>
-						<th class="feesformheader" id="checkHeader" style="width:5%;">&nbsp;</th>
-						<th class="feesformheader" id="itemHeader" style="width:4%;"><strong>#language.Item#</strong></th>
+						<th id="checkHeader" style="width:5%;">&nbsp;</th>
+						<th id="itemHeader" style="width:4%;"><strong>#language.Item#</strong></th>
 						<th id="serviceHeader" class="feesformheader"><strong>#language.Services#</strong></th>
-						<th class="feesformheader" id="feeHeader" style="width:19%;"><strong>#language.Fees#</strong></th>
+						<th id="feeHeader" style="width:19%;"><strong>#language.Fees#</strong></th>
 					</tr>
-				
+
 					<tr>
-						<td headers="checkHeader" align="right" valign="top"><input name="other" type="checkbox" <cfif isDefined("url.bookingID")><cfif getForm.other EQ 1>checked="true"</cfif></cfif> disabled="disabled" /></td>
-						<td headers="itemHeader" align="center" valign="top">&nbsp;</td>
-						<td headers="serviceHeader" align="left" valign="top">
+						<td headers="checkHeader"><input name="other" type="checkbox" <cfif isDefined("url.bookingID")><cfif getForm.other EQ 1>checked="true"</cfif></cfif> disabled="disabled" /></td>
+						<td headers="itemHeader">&nbsp;</td>
+						<td headers="serviceHeader">
 							<table>
 								<tr>
-									<td valign="top">#language.Misc#:</td>
+									<td>#language.Misc#:</td>
 									<td><textarea name="otherText" cols="32" rows="3" disabled="disabled"><cfif isDefined("url.bookingID")><cfif getForm.other EQ 1>#getForm.otherText#</cfif></cfif></textarea></td>
 								</tr>
 								<tr><td colspan="2">(#language.miscText#)</td></tr>
 							</table>
 						</td>
-						<td headers="feeHeader" align="right" valign="top">&nbsp;</td>
+						<td headers="feeHeader">&nbsp;</td>
 					</tr>
 				</cfoutput>
-				
+
 				<cfoutput query="getFees">
 					<cfif item NEQ "" AND item mod 2>
 						<cfset rowClass = "highlight">
 					<cfelseif item NEQ "">
 						<cfset rowClass = "">
 					</cfif>
-				
+
 					<tr class="#rowClass#">
-						<td headers="checkHeader" align="right" valign="top">
+						<td headers="checkHeader">
 							<cfif fee NEQ "">
 								<cfset Variables.Abbr = "getForm." & #abbreviation#>
 								<input name="#abbreviation#" id="#abbreviation#" type="checkbox" <cfif isDefined("url.bookingID")><cfif Evaluate(Variables.Abbr) EQ 1>checked="true"</cfif></cfif> disabled="disabled" />
 							</cfif>
 						</td>
-						<td headers="itemHeader" align="center" valign="top">
+						<td headers="itemHeader" align="center">
 							<strong>
 								<cfif fee NEQ "">
 									<label for="#abbreviation#">#item#</label>
@@ -158,7 +161,7 @@
 								</cfif>
 							</strong>
 						</td>
-						<td headers="serviceHeader" align="left" valign="top">
+						<td headers="serviceHeader">
 							<cfif fee NEQ "">
 								<label for="#abbreviation#">#service#</label>
 							<cfelse>
@@ -167,9 +170,9 @@
 						</td>
 						<cfif fee NEQ "">
 							<cfif flex EQ 0>
-						<td headers="feeHeader" align="right" valign="top" nowrap><label for="#abbreviation#"><strong>#LSCurrencyFormat(fee)#</strong></label></td>
+						<td headers="feeHeader"><label for="#abbreviation#"><strong>#LSCurrencyFormat(fee)#</strong></label></td>
 							<cfelse>
-						<td headers="feeHeader" align="right" valign="top"><label for="#abbreviation#"><strong>#language.pricesVary#</strong></label></td>
+						<td headers="feeHeader"><label for="#abbreviation#"><strong>#language.pricesVary#</strong></label></td>
 							</cfif>
 						<cfelse>
 						<td headers="feeHeader">&nbsp;</td>
@@ -177,8 +180,7 @@
 					</tr>
 				</cfoutput>
 				</table>
-				<br />
-				<div style="text-align:right;">
+				<div class="buttons">
 					<cfif isDefined("url.referrer") AND url.referrer eq "archive">
 						<cfoutput><a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;CompanyID=#url.CompanyID#" class="textbutton">#language.Back#</a></cfoutput>
 					<cfelse>

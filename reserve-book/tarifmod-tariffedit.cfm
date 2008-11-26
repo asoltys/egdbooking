@@ -24,12 +24,26 @@
 	<cfset language.pricesVary = "les prix varient">
 </cfif>
 
-<cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.editTariffHeading#"" />
-	<meta name=""keywords"" content=""#language.keywords#"" />
-	<meta name=""description"" content=""#language.description#"" />
-	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.editTariffHeading#</title>">
+<cfsavecontent variable="js">
+	<cfoutput>
+	<meta name="dc.title" content="#language.PWGSC# - #language.EsqGravingDockCaps# - #language.editTariffHeading#" />
+	<meta name="keywords" content="#language.keywords#" />
+	<meta name="description" content="#language.description#" />
+	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
+	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.editTariffHeading#</title>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		Event.observe(window, 'load', function() {
+			$('otherBox').observe('focus', function() {
+				$('otherCheck').checked = true;
+			});
+		});
+
+		/* ! ]]> */
+	</script>
+	</cfoutput>
+</cfsavecontent>
+<cfhtmlhead text="#js#">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfinclude template="#RootDir#includes/restore_params.cfm">
@@ -120,34 +134,29 @@
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 
 				<cfoutput>
-				<p align="center" style="font-weight:bold;">
-				#getDetails.CompanyName#: #getDetails.VesselName#<br />
-				#LSDateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #LSDateFormat(getDetails.EndDate, 'mmm d, yyyy')#</p></cfoutput>
+					<h2>#getDetails.CompanyName#: #getDetails.VesselName#</h2>
+					<h3>#LSDateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #LSDateFormat(getDetails.EndDate, 'mmm d, yyyy')#</h3>
+				</cfoutput>
 
-
-				<cfform id="serviceSelect" action="#RootDir#reserve-book/tarifmod-tariffedit_action.cfm?lang=#lang#&BookingID=#url.BookingID#&referrer=#url.referrer#">
+				<cfform id="serviceSelect" action="#RootDir#reserve-book/tarifmod-tariffedit_action.cfm?lang=#lang#&amp;BookingID=#url.BookingID#&amp;referrer=#url.referrer#">
 				<cfoutput>
-				<table border="0" cellpadding="3" cellspacing="0" summary="#language.tableSummary#">
+				<table class="basic" id="tariffs" summary="#language.tableSummary#">
 					<tr>
-						<th class="feesformheader" id="checkHeader" style="width:5%;">&nbsp;</th>
-						<th class="feesformheader" id="itemHeader" style="width:4%;"><strong>#language.Item#</strong></th>
-						<th id="serviceHeader" class="feesformheader"><strong>#language.Services#</strong></th>
-						<th class="feesformheader" id="feeHeader" style="width:19%;"><strong>#language.Fees#</strong></th>
+						<th id="checkHeader">&nbsp;</th>
+						<th id="itemHeader">#language.Item#</th>
+						<th id="serviceHeader">#language.Services#</th>
+						<th id="feeHeader">#language.Fees#</th>
 					</tr>
 
 					<tr>
-						<td headers="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="checkbox" <cfif getForm.other EQ 1>checked="true"</cfif> onclick="if (this.checked) this.form.otherBox.focus();" />
-						<td headers="itemHeader" align="center" valign="top">&nbsp;</td>
-						<td headers="serviceHeader" align="left" valign="top">
-							<table>
-								<tr>
-									<td valign="top"><label for="otherBox">#language.Misc#:</label></td>
-									<td><textarea name="otherText" id="otherBox" cols="35" rows="3" onFocus="this.form.otherCheck.checked = true;">#getForm.otherText#</textarea></td>
-								</tr>
-								<tr><td colspan="2">(#language.miscText#)</td></tr>
-							</table>
+						<td headers="checkHeader"><input name="other" id="otherCheck" type="checkbox" <cfif getForm.other EQ 1>checked="true"</cfif> /></td>
+						<td headers="itemHeader">&nbsp;</td>
+						<td headers="serviceHeader">
+							<label for="otherBox">#language.Misc#:</label>
+							<textarea name="otherText" id="otherBox" cols="35" rows="3">#getForm.otherText#</textarea>
+							(#language.miscText#)
 						</td>
-						<td headers="feeHeader" align="right" valign="top">&nbsp;</td>
+						<td headers="feeHeader">&nbsp;</td>
 					</tr>
 				</cfoutput>
 
@@ -159,43 +168,45 @@
 					</cfif>
 
 					<tr class="#rowClass#">
-					<td headers="checkHeader" align="right" valign="top">
-						<cfif fee NEQ "">
-							<cfset Variables.Abbr = "getForm." & #abbreviation#>
-							<input name="#abbreviation#" id="#abbreviation#" type="checkbox"<cfif Evaluate(Variables.Abbr) EQ 1> checked="true"</cfif> />
-						</cfif>
-					</td>
-					<td headers="itemHeader" align="center" valign="top">
-						<strong>
+
+						<td headers="checkHeader">
+							<cfif fee NEQ "">
+								<cfset Variables.Abbr = "getForm." & #abbreviation#>
+								<input name="#abbreviation#" id="#abbreviation#" type="checkbox"<cfif Evaluate(Variables.Abbr) EQ 1> checked="true"</cfif> />
+							</cfif>
+						</td>
+
+						<td headers="itemHeader">
 							<cfif fee NEQ "">
 								<label for="#abbreviation#">#item#</label>
 							<cfelse>
 								#item#
 							</cfif>
-						</strong>
-					</td>
-					<td headers="serviceHeader" align="left" valign="top">
+						</td>
+
+						<td headers="serviceHeader">
+							<cfif fee NEQ "">
+								<label for="#abbreviation#">#service#</label>
+							<cfelse>
+								#service#
+							</cfif>
+						</td>
+
 						<cfif fee NEQ "">
-							<label for="#abbreviation#">#service#</label>
+							<cfif flex EQ 0>
+								<td headers="feeHeader"><label for="#abbreviation#"><strong>#LSCurrencyFormat(fee)#</strong></label></td>
+							<cfelse>
+								<td headers="feeHeader"><label for="#abbreviation#"><strong>#language.pricesVary#</strong></label></td>
+							</cfif>
 						<cfelse>
-							#service#
+							<td headers="feeHeader">&nbsp;</td>
 						</cfif>
-					</td>
-					<cfif fee NEQ "">
-						<cfif flex EQ 0>
-					<td headers="feeHeader" align="right" valign="top" nowrap><label for="#abbreviation#"><strong>#LSCurrencyFormat(fee)#</strong></label></td>
-						<cfelse>
-					<td headers="feeHeader" align="right" valign="top"><label for="#abbreviation#"><strong>#language.pricesVary#</strong></label></td>
-						</cfif>
-					<cfelse>
-					<td headers="feeHeader">&nbsp;</td>
-					</cfif>
-				</tr>
+
+					</tr>
 				</cfoutput>
 				</table>
 
-				<br />
-				<div style="text-align:right;">
+				<div class="buttons">
 				<cfoutput>
 					<input type="hidden" name="CompanyID" value="#getDetails.CompanyID#" />
 					<input type="submit" value="#language.Submit#" class="textbutton" />

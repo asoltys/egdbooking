@@ -206,7 +206,7 @@ form fieldset {
 }
 
 form p {
-	margin-top: 0;
+	margin-top: 0em;
 }
 
 form legend {
@@ -228,4 +228,29 @@ form input, form select {
 div.buttons {
 	text-align: center;
 	padding: 1em;
+}
+
+form input#LloydsID, form p#lloyds_id {
+	margin-bottom: 3.8em;
+}
+
+form input#blockteardowntime, form p#block_teardown_time {
+	margin-bottom: 2.2em;
+}
+
+table#tariffs th#checkHeader {
+	width: 1em;
+}
+table#tariffs th#itemHeader {
+	width: 3em;
+}
+table#tariffs th#serviceHeader {
+	width: 10em;
+}
+table#tariffs th#feeHeader {
+	width: 3em;
+}
+
+table#tariffs label {
+	width: auto;
 }

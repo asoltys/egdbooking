@@ -34,7 +34,7 @@
 	FROM Users
 	WHERE UserID = #Session.UserID#
 </cfquery>
-<cfoutput query="readonlycheck">	
+<cfoutput query="readonlycheck">
 	<cfset Session.ReadOnly = #ReadOnly#>
 </cfoutput>
 <cfhtmlhead text="
@@ -90,18 +90,14 @@
 					<cfoutput>#language.detailsFor# #Name#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
-				
+
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-				
-					<table align="center">
+
+					<table>
 						<tr>
 							<td id="vessel">#language.vessel#:</td>
 							<td headers="vessel">#name#</td>
 						</tr>
-						<!---<tr>
-							<td>Owner:</td>
-							<td>#userName#</td>
-						</tr>--->
 						<tr>
 							<td id="Company">#language.Company#:</td>
 							<td headers="Company">#companyname#</td>
@@ -135,14 +131,12 @@
 							<td headers="anon"><cfif anonymous>#language.yes#<cfelse>#language.no#</cfif></td>
 						</tr>
 					</table>
-				
-					<br />
-					<div style="text-align:center;">
-						<cfif #Session.ReadOnly# EQ "1"><cfelse>
-						<a href="#RootDir#reserve-book/naviremod-vesseledit.cfm?lang=#lang#&vesselID=#url.vesselID#" class="textbutton">#language.EditVessel#</a>
-						<a href="#RootDir#reserve-book/naviresup-vesseldel.cfm?lang=#lang#&vesselID=#url.vesselID#" class="textbutton">#language.DeleteVessel#</a>
+
+					<div class="buttons">
+						<cfif #Session.ReadOnly# NEQ "1">
+						<a href="#RootDir#reserve-book/naviremod-vesseledit.cfm?lang=#lang#&amp;vesselID=#url.vesselID#" class="textbutton">#language.EditVessel#</a>
+						<a href="#RootDir#reserve-book/naviresup-vesseldel.cfm?lang=#lang#&amp;vesselID=#url.vesselID#" class="textbutton">#language.DeleteVessel#</a>
 						</cfif>
-						<!---<a href="reserve-booking.cfm?lang=#lang#&CompanyID=#getVesselDetail.companyID#" class="textbutton">#language.Back#</a>--->
 					</div>
 				</cfoutput>
 

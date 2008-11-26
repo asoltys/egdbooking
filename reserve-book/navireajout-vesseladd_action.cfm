@@ -27,7 +27,7 @@
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
 	<cflocation url="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&CompanyID=#CompanyID#" addtoken="no">
 </cfif>
-<!--- 
+<!---
 <cfif getDeletedVessel.recordcount GT 0>
 
 	<cfquery name="reviveVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -67,7 +67,7 @@
 			Anonymous,
 			Deleted
 		)
-		
+
 		VALUES
 		(
 			'#trim(form.Name)#',
@@ -98,5 +98,5 @@
 	<cfset Session.Success.Message = "Le navire, <b>#form.Name#</b>, a &eacute;t&eacute; ajout&eacute;.">
 	<cfset Session.Success.Back = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
 </cfif>
-<cfset Session.Success.Link = "#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#CompanyID#">
+<cfset Session.Success.Link = "#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CompanyID=#CompanyID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">

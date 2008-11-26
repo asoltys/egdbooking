@@ -1,3 +1,9 @@
+<cfif IsDefined('form.anonymous')>
+	<cfset Form.Anonymous = 1 />
+<cfelse>
+	<cfset Form.Anonymous = 0  />
+</cfif>
+
 <cfif isDefined('form.vesselID')>
 
 	<cfquery name="editVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -8,7 +14,7 @@
 			width = '#trim(form.width)#',
 			blocksetuptime = '#trim(form.blocksetuptime)#',
 			blockteardowntime = '#trim(form.blockteardowntime)#',
-			LloydsID = '#trim(form.LloydsID)#',			
+			LloydsID = '#trim(form.LloydsID)#',
 			Tonnage = '#trim(form.tonnage)#',
 			Anonymous = '#(Form.Anonymous)#'
 		WHERE vesselID = #form.vesselID#
@@ -23,13 +29,13 @@
 			WHERE	UserID = #session.userID#
 		</cfquery>
 	</cflock>
-	
+
 	<cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	vessels.name AS VesselName, companies.name AS CompanyName
 		FROM	Vessels INNER JOIN Companies ON Vessels.COmpanyID = Companies.CompanyID
 		WHERE	vesselID = #form.vesselID#
 	</cfquery>
-	
+
 	<cfoutput>
 		<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Vessel Edited" type="html">
 	<p>#getUser.userName# of #getVessel.companyName# has edited the details for #getVessel.VesselName#.  Please check that the new vessel information is correct.</p>

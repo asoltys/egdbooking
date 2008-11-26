@@ -111,57 +111,51 @@
 					<div id="actionErrors">#language.boatTooBig# (#Variables.MaxLength#m x #Variables.MaxWidth#m).</div>
 				</cfif>
 
-				<cfform id="addVessel" action="#RootDir#reserve-book/navireajout-vesseladd_action.cfm?lang=#lang#&CompanyID=#url.companyID#" method="post">
+				<cfform id="addVessel" action="#RootDir#reserve-book/navireajout-vesseladd_action.cfm?lang=#lang#&amp;CompanyID=#url.companyID#" method="post">
+					<fieldset>
+						<label>#language.CompanyName#:</label>
+						<input type="hidden" name="CompanyID" value="#Variables.CompanyID#" />
+						<p>#variables.CompanyName#</p>
 
-				<table align="center">
-					<tr>
-						<td id="CompanyName">#language.CompanyName#:</td>
-						<td headers="CompanyName"><input type="hidden" name="CompanyID" value="#Variables.CompanyID#" />
-					</tr>
-					<tr>
-						<td id="vesselName">#language.vesselName#:</td>
-						<td headers="vesselName"><input type="hidden" name="name" value="#Variables.Name#" />
-					</tr>
-					<tr>
-						<td id="Length">#language.Length#:</td>
-						<td headers="Length"><input type="hidden" name="length" value="#Variables.Length#" />
-					</tr>
-					<tr>
-						<td id="Width">#language.Width#:</td>
-						<td headers="Width"><input type="hidden" name="width" value="#Variables.Width#" />
-					</tr>
-					<tr>
-						<td id="BlockSetup">#language.BlockSetup# #language.days#:</td>
-						<td headers="BlockSetup"><input type="hidden" name="blocksetuptime" value="#Variables.BlockSetuptime#" />
-					</tr>
-					<tr>
-						<td id="BlockTeardown">#language.BlockTeardown# #language.days#:</td>
-						<td headers="BlockTeardown"><input type="hidden" name="blockteardowntime" value="#Variables.Blockteardowntime#" />
-					</tr>
-					<tr>
-						<td id="LloydsID">#language.LloydsID#:</td>
-						<td headers="LloydsID"><input type="hidden" name="LloydsID" value="#Variables.LloydsID#" />
-					</tr>
-					<tr>
-						<td id="Tonnage">#language.Tonnage#:</td>
-						<td headers="Tonnage"><input type="hidden" name="tonnage" value="#Variables.Tonnage#" />
-					</tr>
-					<tr>
-						<td id="anonymous">#language.anonymous#:</td>
-						<td headers="anonymous"><input type="hidden" name="Anonymous" value="#Variables.Anonymous#" />
-					</tr>
-					<tr>
-						<td colspan="2" align="center" style="padding-top:20px;">
-							<!---a href="javascript:document.addVessel.submitForm.click();" class="textbutton">#language.Submit#</a>
-							<a href="javascript:history.go(-1);" class="textbutton">#language.Back#</a>
-							<a href="reserve-booking.cfm?lang=#lang#&CompanyID=#CompanyID#" class="textbutton">#language.Cancel#</a>
-							<br--->
-							<input type="submit" name="submitForm" value="#language.Submit#" class="textbutton" />
-							<input type="button" name="back" value="#language.Back#" onclick="self.location.href='addVessel.cfm?lang=#lang#&amp;CompanyID=#CompanyID#'" class="textbutton" />
-							<input type="button" name="cancel" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#&amp;CompanyID=#CompanyID#'" class="textbutton" />
-						</td>
-					</tr>
-				</table>
+						<label>#language.vesselName#:</label>
+						<input type="hidden" name="name" value="#Variables.Name#" />
+						<p>#variables.Name#</p>
+
+						<label>#language.Length#:</label>
+						<input type="hidden" name="length" value="#Variables.Length#" />
+						<p>#variables.Length#</p>
+
+						<label>#language.Width#:</label>
+						<input type="hidden" name="width" value="#Variables.Width#" />
+						<p>#variables.Width#</p>
+
+						<label>#language.BlockSetup# #language.days#:</label>
+						<input type="hidden" name="blocksetuptime" value="#Variables.BlockSetuptime#" />
+						<p id="block_setuptime">#variables.BlockSetuptime#</p>
+
+						<label>#language.BlockTeardown# #language.days#:</label>
+						<input type="hidden" name="blockteardowntime" value="#Variables.Blockteardowntime#" />
+						<p id="block_teardown_time">#variables.Blockteardowntime#</p>
+
+						<label>#language.LloydsID#:</label>
+						<input type="hidden" name="LloydsID" value="#Variables.LloydsID#" />
+						<p id="lloyds_id">#variables.LloydsID#</p>
+
+						<label>#language.Tonnage#:</label>
+						<input type="hidden" name="tonnage" value="#Variables.Tonnage#" />
+						<p>#variables.Tonnage#</p>
+
+						<label>#language.anonymous#:</label>
+						<input type="hidden" name="Anonymous" value="#Variables.Anonymous#" />
+						<p>#variables.Anonymous#</p>
+					</fieldset>
+
+					<div class="buttons">
+						<input type="submit" name="submitForm" value="#language.Submit#" class="textbutton" />
+						<input type="button" name="back" value="#language.Back#" onclick="self.location.href='addVessel.cfm?lang=#lang#&amp;CompanyID=#CompanyID#'" class="textbutton" />
+						<input type="button" name="cancel" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#&amp;CompanyID=#CompanyID#'" class="textbutton" />
+					</div>
+
 				</cfform>
 				</cfoutput>
 

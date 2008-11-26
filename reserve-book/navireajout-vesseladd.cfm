@@ -86,61 +86,55 @@
 				</cfif>
 
 				<cfform action="#RootDir#reserve-book/navireajout-vesseladd_confirm.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" method="post" id="addVessel">
-				<table align="center">
-				<tr>
-					<td id="CompanyName" style="width:40%;"><label for="companyID">#language.CompanyName#:</label></td>
-					<td headers="CompanyName">
+					<fieldset>
+						<label for="companyID">#language.CompanyName#:</label>
 						<cfif getCompanies.recordCount GT 1>
 							<cfselect name="companyID" id="companyID" query="getCompanies" display="Name" value="companyID" selected="#variables.companyID#" />
 						<cfelse>
 							<cfoutput>#getCompanies.Name#</cfoutput>
 							<cfoutput><input type="hidden" name="companyID" value="#getCompanies.companyID#" /></cfoutput>
 						</cfif>
-						<!---<cfoutput>#getCompany.Name#</cfoutput>--->
-					</td>
-				</tr>
-				<tr>
-					<td id="vesselName"><label for="name">#language.vesselName#:</label></td>
-					<td headers="vesselName"><cfinput name="name" id="name" type="text" value="#variables.name#" size="35" maxlength="100" required="yes" message="#language.nameError#" /></td>
-				</tr>
-				<tr>
-					<td id="LloydsID_header"><label for="LloydsID">#language.LloydsID#:</label></td>
-					<td headers="LloydsID_header"><cfinput name="LloydsID" id="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" ></td>
-				</tr>
-				<tr>
-					<td id="length_header"><label for="length">#language.Length#:</label></td>
-					<td headers="length_header"><cfinput name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" message="#language.lengthError#">  <span class="smallFont" style="color:red;" />#language.Max#: #Variables.MaxLength# m</span></td>
-				</tr>
-				<tr>
-					<td id="width_header"><label for="width">#language.Width#:</label></td>
-					<td headers="width_header"><cfinput name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" required="yes" validate="float" message="#language.widthError#">  <span class="smallFont" style="color:red;" />#language.Max#: #Variables.MaxWidth# m</span></td>
-				</tr>
-				<tr>
-					<td id="blocksetuptime_header"><label for="blocksetuptime">#language.BlockSetup# #language.days#:</label></td>
-					<td headers="blocksetuptime_header"><cfinput name="blocksetuptime" id="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" required="yes" validate="float" message="#language.setupError#" /></td>
-				</tr>
-				<tr>
-					<td id="blockteardowntime_header"><label for="blockteardowntime">#language.BlockTeardown# #language.days#:</label></td>
-					<td headers="blockteardowntime_header"><cfinput name="blockteardowntime" id="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" required="yes" validate="float" message="#language.teardownError#" /></td>
-				</tr>
-				<tr>
-					<td id="Tonnage_header"><label for="tonnage">#language.Tonnage#:</label></td>
-					<td headers="Tonnage_header"><cfinput name="tonnage" id="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" required="yes" validate="float" message="#language.tonnageError#" /></td>
-				</tr>
-				<tr>
-					<td id="Anonymous_header"><label for="Anonymous">#language.anonymous#:</label></td>
-					<td headers="Anonymous_header"><input type="checkbox" id="Anonymous" name="Anonymous" value="Yes" />
-				</tr>
-				<tr><td colspan="2"><P class="smallFont">*#language.anonymousWarning#</p></td></tr>
-				<tr>
-					<td colspan="2" align="center" style="padding-top:20px;">
-						<!---a href="javascript:document.addVessel.submitForm.click();" class="textbutton">#language.Submit#</a--->
+						<br />
+
+
+						<label for="name">#language.vesselName#:</label>
+						<cfinput name="name" id="name" type="text" value="#variables.name#" size="35" maxlength="100" required="yes" message="#language.nameError#" />
+						<br />
+
+						<label for="LloydsID" id="lloyds_id">#language.LloydsID#:</label>
+						<cfinput name="LloydsID" id="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" />
+						<br />
+
+						<label for="length">#language.Length#:</label>
+						<cfinput name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" message="#language.lengthError#" />  <span class="smallFont red">#language.Max#: #Variables.MaxLength# m</span>
+						<br />
+
+						<label for="width">#language.Width#:</label>
+						<cfinput name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" required="yes" validate="float" message="#language.widthError#" />  <span class="smallFont red">#language.Max#: #Variables.MaxWidth# m</span>
+						<br />
+
+						<label for="blocksetuptime" id="block_setup_time">#language.BlockSetup# #language.days#:</label>
+						<cfinput name="blocksetuptime" id="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" required="yes" validate="float" message="#language.setupError#" />
+						<br />
+
+						<label for="blockteardowntime" id="block_teardown_time">#language.BlockTeardown# #language.days#:</label>
+						<cfinput name="blockteardowntime" id="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" required="yes" validate="float" message="#language.teardownError#" />
+						<br />
+
+						<label for="tonnage">#language.Tonnage#:</label>
+						<cfinput name="tonnage" id="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" required="yes" validate="float" message="#language.tonnageError#" />
+						<br />
+
+						<label for="Anonymous">#language.anonymous#:</label>
+						<input type="checkbox" id="Anonymous" name="Anonymous" value="Yes" />
+					</fieldset>
+
+					<p class="smallFont">*#language.anonymousWarning#</p>
+
+					<div class="buttons">
 						<input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
 						<cfoutput><input type="button" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#&amp;CompanyID=#CompanyID#'" class="textbutton" /></cfoutput>
-						<br />
-					</td>
-				</tr>
-				</table>
+					</div>
 				</cfform>
 				</cfoutput>
 
