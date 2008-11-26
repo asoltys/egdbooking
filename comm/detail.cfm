@@ -236,7 +236,7 @@
 					</tr>
 				</table>
 				<CFIF NOT Anonymous OR EVALUATE(Variables.count) GT 0 OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true) OR Status eq 'c' >
-					<div style="float: right; padding-right: 20px;"><a href="detail-res-book.cfm?lang=#lang#&bookingid=#BookingID#&date=#url.date#&referrer=Details For">#language.moreInfo#</a></div>
+					<div style="float: right; padding-right: 20px;"><a href="detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingID#&amp;date=#url.date#&amp;referrer=Details For">#language.moreInfo#</a></div>
 				</cfif>
 				<br />
 				<br />
@@ -314,7 +314,7 @@
 						<td headers="DockingDates4">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 					</tr>
 				</table>
-				<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true) OR Status eq 'c'><div style="float: right; padding-right: 20px;"><a href="detail-res-book.cfm?lang=#lang#&bookingid=#BookingID#&date=#url.date#&referrer=Details For">#language.moreInfo#</a></div></cfif>
+				<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true) OR Status eq 'c'><div style="float: right; padding-right: 20px;"><a href="detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingID#&amp;date=#url.date#&referrer=Details For">#language.moreInfo#</a></div></cfif>
 				<br />
 				<br />
 				</cfoutput>
