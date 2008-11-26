@@ -8,7 +8,7 @@
 	<cfset language.dates = "Dates">
 	<cfset language.MaintenanceBlock = "Maintenance Block">
 	<cfset language.closedForMaint = "The following docks are closed for maintenance and are not available for booking.">
-	<cfset language.moreInfo = "more information on this booking">
+	<cfset language.moreInfo = "more information">
 	<cfset language.JettyBookings = "Jetty Bookings">
 	<cfset language.noBookings = "There are no bookings for this date range.">
 	<cfset language.sectionsBooked = "Sections Booked">
@@ -29,7 +29,7 @@
 	<cfset language.dates = "Dates">
 	<cfset language.MaintenanceBlock = "P&eacute;riode de maintenance">
 	<cfset language.closedForMaint = "Les &eacute;l&eacute;ments suivants sont ferm&eacute;s aux fins de maintenance et ne peuvent pas &ecirc;tre r&eacute;serv&eacute;s.">
-	<cfset language.moreInfo = "renseignements suppl&eacute;mentaires sur cette r&eacute;servation">
+	<cfset language.moreInfo = "renseignements suppl&eacute;mentaires">
 	<cfset language.JettyBookings = "R&eacute;servations de jet&eacute;e">
 	<cfset language.noBookings = "Il n'existe aucune r&eacute;servation pour cette p&eacute;riode.">
 	<cfset language.sectionsBooked = "Sections r&eacute;serv&eacute;es">
@@ -163,7 +163,7 @@
 				<cfoutput><h2>#language.DrydockBookings#</h2></cfoutput>
 
 				<cfoutput query="getDockMaintenanceDetail">
-				<table cellpadding="2" cellspacing="0" style="width:400px;" class="bookingDetails" align="center">
+				<table class="bookingDetails">
 					<tr>
 						<td colspan="2"><strong>#language.MaintenanceBlock#</strong></td>
 					</tr>
@@ -172,15 +172,13 @@
 					</tr>
 					<tr>
 						<td id="SectionsBooked" style="width:35%;">#language.SectionsBooked#:</td>
-						<td headers="SectionsBooked"><CFIF Section1>#language.Drydock1#</CFIF><CFIF Section2><CFIF Section1> &amp; </CFIF>#language.Drydock2#</CFIF><CFIF Section3><CFIF Section1 OR Section2> &amp; </CFIF>#language.Drydock3#</CFIF></td>
+						<td><CFIF Section1>#language.Drydock1#</CFIF><CFIF Section2><CFIF Section1> &amp; </CFIF>#language.Drydock2#</CFIF><CFIF Section3><CFIF Section1 OR Section2> &amp; </CFIF>#language.Drydock3#</CFIF></td>
 					</tr>
 					<tr>
 						<td id="Dates">#language.Dates#:</td>
-						<td headers="Dates">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
+						<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 					</tr>
 				</table>
-				<br />
-				<br />
 				</cfoutput>
 
 				<cfoutput query="getDockDetail">
@@ -198,58 +196,55 @@
 				<cfset Variables.countQName = "userVessel" & #bookingID# & ".recordCount">
 				<cfset Variables.count = EVALUATE(countQName)>
 
-				<!--- <p>countQname = #Variables.countQName#</p>
-				<p>variables.count = #Variables.count#</p> --->
-				<table cellpadding="2" cellspacing="0" style="width:400px;" class="bookingDetails" align="center"<CFIF EVALUATE(Variables.count) GT 0> bgcolor="##E0E6CF"</CFIF>>
+				<table class="bookingDetails" <CFIF EVALUATE(Variables.count) GT 0> bgcolor="##E0E6CF"</CFIF>>
 					<tr>
 						<td colspan="2" <CFIF Status eq 'c'>style="font-weight: bold;"</CFIF> ><cfif #EndHighlight# GTE PacificNow>* </cfif>
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
 								#language.Deepsea#
-							<CFELSE>#VesselName#</CFIF>
+							<CFELSE>
+								#VesselName# (<a href="detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingID#&amp;date=#url.date#&amp;referrer=Details For">#language.moreInfo#</a>)
+							</CFIF>
 						</td>
 					</tr>
 					<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR IsDefined('session.AdminLoggedIn')>
 					<tr>
-						<td id="Agent" style="width:35%;">#language.Agent#:</td>
-						<td headers="Agent">#LastName#, #FirstName#</td>
+						<td>#language.Agent#:</td>
+						<td>#LastName#, #FirstName#</td>
 					</tr>
 					</cfif>
 					<tr>
-						<td id="Status" style="width:35%;">#language.Status#:</td>
-						<CFIF Status eq 'c'>
-							<td headers="Status">#language.Confirmed#</td>
-						<CFELSEIF Status eq 't'>
-							<td headers=""><i>#language.Tentative#</i></td>
-						<CFELSE>
-							<td headers=""><i>#language.Pending#</i></td>
-						</CFIF>
+						<td>#language.Status#:</td>
+						<td>
+							<CFIF Status eq 'c'>
+								#language.Confirmed#
+							<CFELSEIF Status eq 't'>
+								<i>#language.Tentative#</i>
+							<CFELSE>
+								<i>#language.Pending#</i>
+							</CFIF>
+						</td>
 					</tr>
 					<CFIF Status eq 'c'>
 						<tr>
-							<td id="SectionsBooked2">#language.SectionsBooked#:</td>
-							<td headers="SectionsBooked2"><CFIF Section1>#language.Drydock1#</CFIF><CFIF Section2><CFIF Section1> &amp; </CFIF>#language.Drydock2#</CFIF><CFIF Section3><CFIF Section1 OR Section2> &amp; </CFIF>#language.Drydock3#</CFIF></td>
+							<td>#language.SectionsBooked#:</td>
+							<td><CFIF Section1>#language.Drydock1#</CFIF><CFIF Section2><CFIF Section1> &amp; </CFIF>#language.Drydock2#</CFIF><CFIF Section3><CFIF Section1 OR Section2> &amp; </CFIF>#language.Drydock3#</CFIF></td>
 						</tr>
 					</CFIF>
 					<tr>
-						<td id="DockingDates">#language.DockingDates#:</td>
-						<td headers="DockingDates">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
+						<td>#language.DockingDates#:</td>
+						<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 					</tr>
 				</table>
-				<CFIF NOT Anonymous OR EVALUATE(Variables.count) GT 0 OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true) OR Status eq 'c' >
-					<div style="float: right; padding-right: 20px;"><a href="detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingID#&amp;date=#url.date#&amp;referrer=Details For">#language.moreInfo#</a></div>
-				</cfif>
-				<br />
-				<br />
 				</cfoutput>
 				<cfoutput>
 				<CFIF getDockDetail.RecordCount eq 0 AND getDockMaintenanceDetail.RecordCount eq 0>#language.noBookings#<br /><br /></CFIF>
-				<div style="text-align:center;"><a href="calend-cale-dock.cfm?lang=#lang#&month=#moonth#&year=#yeaar#" class="textbutton">#language.drydockCalButton#</a></div>
+				<div class="buttons"><a href="calend-cale-dock.cfm?lang=#lang#&amp;month=#moonth#&amp;year=#yeaar#" class="textbutton">#language.drydockCalButton#</a></div>
 
 
 				<h2>#language.JettyBookings#</h2>
 				</cfoutput>
 				<cfoutput query="getJettyMaintenanceDetail">
-				<table cellpadding="2" cellspacing="0" style="width:400px;" class="bookingDetails" align="center">
+				<table class="bookingDetails">
 					<tr>
 						<td colspan="2"><strong>#language.MaintenanceBlock#</strong></td>
 					</tr>
@@ -257,16 +252,15 @@
 						<td colspan="2">#language.closedForMaint#</td>
 					</tr>
 					<tr>
-						<td id="SectionsBooked3" style="width:35%;">#language.SectionsBooked#:</td>
-						<td headers="SectionsBooked3"><CFIF NorthJetty>#language.NorthLandingWharf#</CFIF><CFIF SouthJetty><CFIF NorthJetty> &amp; </CFIF>#language.SouthJetty#</CFIF></td>
+						<td>#language.SectionsBooked#:</td>
+						<td><CFIF NorthJetty>#language.NorthLandingWharf#</CFIF><CFIF SouthJetty><CFIF NorthJetty> &amp; </CFIF>#language.SouthJetty#</CFIF></td>
 					</tr>
 					<tr>
-						<td id="Dates3">#language.Dates#:</td>
-						<td headers="Dates3">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
+						<td>#language.Dates#:</td>
+						<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 					</tr>
 				</table>
-				<br />
-				<br />
+
 				</cfoutput>
 				<cfoutput query="getJettyDetail">
 				<cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
@@ -282,46 +276,53 @@
 				<cfset Variables.count = "jUserVessel" & #bookingID# & ".recordCount">
 				<cfset "#Variables.count#" = EVALUATE(count)>
 
-				f
+				<table class="bookingDetails">
 					<tr>
-						<td colspan="2" <CFIF Status eq 'c'>style="font-weight: bold;"</CFIF> ><cfif #EndHighlight# GTE PacificNow>* </cfif><CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND NOT IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
-						#language.Deepsea#<CFELSE>#VesselName#</CFIF></td>
+						<td colspan="2" <CFIF Status eq 'c'>style="font-weight: bold;"</CFIF> >
+							<cfif #EndHighlight# GTE PacificNow>* </cfif>
+							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND NOT IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
+								#language.Deepsea#
+							<CFELSE>
+								#VesselName# (<a href="detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingID#&amp;date=#url.date#&amp;referrer=Details For">#language.moreInfo#</a>)
+							</CFIF>
+						</td>
 					</tr>
 					<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR IsDefined('session.AdminLoggedIn')>
 					<tr>
-						<td id="Agent2" style="width:35%;">#language.Agent#:</td>
-						<td headers="Agent2">#LastName#, #FirstName#</td>
+						<td>#language.Agent#:</td>
+						<td>#LastName#, #FirstName#</td>
 					</tr>
 					</cfif>
 					<tr>
-						<td id="Status2" style="width:35%;">#language.Status#:</td>
-						<CFIF Status eq 'c'>
-							<td headers="Status2">#language.Confirmed#</td>
-						<CFELSEIF Status eq 't'>
-							<td headers=""><i>#language.Tentative#</i></td>
-						<CFELSE>
-							<td headers="Status2"><i>#language.Pending#</i></td>
-						</CFIF>
+						<td>#language.Status#:</td>
+						<td>
+							<CFIF Status eq 'c'>
+								#language.Confirmed#
+							<CFELSEIF Status eq 't'>
+								<i>#language.Tentative#</i>
+							<CFELSE>
+								<i>#language.Pending#</i>
+							</CFIF>
+						</td>
 					</tr>
 					<CFIF Status eq 'c'>
 						<tr>
-							<td id="SectionsBooked4">#language.SectionsBooked#:</td>
-							<td headers="SectionsBooked4"><CFIF NorthJetty>#language.NorthLandingWharf#</CFIF><CFIF SouthJetty><CFIF NorthJetty>, </CFIF>#language.SouthJetty#</CFIF></td>
+							<td>#language.SectionsBooked#:</td>
+							<td><CFIF NorthJetty>#language.NorthLandingWharf#</CFIF><CFIF SouthJetty><CFIF NorthJetty>, </CFIF>#language.SouthJetty#</CFIF></td>
 						</tr>
 					</CFIF>
 					<tr>
-						<td id="DockingDates4">#language.DockingDates#:</td>
-						<td headers="DockingDates4">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
+						<td>#language.DockingDates#:</td>
+						<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 					</tr>
 				</table>
-				<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true) OR Status eq 'c'><div style="float: right; padding-right: 20px;"><a href="detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingID#&amp;date=#url.date#&referrer=Details For">#language.moreInfo#</a></div></cfif>
-				<br />
-				<br />
+
+
 				</cfoutput>
 				<cfoutput>
-				<CFIF getJettyDetail.RecordCount eq 0 AND getJettyMaintenanceDetail.RecordCount eq 0>#language.noBookings#<br /><br /></CFIF>
+				<CFIF getJettyDetail.RecordCount eq 0 AND getJettyMaintenanceDetail.RecordCount eq 0>#language.noBookings#</CFIF>
 
-				<div style="text-align:center;"><a href="calend-jet.cfm?lang=#lang#&month=#moonth#&year=#yeaar#" class="textbutton">#language.jettyCalButton#</a></div><div style="height:0;">&nbsp;</div>
+				<div class="buttons"><a href="calend-jet.cfm?lang=#lang#&amp;month=#moonth#&amp;year=#yeaar#" class="textbutton">#language.jettyCalButton#</a></div>
 				</cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

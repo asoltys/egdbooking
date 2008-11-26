@@ -29,8 +29,8 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.CancelBooking#</title>
-	<link rel=""styleSHEET"" type=""text/css"" href=""#RootDir#css/booking.css"">
 ">
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <CFPARAM name="url.referrer" default="Booking Home">
 <CFIF url.referrer eq "Details For">
@@ -40,7 +40,7 @@
 </CFIF>
 
 <cfif isDefined("url.date")>
-	<cfset variables.dateValue = "&date=#url.date#">
+	<cfset variables.dateValue = "&amp;date=#url.date#">
 <cfelse>
 	<cfset variables.dateValue = "">
 </cfif>
@@ -88,14 +88,15 @@
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 
 				<cfoutput>
-				<p align="center">#language.areYouSure# <strong>#getBooking.VesselName#</strong> #language.from# #LSDateFormat(getBooking.StartDate, 'mmm d, yyyy')# #language.to# #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')#?</p>
-				<div style="text-align:center;">
-					<CFFORM action="#RootDir#reserve-book/resannul-bookcancel_action.cfm?lang=#lang#&CompanyID=#getBooking.CompanyID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#&jetty=#url.jetty#" id="cancelBooking">
+				<CFFORM action="#RootDir#reserve-book/resannul-bookcancel_action.cfm?lang=#lang#&amp;CompanyID=#getBooking.CompanyID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#&amp;jetty=#url.jetty#" id="cancelBooking">
+					<p>#language.areYouSure# <strong>#getBooking.VesselName#</strong> #language.from# #LSDateFormat(getBooking.StartDate, 'mmm d, yyyy')# #language.to# #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')#?</p>
+					<div class="buttons">
 						<input type="hidden" name="BookingID" value="#url.bookingID#" />
 						<input type="submit" value="#language.Continue#" class="textbutton" />
-						<input type="button" onclick="self.location.href='#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#" />
-					</CFFORM>
-				</div>
+						<input type="button" onclick="self.location.href='#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#" />
+					</div>
+				</CFFORM>
+
 				</cfoutput>
 			</div>
 
