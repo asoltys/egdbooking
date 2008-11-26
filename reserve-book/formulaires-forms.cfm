@@ -70,7 +70,7 @@
 					</li>
 					<li><a href="../formes-forms/indemnificationClause.gif" title="#language.Indemnification#" rel="external">#language.Indemnification# (#LSDateFormat(CreateDate(2002, 6, 18), 'long')#)</a></li>
 					<li><a href="../formes-forms/Tentative_ChangeForm.gif" title="#language.changeForm#" rel="external">#language.changeForm#</a></li>
-					<li><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?<cfoutput>lang=#lang#</cfoutput>" title="Tariff of Dock Charges">Tariff of Dock Charges [html]</a></li>
+					<li><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#" title="Tariff of Dock Charges">Tariff of Dock Charges</a></li>
 				</ul>
 				</cfoutput>
 			</div>
