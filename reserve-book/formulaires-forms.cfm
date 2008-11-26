@@ -19,7 +19,7 @@
 	<cfset language.schedule = "Tableau 1">
 	<cfset language.indemnification = "Clause d'indemnit&eacute;">
 	<cfset language.changeForm = "Formulaire de r&eacute;servation provisoire pour les navires et les modifications">
-	<cfset language.acrobatrequired = 'Vous pourriez avoir besoin d''<a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" rel="external">Adobe Acrobat Reader</a> pour les fichiers suivants. Les liens ouvriront une nouvelle fen&ecirc;tre.'>	
+	<cfset language.acrobatrequired = 'Vous pourriez avoir besoin d''<a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" rel="external">Adobe Acrobat Reader</a> pour les fichiers suivants. Les liens ouvriront une nouvelle fen&ecirc;tre.'>
 	<cfset language.formExplanation = "Les formulaires suivants (en format PDF) servent aux r&eacute;servations de la cale s&egrave;che. <br /><br />Le <em>Tableau 1</em> et la <em>Clause d'indemnisation</em> doivent &ecirc;tre soumis pour que la r&eacute;servation puisse &ecirc;tre confirm&eacute;e. Le <em>Tableau 1 - Formulaire de demande de r&eacute;servation</em> donne &agrave; la CSE les renseignements n&eacute;cessaires sur le navire et sert d'entente de r&eacute;servation formelle entre vous et la CSE. La <em>Clause d'indemnisation</em> est un document juridique qui d&eacute;gage la Couronne de toute responsabilit&eacute; en cas de blessures ou de dommages.<br /><br />Vous aurez besoin du formulaire de modification d'une r&eacute;servation si vous voulez apporte un changement apr&egrave;s avoir soumis une demande de r&eacute;servation.">
 
 </cfif>
@@ -58,13 +58,18 @@
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				<cfoutput>
 				<p>#language.formExplanation#</p>
-				
-				<p>#language.acrobatrequired#</p>
-			
+
+				<!---p>#language.acrobatrequired#</p--->
+
 				<ul>
-					<li><a href="../formes-forms/DockBookingApplication.pdf" title="#language.schedule#" rel="external">#language.schedule# (#LSDateFormat(CreateDate(2004, 7, 14), 'long')#) [PDF 55.8 KB]</a></li>
-					<li><a href="../formes-forms/indemnificationClause.pdf" title="#language.Indemnification#" rel="external">#language.Indemnification# (#LSDateFormat(CreateDate(2002, 6, 18), 'long')#) [PDF 5.58 KB]</a></li>
-					<li><a href="../formes-forms/Tentative_ChangeForm.pdf" title="#language.changeForm#" rel="external">#language.changeForm# [PDF 5.51 KB]</a></li>
+					<li>#language.schedule# (#LSDateFormat(CreateDate(2004, 7, 14), 'long')#)
+						<ul>
+							<li><a href="../formes-forms/DockBookingApplication-1.gif" title="#language.schedule#" rel="external">page 1</a></li>
+							<li><a href="../formes-forms/DockBookingApplication-2.gif" title="#language.schedule#" rel="external">page 2</a></li>
+						</ul>
+					</li>
+					<li><a href="../formes-forms/indemnificationClause.gif" title="#language.Indemnification#" rel="external">#language.Indemnification# (#LSDateFormat(CreateDate(2002, 6, 18), 'long')#)</a></li>
+					<li><a href="../formes-forms/Tentative_ChangeForm.gif" title="#language.changeForm#" rel="external">#language.changeForm#</a></li>
 					<li><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?<cfoutput>lang=#lang#</cfoutput>" title="Tariff of Dock Charges">Tariff of Dock Charges [html]</a></li>
 				</ul>
 				</cfoutput>
