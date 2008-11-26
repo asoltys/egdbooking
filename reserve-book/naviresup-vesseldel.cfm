@@ -93,7 +93,7 @@
 
 				<cfif getVesselDockBookings.recordCount EQ 0 AND getVesselJettyBookings.recordCount EQ 0>
 						<cfoutput query="getVesselDetail">
-							<p align="center">#language.areYouSure# <strong>#name#</strong>?</p>
+							<p>#language.areYouSure# <strong>#name#</strong>?</p>
 							<div style="text-align:center;">
 							<form id="DelVessel" action="#RootDir#reserve-book/naviresup-vesseldel_action.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" method="post">
 								<input type="hidden" name="VesselID" value="#vesselID#" />
@@ -117,9 +117,9 @@
 							</cfoutput>
 							<cfoutput query="getVesselDockBookings">
 								<tr>
-									<td valign="top" headers="start">#LSdateformat(startDate, "mmm d, yyyy")#</td>
-									<td valign="top" headers="end">#LSdateformat(endDate, "mmm d, yyyy")#</td>
-									<td valign="top" headers="status">
+									<td headers="start">#LSdateformat(startDate, "mmm d, yyyy")#</td>
+									<td headers="end">#LSdateformat(endDate, "mmm d, yyyy")#</td>
+									<td headers="status">
 										<cfif status EQ "P"><i>#language.pending#</i>
 										<cfelseif status EQ "T"><i>#language.tentative#</i>
 										<cfelseif status EQ "C"><i>#language.confirmed#</i></cfif>
@@ -142,16 +142,16 @@
 							</cfoutput>
 							<cfoutput query="getVesselJettyBookings">
 								<tr>
-									<td valign="top" headers="start">#LSdateformat(startDate, "mmm d, yyyy")#</td>
-									<td valign="top" headers="end">#LSdateformat(endDate, "mmm d, yyyy")#</td>
-									<td valign="top" headers="jetty">
+									<td headers="start">#LSdateformat(startDate, "mmm d, yyyy")#</td>
+									<td headers="end">#LSdateformat(endDate, "mmm d, yyyy")#</td>
+									<td headers="jetty">
 										<cfif getVesselJettyBookings.NorthJetty EQ 1>
 											#language.NorthLandingWharf#
 										<cfelseif getVesselJettyBookings.SouthJetty EQ 1>
 											#language.SouthJetty#
 										</cfif>
 									</td>
-									<td valign="top" headers="status">
+									<td headers="status">
 										<cfif status EQ "P"><i>#language.pending#</i>
 										<cfelseif status EQ "C"><i>#language.confirmed#</i></cfif>
 									</td>

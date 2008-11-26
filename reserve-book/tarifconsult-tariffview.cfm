@@ -152,7 +152,7 @@
 								<input name="#abbreviation#" id="#abbreviation#" type="checkbox" <cfif isDefined("url.bookingID")><cfif Evaluate(Variables.Abbr) EQ 1>checked="true"</cfif></cfif> disabled="disabled" />
 							</cfif>
 						</td>
-						<td headers="itemHeader" align="center">
+						<td headers="itemHeader">
 							<strong>
 								<cfif fee NEQ "">
 									<label for="#abbreviation#">#item#</label>

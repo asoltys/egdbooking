@@ -93,8 +93,8 @@
 				<cfinclude template="#RootDir#includes/user_menu.cfm">
 				<!------------------------------------------------------------------------------------------------------------>
 				<cfoutput>
-				<p align="left">#language.explanation#</p>
-				<p align="left">#language.acrobatRequired#</p>
+				<p>#language.explanation#</p>
+				<p>#language.acrobatRequired#</p>
 				<ul>
 					<li><a href="../formes-forms/Tentative_ChangeForm.pdf" title="#language.changeForm#" rel="external">#language.changeForm# [PDF 5.51 KB]</a></li>
 				</ul>
@@ -105,7 +105,7 @@
 					<cfif ListLen(#variables.adminEmail#) EQ 1>#language.emailAddress#:  <a href="mailto:#Variables.AdminEmail#?subject=#emailSubject#">#Variables.AdminEmail#</a>
 					<cfelse>
 					<table cellpadding="0" cellspacing="0">
-						<tr><td align="left">#language.emailAddress#:&nbsp;</td><td><a href="mailto:#ListGetAt(variables.adminEmail, 1)#?subject=#emailSubject#">#ListGetAt(variables.adminEmail, 1)#</a></td></tr>
+						<tr><td>#language.emailAddress#:&nbsp;</td><td><a href="mailto:#ListGetAt(variables.adminEmail, 1)#?subject=#emailSubject#">#ListGetAt(variables.adminEmail, 1)#</a></td></tr>
 						<cfset variables.emailList = ListDeleteAt(#variables.adminEmail#, 1)>
 						<cfloop list="#Variables.emailList#" index="email"><tr><td>&nbsp;</td><td><a href="mailto:#email#?subject=#emailSubject#">#email#</a></td></tr></cfloop>
 					</table>
@@ -117,7 +117,7 @@
 				<div style="text-align:center;">
 					<input type="button" onclick="self.location.href='#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingID=#url.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#" />
 				</div>
-				
+
 				</cfoutput>
 			</div>
 

@@ -95,9 +95,9 @@
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 
 				<cfoutput>
-				<p align="center" style="font-weight:bold;">#getDetails.CompanyName#: #getDetails.VesselName#<br />
+				<p style="font-weight:bold;">#getDetails.CompanyName#: #getDetails.VesselName#<br />
 				#DateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#</p>
-					<p align="left">#language.optional#</p>
+					<p>#language.optional#</p>
 					<div style="text-align:center;">
 						<input type="button" value="#language.later#" class="textbutton" onclick="javascript:self.location.href='otherForms.cfm?lang=#lang#';" />
 					</div>
@@ -114,18 +114,18 @@
 					</tr>
 
 					<tr>
-						<td id="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="checkbox" onclick="if (this.checked) this.form.otherBox.focus();" />
-						<td id="itemHeader" align="center" valign="top">&nbsp;</td>
-						<td id="serviceHeader" align="left" valign="top">
+						<td id="checkHeader"><input name="other" id="otherCheck" type="checkbox" onclick="if (this.checked) this.form.otherBox.focus();" />
+						<td id="itemHeader">&nbsp;</td>
+						<td id="serviceHeader">
 							<table>
 								<tr>
-									<td valign="top"><label for="otherBox">#language.Misc#:</label></td>
+									<td><label for="otherBox">#language.Misc#:</label></td>
 									<td><textarea name="otherText" id="otherBox" cols="32" rows="3" onFocus="this.form.otherCheck.checked = true;"></textarea></td>
 								</tr>
 								<tr><td colspan="2">#language.miscText2#<br /><br />(#language.miscText#)</td></tr>
 							</table>
 						</td>
-						<td id="feeHeader" align="right" valign="top">&nbsp;</td>
+						<td id="feeHeader">&nbsp;</td>
 					</tr>
 				</cfoutput>
 
@@ -137,12 +137,12 @@
 					</cfif>
 
 					<tr class="#rowClass#">
-						<td id="checkHeader" align="right" valign="top">
+						<td id="checkHeader">
 							<cfif fee NEQ "">
 								<input name="#abbreviation#" id="#abbreviation#" type="checkbox" />
 							</cfif>
 						</td>
-						<td headers="itemHeader" align="center" valign="top">
+						<td headers="itemHeader">
 							<strong>
 								<cfif fee NEQ "">
 									<label for="#abbreviation#">#item#</label>
@@ -151,7 +151,7 @@
 								</cfif>
 							</strong>
 						</td>
-						<td headers="serviceHeader" align="left" valign="top">
+						<td headers="serviceHeader">
 							<cfif fee NEQ "">
 								<label for="#abbreviation#">#service#</label>
 							<cfelse>
@@ -160,9 +160,9 @@
 						</td>
 						<cfif fee NEQ "">
 							<cfif flex EQ 0>
-						<td headers="feeHeader" align="right" valign="top" nowrap><label for="#abbreviation#"><strong>#LSCurrencyFormat(fee)#</strong></label></td>
+						<td headers="feeHeader" nowrap><label for="#abbreviation#"><strong>#LSCurrencyFormat(fee)#</strong></label></td>
 							<cfelse>
-						<td headers="feeHeader" align="right" valign="top"><label for="#abbreviation#"><strong>#language.pricesVary#</strong></label></td>
+						<td headers="feeHeader"><label for="#abbreviation#"><strong>#language.pricesVary#</strong></label></td>
 							</cfif>
 						<cfelse>
 						<td headers="feeHeader">&nbsp;</td>

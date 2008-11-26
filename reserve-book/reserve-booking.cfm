@@ -268,7 +268,7 @@
 
 				<div class="content">
 				<cfoutput>
-				<p>#language.Welcome#, #Session.Firstname# #Session.LastName#!</p>
+					<p>#language.Welcome#, #Session.Firstname# #Session.LastName#!</p>
 				</cfoutput>
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 
@@ -296,31 +296,34 @@
 
 				<cfoutput>
 
-				<h2>#language.Vessel#(s):</h2>
-					<table style="padding-left:20px; width:100%;" >
+					<h2>#language.Vessel#(s)</h2>
+					<ul>
 						<cfif "getVessels.recordCount" EQ 0>
-							<tr><td style="width:33%;" align="left">#language.None#</td></tr>
+							<li>#language.None#</li>
 						<cfelse>
 							<cfloop query="getVessels">
-								<tr><td style="width:33%;" align="left"><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VesselID=#VesselID#">#Name#</a></td></tr>
+								<li><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VesselID=#VesselID#">#Name#</a></li>
 							</cfloop>
 						</cfif>
+					</ul>
+					<cfif #Session.ReadOnly# EQ "1"><cfelse>
+						<cfoutput><p><a href="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" class="textbutton">#Language.addVessel#</a></cfoutput></p>
+					</cfif>
+
+
+					<h2>#language.bookings#</h2>
+
+					<p>#language.followingbooking#</p>
+					<div class="buttons">
 						<cfif #Session.ReadOnly# EQ "1"><cfelse>
-						<tr><td><div style="min-height:20px;">&nbsp;</div><cfoutput><a href="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" class="textbutton">#Language.addVessel#</a></cfoutput></td></tr>
+						<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton"><cfoutput>#language.requestBooking#</cfoutput></a>&nbsp;
 						</cfif>
-					</table>
-
-
-
-				<p>#language.followingbooking#</p>
-				<cfif #Session.ReadOnly# EQ "1"><cfelse>
-				<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton"><cfoutput>#language.requestBooking#</cfoutput></a>&nbsp;
-				</cfif>
-				<a href="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a>&nbsp;
-				<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton">#language.allBookings#</a><br /><br />
+						<a href="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a>&nbsp;
+						<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton">#language.allBookings#</a><br /><br />
+					</div>
 
 					<cfset counter = 0>
-					<h2>#language.Drydock#</h2>
+					<h3>#language.Drydock#</h3>
 					<cfif getDockBookings.recordCount GE 1>
 
 						<table style="padding-left:20px; width:100%;" cellspacing="0">
@@ -333,9 +336,9 @@
 									<cfset rowClass = "">
 								</cfif>
 
-								<tr class="#rowClass#" valign="top">
-									<td style="width:60%;" valign="top"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
-									<td style="width:15%;" valign="top">
+								<tr class="#rowClass#">
+									<td style="width:60%;"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+									<td style="width:15%;">
 										<cfif status EQ "P"><i class="pending">#language.pending#</i>
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
 										<cfelseif status EQ "T"><i class="tentative">#language.tentative#</i>
@@ -344,43 +347,39 @@
 										<cfelseif status EQ "X"><i class="cancelled">#language.cancelling#</i>
 										</cfif>
 									</td>
-									<td align="right" style="width:25%;" valign="top">
+									<td style="width:25%;">
 										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BookingID=#BookingID#">#language.editTariff#</a></div>
 										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BookingID=#BookingID#">#language.viewTariff#</a></div></cfif>
 									</td>
 								</tr>
-								<tr class="#rowClass#"><td colspan="3" valign="top">
+								<tr class="#rowClass#"><td colspan="3">
 									<table>
 										<tr class="#rowClass#">
 											<td>&nbsp;</td>
-											<td style="width:50%;" valign="top"><div class="smallFont">#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td align="right" style="width:10%;" valign="top"><div class="smallFont">#language.Agent#: </div></td>
-											<td align="left" style="width:40%;" valign="top"><div class="smallFont">#AgentName#</div></td>
+											<td style="width:50%;"><div class="smallFont">#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
+											<td style="width:10%;"><div class="smallFont">#language.Agent#: </div></td>
+											<td style="width:40%;"><div class="smallFont">#AgentName#</div></td>
 										</tr>
 									</table>
 								</td></tr>
 							<cfset counter = counter + 1>
 							</cfloop>
 						</table>
-
-						<table style="width:100%;" cellspacing="0">
-							<tr>
-								<td align="center"><b>Total:&nbsp;&nbsp;</b>
-								<cfoutput>
+						<p>
+							<b>Total:&nbsp;&nbsp;</b>
+							<cfoutput>
 								<i class="pending">#language.pending# - #countPending.numPend#</i>&nbsp;&nbsp;
 								<i class="tentative">#language.tentative# - #countTentative.numTent#</i>&nbsp;&nbsp;
 								<i class="confirmed">#language.confirmed# - #countConfirmed.numConf#</i>&nbsp;&nbsp;
 								<i class="cancelled">#language.cancelling# - #countCancelled.numCanc#</i>
-								</cfoutput>
-								</td>
-							</tr>
-						</table>
+							</cfoutput>
+						</p>
 					<cfelse>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#language.None#
+						#language.None#.
 					</cfif>
 
 					<cfset counter = 0>
-					<h2>#language.NorthLandingWharf#</h2>
+					<h3>#language.NorthLandingWharf#</h3>
 					<cfif getNorthJettyBookings.recordCount GE 1>
 						<table style="padding-left:20px; width:100%;" cellspacing="0" >
 
@@ -390,9 +389,9 @@
 								<cfelse>
 									<cfset rowClass = "">
 								</cfif>
-								<tr class="#rowClass#" valign="top">
-									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
-									<td style="width:40%;" align="left">
+								<tr class="#rowClass#">
+									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+									<td style="width:40%;">
 
 										<cfif status EQ "P"><i class="pending">#language.pending#</i>
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
@@ -405,13 +404,13 @@
 								</tr>
 
 
-								<tr class="#rowClass#"><td colspan="3" valign="top">
+								<tr class="#rowClass#"><td colspan="3">
 									<table>
 										<tr class="#rowClass#">
 											<td>&nbsp;</td>
-											<td style="width:50%;" valign="top"><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td align="right" style="width:10%;" valign="top"><div class="smallFont">#language.Agent#: </div></td>
-											<td align="left" style="width:40%;" valign="top"><div class="smallFont">#AgentName#</div></td>
+											<td style="width:50%;"><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
+											<td style="width:10%;"><div class="smallFont">#language.Agent#: </div></td>
+											<td style="width:40%;"><div class="smallFont">#AgentName#</div></td>
 										</tr>
 									</table>
 								</td></tr>
@@ -420,7 +419,7 @@
 						</table>
 						<table style="width:100%;" cellspacing="0">
 							<tr>
-								<td align="center"><b>Total:&nbsp;&nbsp;</b>
+								<td><b>Total:&nbsp;&nbsp;</b>
 								<cfoutput>
 								<i class="pending">#language.pending# - #countPendingNJ.numPendNJ#</i>&nbsp;&nbsp;
 								<i class="confirmed">#language.confirmed# - #countConfirmedNJ.numConfNJ#</i>&nbsp;&nbsp;
@@ -430,11 +429,11 @@
 							</tr>
 						</table>
 					<cfelse>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#language.None#
+						<p>#language.None#.</p>
 					</cfif>
 
 				<cfset counter = 0>
-					<h2>#language.SouthJetty#</h2>
+					<h3>#language.SouthJetty#</h3>
 					<cfif getSouthJettyBookings.recordCount GE 1>
 						<table style="padding-left:20px; width:100%;" cellspacing="0">
 							<cfloop query="getSouthJettyBookings">
@@ -443,9 +442,9 @@
 								<cfelse>
 									<cfset rowClass = "">
 								</cfif>
-								<tr class="#rowClass#" valign="top">
-									<td width="60%" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>					<td style="width:40%;" align="left">
-
+								<tr class="#rowClass#">
+									<td width="60%" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+									<td style="width:40%;">
 										<cfif status EQ "P"><i class="pending">#language.pending#</i>
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
 										<cfelseif status EQ "T"><i class="tentative">#language.tentative#</i>
@@ -456,13 +455,13 @@
 									</td>
 								</tr>
 
-								<tr class="#rowClass#"><td colspan="3" valign="top">
+								<tr class="#rowClass#"><td colspan="3">
 									<table>
 										<tr class="#rowClass#">
 											<td>&nbsp;</td>
-											<td style="width:50%;" valign="top"><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td align="right" style="width:10%;" valign="top"><div class="smallFont">#language.Agent#: </div></td>
-											<td align="left" style="width:40%;" valign="top"><div class="smallFont">#AgentName#</div></td>
+											<td style="width:50%;"><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
+											<td style="width:10%;"><div class="smallFont">#language.Agent#: </div></td>
+											<td style="width:40%;"><div class="smallFont">#AgentName#</div></td>
 										</tr>
 									</table>
 								</td></tr>
@@ -471,7 +470,7 @@
 						</table>
 						<table style="width:100%;" cellspacing="0">
 							<tr>
-								<td align="center"><b>Total:&nbsp;&nbsp;</b>
+								<td><b>Total:&nbsp;&nbsp;</b>
 								<cfoutput>
 								<i class="pending">#language.pending# - #countPendingSJ.numPendSJ#</i>&nbsp;&nbsp;
 								<i class="confirmed">#language.confirmed# - #countConfirmedSJ.numConfSJ#</i>&nbsp;&nbsp;
@@ -480,16 +479,18 @@
 							</tr>
 						</table>
 					<cfelse>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#language.None#<br />
+						<p>#language.None#.</p>
 					</cfif>
-				<br />
-				<cfif #Session.ReadOnly# EQ "1"><cfelse>
-				<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton"><cfoutput>#language.requestBooking#</cfoutput></a>&nbsp;
-				</cfif>
-				<a href="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a>&nbsp;
-				<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton">#language.allBookings#</a>
 
-				</div>
+					<div class="buttons">
+						<cfif #Session.ReadOnly# EQ "1"><cfelse>
+						<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton"><cfoutput>#language.requestBooking#</cfoutput></a>&nbsp;
+						</cfif>
+						<a href="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a>&nbsp;
+						<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton">#language.allBookings#</a>
+					</div>
+
+					</div>
 				</cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

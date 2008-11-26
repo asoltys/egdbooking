@@ -111,7 +111,7 @@
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-				
+
 				<cfset variables.referrer = "Archive">
 				<cfoutput>
 				<p>#language.followingbooking#</p>
@@ -119,32 +119,32 @@
 					<h2>#language.Drydock#</h2>
 					<cfif "getDockBookings.recordCount" GE 1>
 						<table style="padding-left:20px; width:100%;" cellspacing="0" >
-				
+
 							<cfloop query="getDockBookings">
 								<CFIF counter mod 2 eq 1>
 									<CFSET rowClass = "highlight">
 								<CFELSE>
 									<CFSET rowClass = "">
 								</CFIF>
-								<tr class="#rowClass#" valign="top">
-									<td style="width:60%;" valign="top"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#&referrer=#variables.referrer#&amp;CompanyID=#url.companyID#">#Name#</a></td>
-									<td style="width:15%;" valign="top">
+								<tr class="#rowClass#">
+									<td style="width:60%;"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#&amp;referrer=#variables.referrer#&amp;CompanyID=#url.companyID#">#Name#</a></td>
+									<td style="width:15%;">
 										<cfif status EQ "P"><i>#language.pending#</i>
 										<cfelseif status EQ "C"><i>#language.confirmed#</i>
 										<cfelseif status EQ "T"><i>#language.tentative#</i></cfif>
 									</td>
-									<td align="right" style="width:25%;" valign="top">
-										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&BookingID=#BookingID#&referrer=#variables.referrer#&amp;CompanyID=#url.companyID#">#language.editTariff#</a></div>
-										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&BookingID=#BookingID#&referrer=#variables.referrer#&amp;CompanyID=#url.companyID#">#language.viewTariff#</a></div></cfif>
+									<td style="width:25%;">
+										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BookingID=#BookingID#&amp;referrer=#variables.referrer#&amp;CompanyID=#url.companyID#">#language.editTariff#</a></div>
+										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BookingID=#BookingID#&amp;referrer=#variables.referrer#&amp;CompanyID=#url.companyID#">#language.viewTariff#</a></div></cfif>
 									</td>
 								</tr>
-								<tr class="#rowClass#"><td colspan="3" valign="top">
+								<tr class="#rowClass#"><td colspan="3">
 									<table>
 										<tr class="#rowClass#">
 											<td>&nbsp;</td>
-											<td style="width:50%;" valign="top"><div class="smallFont">#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td align="right" style="width:10%;" valign="top"><div class="smallFont">#language.Agent#: </div></td>
-											<td align="left" style="width:40%;" valign="top"><div class="smallFont">#AgentName#</div></td>
+											<td style="width:50%;"><div class="smallFont">#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
+											<td style="width:10%;"><div class="smallFont">#language.Agent#: </div></td>
+											<td style="width:40%;"><div class="smallFont">#AgentName#</div></td>
 										</tr>
 									</table>
 								</td></tr>
@@ -152,9 +152,9 @@
 							</cfloop>
 						</table>
 					<cfelse>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#language.None#
+						<p>#language.None#.</p>
 					</cfif>
-				
+
 					<cfset counter = 0>
 					<h2>#language.NorthLandingWharf#</h2>
 					<cfif getNorthJettyBookings.recordCount GE 1>
@@ -165,22 +165,22 @@
 								<CFELSE>
 									<CFSET rowClass = "">
 								</CFIF>
-								<tr class="#rowClass#" valign="top">
-									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#&referrer=#variables.referrer#&&amp;CompanyID#url.companyID#">#Name#</a></td>
-									<td style="width:40%;" align="left">
+								<tr class="#rowClass#">
+									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#&amp;referrer=#variables.referrer#&amp;CompanyID#url.companyID#">#Name#</a></td>
+									<td style="width:40%;">
 										<cfif NOT status eq 'c'><i>#language.pending#</i>
 										<cfelse><i>#language.confirmed#</i></cfif>
 									</td>
 								</tr>
-				
-								<tr class="#rowClass#"><td colspan="3" valign="top">
+
+								<tr class="#rowClass#"><td colspan="3">
 									<table>
 										<tr class="#rowClass#">
 											<td>&nbsp;</td>
-											<td style="width:50%;" valign="top"><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td align="right" style="width:10%;" valign="top"><div class="smallFont">#language.Agent#: </div></td>
-											<td align="left" style="width:40%;" valign="top"><div class="smallFont">#AgentName#</div></td>
-											
+											<td style="width:50%;"><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
+											<td style="width:10%;"><div class="smallFont">#language.Agent#: </div></td>
+											<td style="width:40%;"><div class="smallFont">#AgentName#</div></td>
+
 										</tr>
 									</table>
 								</td></tr>
@@ -188,9 +188,9 @@
 							</cfloop>
 						</table>
 					<cfelse>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#language.None#
+						<p>#language.None#.</p>
 					</cfif>
-				
+
 				<cfset counter = 0>
 					<h2>#language.SouthJetty#</h2>
 					<cfif getSouthJettyBookings.recordCount GE 1>
@@ -201,20 +201,20 @@
 								<CFELSE>
 									<CFSET rowClass = "">
 								</CFIF>
-								<tr class="#rowClass#" valign="top">
-									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&bookingid=#BookingId#&referrer=#variables.referrer#&&amp;CompanyID#url.companyID#">#Name#</a></td>
-									<td style="width:40%;" align="left">
+								<tr class="#rowClass#">
+									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#&amp;referrer=#variables.referrer#&amp;CompanyID#url.companyID#">#Name#</a></td>
+									<td style="width:40%;">
 										<cfif NOT status eq 'c'><i>#language.pending#</i>
 										<cfelse><i>#language.confirmed#</i></cfif>
 									</td>
 								</tr>
-								<tr class="#rowClass#"><td colspan="3" valign="top">
+								<tr class="#rowClass#"><td colspan="3">
 									<table>
 										<tr class="#rowClass#">
 											<td>&nbsp;</td>
-											<td style="width:50%;" valign="top"><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td align="right" style="width:10%;" valign="top"><div class="smallFont">#language.Agent#: </div></td>
-											<td align="left" style="width:40%;" valign="top"><div class="smallFont">#AgentName#</div></td>
+											<td style="width:50%;"><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
+											<td style="width:10%;"><div class="smallFont">#language.Agent#: </div></td>
+											<td style="width:40%;"><div class="smallFont">#AgentName#</div></td>
 										</tr>
 									</table>
 								</td></tr>
@@ -222,12 +222,11 @@
 							</cfloop>
 						</table>
 					<cfelse>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#language.None#
+						<p>#language.None#.</p>
 					</cfif>
 				<br />
-				<div style="text-align:center;"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&&amp;CompanyID#url.companyID#" class="textbutton">#language.returnTo#</a></div>
-							
-				</div>
+				<div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CompanyID#url.companyID#" class="textbutton">#language.returnTo#</a></div>
+
 				</cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

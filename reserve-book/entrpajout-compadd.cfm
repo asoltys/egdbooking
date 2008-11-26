@@ -84,7 +84,7 @@
 				<cfoutput>
 				<cfform action="#RootDir#reserve-book/entrpajout-compadd_action.cfm?lang=#lang#" id="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
 	}">
-					<table align="center">
+					<table>
 						<tr>
 							<td id="companyName_header"><label for="name">#language.companyName#:</label></td>
 							<td headers="companyName_header"><cfinput id="name" name="name" value="#variables.name#" type="text" size="40" maxlength="75" required="yes" message="#language.nameError#" /></td>
@@ -122,7 +122,7 @@
 							<td headers="fax_header"><cfinput id="fax" name="fax" value="#variables.fax#" type="text" size="10" maxlength="32" /></td>
 						</tr>
 						<tr>
-							<td colspan="2" align="center" style="padding-top:20px;">
+							<td colspan="2" style="padding-top:20px;">
 								<input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
 								<input type="button" value="#language.Cancel#" onclick="self.location.href='editUser.cfm?lang=#lang#'" class="textbutton" />
 							</td>
