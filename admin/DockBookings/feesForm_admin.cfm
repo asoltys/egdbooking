@@ -96,20 +96,20 @@ function EditSubmit ( selectedform )
 				<cfoutput><div style="text-align:center;" style="font-weight:bold;">#getDetails.CompanyName#: #getDetails.VesselName#</div></cfoutput>
 				<cfoutput><div style="text-align:center;" style="font-weight:bold;">#DateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#</div></cfoutput>
 				<br />
-				<cfform id="serviceSelect" action="feesForm_admin_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#">
+				<form id="serviceSelect" action="feesForm_admin_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#">
 				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the selected services for the booking and allows the administrator to edit the information.">
 					<tr>
-						<th class="feesformheader" id="checkHeader" style="width:5%;">&nbsp;</th>
-						<th class="feesformheader" id="itemHeader" style="width:4%;"><strong>Item</strong></th>
+						<th class="feesformheader" id="checkHeader">&nbsp;</th>
+						<th class="feesformheader" id="itemHeader"><strong>Item</strong></th>
 						<th id="serviceHeader" class="feesformheader"><strong>Services and Facilities</strong></th>
-						<th class="feesformheader" id="feeHeader" style="width:19%;"><strong>Fees</strong></th>
+						<th class="feesformheader" id="feeHeader"><strong>Fees</strong></th>
 					</tr>
 
 					<tr>
-						<td id="checkHeader" align="right" valign="top"><input name="other" id="otherCheck" type="checkbox" <cfif getForm.other EQ 1>checked="true"</cfif> onclick="if (this.checked) this.form.otherBox.focus();" />
-						<td id="itemHeader" align="center" valign="top">&nbsp;</td>
-						<td id="serviceHeader" align="left" valign="top">
-							<table>
+						<td id="checkHeader"><input name="other" id="otherCheck" type="checkbox" <cfif getForm.other EQ 1>checked="true"</cfif> onclick="if (this.checked) this.form.otherBox.focus();" />
+						<td id="itemHeader">&nbsp;</td>
+						<td id="serviceHeader">
+              <table>
 								<tr>
 									<td valign="top"><label for="otherBox">Misc:</label></td>
 									<td><textarea name="otherText" id="otherBox" cols="40" rows="3" onFocus="this.form.otherCheck.checked = true;"><cfoutput>#getForm.otherText#</cfoutput></textarea></td>
@@ -147,10 +147,10 @@ function EditSubmit ( selectedform )
 				<div style="text-align:right;">
 					<!--a href="javascript:EditSubmit('serviceSelect');" class="textbutton">Submit</a-->
 					<input type="submit" name="submitForm" class="textbutton" value="submit" />
-					<cfoutput><input type="button" value="Back" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" class="textbutton" />
+					<input type="button" value="Back" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" class="textbutton" />
 				</div>
 
-				</cfform>
+				</form>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

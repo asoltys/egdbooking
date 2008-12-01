@@ -17,6 +17,10 @@
 
 /* GENERAL CONTROL DEFINITIONS ------------------------- */
 
+.hidden {
+  display: none;
+}
+
 img {
 	border: none;
 }

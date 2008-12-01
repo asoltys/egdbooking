@@ -264,7 +264,7 @@ function EditSubmit ( selectedform )
 					<cfif getBookings.RecordCount GT 0>
 						<cfoutput query="getBookings">
 						<cfset Variables.id = #BookingID#>
-							<form name="booking#id#" action="bookingManage.cfm?#urltoken###id#id#" method="post">
+							<form name="booking#id#" action="bookingManage.cfm?#urltoken###id#id#" method="post" class="hidden">
 								<input type="hidden" name="startDate" value="#form.startDate#" />
 								<input type="hidden" name="endDate" value="#form.endDate#" />
 								<cfif (isDefined("form.ID") AND form.ID EQ #id#) OR (isDefined('url.bookingid') AND url.bookingid EQ id)>

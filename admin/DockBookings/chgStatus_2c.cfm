@@ -139,7 +139,7 @@
 				</cfif>
 							<!--- -------------------------------------------------------------------------------------------- --->
 				<cfform id="BookingConfirm" action="chgStatus_2c_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post">
-				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
+				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" /></cfoutput>
 				<table style="width:85%; padding-left:15px;" >
 				<tr>
 					<td id="Vessel" style="width:25%;" align="left">Vessel:</td>
@@ -179,7 +179,7 @@
 				<tr>
 					<td>
 						<input type="submit" value="Confirm" class="textbutton" />
-						<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton" />
+						<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton" /></cfoutput>
 					</td>
 				</tr>
 				</table>
