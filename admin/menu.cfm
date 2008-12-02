@@ -71,7 +71,7 @@
 					<cfelseif GetNewCompanies.NumFound GT 1>
 						<br />You have <a href="companyApprove.cfm?lang=#lang#">#GetNewCompanies.NumFound# companies</a> that need to be approved.
 					</cfif>
-					<p>&nbsp;&nbsp;&nbsp;<a href="#RootDir#admin/intromsg.cfm" class="textbutton">Edit Intro Message</a>&nbsp;<a href="#RootDir#admin/egd_admindoc-e.html" class="textbutton" rel="external">Help</a>&nbsp;<a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#" class="textbutton">Logout</a></p>
+					<p>&nbsp;&nbsp;&nbsp;<a href="#RootDir#admin/intromsg.cfm" class="textbutton">Edit Intro Message</a>&nbsp;<a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#" class="textbutton">Logout</a></p>
 					
 					<p>Bookings<br />
 					&nbsp;&nbsp;&nbsp;<a href="#RootDir#admin/DockBookings/bookingmanage.cfm?lang=#lang#" class="textbutton">Drydock Booking Management</a>
