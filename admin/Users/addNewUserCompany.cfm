@@ -120,7 +120,6 @@ function EditSubmit ( selectedform )
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				<cfoutput>
 
 				<!---decrpyt user info--->
 				<cfif isDefined("url.info")><cfset Variables.userInfo = cfusion_decrypt(ToString(ToBinary(URLDecode(url.info))), "boingfoip")></cfif>
@@ -222,7 +221,7 @@ function EditSubmit ( selectedform )
 				</table>
 				</cfform>
 
-				<!---<br /><div style="text-align:center;"><cfoutput><input type="button" value="Done" onclick="self.location.href='#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#'" class="textbutton" />
+				<br /><div style="text-align:center;"><cfoutput><input type="button" value="Done" onclick="self.location.href='#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#'" class="textbutton" />
 
 				<cfform id="newUserForm" action="addUser_action.cfm?lang=#lang#&info=#Variables.info#">
 					<input type="hidden" name="firstname" value="#Variables.firstname#" />
