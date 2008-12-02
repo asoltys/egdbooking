@@ -1,5 +1,4 @@
 <cfoutput>
-<div class="keytableWrapper">
 	<table class="keytable">
 		<tr><th colspan="2">#language.Key#</th></tr>
 		<tr>
@@ -19,5 +18,4 @@
 			<td class="sec3">#language.Sec3#</td>
 		</tr>
 	</table>
-</div>
 </cfoutput>
