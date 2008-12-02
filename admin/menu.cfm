@@ -11,29 +11,9 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 
-<!---clear form structure--->
 <cfif IsDefined("Session.Form_Structure")>
 	<cfset StructDelete(Session, "Form_Structure")>
 </cfif>
-
-<!---these session variables are used in bookingManage and jettyBookingManage-->
-<cflock scope="session" type="exclusive" timeout="30">
-	<cfif IsDefined("Session.StartDate")>
-		<cfset StructDelete(Session, "StartDate")>
-	</cfif>
-	<cfif IsDefined("Session.EndDate")>
-		<cfset StructDelete(Session, "EndDate")>
-	</cfif>
-	<cfif IsDefined("Session.ShowApproved")>
-		<cfset StructDelete(Session, "ShowApproved")>
-	</cfif>
-	<cfif IsDefined("Session.ShowConfirmed")>
-		<cfset StructDelete(Session, "ShowConfirmed")>
-	</cfif>
-	<cfif IsDefined("Session.ShowPending")>
-		<cfset StructDelete(Session, "ShowPending")>
-	</cfif>
-</cflock--->
 
 <cfquery name="GetNewUsers" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	COUNT(*) AS NumFound
@@ -67,8 +47,6 @@
 
 				<cfoutput>
 				
-				<!---cfform action="intromsgaction.cfm" method="post"--->
-					<!---<cffile action="read" file="D:\Web\EGDBooking\text\intromsg.txt" variable="intromsg">--->
 				<cffile action="read" file="#FileDir#intromsg.txt" variable="intromsg">
 				<cfif #Trim(intromsg)# EQ "">
 				<cfelse>
@@ -77,7 +55,6 @@
 					<cfoutput>#paragraphformat(intromsg)#</cfoutput>
 					</div>
 				</cfif>
-				<!---/cfform--->
 			
 				<div style="padding-left:10px;">
 					<cfif GetNewUsers.NumFound EQ 0>
@@ -97,14 +74,9 @@
 					<p>&nbsp;&nbsp;&nbsp;<a href="#RootDir#admin/intromsg.cfm" class="textbutton">Edit Intro Message</a>&nbsp;<a href="#RootDir#admin/egd_admindoc-e.html" class="textbutton" rel="external">Help</a>&nbsp;<a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#" class="textbutton">Logout</a></p>
 					
 					<p>Bookings<br />
-					<!---<a href="#RootDir#admin/DockBookings/addbooking.cfm?lang=#lang#" class="textbutton">Add</a>--->
-					<!---<a href="#RootDir#reserve-book/admin/editBooking-e.cfm?lang=#lang#">Edit</a> |--->
 					&nbsp;&nbsp;&nbsp;<a href="#RootDir#admin/DockBookings/bookingmanage.cfm?lang=#lang#" class="textbutton">Drydock Booking Management</a>
 					<a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang#" class="textbutton">Calendar</a>
 					
-					<!---<p>Jetty Bookings<br />--->
-					<!---<a href="#RootDir#admin/JettyBookings/addJettybooking.cfm?lang=#lang#" class="textbutton">Add</a>--->
-					<!---<a href="#RootDir#reserve-book/admin/editBooking-e.cfm?lang=#lang#">Edit</a> |--->
 					<p>&nbsp;&nbsp;&nbsp;<a href="#RootDir#admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#" class="textbutton">Jetty Booking Management</a>
 					<a href="#RootDir#comm/calend-jet.cfm?lang=#lang#" class="textbutton">Calendar</a></p>
 					<p>&nbsp;&nbsp;&nbsp;<a href="#RootDir#admin/otherForms.cfm?lang=#lang#" class="textbutton">Booking Forms</a></p>
