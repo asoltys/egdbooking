@@ -1,3 +1,4 @@
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 <!---clear form structure--->
 <cfif IsDefined("Session.Form_Structure")>
 	<cfset StructDelete(Session, "Form_Structure")>
@@ -297,7 +298,7 @@ function EditSubmit ( selectedform )
 					<cfif getBookings.recordCount GT 0>
 						<cfoutput query="getBookings">
 							<cfset Variables.id = #BookingID#>
-							<form name="booking#id#" action="jettyBookingManage.cfm?#urltoken####id#" method="post">
+							<form name="booking#id#" action="jettyBookingManage.cfm?#urltoken####id#" method="post" class="hidden">
 								<input type="hidden" name="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" />
 								<input type="hidden" name="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" />
 								<cfif (isDefined("form.ID") AND form.ID EQ #id#) OR (isDefined('url.bookingid') AND url.bookingid EQ id)>

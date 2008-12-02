@@ -138,8 +138,8 @@ function EditSubmit ( selectedform )
 						<tr>
 							<td colspan="2" align="center">
 								<!--a href="javascript:document.editUserForm.submitForm.click();" class="textbutton">Submit</a-->
-								<!---<cfif isDefined("form.UserID")><cfoutput><input type="hidden" name="userId" value="#form.userID#" />
-								<cfoutput><input type="hidden" name="userID" value="#form.userID#" />
+								<cfif isDefined("form.UserID")><cfoutput><input type="hidden" name="userId" value="#form.userID#" /></cfoutput></cfif>
+								<cfoutput><input type="hidden" name="userID" value="#form.userID#" /></cfoutput>
 								<input type="submit" value="Save Name Changes" class="textbutton" />
 							</td>
 						</tr>
@@ -177,17 +177,14 @@ function EditSubmit ( selectedform )
 						<tr>
 							<td>&nbsp;</td>
 							<td colspan="3">
-								<!---<cfselect name="companyID" id="companySelect" query="getCompanies" value="companyID" display="Name" />--->
 								<cfselect name="companyID" id="companySelect" required="yes" message="Please select a company.">
 									<option value="">(Please select a company)
 									<cfloop query="getCompanies">
 										<cfoutput><option value="#companyID#">#Name#</cfoutput>
 									</cfloop>
 								</cfselect>
-								<!--a href="javascript:document.addUserCompanyForm.submitForm.click();" class="textbutton">Add</a>
-								<br-->
 								<input type="submit" name="submitForm" value="Add" class="textbutton" />
-								<cfoutput><input type="hidden" name="userID" value="#form.userID#" />
+								<cfoutput><input type="hidden" name="userID" value="#form.userID#" /></cfoutput>
 								<br />
 								<cfoutput><font size="-2">If the desired company is not listed, click <a href="editUser_addCompany.cfm?lang=#lang#&userID=#form.userID#">here</a> to create one.</font></cfoutput>
 							</td>
@@ -212,16 +209,14 @@ function EditSubmit ( selectedform )
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
-								<!--a href="javascript:document.changePassForm.submitForm.click();" class="textbutton">Submit</a>
-								<br-->
 								<input type="submit" value="Change Password" class="textbutton" />
-								<cfoutput><input type="hidden" name="userID" value="#form.userID#" />
-								<!---<input type="button" value="Cancel" class="button" onclick="javascript:location.href='#RootDir#reserve-book-e.cfm'" />
+								<cfoutput><input type="hidden" name="userID" value="#form.userID#" /></cfoutput>
+								<input type="button" value="Cancel" class="button" onclick="javascript:location.href='#RootDir#reserve-book-e.cfm'" />
 							</td>
 						</tr>
 					</table>
 					<br />
-					<div style="text-align:right;"><cfoutput><input type="button" name="cancel" value="Cancel" class="textbutton" onclick="self.location.href='../menu.cfm?lang=#lang#'" />
+					<div style="text-align:right;"><cfoutput><input type="button" name="cancel" value="Cancel" class="textbutton" onclick="self.location.href='../menu.cfm?lang=#lang#'" /></cfoutput>
 				</cfform>
 
 				<p><em>*Email notification of profile updates is automatically sent to the user after their password is changed or a company is added to their profile.</em></p>

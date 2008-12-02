@@ -1,3 +1,4 @@
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 <cfif isDefined("form.bookingID") AND (NOT isDefined("url.referrer") OR url.referrer NEQ "Edit Booking")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
@@ -120,7 +121,7 @@
 				
 				<div style="text-align:center;"><p>
 				<input type="submit" value="submit" class="textbutton" />
-				<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" value="Cancel" class="textbutton" />
+				<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" value="Cancel" class="textbutton" /></cfoutput>
 				</p></div>
 			</cfform>
 			

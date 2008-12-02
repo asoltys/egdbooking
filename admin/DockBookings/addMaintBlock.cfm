@@ -83,7 +83,7 @@
 			<!--- -------------------------------------------------------------------------------------------- --->
 
 			<cfform id="AddMaintBlock" action="addMaintBlock_process.cfm?#urltoken#" method="post">
-			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
+			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" /></cfoutput>
 			<table style="width:100%;">
 			<tr>
 				<td id="Start">Start Date:</td>
@@ -117,7 +117,7 @@
 			<tr>
 				<td colspan="2" align="center">
 					<input type="submit" name="submitForm" class="textbutton" value="submit" />
-					<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='bookingmanage.cfm?#urltoken#';" />
+					<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='bookingmanage.cfm?#urltoken#';" /></cfoutput>
 				</td>
 			</tr>
 			</table>

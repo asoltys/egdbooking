@@ -1,3 +1,4 @@
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 <cfif isDefined("form.bookingID") AND (NOT isDefined("url.referrer") OR url.referrer NEQ "Edit Booking")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
