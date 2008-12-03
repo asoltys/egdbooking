@@ -297,8 +297,8 @@
 				<cfoutput>
 
 					<h2>#language.Vessel#(s)</h2>
-						<cfif "getVessels.recordCount" EQ 0>
-							<li>#language.None#</li>
+						<cfif getVessels.recordCount EQ 0>
+							<p>#language.None#</p>
 						<cfelse>
               <ul>
                 <cfloop query="getVessels">
@@ -307,7 +307,7 @@
               </ul>
 						</cfif>
 					<cfif #Session.ReadOnly# EQ "1"><cfelse>
-						<cfoutput><p><a href="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" class="textbutton">#Language.addVessel#</a></cfoutput></p>
+						<p><a href="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" class="textbutton">#Language.addVessel#</a></p>
 					</cfif>
 
 
