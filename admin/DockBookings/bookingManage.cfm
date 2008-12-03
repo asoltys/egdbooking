@@ -217,7 +217,7 @@ function EditSubmit ( selectedform )
 						</cfif>
 					</div>
 
-					<P align="center">Total:&nbsp;&nbsp;
+					<p align="center">Total:&nbsp;&nbsp;
 						<i class="pending">Pending - #countPending.numPend#</i>&nbsp;&nbsp;
 						<i class="tentative">Tentative - #countTentative.numTent#</i>&nbsp;&nbsp;
 						<i class="confirmed">Confirmed - #countConfirmed.numConf#</i>
