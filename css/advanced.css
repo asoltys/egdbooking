@@ -27,7 +27,7 @@ form, hidden {
 /* Make a chunk of text look like a button by drawing a
    border around it. Can be used with any class elements,
    including DIV, SPAN, and A. */
-.textbutton {
+.textbutton, div.menu a {
 	font-family: sans-serif, arial;
 	font-size: 85%;
 	text-transform: uppercase;
@@ -37,6 +37,15 @@ form, hidden {
 	color: #369;
 	padding: 1px 2px 1px 2px;
 	white-space: nowrap;
+}
+
+div.menu ul {
+  width: 400px;
+}
+
+div.menu li {
+  display: inline;
+  list-style: none;
 }
 
 input[type="button"],
