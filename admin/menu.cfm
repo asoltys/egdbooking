@@ -72,26 +72,26 @@
 					<cfelseif GetNewCompanies.NumFound GT 1>
 						<br />You have <a href="companyApprove.cfm?lang=#lang#">#GetNewCompanies.NumFound# companies</a> that need to be approved.
 					</cfif>
-					<p>&nbsp;&nbsp;&nbsp;<a href="#RootDir#admin/intromsg.cfm" class="textbutton">Edit Intro Message</a>&nbsp;<a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#" class="textbutton">Logout</a></p>
+					<p>&nbsp;&nbsp;&nbsp;<p><a href="#RootDir#admin/intromsg.cfm" class="textbutton">Edit Intro Message</a>&nbsp;<a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#" class="textbutton">Logout</a></p>
 					
 					<p>Bookings<br />
 					&nbsp;&nbsp;&nbsp;<a href="#RootDir#admin/DockBookings/bookingmanage.cfm?lang=#lang#" class="textbutton">Drydock Booking Management</a>
 					<a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang#" class="textbutton">Calendar</a>
 					
 					<p>&nbsp;&nbsp;&nbsp;<a href="#RootDir#admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#" class="textbutton">Jetty Booking Management</a>
-					<a href="#RootDir#comm/calend-jet.cfm?lang=#lang#" class="textbutton">Calendar</a></p>
-					<p>&nbsp;&nbsp;&nbsp;<a href="#RootDir#admin/otherForms.cfm?lang=#lang#" class="textbutton">Booking Forms</a></p>
+					<p><a href="#RootDir#comm/calend-jet.cfm?lang=#lang#" class="textbutton">Calendar</a></p>
+					<p>&nbsp;&nbsp;&nbsp;<p><a href="#RootDir#admin/otherForms.cfm?lang=#lang#" class="textbutton">Booking Forms</a></p>
 				
 					<p>Users<br />
 					&nbsp;&nbsp;&nbsp;<a href="#RootDir#admin/Users/addUser.cfm?lang=#lang#" class="textbutton">Add</a>
 					<a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#" class="textbutton">Edit</a>
 					<a href="#RootDir#admin/Users/userApprove.cfm?lang=#lang#" class="textbutton">Approve</a>
-					<a href="#RootDir#admin/Users/delUser.cfm?lang=#lang#" class="textbutton">Delete</a></p>
+					<p><a href="#RootDir#admin/Users/delUser.cfm?lang=#lang#" class="textbutton">Delete</a></p>
 					
 					<p>Administrators<br />
 					&nbsp;&nbsp;&nbsp;<a href="#RootDir#admin/Users/addAdministrator.cfm?lang=#lang#" class="textbutton">Add</a>
 					<a href="#RootDir#admin/Users/delAdministrator.cfm?lang=#lang#" class="textbutton">Remove</a>
-					<a href="#RootDir#admin/editAdminDetails.cfm?lang=#lang#" class="textbutton">Edit Email List</a></p>
+					<p><a href="#RootDir#admin/editAdminDetails.cfm?lang=#lang#" class="textbutton">Edit Email List</a></p>
 					
 					<p>Companies<br />
 					&nbsp;&nbsp;&nbsp;<a href="#RootDir#admin/addCompany.cfm?lang=#lang#" class="textbutton">Add</a>
@@ -103,7 +103,7 @@
 					<p>Vessels<br />
 					&nbsp;&nbsp;&nbsp;<a href="#RootDir#admin/addVessel.cfm?lang=#lang#" class="textbutton">Add</a>
 					<a href="#RootDir#admin/editVessel.cfm?lang=#lang#" class="textbutton">Edit</a>
-					<a href="#RootDir#admin/delVessel.cfm?lang=#lang#" class="textbutton">Delete</a></p>
+					<p><a href="#RootDir#admin/delVessel.cfm?lang=#lang#" class="textbutton">Delete</a></p>
 
 				</cfoutput>
 				</div>

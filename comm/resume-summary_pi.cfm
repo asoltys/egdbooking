@@ -191,7 +191,7 @@ WHERE	SouthJetty = 1
 
 <h1>#language.EsqGravingDock# #language.BookingsSummary#</h1>
 
-<p class="screenonly"><a href="javascript:self.close()">#language.closeme#</a></p>
+<p class="screenonly"><p><a href="javascript:self.close()">#language.closeme#</a></p>
 
 <h2>#language.Drydock#</h2>
 </cfoutput>
@@ -381,7 +381,7 @@ WHERE	SouthJetty = 1
 </cfoutput>
 </table>
 
-<p class="screenonly"><a href="javascript:self.close()"><cfoutput>#language.closeme#</cfoutput></a></p>
+<p class="screenonly"><p><a href="javascript:self.close()"><cfoutput>#language.closeme#</cfoutput></a></p>
 
 			<!-- FOOTER BEGINS | DEBUT DU PIED DE LA PAGE -->
 			<div class="footer">
