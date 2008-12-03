@@ -15,12 +15,9 @@
 	FROM	Configuration
 </cfquery>
 
-
-<!--- TODO REMOVE THIS COMMENTED OUT SO QA SCRIPTS CAN ACCESS ADMIN PAGES
 <CFIF NOT IsDefined("Session.AdminLoggedIn")>
 	<CFLOCATION URL="#RootDir#ols-login/ols-login.cfm" addtoken="no">
 </CFIF>
---->
 
 <cfparam name="lang" default="eng">
 
