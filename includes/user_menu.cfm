@@ -48,15 +48,7 @@
 	<cffile action="read" file="#FileDir#intromsg.txt" variable="intromsg">
 	<cfif #Trim(intromsg)# EQ "">
 	<cfelse>
-		<cfscript>
-			function FormatParagraph(txt) {
-				var temp = ReReplace(Trim(txt), '\r\n\r\n', '</p><p>', 'all');
-				temp = '<p>' & ReReplace(temp, '\r\n', '<br />', 'all') & '</p>';
-				temp=Replace(temp, '</p>', '</p>#Chr(10)##Chr(13)#', 'all');
-				temp=Replace(temp, '<br />', '<br />#Chr(10)##Chr(13)#', 'all');
-				return temp;
-			}
-		</cfscript>
+		<cfinclude template="#RootDir#includes/helperFunctions.cfm" />
 		<div class="notice">
 		<h2>Notice</h2>
 		<cfoutput>#FormatParagraph(intromsg)#</cfoutput>

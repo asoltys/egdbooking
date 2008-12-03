@@ -50,9 +50,10 @@
 				<cffile action="read" file="#FileDir#intromsg.txt" variable="intromsg">
 				<cfif #Trim(intromsg)# EQ "">
 				<cfelse>
+					<cfinclude template="#RootDir#includes/helperFunctions.cfm" />
 					<div class="notice">
 					<h2>Notice</h2>
-					<cfoutput>#paragraphformat(intromsg)#</cfoutput>
+					<cfoutput>#FormatParagraph(intromsg)#</cfoutput>
 					</div>
 				</cfif>
 			
