@@ -221,7 +221,7 @@ function EditSubmit ( selectedform )
 				</table>
 				</cfform>
 
-				<br /><div style="text-align:center;"><cfoutput><input type="button" value="Done" onclick="self.location.href='#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#'" class="textbutton" />
+				<br /><div style="text-align:center;"><cfoutput><input type="button" value="Done" onclick="self.location.href='#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#url.userID#'" class="textbutton" /></cfoutput>
 
 				<cfform id="newUserForm" action="addUser_action.cfm?lang=#lang#&info=#Variables.info#">
 					<input type="hidden" name="firstname" value="#Variables.firstname#" />

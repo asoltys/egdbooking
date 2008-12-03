@@ -66,7 +66,7 @@
 
 					<p><div style="text-align:center;">
 						<input type="button" value="Remove" onclick="document.remCompanyConfirmForm.submit();" class="textbutton" />
-						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='addNewUserCompany.cfm?info=#url.info#&companies=#url.companies#'" class="textbutton" />
+						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='addNewUserCompany.cfm?info=#url.info#&companies=#url.companies#'" class="textbutton" /></cfoutput>
 					<!---<input type="submit" value="Delete" class="button" />
 					<input type="button" value="Cancel" onclick="javascript:location.href='delVessel.cfm'" class="button" />
 					</div></p>

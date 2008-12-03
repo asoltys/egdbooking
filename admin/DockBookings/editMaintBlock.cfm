@@ -146,7 +146,7 @@
 				<td colspan="2" align="center">
 					<!--a href="javascript:EditSubmit('EditMaintBlock');" class="textbutton">Submit</a-->
 					<input type="submit" name="submitForm" class="textbutton" value="submit" />
-					<cfoutput><input type="button" value="Cancel" onclick="self.location.href='bookingmanage.cfm?#urltoken#'" class="textbutton" />
+					<cfoutput><input type="button" value="Cancel" onclick="self.location.href='bookingmanage.cfm?#urltoken#'" class="textbutton" /></cfoutput>
 				</td>
 			</tr>
 			</table>

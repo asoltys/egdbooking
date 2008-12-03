@@ -228,8 +228,8 @@
 				<br />
 				<div style="text-align:center;">
 						<input type="submit" value="Confirm" class="textbutton" />
-						<cfoutput><input type="button" value="Back" class="textbutton" onclick="self.location.href='editJettyBooking.cfm?#urltoken#&bookingID=#form.bookingID##variables.dateValue#';" />
-						<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#form.bookingID##variables.dateValue####form.bookingID#';" />
+						<cfoutput><input type="button" value="Back" class="textbutton" onclick="self.location.href='editJettyBooking.cfm?#urltoken#&bookingID=#form.bookingID##variables.dateValue#';" /></cfoutput>
+						<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#form.bookingID##variables.dateValue####form.bookingID#';" /></cfoutput>
 				</div>
 				</cfform>
 

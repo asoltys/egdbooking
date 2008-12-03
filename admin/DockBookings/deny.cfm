@@ -130,7 +130,7 @@
 
 	<div style="text-align:center;"><p>
 	<input type="submit" value="submit" class="textbutton" />
-	<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" value="Cancel" class="textbutton" />
+	<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" value="Cancel" class="textbutton" /></cfoutput>
 	</p></div>
 </cfform>
 

@@ -59,7 +59,7 @@
 	<cfform action="delAdministrator_confirm.cfm?lang=#lang#" method="post" id="delAdministratorForm">
 		<cfselect name="UserID" query="getAdminList" value="UserID" display="UserName" selected="#variables.userID#" />
 		<input type="submit" value="Remove" class="textbutton" />
-		<cfoutput><input type="button" value="Cancel" onclick="self.location.href='../menu.cfm?lang=#lang#'" class="textbutton" />
+		<cfoutput><input type="button" value="Cancel" onclick="self.location.href='../menu.cfm?lang=#lang#'" class="textbutton" /></cfoutput>
 	</cfform>
 </div>
 </div>

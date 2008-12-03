@@ -269,8 +269,8 @@ function EditSubmit ( selectedform )
 						<cfoutput><a href="bookingmanage.cfm?#urltoken#" class="textbutton">Cancel</a></cfoutput>
 						<br--->
 						<input type="submit" value="Confirm" class="textbutton" />
-						<cfoutput><input type="button" value="Back" class="textbutton" onclick="self.location.href='editBooking.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'" />
-						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'" class="textbutton" />
+						<cfoutput><input type="button" value="Back" class="textbutton" onclick="self.location.href='editBooking.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'" /></cfoutput>
+						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#'" class="textbutton" /></cfoutput>
 						<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
 					</td>
 				</tr>

@@ -98,7 +98,7 @@
 					</tr>
 					<tr><td colspan="2" align="right">
 						<input type="submit" name="submitForm" class="textbutton" value="Edit" />
-						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#';" class="textbutton" />
+						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#';" class="textbutton" /></cfoutput>
 					</td></tr>
 				</table>
 				</cfform>
@@ -208,7 +208,7 @@
 								<input type="hidden" name="vesselID" value="<cfoutput>#form.vesselID#</cfoutput>" />
 								<input type="hidden" name="companyID" value="<cfoutput>#form.companyID#</cfoutput>" />
 								<input type="submit" value="submit" class="textbutton" />
-								<cfoutput><input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
+								<cfoutput><input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" /></cfoutput>
 							</td>
 						</tr>
 					</table>

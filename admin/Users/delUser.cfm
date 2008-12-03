@@ -108,7 +108,7 @@ function EditSubmit ( selectedform )
 					<tr><td>&nbsp;</td></tr>
 					<tr><td colspan="2" align="center">
 						<input type="submit" name="submitForm" value="Delete" class="textbutton" />
-						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" />
+						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" /></cfoutput>
 					</td></tr>
 				</table>
 				</cfform>
