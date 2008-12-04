@@ -113,8 +113,6 @@
 
 				<p><cfoutput>#Language.viewInfo#</cfoutput></p>
 
-				<CFINCLUDE template="includes/jetty_key.cfm">
-
 				<CFIF url.month eq 1>
 					<CFSET prevmonth = 12>
 					<CFSET prevyear = url.year - 1>

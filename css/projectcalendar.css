@@ -47,7 +47,7 @@ table {
    look really strange. */
 td {
 	empty-cells:show;
-	font-size: 12pt;
+	font-size: 10pt;
 }
 
 /* DOM TOOL TIP DEFINITIONS ---------------------------- */

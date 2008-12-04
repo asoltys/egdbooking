@@ -71,6 +71,10 @@ table.calendar td {
 	text-align: left;
 	vertical-align: top;
 	width: 14%;
+  font-size: 10px;
+}
+table.calendar a {
+  line-height: 14px;
 }
 
 /* These are smallified version of the calendar table for
@@ -94,6 +98,7 @@ table.keytable {
 	font-size: 90%;
 	margin-top: 1em;
 	margin-bottom: 1em;
+  text-align: center;
 }
 
 table.keytable th, table.keytable td {
@@ -141,7 +146,7 @@ td[headers='section'], th[headers='section2'], th[headers='section3'] {
    uninformative colouration. */
 div.center .confirmed, div.center a.confirmed, div.center a.confirmed:visited, div.center a.confirmed:hover {
 	border : none;
-	color: #990000;
+	color: #ddd;
 }
 div.center .tentative, div.center a.tentative, div.center a.tentative:visited, div.center a.tentative:hover {
 	border: none;
@@ -174,9 +179,9 @@ table.bookingDetails td {
 }
 
 /* DOCK SECTIONS --------------------------------------- */
-.sec1 { background-color: #FFFFCC; }
-.sec2 { background-color: #FFCCFF; }
-.sec3 { background-color: #99FFFF; }
+.sec1 { background-color: #335544; color: #ddd; }
+.sec2 { background-color: #336699; color: #ddd; }
+.sec3 { background-color: #556677; color: #ddd; }
 .maintenance, a.maintenance, a.maintenance:visited, maintenance:hover {
 	background-color: #ddd;
 	color: #FFFFFF;

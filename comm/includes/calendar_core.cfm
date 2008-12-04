@@ -147,21 +147,23 @@
 						<CFLOOP from="1" to="3" index="bloop">
 
 							<CFSET sec = "sec" & #bloop#>
+              <CFSET vessel_name = Evaluate(sec).name />
+
 							<CFIF Evaluate(sec).maint eq true>
-								<div class="maintenance"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="maintenance" title="#language.maintenance#">#Left(language.maintenance, magicnum)#...</a></div>
+								<div class="maintenance"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="maintenance" title="#language.maintenance#">#language.maintenance#</a></div>
 							<CFELSEIF Evaluate(sec).name neq "">
-								<div class="#sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="confirmed" title="#Evaluate(sec).name#">#Left(Evaluate(sec).name, magicnum)#...</a></div>
+								<div class="#sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="confirmed" title="#Evaluate(sec).name#">#vessel_name#</a></div>
 							<CFELSE>
 								<div>&nbsp;</div>
 							</CFIF>
 						</CFLOOP>
 						<cfif tent.num neq 0>
-							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="tentative" title="#tent.name#">#Left(tent.name, magicnum)#...</a></div>
+							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="tentative" title="#tent.name#">#tent.name#</a></div>
 						<cfelse>
 							<div>&nbsp;</div>
 						</cfif>
 						<cfif pend.num neq 0>
-							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#pend.name#">#Left(pend.name, magicnum)#...</a></div>
+							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#pend.name#">#pend.name#</a></div>
 						<cfelse>
 							<div>&nbsp;</div>
 						</cfif>

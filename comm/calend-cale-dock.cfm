@@ -115,10 +115,6 @@
 						AND	Status = 'm'
 				</cfquery>
 
-				<p><cfoutput>#Language.viewInfo#</cfoutput></p>
-
-				<CFINCLUDE template="includes/dock_key.cfm">
-
 				<CFIF url.month eq 1>
 					<CFSET prevmonth = 12>
 					<CFSET prevyear = url.year - 1>
@@ -169,6 +165,8 @@
 					<a href="calend-cale-dock.cfm?lang=#lang#&amp;month=#nextmonth#&amp;year=#nextyear#" class="nextLink">#language.next#</a>
 				</div>
 				</cfoutput>
+
+        <br />
 
 				<CFINCLUDE template="includes/dock_key.cfm">
 
