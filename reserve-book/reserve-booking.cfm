@@ -10,7 +10,7 @@
 	<cfset language.subjects = language.masterSubjects & "">
 <cfelse>
 	<cfset language.keywords = language.masterKeywords & ", Demande de r&eacute;servation">
-	<cfset language.description = "Page d'accueil de l'application des rservations de la Cale s che d'Esquimalt.">
+	<cfset language.description = "Page d'accueil de l'application des r&eacute;servations de la Cale s&eacute;che d'Esquimalt.">
 	<cfset language.subjects = language.masterSubjects & "">
 </cfif>
 
@@ -443,7 +443,7 @@
 									<cfset rowClass = "">
 								</cfif>
 								<tr class="#rowClass#">
-									<td width="60%" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+									<td colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 									<td style="width:40%;">
 										<cfif status EQ "P"><i class="pending">#language.pending#</i>
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
@@ -470,12 +470,14 @@
 						</table>
 						<table style="width:100%;" cellspacing="0">
 							<tr>
-								<td><b>Total:&nbsp;&nbsp;</b>
-								<cfoutput>
-								<i class="pending">#language.pending# - #countPendingSJ.numPendSJ#</i>&nbsp;&nbsp;
-								<i class="confirmed">#language.confirmed# - #countConfirmedSJ.numConfSJ#</i>&nbsp;&nbsp;
-								<i class="cancelled">#language.cancelling# - #countCancelledSJ.numCancSJ#</i>
-								</cfoutput>
+								<td>
+                  <b>Total:&nbsp;&nbsp;</b>
+                  <cfoutput>
+                  <i class="pending">#language.pending# - #countPendingSJ.numPendSJ#</i>&nbsp;&nbsp;
+                  <i class="confirmed">#language.confirmed# - #countConfirmedSJ.numConfSJ#</i>&nbsp;&nbsp;
+                  <i class="cancelled">#language.cancelling# - #countCancelledSJ.numCancSJ#</i>
+                  </cfoutput>
+                </td>
 							</tr>
 						</table>
 					<cfelse>
