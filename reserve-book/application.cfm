@@ -37,10 +37,14 @@
 
 <!--- The following allows the WPSS toolkits to bypass the login and validate the pages beyond --->
 
+<cfquery name="getErnieMaestrello" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+  SELECT UserID FROM Users WHERE deleted = 0 AND FirstName LIKE 'Ernie'
+</cfquery>
+
 <CFSET Session.LoggedIn = "1">
 <!--- Set the session variables for the session --->
 <CFSCRIPT>
-Session.UserID = "21";
+Session.UserID = getErnieMaestrello.UserID;
 Session.FirstName = "Sample";
 Session.LastName = "User";
 Session.EMail = "adam.soltys@pwgsc.gc.ca";
