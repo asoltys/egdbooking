@@ -40,14 +40,14 @@
 <CFSET Session.LoggedIn = "1">
 <!--- Set the session variables for the session --->
 <CFSCRIPT>
-Session.UserID = "97";
-Session.FirstName = "i\'m the";
-Session.LastName = "supervisor";
-Session.EMail = "mushroom@example.com";
+Session.UserID = "21";
+Session.FirstName = "Sample";
+Session.LastName = "User";
+Session.EMail = "adam.soltys@pwgsc.gc.ca";
 </CFSCRIPT>
 
 
-<!--- comment out the following check to allow WPSS toolkit to bypass login and validate the pages beyond --->
+<!--- TODO REMOVE comment out the following check to allow WPSS toolkit to bypass login and validate the pages beyond --->
 <!---
 <cfif NOT IsDefined("Session.LoggedIn") AND GetFileFromPath(GetCurrentTemplatePath()) NEQ "public.cfm">
 	<cflocation url="#RootDir#ols-login/ols-login.cfm?lang=#lang#" addtoken="no">

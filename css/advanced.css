@@ -48,6 +48,10 @@ div.menu li {
   list-style: none;
 }
 
+div.menu h2 {
+  font-size: 12px;
+}
+
 input[type="button"],
 input[type="submit"] {
 	font-family: sans-serif, arial;

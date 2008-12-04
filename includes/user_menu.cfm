@@ -67,7 +67,6 @@
 		</cfif>
 
 		<a href="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#" class="textbutton">#language.EditProfileButton#</a>
-		<a href="#RootDir#reserve-book/aide-help-#lang#.html" class="textbutton" rel="external">#language.Help#</a>
 		<a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#" class="textbutton">#language.LogoutButton#</a>
 		</cfoutput>
 
