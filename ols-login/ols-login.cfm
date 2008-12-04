@@ -91,7 +91,7 @@
 					</ul>
 					<p>#language.displayproblem#</p>
 					<noscript>
-					<b style="color: ##FF0000; ">#language.jserror#</b>
+					#language.jserror#
 					</noscript>
 
 					<h2>#language.login#</h2>
