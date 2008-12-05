@@ -141,13 +141,13 @@ function EditSubmit ( selectedform )
 
 				<cfoutput>
 					<h2>#language.EditProfile#:</h2>
-					<cfform action="#RootDir#reserve-book/profilmod-profileedit_action.cfm?lang=#lang#" id="editUserForm" method="post">
+					<form action="#RootDir#reserve-book/profilmod-profileedit_action.cfm?lang=#lang#" id="editUserForm" method="post">
 						<fieldset>
 							<label for="firstName">#language.FirstName#:</label>
-							<cfinput name="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40" required="yes" id="firstName" message="#language.firstNameError#" />
+							<input name="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40"  />
 
 							<label for="lastName">#language.LastName#:</label>
-							<cfinput name="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40" required="yes" id="lastName" message="#language.lastNameError#" />
+							<input name="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40"  />
 
 							<label>#language.Email#:</label>
 							<p>#variables.email#</p>
@@ -157,7 +157,7 @@ function EditSubmit ( selectedform )
 							<input type="submit" name="submitForm" value="#language.saveName#" class="textbutton" />
 						</div>
 
-					</cfform>
+					</form>
 				</cfoutput>
 
 				<h2>
@@ -185,18 +185,18 @@ function EditSubmit ( selectedform )
 
 				<cfoutput>
 					<h2>#language.ChangePassword#:</h2>
-					<cfform action="#RootDir#reserve-book/passechange.cfm?lang=eng" method="post" id="changePassForm">
+					<form action="#RootDir#reserve-book/passechange.cfm?lang=eng" method="post" id="changePassForm">
 						<fieldset>
 							<label for="password">#language.Password# <span class="smallFont">(*6 - 10 #language.characters#)</span>:</label>
-							<cfinput type="password" id="password" name="password1" required="yes" size="25" maxlength="10" message="#language.password1Error#" />
+							<input type="password" id="password" name="password1"  />
 
 							<label for="password2">#language.RepeatPassword#:</label>
-							<cfinput type="password" id="password2" name="password2" required="yes" size="25" maxlength="10" message="#language.password2Error#" />
+							<input type="password" id="password2" name="password2"  />
 						</fieldset>
 						<div class="buttons">
 							<input type="submit" name="submitForm" value="#language.ChangePassword#" class="textbutton" />
 						</div>
-					</cfform>
+					</form>
 				</cfoutput>
 
 			</div>

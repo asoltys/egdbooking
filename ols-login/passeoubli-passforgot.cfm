@@ -60,16 +60,16 @@
 
 					<div style="text-align:center;">#language.enterEmail#<br />#language.getPassword#</div><br />
 
-					<cfform action="passeoubli-passforgot_action.cfm?lang=#lang#" id="forgotForm">
+					<form action="passeoubli-passforgot_action.cfm?lang=#lang#" id="forgotForm">
 						<table>
 							<tr>
-								<td><label for="email">#language.Email#:</label>&nbsp;&nbsp;<cfinput type="Text" name="email" id="email" size="30" validate="regular_expression" pattern=".+@.+..+"  message="#language.emailError#" /></td>
+								<td><label for="email">#language.Email#:</label>&nbsp;&nbsp;<input type="Text" name="email" id="email" size="30" /></td>
 							</tr>
 							<tr>
 								<td align="right"><input type="submit" value="#language.Submit#" class="textbutton" /></td>
 							</tr>
 						</table>
-					</cfform>
+					</form>
 
 					<div style="text-align:center;"><a href="ols-login.cfm?lang=#lang#">#language.returnlogin#</a></div>
 				</cfoutput>

@@ -83,8 +83,8 @@ function setURLparam(key, value, old_location)
     old_location =  window.location.href;
   }
 
-  if (getURLparam(key) != "") {
-    var regexS = key + "=([^&##]*)"
+  if (getURLparam(key) !== '') {
+    var regexS = key + "=([^&##]*)";
     var regex = new RegExp( regexS );
     new_location = old_location.replace(regex, key + "=" + value);
   } else {
@@ -113,10 +113,15 @@ function setURLparam(key, value, old_location)
  */
 
 function fmt00(number) {
-  if (parseInt(number) < 0) var neg = true;
-  if (Math.abs(parseInt(number)) < 10) {
-    number = "0"+ Math.abs(number);
+  if (parseInt(number, 10) < 0) {
+    var neg = true;
   }
-  if (neg) { number = "-"+number };
+
+  if (Math.abs(parseInt(number, 10)) < 10) {
+    number = "0" + Math.abs(number);
+  }
+  if (neg) { 
+    number = "-" + number;
+  }
   return number;
 }

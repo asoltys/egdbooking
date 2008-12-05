@@ -122,7 +122,7 @@
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 
-				<cfform action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#&amp;companyID=#variables.companyID#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
+				<form action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#&amp;companyID=#variables.companyID#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
 					<fieldset>
 						<label>#language.Agent#:</label>
 						<p>
@@ -151,28 +151,28 @@
 						<br />
 
 						<label for="StartDate">#language.StartDate#:</label>
-						<cfinput id="StartDate" name="startDate" type="text" class="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" /> #language.dateform#
+						<input id="StartDate" name="startDate" type="text" class="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> #language.dateform#
 						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						<br />
 
 
 						<label for="EndDate">#language.EndDate#:</label>
-						<cfinput id="EndDate" name="endDate" type="text" class="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" /> #language.dateform#
+						<input id="EndDate" name="endDate" type="text" class="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> #language.dateform#
 						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						<br />
 
 						<label for="status">#language.requestedStatus#:</label>
-						<cfselect id="status" name="status" required="yes">
+						<select id="status" name="status" >
 							<option value="tentative" <cfif Variables.Status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
 							<option value="confirmed" <cfif Variables.Status EQ "confirmed">selected="selected"</cfif>>#language.confirmed#</option>
-						</cfselect>
+						</select>
 						<br />
 
 						<label for="jettySelect">#language.RequestedJetty#:</label>
-						<cfselect name="jetty" required="yes" id="jettySelect">
+						<select name="jetty" >
 							<option value="north" <cfif Variables.Jetty EQ "north">selected="selected"</cfif>>#language.NorthLandingWharf#</option>
 							<option value="south" <cfif Variables.Jetty EQ "south">selected="selected"</cfif>>#language.SouthJetty#</option>
-						</cfselect>
+						</select>
 					</fieldset>
 
 					<div class="buttons">
@@ -181,7 +181,7 @@
 						<input type="button" value="#language.Cancel#" class="textbutton" onclick="javascript:self.location.href='reserve-booking.cfm?lang=#lang#';" />
 					</div>
 
-				</cfform>
+				</form>
 				<p>#language.warning#</p>
 				</cfoutput>
 			</div>

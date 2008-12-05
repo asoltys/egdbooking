@@ -60,18 +60,18 @@ in the style sheet, to make it more clear what the different style elements are 
 var datePickerDivID = "datepicker";
 var iFrameDivID = "datepickeriframe";
 
-var dayArrayShort = new Array('Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa');
-var dayArrayMed = new Array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
-var dayArrayLong = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
-var monthArrayShort = new Array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
-var monthArrayMed = new Array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec');
-var monthArrayLong = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+var dayArrayShort = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+var dayArrayMed = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+var dayArrayLong = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+var monthArrayShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+var monthArrayMed = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+var monthArrayLong = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 // these variables define the date formatting we're expecting and outputting.
 // If you want to use a different format by default, change the defaultDateSeparator
 // and defaultDateFormat variables either here or on your HTML page.
-var defaultDateSeparator = "/";        // common values would be "/" or "."
-var defaultDateFormat = "mdy"    // valid values are "mdy", "dmy", and "ymd"
+var defaultDateSeparator = "/";
+var defaultDateFormat = "mdy";
 var dateSeparator = defaultDateSeparator;
 var dateFormat = defaultDateFormat;
 
@@ -112,20 +112,25 @@ function displayDatePicker(dateFieldId, displayBelowThisObject, dtFormat, dtSep)
 
   // if we weren't told what node to display the datepicker beneath, just display it
   // beneath the date field we're updating
-  if (!displayBelowThisObject)
+  if (!displayBelowThisObject) {
     displayBelowThisObject = targetDateField;
+  }
 
   // if a date separator character was given, update the dateSeparator variable
-  if (dtSep)
+  if (dtSep) {   
     dateSeparator = dtSep;
-  else
+  }
+  else {
     dateSeparator = defaultDateSeparator;
+  }
 
   // if a date format was given, update the dateFormat variable
-  if (dtFormat)
+  if (dtFormat) {
     dateFormat = dtFormat;
-  else
+  }
+  else {
     dateFormat = defaultDateFormat;
+  }
 
   var x = displayBelowThisObject.offsetLeft;
   var y = displayBelowThisObject.offsetTop + displayBelowThisObject.offsetHeight ;
@@ -232,39 +237,45 @@ function refreshDatePicker(dateFieldId, year, month, day)
 
   // this is the row that indicates which day of the week we're on
   html += TR_days;
-  for(i = 0; i < dayArrayShort.length; i++)
+  for(i = 0; i < dayArrayShort.length; i++) {
     html += TD_days + dayArrayShort[i] + xTD;
+  }
   html += xTR;
 
   // now we'll start populating the table with days of the month
   html += TR;
 
   // first, the leading blanks
-  for (i = 0; i < thisDay.getDay(); i++)
+  for (i = 0; i < thisDay.getDay(); i++) {
     html += TD + "&nbsp;" + xTD;
+  }
 
   // now, the days of the month
   do {
     dayNum = thisDay.getDate();
     TD_onclick = " onclick=\"updateDateField('" + dateFieldId + "', '" + getDateString(thisDay) + "');\">";
 
-    if (dayNum == day)
+    if (dayNum == day) {
       html += TD_selected + TD_onclick + DIV_selected + dayNum + xDIV + xTD;
-    else
+    }
+    else {
       html += TD + TD_onclick + dayNum + xTD;
+    }
 
     // if this is a Saturday, start a new row
-    if (thisDay.getDay() == 6)
+    if (thisDay.getDay() == 6) {
       html += xTR + TR;
+    }
 
     // increment the day
     thisDay.setDate(thisDay.getDate() + 1);
-  } while (thisDay.getDate() > 1)
+  } while (thisDay.getDate() > 1);
 
   // fill in any trailing blanks
   if (thisDay.getDay() > 0) {
-    for (i = 6; i > thisDay.getDay(); i--)
+    for (i = 6; i > thisDay.getDay(); i--) {
       html += TD + "&nbsp;" + xTD;
+    }
   }
   html += xTR;
 
@@ -292,7 +303,7 @@ a month.
 function getButtonCode(dateFieldId, dateVal, adjust, label)
 {
   var newMonth = (dateVal.getMonth () + adjust) % 12;
-  var newYear = dateVal.getFullYear() + parseInt((dateVal.getMonth() + adjust) / 12);
+  var newYear = dateVal.getFullYear() + parseInt((dateVal.getMonth() + adjust, 10) / 12);
   if (newMonth < 0) {
     newMonth += 12;
     newYear += -1;
@@ -316,11 +327,14 @@ function getDateString(dateVal)
   switch (dateFormat) {
     case "dmy" :
       return dayString + dateSeparator + monthString + dateSeparator + dateVal.getFullYear();
+    break;
     case "ymd" :
       return dateVal.getFullYear() + dateSeparator + monthString + dateSeparator + dayString;
+    break
     case "mdy" :
     default :
       return monthString + dateSeparator + dayString + dateSeparator + dateVal.getFullYear();
+    break;
   }
 }
 
@@ -342,18 +356,18 @@ function getFieldDate(dateString)
           d = parseInt(dArray[0], 10);
           m = parseInt(dArray[1], 10) - 1;
           y = parseInt(dArray[2], 10);
-          break;
+        break;
         case "ymd" :
           d = parseInt(dArray[2], 10);
           m = parseInt(dArray[1], 10) - 1;
           y = parseInt(dArray[0], 10);
-          break;
+        break;
         case "mdy" :
         default :
           d = parseInt(dArray[1], 10);
           m = parseInt(dArray[0], 10) - 1;
           y = parseInt(dArray[2], 10);
-          break;
+        break;
       }
       dateVal = new Date(y, m, d);
     } else if (dateString) {
@@ -376,16 +390,21 @@ If the date is split, an array is returned; otherwise, we just return false.
 function splitDateString(dateString)
 {
   var dArray;
-  if (dateString.indexOf("/") >= 0)
+  if (dateString.indexOf("/") >= 0) {
     dArray = dateString.split("/");
-  else if (dateString.indexOf(".") >= 0)
+  }
+  else if (dateString.indexOf(".") >= 0) {
     dArray = dateString.split(".");
-  else if (dateString.indexOf("-") >= 0)
+  }
+  else if (dateString.indexOf("-") >= 0) {
     dArray = dateString.split("-");
-  else if (dateString.indexOf("\\") >= 0)
+  }
+  else if (dateString.indexOf("\\") >= 0) {
     dArray = dateString.split("\\");
-  else
+  }
+  else {
     dArray = false;
+  }
 
   return dArray;
 }
@@ -427,8 +446,9 @@ function datePickerClosed(dateField)
 function updateDateField(dateFieldId, dateString)
 {
   var targetDateField = $(dateFieldId);
-  if (dateString)
+  if (dateString) {
     targetDateField.value = dateString;
+  }
 
   var pickerDiv = document.getElementById(datePickerDivID);
   pickerDiv.style.visibility = "hidden";
@@ -439,8 +459,9 @@ function updateDateField(dateFieldId, dateString)
   // after the datepicker has closed, optionally run a user-defined function called
   // datePickerClosed, passing the field that was just updated as a parameter
   // (note that this will only run if the user actually selected a date from the datepicker)
-  if ((dateString) && (typeof(datePickerClosed) == "function"))
+  if ((dateString) && (typeof(datePickerClosed) == "function")) {
     datePickerClosed(targetDateField);
+  }
 
   targetDateField.focus();
 }
@@ -459,8 +480,9 @@ function adjustiFrame(pickerDiv, iFrameDiv)
   // we know that Opera doesn't like something about this, so if we
   // think we're using Opera, don't even try
   var is_opera = (navigator.userAgent.toLowerCase().indexOf("opera") != -1);
-  if (is_opera)
+  if (is_opera) {
     return;
+  }
 
   // put a try/catch block around the whole thing, just in case
   try {

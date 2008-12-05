@@ -96,28 +96,28 @@ function EditSubmit ( selectedform )
 						<cfelse>
 						<cfset Variables.action = "entrpdemande-comprequest.cfm?lang=#lang#">
 					</cfif>
-					<cfform action="#Variables.action#" id="addUserForm" method="post">
+					<form action="#Variables.action#" id="addUserForm" method="post">
 						<table align="center" style="width: 100%; padding-left:10px;">
 							<tr>
 								<td id="firstname_header"><label for="firstname">#language.FirstName#:</label></td>
-								<td headers="firstname_header"><cfinput name="firstname" type="text" value="#variables.firstName#" size="23" maxlength="40" required="yes" id="firstname" message="#language.firstNameError#" /></td>
+								<td headers="firstname_header"><input name="firstname" type="text" value="#variables.firstName#" size="23" maxlength="40" id="firstname" /></td>
 							</tr>
 							<tr>
 								<td id="lastname_header"><label for="lastname">#language.LastName#:</label></td>
-								<td headers="lastname_header"><cfinput name="lastname" type="text" value="#variables.lastName#" size="23" maxlength="40" required="yes" id="lastname" message="#language.lastNameError#" /></td>
+								<td headers="lastname_header"><input name="lastname" type="text" value="#variables.lastName#" size="23" maxlength="40" id="lastname" /></td>
 							</tr>
 							<tr>
 								<td id="password1_header"><label for="password1">#language.Password#:</label></td>
-								<td headers="password1_header"><cfinput type="password" name="password1" id="password1" required="yes" size="23" maxlength="10" message="#language.password1Error#" />
+								<td headers="password1_header"><input type="password" name="password1" id="password1" size="23" maxlength="10" />
 									<span class="smallFont">(*6 - 10 #language.characters#)</span></td>
 							</tr>
 							<tr>
 								<td id="password2_header"><label for="password2">#language.RepeatPassword#:</label></td>
-								<td headers="password2_header"><cfinput type="password" name="password2" id="password2" required="yes" size="23" maxlength="10" message="#language.password2Error#" /></td>
+								<td headers="password2_header"><input type="password" name="password2" id="password2"  size="23" maxlength="10" /></td>
 							</tr>
 							<tr>
 								<td id="email_header"><label for="email">#language.Email#:</label></td>
-								<td headers="email_header"><cfinput name="email" type="text" value="#variables.email#" size="40" maxlength="100" required="yes" id="email" message="#language.emailError#" /></td>
+								<td headers="email_header"><input name="email" type="text" value="#variables.email#" size="40" maxlength="100" id="email" /></td>
 							</tr>
 							<tr>
 								<td>&nbsp;</td>
@@ -129,7 +129,7 @@ function EditSubmit ( selectedform )
 									<input type="button" value="#language.Cancel#" onclick="self.location.href='ols-login.cfm?<cfoutput>lang=#lang#</cfoutput>'" class="textbutton" />								</td>
 							</tr>
 						</table>
-					</cfform>
+					</form>
 				</cfoutput>
 			</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->

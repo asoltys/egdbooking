@@ -120,7 +120,7 @@
 
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
-				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_confirm.cfm?lang=#lang#" method="post" enablecab="No" id="booking" preservedata="Yes">
+				<form action="#RootDir#reserve-book/caledemande-dockrequest_confirm.cfm?lang=#lang#" method="post" enablecab="No" id="booking" preservedata="Yes">
 					<fieldset>
 						<label>#language.Agent#:</label>
 						<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
@@ -146,20 +146,20 @@
 						<br />
 
 						<label for="startDateA">#language.StartDate#:</label>
-						<cfinput id="startDateA" name="startDate" class="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" /> #language.dateform#
+						<input id="startDateA" name="startDate" class="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> #language.dateform#
 						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						<br />
 
 						<label for="endDateA">#language.EndDate#:</label>
-						<cfinput id="endDateA" name="endDate" class="endDate" type="text" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#" required="yes" message="#language.InvalidEndError#" validate="date" /> #language.dateform#
+						<input id="endDateA" name="endDate" class="endDate" type="text" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#"  /> #language.dateform#
 						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 						<br />
 
 						<label for="status">#language.requestedStatus#:</label>
-						<cfselect id="status" name="status" required="yes">
+						<select id="status" name="status" >
 							<option value="tentative" <cfif isDefined("form.status") AND form.status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
 							<option value="confirmed" <cfif isDefined("form.status") AND form.status EQ "confirmed">selected="selected"</cfif>>#language.confirmed#</option>
-						</cfselect>
+						</select>
 					</fieldset>
 
 					<div class="buttons">
@@ -168,14 +168,14 @@
 						<input type="button" value="#language.Cancel#" class="textbutton" onclick="javascript:self.location.href='reserve-booking.cfm?lang=#lang#';" />
 					</div>
 
-				</cfform>
+				</form>
 				</cfoutput>
 
 				<p style="text-align:center; font-weight: bold; text-transform: uppercase; "><cfoutput>#language.or#</cfoutput></p>
 
 				<cfoutput>
 				<p>#language.daysToBook#  #language.dateInclusive#</p>
-				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_confirm2.cfm?lang=#lang#" method="post" enablecab="No" id="bookingByRange" preservedata="Yes">
+				<form action="#RootDir#reserve-book/caledemande-dockrequest_confirm2.cfm?lang=#lang#" method="post" enablecab="No" id="bookingByRange" preservedata="Yes">
 					<fieldset>
 						<label>#language.Company#:</label>
 						<CF_TwoSelectsRelated
@@ -199,25 +199,25 @@
 							<legend>#language.DateRange#</legend>
 
 							<label for="StartDateB">#language.StartDate#:</label>
-							<cfinput id="StartDateB" name="startDate" type="text" class="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidStartError#" validate="date" /> #language.dateform#
+							<input id="StartDateB" name="startDate" type="text" class="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 							<br />
 
 							<label for="EndDateB">#language.EndDate#:</label>
-							<cfinput id="EndDateB" name="endDate" type="text" class="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="#language.InvalidEndError#" validate="date" /> #language.dateform#
+							<input id="EndDateB" name="endDate" type="text" class="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
 							<br />
 
 							<label for="NumDays">#language.NumDays#:</label>
-							<cfinput id="NumDays" type="Text" name="numDays" value="#Variables.numDays#" required="yes" size="15" maxlength="10" validate="integer" message="#language.numDaysError#" />
+							<input id="NumDays" type="Text" name="numDays" value="#Variables.numDays#"  />
 
 						</fieldset>
 
 						<label for="statusB">#language.requestedStatus#:</label>
-						<cfselect id="statusB" name="status" required="yes">
+						<select id="statusB" name="status" >
 							<option value="tentative" <cfif isDefined("form.status") AND form.status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
 							<option value="confirmed" <cfif isDefined("form.status") AND form.status EQ "confirmed">selected="selected"</cfif>>#language.confirmed#</option>
-						</cfselect>
+						</select>
 					</fieldset>
 
 					<div class="buttons">
@@ -225,7 +225,7 @@
 						<input type="reset" value="#language.Reset#" class="textbutton" />
 						<input type="button" value="#language.Cancel#" class="textbutton" onclick="javascript:self.location.href='reserve-booking.cfm?lang=#lang#';" />
 					</div>
-				</cfform>
+				</form>
 				</cfoutput>
 			</div>
 

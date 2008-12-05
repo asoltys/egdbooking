@@ -85,11 +85,11 @@
 					<cfset variables.tonnage = form.tonnage>
 				</cfif>
 
-				<cfform action="#RootDir#reserve-book/navireajout-vesseladd_confirm.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" method="post" id="addVessel">
+				<form action="#RootDir#reserve-book/navireajout-vesseladd_confirm.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" method="post" id="addVessel">
 					<fieldset>
 						<label for="companyID">#language.CompanyName#:</label>
 						<cfif getCompanies.recordCount GT 1>
-							<cfselect name="companyID" id="companyID" query="getCompanies" display="Name" value="companyID" selected="#variables.companyID#" />
+							<select name="companyID" id="companyID" query="getCompanies" display="Name" value="companyID" selected="#variables.companyID#" />
 						<cfelse>
 							<cfoutput>#getCompanies.Name#</cfoutput>
 							<cfoutput><input type="hidden" name="companyID" value="#getCompanies.companyID#" /></cfoutput>
@@ -98,31 +98,31 @@
 
 
 						<label for="name">#language.vesselName#:</label>
-						<cfinput name="name" id="name" type="text" value="#variables.name#" size="35" maxlength="100" required="yes" message="#language.nameError#" />
+						<input name="name" id="name" type="text" value="#variables.name#" size="35" maxlength="100"   />
 						<br />
 
 						<label for="LloydsID" id="lloyds_id">#language.LloydsID#:</label>
-						<cfinput name="LloydsID" id="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" />
+						<input name="LloydsID" id="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" />
 						<br />
 
 						<label for="length">#language.Length#:</label>
-						<cfinput name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" message="#language.lengthError#" />  <span class="smallFont red">#language.Max#: #Variables.MaxLength# m</span>
+						<input name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8"   >#language.Max#: #Variables.MaxLength# m</span>
 						<br />
 
 						<label for="width">#language.Width#:</label>
-						<cfinput name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" required="yes" validate="float" message="#language.widthError#" />  <span class="smallFont red">#language.Max#: #Variables.MaxWidth# m</span>
+						<input name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8"   >#language.Max#: #Variables.MaxWidth# m</span>
 						<br />
 
 						<label for="blocksetuptime" id="block_setup_time">#language.BlockSetup# #language.days#:</label>
-						<cfinput name="blocksetuptime" id="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" required="yes" validate="float" message="#language.setupError#" />
+						<input name="blocksetuptime" id="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2"    />
 						<br />
 
 						<label for="blockteardowntime" id="block_teardown_time">#language.BlockTeardown# #language.days#:</label>
-						<cfinput name="blockteardowntime" id="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" required="yes" validate="float" message="#language.teardownError#" />
+						<input name="blockteardowntime" id="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2"    />
 						<br />
 
 						<label for="tonnage">#language.Tonnage#:</label>
-						<cfinput name="tonnage" id="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" required="yes" validate="float" message="#language.tonnageError#" />
+						<input name="tonnage" id="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8"    />
 						<br />
 
 						<label for="Anonymous">#language.anonymous#:</label>
@@ -135,7 +135,7 @@
 						<input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
 						<cfoutput><input type="button" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#&amp;CompanyID=#CompanyID#'" class="textbutton" /></cfoutput>
 					</div>
-				</cfform>
+				</form>
 				</cfoutput>
 
 			</div>
