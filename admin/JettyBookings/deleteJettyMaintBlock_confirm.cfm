@@ -90,7 +90,7 @@
 				</table>
 
 				<br />
-				<table style="width:100%;" cellspacing="0" cellpadding="1" border="0" align="center">
+				<table style="width:100%;" cellspacing="0" cellpadding="1" border="0">
 					<tr>
 						<td colspan="2" align="center">
 							<input type="submit" value="<cfoutput>#variables.actionCap#</cfoutput> Maintenance" class="textbutton" />

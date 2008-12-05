@@ -86,7 +86,7 @@
 				</cfif>
 				<cfoutput>
 				<cfform id="addVessel" action="addVessel_action.cfm?lang=#lang#" method="post">
-					<table align="center">
+					<table>
 						<tr>
 							<td id="CompanyID">Company Name:</td>
 							<td headers="CompanyID"><input type="hidden" name="CompanyID" value="#Variables.CompanyID#" />

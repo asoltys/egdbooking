@@ -15,9 +15,11 @@
 	FROM	Configuration
 </cfquery>
 
+<!---
 <CFIF NOT IsDefined("Session.AdminLoggedIn")>
 	<CFLOCATION URL="#RootDir#ols-login/ols-login.cfm" addtoken="no">
 </CFIF>
+--->
 
 <cfparam name="lang" default="eng">
 

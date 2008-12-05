@@ -97,7 +97,7 @@
 					<input type="hidden" name="vesselID" value="<cfoutput>#form.vesselID#</cfoutput>" />
 			<br /><br />
 					<cfoutput query="getVessel">
-					<table align="center" style="padding-top:10px;">
+					<table style="padding-top:10px;">
 						<tr>
 							<td id="Name">Name:</td>
 							<td headers="Name">#Name#</td>

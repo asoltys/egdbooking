@@ -58,7 +58,7 @@ function EditSubmit ( selectedform )
 				<cfoutput>
 				<cfform id="emailForm" action="editAdminDetails_action.cfm?lang=#lang#">
 				<p>Select any of the following administrators to receive email notification about user activities:</p>
-				<table align="center" style="width:85%;">
+				<table style="width:85%;">
 					<cfloop query="getAdministrators">
 					<cfif ListContains(getEmails.email, "#email#") NEQ 0>
 						<cfset variables.checked = "yes">

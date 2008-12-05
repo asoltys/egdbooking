@@ -55,7 +55,7 @@
 
 				<cfoutput>
 				<cfform action="editUser_addCompany_action.cfm?lang=#lang#&userID=#url.userID#" id="addCompanyForm" method="post">
-					<table align="center">
+					<table>
 						<tr>
 							<td id="companyName"><label for="name">Company Name:</label></td>
 							<td headers="companyName"><cfinput name="name" value="#variables.name#" id="name" type="text" size="40" maxlength="75" required="yes" message="Please enter the company name." /></td>

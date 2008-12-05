@@ -97,7 +97,7 @@
 					<h2>#language.login#</h2>
 					<!-- Display the login form and pass contents to login_action.cfm -->
 					<form action="ols-login_action.cfm?lang=#lang#" method="post" id="login_form">
-						<table border="0" cellspacing="2" cellpadding="2" align="center">
+						<table border="0" cellspacing="2" cellpadding="2">
 							<tr>
 								<td align="right"><label for="email">#language.Email#:</label></td>
 								<td><input type="text" name="email" id="email" size="40" maxlength="100" value="#email#" /></td>

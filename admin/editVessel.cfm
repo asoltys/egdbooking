@@ -150,7 +150,7 @@
 					</cfif>
 
 					<cfform id="editVessel" action="EditVessel_process.cfm?lang=#lang#" method="post">
-					<table align="center">
+					<table>
 						<tr>
 							<td id="Company_Header" style="width:42%;">Company Name:</td>
 							<td headers="Company_Header"><cfoutput>#getVesselDetail.companyName#</cfoutput></td>

@@ -116,7 +116,7 @@ var params = {
 					<cfoutput>#getCompany.Name# <CFIF IsDefined('getCompany.Approved') AND getCompany.Approved neq '' AND getCompany.Approved>(#getCompany.Abbreviation#)</CFIF></cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
-<table style="width:80%;" align="center" border="0" cellpadding="0" cellspacing="0">
+<table style="width:80%;" border="0" cellpadding="0" cellspacing="0">
 	<tr>
 		<cfoutput><td id="addy1" style="width:30%;" valign="top">#language.address#:</td>
 		<td headers="addy1">

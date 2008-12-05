@@ -217,7 +217,7 @@ function EditSubmit ( selectedform )
 							</tr>
 							<tr>
 								<td colspan="2">
-								<table align="center">
+								<table>
 									<tr>
 										<td id="nj" style="width:50%;"><label for="northJetty">North Landing Wharf</label></td>
 										<td headers="nj"><input type="radio" name="Jetty" id="northJetty" value="north" <cfif Variables.NorthJetty EQ 1 OR Variables.SOuthJetty EQ 0>checked="true"</cfif> /></td>

@@ -175,7 +175,7 @@
 				</cfif>
 				<tr><td>&nbsp;</td></tr>
 				</table>
-				<table align="center">
+				<table>
 				<tr>
 					<td>
 						<input type="submit" value="Confirm" class="textbutton" />

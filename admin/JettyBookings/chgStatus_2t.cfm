@@ -131,7 +131,7 @@
 					</table>
 					</cfoutput>
 					
-					<table align="center">
+					<table>
 					<tr>
 						<td>
 						<input type="submit" value="submit" class="textbutton" />

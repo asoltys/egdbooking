@@ -193,7 +193,7 @@ function EditSubmit ( selectedform )
 
 
 					<cfoutput>
-					<table align="center" style="padding-top:10px;">
+					<table style="padding-top:10px;">
 						<tr>
 							<td colspan="2"><strong>Company Profile:</strong></td>
 						</tr>

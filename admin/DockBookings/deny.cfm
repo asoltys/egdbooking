@@ -83,7 +83,7 @@
 <br />
 	<cfoutput>
 	<input type="hidden" name="BookingID" value="#Form.BookingID#" />
-	<table align="center" style="padding-top:5px;">
+	<table style="padding-top:5px;">
 		<tr>
 			<td><strong>Booking Details:</strong></td>
 		</tr>

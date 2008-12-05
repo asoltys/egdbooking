@@ -94,7 +94,7 @@
 				</cfif>
 				<cfoutput>
 				<cfform id="editVessel" action="EditVessel_action.cfm?lang=#lang#" method="post">
-					<table align="center">
+					<table>
 						<tr>
 							<td id="Company">Company Name:</td>
 							<td headers="Company">#getVesselDetail.CompanyName#</td>

@@ -76,7 +76,7 @@
 
 					<cfform action="entrpajout-compadd_action.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#" id="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
 	}">
-						<table align="center">
+						<table>
 							<tr>
 								<td id="name_header"><label for="name">#language.companyName#:</label></td>
 								<td header="name_header"><cfinput name="name" id="name" type="text" size="40" maxlength="75" required="yes" value="#Variables.name#" message="#language.nameError#" /></td>

@@ -140,7 +140,7 @@ function EditSubmit ( selectedform )
 
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 
-				<table align="center" style="width:85%;">
+				<table style="width:85%;">
 						<tr>
 							<td colspan="2">Requested companies: </td>
 						</tr>
@@ -202,7 +202,7 @@ function EditSubmit ( selectedform )
 				</cfif>
 
 				<cfform action="addNewUserCompany.cfm?lang=#lang#&companies=#companies#&info=#Variables.info#" id="addUserCompanyForm" method="post">
-				<table align="center" style="width:88%;">
+				<table style="width:88%;">
 					<tr>
 						<td valign="top"><label for="companies">Add Company:</label></td>
 						<td>

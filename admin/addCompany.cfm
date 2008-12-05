@@ -87,7 +87,7 @@
 				<cfoutput>
 				<cfform action="addCompany_action.cfm?lang=#lang#" id="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
 	}">
-					<table align="center">
+					<table>
 						<tr>
 							<td id="name_Header"><label for="name">Company Name:</label></td>
 							<td headers="name_Header"><cfinput name="name" id="name" type="text" size="40" maxlength="75" value="#variables.name#" required="yes" message="Please enter the company name." /></td>

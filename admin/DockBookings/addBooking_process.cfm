@@ -215,7 +215,7 @@
 			<br />
 			<cfif NOT Variables.reOrder>
 				<cfif Form.Status EQ "C">
-					<table style="width:100%;" cellspacing="0" cellpadding="1" border="0" align="center">
+					<table style="width:100%;" cellspacing="0" cellpadding="1" border="0">
 					<tr><td colspan="2">This booking conflicts with other bookings. Please choose the sections of
 						the dock that you wish to book:</td></tr>
 					<tr>
@@ -234,7 +234,7 @@
 				<cfinclude template="#RootDir#includes/showConflicts.cfm">
 			</cfif>
 			<br />
-			<table align="center">
+			<table>
 			<tr>
 				<td colspan="2" align="center">
 					<input type="hidden" value="<cfoutput>#Form.Status#</cfoutput>" name="Status" />

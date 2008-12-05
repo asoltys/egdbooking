@@ -19,9 +19,9 @@
 	<cfset language.tentBook = "Tentative Booking">
 	<cfset language.pendBook = "Pending Booking">
 	<cfset language.confBook = "Confirmed Booking">
-	<cfset language.sec1 = "Section 1 of Drydock">
-	<cfset language.sec2 = "Section 2 of Drydock">
-	<cfset language.sec3 = "Section 3 of Drydock">
+	<cfset language.sec1 = "Confirmed in Section 1 of Drydock">
+	<cfset language.sec2 = "Confirmed in Section 2 of Drydock">
+	<cfset language.sec3 = "Confirmed in Section 3 of Drydock">
 	<cfset language.prev = "previous">
 	<cfset language.next = "next">
 <cfelse>

@@ -259,7 +259,7 @@ function EditSubmit ( selectedform )
 </table>
 
 <br />
-<table style="width:100%;" cellspacing="0" cellpadding="1" border="0" align="center">
+<table style="width:100%;" cellspacing="0" cellpadding="1" border="0">
 	<tr>
 		<td colspan="2" align="center">
 			<!---a href="javascript:EditSubmit('bookingreq');" class="textbutton">Confirm</a>

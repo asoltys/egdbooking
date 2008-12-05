@@ -99,7 +99,7 @@ function EditSubmit ( selectedform )
 
 				<br /><br />
 				<cfoutput query="getUser">
-					<table align="center">
+					<table>
 						<tr>
 							<td colspan="2"><strong>User Profile:</strong></td>
 						</tr>

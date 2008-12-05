@@ -70,7 +70,7 @@
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 
 				<cfform action="addVessel_process.cfm?lang=#lang#" method="post" id="addVessel">
-				<table align="center">
+				<table>
 				<tr>
 					<td id="companyID_Header"><label for="companyID">Company Name:</label></td>
 					<td headers="companyID_Header">

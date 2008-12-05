@@ -54,7 +54,7 @@
 <cfoutput>
 <cfform action="addCompany_action.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#" id="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
 	}">
-	<table align="center">
+	<table>
 		<tr>
 			<td id="companyName"><label for="name">Name:</label></td>
 			<td headers="companyName"><cfinput name="name" value="#variables.name#" id="name" type="text" size="40" maxlength="75" required="yes" message="#language.nameError#" /></td>

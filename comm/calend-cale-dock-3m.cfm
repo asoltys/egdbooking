@@ -118,7 +118,6 @@
 				<p><cfoutput>#language.viewInfo#</cfoutput></p>
 
 				<CFSET pos="top">
-				<CFINCLUDE template="includes/dock_key.cfm">
 
 				<CFIF url.month eq 1>
 					<CFSET prevmonth = 12>
@@ -184,6 +183,7 @@
 				</cfoutput>
 
 				<CFSET pos="bottom">
+        <br />
 				<CFINCLUDE template="includes/dock_key.cfm">
 
 			</div>

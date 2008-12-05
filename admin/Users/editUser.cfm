@@ -110,7 +110,7 @@ function EditSubmit ( selectedform )
 				</div>
 
 				<cfform action="editUser_action.cfm?lang=#lang#" id="editUserForm" method="post">
-					<table align="center" style="width:81%;">
+					<table style="width:81%;">
 						<tr>
 							<td colspan="2"><strong>Edit Profile:</strong></td>
 						</tr>
@@ -155,7 +155,7 @@ function EditSubmit ( selectedform )
 					</form>
 				</cfoutput>
 
-				<table align="center" style="width:81%;">
+				<table style="width:81%;">
 				<tr>
 					<cfoutput><td valign="top"colspan="2"><cfif getUserCompanies.recordCount GT 1><strong>User Companies:</strong><cfelse><strong>User Company:</strong></cfif></td></cfoutput>
 				</tr>
@@ -169,7 +169,7 @@ function EditSubmit ( selectedform )
 				</table>
 
 				<cfform action="addUserCompany_action.cfm?lang=#lang#" id="addUserCompanyForm" method="post">
-					<table align="center" style="width:81%;">
+					<table style="width:81%;">
 						<tr><td>&nbsp;</td></tr>
 						<tr>
 							<td colspan="2"><label for="companySelect">Add Company:</label></td>
@@ -195,7 +195,7 @@ function EditSubmit ( selectedform )
 				<hr width="65%" align="center"><br />
 
 				<cfform action="changePassword.cfm?lang=#lang#" method="post" id="changePassForm">
-						<table align="center" style="width:81%;">
+						<table style="width:81%;">
 						<tr>
 							<td colspan="2"><strong>Change Password:</strong></td>
 						</tr>

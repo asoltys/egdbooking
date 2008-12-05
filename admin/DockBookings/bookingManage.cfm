@@ -142,7 +142,7 @@ function EditSubmit ( selectedform )
 				<p>Please enter a range of dates for which you would like to see the bookings:</p>
 				<form action="bookingManage.cfm?lang=#lang#" method="get" id="dateSelect">
 					<input type="hidden" name="lang" value="<cfoutput>#lang#</cfoutput>" />
-					<table align="center" style="width: 100%;" >
+					<table style="width: 100%;" >
 						<tr>
 							<td id="Startdate">
 								<label for="start">Start Date:</label>

@@ -129,7 +129,7 @@ function EditSubmit ( selectedform )
 					<cfoutput>
 					<cfform action="editCompany_action.cfm?lang=#lang#" method="post" id="editCompanyForm" onsubmit="if(!checkFilledIn('editCompanyForm')) { return false;
 	}">
-					<table align="center">
+					<table>
 						<tr>
 							<td id="companyName_Header"><label for="name">Company Name:</label></td>
 							<td headers="companyName_Header"><cfinput name="name" id="name" type="text" size="40" maxlength="75" required="yes" value="#Variables.name#" message="Please enter the company name." /></td>
