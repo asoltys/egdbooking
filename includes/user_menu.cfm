@@ -60,6 +60,7 @@
 		<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton">#language.BookingHomeButton#</a>
 		<a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang##datetoken#" class="textbutton">#language.DrydockCalButton#</a>
 		<a href="#RootDir#comm/calend-jet.cfm?lang=#lang##datetoken#" class="textbutton">#language.JettyCalButton#</a>
+		<a href="#RootDir#admin/menu.cfm?lang=#lang##datetoken#" class="textbutton">Admin</a>
 		<div style="height: 5px; ">&nbsp;</div>
 
 		<cfif #Session.ReadOnly# EQ "1"><cfelse>
