@@ -20,7 +20,7 @@
 	<cfset language.login = "Ouvrir la session">
 	<cfset language.description ="Page d'ouverture de session pour la demande de r&eacute;servation.">
 	<cfset language.browser = "Veuillez v&eacute;rifier que votre navigateur Web r&eacute;pond aux exigences suivantes avant de continuer&nbsp;:">
-	<cfset language.criteria = '<li><a href"http://browser.netscape.com/ns8/" rel="extenal">Netscape 4.7+</a> (<a href="http://browser.netscape.com/ns8/download/archive72x.jsp" rel="extenal">liens vers des versions ant&eacute;rieures</a>), <a href="http://www.microsoft.com/windows/ie/downloads/critical/ie6sp1/default.mspx" rel="extenal">Internet Explorer 5+</a>, ou <a href="http://www.mozilla.org/products/firefox/" rel="extenal">Mozilla Firefox</a></li>'
+	<cfset language.criteria = '<li><a href="http://browser.netscape.com/ns8/" rel="extenal">Netscape 4.7+</a> (<a href="http://browser.netscape.com/ns8/download/archive72x.jsp" rel="extenal">liens vers des versions ant&eacute;rieures</a>), <a href="http://www.microsoft.com/windows/ie/downloads/critical/ie6sp1/default.mspx" rel="extenal">Internet Explorer 5+</a>, ou <a href="http://www.mozilla.org/products/firefox/" rel="extenal">Mozilla Firefox</a></li>'
 		<!---& '<li>Permet le chiffrement de 128 bits du JavaScript</li>'--->
 		& '<li>JavaScript activ&eacute;</li>'
 		& '<li>T&eacute;moins activ&eacute;s</li>'
