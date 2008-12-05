@@ -66,7 +66,7 @@
 								<td><label for="email">#language.Email#:</label>&nbsp;&nbsp;<cfinput type="Text" name="email" id="email" size="30" validate="regular_expression" pattern=".+@.+..+"  message="#language.emailError#" /></td>
 							</tr>
 							<tr>
-								<td align="right"><input type="submit" value="#language.Submit#" class="textbutton" />
+								<td align="right"><input type="submit" value="#language.Submit#" class="textbutton" /></td>
 							</tr>
 						</table>
 					</cfform>
