@@ -71,10 +71,12 @@ table.calendar td {
 	text-align: left;
 	vertical-align: top;
 	width: 14%;
-  font-size: 10px;
+  font-size: 11px;
 }
 table.calendar a {
-  line-height: 14px;
+  display: block;
+  padding: 3px 0px 3px 0px;
+  text-align: center;
 }
 
 /* These are smallified version of the calendar table for
@@ -144,10 +146,15 @@ td[headers='section'], th[headers='section2'], th[headers='section3'] {
    otherwise div.center has a definition for class A,
    which renders the links in the calendar all the same
    uninformative colouration. */
-div.center .confirmed, div.center a.confirmed, div.center a.confirmed:visited, div.center a.confirmed:hover {
-	border : none;
-	color: #ddd;
+div.center .confirmed {
+	border: none;
+	color: #990000;
 }
+div.center a.confirmed, div.center a.confirmed:visited, div.center a.confirmed:hover {
+  color: #eee;
+  text-decoration: none;
+}
+
 div.center .tentative, div.center a.tentative, div.center a.tentative:visited, div.center a.tentative:hover {
 	border: none;
 	color: #0033CC;
