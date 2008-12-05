@@ -123,7 +123,7 @@
 					</tr>
 
 					<tr>
-						<td headers="checkHeader"><input name="other" type="checkbox" <cfif isDefined("url.bookingID")><cfif getForm.other EQ 1>checked="true"</cfif></cfif> disabled="disabled" /></td>
+						<td headers="checkHeader"><input id="other" name="other" type="checkbox" <cfif isDefined("url.bookingID")><cfif getForm.other EQ 1>checked="true"</cfif></cfif> disabled="disabled" /></td>
 						<td headers="itemHeader">&nbsp;</td>
 						<td headers="serviceHeader">
 							<table>

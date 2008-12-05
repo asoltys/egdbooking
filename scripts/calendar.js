@@ -327,14 +327,10 @@ function getDateString(dateVal)
   switch (dateFormat) {
     case "dmy" :
       return dayString + dateSeparator + monthString + dateSeparator + dateVal.getFullYear();
-    break;
     case "ymd" :
       return dateVal.getFullYear() + dateSeparator + monthString + dateSeparator + dayString;
-    break
-    case "mdy" :
     default :
       return monthString + dateSeparator + dayString + dateSeparator + dateVal.getFullYear();
-    break;
   }
 }
 
@@ -362,7 +358,6 @@ function getFieldDate(dateString)
           m = parseInt(dArray[1], 10) - 1;
           y = parseInt(dArray[0], 10);
         break;
-        case "mdy" :
         default :
           d = parseInt(dArray[1], 10);
           m = parseInt(dArray[0], 10) - 1;
@@ -498,10 +493,13 @@ function adjustiFrame(pickerDiv, iFrameDiv)
       document.body.appendChild(newNode);
     }
 
-    if (!pickerDiv)
+    if (!pickerDiv) {
       pickerDiv = document.getElementById(datePickerDivID);
-    if (!iFrameDiv)
+    }
+
+    if (!iFrameDiv) {
       iFrameDiv = document.getElementById(iFrameDivID);
+    }
 
     try {
       iFrameDiv.style.position = "absolute";
