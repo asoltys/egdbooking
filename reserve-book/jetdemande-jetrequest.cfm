@@ -152,13 +152,13 @@
 
 						<label for="StartDate">#language.StartDate#:</label>
 						<input id="StartDate" name="startDate" type="text" class="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> #language.dateform#
-						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
+						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="calendar" width="25px" height="17px" />
 						<br />
 
 
 						<label for="EndDate">#language.EndDate#:</label>
 						<input id="EndDate" name="endDate" type="text" class="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> #language.dateform#
-						<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
+						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="calendar" width="25px" height="17px" />
 						<br />
 
 						<label for="status">#language.requestedStatus#:</label>

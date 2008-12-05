@@ -107,7 +107,7 @@
 				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the available services for a booking and allows the user to select the desired services.">
 				<cfoutput>
 					<tr>
-						<th class="feesformheader" id="checkHeader" style="width:5%;">&nbsp;</th>
+						<th class="feesformheader" id="checkHeader" style="width:5%;"><label for="other">&nbsp;</label></th>
 						<th class="feesformheader" id="itemHeader" style="width:4%;"><strong>#language.Item#</strong></th>
 						<th id="serviceHeader" class="feesformheader"><strong>#language.Services#</strong></th>
 						<th class="feesformheader" id="feeHeader" style="width:19%;"><strong>#language.Fees#</strong></th>

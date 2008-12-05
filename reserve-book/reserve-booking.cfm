@@ -302,7 +302,7 @@
 						<cfelse>
               <ul>
                 <cfloop query="getVessels">
-                  <li><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VesselID=#VesselID#">#Name#</a></li>
+                  <li><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VesselID=#VesselID#" title="#Name#" target="_self">#Name#</a></li>
                 </cfloop>
               </ul>
 						</cfif>
@@ -316,7 +316,7 @@
 					<p>#language.followingbooking#</p>
 					<div class="buttons">
 						<cfif #Session.ReadOnly# EQ "1"><cfelse>
-						<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton"><cfoutput>#language.requestBooking#</cfoutput></a>&nbsp;
+						<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton" target="_self" title="#language.requestBooking#">#language.requestBooking#</a>&nbsp;
 						</cfif>
 						<a href="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a>&nbsp;
 						<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton">#language.allBookings#</a><br /><br />
@@ -348,8 +348,8 @@
 										</cfif>
 									</td>
 									<td style="width:25%;">
-										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BookingID=#BookingID#">#language.editTariff#</a></div>
-										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BookingID=#BookingID#">#language.viewTariff#</a></div></cfif>
+										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BookingID=#BookingID#" target="_self" title="#language.editTariff#">#language.editTariff#</a></div>
+										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BookingID=#BookingID#" target="_self" title="#language.viewTariff#">#language.viewTariff#</a></div></cfif>
 									</td>
 								</tr>
 								<tr class="#rowClass#"><td colspan="3">
@@ -486,7 +486,7 @@
 
 					<div class="buttons">
 						<cfif #Session.ReadOnly# EQ "1"><cfelse>
-						<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton"><cfoutput>#language.requestBooking#</cfoutput></a>&nbsp;
+						<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton" target="_self" title="#language.requestBooking#">#language.requestBooking#</a>&nbsp;
 						</cfif>
 						<a href="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a>&nbsp;
 						<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton">#language.allBookings#</a>

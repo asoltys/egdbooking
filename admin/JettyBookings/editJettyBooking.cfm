@@ -234,14 +234,14 @@
 						<td id="startdate"><label for="start">Start Date:</label></td>
 						<td headers="startdate">
 							<cfinput type="text" name="startDate" message="Please enter a start date." validate="date" required="yes" class="startDate" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
-							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
+							<img src="#RootDir#images/calendar.gif" alt="Calendar" class="calendar" width="25px" height="17px" />
 						</td>
 					</tr>
 					<tr>
 						<td id="enddate"><label for="end">End Date:</label></td>
 						<td headers="enddate">
 							<cfinput type="text" name="endDate" message="Please enter an end date." validate="date" required="yes" class="endDate" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10"> <font class="light" />#language.dateform#</font>
-							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
+							<img src="#RootDir#images/calendar.gif" alt="Calendar" class="calendar" width="25px" height="17px" />
 						</td>
 					</tr>
 					<tr>
@@ -251,7 +251,7 @@
 								<cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" />
 								<cfinput name="bookingTime" type="text" value="#TimeFormat(Variables.TheBookingTime, 'HH:mm:ss')#" size="5" maxlength="8" required="yes" message="Please enter a valid booking time." validate="time" />
 							</cfoutput>
-							<img src="#RootDir#images/calendar.gif" alt="" class="calendar" />
+							<img src="#RootDir#images/calendar.gif" alt="Calendar" class="calendar" width="25px" height="17px" />
 						</td>
 					</tr>
 					<tr>

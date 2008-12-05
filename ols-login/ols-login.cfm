@@ -111,7 +111,8 @@
 								<td align="right"><input type="submit" name="submitForm" value="#language.Login#" class="textbutton" /></td>
 							</tr>
 						</table>
-						<div style="text-align:center;">#language.Remember#
+						<div style="text-align:center;">
+								<label for="remember">#language.Remember#</label>
 								<input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked="true"</CFIF> />
 						</div>
 					</form>

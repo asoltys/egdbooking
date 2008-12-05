@@ -116,7 +116,7 @@
 				<table summary="#language.tablesummary#">
 				<cfoutput>
 					<tr>
-						<th id="checkHeader" style="width:5%;">&nbsp;</th>
+						<th id="checkHeader" style="width:5%;"><label for="other">&nbsp;</label></th>
 						<th id="itemHeader" style="width:4%;"><strong>#language.Item#</strong></th>
 						<th id="serviceHeader" class="feesformheader"><strong>#language.Services#</strong></th>
 						<th id="feeHeader" style="width:19%;"><strong>#language.Fees#</strong></th>

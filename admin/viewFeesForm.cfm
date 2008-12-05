@@ -45,7 +45,7 @@
 			<cfoutput>
 			<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the selected services for the booking.">
 				<tr>
-					<th class="feesformheader" id="checkHeader" style="width:5%;">&nbsp;</th>
+					<th class="feesformheader" id="checkHeader" style="width:5%;"><label for="other">&nbsp;</label></th>
 					<th class="feesformheader" id="itemHeader" style="width:4%;"><strong>Item</strong></th>
 					<th id="serviceHeader" class="feesformheader"><strong>Services and Facilities</strong></th>
 					<th class="feesformheader" id="feeHeader" style="width:19%;"><strong>Fees</strong></th>
