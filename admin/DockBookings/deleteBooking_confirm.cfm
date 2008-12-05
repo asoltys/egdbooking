@@ -91,7 +91,7 @@
 
 					<input type="hidden" name="BookingID" value="<cfoutput>#Variables.BookingID#</cfoutput>" />
 					<cfoutput query="getBooking">
-					<table align="center" style="padding-top:10px;padding-bottom:10px;padding-left:30px;" style="width:70%;">
+					<table style="padding-top:10px;padding-bottom:10px;padding-left:30px;" style="width:70%;">
 						<tr>
 							<td id="Company" valign="top" style="width:25%;" align="left">Company:</td>
 							<td headers="Company" style="width:75%;">#companyName#</td>

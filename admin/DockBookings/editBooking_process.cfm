@@ -203,7 +203,7 @@ function EditSubmit ( selectedform )
 			<cfset Variables.EndDate = #CreateODBCDate(Variables.EndDate)#>
 
 			<p>Please confirm the following information.</p>
-			<cfform action="editBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
+			<cfform action="editBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" id="bookingreq" preservedata="Yes">
 			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 			<div style="font-weight:bold;">Booking:</div>
 			<table style="width:100%; padding-left:15px;" align="center" >

@@ -188,7 +188,7 @@ function EditSubmit ( selectedform )
 						<cfinclude template="#RootDir#includes/getStructure.cfm">
 					</cfif>
 
-					<cfif lang EQ 'e'><table align="center" width="85%"><cfelse><table align="center" style="width:100%;"></cfif>
+					<cfif lang EQ 'e'><table width="85%"><cfelse><table style="width:100%;"></cfif>
 							<tr>
 								<td colspan="3">#language.yourCompanies#: </td>
 							</tr>
@@ -252,7 +252,7 @@ function EditSubmit ( selectedform )
 					</cfif>
 
 					<cfform action="entrpdemande-comprequest.cfm?lang=#lang#&companies=#companies#&info=#Variables.info#" id="addUserCompanyForm" method="post">
-						<cfif lang EQ 'e'><table align="center" width="88%"><cfelse><table align="center" style="width:95%;"></cfif>
+						<cfif lang EQ 'e'><table width="88%"><cfelse><table style="width:95%;"></cfif>
 						<tr>
 							<td valign="top"><label for="companies">#language.AddCompany#:</label></td>
 							<td>

@@ -83,7 +83,7 @@
 					<p><div style="text-align:center;">Are you sure you want to <cfoutput>#variables.action#</cfoutput> the following booking?</div></p>
 					<input type="hidden" name="BookingID" value="<cfoutput>#variables.BookingID#</cfoutput>" />
 					<cfoutput query="getBooking">
-					<table align="center" style="padding-top:10px;" style="width:70%;">
+					<table style="padding-top:10px;" style="width:70%;">
 						<tr>
 							<td id="Vessel" valign="top" style="width:25%;" align="left">Vessel:</td>
 							<td header="Vessel">#vesselName#</td>

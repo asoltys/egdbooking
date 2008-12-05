@@ -143,11 +143,11 @@ function EditSubmit ( selectedform )
 					<h2>#language.EditProfile#:</h2>
 					<form action="#RootDir#reserve-book/profilmod-profileedit_action.cfm?lang=#lang#" id="editUserForm" method="post">
 						<fieldset>
-							<label for="firstName">#language.FirstName#:</label>
-							<input name="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40"  />
+							<label for="firstname">#language.FirstName#:</label>
+							<input name="firstname" id="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40"  />
 
-							<label for="lastName">#language.LastName#:</label>
-							<input name="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40"  />
+							<label for="lastname">#language.LastName#:</label>
+							<input name="lastname" id="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40"  />
 
 							<label>#language.Email#:</label>
 							<p>#variables.email#</p>

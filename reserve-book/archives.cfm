@@ -134,8 +134,8 @@
 										<cfelseif status EQ "T"><i>#language.tentative#</i></cfif>
 									</td>
 									<td style="width:25%;">
-										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BookingID=#BookingID#&amp;referrer=#variables.referrer#&amp;CompanyID=#url.companyID#" target="_self" title="#language.editTariff#">#language.editTariff#</a></div>
-										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BookingID=#BookingID#&amp;referrer=#variables.referrer#&amp;CompanyID=#url.companyID#" target="_self" title="#language.viewTariff#">#language.viewTariff#</a></div></cfif>
+										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BookingID=#BookingID#&amp;referrer=#variables.referrer#&amp;CompanyID=#url.companyID#" title="#language.editTariff#">#language.editTariff#</a></div>
+										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BookingID=#BookingID#&amp;referrer=#variables.referrer#&amp;CompanyID=#url.companyID#" title="#language.viewTariff#">#language.viewTariff#</a></div></cfif>
 									</td>
 								</tr>
 								<tr class="#rowClass#"><td colspan="3">

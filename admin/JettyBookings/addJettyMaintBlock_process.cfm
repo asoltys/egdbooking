@@ -197,7 +197,7 @@ function EditSubmit ( selectedform )
 					<p>Please confirm the following maintenance block information.</p>
 				</CFIF>
 
-				<cfform action="addJettyMaintBlock_action.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
+				<cfform action="addJettyMaintBlock_action.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" method="post" id="bookingreq" preservedata="Yes">
 				<div style="font-weight:bold;padding-left:85px">Booking:</div>
 				<table style="width:100%; padding-left:100px;" align="center" >
 					<tr>

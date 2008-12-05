@@ -150,7 +150,7 @@
 
 			</cfif>
 
-			<cfform action="addBooking_action.cfm?#urltoken#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
+			<cfform action="addBooking_action.cfm?#urltoken#" method="post" id="bookingreq" preservedata="Yes">
 			<br />
 			<div style="font-weight:bold;">New Booking:</div>
 			<table style="width:100%; padding-left:20px;" align="center">

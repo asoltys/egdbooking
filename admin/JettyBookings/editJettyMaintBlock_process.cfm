@@ -204,7 +204,7 @@ function EditSubmit ( selectedform )
 					<p>Please confirm the following maintenance block information.</p>
 				</CFIF>
 
-				<cfform action="editJettyMaintBlock_action.cfm?#urltoken#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
+				<cfform action="editJettyMaintBlock_action.cfm?#urltoken#" method="post" id="bookingreq" preservedata="Yes">
 				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 
 				<table style="width:80%;" align="center">

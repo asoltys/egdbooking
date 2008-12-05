@@ -182,7 +182,7 @@
 					</form>
 				</cfoutput>
 
-				<cfform action="editBooking_process.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" method="post" enablecab="No" id="editBookingForm" preservedata="Yes">
+				<cfform action="editBooking_process.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" method="post" id="editBookingForm" preservedata="Yes">
 				<cfoutput>
 				<input type="hidden" name="BookingID" value="#Variables.BookingID#" />
 

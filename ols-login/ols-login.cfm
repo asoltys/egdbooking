@@ -90,9 +90,6 @@
 						#language.criteria#
 					</ul>
 					<p>#language.displayproblem#</p>
-					<noscript>
-					#language.jserror#
-					</noscript>
 
 					<h2>#language.login#</h2>
 					<!-- Display the login form and pass contents to login_action.cfm -->

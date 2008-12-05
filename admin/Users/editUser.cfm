@@ -115,7 +115,7 @@ function EditSubmit ( selectedform )
 							<td colspan="2"><strong>Edit Profile:</strong></td>
 						</tr>
 						<tr>
-							<td id="First"><label for="firstName">First Name:</label></td>
+							<td id="First"><label for="firstname">First Name:</label></td>
 							<td headers="First"><cfinput name="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40" required="yes" id="firstName" message="Please enter a first name." /></td>
 						</tr>
 						<tr>

@@ -92,7 +92,7 @@ var params = {
 
 			<cfoutput>#Language.ScreenMessage#</cfoutput>
 
-			<cfform action="projectCalendar.cfm?lang=#lang#" method="post" enablecab="No" id="procal" preservedata="Yes">
+			<cfform action="projectCalendar.cfm?lang=#lang#" method="post" id="procal" preservedata="Yes">
 			<cfoutput>
 			<table style="width:60%;">
 				<tr>

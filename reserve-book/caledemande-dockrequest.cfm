@@ -120,7 +120,7 @@
 
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
-				<form action="#RootDir#reserve-book/caledemande-dockrequest_confirm.cfm?lang=#lang#" method="post" enablecab="No" id="booking" preservedata="Yes">
+				<form action="#RootDir#reserve-book/caledemande-dockrequest_confirm.cfm?lang=#lang#" method="post" id="booking">
 					<fieldset>
 						<label>#language.Agent#:</label>
 						<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
@@ -175,7 +175,7 @@
 
 				<cfoutput>
 				<p>#language.daysToBook#  #language.dateInclusive#</p>
-				<form action="#RootDir#reserve-book/caledemande-dockrequest_confirm2.cfm?lang=#lang#" method="post" enablecab="No" id="bookingByRange" preservedata="Yes">
+				<form action="#RootDir#reserve-book/caledemande-dockrequest_confirm2.cfm?lang=#lang#" method="post" id="bookingByRange">
 					<fieldset>
 						<label>#language.Company#:</label>
 						<CF_TwoSelectsRelated
@@ -209,7 +209,7 @@
 							<br />
 
 							<label for="NumDays">#language.NumDays#:</label>
-							<input id="NumDays" type="Text" name="numDays" value="#Variables.numDays#"  />
+							<input id="NumDays" type="text" name="numDays" value="#Variables.numDays#"  />
 
 						</fieldset>
 

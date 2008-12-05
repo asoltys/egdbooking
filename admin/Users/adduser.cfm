@@ -66,8 +66,8 @@
 				<cfform action="#Variables.action#" id="addUserForm" method="post">
 					<table>
 						<tr>
-							<td id="First"><label for="firstName">First Name:</label></td>
-							<td headers="First"><cfinput name="firstName" id="firstName" type="text" value="#variables.firstName#" size="25" maxlength="40" required="yes" message="Please enter a first name." /></td>
+							<td id="First"><label for="firstname">First Name:</label></td>
+							<td headers="First"><cfinput name="firstname" id="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40" required="yes" message="Please enter a first name." /></td>
 						</tr>
 						<tr>
 							<td id="Last"><label for="lastname">Last Name:</label></td>

@@ -142,7 +142,7 @@
 				<cfoutput>
 				<table class="basic" id="tariffs" summary="#language.tableSummary#">
 					<tr>
-						<th id="checkHeader"><label for="other">&nbsp;</label></th>
+						<th id="checkHeader"><label for="otherCheck">&nbsp;</label></th>
 						<th id="itemHeader">#language.Item#</th>
 						<th id="serviceHeader">#language.Services#</th>
 						<th id="feeHeader">#language.Fees#</th>

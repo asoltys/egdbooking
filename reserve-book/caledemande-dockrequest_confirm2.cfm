@@ -202,7 +202,7 @@
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 
 				<cfoutput>
-				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action2.cfm?lang=#lang#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action2.cfm?lang=#lang#" method="post" id="bookingreq" preservedata="Yes">
 					<p>#language.bookingFound# #LSDateFormat(Variables.FoundStartDate, 'mmm d, yyyy')# - #LSDateFormat(Variables.FoundEndDate, 'mmm d, yyyy')#.</p>
 					<label>#language.Agent#:</label>
 					<p>

@@ -52,7 +52,7 @@
 				</tr>
 
 				<tr>
-					<td headers="checkHeader" align="right" valign="top"><input name="other" type="checkbox" disabled="disabled" /></td>
+					<td headers="checkHeader" align="right" valign="top"><input id="other" name="other" type="checkbox" disabled="disabled" /></td>
 					<td headers="itemHeader" align="center" valign="top">&nbsp;</td>
 					<td headers="serviceHeader" align="left" valign="top">
 						<table>

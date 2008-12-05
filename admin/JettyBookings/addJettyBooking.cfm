@@ -139,7 +139,7 @@ function EditSubmit ( selectedform )
 					</cfquery>
 
 
-					<table align="center" style="padding-left:10px;" style="width:100%;">
+					<table style="padding-left:10px;" style="width:100%;">
 						<tr>
 							<cfquery name="getCompanyName" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 								SELECT Name

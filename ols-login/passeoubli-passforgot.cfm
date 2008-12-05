@@ -63,7 +63,7 @@
 					<form action="passeoubli-passforgot_action.cfm?lang=#lang#" id="forgotForm">
 						<table>
 							<tr>
-								<td><label for="email">#language.Email#:</label>&nbsp;&nbsp;<input type="Text" name="email" id="email" size="30" /></td>
+								<td><label for="email">#language.Email#:</label>&nbsp;&nbsp;<input type="text" name="email" id="email" size="30" /></td>
 							</tr>
 							<tr>
 								<td align="right"><input type="submit" value="#language.Submit#" class="textbutton" /></td>

@@ -124,7 +124,7 @@ function EditSubmit ( selectedform )
 						ORDER BY lastname, firstname
 					</cfquery>
 
-					<table align="center">
+					<table>
 						<tr>
 							<cfquery name="getCompanyName" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 								SELECT Name

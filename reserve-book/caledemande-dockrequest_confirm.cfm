@@ -195,7 +195,7 @@
 						#language.bookingAvailable#
 					</cfif>
 				</p>
-				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action.cfm?lang=#lang#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action.cfm?lang=#lang#" method="post" id="bookingreq" preservedata="Yes">
 				<h2>#language.new#:</h2>
 					<fieldset>
 						<label>#language.vessel#:</label>

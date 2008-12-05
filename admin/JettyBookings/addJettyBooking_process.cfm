@@ -210,7 +210,7 @@ function EditSubmit ( selectedform )
 				<cfset Variables.EndDate = #CreateODBCDate(Variables.EndDate)#>
 
 				<p>Please confirm the following maintenance block information.</p>
-				<cfform action="addJettyBooking_action.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
+				<cfform action="addJettyBooking_action.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" method="post" id="bookingreq" preservedata="Yes">
 				<div style="font-weight:bold;">Booking:</div>
 				<table style="width:100%;" align="center">
 					<tr>

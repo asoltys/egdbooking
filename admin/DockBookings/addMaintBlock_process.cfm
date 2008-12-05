@@ -218,7 +218,7 @@ function EditSubmit ( selectedform )
 				<p>Please confirm the following maintenance block information.</p>
 			</CFIF>
 
-			<cfform action="addMaintBlock_action.cfm?#urltoken#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
+			<cfform action="addMaintBlock_action.cfm?#urltoken#" method="post" id="bookingreq" preservedata="Yes">
 
 			<table style="width:80%;" align="center">
 				<tr><td align="left"><div style="font-weight:bold;">Booking:</div></td></tr>

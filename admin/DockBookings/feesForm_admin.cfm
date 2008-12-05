@@ -99,7 +99,7 @@ function EditSubmit ( selectedform )
 				<form id="serviceSelect" action="feesForm_admin_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#">
 				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the selected services for the booking and allows the administrator to edit the information.">
 					<tr>
-						<th class="feesformheader" id="checkHeader"><label for="other">&nbsp;</label></th>
+						<th class="feesformheader" id="checkHeader"><label for="otherCheck">&nbsp;</label></th>
 						<th class="feesformheader" id="itemHeader"><strong>Item</strong></th>
 						<th id="serviceHeader" class="feesformheader"><strong>Services and Facilities</strong></th>
 						<th class="feesformheader" id="feeHeader"><strong>Fees</strong></th>

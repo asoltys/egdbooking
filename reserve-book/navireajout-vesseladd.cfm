@@ -87,18 +87,19 @@
 
 				<form action="#RootDir#reserve-book/navireajout-vesseladd_confirm.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" method="post" id="addVessel">
 					<fieldset>
-						<label for="companyID">#language.CompanyName#:</label>
+						
 						<cfif getCompanies.recordCount GT 1>
+							<label for="companyID">#language.CompanyName#:</label>
 							<select name="companyID" id="companyID" query="getCompanies" display="Name" value="companyID" selected="#variables.companyID#" />
 						<cfelse>
 							<cfoutput>#getCompanies.Name#</cfoutput>
-							<cfoutput><input type="hidden" name="companyID" value="#getCompanies.companyID#" /></cfoutput>
+							<cfoutput><input type="hidden" name="companyID" value="#getCompanies.companyID#" id="companyID" /></cfoutput>
 						</cfif>
 						<br />
 
 
 						<label for="name">#language.vesselName#:</label>
-						<input name="name" id="name" type="text" value="#variables.name#" size="35" maxlength="100"   />
+						<input name="name" id="name" type="text" value="#variables.name#" size="35" maxlength="100" />
 						<br />
 
 						<label for="LloydsID" id="lloyds_id">#language.LloydsID#:</label>
@@ -106,23 +107,23 @@
 						<br />
 
 						<label for="length">#language.Length#:</label>
-						<input name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8"   >#language.Max#: #Variables.MaxLength# m</span>
+						<input name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" />#language.Max#: #Variables.MaxLength# m
 						<br />
 
 						<label for="width">#language.Width#:</label>
-						<input name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8"   >#language.Max#: #Variables.MaxWidth# m</span>
+						<input name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" />#language.Max#: #Variables.MaxWidth# m
 						<br />
 
 						<label for="blocksetuptime" id="block_setup_time">#language.BlockSetup# #language.days#:</label>
-						<input name="blocksetuptime" id="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2"    />
+						<input name="blocksetuptime" id="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" />
 						<br />
 
 						<label for="blockteardowntime" id="block_teardown_time">#language.BlockTeardown# #language.days#:</label>
-						<input name="blockteardowntime" id="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2"    />
+						<input name="blockteardowntime" id="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" />
 						<br />
 
 						<label for="tonnage">#language.Tonnage#:</label>
-						<input name="tonnage" id="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8"    />
+						<input name="tonnage" id="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" />
 						<br />
 
 						<label for="Anonymous">#language.anonymous#:</label>

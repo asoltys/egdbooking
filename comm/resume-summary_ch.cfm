@@ -94,7 +94,7 @@
 
 				#Language.ScreenMessage#
 
-				<cfform action="resume-summary.cfm?lang=#lang#" method="post" enablecab="No" id="bookSum" preservedata="Yes">
+				<cfform action="resume-summary.cfm?lang=#lang#" method="post" id="bookSum" preservedata="Yes">
 					<fieldset>
 						<label for="start">&nbsp; #language.fromDate#</label>
 						<cfinput id="start" type="text" name="startDate" class="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" validate="date" message="#language.invalidfromDate#" /> #language.dateform#

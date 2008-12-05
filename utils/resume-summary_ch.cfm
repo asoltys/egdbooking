@@ -86,7 +86,7 @@
 				<cfoutput>
 				#Language.ScreenMessage#
 
-				<form action="resume-summary.cfm?lang=#lang#" method="post" enablecab="No" id="bookSum" preservedata="Yes">
+				<form action="resume-summary.cfm?lang=#lang#" method="post" id="bookSum">
 					<table style="width:100%;">
 						<tr>
 							<td id="startCell"><label for="start">&nbsp; #language.fromDate#</label></td>

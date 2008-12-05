@@ -122,7 +122,7 @@
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 
-				<form action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#&amp;companyID=#variables.companyID#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
+				<form action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#&amp;companyID=#variables.companyID#" method="post" id="bookingreq">
 					<fieldset>
 						<label>#language.Agent#:</label>
 						<p>
@@ -168,8 +168,8 @@
 						</select>
 						<br />
 
-						<label for="jettySelect">#language.RequestedJetty#:</label>
-						<select name="jetty" >
+						<label for="jetty">#language.RequestedJetty#:</label>
+						<select name="jetty" id="jetty">
 							<option value="north" <cfif Variables.Jetty EQ "north">selected="selected"</cfif>>#language.NorthLandingWharf#</option>
 							<option value="south" <cfif Variables.Jetty EQ "south">selected="selected"</cfif>>#language.SouthJetty#</option>
 						</select>

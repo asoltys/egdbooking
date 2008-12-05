@@ -205,7 +205,7 @@
 
 				<p>#language.bookingAvailable#</p>
 
-				<cfform action="#RootDir#reserve-book/jetdemande-jetrequest_action.cfm?lang=#lang#" method="post" enablecab="No" id="bookingreq" preservedata="Yes">
+				<cfform action="#RootDir#reserve-book/jetdemande-jetrequest_action.cfm?lang=#lang#" method="post" id="bookingreq" preservedata="Yes">
 					<fieldset>
 						<label>#language.Agent#:</label>
 						<p>
