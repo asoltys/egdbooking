@@ -303,7 +303,7 @@ a month.
 function getButtonCode(dateFieldId, dateVal, adjust, label)
 {
   var newMonth = (dateVal.getMonth () + adjust) % 12;
-  var newYear = dateVal.getFullYear() + parseInt((dateVal.getMonth() + adjust, 10) / 12);
+  var newYear = dateVal.getFullYear() + parseInt((dateVal.getMonth() + adjust) / 12, 10);
   if (newMonth < 0) {
     newMonth += 12;
     newYear += -1;

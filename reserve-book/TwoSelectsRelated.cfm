@@ -52,8 +52,6 @@
 		// loosely adapted from Nick Heinle's code originally at http://webreference.com/javascript/960902/select_boxes.html
 		// Modified to use prototype by Lois Chan 2008-11-21
 
-		var NewOpt, NewVal;
-
 		Event.observe(window, 'load', function() {
 			$('#Attributes.id1#').observe('change', function() { #FunctionName#; });
 		});

@@ -53,7 +53,7 @@
 		// Modified to use prototype by Lois Chan 2008-11-21
 
 		//var FirstArray = new Array;
-		var NewOpt = new Array;
+		NewOpt = new Array;
 
 		Event.observe(window, 'load', function() {
 			$('#Attributes.id1#').observe('change', function() { #FunctionName# });
