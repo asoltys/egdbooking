@@ -348,7 +348,7 @@
 										</cfif>
 									</td>
 									<td style="width:25%;">
-										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BookingID=#BookingID#" title="#language.editTariff# #Name#">#language.editTariff#</a></div>
+										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BookingID=#BookingID#" title="#language.editTariff# #Name# #BookingID#">#language.editTariff#</a></div>
 										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BookingID=#BookingID#" title="#language.viewTariff# #Name# #BookingId#">#language.viewTariff#</a></div></cfif>
 									</td>
 								</tr>
