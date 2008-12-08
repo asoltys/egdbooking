@@ -53,33 +53,33 @@
 <body>
 <div class="mcontainter"><div class="core">
 	<!-- DEBUT DE L'EN-TETE PCIM | FIP HEADER BEGINS -->
-	<div class="fip"><img src="<cfoutput>#CLF_URL#</cfoutput>/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada | Travaux publics et Services gouvernementaux Canada" /></div>
+	<div class="fip"><img src="<cfoutput>#CLF_URL#</cfoutput>/clf20/images/sig-fra.gif" width="364" height="33" alt="Public Works and Government Services Canada | Travaux publics et Services gouvernementaux Canada" /></div>
 	<!-- FIN DE L'EN-TETE PCIM | FIP HEADER ENDS -->
 
 	<!-- DEBUT DU CONTENU | CONTENT BEGINS --> 
 	<!-- DEBUT DE L'ESPACE DE MESSAGE | MESSAGE SPACE BEGINS -->
 	<div class="msgarea">
-		<h1>Welcome | <span lang="fr" xml:lang="fr">Bienvenue</span></h1>
+		<h1><span lang="fr" xml:lang="fr">Bienvenue</span> | Welcome</h1>
 	</div>
 	<div class="headcontainer">
-		<!-- DEBUT DU NOM DE L'INSTITUTION ANGLAIS | ENGLISH INSTITUTION NAME BEGINS -->
-		<div class="headtitleLft">Esquimalt Graving Dock</div>
-		<!-- DEBUT DU NOM DE L'INSTITUTION ANGLAIS | ENGLISH INSTITUTION NAME ENDS -->
-
 		<!-- DEBUT DU NOM DE L'INSTITUTION FRANCAIS | FRENCH INSTITUTION NAMEE BEGINS -->
-		<div class="headtitleRgt" lang="fr" xml:lang="fr">Cale s&egrave;che d'Esquimalt</div>
+		<div class="headtitleLft" lang="fr" xml:lang="fr">Cale s&egrave;che d'Esquimalt</div>
 		<!-- DEBUT DU NOM DE L'INSTITUTION FRANCAIS | FRENCH INSTITUTION NAME ENDS -->
+		
+		<!-- DEBUT DU NOM DE L'INSTITUTION ANGLAIS | ENGLISH INSTITUTION NAME BEGINS -->
+		<div class="headtitleRgt">Esquimalt Graving Dock</div>
+		<!-- DEBUT DU NOM DE L'INSTITUTION ANGLAIS | ENGLISH INSTITUTION NAME ENDS -->
 	</div>
 	<!-- FIN DE L'ESPACE DE MESSAGE | MESSAGE SPACE ENDS -->
 
 	<div class="buttons">
-		<!-- DEBUT DU LIEN ANGLAIS | ENGLISH link BEGINS -->
-		<div class="lb"><div class="langbtn"><a href="reserve-book-eng.cfm">English</a></div></div>
-		<!-- FIN DU LIEN ANGLAIS | ENGLISH link ENDS -->
-
 		<!-- DEBUT DU LIEN FRANCAIS | FRENCH link BEGINS -->
 		<div class="lb"><div class="langbtn"><a href="reserve-book-fra.cfm" lang="fr" xml:lang="fr">Fran&ccedil;ais</a></div></div>
 		<!-- FIN DU LIEN FRANCAIS | FRENCH link ENDS -->
+		
+		<!-- DEBUT DU LIEN ANGLAIS | ENGLISH link BEGINS -->
+		<div class="lb"><div class="langbtn"><a href="reserve-book-eng.cfm">English</a></div></div>
+		<!-- FIN DU LIEN ANGLAIS | ENGLISH link ENDS -->
 	</div>
 	<div class="wm"><img src="<cfoutput>#CLF_URL#</cfoutput>/clf20/images/wmms.gif" alt="Symbol of the Government of Canada | Symbole du gouvernement du Canada" width="83" height="20" /></div>
 	<!-- FIN DU CONTENU | CONTENT ENDS -->
@@ -87,8 +87,8 @@
 	<!-- DEBUT DU PIED DE LA PAGE | FOOTER BEGINS --> 
 	<div class="imptext">
 		<div>
-			<div id="inlft"><a href="/comm/ai-in-eng.html">Important Notices</a></div>
-			<div id="inrgt"><a href="/comm/ai-in-fra.html" lang="fr" xml:lang="fr">Avis importants</a></div>
+			<div id="inlft"><a href="/comm/ai-in-fra.html" lang="fr" xml:lang="fr">Avis importants</a></div>
+			<div id="inrgt"><a href="/comm/ai-in-eng.html">Important Notices</a></div>
 		</div>
 	</div>
 	<!-- FIN DU PIED DE LA PAGE | FOOTER ENDS -->
