@@ -100,8 +100,8 @@
 				</ul>
 				<cfset emailSubject = "#getbooking.CompanyName# editing booking for #trim(getbooking.VesselName)# from #LSDateFormat(getbooking.StartDate, 'mmm d, yyyy')# to #LSDateFormat(getbooking.EndDate, 'mmm d, yyyy')#">
 				<p>
-					#language.phone#: (250) 363-3879  #language.or#  (250) 363-8056<br />
-					#language.fax#: (250) 363-8059<br />
+					#language.phone#: 250-363-3879  #language.or#  250-363-8056<br />
+					#language.fax#: 250-363-8059<br />
 					<cfif ListLen(#variables.adminEmail#) EQ 1>#language.emailAddress#:  <a href="mailto:#Variables.AdminEmail#?subject=#emailSubject#">#Variables.AdminEmail#</a>
 					<cfelse>
 					<table cellpadding="0" cellspacing="0">
