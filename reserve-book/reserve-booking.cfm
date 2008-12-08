@@ -337,7 +337,7 @@
 								</cfif>
 
 								<tr class="#rowClass#">
-									<td style="width:60%;"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#" title="#Name# #BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+									<td style="width:60%;"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#" title="#Name#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 									<td style="width:15%;">
 										<cfif status EQ "P"><i class="pending">#language.pending#</i>
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
@@ -349,7 +349,7 @@
 									</td>
 									<td style="width:25%;">
 										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BookingID=#BookingID#" title="#language.editTariff# #Name# #BookingID#">#language.editTariff#</a></div>
-										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BookingID=#BookingID#" title="#language.viewTariff# #Name# #BookingId#">#language.viewTariff#</a></div></cfif>
+										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BookingID=#BookingID#" title="#language.viewTariff# #Name#">#language.viewTariff#</a></div></cfif>
 									</td>
 								</tr>
 								<tr class="#rowClass#"><td colspan="3">
