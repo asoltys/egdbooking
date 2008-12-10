@@ -227,11 +227,11 @@ function EditSubmit ( selectedform )
 					</tr>
 					<tr>
 						<td align="left">Start Date:</td>
-						<td><input type="hidden" name="StartDate" value="<cfoutput>#Variables.StartDate#</cfoutput>)" /><cfoutput>#DateFormat(Variables.StartDate, 'mmm d, yyyy'")#</cfoutput></td>
+						<td><input type="hidden" name="StartDate" value="<cfoutput>#Variables.StartDate#</cfoutput>" /><cfoutput>#DateFormat(Variables.StartDate, 'mmm d, yyyy'")#</cfoutput></td>
 					</tr>
 					<tr>
 						<td align="left">End Date:</td>
-						<td><input type="hidden" name="EndDate" value="<cfoutput>#Variables.EndDate#</cfoutput>)" /><cfoutput>#DateFormat(Variables.EndDate, 'mmm d, yyyy'")#</cfoutput></td>
+						<td><input type="hidden" name="EndDate" value="<cfoutput>#Variables.EndDate#</cfoutput>" /><cfoutput>#DateFormat(Variables.EndDate, 'mmm d, yyyy'")#</cfoutput></td>
 					</tr>
 					<tr>
 						<td id="bookingDate" align="left">Booking Time:</td>
