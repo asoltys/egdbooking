@@ -129,7 +129,7 @@
 <cfparam name = "Variables.EndDate" default = "#CreateODBCDate(Form.EndDate)#">
 <cfparam name = "Variables.NorthJetty" default = "0">
 <cfparam name = "Variables.SouthJetty" default = "0">
-<cfparam name = "Variables.Status" default="pending">
+<cfparam name = "Variables.Status" default="P">
 
 <cfif IsDefined("Form.Jetty") AND form.Jetty EQ "north">
 	<cfset Variables.NorthJetty = 1>
