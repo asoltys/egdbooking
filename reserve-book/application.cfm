@@ -38,7 +38,7 @@
 <!--- The following allows the WPSS toolkits to bypass the login and validate the pages beyond --->
 
 <cfquery name="getErnieMaestrello" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-  SELECT UserID FROM Users WHERE deleted = 0 AND FirstName LIKE 'Ernie'
+  SELECT UserID FROM Users WHERE deleted = 0 AND FirstName LIKE 'Sample'
 </cfquery>
 
 <CFSET Session.LoggedIn = "1">
