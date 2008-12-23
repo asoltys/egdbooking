@@ -26,7 +26,7 @@
 		AND 	Deleted = '0'
 		AND	EXISTS (SELECT	*
 					FROM	UserCompanies
-					WHERE	UserCompanies.UserID = Users.UserID 
+					WHERE	UserCompanies.UID = Users.UID 
 					AND 	Approved = 1
 					AND		Deleted = 0)
 	</cfquery>
@@ -49,7 +49,7 @@
 			AND 	Deleted = '0'
 			AND	NOT EXISTS (SELECT	*
 							FROM	UserCompanies
-							WHERE	UserCompanies.UserID = Users.UserID
+							WHERE	UserCompanies.UID = Users.UID
 							AND 	Approved = 1
 							AND		Deleted = 0)
 		</cfquery>
@@ -113,7 +113,7 @@
 <!--- Set the session variables for the session --->
 <cflock timeout="60" throwontimeout="No" type="EXCLUSIVE" scope="SESSION">
 	<CFSCRIPT>
-	Session.UserID = Trim(GetUser.UserID);
+	Session.UID = Trim(GetUser.UID);
 	Session.FirstName = Trim(GetUser.Firstname);
 	Session.LastName = Trim(GetUser.LastName);
 	Session.EMail = Trim(GetUser.EMail);
@@ -121,9 +121,9 @@
 </cflock>
 
 <cfquery name="CheckAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Count(UserID) AS NumFound
+	SELECT	Count(UID) AS NumFound
 	FROM	Administrators
-	WHERE	UserID = '#GetUser.UserID#'
+	WHERE	UID = '#GetUser.UID#'
 </cfquery>
 
 <cfif CheckAdmin.NumFound GT 0>

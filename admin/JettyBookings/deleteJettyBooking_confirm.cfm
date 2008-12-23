@@ -1,10 +1,10 @@
-<cfif isDefined("form.bookingID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.BRID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
-<CFIF IsDefined('Form.BookingID')>
-	<CFSET Variables.BookingID = Form.BookingID>
-<CFELSEIF IsDefined('URL.BookingID')>
-	<CFSET Variables.BookingID = URL.BookingID>
+<CFIF IsDefined('Form.BRID')>
+	<CFSET Variables.BRID = Form.BRID>
+<CFELSEIF IsDefined('URL.BRID')>
+	<CFSET Variables.BRID = URL.BRID>
 <CFELSE>
 	<cflocation addtoken="no" url="#RootDir#admin/menu.cfm?lang=#lang#">
 </CFIF>
@@ -22,11 +22,11 @@
 			Users.LastName + ', ' + Users.FirstName AS UserName,
 			Companies.Name AS CompanyName, Jetties.NorthJetty, Jetties.SouthJetty,
 			Jetties.Status
-	FROM 	Bookings INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
-			INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-			INNER JOIN Users ON Bookings.UserID = Users.UserID
-			INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
-	WHERE	Bookings.BookingID = '#Variables.BookingID#'
+	FROM 	Bookings INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
+			INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+			INNER JOIN Users ON Bookings.UID = Users.UID
+			INNER JOIN Companies ON Vessels.CID = Companies.CID
+	WHERE	Bookings.BRID = '#Variables.BRID#'
 </cfquery>
 
 <cfif DateCompare(PacificNow, getBooking.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBooking.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1)>
@@ -81,7 +81,7 @@
 
 				<cfform action="deleteJettyBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" id="delBookingConfirm">
 					<p><div style="text-align:center;">Are you sure you want to <cfoutput>#variables.action#</cfoutput> the following booking?</div></p>
-					<input type="hidden" name="BookingID" value="<cfoutput>#variables.BookingID#</cfoutput>" />
+					<input type="hidden" name="BRID" value="<cfoutput>#variables.BRID#</cfoutput>" />
 					<cfoutput query="getBooking">
 					<table style="padding-top:10px;" style="width:70%;">
 						<tr>
@@ -131,7 +131,7 @@
 					<br />
 					<div style="text-align:center;">
 						<input type="submit" name="submitForm" class="textbutton" value="<cfoutput>#variables.action#</cfoutput> booking" />
-						<cfoutput><input type="button" onclick="javascript:self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue####variables.bookingID#'" value="Back" class="textbutton" /></cfoutput>
+						<cfoutput><input type="button" onclick="javascript:self.location.href='#returnTo#?#urltoken#&BRID=#variables.BRID##variables.dateValue####variables.BRID#'" value="Back" class="textbutton" /></cfoutput>
 					</div>
 
 				</cfform>

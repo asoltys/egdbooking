@@ -4,20 +4,20 @@
 	UPDATE 	Companies
 	SET		Approved = 1, 
 			Abbreviation = '#trim(form.abbrev)#'
-	WHERE 	CompanyID = '#Form.CompanyID#'
+	WHERE 	CID = '#Form.CID#'
 </cfquery>
 
 
 <!---<cfquery name="getCompanyAgents" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Email
-	FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-	WHERE	CompanyID = '#Form.CompanyID#'
+	FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+	WHERE	CID = '#Form.CID#'
 </cfquery>--->
 
 <!---<cfquery name="companyName" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name
 	FROM	Companies
-	WHERE	CompanyID = '#Form.CompanyID#'
+	WHERE	CID = '#Form.CID#'
 </cfquery>
 
 <cfoutput>

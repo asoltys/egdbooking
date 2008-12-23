@@ -48,11 +48,11 @@
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="companyVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	vesselID, vessels.Name AS VesselName, companies.companyID, companies.Name AS CompanyName
-		FROM 	Vessels INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
-				INNER JOIN UserCompanies ON Companies.CompanyID = UserCompanies.CompanyID
-				INNER JOIN Users ON UserCompanies.UserID = Users.UserID
-		WHERE 	Users.UserID = #session.UserID#
+		SELECT	VNID, vessels.Name AS VesselName, companies.CID, companies.Name AS CompanyName
+		FROM 	Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
+				INNER JOIN UserCompanies ON Companies.CID = UserCompanies.CID
+				INNER JOIN Users ON UserCompanies.UID = Users.UID
+		WHERE 	Users.UID = #session.UID#
 		AND		UserCompanies.Approved = 1
 		AND		UserCompanies.Deleted = 0
 		AND		Companies.Deleted = '0'
@@ -62,25 +62,25 @@
 	</cfquery>
 </cflock>
 
-<cfparam name="Variables.CompanyID" default="">
-<cfparam name="Variables.VesselID" default="">
+<cfparam name="Variables.CID" default="">
+<cfparam name="Variables.VNID" default="">
 <cfparam name="Variables.startDate" default="#DateAdd('d', 1, PacificNow)#">
 <cfparam name="Variables.endDate" default="#DateAdd('d', 3, PacificNow)#">
 <cfparam name="Variables.numDays" default="">
 <cfparam name="Variables.status" default="">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
-	<cfif IsDefined("URL.VesselID")>
-		<cfset Variables.VesselID = URL.VesselID>
+	<cfif IsDefined("URL.VNID")>
+		<cfset Variables.VNID = URL.VNID>
 		<cfquery name="GetCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			SELECT	CompanyID
+			SELECT	CID
 			FROM	Vessels
-			WHERE	Vessels.VesselID = '#Variables.VesselID#'
+			WHERE	Vessels.VNID = '#Variables.VNID#'
 		</cfquery>
-		<cfset Variables.CompanyID = GetCompany.CompanyID>
-	<cfelseif IsDefined("URL.CompanyID")>
-		<cfset Variables.CompanyID = URL.CompanyID>
-		<cfset Variables.VesselID = "">
+		<cfset Variables.CID = GetCompany.CID>
+	<cfelseif IsDefined("URL.CID")>
+		<cfset Variables.CID = URL.CID>
+		<cfset Variables.VNID = "">
 	</cfif>
 	<cfif IsDefined("URL.Date")>
 		<cfset Variables.StartDate = URL.Date>
@@ -130,14 +130,14 @@
 						<label>#language.Company#:</label>
 						<CF_TwoSelectsRelated
 							query="companyVessels"
-							id1="booking_CompanyID"
-							id2="booking_VesselID"
+							id1="booking_CID"
+							id2="booking_VNID"
 							DISPLAY1="CompanyName"
 							DISPLAY2="VesselName"
-							VALUE1="CompanyID"
-							VALUE2="VesselID"
-							DEFAULT1="#Variables.CompanyID#"
-							DEFAULT2="#Variables.VesselID#"
+							VALUE1="CID"
+							VALUE2="VNID"
+							DEFAULT1="#Variables.CID#"
+							DEFAULT2="#Variables.VNID#"
 							htmlBETWEEN="<br /><label>#language.vessel#:</label>"
 							AUTOSELECTFIRST="Yes"
 							EMPTYTEXT1="(#language.chooseCompany#)"
@@ -180,14 +180,14 @@
 						<label>#language.Company#:</label>
 						<CF_TwoSelectsRelated
 							QUERY="companyVessels"
-							id1="bookingByRange_CompanyID"
-							id2="bookingByRange_VesselID"
+							id1="bookingByRange_CID"
+							id2="bookingByRange_VNID"
 							DISPLAY1="CompanyName"
 							DISPLAY2="VesselName"
-							VALUE1="companyID"
-							VALUE2="vesselID"
-							DEFAULT1="#Variables.CompanyID#"
-							DEFAULT2="#Variables.VesselID#"
+							VALUE1="CID"
+							VALUE2="VNID"
+							DEFAULT1="#Variables.CID#"
+							DEFAULT2="#Variables.VNID#"
 							htmlBETWEEN="<br /><label>#language.vessel#:</label>"
 							AUTOSELECTFIRST="Yes"
 							EMPTYTEXT1="(#language.chooseCompany#)"

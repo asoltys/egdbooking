@@ -25,7 +25,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&CompanyID=#CompanyID#" addtoken="no">
+	<cflocation url="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&CID=#CID#" addtoken="no">
 </cfif>
 <!---
 <cfif getDeletedVessel.recordcount GT 0>
@@ -34,8 +34,8 @@
 		UPDATE Vessels
 		SET
 			name = '#trim(form.name)#',
-			companyid = #trim(form.companyid)#,
-			<!---companyid = #session.companyid#,--->
+			CID = #trim(form.CID)#,
+			<!---CID = #session.CID#,--->
 			length = '#trim(form.length)#',
 			width = '#trim(form.width)#',
 			blocksetuptime = '#trim(form.blocksetuptime)#',
@@ -57,7 +57,7 @@
 		INSERT INTO Vessels
 		(
 			Name,
-			companyID,
+			CID,
 			length,
 			width,
 			blocksetuptime,
@@ -71,7 +71,7 @@
 		VALUES
 		(
 			'#trim(form.Name)#',
-			'#trim(form.companyid)#',
+			'#trim(form.CID)#',
 			'#trim(form.length)#',
 			'#trim(form.width)#',
 			'#trim(form.blocksetuptime)#',
@@ -98,5 +98,5 @@
 	<cfset Session.Success.Message = "Le navire, <b>#form.Name#</b>, a &eacute;t&eacute; ajout&eacute;.">
 	<cfset Session.Success.Back = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
 </cfif>
-<cfset Session.Success.Link = "#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CompanyID=#CompanyID#">
+<cfset Session.Success.Link = "#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#CID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">

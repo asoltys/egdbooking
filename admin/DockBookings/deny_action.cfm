@@ -1,11 +1,11 @@
-<cfparam name="Form.BookingID" default="">
+<cfparam name="Form.BRID" default="">
 
 <cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Status, Email, Vessels.Name AS VesselName, StartDate, EndDate
-	FROM	Docks INNER JOIN Bookings ON Docks.BookingID = Bookings.BookingID
-			INNER JOIN Users ON Bookings.UserID = Users.UserID 
-			INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-	WHERE	Bookings.BookingID = '#Form.BookingID#'
+	FROM	Docks INNER JOIN Bookings ON Docks.BRID = Bookings.BRID
+			INNER JOIN Users ON Bookings.UID = Users.UID 
+			INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+	WHERE	Bookings.BRID = '#Form.BRID#'
 </cfquery>
 
 <cfquery name="removeConfirmation" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -14,14 +14,14 @@
 			Section1 = '0',
 			Section2 = '0',
 			Section3 = '0'
-	WHERE 	BookingID = '#Form.BookingID#'
+	WHERE 	BRID = '#Form.BRID#'
 </cfquery>
 
 <cflock throwontimeout="no" scope="session" timeout="30" type="readonly">
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UserID = '#session.userID#'
+		WHERE	UID = '#session.UID#'
 	</cfquery>
 </cflock>
 
@@ -74,11 +74,11 @@
 	<cfset Session.Success.Title = "Change Booking Status">
 	<cfset Session.Success.Message = "Booking status for <b>#getDetails.vesselName#</b> from #LSDateFormat(CreateODBCDate(getDetails.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getDetails.endDate), 'mmm d, yyyy')# is now <b>Tentative</b>.  Email notification of this change has been sent to the agent.">
 	<cfset Session.Success.Back = "Back to #url.referrer#">
-	<cfset Session.Success.Link = "#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Form.BookingId###id#form.bookingid#">
+	<cfset Session.Success.Link = "#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&BRID=#Form.BRID###id#form.BRID#">
 	<cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 <cfelse>
-	<cflocation addtoken="no" url="#returnTo#?#urltoken##dateValue#&bookingID=#Form.BookingId#">
+	<cflocation addtoken="no" url="#returnTo#?#urltoken##dateValue#&BRID=#Form.BRID#">
 </cfif>
 
-<!---cflocation addtoken="no" url="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.bookingID#"--->
+<!---cflocation addtoken="no" url="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.BRID#"--->
 

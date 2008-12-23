@@ -1,5 +1,5 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
-<cfif isDefined("form.bookingID") AND (NOT isDefined("url.referrer") OR url.referrer NEQ "Edit Booking")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.BRID") AND (NOT isDefined("url.referrer") OR url.referrer NEQ "Edit Booking")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <CFPARAM name="url.referrer" default="Booking Management">
@@ -16,14 +16,14 @@
 </cfif>
 
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Docks.Status, Bookings.BookingID, StartDate, EndDate,
+	SELECT	Docks.Status, Bookings.BRID, StartDate, EndDate,
 			Vessels.Name AS VesselName, Companies.Name AS CompanyName,
 			Section1, Section2, Section3
 	FROM	Docks, Bookings, Vessels, Companies
-	WHERE	Bookings.BookingID = Docks.BookingID
-	AND		Bookings.BookingID = '#Form.BookingID#'
-	AND		Vessels.VesselID = Bookings.VesselID
-	AND		Companies.CompanyID = Vessels.CompanyID
+	WHERE	Bookings.BRID = Docks.BRID
+	AND		Bookings.BRID = '#Form.BRID#'
+	AND		Vessels.VNID = Bookings.VNID
+	AND		Companies.CID = Vessels.CID
 </cfquery>
 
 <cfif url.referrer EQ "Edit Booking" AND isDefined("form.startDate")>
@@ -62,7 +62,7 @@
 			
 			<cfif getBooking.Status EQ "C">
 				<cfinclude template="includes/getConflicts.cfm">
-				<cfset conflictArray = getConflicts_remConf(Form.BookingID)>
+				<cfset conflictArray = getConflicts_remConf(Form.BRID)>
 				<cfif ArrayLen(conflictArray) GT 0>
 					<cfset Variables.waitListText = "The booking slot that this vessel held is now available for the following tentative bookings.  The companies/agents should be given 24 hours notice to submit a downpayment.">
 					<cfinclude template="includes/displayWaitList.cfm">
@@ -73,7 +73,7 @@
 				Are you sure you want to change this booking's status back to pending?
 			<br /><br />
 				<cfoutput>
-				<input type="hidden" name="BookingID" value="#Form.BookingID#" />
+				<input type="hidden" name="BRID" value="#Form.BRID#" />
 				<table style="padding-top:5px;">
 					<tr>
 						<td><strong>Booking Details:</strong></td>
@@ -121,7 +121,7 @@
 				
 				<div style="text-align:center;"><p>
 				<input type="submit" value="submit" class="textbutton" />
-				<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" value="Cancel" class="textbutton" /></cfoutput>
+				<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&BRID=#getBooking.BRID###id#getBooking.BRID#'" value="Cancel" class="textbutton" /></cfoutput>
 				</p></div>
 			</cfform>
 			

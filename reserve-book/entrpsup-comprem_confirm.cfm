@@ -24,16 +24,16 @@
 	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.RemoveComp#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<cfif isDefined("form.companyID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.CID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
-<cfif NOT IsDefined('form.companyID')>
+<cfif NOT IsDefined('form.CID')>
 	<cflocation addtoken="no" url="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#">
 </cfif>
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name
 	FROM	Companies
-	WHERE	CompanyId = #form.CompanyID#
+	WHERE	CID = #form.CID#
 </cfquery>
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
@@ -80,7 +80,7 @@
 					<input type="button" value="#language.Cancel#" onclick="javascript:location.href='editUser.cfm?lang=#lang#&clrfs=true'" class="textbutton" />
 					</div></p>
 
-					<cfoutput><input type="hidden" name="CompanyID" value="#form.CompanyID#" />
+					<cfoutput><input type="hidden" name="CID" value="#form.CID#" />
 				</cfform>
 
 				</cfoutput>

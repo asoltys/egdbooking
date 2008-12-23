@@ -39,26 +39,26 @@
 		Status 		
 	FROM 
 		Users INNER JOIN Bookings 
-			ON Users.UserID = Bookings.UserID 
+			ON Users.UID = Bookings.UID 
 		INNER JOIN Jetties 
-			ON Jetties.BookingID = Bookings.BookingID
+			ON Jetties.BRID = Bookings.BRID
 		INNER JOIN Vessels 
-			ON Bookings.VesselID = Vessels.VesselID
+			ON Bookings.VNID = Vessels.VNID
 	WHERE 
-		Bookings.BookingID = '#Form.BookingID#'
+		Bookings.BRID = '#Form.BRID#'
 </cfquery>
 
 <cfquery name="confirmBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE 	Jetties
 	SET 	Status = 'P'	
-	WHERE 	BookingID = #Form.BookingID#
+	WHERE 	BRID = #Form.BRID#
 </cfquery>
 
 <cflock throwontimeout="no" scope="session" timeout="30" type="readonly">
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UserID = '#session.userID#'
+		WHERE	UID = '#session.UID#'
 	</cfquery>
 </cflock>
 
@@ -68,7 +68,7 @@
 	UPDATE  Bookings
 	SET		BookingTimeChange = #PacificNow#,
 			BookingTimeChangeStatus = 'Set pending at'
-	WHERE	BookingID = '#Form.BookingID#'
+	WHERE	BRID = '#Form.BRID#'
 </cfquery>
 <cfoutput>
 <cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Unapproved - R&eacute;servation non approuv&eacute;e" type="html">
@@ -87,7 +87,7 @@
 	UPDATE  Bookings
 	SET		BookingTimeChange = #PacificNow#,
 			BookingTimeChangeStatus = 'Set pending at'
-	WHERE	BookingID = '#Form.BookingID#'
+	WHERE	BRID = '#Form.BRID#'
 </cfquery>
 <cfoutput>
 <cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Unconfirmed - R&eacute;servation non confirm&eacute;e" type="html">
@@ -106,9 +106,9 @@
 	<cfset Session.Success.Title = "Change Booking Status">
 	<cfset Session.Success.Message = "Booking status for <b>#getDetails.vesselName#</b> from #LSDateFormat(CreateODBCDate(getDetails.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getDetails.endDate), 'mmm d, yyyy')# is now <b>Confirmed</b>.  Email notification of this change has been sent to the agent.">
 	<cfset Session.Success.Back = "Back to #url.referrer#">
-	<cfset Session.Success.Link = "#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Form.BookingId###id#form.bookingid#">
+	<cfset Session.Success.Link = "#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&BRID=#Form.BRID###id#form.BRID#">
 	<cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 <cfelse>
-	<cflocation addtoken="no" url="#returnTo#?#urltoken##dateValue#&bookingID=#Form.BookingId#">
+	<cflocation addtoken="no" url="#returnTo#?#urltoken##dateValue#&BRID=#Form.BRID#">
 </cfif>
 

@@ -43,7 +43,7 @@
 			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 
 			<!--- -------------------------------------------------------------------------------------------- --->
-			<cfparam name="Variables.BookingID" default="">
+			<cfparam name="Variables.BRID" default="">
 			<cfparam name="Variables.Section1" default="false">
 			<cfparam name="Variables.Section2" default="false">
 			<cfparam name="Variables.Section3" default="false">
@@ -83,7 +83,7 @@
 			<!--- -------------------------------------------------------------------------------------------- --->
 
 			<cfform id="AddMaintBlock" action="addMaintBlock_process.cfm?#urltoken#" method="post">
-			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" /></cfoutput>
+			<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" /></cfoutput>
 			<table style="width:100%;">
 			<tr>
 				<td id="Start">Start Date:</td>

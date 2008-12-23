@@ -120,8 +120,8 @@
 	</cfquery>
 </cfif>
 
-<cfquery name="getCompanyID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT CompanyID
+<cfquery name="getCID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+	SELECT CID
 	FROM Companies
 	WHERE Name = '#trim(form.Name)#' AND Deleted = 0
 </cfquery>
@@ -131,9 +131,9 @@
 <cfelse>
 	<cfset companyList = cfusion_decrypt(ToString(ToBinary(URLDecode(url.companies))), "shanisnumber1")>
 </cfif>
-<cfif getCompanyID.recordCount GT 0>
-	<cfif ListFind(companyList, "#getCompanyID.companyID#") EQ 0>
-		<cfset companyList = ListAppend(companyList, "#getCompanyID.companyID#")>
+<cfif getCID.recordCount GT 0>
+	<cfif ListFind(companyList, "#getCID.CID#") EQ 0>
+		<cfset companyList = ListAppend(companyList, "#getCID.CID#")>
 	</cfif>
 </cfif>
 

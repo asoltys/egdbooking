@@ -1,5 +1,5 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
-<cfif isDefined("form.bookingID") AND (NOT isDefined("url.referrer") OR url.referrer NEQ "Edit Booking")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.BRID") AND (NOT isDefined("url.referrer") OR url.referrer NEQ "Edit Booking")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <CFPARAM name="url.referrer" default="Booking Management">
@@ -16,14 +16,14 @@
 </cfif>
 
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Jetties.Status, Bookings.BookingID, StartDate, EndDate,
+	SELECT	Jetties.Status, Bookings.BRID, StartDate, EndDate,
 			Vessels.Name AS VesselName, Companies.Name AS CompanyName,
 			Jetties.NorthJetty, Jetties.SouthJetty
 	FROM	Jetties, Bookings, Vessels, Companies
-	WHERE	Bookings.BookingID = Jetties.BookingID
-	AND		Bookings.BookingID = '#Form.BookingID#'
-	AND		Vessels.VesselID = Bookings.VesselID
-	AND		Companies.CompanyID = Vessels.CompanyID
+	WHERE	Bookings.BRID = Jetties.BRID
+	AND		Bookings.BRID = '#Form.BRID#'
+	AND		Vessels.VNID = Bookings.VNID
+	AND		Companies.CID = Vessels.CID
 </cfquery>
 
 <cfif url.referrer EQ "Edit Booking" AND isDefined("form.startDate")>
@@ -68,7 +68,7 @@
 				<cfform action="deny_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post" id="deny">
 
 					<cfoutput>
-					<input type="hidden" name="BookingID" value="#Form.BookingID#" />
+					<input type="hidden" name="BRID" value="#Form.BRID#" />
 					<table style="padding-top:5px;">
 						<tr>
 							<td><strong>Booking Details:</strong></td>
@@ -97,7 +97,7 @@
 
 					<div style="text-align:center;">
 					<input type="submit" value="submit" class="textbutton" />
-					<input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" value="Cancel" class="textbutton" />
+					<input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&BRID=#getBooking.BRID###id#getBooking.BRID#'" value="Cancel" class="textbutton" />
 					</cfoutput>
 					</div>
 				</cfform>

@@ -62,16 +62,16 @@
 <cfquery name="getForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
 	FROM	TariffForms
-	WHERE	BookingID = '#url.BookingID#'
+	WHERE	BRID = '#url.BRID#'
 </cfquery>
 
 <cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Vessels.Name AS VesselName, Vessels.CompanyID, Companies.Name AS CompanyName, StartDate, EndDate
-	FROM	Bookings INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-			INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
-			INNER JOIN UserCompanies ON UserCompanies.CompanyID = Vessels.CompanyID
-	WHERE	Bookings.BookingID = '#URL.BookingID#'
-		AND	UserCompanies.UserID = '#session.UserID#'
+	SELECT	Vessels.Name AS VesselName, Vessels.CID, Companies.Name AS CompanyName, StartDate, EndDate
+	FROM	Bookings INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+			INNER JOIN Companies ON Vessels.CID = Companies.CID
+			INNER JOIN UserCompanies ON UserCompanies.CID = Vessels.CID
+	WHERE	Bookings.BRID = '#URL.BRID#'
+		AND	UserCompanies.UID = '#session.UID#'
 </cfquery>
 
 <cfif lang EQ 'eng'>
@@ -90,17 +90,17 @@
 
 <cflock timeout="20" scope="session" throwontimeout="no" type="readonly">
 	<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	Vessels.CompanyID
-		FROM	Bookings INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-				INNER JOIN UserCompanies ON Vessels.CompanyID = UserCompanies.CompanyID
-		WHERE	Bookings.Deleted = 0 AND Bookings.BookingID = #url.BookingID#
-				AND UserCompanies.UserID = #session.UserID# AND UserCompanies.Deleted = 0
+		SELECT	Vessels.CID
+		FROM	Bookings INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+				INNER JOIN UserCompanies ON Vessels.CID = UserCompanies.CID
+		WHERE	Bookings.Deleted = 0 AND Bookings.BRID = #url.BRID#
+				AND UserCompanies.UID = #session.UID# AND UserCompanies.Deleted = 0
 	</cfquery>
 </cflock>
 
 <cfif getCompanies.recordCount EQ 0 OR getDetails.recordCount EQ 0>
 	<cfif url.referrer eq "archive">
-		<cflocation addtoken="no" url="#returnTo#?lang=#lang#&companyID=#url.companyID#">
+		<cflocation addtoken="no" url="#returnTo#?lang=#lang#&CID=#url.CID#">
 	<cfelse>
 		<cflocation addtoken="no" url="#returnTo#?lang=#lang#">
 	</cfif>
@@ -138,7 +138,7 @@
 					<h3>#LSDateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #LSDateFormat(getDetails.EndDate, 'mmm d, yyyy')#</h3>
 				</cfoutput>
 
-				<cfform id="serviceSelect" action="#RootDir#reserve-book/tarifmod-tariffedit_action.cfm?lang=#lang#&amp;BookingID=#url.BookingID#&amp;referrer=#url.referrer#">
+				<cfform id="serviceSelect" action="#RootDir#reserve-book/tarifmod-tariffedit_action.cfm?lang=#lang#&amp;BRID=#url.BRID#&amp;referrer=#url.referrer#">
 				<cfoutput>
 				<table class="basic" id="tariffs" summary="#language.tableSummary#">
 					<tr>
@@ -208,9 +208,9 @@
 
 				<div class="buttons">
 				<cfoutput>
-					<input type="hidden" name="CompanyID" value="#getDetails.CompanyID#" />
+					<input type="hidden" name="CID" value="#getDetails.CID#" />
 					<input type="submit" value="#language.Submit#" class="textbutton" />
-					<input type="button" value="#language.Back#" onclick="self.location.href='#returnTo#?lang=#lang#&amp;CompanyID=#getDetails.CompanyID#'" class="textbutton" />
+					<input type="button" value="#language.Back#" onclick="self.location.href='#returnTo#?lang=#lang#&amp;CID=#getDetails.CID#'" class="textbutton" />
 				</cfoutput>
 				</div>
 				</cfform>

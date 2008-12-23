@@ -1,35 +1,35 @@
 <cftransaction>
 	<cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	INSERT INTO	Bookings ( VesselID, StartDate, EndDate, BookingTime, UserID)
-	VALUES	('#Form.VesselID#',
+	INSERT INTO	Bookings ( VNID, StartDate, EndDate, BookingTime, UID)
+	VALUES	('#Form.VNID#',
 			<cfqueryparam value="#CreateODBCDate(Form.StartDate)#" cfsqltype="cf_sql_date">,
 			<cfqueryparam value="#CreateODBCDate(Form.EndDate)#" cfsqltype="cf_sql_date">,
 			<cfqueryparam value="#CreateODBCDateTime(PacificNow)#" cfsqltype="cf_sql_timestamp">,
-			'#Session.UserID#')
+			'#Session.UID#')
 	</cfquery>
 	<cfquery name="getID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	@@Identity AS BookingID
+		SELECT	@@Identity AS BRID
 		FROM	Bookings
 	</cfquery>
 	<cfquery name="insertDock" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	INSERT INTO Docks (BookingID)
-	VALUES	('#getID.BookingID#')
+	INSERT INTO Docks (BRID)
+	VALUES	('#getID.BRID#')
 	</cfquery>
 </cftransaction>
 
 <cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Vessels.Name AS vesselName, companyID
+	SELECT	Vessels.Name AS vesselName, CID
 	FROM	Vessels
-		INNER JOIN	Bookings ON Bookings.VesselID = Vessels.VesselID
-	WHERE	BookingID = ('#getID.BookingID#')
+		INNER JOIN	Bookings ON Bookings.VNID = Vessels.VNID
+	WHERE	BRID = ('#getID.BRID#')
 </cfquery>
 
 <cflock scope="session" throwontimeout="no" timeout="30" type="READONLY">
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	firstname + ' ' + lastname AS UserName, Email, Companies.Name AS CompanyName
-		FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-				INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
-		WHERE	Users.UserID = #session.userID# AND Companies.CompanyID = '#getDetails.companyID#'
+		FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+				INNER JOIN Companies ON UserCompanies.CID = Companies.CID
+		WHERE	Users.UID = #session.UID# AND Companies.CID = '#getDetails.CID#'
 	</cfquery>
 </cflock>
 
@@ -53,7 +53,7 @@
 	<cfset Session.Success.Message = "Une nouvelle r&eacute;servation du <b>#getDetails.vesselName#</b> au #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# a &eacute;t&eacute; cr&eacute;&eacute;e et est en attente d'approbation.">
 	<cfset Session.Success.Back = "Pr&eacute;ciser les services et les installations">
 </cfif>
-<cfset Session.Success.Link = "#RootDir#reserve-book/tarif-tariff.cfm?lang=#lang#&amp;BookingID=#getID.BookingID#">
+<cfset Session.Success.Link = "#RootDir#reserve-book/tarif-tariff.cfm?lang=#lang#&amp;BRID=#getID.BRID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
 <cflocation url="" addtoken="no">

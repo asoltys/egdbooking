@@ -37,29 +37,29 @@
 /* ]]> */
 </script>
 
-<cfif NOT IsDefined('url.vesselID') OR NOT IsNumeric(url.vesselID)>
+<cfif NOT IsDefined('url.VNID') OR NOT IsNumeric(url.VNID)>
 	<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 </cfif>
 
 <cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT Vessels.VesselID, Vessels.Name, Vessels.CompanyID
+	SELECT Vessels.VNID, Vessels.Name, Vessels.CID
 	FROM  Vessels
-	WHERE VesselID = #url.VesselID#
+	WHERE VNID = #url.VNID#
 	AND Vessels.deleted = 0
 </cfquery>
 
 <cfquery name="getVesselDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
-	FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
-			INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
-	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #url.VesselID# AND Bookings.Deleted = 0
+	FROM	Bookings INNER JOIN Vessels ON Vessels.VNID = Bookings.VNID
+			INNER JOIN Docks ON Bookings.BRID = Docks.BRID
+	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VNID = #url.VNID# AND Bookings.Deleted = 0
 </cfquery>
 
 <cfquery name="getVesselJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
-	FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
-			INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
-	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #url.VesselID# AND Bookings.Deleted = 0
+	FROM	Bookings INNER JOIN Vessels ON Vessels.VNID = Bookings.VNID
+			INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
+	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VNID = #url.VNID# AND Bookings.Deleted = 0
 </cfquery>
 
 <cfif getVesselDetail.recordCount EQ 0>
@@ -95,8 +95,8 @@
 						<cfoutput query="getVesselDetail">
 							<p>#language.areYouSure# <strong>#name#</strong>?</p>
 							<div style="text-align:center;">
-							<form id="DelVessel" action="#RootDir#reserve-book/naviresup-vesseldel_action.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" method="post">
-								<input type="hidden" name="VesselID" value="#vesselID#" />
+							<form id="DelVessel" action="#RootDir#reserve-book/naviresup-vesseldel_action.cfm?lang=#lang#&amp;CID=#CID#" method="post">
+								<input type="hidden" name="VNID" value="#VNID#" />
 								<input type="submit" value="#language.Delete#" class="textbutton" />
 								<input type="button" value="#language.Cancel#" onclick="history.go(-1);" class="textbutton" />
 							</form>
@@ -161,7 +161,7 @@
 						</cfif>
 						<br />
 						<cfoutput>
-						<div style="text-align:center;"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CompanyID=#getVesselDetail.companyID#" class="textbutton">#language.OK#</a></div></cfoutput>
+						<div style="text-align:center;"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#getVesselDetail.CID#" class="textbutton">#language.OK#</a></div></cfoutput>
 				</cfif>
 			</div>
 

@@ -1,4 +1,4 @@
-<cfif isDefined("form.bookingID") AND (NOT isDefined("url.referrer") OR url.referrer NEQ "Edit Booking")>
+<cfif isDefined("form.BRID") AND (NOT isDefined("url.referrer") OR url.referrer NEQ "Edit Booking")>
   <cfinclude template="#RootDir#includes/build_form_struct.cfm">
 </cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
@@ -22,11 +22,11 @@
   <cfset variables.dateValue = "">
 </cfif>
 
-<cfparam name="Variables.BookingID" default="">
+<cfparam name="Variables.BRID" default="">
 <cfif IsDefined("Session.Return_Structure")>
   <cfinclude template="#RootDir#includes/getStructure.cfm">
-  <cfelseif IsDefined("Form.BookingID")>
-  <cfset Variables.BookingID = Form.BookingID>
+  <cfelseif IsDefined("Form.BRID")>
+  <cfset Variables.BRID = Form.BRID>
   <cfelse>
   <cflocation url="#returnTo#?#urltoken##dateValue#&referrer=#url.referrer#" addtoken="no">
 </cfif>
@@ -60,10 +60,10 @@
 				<!--- -------------------------------------------------------------------------------------------- --->
 				<cfquery name="theBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT
-						Bookings.BookingID,
+						Bookings.BRID,
 						StartDate,
 						EndDate,
-						Vessels.VesselID,
+						Vessels.VNID,
 						Vessels.Length,
 						Vessels.Name AS VesselName,
 						Companies.Name AS CompanyName,
@@ -71,13 +71,13 @@
 						SouthJetty
 					FROM
 						Bookings INNER JOIN Jetties
-							ON Bookings.BookingID = Jetties.BookingID
+							ON Bookings.BRID = Jetties.BRID
 						INNER JOIN Vessels
-							ON Vessels.VesselID = Bookings.VesselID
+							ON Vessels.VNID = Bookings.VNID
 						INNER JOIN Companies
-							ON Companies.CompanyID = Vessels.CompanyID
+							ON Companies.CID = Vessels.CID
 					WHERE
-						Bookings.BookingID = '#Variables.BookingID#'
+						Bookings.BRID = '#Variables.BRID#'
 				</cfquery>
 				<!---Check to see if jetty has already reached capacity (304m for NLW and 301m for South Jetty)--->
 				<CFIF theBooking.NorthJetty>
@@ -88,8 +88,8 @@
 					<cfquery name="checkLength" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	SUM(Vessels.Length) as sumLength
 					FROM		Bookings INNER JOIN
-					Jetties ON Bookings.BookingID = Jetties.BookingID INNER JOIN
-					Vessels ON Bookings.VesselID = Vessels.VesselID
+					Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
+					Vessels ON Bookings.VNID = Vessels.VNID
 					WHERE		((Bookings.StartDate <= '#tempDate#' AND Bookings.EndDate >= '#tempDate#'))
 					AND Jetties.NorthJetty = '1'
 					AND	Bookings.Deleted = '0'
@@ -124,8 +124,8 @@
 					<cfquery name="getLengthConflicts" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	Bookings.StartDate, Bookings.EndDate, Vessels.Length, Vessels.Name
 					FROM		Bookings INNER JOIN
-					Jetties ON Bookings.BookingID = Jetties.BookingID INNER JOIN
-					Vessels ON Bookings.VesselID = Vessels.VesselID
+					Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
+					Vessels ON Bookings.VNID = Vessels.VNID
 					WHERE		((Bookings.StartDate <= '#errorDate#' AND Bookings.EndDate >= '#errorDate#'))
 					AND Jetties.NorthJetty = '1'
 					AND	Bookings.Deleted = '0'
@@ -151,8 +151,8 @@
 					<cfquery name="checkLength" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	SUM(Vessels.Length) as sumLength
 					FROM		Bookings INNER JOIN
-					Jetties ON Bookings.BookingID = Jetties.BookingID INNER JOIN
-					Vessels ON Bookings.VesselID = Vessels.VesselID
+					Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
+					Vessels ON Bookings.VNID = Vessels.VNID
 					WHERE		((Bookings.StartDate <= '#tempDate#' AND Bookings.EndDate >= '#tempDate#'))
 					AND Jetties.SouthJetty = '1'
 					AND	Bookings.Deleted = '0'
@@ -187,8 +187,8 @@
 					<cfquery name="getLengthConflicts" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	Bookings.StartDate, Bookings.EndDate, Vessels.Length, Vessels.Name
 					FROM		Bookings INNER JOIN
-					Jetties ON Bookings.BookingID = Jetties.BookingID INNER JOIN
-					Vessels ON Bookings.VesselID = Vessels.VesselID
+					Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
+					Vessels ON Bookings.VNID = Vessels.VNID
 					WHERE		((Bookings.StartDate <= '#errorDate#' AND Bookings.EndDate >= '#errorDate#'))
 					AND Jetties.SouthJetty = '1'
 					AND	Bookings.Deleted = '0'
@@ -207,7 +207,7 @@
 					</div>
 				  </CFIF>
 				</CFIF>
-				<cfset Variables.VesselID = theBooking.VesselID>
+				<cfset Variables.VNID = theBooking.VNID>
 				<cfset Variables.VesselName = theBooking.VesselName>
 				<cfset Variables.CompanyName = theBooking.CompanyName>
 				<cfset Variables.Start = CreateODBCDate(theBooking.StartDate)>
@@ -224,12 +224,12 @@
 				<!--- -------------------------------------------------------------------------------------------- --->
 				<cfform id="BookingConfirm" action="chgStatus_2c_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post">
 				  <cfoutput>
-					<input type="hidden" name="BookingID" value="#Variables.BookingID#" />
+					<input type="hidden" name="BRID" value="#Variables.BRID#" />
 				  </cfoutput>
 				  <table style="width:85%; padding-left:15px;" >
 					<tr>
 					  <td id="Vessel" style="width:25%;" align="left">Vessel:</td>
-					  <td headers="Vessel"><input type="hidden" name="vesselID" value="<cfoutput>#Variables.VesselID#</cfoutput>" />
+					  <td headers="Vessel"><input type="hidden" name="VNID" value="<cfoutput>#Variables.VNID#</cfoutput>" />
 						<cfoutput>#Variables.VesselName#</cfoutput></td>
 					</tr>
 					<tr>
@@ -256,7 +256,7 @@
 					<tr>
 					  <td><input type="submit" value="Confirm" class="textbutton" />
 						<cfoutput>
-						  <input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton" />
+						  <input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&BRID=#Variables.BRID###id#Variables.BRID#'" value="Cancel" class="textbutton" />
 						</cfoutput> </td>
 					</tr>
 				  </table>

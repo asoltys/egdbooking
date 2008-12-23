@@ -37,10 +37,10 @@
 
 <!--- Query to get Vessel Information --->
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	VesselID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
+	SELECT 	VNID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
 	FROM 	Vessels, Companies
-	WHERE 	VesselID = '#Form.bookingByRange_VesselID#'
-	AND		Companies.CompanyID = Vessels.CompanyID
+	WHERE 	VNID = '#Form.bookingByRange_VNID#'
+	AND		Companies.CID = Vessels.CID
 	AND 	Vessels.Deleted = 0
 	AND		Companies.Deleted = 0
 </cfquery>
@@ -103,7 +103,7 @@
 <cfset Variables.EndDate = "">
 <cfset Variables.FoundStartDate = "">
 <cfset Variables.FoundEndDate = "">
-<cfset Variables.VesselID = Form.bookingByRange_VesselID>  <!--- Added 25/01/2006 DS to fix CF error in bookings --->
+<cfset Variables.VNID = Form.bookingByRange_VNID>  <!--- Added 25/01/2006 DS to fix CF error in bookings --->
 
 <cfloop condition="finish EQ false AND found EQ false">
 
@@ -114,11 +114,11 @@
 	<!---Check to see that vessel hasn't already been booked during this time--->
 	<!--- 25 October 2005: This query now only looks at the drydock bookings --->
 	<cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT 	Bookings.VesselID, Vessels.Name, Bookings.StartDate, Bookings.EndDate
+		SELECT 	Bookings.VNID, Vessels.Name, Bookings.StartDate, Bookings.EndDate
 		FROM 	Bookings
-					INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-					INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
-		WHERE 	Bookings.VesselID = '#Variables.VesselID#'
+					INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+					INNER JOIN Docks ON Bookings.BRID = Docks.BRID
+		WHERE 	Bookings.VNID = '#Variables.VNID#'
 		AND
 		<!---Explanation of hellishly long condition statement: The client wants to be able to overlap the start and end dates
 			of bookings, so if a booking ends on May 6, another one can start on May 6.  This created problems with single day
@@ -139,22 +139,22 @@
 
 	<!--- 25 October 2005: The next two queries have been modified to only get results from the drydock bookings --->
 	<cfquery name="getNumStartDateBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	Bookings.BookingID, Vessels.Name, Bookings.StartDate
+		SELECT	Bookings.BRID, Vessels.Name, Bookings.StartDate
 		FROM	Bookings
-					INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
-					INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
+					INNER JOIN Docks ON Bookings.BRID = Docks.BRID
+					INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 		WHERE	StartDate = #Variables.StartDate#
-					AND Bookings.VesselID = '#Variables.VesselID#'
+					AND Bookings.VNID = '#Variables.VNID#'
 					AND Bookings.Deleted = 0
 	</cfquery>
 
 	<cfquery name="getNumEndDateBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	Bookings.BookingID, Vessels.Name, Bookings.EndDate
+		SELECT	Bookings.BRID, Vessels.Name, Bookings.EndDate
 		FROM	Bookings
-					INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
-					INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
+					INNER JOIN Docks ON Bookings.BRID = Docks.BRID
+					INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 		WHERE	EndDate = #Variables.EndDate#
-					AND Bookings.VesselID = '#Variables.VesselID#'
+					AND Bookings.VNID = '#Variables.VNID#'
 					AND Bookings.Deleted = 0
 	</cfquery>
 
@@ -212,7 +212,7 @@
 					</p>
 
 					<label>#language.vessel#:</label>
-					<input type="hidden" name="vesselID" value="#Form.bookingByRange_VesselID#" />
+					<input type="hidden" name="VNID" value="#Form.bookingByRange_VNID#" />
 					<p>#getVessel.VesselName#</p>
 
 					<label>#language.Company#:</label>

@@ -50,18 +50,18 @@
 
 <cfquery name="getDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 SELECT	Bookings.EndHighlight,
-		Bookings.VesselID,
+		Bookings.VNID,
 		Vessels.Name AS VesselName, Anonymous,
 		Length AS VesselLength,
-		Abbreviation, Companies.Name AS CompanyName, Companies.CompanyID,
+		Abbreviation, Companies.Name AS CompanyName, Companies.CID,
 		StartDate, EndDate,
 		Status,
 		Section1, Section2, Section3,
 		BookingTime
 FROM	Bookings
-	INNER JOIN	Docks ON Bookings.BookingID = Docks.BookingID
-	INNER JOIN	Vessels ON Bookings.VesselID = Vessels.VesselID
-	INNER JOIN	Companies ON Vessels.CompanyID = Companies.CompanyID
+	INNER JOIN	Docks ON Bookings.BRID = Docks.BRID
+	INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
+	INNER JOIN	Companies ON Vessels.CID = Companies.CID
 WHERE	<!--- (Status = 'c' OR Status = 't')
 	AND --->	Bookings.Deleted = '0'
 	AND	Vessels.Deleted = '0'
@@ -73,18 +73,18 @@ ORDER BY	StartDate, VesselName
 
 <cfquery name="getJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 SELECT	Bookings.EndHighlight,
-		Bookings.VesselID,
+		Bookings.VNID,
 		Vessels.Name AS VesselName, Anonymous,
 		Length AS VesselLength,
-		Abbreviation, Companies.Name AS CompanyName, Companies.CompanyID,
+		Abbreviation, Companies.Name AS CompanyName, Companies.CID,
 		StartDate, EndDate,
 		Status,
 		NorthJetty, SouthJetty,
 		BookingTime
 FROM	Bookings
-	INNER JOIN	Jetties ON Bookings.BookingID = Jetties.BookingID
-		INNER JOIN	Vessels ON Bookings.VesselID = Vessels.VesselID
-		INNER JOIN	Companies ON Vessels.CompanyID = Companies.CompanyID
+	INNER JOIN	Jetties ON Bookings.BRID = Jetties.BRID
+		INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
+		INNER JOIN	Companies ON Vessels.CID = Companies.CID
 
 WHERE	Bookings.Deleted = '0'
 	AND	Vessels.Deleted = '0'
@@ -165,18 +165,18 @@ WHERE	SouthJetty = 1
 						<cfoutput query="getDockBookings">
 							<!---check if ship belongs to user's company--->
 							<cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
-								<cfquery name="userVessel#vesselID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-									SELECT	Vessels.VesselID
-									FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-											INNER JOIN Vessels ON UserCompanies.CompanyID = Vessels.CompanyID
-									WHERE	Users.UserID = #Session.UserID# AND VesselID = #VesselID#
+								<cfquery name="userVessel#VNID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+									SELECT	Vessels.VNID
+									FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+											INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
+									WHERE	Users.UID = #Session.UID# AND VNID = #VNID#
 										AND UserCompanies.Approved = 1 AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
 								</cfquery>
 							</cflock>
 
-							<cfset blah = Evaluate("userVessel" & #vesselID#)>
+							<cfset blah = Evaluate("userVessel" & #VNID#)>
 
-							<cfset Variables.countQName = "userVessel" & #vesselID# & ".recordCount">
+							<cfset Variables.countQName = "userVessel" & #VNID# & ".recordCount">
 							<cfset Variables.count = EVALUATE(countQName)>
 
 						<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
@@ -222,18 +222,18 @@ WHERE	SouthJetty = 1
 						<cfoutput query="getNJBookings">
 							<!---check if ship belongs to user's company--->
 							<cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
-								<cfquery name="userVessel#vesselID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-									SELECT	Vessels.VesselID
-									FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-											INNER JOIN Vessels ON UserCompanies.CompanyID = Vessels.CompanyID
-									WHERE	Users.UserID = #Session.UserID# AND VesselID = #VesselID#
+								<cfquery name="userVessel#VNID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+									SELECT	Vessels.VNID
+									FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+											INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
+									WHERE	Users.UID = #Session.UID# AND VNID = #VNID#
 										AND UserCompanies.Approved = 1 AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
 								</cfquery>
 							</cflock>
 
-							<cfset blah = Evaluate("userVessel" & #vesselID#)>
+							<cfset blah = Evaluate("userVessel" & #VNID#)>
 
-							<cfset Variables.countQName = "userVessel" & #vesselID# & ".recordCount">
+							<cfset Variables.countQName = "userVessel" & #VNID# & ".recordCount">
 							<cfset Variables.count = EVALUATE(countQName)>
 
 						<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
@@ -272,18 +272,18 @@ WHERE	SouthJetty = 1
 						<cfoutput query="getSJBookings">
 							<!---check if ship belongs to user's company--->
 							<cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
-								<cfquery name="userVessel#vesselID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-									SELECT	Vessels.VesselID
-									FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-											INNER JOIN Vessels ON UserCompanies.CompanyID = Vessels.CompanyID
-									WHERE	Users.UserID = #Session.UserID# AND VesselID = #VesselID#
+								<cfquery name="userVessel#VNID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+									SELECT	Vessels.VNID
+									FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+											INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
+									WHERE	Users.UID = #Session.UID# AND VNID = #VNID#
 										AND UserCompanies.Approved = 1 AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
 								</cfquery>
 							</cflock>
 
-							<cfset blah = Evaluate("userVessel" & #vesselID#)>
+							<cfset blah = Evaluate("userVessel" & #VNID#)>
 
-							<cfset Variables.countQName = "userVessel" & #vesselID# & ".recordCount">
+							<cfset Variables.countQName = "userVessel" & #VNID# & ".recordCount">
 							<cfset Variables.count = EVALUATE(countQName)>
 
 						<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">

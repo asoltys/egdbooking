@@ -24,41 +24,41 @@
 
 <cflock scope="session" throwontimeout="no" timeout="60" type="readonly">
 	<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	Companies.CompanyID, Name AS CompanyName, UserCompanies.Approved
-		FROM	UserCompanies INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
-		WHERE	UserID = #session.UserID# AND UserCompanies.Deleted = 0 AND UserCompanies.Approved = 1 AND Companies.approved = 1
+		SELECT	Companies.CID, Name AS CompanyName, UserCompanies.Approved
+		FROM	UserCompanies INNER JOIN Companies ON UserCompanies.CID = Companies.CID
+		WHERE	UID = #session.UID# AND UserCompanies.Deleted = 0 AND UserCompanies.Approved = 1 AND Companies.approved = 1
 		ORDER BY Companies.Name
 	</cfquery>
 </cflock>
 
-<cfparam name="variables.companyID" default="#getCompanies.CompanyID#">
-<cfif trim(#variables.companyID#) EQ ""><cflocation url="#RootDir#ols-login/fls-logout.cfm?lang=#lang#"></cfif>
+<cfparam name="variables.CID" default="#getCompanies.CID#">
+<cfif trim(#variables.CID#) EQ ""><cflocation url="#RootDir#ols-login/fls-logout.cfm?lang=#lang#"></cfif>
 
 <cflock timeout="60" throwontimeout="No" type="exclusive" scope="session">
-	<cfif isDefined("URL.CompanyID")>
+	<cfif isDefined("URL.CID")>
 		<cfoutput query="getCompanies">
-			<cfif URL.CompanyID eq CompanyID><cfset Variables.CompanyID = #URL.CompanyID#></cfif>
+			<cfif URL.CID eq CID><cfset Variables.CID = #URL.CID#></cfif>
 		</cfoutput>
-	<cfelseif IsDefined("Session.LastChoice.CompanyID")>
-		<cflocation url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#Session.LastChoice.CompanyID#" addtoken="no">
+	<cfelseif IsDefined("Session.LastChoice.CID")>
+		<cflocation url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CID=#Session.LastChoice.CID#" addtoken="no">
 	<cfelse>
-		<cflocation url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#Variables.CompanyID#" addtoken="no">
+		<cflocation url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CID=#Variables.CID#" addtoken="no">
 	</cfif>
-	<cfset Session.LastChoice.CompanyID = Variables.CompanyID>
-	<cfset Session.Flow.CompanyID = Variables.CompanyID>
+	<cfset Session.LastChoice.CID = Variables.CID>
+	<cfset Session.Flow.CID = Variables.CID>
 </cflock>
 
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name AS CompanyName
 	FROM	Companies
-	WHERE	CompanyID = '#variables.companyID#'
+	WHERE	CID = '#variables.CID#'
 </cfquery>
 
 <cfquery name="getVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT VesselID, Name
+	SELECT VNID, Name
 	FROM Vessels
-	WHERE CompanyID = '#Variables.CompanyID#'
+	WHERE CID = '#Variables.CID#'
 	AND Deleted = 0
 	ORDER BY Name
 </cfquery>
@@ -68,46 +68,46 @@
 <cfquery name="getDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Bookings.*, Vessels.Name, Docks.*, FirstName, LastName, Users.FirstName + ' ' + Users.LastName AS AgentName
 	FROM Bookings INNER JOIN
-		Vessels ON Bookings.VesselID = Vessels.VesselID INNER JOIN
-		Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-		Docks ON Bookings.BookingID = Docks.BookingID INNER JOIN
-		Users ON Bookings.UserID = Users.UserID
-	WHERE Companies.CompanyID = '#Variables.companyID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today#
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID
+	WHERE Companies.CID = '#Variables.CID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today#
 	ORDER BY startDate, enddate
 </cfquery>
 
 <cfquery name="getNorthJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Bookings.*, Vessels.Name, Jetties.*, FirstName, LastName, Users.FirstName + ' ' + Users.LastName AS AgentName
 	FROM Bookings INNER JOIN
-		Vessels ON Bookings.VesselID = Vessels.VesselID INNER JOIN
-		Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-		Jetties ON Bookings.BookingID = Jetties.BookingID INNER JOIN
-		Users ON Bookings.UserID = Users.UserID
-	WHERE Companies.CompanyID = '#Variables.companyID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today#
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID
+	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today#
 	ORDER BY startDate, enddate
 </cfquery>
 
 <cfquery name="getSouthJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Bookings.*, Vessels.Name, Jetties.*, FirstName, LastName, Users.FirstName + ' ' + Users.LastName AS AgentName
 	FROM Bookings INNER JOIN
-		Vessels ON Bookings.VesselID = Vessels.VesselID INNER JOIN
-		Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-		Jetties ON Bookings.BookingID = Jetties.BookingID INNER JOIN
-		Users ON Bookings.UserID = Users.UserID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today#
-	WHERE Companies.CompanyID = '#Variables.companyID#'
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today#
+	WHERE Companies.CID = '#Variables.CID#'
 	ORDER BY startDate, enddate
 </cfquery>
 
 <cfquery name="currentCompany" dbtype="query">
 	SELECT	CompanyName
 	FROM	getCompanies
-	WHERE	 getCompanies.CompanyID = #variables.companyID#
+	WHERE	 getCompanies.CID = #variables.CID#
 </cfquery>
 
 <cfquery name="unapprovedCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Name AS CompanyName
-		FROM	UserCompanies INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
-		WHERE	 UserID = #session.UserID# AND UserCompanies.Deleted = 0 AND (UserCompanies.Approved = 0 OR Companies.approved = 0)
+		FROM	UserCompanies INNER JOIN Companies ON UserCompanies.CID = Companies.CID
+		WHERE	 UID = #session.UID# AND UserCompanies.Deleted = 0 AND (UserCompanies.Approved = 0 OR Companies.approved = 0)
 		ORDER  BY Companies.Name
 </cfquery>
 
@@ -115,99 +115,99 @@
 <cfquery name="countPending" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numPend
 	FROM Bookings INNER JOIN
-		Vessels ON Bookings.VesselID = Vessels.VesselID INNER JOIN
-		Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-		Docks ON Bookings.BookingID = Docks.BookingID INNER JOIN
-		Users ON Bookings.UserID = Users.UserID
-	WHERE Companies.CompanyID = '#Variables.companyID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND (Status ='P' OR Status = 'Y' OR Status = 'Z')
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID
+	WHERE Companies.CID = '#Variables.CID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND (Status ='P' OR Status = 'Y' OR Status = 'Z')
 </cfquery>
 <cfquery name="countTentative" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numTent
 	FROM Bookings INNER JOIN
-		Vessels ON Bookings.VesselID = Vessels.VesselID INNER JOIN
-		Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-		Docks ON Bookings.BookingID = Docks.BookingID INNER JOIN
-		Users ON Bookings.UserID = Users.UserID
-	WHERE Companies.CompanyID = '#Variables.companyID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='T'
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID
+	WHERE Companies.CID = '#Variables.CID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='T'
 </cfquery>
 <cfquery name="countConfirmed" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numConf
 	FROM Bookings INNER JOIN
-		Vessels ON Bookings.VesselID = Vessels.VesselID INNER JOIN
-		Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-		Docks ON Bookings.BookingID = Docks.BookingID INNER JOIN
-		Users ON Bookings.UserID = Users.UserID
-	WHERE Companies.CompanyID = '#Variables.companyID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='C'
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID
+	WHERE Companies.CID = '#Variables.CID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='C'
 </cfquery>
 <cfquery name="countCancelled" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numCanc
 	FROM Bookings INNER JOIN
-		Vessels ON Bookings.VesselID = Vessels.VesselID INNER JOIN
-		Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-		Docks ON Bookings.BookingID = Docks.BookingID INNER JOIN
-		Users ON Bookings.UserID = Users.UserID
-	WHERE Companies.CompanyID = '#Variables.companyID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='X'
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID
+	WHERE Companies.CID = '#Variables.CID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='X'
 </cfquery>
 <!---North Jetty Status--->
 <cfquery name="countPendingNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numPendNJ
 	FROM Bookings INNER JOIN
-		Vessels ON Bookings.VesselID = Vessels.VesselID INNER JOIN
-		Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-		Jetties ON Bookings.BookingID = Jetties.BookingID INNER JOIN
-		Users ON Bookings.UserID = Users.UserID
-	WHERE Companies.CompanyID = '#Variables.companyID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND (Status ='P' or Status ='Z' or Status='Y')
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID
+	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND (Status ='P' or Status ='Z' or Status='Y')
 </cfquery>
 <cfquery name="countConfirmedNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numConfNJ
 	FROM Bookings INNER JOIN
-		Vessels ON Bookings.VesselID = Vessels.VesselID INNER JOIN
-		Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-		Jetties ON Bookings.BookingID = Jetties.BookingID INNER JOIN
-		Users ON Bookings.UserID = Users.UserID
-	WHERE Companies.CompanyID = '#Variables.companyID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='C'
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID
+	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='C'
 </cfquery>
 <cfquery name="countCancelledNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numCancNJ
 	FROM Bookings INNER JOIN
-		Vessels ON Bookings.VesselID = Vessels.VesselID INNER JOIN
-		Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-		Jetties ON Bookings.BookingID = Jetties.BookingID INNER JOIN
-		Users ON Bookings.UserID = Users.UserID
-	WHERE Companies.CompanyID = '#Variables.companyID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='X'
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID
+	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='X'
 </cfquery>
 <!---South Jetty Status--->
 <cfquery name="countPendingSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numPendSJ
 	FROM Bookings INNER JOIN
-		Vessels ON Bookings.VesselID = Vessels.VesselID INNER JOIN
-		Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-		Jetties ON Bookings.BookingID = Jetties.BookingID INNER JOIN
-		Users ON Bookings.UserID = Users.UserID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='P'
-	WHERE Companies.CompanyID = '#Variables.companyID#'
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='P'
+	WHERE Companies.CID = '#Variables.CID#'
 </cfquery>
 <cfquery name="countConfirmedSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numConfSJ
 	FROM Bookings INNER JOIN
-		Vessels ON Bookings.VesselID = Vessels.VesselID INNER JOIN
-		Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-		Jetties ON Bookings.BookingID = Jetties.BookingID INNER JOIN
-		Users ON Bookings.UserID = Users.UserID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='C'
-	WHERE Companies.CompanyID = '#Variables.companyID#'
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='C'
+	WHERE Companies.CID = '#Variables.CID#'
 </cfquery>
 <cfquery name="countCancelledSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numCancSJ
 	FROM Bookings INNER JOIN
-		Vessels ON Bookings.VesselID = Vessels.VesselID INNER JOIN
-		Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-		Jetties ON Bookings.BookingID = Jetties.BookingID INNER JOIN
-		Users ON Bookings.UserID = Users.UserID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='X'
-	WHERE Companies.CompanyID = '#Variables.companyID#'
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='X'
+	WHERE Companies.CID = '#Variables.CID#'
 </cfquery>
 <cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT ReadOnly
 	FROM Users
-	WHERE UserID = #Session.UserID#
+	WHERE UID = #Session.UID#
 </cfquery>
 <cfoutput query="readonlycheck">
 	<cfset Session.ReadOnly = #ReadOnly#>
@@ -280,7 +280,7 @@
 							<p>#language.otherCompanies#<br />
 						</cfoutput>
 						<cfoutput query="getCompanies">
-							<cfif getCompanies.CompanyID NEQ #variables.CompanyID# AND approved eq 1><span style="white-space: nowrap; "><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CompanyID=#CompanyID#">#CompanyName#</a></span>&nbsp;&nbsp;</cfif>
+							<cfif getCompanies.CID NEQ #variables.CID# AND approved eq 1><span style="white-space: nowrap; "><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#CID#">#CompanyName#</a></span>&nbsp;&nbsp;</cfif>
 						</cfoutput>
 						</p>
 
@@ -302,12 +302,12 @@
 						<cfelse>
               <ul>
                 <cfloop query="getVessels">
-                  <li><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VesselID=#VesselID#" title="#Name#">#Name#</a></li>
+                  <li><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VNID=#VNID#" title="#Name#">#Name#</a></li>
                 </cfloop>
               </ul>
 						</cfif>
 					<cfif #Session.ReadOnly# EQ "1"><cfelse>
-						<p><a href="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" class="textbutton">#Language.addVessel#</a></p>
+						<p><a href="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&amp;CID=#CID#" class="textbutton">#Language.addVessel#</a></p>
 					</cfif>
 
 
@@ -316,10 +316,10 @@
 					<p>#language.followingbooking#</p>
 					<div class="buttons">
 						<cfif #Session.ReadOnly# EQ "1"><cfelse>
-						<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton" title="#language.requestBooking#">#language.requestBooking#</a>&nbsp;
+						<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&amp;CID=#variables.CID#" class="textbutton" title="#language.requestBooking#">#language.requestBooking#</a>&nbsp;
 						</cfif>
 						<a href="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a>&nbsp;
-						<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton">#language.allBookings#</a><br /><br />
+						<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;CID=#variables.CID#" class="textbutton">#language.allBookings#</a><br /><br />
 					</div>
 
 					<cfset counter = 0>
@@ -337,7 +337,7 @@
 								</cfif>
 
 								<tr class="#rowClass#">
-									<td style="width:60%;"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#" title="#Name#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+									<td style="width:60%;"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 									<td style="width:15%;">
 										<cfif status EQ "P"><i class="pending">#language.pending#</i>
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
@@ -348,8 +348,8 @@
 										</cfif>
 									</td>
 									<td style="width:25%;">
-										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BookingID=#BookingID#" title="#language.editTariff# #Name# #BookingID#">#language.editTariff#</a></div>
-										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BookingID=#BookingID#" title="#language.viewTariff# #Name#">#language.viewTariff#</a></div></cfif>
+										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.editTariff# #Name# #BRID#">#language.editTariff#</a></div>
+										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.viewTariff# #Name#">#language.viewTariff#</a></div></cfif>
 									</td>
 								</tr>
 								<tr class="#rowClass#"><td colspan="3">
@@ -390,7 +390,7 @@
 									<cfset rowClass = "">
 								</cfif>
 								<tr class="#rowClass#">
-									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 									<td style="width:40%;">
 
 										<cfif status EQ "P"><i class="pending">#language.pending#</i>
@@ -443,7 +443,7 @@
 									<cfset rowClass = "">
 								</cfif>
 								<tr class="#rowClass#">
-									<td colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+									<td colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 									<td style="width:40%;">
 										<cfif status EQ "P"><i class="pending">#language.pending#</i>
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
@@ -486,10 +486,10 @@
 
 					<div class="buttons">
 						<cfif #Session.ReadOnly# EQ "1"><cfelse>
-						<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton" title="#language.requestBooking#">#language.requestBooking#</a>&nbsp;
+						<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&amp;CID=#variables.CID#" class="textbutton" title="#language.requestBooking#">#language.requestBooking#</a>&nbsp;
 						</cfif>
 						<a href="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a>&nbsp;
-						<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;companyID=#variables.companyID#" class="textbutton">#language.allBookings#</a>
+						<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;CID=#variables.CID#" class="textbutton">#language.allBookings#</a>
 					</div>
 
 					</div>

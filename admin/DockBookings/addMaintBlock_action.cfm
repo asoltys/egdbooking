@@ -1,20 +1,20 @@
 <cftransaction>
 	<cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	INSERT INTO	Bookings ( StartDate, EndDate, BookingTime, UserID)
+	INSERT INTO	Bookings ( StartDate, EndDate, BookingTime, UID)
 	VALUES	(
 			<cfqueryparam value="#CreateODBCDate(Form.StartDate)#" cfsqltype="cf_sql_date">,
 			<cfqueryparam value="#CreateODBCDate(Form.EndDate)#" cfsqltype="cf_sql_date">,
 			<cfqueryparam value="#CreateODBCDateTime(PacificNow)#" cfsqltype="cf_sql_timestamp">, 
-			'#Session.UserID#'
+			'#Session.UID#'
 			)
 	</cfquery>
 	<cfquery name="getID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	DISTINCT @@IDENTITY AS BookingID
+	SELECT	DISTINCT @@IDENTITY AS BRID
 	FROM	Bookings
 	</cfquery>
 	<cfquery name="insertDock" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	INSERT INTO Docks (BookingID, Status, Section1, Section2, Section3)
-	VALUES		('#getID.BookingID#', 'M',
+	INSERT INTO Docks (BRID, Status, Section1, Section2, Section3)
+	VALUES		('#getID.BRID#', 'M',
 			<cfif Form.Section1 EQ 1>'1',<cfelse>'0',</cfif>
 			<cfif Form.Section2 EQ 1>'1',<cfelse>'0',</cfif>
 			<cfif Form.Section3 EQ 1>'1'<cfelse>'0'</cfif>) <!--- M for Maintenance --->

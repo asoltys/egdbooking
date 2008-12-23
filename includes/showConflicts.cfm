@@ -1,8 +1,8 @@
 <cfquery name="currentBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Bookings.*, Docks.*, Vessels.Name AS VesselName, Companies.Name AS CompanyName
-	FROM	Bookings INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID 
-			INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID 
-			INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
+	FROM	Bookings INNER JOIN Docks ON Bookings.BRID = Docks.BRID 
+			INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID 
+			INNER JOIN Companies ON Vessels.CID = Companies.CID
 	WHERE	Status = 'C' AND
 			(
 			(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# <= Bookings.EndDate )
@@ -15,7 +15,7 @@
 </cfquery>
 <cfquery name="currentMaintenance" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Bookings.*, Docks.*
-	FROM	Bookings INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID 
+	FROM	Bookings INNER JOIN Docks ON Bookings.BRID = Docks.BRID 
 	WHERE	Status = 'M' AND
 			(
 			(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# <= Bookings.EndDate )

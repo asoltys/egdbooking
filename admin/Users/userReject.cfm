@@ -15,19 +15,19 @@
 <cfquery name="countCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT 	*
 	FROM 	UserCompanies
-	WHERE 	UserID = '#Form.UserID#' AND Deleted = 0
+	WHERE 	UID = '#Form.UID#' AND Deleted = 0
 </cfquery>
 
 <cfquery name="GetUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	UserID, FirstName, LastName
+	SELECT 	UID, FirstName, LastName
 	FROM 	Users
-	WHERE 	UserID = '#Form.UserID#'
+	WHERE 	UID = '#Form.UID#'
 </cfquery>
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	CompanyID, Name AS CompanyName
+	SELECT 	CID, Name AS CompanyName
 	FROM 	Companies
-	WHERE 	CompanyID = '#Form.CompanyID#'
+	WHERE 	CID = '#Form.CID#'
 </cfquery>
 
 <!-- Start JavaScript Block -->
@@ -70,8 +70,8 @@ function EditSubmit ( selectedform )
 						request to join <strong>#getCompany.companyName#</strong>?</p>
 						<cfif countCompany.recordCount EQ 1><p>User will also be <strong>deleted</strong>!</p></cfif> <!--- Joao Edit --->
 					<form action="userReject_action.cfm?lang=#lang#" id="rejectUser" method="post">
-						<input type="hidden" name="UserID" value="#Form.UserID#" />
-						<input type="hidden" name="CompanyId" value="#Form.CompanyId#" />
+						<input type="hidden" name="UID" value="#Form.UID#" />
+						<input type="hidden" name="CID" value="#Form.CID#" />
 						<!---a href="javascript:EditSubmit('rejectUser');" class="textbutton">Submit</a--->
 						<input type="submit" class="textbutton" value="Reject" />
 						<input type="button" value="Cancel" onclick="self.location.href='userApprove.cfm?lang=#lang#'" class="textbutton" />

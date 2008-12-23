@@ -1,32 +1,32 @@
 <!---cfquery name="cancelBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE	Bookings
 	SET		Deleted = 1
-	WHERE	BookingID = #Form.BookingID#
+	WHERE	BRID = #Form.BRID#
 </cfquery--->
 <CFIF #url.jetty#>
 	<cfquery name="cancelRequest" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	Jetties
 		SET		Status = 'X'
-		WHERE	BookingID = #Form.BookingID#
+		WHERE	BRID = #Form.BRID#
 	</cfquery>
 <CFELSE>
 	<cfquery name="cancelRequest" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	Docks
 		SET		Status = 'X'
-		WHERE	BookingID = #Form.BookingID#
+		WHERE	BRID = #Form.BRID#
 	</cfquery>
 </CFIF>
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS vesselName, StartDate, EndDate
-	FROM	Bookings INNER JOIN	Vessels ON Bookings.VesselID = Vessels.VesselID
-	WHERE	Bookings.BookingID = '#Form.BookingID#'
+	FROM	Bookings INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
+	WHERE	Bookings.BRID = '#Form.BRID#'
 </cfquery>
 
 <cflock scope="session" throwontimeout="no" timeout="30" type="READONLY">
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	firstname + ' ' + lastname AS UserName, Email
 		FROM	Users
-		WHERE	UserID = #session.userID#
+		WHERE	UID = #session.UID#
 	</cfquery>
 </cflock>
 
@@ -36,7 +36,7 @@
 	UPDATE  Bookings
 	SET		BookingTimeChange = #PacificNow#,
 			BookingTimeChangeStatus = '#getUser.UserName# requested to cancel at'
-	WHERE	BookingID = '#Form.BookingID#'
+	WHERE	BRID = '#Form.BRID#'
 </cfquery>
 
 	<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Booking Cancellation Request" type="html">
@@ -94,6 +94,6 @@
 	<cfset Session.Success.Message = "<div align='left'>Votre demande d'annulation de la r&eacute;servation pour le <b>#getBooking.vesselName#</b> du #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')#  est en cours de traitement. L'administration de la CSE a &eacute;t&eacute; avis&eacute;e de votre demande. Vous recevrez sous peu un courriel de suivi en r&eacute;ponse &agrave; votre demande.</div>">
 	<cfset Session.Success.Back = "Retour &agrave;">
 </cfif>
-<cfset Session.Success.Link = "#returnTo#?#urltoken#&CompanyID=#url.CompanyID##variables.dateValue#">
+<cfset Session.Success.Link = "#returnTo#?#urltoken#&CID=#url.CID##variables.dateValue#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 

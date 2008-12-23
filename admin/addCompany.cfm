@@ -25,7 +25,7 @@
 	<cfinclude template="#RootDir#includes/restore_params.cfm">
 <cfelse>
 	<cfinclude template="#RootDir#includes/restore_params.cfm">
-		<cfif isDefined("form.companyID")>
+		<cfif isDefined("form.CID")>
 		<cfset variables.name="#form.name#">
 		<cfset Variables.abbrev="#form.abbrev#">
 		<cfset variables.address1="#form.address1#">

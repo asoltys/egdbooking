@@ -1,21 +1,21 @@
-<cfif isDefined('form.userID')>
+<cfif isDefined('form.UID')>
 	<cfquery name="delUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Users
 		SET Deleted = 1
-		WHERE UserID = #form.userID#
+		WHERE UID = #form.UID#
 	</cfquery>
 	
 	<cfquery name="delUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	UserCompanies
 		SET		Deleted = 1
-		WHERE	UserID = #form.userID#
+		WHERE	UID = #form.UID#
 	</cfquery>
 </cfif>
 
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT FirstName, LastName
 	FROM Users
-	WHERE UserID = #form.UserID#
+	WHERE UID = #form.UID#
 </cfquery>
 
 

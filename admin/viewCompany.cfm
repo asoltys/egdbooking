@@ -70,20 +70,20 @@ var params = {
 <cfset language.PageTitle = "View Company">
 <cfset language.ScreenMessage = ''>
 
-<CFIF IsDefined('url.companyID')>
-	<!---CFSET Variables.companyID = url.companyID--->
+<CFIF IsDefined('url.CID')>
+	<!---CFSET Variables.CID = url.CID--->
 	<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	*
 		FROM	Companies
-		WHERE	Companies.CompanyID = '#url.CompanyID#'
+		WHERE	Companies.CID = '#url.CID#'
 			AND	Deleted = '0'
 		ORDER BY	Name
 	</cfquery>
 
 	<cfquery name="getAgents" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	FirstName, LastName
-		FROM	Users	INNER JOIN	UserCompanies ON Users.UserID = UserCompanies.UserID
-		WHERE	UserCompanies.CompanyID = '#url.companyID#'
+		FROM	Users	INNER JOIN	UserCompanies ON Users.UID = UserCompanies.UID
+		WHERE	UserCompanies.CID = '#url.CID#'
 			AND Users.Deleted = '0'
 			AND UserCompanies.Approved = '1'
 			AND	UserCompanies.Deleted = '0'

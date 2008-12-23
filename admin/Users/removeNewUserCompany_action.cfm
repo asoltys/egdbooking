@@ -8,7 +8,7 @@
 	<cfset companyList = cfusion_decrypt(ToString(ToBinary(URLDecode(url.companies))), "shanisnumber1")>
 </cfif>
 
-<cfset position = ListFind(companyList, "#form.companyID#")>
+<cfset position = ListFind(companyList, "#form.CID#")>
 <cfset companyList = ListDeleteAt(companyList, "#position#")>
 
 <cfif Len(companyList) EQ 0>

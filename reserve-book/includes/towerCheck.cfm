@@ -1,12 +1,12 @@
 <!--- Gets all Bookings that would be affected by the requested booking --->
 <cffunction name="findSpace" access="public" returntype="boolean">
-	<cfargument name="BookingID" type="numeric" required="yes">
+	<cfargument name="BRID" type="numeric" required="yes">
 	<cfargument name="startDate" type="date" required="yes">
 	<cfargument name="endDate" type="date" required="yes">
 	<cfargument name="Length" type="numeric" required="yes">
 	<cfargument name="Width" type="numeric" required="yes">
 	
-	<cfset Variables.BookingID = Arguments.BookingID>
+	<cfset Variables.BRID = Arguments.BRID>
 	<cfset Variables.startDate = Arguments.startDate>
 	<cfset Variables.endDate = Arguments.endDate>
 	<cfset Variables.Length = Arguments.Length>
@@ -17,7 +17,7 @@
 		FROM	Bookings, Docks
 		WHERE	Docks.Status = 'C'
 		AND		Deleted = '0'
-		AND		Docks.BookingID = Bookings.BookingID
+		AND		Docks.BRID = Bookings.BRID
 		AND		(
 					(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# <= Bookings.EndDate )
 				OR 	(	Bookings.StartDate <= #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate )
@@ -29,7 +29,7 @@
 		FROM	Bookings, Docks
 		WHERE	Docks.Status = 'C'
 		AND		Deleted = '0'
-		AND		Docks.BookingID = Bookings.BookingID
+		AND		Docks.BRID = Bookings.BRID
 		AND		(
 					(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# <= Bookings.EndDate )
 				OR 	(	Bookings.StartDate <= #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate )
@@ -37,10 +37,10 @@
 				)
 	</cfquery>
 	<cfquery name="GetBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	Vessels.Length, Vessels.Width, Bookings.BookingID, StartDate, EndDate
+		SELECT	Vessels.Length, Vessels.Width, Bookings.BRID, StartDate, EndDate
 		FROM	Bookings, Vessels, Docks
-		WHERE	Bookings.VesselID = Vessels.VesselID
-		AND		Docks.BookingID = Bookings.BookingID
+		WHERE	Bookings.VNID = Vessels.VNID
+		AND		Docks.BRID = Bookings.BRID
 		AND		Docks.Status = 'C'
 		AND		Vessels.Deleted = '0'
 		AND		Bookings.Deleted = '0'	
@@ -49,9 +49,9 @@
 		ORDER BY StartDate
 	</cfquery>
 	<cfquery name="GetMaintenance" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	Bookings.BookingID, StartDate, EndDate, Section1, Section2, Section3
+		SELECT	Bookings.BRID, StartDate, EndDate, Section1, Section2, Section3
 		FROM	Bookings,Docks
-		WHERE	Docks.BookingID = Bookings.BookingID
+		WHERE	Docks.BRID = Bookings.BRID
 		AND		Docks.Status = 'M'
 		AND		Deleted = '0'	
 		AND		(
@@ -67,13 +67,13 @@
 	
 	<cfloop query="GetBookings">
 		<cfscript>
-			BookingTower.addBlock(#GetBookings.BookingID#, #GetBookings.StartDate#, #GetBookings.EndDate#, #GetBookings.Length#, #GetBookings.Width#);
+			BookingTower.addBlock(#GetBookings.BRID#, #GetBookings.StartDate#, #GetBookings.EndDate#, #GetBookings.Length#, #GetBookings.Width#);
 		</cfscript>
 	</cfloop>
-	<cfscript>BookingTower.addBlock(#Variables.BookingID#, #Variables.StartDate#, #Variables.EndDate#, #Variables.Length#, #Variables.Width#);</cfscript>
+	<cfscript>BookingTower.addBlock(#Variables.BRID#, #Variables.StartDate#, #Variables.EndDate#, #Variables.Length#, #Variables.Width#);</cfscript>
 	<cfloop query="GetMaintenance">
 		<cfscript>
-			BookingTower.addMaint(#GetMaintenance.BookingID#, #GetMaintenance.StartDate#, #GetMaintenance.EndDate#, #GetMaintenance.Section1#, #GetMaintenance.Section2#, #GetMaintenance.Section3#);
+			BookingTower.addMaint(#GetMaintenance.BRID#, #GetMaintenance.StartDate#, #GetMaintenance.EndDate#, #GetMaintenance.Section1#, #GetMaintenance.Section2#, #GetMaintenance.Section3#);
 		</cfscript>
 	</cfloop>
 	<cfreturn BookingTower.reorderTower()>

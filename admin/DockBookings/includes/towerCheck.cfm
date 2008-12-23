@@ -3,7 +3,7 @@
 	FROM	Bookings, Docks
 	WHERE	Docks.Status = 'C'
 	AND		Deleted = '0'
-	AND		Docks.BookingID = Bookings.BookingID
+	AND		Docks.BRID = Bookings.BRID
 	AND		(
 				(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# <= Bookings.EndDate )
 			OR 	(	Bookings.StartDate <= #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate )
@@ -15,7 +15,7 @@
 	FROM	Bookings, Docks
 	WHERE	Docks.Status = 'C'
 	AND		Deleted = '0'
-	AND		Docks.BookingID = Bookings.BookingID
+	AND		Docks.BRID = Bookings.BRID
 	AND		(
 				(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# <= Bookings.EndDate )
 			OR 	(	Bookings.StartDate <= #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate )
@@ -25,10 +25,10 @@
 
 <!-- Gets all Bookings that would be affected by the requested booking --->
 <cfquery name="GetBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Vessels.Length, Vessels.Width, Bookings.BookingID, StartDate, EndDate
+	SELECT	Vessels.Length, Vessels.Width, Bookings.BRID, StartDate, EndDate
 	FROM	Bookings, Vessels, Docks
-	WHERE	Bookings.VesselID = Vessels.VesselID
-	AND		Docks.BookingID = Bookings.BookingID
+	WHERE	Bookings.VNID = Vessels.VNID
+	AND		Docks.BRID = Bookings.BRID
 	AND		Docks.Status = 'C'
 	AND		Vessels.Deleted = '0'
 	AND		Bookings.Deleted = '0'
@@ -37,9 +37,9 @@
 	ORDER BY StartDate
 </cfquery>
 <cfquery name="GetMaintenance" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Bookings.BookingID, StartDate, EndDate, Section1, Section2, Section3
+	SELECT	Bookings.BRID, StartDate, EndDate, Section1, Section2, Section3
 	FROM	Bookings,Docks
-	WHERE	Docks.BookingID = Bookings.BookingID
+	WHERE	Docks.BRID = Bookings.BRID
 	AND		Docks.Status = 'M'
 	AND		Deleted = '0'	
 	AND		(
@@ -55,12 +55,12 @@
 
 <cfloop query="GetBookings">
 	<cfscript>
-		BookingTower.addBlock(#GetBookings.BookingID#, #GetBookings.StartDate#, #GetBookings.EndDate#, #GetBookings.Length#, #GetBookings.Width#);
+		BookingTower.addBlock(#GetBookings.BRID#, #GetBookings.StartDate#, #GetBookings.EndDate#, #GetBookings.Length#, #GetBookings.Width#);
 	</cfscript>
 </cfloop>
-<cfscript>Variables.BlockStructure = BookingTower.addBlock(#theBooking.BookingID#, #Variables.StartDate#, #Variables.EndDate#, #theBooking.Length#, #theBooking.Width#);</cfscript>
+<cfscript>Variables.BlockStructure = BookingTower.addBlock(#theBooking.BRID#, #Variables.StartDate#, #Variables.EndDate#, #theBooking.Length#, #theBooking.Width#);</cfscript>
 <cfloop query="GetMaintenance">
 	<cfscript>
-		BookingTower.addMaint(#GetMaintenance.BookingID#, #GetMaintenance.StartDate#, #GetMaintenance.EndDate#, #GetMaintenance.Section1#, #GetMaintenance.Section2#, #GetMaintenance.Section3#);
+		BookingTower.addMaint(#GetMaintenance.BRID#, #GetMaintenance.StartDate#, #GetMaintenance.EndDate#, #GetMaintenance.Section1#, #GetMaintenance.Section2#, #GetMaintenance.Section3#);
 	</cfscript>
 </cfloop>

@@ -1,30 +1,30 @@
 <!-- Gets all Bookings with the same ship that have an overlap with the current booking --->
 
 <cffunction access="public" name="getOverlaps_Conf" returntype="query">
-<!--- 	Input: BookingID of the selected booking for confirmation
-		Returns: list of tentative BookingIDs that overlap with this booking
+<!--- 	Input: BRID of the selected booking for confirmation
+		Returns: list of tentative BRIDs that overlap with this booking
 --->
-	<cfargument type="numeric" name="BookingID" required="yes">
+	<cfargument type="numeric" name="BRID" required="yes">
 
 	<cfquery name="theBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	BookingID, StartDate, EndDate, BookingTime, VesselID
+		SELECT	BRID, StartDate, EndDate, BookingTime, VNID
 		FROM	Bookings
-		WHERE	BookingID = '#arguments.BookingID#'
+		WHERE	BRID = '#arguments.BRID#'
 	</cfquery>
 
 	<cfset Variables.BookingTime = theBooking.BookingTime>
 	<cfset Variables.StartDate = CreateODBCDate(theBooking.StartDate)>
 	<cfset Variables.EndDate = CreateODBCDate(theBooking.EndDate)>
-	<cfset Variables.BookingID = theBooking.BookingID>
-	<cfset Variables.VesselID = theBooking.VesselID>
+	<cfset Variables.BRID = theBooking.BRID>
+	<cfset Variables.VNID = theBooking.VNID>
 
 	<cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT 	Bookings.VesselID, Vessels.Name, Bookings.StartDate, Bookings.EndDate, Docks.Status, Bookings.BookingTime, Bookings.BookingID
+		SELECT 	Bookings.VNID, Vessels.Name, Bookings.StartDate, Bookings.EndDate, Docks.Status, Bookings.BookingTime, Bookings.BRID
 		FROM 	Bookings
-					INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-					INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
-		WHERE 	Bookings.VesselID = '#Variables.VesselID#'
-		AND	Bookings.BookingID <> '#arguments.BookingID#'
+					INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+					INNER JOIN Docks ON Bookings.BRID = Docks.BRID
+		WHERE 	Bookings.VNID = '#Variables.VNID#'
+		AND	Bookings.BRID <> '#arguments.BRID#'
 		AND 	
 				(
 					(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# < Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)

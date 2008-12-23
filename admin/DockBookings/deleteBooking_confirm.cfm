@@ -1,10 +1,10 @@
-<cfif isDefined("form.bookingID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.BRID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
-<CFIF IsDefined('Form.BookingID')>
-	<CFSET Variables.BookingID = Form.BookingID>
-<CFELSEIF IsDefined('URL.BookingID')>
-	<CFSET Variables.BookingID = URL.BookingID>
+<CFIF IsDefined('Form.BRID')>
+	<CFSET Variables.BRID = Form.BRID>
+<CFELSEIF IsDefined('URL.BRID')>
+	<CFSET Variables.BRID = URL.BRID>
 <CFELSE>
 	<cflocation addtoken="no" url="#RootDir#admin/menu.cfm?lang=#lang#">
 </CFIF>
@@ -22,11 +22,11 @@
 			Users.LastName + ', ' + Users.FirstName AS UserName,
 			Companies.Name AS CompanyName, Docks.Section1, Docks.Section2, Docks.Section3,
 			Docks.Status
-	FROM 	Bookings INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
-			INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-			INNER JOIN Users ON Bookings.UserID = Users.UserID
-			INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
-	WHERE	Bookings.BookingID = '#Variables.BookingID#'
+	FROM 	Bookings INNER JOIN Docks ON Bookings.BRID = Docks.BRID
+			INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+			INNER JOIN Users ON Bookings.UID = Users.UID
+			INNER JOIN Companies ON Vessels.CID = Companies.CID
+	WHERE	Bookings.BRID = '#Variables.BRID#'
 </cfquery>
 
 <cfif DateCompare(PacificNow, getBooking.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBooking.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1)>
@@ -73,7 +73,7 @@
 
 				<cfif getBooking.Status EQ 'c' AND DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1>
 					<cfinclude template="includes/getConflicts.cfm">
-					<cfset conflictArray = getConflicts_remConf(Variables.BookingID)>
+					<cfset conflictArray = getConflicts_remConf(Variables.BRID)>
 					<cfif ArrayLen(conflictArray) GT 0>
 						<cfset Variables.waitListText = "The booking slot that this vessel held is now available for the following tentative bookings. The companies/agents should be given 24 hours notice to claim this slot.">
 						<cfinclude template="includes/displayWaitList.cfm">
@@ -89,7 +89,7 @@
 				<cfform action="deleteBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" id="delBookingConfirm">
 					<p align="center">Are you sure you want to <cfoutput>#variables.action#</cfoutput> the following booking?</p>
 
-					<input type="hidden" name="BookingID" value="<cfoutput>#Variables.BookingID#</cfoutput>" />
+					<input type="hidden" name="BRID" value="<cfoutput>#Variables.BRID#</cfoutput>" />
 					<cfoutput query="getBooking">
 					<table style="padding-top:10px;padding-bottom:10px;padding-left:30px;" style="width:70%;">
 						<tr>
@@ -141,7 +141,7 @@
 					<br />
 					<div style="text-align:center;">
 						<input type="submit" name="submitForm" class="textbutton" value="#variables.action#" />
-						<input type="button" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" value="Back" class="textbutton" />
+						<input type="button" onclick="self.location.href='#returnTo#?#urltoken#&BRID=#variables.BRID##variables.dateValue###id#variables.BRID#'" value="Back" class="textbutton" />
 					</div>
 
 					</cfoutput>

@@ -6,19 +6,19 @@
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm Remove Company</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<cfif isDefined("form.userID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.UID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name
 	FROM	Companies
-	WHERE	CompanyId = #form.CompanyID#
+	WHERE	CID = #form.CID#
 </cfquery>
 
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT FirstName + ' ' + LastName AS UserName
 	FROM Users
-	WHERE UserID = #form.UserID#
+	WHERE UID = #form.UID#
 </cfquery>
 
 <!-- Start JavaScript Block -->
@@ -39,7 +39,7 @@ function EditSubmit ( selectedform )
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-			<a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#form.userID#">Edit User Profile</a> &gt;
+			<a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#&UID=#form.UID#">Edit User Profile</a> &gt;
 			Confirm Remove Company</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
@@ -62,18 +62,18 @@ function EditSubmit ( selectedform )
 				</cfif>
 
 				<cfoutput>
-				<cfform action="removeUserCompany_action.cfm?lang=#lang#&userID=#form.userID#" method="post" id="remCompanyConfirmForm">
+				<cfform action="removeUserCompany_action.cfm?lang=#lang#&UID=#form.UID#" method="post" id="remCompanyConfirmForm">
 					<div style="text-align:center;">Are you sure you want to remove <strong>#getUser.UserName#</strong> from <strong>#getCompany.Name#</strong>?</div>
 
 					<p><div style="text-align:center;">
 						<!--a href="javascript:EditSubmit('remCompanyConfirmForm');" class="textbutton">Submit</a>
-						<a href="editUser.cfm?userID=#form.userID#" class="textbutton">Cancel</a-->
+						<a href="editUser.cfm?UID=#form.UID#" class="textbutton">Cancel</a-->
 						<input type="submit" name="submitForm" value="Remove" class="textbutton" />
-						<input type="button" name="cancel" value="Cancel" class="textbutton" onclick="self.location.href='editUser.cfm?lang=#lang#&userID=#form.userID#'" />
+						<input type="button" name="cancel" value="Cancel" class="textbutton" onclick="self.location.href='editUser.cfm?lang=#lang#&UID=#form.UID#'" />
 					</div></p>
 
-					<input type="hidden" name="CompanyID" value="#form.CompanyID#" />
-					<input type="hidden" name="userID" value="#form.userID#" />
+					<input type="hidden" name="CID" value="#form.CID#" />
+					<input type="hidden" name="UID" value="#form.UID#" />
 				</cfform>
 				</cfoutput>
 

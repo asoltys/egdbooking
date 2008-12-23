@@ -17,8 +17,8 @@
 
 <cfquery name="GetNewUsers" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	COUNT(*) AS NumFound
-	FROM	UserCompanies INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
-			INNER JOIN Users ON UserCompanies.UserID = Users.UserID
+	FROM	UserCompanies INNER JOIN Companies ON UserCompanies.CID = Companies.CID
+			INNER JOIN Users ON UserCompanies.UID = Users.UID
 	WHERE	UserCompanies.Approved = '0' AND UserCompanies.Deleted = '0'
 			AND Users.Deleted = '0' AND Companies.Deleted = '0'
 </cfquery>

@@ -11,11 +11,11 @@
 	<body>
 		<!--- Get all dock bookings with an end date 3 days from today --->
 		<cfquery datasource="#DSN#" username="#dbuser#" password="#dbpassword#" name="GetDockBookings">
-			SELECT Bookings.VesselID, Bookings.UserID, Vessels.Name,Users.Email
+			SELECT Bookings.VNID, Bookings.UID, Vessels.Name,Users.Email
 			FROM Bookings, Docks, Vessels, Users
-			WHERE Docks.BookingID=Bookings.BookingID
-			AND Bookings.VesselID=Vessels.VesselID
-			AND Users.UserID=Bookings.UserID
+			WHERE Docks.BRID=Bookings.BRID
+			AND Bookings.VNID=Vessels.VNID
+			AND Users.UID=Bookings.UID
 			AND Docks.Status='C'
 			AND Bookings.EndDate>=#CreateODBCDate(DateAdd("d",3,PacificNow))# 
 			AND Bookings.EndDate < #CreateODBCDate(DateAdd("d",4,PacificNow))#
@@ -36,11 +36,11 @@
 		
 		<!--- Get all jetty bookings with an end date 3 days from today --->
 		<cfquery datasource="#DSN#" username="#dbuser#" password="#dbpassword#" name="GetJettyBookings">
-			SELECT Bookings.VesselID, Bookings.UserID, Vessels.Name,Users.Email
+			SELECT Bookings.VNID, Bookings.UID, Vessels.Name,Users.Email
 			FROM Bookings, Jetties, Vessels, Users
-			WHERE Jetties.BookingID=Bookings.BookingID
-			AND Bookings.VesselID=Vessels.VesselID
-			AND Users.UserID=Bookings.UserID
+			WHERE Jetties.BRID=Bookings.BRID
+			AND Bookings.VNID=Vessels.VNID
+			AND Users.UID=Bookings.UID
 			AND Jetties.Status='C'
 			AND Bookings.EndDate>=#CreateODBCDate(DateAdd("d",3,PacificNow))# 
 			AND Bookings.EndDate < #CreateODBCDate(DateAdd("d",4,PacificNow))#

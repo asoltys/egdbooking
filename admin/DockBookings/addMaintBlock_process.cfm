@@ -80,7 +80,7 @@ function EditSubmit ( selectedform )
 			<cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT 	Section1, Section2, Section3, StartDate, EndDate
 				FROM 	Bookings, Docks
-				WHERE 	Docks.BookingID = Bookings.BookingID
+				WHERE 	Docks.BRID = Bookings.BRID
 				AND		Status = 'M'
 				AND		Deleted = '0'
 				AND 	(
@@ -162,9 +162,9 @@ function EditSubmit ( selectedform )
 			<!-- Gets all Bookings that would be affected by the maintenance block --->
 			<cfquery name="checkConflicts" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT	Section1, Section2, Section3, StartDate, EndDate, V.Name AS VesselName, C.Name AS CompanyName
-				FROM	Bookings B INNER JOIN Docks D ON B.bookingID = D.bookingID
-							INNER JOIN Vessels V ON V.vesselID = B.vesselID
-							INNER JOIN Companies C ON C.CompanyID = V.CompanyID
+				FROM	Bookings B INNER JOIN Docks D ON B.BRID = D.BRID
+							INNER JOIN Vessels V ON V.VNID = B.VNID
+							INNER JOIN Companies C ON C.CID = V.CID
 				WHERE	Status = 'c'
 					AND	B.Deleted = '0'
 					AND	V.Deleted = '0'

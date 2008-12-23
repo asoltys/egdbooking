@@ -62,7 +62,7 @@ function EditSubmit ( selectedform )
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 
 				<!--- -------------------------------------------------------------------------------------------- --->
-				<cfparam name="Variables.BookingID" default="">
+				<cfparam name="Variables.BRID" default="">
 				<cfparam name="Variables.SouthJetty" default="false">
 				<cfparam name="Variables.NorthJetty" default="false">
 				<cfparam name="Variables.StartDate" default="#DateAdd('d', 1, PacificNow)#">
@@ -116,7 +116,7 @@ function EditSubmit ( selectedform )
 
 				<!--- -------------------------------------------------------------------------------------------- --->
 				<cfform id="AddJettyMaintBlock" action="addJettyMaintBlock_process.cfm?#urltoken#" method="post">
-				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
+				<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" />
 				<table style="width:100%;">
 				<tr>
 					<td id="Start">Start Date:</td>

@@ -53,30 +53,30 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFIF NOT IsDefined('url.VesselID') AND Not IsNumeric('url.VesselID')>
+				<CFIF NOT IsDefined('url.VNID') AND Not IsNumeric('url.VNID')>
 					<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 				</CFIF>
 
 				<cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-					SELECT Vessels.*, Companies.CompanyID, Companies.Name AS CompanyName
-					FROM  Vessels INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
-					WHERE VesselID = #url.VesselID#
+					SELECT Vessels.*, Companies.CID, Companies.Name AS CompanyName
+					FROM  Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
+					WHERE VNID = #url.VNID#
 					AND Vessels.Deleted = 0
 				</cfquery>
 
 				<cfquery name="getVesselDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	*
-					FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
-							INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
-					WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #url.VesselID# AND Bookings.Deleted = 0
+					FROM	Bookings INNER JOIN Vessels ON Vessels.VNID = Bookings.VNID
+							INNER JOIN Docks ON Bookings.BRID = Docks.BRID
+					WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VNID = #url.VNID# AND Bookings.Deleted = 0
 							AND Status = 'c'
 				</cfquery>
 
 				<cfquery name="getVesselJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	*
-					FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
-							INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
-					WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #url.VesselID# AND Bookings.Deleted = 0
+					FROM	Bookings INNER JOIN Vessels ON Vessels.VNID = Bookings.VNID
+							INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
+					WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VNID = #url.VNID# AND Bookings.Deleted = 0
 							AND Status = 'c'
 				</cfquery>
 
@@ -112,7 +112,7 @@
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 
-				<cfform id="editVessel" action="#RootDir#reserve-book/naviremod-vesseledit_action.cfm?lang=#lang#&amp;CompanyID=#getVesselDetail.companyID#&amp;VesselID=#VesselID#" method="post">
+				<cfform id="editVessel" action="#RootDir#reserve-book/naviremod-vesseledit_action.cfm?lang=#lang#&amp;CID=#getVesselDetail.CID#&amp;VNID=#VNID#" method="post">
 					<cfif getVesselDockBookings.recordCount GT 0 OR getVesselJettyBookings.recordCount GT 0>
 					<div id="actionErrors">#language.notEditVesselDimensions#</div>
 					</cfif>
@@ -173,10 +173,10 @@
 					<p class="smallFont">*#language.anonymousWarning#</p>
 
 					<div class="buttons">
-						<input type="hidden" name="vesselID" value="<cfoutput>#url.vesselID#</cfoutput>" />
+						<input type="hidden" name="VNID" value="<cfoutput>#url.VNID#</cfoutput>" />
 						<input type="submit" value="#language.Submit#" name="submitForm" class="textbutton" />
 						<input type="reset" value="#language.Reset#" name="resetForm" class="textbutton" />
-						<input type="button" value="#language.Cancel#" name="cancel" class="textbutton" onclick="self.location.href='#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CompanyID=#GetVesselDetail.companyID#'" />
+						<input type="button" value="#language.Cancel#" name="cancel" class="textbutton" onclick="self.location.href='#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#GetVesselDetail.CID#'" />
 					</div>
 				</cfform>
 				</cfoutput>

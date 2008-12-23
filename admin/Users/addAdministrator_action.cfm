@@ -11,15 +11,15 @@
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT *
 		FROM Users
-		WHERE UserID = #form.UserID#
+		WHERE UID = #form.UID#
 	</cfquery>
 </cflock>
 
-<cfif isdefined('form.UserId')>
+<cfif isdefined('form.UID')>
 
 	<cfquery name="addAdministrator" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		INSERT INTO Administrators(UserID)
-		VALUES ('#form.UserId#')
+		INSERT INTO Administrators(UID)
+		VALUES ('#form.UID#')
 	</cfquery>
 	
 	<cfset Session.Success.Breadcrumb = "Add Administrator">

@@ -32,7 +32,7 @@
 <cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT ReadOnly
 	FROM Users
-	WHERE UserID = #Session.UserID#
+	WHERE UID = #Session.UID#
 </cfquery>
 <cfoutput query="readonlycheck">
 	<cfset Session.ReadOnly = #ReadOnly#>
@@ -45,21 +45,21 @@
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.vesselDetail#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<cfif isDefined("form.vesselID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.VNID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
-<cfif NOT IsDefined('url.vesselID') OR NOT IsNumeric(url.vesselID)>
+<cfif NOT IsDefined('url.VNID') OR NOT IsNumeric(url.VNID)>
 	<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 </cfif>
 
 <cflock timeout="60" throwontimeout="No" type="exclusive" scope="session">
-	<cfset Session.Flow.VesselID = URL.VesselID>
+	<cfset Session.Flow.VNID = URL.VNID>
 </cflock>
 
 <cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT Vessels.*, Companies.Name AS CompanyName, Companies.CompanyID
-	FROM  Vessels INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
-	WHERE VesselID = #url.VesselID#
+	SELECT Vessels.*, Companies.Name AS CompanyName, Companies.CID
+	FROM  Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
+	WHERE VNID = #url.VNID#
 	AND Vessels.deleted = 0
 </cfquery>
 
@@ -134,8 +134,8 @@
 
 					<div class="buttons">
 						<cfif #Session.ReadOnly# NEQ "1">
-						<a href="#RootDir#reserve-book/naviremod-vesseledit.cfm?lang=#lang#&amp;vesselID=#url.vesselID#" class="textbutton">#language.EditVessel#</a>
-						<a href="#RootDir#reserve-book/naviresup-vesseldel.cfm?lang=#lang#&amp;vesselID=#url.vesselID#" class="textbutton">#language.DeleteVessel#</a>
+						<a href="#RootDir#reserve-book/naviremod-vesseledit.cfm?lang=#lang#&amp;VNID=#url.VNID#" class="textbutton">#language.EditVessel#</a>
+						<a href="#RootDir#reserve-book/naviresup-vesseldel.cfm?lang=#lang#&amp;VNID=#url.VNID#" class="textbutton">#language.DeleteVessel#</a>
 						</cfif>
 					</div>
 				</cfoutput>

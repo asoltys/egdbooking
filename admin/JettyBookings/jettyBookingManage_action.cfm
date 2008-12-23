@@ -1,15 +1,15 @@
 <cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Email, Vessels.Name AS VesselName, StartDate, EndDate
-	FROM	Bookings INNER JOIN Users ON Bookings.UserID = Users.UserID 
-			INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-	WHERE	BookingID = '#Form.ID#'
+	FROM	Bookings INNER JOIN Users ON Bookings.UID = Users.UID 
+			INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+	WHERE	BRID = '#Form.ID#'
 </cfquery>
 	
 <cflock throwontimeout="no" scope="session" timeout="30" type="readonly">
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UserID = '#session.userID#'
+		WHERE	UID = '#session.UID#'
 	</cfquery>
 </cflock>
 
@@ -29,7 +29,7 @@
 	<cfquery name="updateBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE 	Jetties
 		SET 	Status = 'C'
-		WHERE 	BookingID = #form.id#
+		WHERE 	BRID = #form.id#
 	</cfquery>
 	
 	<cfoutput>
@@ -50,7 +50,7 @@
 	<cfquery name="updateBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Jetties
 		SET Status = 'P'
-		WHERE BookingID = #form.id#
+		WHERE BRID = #form.id#
 	</cfquery>
 	
 	
@@ -115,10 +115,10 @@
 	<cfset Session.Success.Title = "Change Booking Status">
 	<cfset Session.Success.Message = "Booking status for <b>#getDetails.vesselName#</b> from #LSDateFormat(CreateODBCDate(getDetails.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getDetails.endDate), 'mmm d, yyyy')# is now <b>#newStatus#</b>.  Email notification of this change has been sent to the agent.">
 	<cfset Session.Success.Back = "Back to #url.referrer#">
-	<cfset Session.Success.Link = "#returnTo#?#urltoken##dateValue#&bookingID=#Form.ID####form.id#">
+	<cfset Session.Success.Link = "#returnTo#?#urltoken##dateValue#&BRID=#Form.ID####form.id#">
 	<cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 <cfelse>
-	<cflocation addtoken="no" url="#returnTo#?#urltoken##dateValue#&bookingID=#Form.ID#">
+	<cflocation addtoken="no" url="#returnTo#?#urltoken##dateValue#&BRID=#Form.ID#">
 </cfif>
 
 <!---cflocation addtoken="no" url="jettyBookingmanage.cfm?lang=#lang#&id=#form.id#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#"--->

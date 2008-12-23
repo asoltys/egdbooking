@@ -1,10 +1,10 @@
-<cfif isDefined("form.bookingID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.BRID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT 	Bookings.StartDate, Bookings.EndDate, Docks.Section1, Docks.Section2, Docks.Section3
-	FROM 	Bookings INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
-	WHERE	Bookings.BookingID = '#Form.BookingID#'
+	FROM 	Bookings INNER JOIN Docks ON Bookings.BRID = Docks.BRID
+	WHERE	Bookings.BRID = '#Form.BRID#'
 </cfquery>
 
 <cfif DateCompare(PacificNow, getBooking.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBooking.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1)>
@@ -24,7 +24,7 @@
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm #variables.actionCap# Maintenance Block</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<cfset Variables.BookingID = Form.BookingID>
+<cfset Variables.BRID = Form.BRID>
 <cfset Variables.Start = getBooking.StartDate>
 <cfset Variables.End = getBooking.EndDate>
 <cfset Variables.Section1 = getBooking.Section1>
@@ -70,7 +70,7 @@ function EditSubmit ( selectedform )
 
 				<cfif DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1>
 					<cfinclude template="includes/getConflicts.cfm">
-					<cfset conflictArray = getConflicts_remConf(Variables.BookingID)>
+					<cfset conflictArray = getConflicts_remConf(Variables.BRID)>
 					<cfif ArrayLen(conflictArray) GT 0>
 						<cfset Variables.waitListText = "The booking slot that this maintenance block held is now available for the following tentative bookings. The companies/agents should be given 24 hours notice to claim this slot.">
 						<cfinclude template="includes/displayWaitList.cfm">
@@ -80,7 +80,7 @@ function EditSubmit ( selectedform )
 
 				<p>Please confirm the following maintenance block information.</p>
 				<cfform action="deleteMaintBlock_action.cfm?#urltoken#" method="post" id="bookingreq" preservedata="Yes">
-				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
+				<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" />
 
 				<table style="width:80%;" align="center">
 					<tr><td align="left"><div style="font-weight:bold;">Booking:</div></td></tr>

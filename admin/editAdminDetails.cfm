@@ -9,8 +9,8 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="getAdministrators" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	Email, firstname + ' ' + lastname AS AdminName, Administrators.UserID
-	FROM 	Administrators INNER JOIN Users on Administrators.userID = Users.userID
+	SELECT 	Email, firstname + ' ' + lastname AS AdminName, Administrators.UID
+	FROM 	Administrators INNER JOIN Users on Administrators.UID = Users.UID
 	WHERE 	users.deleted = 0
 	ORDER BY lastname, firstname
 </cfquery>
@@ -66,7 +66,7 @@ function EditSubmit ( selectedform )
 						<cfset variables.checked = "no">
 					</cfif>
 						<tr>
-							<td>#AdminName#</td><td>#email#</td><td><cfinput type="checkbox" name="Email#userID#" value="#userID#" checked="#variables.checked#" /></td>
+							<td>#AdminName#</td><td>#email#</td><td><cfinput type="checkbox" name="Email#UID#" value="#UID#" checked="#variables.checked#" /></td>
 						</tr>
 					</cfloop>
 				</table>

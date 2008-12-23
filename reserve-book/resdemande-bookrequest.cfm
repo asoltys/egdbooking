@@ -60,10 +60,10 @@
 				<cfoutput>
 
 				<cfset Variables.BookingRequestString = "">
-				<cfif IsDefined("URL.VesselID")>
-					<cfset Variables.BookingRequestString = "&VesselID=#URL.VesselID#">
-				<cfelseif IsDefined("URL.CompanyID")>
-					<cfset Variables.BookingRequestString = "&CompanyID=#URL.CompanyID#">
+				<cfif IsDefined("URL.VNID")>
+					<cfset Variables.BookingRequestString = "&VNID=#URL.VNID#">
+				<cfelseif IsDefined("URL.CID")>
+					<cfset Variables.BookingRequestString = "&CID=#URL.CID#">
 				</cfif>
 				<cfif IsDefined("URL.Date")>
 					<cfset Variables.BookingRequestString = "#Variables.BookingRequestString#&Date=#URL.Date#">

@@ -26,10 +26,10 @@
 	<cfset variables.dateValue = "">
 </cfif>
 
-<CFIF IsDefined('form.BookingID')>
-	<CFSET Variables.BookingID = form.BookingID>
-<CFELSEIF IsDefined('url.BookingID')>
-	<CFSET Variables.BookingID = url.BookingID>
+<CFIF IsDefined('form.BRID')>
+	<CFSET Variables.BRID = form.BRID>
+<CFELSEIF IsDefined('url.BRID')>
+	<CFSET Variables.BRID = url.BRID>
 <CFELSE>
 	<cflocation addtoken="no" url="#RootDir#admin/menu.cfm?lang=#lang#">
 </CFIF>
@@ -37,14 +37,14 @@
 <cfquery name="getForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
 	FROM	TariffForms
-	WHERE	BookingID = '#Variables.BookingID#'
+	WHERE	BRID = '#Variables.BRID#'
 </cfquery>
 
 <cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS VesselName, Companies.Name AS CompanyName, StartDate, EndDate
-	FROM	Bookings INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-			INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
-	WHERE	Bookings.BookingID = '#Variables.BookingID#'
+	FROM	Bookings INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+			INNER JOIN Companies ON Vessels.CID = Companies.CID
+	WHERE	Bookings.BRID = '#Variables.BRID#'
 </cfquery>
 
 <cfquery name="getFees" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -141,13 +141,13 @@ function EditSubmit ( selectedform )
 					</cfoutput>
 				</table>
 
-				<cfoutput><input type="hidden" name="bookingID" value=#Variables.bookingID#></cfoutput>
+				<cfoutput><input type="hidden" name="BRID" value=#Variables.BRID#></cfoutput>
 
 				<br />
 				<div style="text-align:right;">
 					<!--a href="javascript:EditSubmit('serviceSelect');" class="textbutton">Submit</a-->
 					<input type="submit" name="submitForm" class="textbutton" value="submit" />
-					<input type="button" value="Back" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue###id#variables.bookingid#'" class="textbutton" />
+					<input type="button" value="Back" onclick="self.location.href='#returnTo#?#urltoken#&BRID=#variables.BRID##variables.dateValue###id#variables.BRID#'" class="textbutton" />
 				</div>
 
 				</form>

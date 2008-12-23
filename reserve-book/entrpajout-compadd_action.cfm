@@ -73,8 +73,8 @@
 
 	<cflock throwontimeout="no" timeout="30" scope="session">
 		<cfquery name="addUserRelation" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			INSERT INTO	UserCompanies (UserID, CompanyID)
-			VALUES		(#Session.userID# , #getDeletedCompany.CompanyID#)
+			INSERT INTO	UserCompanies (UserID, CID)
+			VALUES		(#Session.userID# , #getDeletedCompany.CID#)
 		</cfquery>
 	</cflock>--->
 	
@@ -118,14 +118,14 @@
 		</cfquery>
 	
 		<cfquery name="getID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			SELECT	@@IDENTITY AS CompanyID
+			SELECT	@@IDENTITY AS CID
 			FROM	Companies
 		</cfquery>
 	
 		<cflock throwontimeout="no" timeout="30" scope="session">
 			<cfquery name="addUserRelation" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-				INSERT INTO	UserCompanies (UserID, CompanyID)
-				VALUES		(#Session.userID# , #getID.CompanyID#)
+				INSERT INTO	UserCompanies (UserID, CID)
+				VALUES		(#Session.userID# , #getID.CID#)
 			</cfquery>
 		</cflock>
 	</cftransaction>

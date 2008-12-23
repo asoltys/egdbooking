@@ -8,49 +8,49 @@
 	--->
 
 
-<cfif isDefined('form.companyID')>
+<cfif isDefined('form.CID')>
 
 	<cfquery name="getCompanyUsers" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT Users.UserID
-		FROM Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-		WHERE UserCompanies.companyID = #form.companyID#
+		SELECT Users.UID
+		FROM Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+		WHERE UserCompanies.CID = #form.CID#
 		AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
 	</cfquery>
 	
 	<cfloop query="getCompanyUsers">
 			
-		<!---<cfquery name="updateUser#UserID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+		<!---<cfquery name="updateUser#UID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			UPDATE Users
 			SET Deleted = 1
-			WHERE UserID = #userID#
+			WHERE UID = #UID#
 		</cfquery>--->
 		
-		<cfquery name="delUserCompanies#userID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+		<cfquery name="delUserCompanies#UID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			UPDATE	UserCompanies
 			SET		Deleted = 1
-			WHERE	UserID = #userID# AND CompanyID = '#form.companyID#'
+			WHERE	UID = #UID# AND CID = '#form.CID#'
 		</cfquery>
 			
 	</cfloop>
 			
 	<cfquery name="getVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT VesselID
+		SELECT VNID
 		FROM Vessels
-		WHERE companyID = #form.companyID#
+		WHERE CID = #form.CID#
 	</cfquery>
 	
 	<cfloop query="getVessels">
 
-		<cfquery name="updateBooking#vesselID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+		<cfquery name="updateBooking#VNID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			UPDATE	Bookings
 			SET		Deleted = 1
-			WHERE	VesselID = #vesselID#
+			WHERE	VNID = #VNID#
 		</cfquery>
 		
-		<cfquery name="deleteVessel#vesselID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+		<cfquery name="deleteVessel#VNID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			UPDATE	Vessels
 			SET		Deleted = 1
-			WHERE	VesselID = #vesselID#
+			WHERE	VNID = #VNID#
 		</cfquery>
 		
 	</cfloop>
@@ -58,13 +58,13 @@
 	<cfquery name="delCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	Companies
 		SET		Deleted = 1
-		WHERE	companyID = #form.companyID#
+		WHERE	CID = #form.CID#
 	</cfquery>
 	
 </cfif>
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT Name FROM Companies WHERE companyID = #form.companyID#
+	SELECT Name FROM Companies WHERE CID = #form.CID#
 </cfquery>
 
 

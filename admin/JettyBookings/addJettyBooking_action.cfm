@@ -5,25 +5,25 @@
 <cftransaction>
 	<cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		INSERT INTO	Bookings
-				(VesselID,
+				(VNID,
 				StartDate,
 				EndDate, 
 				BookingTime, 
-				UserID)
-		VALUES	(#form.vesselID#,
+				UID)
+		VALUES	(#form.VNID#,
 				#CreateODBCDate(Form.StartDate)#,
 				#CreateODBCDate(Form.EndDate)#, 
 				#CreateODBCDateTime(Variables.BookingDateTime)#, 
-				#form.UserID#)
+				#form.UID#)
 	</cfquery>
 	<cfquery name="getID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT @@IDENTITY AS BookingID
+		SELECT @@IDENTITY AS BRID
 		FROM Bookings
 	</cfquery>
 	<!---cfquery name="getID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	BookingID
+		SELECT	BRID
 		FROM	Bookings
-		WHERE	VesselID = '#Form.VesselID#' AND 
+		WHERE	VNID = '#Form.VNID#' AND 
 				StartDate = #CreateODBCDate(Form.StartDate)# AND 
 				EndDate = #CreateODBCDate(Form.EndDate)# AND
 				BookingTime = #CreateODBCDateTime(Variables.BookingDateTime)#
@@ -31,13 +31,13 @@
 </cftransaction>
 
 <cfquery name="bookJetty" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	INSERT INTO Jetties(BookingID, 
+	INSERT INTO Jetties(BRID, 
 						<cfif Form.Jetty EQ "north">
 						NorthJetty
 						<cfelse>
 						SouthJetty
 						</cfif>, Status)
-	VALUES		('#getID.BookingID#', 1, '#Form.Status#')
+	VALUES		('#getID.BRID#', 1, '#Form.Status#')
 </cfquery>
 
 <cflock timeout=20 scope="Session" type="Exclusive">
@@ -46,10 +46,10 @@
 
 <cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Email, Vessels.Name AS VesselName, StartDate, EndDate, NorthJetty, SouthJetty
-	FROM	Bookings INNER JOIN Users ON Bookings.UserID = Users.UserID 
-			INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-			INNER JOIN Jetties ON Jetties.BookingID = Bookings.BookingID
-	WHERE	Bookings.BookingID = '#getID.BookingID#'
+	FROM	Bookings INNER JOIN Users ON Bookings.UID = Users.UID 
+			INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+			INNER JOIN Jetties ON Jetties.BRID = Bookings.BRID
+	WHERE	Bookings.BRID = '#getID.BRID#'
 </cfquery>
 		
 			
@@ -64,7 +64,7 @@
 		<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	Email
 			FROM	Users
-			WHERE	UserID = '#session.userID#'
+			WHERE	UID = '#session.UID#'
 		</cfquery>
 	</cflock>
 	

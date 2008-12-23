@@ -3,20 +3,20 @@
 		UPDATE	Bookings
 		SET		StartDate = <cfqueryparam value="#CreateODBCDate(Form.StartDate)#" cfsqltype="cf_sql_date">,
 				EndDate = <cfqueryparam value="#CreateODBCDate(Form.EndDate)#" cfsqltype="cf_sql_date">
-		WHERE	Bookings.BookingID = '#Form.BookingID#'
+		WHERE	Bookings.BRID = '#Form.BRID#'
 	</cfquery>
 	<cfquery name="updateDock" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	Jetties
 		SET		NorthJetty = '#Form.NorthJetty#',
 				SouthJetty = '#Form.SouthJetty#'
-		WHERE	Jetties.BookingID = '#Form.BookingID#'
+		WHERE	Jetties.BRID = '#Form.BRID#'
 	</cfquery>
 </cftransaction>
 	
 	<cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	startDate, endDate
 	from	Bookings
-	WHERE	BookingID = '#FORM.BookingID#'
+	WHERE	BRID = '#FORM.BRID#'
 </cfquery>
 
 <!--- URL tokens set-up.  Do not edit unless you KNOW something is wrong.
@@ -43,7 +43,7 @@
 <cfset Session.Success.Title = "Edit Maintenance Block">
 <cfset Session.Success.Message = "Maintenance block is now from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')#.">
 <cfset Session.Success.Back = "Back to Jetty Bookings Management">
-<cfset Session.Success.Link = "#RootDir#admin/JettyBookings/jettybookingmanage.cfm?#urltoken####form.bookingid#">
+<cfset Session.Success.Link = "#RootDir#admin/JettyBookings/jettybookingmanage.cfm?#urltoken####form.BRID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
 <!---cflocation addtoken="no" url="jettyBookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#"--->

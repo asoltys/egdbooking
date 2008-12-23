@@ -44,12 +44,12 @@
 <cfset Variables.onLoad = "javascript:document.addUserForm.firstname.focus();">
 
 <cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-SELECT CompanyID, Name FROM Companies WHERE Deleted = 0 ORDER BY CompanyID
+SELECT CID, Name FROM Companies WHERE Deleted = 0 ORDER BY CID
 </cfquery>
 <cfparam name="variables.FirstName" default="">
 <cfparam name="variables.LastName" default="">
 <cfparam name="variables.email" default="">
-<cfparam name="variables.companyID" default="#getCompanies.CompanyID#">
+<cfparam name="variables.CID" default="#getCompanies.CID#">
 <cfif isDefined("url.info")>
 	<cfset Variables.userInfo = cfusion_decrypt(ToString(ToBinary(URLDecode(url.info))), "boingfoip")>
 	<cfset Variables.firstname = ListGetAt(userInfo, 1)>

@@ -1,4 +1,4 @@
-<cfif isDefined("form.userID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.UID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfset Errors = ArrayNew(1)>
@@ -6,10 +6,10 @@
 <cfset Proceed_OK = "Yes">
 
 <!--- Validate the form data --->
-<cfif NOT isDefined("Form.CompanyID") OR form.companyID EQ "">
+<cfif NOT isDefined("Form.CID") OR form.CID EQ "">
 	<cfoutput>#ArrayAppend(Errors, "You must select a company.")#</cfoutput>
 	<cfset Proceed_OK = "No">
-<cfelseif NOT isDefined("Form.UserID") OR form.userID EQ "">
+<cfelseif NOT isDefined("Form.UID") OR form.UID EQ "">
 	<cfoutput>#ArrayAppend(Errors, "You must select a user to delete.")#</cfoutput>
 	<cfset Proceed_OK = "No">
 </cfif>
@@ -17,8 +17,8 @@
 
 <cfif Proceed_OK EQ "No">
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->
-	<cfset Session.Return_Structure.CompanyID = Form.CompanyID>
-	<cfset Session.Return_Structure.UserID = Form.UserID>
+	<cfset Session.Return_Structure.CID = Form.CID>
+	<cfset Session.Return_Structure.UID = Form.UID>
 
 	<cfset Session.Return_Structure.Errors = Errors>
 
@@ -37,20 +37,20 @@
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Users.email, FirstName + ' ' + LastName AS UserName
 		FROM	Users
-		WHERE	UserID = #form.UserID#
+		WHERE	UID = #form.UID#
 	</cfquery>
 
 	<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Name AS CompanyName
 		FROM	Companies
-		WHERE	CompanyID = #form.CompanyID#
+		WHERE	CID = #form.CID#
 	</cfquery>
 
 	<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Companies.Name AS CompanyName
-		FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-				INNER JOIN Companies ON UserCompanies.companyID = Companies.companyID
-		WHERE	Users.UserID = #form.UserID# AND UserCompanies.Approved = 1
+		FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+				INNER JOIN Companies ON UserCompanies.CID = Companies.CID
+		WHERE	Users.UID = #form.UID# AND UserCompanies.Approved = 1
 				AND UserCompanies.Deleted = 0 AND Companies.Approved = 1 AND Companies.Deleted = 0
 	</cfquery>
 </cflock>
@@ -144,13 +144,13 @@ function EditSubmit ( selectedform )
 						<!---a href="javascript:EditSubmit('delUserConfirmForm');" class="textbutton">Delete</a>
 						<a href="delUser.cfm" class="textbutton">Back</a>
 						<a href="<cfoutput>#RootDir#</cfoutput>admin/menu.cfm?lang=#lang#" class="textbutton">Cancel</a--->
-						<cfif getCompanies.recordCount GT 1><cfoutput><input type="button" value="remove user from #getCompany.companyName#" onclick="self.location.href='removeUserCompany_action.cfm?userID=#form.userID#&amp;CompanyID=#form.companyID#'" class="textbutton" /></cfoutput>
+						<cfif getCompanies.recordCount GT 1><cfoutput><input type="button" value="remove user from #getCompany.companyName#" onclick="self.location.href='removeUserCompany_action.cfm?UID=#form.UID#&amp;CID=#form.CID#'" class="textbutton" /></cfoutput>
 						<input type="submit" value="Delete user account" class="textbutton" />
 						<cfoutput><input type="button" value="Back" onclick="self.location.href='delUser.cfm?lang=#lang#'" class="textbutton" /></cfoutput>
 						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" /></cfoutput>
 					</div>
 
-					<input type="hidden" name="userID" value="<cfoutput>#form.UserID#</cfoutput>" />
+					<input type="hidden" name="UID" value="<cfoutput>#form.UID#</cfoutput>" />
 				</cfform>
 
 			</div>

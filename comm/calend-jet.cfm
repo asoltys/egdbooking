@@ -86,11 +86,11 @@
 					SELECT 	Status,
 						StartDate, EndDate,
 						NorthJetty AS Section1, SouthJetty AS Section2, '0' AS Section3,
-						Vessels.Name AS VesselName, Vessels.VesselID,
+						Vessels.Name AS VesselName, Vessels.VNID,
 						Vessels.Anonymous
 					FROM	Bookings
-						INNER JOIN	Jetties ON Bookings.BookingID = Jetties.BookingID
-						INNER JOIN	Vessels ON Bookings.VesselID = Vessels.VesselID
+						INNER JOIN	Jetties ON Bookings.BRID = Jetties.BRID
+						INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
 					WHERE	StartDate <= #lastdayofbunch#
 						AND EndDate >= #firstdayofbunch#
 						AND	Bookings.Deleted = '0'
@@ -104,7 +104,7 @@
 						'o' AS dummy1, '0' AS dummy2,
 						'0' AS dummy3
 					FROM	Bookings
-						INNER JOIN	Jetties ON Bookings.BookingID = Jetties.BookingID
+						INNER JOIN	Jetties ON Bookings.BRID = Jetties.BRID
 					WHERE	StartDate <= #lastdayofbunch#
 						AND EndDate >= #firstdayofbunch#
 						AND	Bookings.Deleted = '0'

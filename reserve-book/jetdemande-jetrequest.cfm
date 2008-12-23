@@ -45,11 +45,11 @@
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="companyVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	vesselID, vessels.Name AS VesselName, companies.companyID, companies.Name AS CompanyName
-		FROM 	Vessels INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
-				INNER JOIN UserCompanies ON Companies.CompanyID = UserCompanies.CompanyID
-				INNER JOIN Users ON UserCompanies.UserID = Users.UserID
-		WHERE 	Users.UserID = #session.UserID#
+		SELECT	VNID, vessels.Name AS VesselName, companies.CID, companies.Name AS CompanyName
+		FROM 	Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
+				INNER JOIN UserCompanies ON Companies.CID = UserCompanies.CID
+				INNER JOIN Users ON UserCompanies.UID = Users.UID
+		WHERE 	Users.UID = #session.UID#
 		AND		UserCompanies.Approved = 1
 		AND		UserCompanies.Deleted = 0
 		AND		Companies.Deleted = '0'
@@ -60,25 +60,25 @@
 </cflock>
 
 
-<cfparam name="Variables.companyID" default="">
-<cfparam name="Variables.vesselID" default="">
+<cfparam name="Variables.CID" default="">
+<cfparam name="Variables.VNID" default="">
 <cfparam name="Variables.startDate" default="#DateAdd('d', 1, PacificNow)#">
 <cfparam name="Variables.endDate" default="#DateAdd('d', 1, PacificNow)#">
 <cfparam name="Variables.Jetty" default="north">
 <cfparam name="Variables.Status" default="tentative">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
-	<cfif IsDefined("URL.VesselID")>
-		<cfset Variables.VesselID = URL.VesselID>
+	<cfif IsDefined("URL.VNID")>
+		<cfset Variables.VNID = URL.VNID>
 		<cfquery name="GetCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			SELECT	CompanyID
+			SELECT	CID
 			FROM	Vessels
-			WHERE	Vessels.VesselID = '#Variables.VesselID#'
+			WHERE	Vessels.VNID = '#Variables.VNID#'
 		</cfquery>
-		<cfset Variables.CompanyID = GetCompany.CompanyID>
-	<cfelseif IsDefined("URL.CompanyID")>
-		<cfset Variables.CompanyID = URL.CompanyID>
-		<cfset Variables.VesselID = "">
+		<cfset Variables.CID = GetCompany.CID>
+	<cfelseif IsDefined("URL.CID")>
+		<cfset Variables.CID = URL.CID>
+		<cfset Variables.VNID = "">
 	</cfif>
 	<cfif IsDefined("URL.Date")>
 		<cfset Variables.StartDate = URL.Date>
@@ -111,8 +111,8 @@
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfinclude template="#RootDir#includes/restore_params.cfm">
 				<cfif isDefined("session.form_structure")>
-					<cfset Variables.companyID = #form.companyID#>
-					<cfset Variables.vesselID = #form.vesselID#>
+					<cfset Variables.CID = #form.CID#>
+					<cfset Variables.VNID = #form.VNID#>
 					<cfset Variables.startDate = #form.startDate#>
 					<cfset Variables.endDate = #form.endDate#>
 					<cfset Variables.Jetty = #form.jetty#>
@@ -122,7 +122,7 @@
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 
-				<form action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#&amp;companyID=#variables.companyID#" method="post" id="bookingreq">
+				<form action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#&amp;CID=#variables.CID#" method="post" id="bookingreq">
 					<fieldset>
 						<label>#language.Agent#:</label>
 						<p>
@@ -132,18 +132,18 @@
 						</p>
 
 
-						<label for="CompanyID">#language.Company#:</label>
+						<label for="CID">#language.Company#:</label>
 						<CF_TwoSelectsRelated
 							query="companyVessels"
-							id1="CompanyID"
-							id2="VesselID"
+							id1="CID"
+							id2="VNID"
 							DISPLAY1="CompanyName"
 							DISPLAY2="VesselName"
-							VALUE1="CompanyID"
-							VALUE2="VesselID"
-							DEFAULT1="#Variables.CompanyID#"
-							DEFAULT2="#Variables.VesselID#"
-							htmlBETWEEN="<br /><label for=""VesselID"">#language.vessel#:</label>"
+							VALUE1="CID"
+							VALUE2="VNID"
+							DEFAULT1="#Variables.CID#"
+							DEFAULT2="#Variables.VNID#"
+							htmlBETWEEN="<br /><label for=""VNID"">#language.vessel#:</label>"
 							AUTOSELECTFIRST="Yes"
 							EMPTYTEXT1="(#language.chooseCompany#)"
 							EMPTYTEXT2="(#language.chooseVessel#)"

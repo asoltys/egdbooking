@@ -47,10 +47,10 @@
 			<cfparam name = "Form.EndDate" default="">
 			<cfparam name = "Variables.StartDate" default = "#Form.StartDate#">
 			<cfparam name = "Variables.EndDate" default = "#Form.EndDate#">
-			<cfparam name = "Form.VesselID" default="">
-			<cfparam name = "Variables.VesselID" default = "#Form.VesselID#">
-			<cfparam name = "Form.UserID" default="">
-			<cfparam name = "Variables.UserID" default = "#Form.UserID#">
+			<cfparam name = "Form.VNID" default="">
+			<cfparam name = "Variables.VNID" default = "#Form.VNID#">
+			<cfparam name = "Form.UID" default="">
+			<cfparam name = "Variables.UID" default = "#Form.UID#">
 
 			<cfif IsDefined("Session.Return_Structure")>
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
@@ -92,8 +92,8 @@
 				<cfset Session.Return_Structure.EndDate = Variables.EndDate>
 				<cfset Session.Return_Structure.TheBookingDate = Variables.TheBookingDate>
 				<cfset Session.Return_Structure.TheBookingTime = Variables.TheBookingTime>
-				<cfset Session.Return_Structure.VesselID = Variables.vesselID>
-				<cfset Session.Return_Structure.userID = Variables.userID>
+				<cfset Session.Return_Structure.VNID = Variables.VNID>
+				<cfset Session.Return_Structure.UID = Variables.UID>
 				<cfset Session.Return_Structure.compId = Form.compID>
 				<cfset Session.Return_Structure.Status = Form.Status>
 				<cfset Session.Return_Structure.Errors = Errors>
@@ -103,10 +103,10 @@
 
 
 			<cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-				SELECT 	VesselID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
+				SELECT 	VNID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
 				FROM 	Vessels, Companies
-				WHERE 	VesselID = '#Variables.VesselID#'
-				AND		Companies.CompanyID = Vessels.CompanyID
+				WHERE 	VNID = '#Variables.VNID#'
+				AND		Companies.CID = Vessels.CID
 				AND 	Vessels.Deleted = 0
 				AND		Companies.Deleted = 0
 			</cfquery>
@@ -114,13 +114,13 @@
 			<cfquery name="getAgent" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT 	lastname + ', ' + firstname AS UserName
 				FROM 	Users
-				WHERE 	UserID = '#Variables.UserID#'
+				WHERE 	UID = '#Variables.UID#'
 			</cfquery>
 
 			 <!--- Gets all Bookings that would be affected by the requested booking --->
 			<cfset theBooking.width = getVessel.width>
 			<cfset theBooking.length = getVessel.length>
-			<cfset theBooking.BookingID = -1>
+			<cfset theBooking.BRID = -1>
 			<cfset Variables.StartDate = #CreateODBCDate(Variables.StartDate)#>
 			<cfset Variables.EndDate = #CreateODBCDate(Variables.EndDate)#>
 			<cfinclude template="includes/towerCheck.cfm">
@@ -141,7 +141,7 @@
 
 				<cfif form.Status EQ "C">
 					<cfinclude template="includes/getConflicts.cfm">
-					<cfset conflictArray = getConflicts_Conf(theBooking.BookingID)>
+					<cfset conflictArray = getConflicts_Conf(theBooking.BRID)>
 					<cfif ArrayLen(conflictArray) GT 0>
 						<cfset Variables.waitListText = "The following vessels are on the wait list ahead of this booking.  The companies/agents should be given 24 hours notice to submit a downpayment.">
 						<cfinclude template="includes/displayWaitList.cfm">
@@ -156,7 +156,7 @@
 			<table style="width:100%; padding-left:20px;" align="center">
 				<tr>
 					<td id="Vessel" align="left" style="width:15%;">Vessel:</td>
-					<td headers="Vessel" style="width:75%;"><input type="hidden" name="vesselID" value="<cfoutput>#Variables.VesselID#</cfoutput>" /><cfoutput>#getVessel.VesselName#</cfoutput></td>
+					<td headers="Vessel" style="width:75%;"><input type="hidden" name="VNID" value="<cfoutput>#Variables.VNID#</cfoutput>" /><cfoutput>#getVessel.VesselName#</cfoutput></td>
 				</tr>
 				<tr>
 					<td id="Company" align="left">Company:</td>
@@ -164,7 +164,7 @@
 				</tr>
 				<tr>
 					<td id="Agent" align="left">Agent:</td>
-					<td headers="Agent"><input type="hidden" name="userID" value="<cfoutput>#Variables.userID#</cfoutput>" />
+					<td headers="Agent"><input type="hidden" name="UID" value="<cfoutput>#Variables.UID#</cfoutput>" />
 				</tr>
 				<tr>
 					<td id="Start" align="left">Start Date:</td>

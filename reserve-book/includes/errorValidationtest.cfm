@@ -11,7 +11,7 @@
 		<cfset "Variables.#Form_Array[Loop_Kount]#" = EVALUATE(Curr_Var)>
 	</cfloop>
 	
-	<cfif IsDefined("Variables.VesselID")>
+	<cfif IsDefined("Variables.VNID")>
 	</cfif>
 	
 	<cfif IsDefined("Variables.StartDate") AND IsDefined("Variables.EndDate")>
@@ -50,7 +50,7 @@
 
 <!--- A
 <!--- Check that the Vessel is not already booked for that date range --->
-<cfif NOT isDefined("checkDblBooking.VesselID") OR checkDblBooking.VesselID NEQ "">
+<cfif NOT isDefined("checkDblBooking.VNID") OR checkDblBooking.VNID NEQ "">
 	<cfoutput>#ArrayAppend(Errors, "#checkDblBooking.Name# #language.dblBookingError# #LSdateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# #language.to# #LSdateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
 	<cfset Proceed_OK = "No">
 </cfif>

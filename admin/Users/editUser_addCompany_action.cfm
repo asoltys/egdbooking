@@ -53,7 +53,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="editUser_addCompany.cfm?lang=#lang#&userID=#url.userID#" addtoken="no">
+	<cflocation url="editUser_addCompany.cfm?lang=#lang#&UID=#url.UID#" addtoken="no">
 </cfif>
 
 <!---<cfif getDeletedCompany.recordcount GT 0>
@@ -76,8 +76,8 @@
 	</cfquery>
 	
 	<cfquery name="addUserRelation" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		INSERT INTO	UserCompanies (UserID, CompanyID, Approved)
-		VALUES		(#url.userID# , #getDeletedCompany.CompanyID#, 1)
+		INSERT INTO	UserCompanies (UID, CID, Approved)
+		VALUES		(#url.UID# , #getDeletedCompany.CID#, 1)
 	</cfquery>--->
 
 <cfif getCompany.recordcount EQ 0>
@@ -124,13 +124,13 @@
 		</cfquery>
 	
 		<cfquery name="getID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			SELECT	@@IDENTITY AS CompanyID
+			SELECT	@@IDENTITY AS CID
 			FROM	Companies
 		</cfquery>
 	
 		<cfquery name="addUserRelation" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			INSERT INTO	UserCompanies (UserID, CompanyID, Approved)
-			VALUES		(#url.userID# , #getID.CompanyID#, 1)
+			INSERT INTO	UserCompanies (UID, CID, Approved)
+			VALUES		(#url.UID# , #getID.CID#, 1)
 		</cfquery>
 	</cftransaction>
 
@@ -139,4 +139,4 @@
 <!--- doesn't seem to need a success notice since it gets sent back to the same page with 
 	the new info on it.  It really should be painfully obvious. --->
 
-<cflocation addtoken="no" url="editUser.cfm?lang=#lang#&userID=#url.userID#">
+<cflocation addtoken="no" url="editUser.cfm?lang=#lang#&UID=#url.UID#">

@@ -1,13 +1,13 @@
 <cfquery name="deleteBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE	Bookings
 	SET		Deleted = 1
-	WHERE	BookingID = '#Form.BookingID#'
+	WHERE	BRID = '#Form.BRID#'
 </cfquery>
 
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	startDate, endDate
 	from	Bookings
-	WHERE	BookingID = '#FORM.BookingID#'
+	WHERE	BRID = '#FORM.BRID#'
 </cfquery>
 
 <!--- URL tokens set-up.  Do not edit unless you KNOW something is wrong.

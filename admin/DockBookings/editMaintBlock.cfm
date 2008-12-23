@@ -48,7 +48,7 @@
 			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 
 			<!--- -------------------------------------------------------------------------------------------- --->
-			<cfparam name="Variables.BookingID" default="">
+			<cfparam name="Variables.BRID" default="">
 			<cfparam name="Variables.Section1" default="false">
 			<cfparam name="Variables.Section2" default="false">
 			<cfparam name="Variables.Section3" default="false">
@@ -58,21 +58,21 @@
 				<cfinclude template="#RootDir#includes/restore_params.cfm">
 			<cfelse>
 				<cfinclude template="#RootDir#includes/restore_params.cfm">
-				<cfif isDefined("form.bookingID")>
-					<cfset Variables.bookingID = #form.bookingID#>
+				<cfif isDefined("form.BRID")>
+					<cfset Variables.BRID = #form.BRID#>
 				</cfif>
 			</cfif>
 
 			<cfif IsDefined("Session.Return_Structure")>
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
-			<cfelseif IsDefined("Form.BookingID")>
+			<cfelseif IsDefined("Form.BRID")>
 				<cfquery name="GetBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-					SELECT	Bookings.StartDate, Bookings.EndDate, Bookings.BookingID, Docks.Section1, Docks.Section2, Docks.Section3
+					SELECT	Bookings.StartDate, Bookings.EndDate, Bookings.BRID, Docks.Section1, Docks.Section2, Docks.Section3
 					FROM	Bookings, Docks
-					WHERE	Bookings.BookingID = Docks.BookingID
+					WHERE	Bookings.BRID = Docks.BRID
 					AND		Deleted = '0'
 					AND		Status = 'M'
-					AND		Bookings.BookingID = '#Form.BookingID#'
+					AND		Bookings.BRID = '#Form.BRID#'
 				</cfquery>
 
 				<cfset Variables.StartDate = getBooking.StartDate>
@@ -80,7 +80,7 @@
 				<cfset Variables.Section1 = getBooking.Section1>
 				<cfset Variables.Section2 = getBooking.Section2>
 				<cfset Variables.Section3 = getBooking.Section3>
-				<cfset Variables.BookingID = getBooking.BookingID>
+				<cfset Variables.BRID = getBooking.BRID>
 
 			</cfif>
 			<cfif Variables.Section1 EQ 1>
@@ -111,7 +111,7 @@
 			<!--- -------------------------------------------------------------------------------------------- --->
 
 			<cfform id="EditMaintBlock" action="editMaintBlock_process.cfm?#urltoken#" method="post">
-			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
+			<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" />
 			<table style="width:100%;">
 			<tr>
 				<td id="Start">Start Date:</td>

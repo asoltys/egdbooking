@@ -25,14 +25,14 @@
 	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.confirmRem#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<cfif NOT IsDefined('form.companyID')>
+<cfif NOT IsDefined('form.CID')>
 	<cflocation addtoken="no" url="entrpdemande-comprequest.cfm?lang=#lang#&info=#url.info#">
 </cfif>
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name
 	FROM	Companies
-	WHERE	CompanyId = #form.CompanyID#
+	WHERE	CID = #form.CID#
 </cfquery>
 
 <!-- Start JavaScript Block -->
@@ -83,7 +83,7 @@ function EditSubmit ( selectedform )
 						<input type="button" value="#language.Cancel#" onclick="javascript:self.location.href='addUserCompanies.cfm?lang=#lang#&companies=#companies#&info=#url.info#'" class="textbutton" />
 					</div></p>
 
-					<input type="hidden" name="CompanyID" value="#form.CompanyID#" />
+					<input type="hidden" name="CID" value="#form.CID#" />
 				</cfform>
 				</cfoutput>
 

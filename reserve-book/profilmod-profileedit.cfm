@@ -65,31 +65,31 @@
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT 	Companies.CompanyID, Name
+		SELECT 	Companies.CID, Name
 		FROM 	Companies
 		WHERE 	Companies.Deleted = '0'
 		AND		NOT EXISTS
-				(	SELECT	UserCompanies.CompanyID
+				(	SELECT	UserCompanies.CID
 					FROM	UserCompanies
 					WHERE	UserCompanies.Deleted = '0'
-					AND		UserCompanies.CompanyID = Companies.CompanyID
-					AND		UserCompanies.UserID = '#Session.UserID#'
+					AND		UserCompanies.CID = Companies.CID
+					AND		UserCompanies.UID = '#Session.UID#'
 				)
 		ORDER BY Companies.Name
 	</cfquery>
 
 	<cfquery name="getUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	Name, UserCompanies.Approved, Companies.CompanyID
-		FROM	UserCompanies INNER JOIN Users ON UserCompanies.UserID = Users.UserID
-				INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
-		WHERE	Users.UserID = '#session.UserID#' AND UserCompanies.Deleted = 0
+		SELECT	Name, UserCompanies.Approved, Companies.CID
+		FROM	UserCompanies INNER JOIN Users ON UserCompanies.UID = Users.UID
+				INNER JOIN Companies ON UserCompanies.CID = Companies.CID
+		WHERE	Users.UID = '#session.UID#' AND UserCompanies.Deleted = 0
 		ORDER BY UserCompanies.Approved DESC, Companies.Name
 	</cfquery>
 
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT *
 		FROM Users
-		WHERE UserID = #session.UserID#
+		WHERE UID = #session.UID#
 	</cfquery>
 </cflock>
 
@@ -170,11 +170,11 @@ function EditSubmit ( selectedform )
 					</cfoutput>
 				</h2>
 				<cfoutput query="getUserCompanies">
-					<form method="post" action="#RootDir#reserve-book/entrpsup-comprem_confirm.cfm?lang=#lang#" id="remCompany#CompanyID#" class="noBorder">
+					<form method="post" action="#RootDir#reserve-book/entrpsup-comprem_confirm.cfm?lang=#lang#" id="remCompany#CID#" class="noBorder">
 						<fieldset>
 							<p>#name#</p>
 							<cfif approved EQ 0><em class="smallFont">#language.awaitingApproval#</em><cfelse>&nbsp;</cfif>
-							<input type="hidden" name="CompanyID" value="#CompanyID#" />
+							<input type="hidden" name="CID" value="#CID#" />
 							<cfif getUserCompanies.recordCount GT 1>
 								<input type="submit" value="#language.Remove#" />
 							</cfif>

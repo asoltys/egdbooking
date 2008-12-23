@@ -1,10 +1,10 @@
-<cfif isDefined("form.bookingID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.BRID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT 	Bookings.StartDate, Bookings.EndDate, Jetties.NorthJetty, Jetties.SouthJetty
-	FROM 	Bookings INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
-	WHERE	Bookings.BookingID = '#Form.BookingID#'
+	FROM 	Bookings INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
+	WHERE	Bookings.BRID = '#Form.BRID#'
 </cfquery>
 
 <cfif DateCompare(PacificNow, getBooking.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBooking.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1)>
@@ -24,7 +24,7 @@
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm #variables.actionCap# Maintenance Block</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<cfset Variables.BookingID = Form.BookingID>
+<cfset Variables.BRID = Form.BRID>
 <cfset Variables.Start = getBooking.StartDate>
 <cfset Variables.End = getBooking.EndDate>
 <cfset Variables.NorthJetty = getBooking.NorthJetty>
@@ -59,7 +59,7 @@
 
 				<p>Please confirm the following maintenance block information.</p>
 				<cfform action="deleteJettyMaintBlock_action.cfm?#urltoken#" method="post" id="bookingreq" preservedata="Yes">
-				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
+				<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" />
 
 				<table style="width:80%;" align="center">
 					<tr><td align="left"><div style="font-weight:bold;">Booking:</div></td></tr>

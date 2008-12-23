@@ -8,18 +8,18 @@
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="getUserList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT UserID, LastName + ', ' + FirstName AS UserName
+		SELECT UID, LastName + ', ' + FirstName AS UserName
 		FROM Users
-		WHERE UserID <> #session.userID#
+		WHERE UID <> #session.UID#
 		AND Deleted = 0
 		ORDER BY LastName
 	</cfquery>
 </cflock>
 
 <cfquery name="companyUsers" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT companies.companyID, companies.name AS CompanyName, users.UserID, lastname + ', ' + firstname AS UserName
-	FROM Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-		 INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
+	SELECT companies.CID, companies.name AS CompanyName, users.UID, lastname + ', ' + firstname AS UserName
+	FROM Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+		 INNER JOIN Companies ON UserCompanies.CID = Companies.CID
 	WHERE Users.Deleted = 0 AND Companies.Deleted = 0 AND Companies.Approved = 1
 			AND UserCompanies.Deleted = 0 AND UserCompanies.Approved = 1
 	ORDER BY Companies.Name, Users.lastname, Users.firstname
@@ -58,18 +58,18 @@ function EditSubmit ( selectedform )
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 
-				<cfparam name="form.userID" default="">
+				<cfparam name="form.UID" default="">
 				<cfinclude template="#RootDir#includes/restore_params.cfm">
 
-				<cfif isDefined("form.companyID")>
-					<cfset variables.companyID = #form.companyID#>
+				<cfif isDefined("form.CID")>
+					<cfset variables.CID = #form.CID#>
 				<cfelse>
-					<cfset variables.companyID = 0>
+					<cfset variables.CID = 0>
 				</cfif>
-				<cfif isDefined("form.userID")>
-					<cfset variables.userID = #form.userID#>
+				<cfif isDefined("form.UID")>
+					<cfset variables.UID = #form.UID#>
 				<cfelse>
-					<cfset variables.userID = 0>
+					<cfset variables.UID = 0>
 				</cfif>
 
 				<cfif IsDefined("Session.Return_Structure")>
@@ -84,23 +84,23 @@ function EditSubmit ( selectedform )
 						<td>Company:</td>
 						<td>
 							<!---<cfform action="delUser_confirm.cfm?lang=#lang#" method="post" id="delUserForm">
-							<cfselect name="UserID" query="getUserList" value="UserID" display="UserName" />--->
+							<cfselect name="UID" query="getUserList" value="UID" display="UserName" />--->
 							<CF_TwoSelectsRelated
 								QUERY="companyUsers"
-								id1="CompanyID"
-								id2="UserID"
+								id1="CID"
+								id2="UID"
 								DISPLAY1="CompanyName"
 								DISPLAY2="UserName"
-								VALUE1="companyID"
-								VALUE2="userID"
+								VALUE1="CID"
+								VALUE2="UID"
 								SIZE1="1"
 								SIZE2="1"
 								htmlBETWEEN="</td></tr><tr><td valign='baseline'>User:</td><td>"
 								AUTOSELECTFIRST="Yes"
 								EMPTYTEXT1="(choose a company)"
 								EMPTYTEXT2="(choose a user)"
-								DEFAULT1 ="#variables.companyID#"
-								DEFAULT2 ="#variables.userID#"
+								DEFAULT1 ="#variables.CID#"
+								DEFAULT2 ="#variables.UID#"
 								FORMNAME="delUserForm">
 						</td>
 					</tr>

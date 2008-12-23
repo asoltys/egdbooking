@@ -14,11 +14,11 @@
 
 
 <cfquery name="GetOrphans" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-SELECT	DISTINCT UC.CompanyID, C.Name AS Name
-FROM	UserCompanies UC INNER JOIN Companies C ON UC.CompanyID = C.CompanyID
-WHERE	UC.CompanyID NOT IN
-			(SELECT DISTINCT UC.CompanyID
-				FROM	UserCompanies UC INNER JOIN Companies C ON UC.CompanyID = C.CompanyID
+SELECT	DISTINCT UC.CID, C.Name AS Name
+FROM	UserCompanies UC INNER JOIN Companies C ON UC.CID = C.CID
+WHERE	UC.CID NOT IN
+			(SELECT DISTINCT UC.CID
+				FROM	UserCompanies UC INNER JOIN Companies C ON UC.CID = C.CID
 				WHERE	UC.Deleted = 0 AND C.Deleted = 0)
 		AND C.Deleted = 0
 </cfquery>
@@ -90,9 +90,9 @@ function EditSubmit ( selectedform )
 							<cfset rowClass = "">
 						</cfif>
 						<tr class="#rowCLass#">
-							<td headers="firstname"><a href="javascript:void(0);" onclick="popUp('admin/viewCompany.cfm?lang=#lang#&amp;CompanyID=#CompanyID#');">#Name#</a></td>
-							<!---td headers="approve"><input type="hidden" name="CompanyID" value="#CompanyID#" /><a href="javascript:EditSubmit('App#CompanyID#')" class="textbutton" />
-							<td headers="delete"><form action="delCompany_confirm.cfm?lang=#lang#" method="post" name="Del#CompanyID#" style="margin-top: 0; margin-bottom: 0; "><input type="hidden" name="CompanyID" value="#CompanyID#" /><a href="javascript:EditSubmit('Del#CompanyID#')" class="textbutton" />
+							<td headers="firstname"><a href="javascript:void(0);" onclick="popUp('admin/viewCompany.cfm?lang=#lang#&amp;CID=#CID#');">#Name#</a></td>
+							<!---td headers="approve"><input type="hidden" name="CID" value="#CID#" /><a href="javascript:EditSubmit('App#CID#')" class="textbutton" />
+							<td headers="delete"><form action="delCompany_confirm.cfm?lang=#lang#" method="post" name="Del#CID#" style="margin-top: 0; margin-bottom: 0; "><input type="hidden" name="CID" value="#CID#" /><a href="javascript:EditSubmit('Del#CID#')" class="textbutton" />
 						</tr>
 						</cfoutput>
 					</table>

@@ -7,30 +7,30 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="getVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT vesselID, vessels.Name AS VesselName
+	SELECT VNID, vessels.Name AS VesselName
 	FROM Vessels
 	WHERE Vessels.Deleted = 0
 	ORDER BY Vessels.Name
 </cfquery>
 
 <cfquery name="companyVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT vesselID, vessels.Name AS VesselName, companies.companyID, companies.Name AS CompanyName
-	FROM Vessels INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
+	SELECT VNID, vessels.Name AS VesselName, companies.CID, companies.Name AS CompanyName
+	FROM Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
 	WHERE Vessels.Deleted = 0 AND Companies.Deleted = 0 AND Companies.Approved = 1
 	ORDER BY Companies.Name, Vessels.Name
 </cfquery>
 
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
-<cfif isDefined("form.companyID")>
-	<cfset variables.companyID = #form.companyID#>
+<cfif isDefined("form.CID")>
+	<cfset variables.CID = #form.CID#>
 <cfelse>
-	<cfset variables.companyID = 0>
+	<cfset variables.CID = 0>
 </cfif>
-<cfif isDefined("form.vesselID")>
-	<cfset variables.vesselID = #form.vesselID#>
+<cfif isDefined("form.VNID")>
+	<cfset variables.VNID = #form.VNID#>
 <cfelse>
-	<cfset variables.vesselID = 0>
+	<cfset variables.VNID = 0>
 </cfif>
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
@@ -71,24 +71,24 @@
 					<td>
 						<CF_TwoSelectsRelated
 							QUERY="companyVessels"
-							id1="CompanyID"
-							id2="VesselID"
+							id1="CID"
+							id2="VNID"
 							DISPLAY1="CompanyName"
 							DISPLAY2="VesselName"
-							VALUE1="companyID"
-							VALUE2="vesselID"
+							VALUE1="CID"
+							VALUE2="VNID"
 							SIZE1="1"
 							SIZE2="1"
 							htmlBETWEEN="</td></tr><tr><td>Vessel:</td><td>"
 							AUTOSELECTFIRST="Yes"
 							EMPTYTEXT1="(choose a company)"
 							EMPTYTEXT2="(choose a vessel)"
-							DEFAULT1 ="#variables.companyID#"
-							DEFAULT2 ="#variables.vesselID#"
+							DEFAULT1 ="#variables.CID#"
+							DEFAULT2 ="#variables.VNID#"
 							FORMNAME="delVesselForm">
 					</td>
 				</tr>
-					<!---<cfselect name="vesselID" query="getVessels" value="vesselID" display="Name" />--->
+					<!---<cfselect name="VNID" query="getVessels" value="VNID" display="Name" />--->
 				<tr><td>&nbsp;</td></tr>
 				<tr><td colspan="2" align="center">
 					<input type="submit" name="submitForm" class="textbutton" value="Delete" />

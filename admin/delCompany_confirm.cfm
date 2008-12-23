@@ -6,59 +6,59 @@
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm Delete Company</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<cfif isDefined("form.companyID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.CID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <!---retrieve information on the company selected--->
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT *
 	FROM Companies
-	WHERE Companies.companyID = #form.companyID#
+	WHERE Companies.CID = #form.CID#
 </cfquery>
 
 <!---get a list of companies besides the one to be deleted,
 so the users who belong to that current company can choose another company--->
 <cfquery name="getCompanyList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT CompanyID, Name
+	SELECT CID, Name
 	FROM Companies
-	WHERE companyID <> #form.companyID#
+	WHERE CID <> #form.CID#
 	AND Deleted = 0
 	ORDER BY Name
 </cfquery>
 
 <!---get the user list from the company to be deleted--->
 <cfquery name="getCompanyUsers" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT Users.UserID, LastName + ', ' + FirstName AS UserName
-	FROM Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-			INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
-	WHERE UserCompanies.companyID = #form.companyID# AND Users.Deleted = 0
+	SELECT Users.UID, LastName + ', ' + FirstName AS UserName
+	FROM Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+			INNER JOIN Companies ON UserCompanies.CID = Companies.CID
+	WHERE UserCompanies.CID = #form.CID# AND Users.Deleted = 0
 	AND UserCompanies.Deleted = 0 AND UserCompanies.Approved = 1
 	AND	Companies.Deleted = 0 AND Companies.Approved = 1
 	AND (SELECT COUNT(*) AS MatchFui
 				FROM UserCompanies
-				WHERE UserID = Users.UserID) = 1
+				WHERE UID = Users.UID) = 1
 </cfquery>
 
 <cfquery name="getDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT Bookings.BookingID, Name, StartDate, EndDate, Status
-	FROM Vessels INNER JOIN Bookings ON Vessels.VesselID = Bookings.VesselID
-			INNER JOIN Docks ON Bookings.BookingId = Docks.BookingId
-	WHERE companyID = #form.companyID# AND Docks.Status = 'c' AND Bookings.Deleted = 0
+	SELECT Bookings.BRID, Name, StartDate, EndDate, Status
+	FROM Vessels INNER JOIN Bookings ON Vessels.VNID = Bookings.VNID
+			INNER JOIN Docks ON Bookings.BRID = Docks.BRID
+	WHERE CID = #form.CID# AND Docks.Status = 'c' AND Bookings.Deleted = 0
 			AND EndDate >= #CreateODBCDate(PacificNow)#
 </cfquery>
 
 <cfquery name="getJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT Bookings.BookingID, Name, StartDate, EndDate, Status
-	FROM Vessels INNER JOIN Bookings ON Vessels.VesselID = Bookings.VesselID
-			INNER JOIN Jetties ON Bookings.BookingId = Jetties.BookingId
-	WHERE companyID = #form.companyID# AND Jetties.Status = 'c' AND Bookings.Deleted = 0
+	SELECT Bookings.BRID, Name, StartDate, EndDate, Status
+	FROM Vessels INNER JOIN Bookings ON Vessels.VNID = Bookings.VNID
+			INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
+	WHERE CID = #form.CID# AND Jetties.Status = 'c' AND Bookings.Deleted = 0
 			AND EndDate >= #CreateODBCDate(PacificNow)#
 </cfquery>
 
 <cfquery name="getVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name
-	FROM	Companies INNER JOIN Vessels ON Companies.CompanyID = Vessels.CompanyID
-	WHERE	Companies.CompanyID = #form.companyID# AND Vessels.Deleted = 0
+	FROM	Companies INNER JOIN Vessels ON Companies.CID = Vessels.CID
+	WHERE	Companies.CID = #form.CID# AND Vessels.Deleted = 0
 </cfquery>
 
 <!-- Start JavaScript Block -->
@@ -189,7 +189,7 @@ function EditSubmit ( selectedform )
 					</div></p>
 					</cfoutput>
 
-					<input type="hidden" name="companyID" value="<cfoutput>#form.CompanyID#</cfoutput>" />
+					<input type="hidden" name="CID" value="<cfoutput>#form.CID#</cfoutput>" />
 
 
 					<cfoutput>

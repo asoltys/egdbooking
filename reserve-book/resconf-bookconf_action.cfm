@@ -2,26 +2,26 @@
 	<cfquery name="confirmRequest" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	Jetties
 		SET		Status = 'Y'
-		WHERE	BookingID = #Form.BookingID#
+		WHERE	BRID = #Form.BRID#
 	</cfquery>
 <CFELSE>
 	<cfquery name="confirmRequest" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	Docks
 		SET		Status = 'Y'
-		WHERE	BookingID = #Form.BookingID#
+		WHERE	BRID = #Form.BRID#
 	</cfquery>
 </CFIF>
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS vesselName, StartDate, EndDate
-	FROM	Bookings INNER JOIN	Vessels ON Bookings.VesselID = Vessels.VesselID
-	WHERE	Bookings.BookingID = '#Form.BookingID#'
+	FROM	Bookings INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
+	WHERE	Bookings.BRID = '#Form.BRID#'
 </cfquery>
 
 <CFIF #URL.jetty#>
 <cfquery name="NorthSouth" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	NorthJetty, SouthJetty, Jetties.BookingID
+	SELECT	NorthJetty, SouthJetty, Jetties.BRID
 	FROM	Jetties 
-	WHERE   Jetties.BookingID = '#Form.BookingID#'
+	WHERE   Jetties.BRID = '#Form.BRID#'
 </cfquery>
 <cfoutput query="NorthSouth">
 <cfif NorthJetty EQ "1"><cfset northorsouth = "North"></cfif>
@@ -33,7 +33,7 @@
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	firstname + ' ' + lastname AS UserName, Email
 		FROM	Users
-		WHERE	UserID = #session.userID#
+		WHERE	UID = #session.UID#
 	</cfquery>
 </cflock>
 
@@ -42,7 +42,7 @@
 	UPDATE  Bookings
 	SET		BookingTimeChange = #PacificNow#,
 			BookingTimeChangeStatus = '#getUser.UserName# requested to confirm at'
-	WHERE	BookingID = '#Form.BookingID#'
+	WHERE	BRID = '#Form.BRID#'
 </cfquery>
 
 
@@ -103,6 +103,6 @@
 	<cfset Session.Success.Back = "Retour &agrave;">
 </cfif>
 <cfset Session.Success.paperFormLink = "#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#" >
-<cfset Session.Success.Link = "#returnTo#?#urltoken#&CompanyID=#url.CompanyID##variables.dateValue#">
+<cfset Session.Success.Link = "#returnTo#?#urltoken#&CID=#url.CID##variables.dateValue#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 

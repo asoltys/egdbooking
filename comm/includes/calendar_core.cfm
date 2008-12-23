@@ -51,7 +51,7 @@
 					<cfoutput><a href="detail.cfm?lang=#lang#&amp;date=#taday#" title="#language.detailsFor# #taday#"><b>#DaysofMonth[DateCounter]#</b></a></cfoutput>
 
 					<cfquery name="GetEventsonDay" dbtype="query">
-						SELECT 	VesselName, VesselID,
+						SELECT 	VesselName, VNID,
 								Anonymous,
 								Section1, Section2, Section3,
 								Status
@@ -84,16 +84,16 @@
 					<cfoutput query="GetEventsonDay">
 						<!---check if ship belongs to user's company--->
 						<cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
-							<cfquery name="userVessel#vesselID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-								SELECT	Vessels.VesselID
-								FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-										INNER JOIN Vessels ON UserCompanies.CompanyID = Vessels.CompanyID
-								WHERE	Users.UserID = #Session.UserID# AND VesselID = #VesselID#
+							<cfquery name="userVessel#VNID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+								SELECT	Vessels.VNID
+								FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+										INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
+								WHERE	Users.UID = #Session.UID# AND VNID = #VNID#
 									AND UserCompanies.Approved = 1 AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
 							</cfquery>
 						</cflock>
 
-						<cfset Variables.countQName = "userVessel" & #vesselID# & ".recordCount">
+						<cfset Variables.countQName = "userVessel" & #VNID# & ".recordCount">
 						<cfset Variables.count = EVALUATE(countQName)>
 
 						<CFSCRIPT>

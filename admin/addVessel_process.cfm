@@ -6,7 +6,7 @@
 	FROM Vessels
 	WHERE Name = '#trim(form.Name)#'
 	AND Deleted = 0
-	AND CompanyId = #form.companyID#
+	AND CID = #form.CID#
 </cfquery>
 
 <cfset Variables.Errors = ArrayNew(1)>
@@ -20,7 +20,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="addVessel.cfm?CompanyID=#form.CompanyID#" addtoken="no">
+	<cflocation url="addVessel.cfm?CID=#form.CID#" addtoken="no">
 </cfif>
 
 <cfhtmlhead text="
@@ -54,17 +54,17 @@
 					</a></h1>
 
 				<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-					SELECT 	Companies.CompanyID, Companies.Name AS CompanyName
+					SELECT 	Companies.CID, Companies.Name AS CompanyName
 					FROM  	Companies
-					WHERE 	CompanyID = '#Form.CompanyID#'
+					WHERE 	CID = '#Form.CID#'
 					AND		Deleted = '0'
 				</cfquery>
 
 				<cfif getCompany.recordCount EQ 0>
-					<cflocation addtoken="no" url="booking.cfm?lang=#lang#&CompanyID=#url.companyID#">
+					<cflocation addtoken="no" url="booking.cfm?lang=#lang#&CID=#url.CID#">
 				</cfif>
 
-				<cfset Variables.CompanyID = getCompany.CompanyID>
+				<cfset Variables.CID = getCompany.CID>
 				<cfset Variables.CompanyName = getCompany.CompanyName>
 				<cfset Variables.Name = Form.Name>
 				<cfset Variables.Length = Form.Length>
@@ -88,8 +88,8 @@
 				<cfform id="addVessel" action="addVessel_action.cfm?lang=#lang#" method="post">
 					<table>
 						<tr>
-							<td id="CompanyID">Company Name:</td>
-							<td headers="CompanyID"><input type="hidden" name="CompanyID" value="#Variables.CompanyID#" />
+							<td id="CID">Company Name:</td>
+							<td headers="CID"><input type="hidden" name="CID" value="#Variables.CID#" />
 						</tr>
 						<tr>
 							<td id="name">Name:</td>

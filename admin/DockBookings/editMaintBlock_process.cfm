@@ -52,7 +52,7 @@ function EditSubmit ( selectedform )
 			<cfparam name = "Variables.Section1" default = "0">
 			<cfparam name = "Variables.Section2" default = "0">
 			<cfparam name = "Variables.Section3" default = "0">
-			<cfparam name = "Variables.BookingID" default = "#Form.BookingID#">
+			<cfparam name = "Variables.BRID" default = "#Form.BRID#">
 
 			<cfif IsDefined("Form.Section1")>
 				<cfset Variables.Section1 = 1>
@@ -80,8 +80,8 @@ function EditSubmit ( selectedform )
 			<cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT 	Section1, Section2, Section3, StartDate, EndDate
 				FROM 	Bookings, Docks
-				WHERE 	Docks.BookingID = Bookings.BookingID
-				AND		Bookings.BookingID != '#Form.BookingID#'
+				WHERE 	Docks.BRID = Bookings.BRID
+				AND		Bookings.BRID != '#Form.BRID#'
 				AND		Status = 'M'
 				AND		Deleted = '0'
 				AND 	(
@@ -163,9 +163,9 @@ function EditSubmit ( selectedform )
 			<!-- Gets all Bookings that would be affected by the maintenance block --->
 			<cfquery name="checkConflicts" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT	Section1, Section2, Section3, StartDate, EndDate, V.Name AS VesselName, C.Name AS CompanyName
-				FROM	Bookings B INNER JOIN Docks D ON B.bookingID = D.bookingID
-							INNER JOIN Vessels V ON V.vesselID = B.vesselID
-							INNER JOIN Companies C ON C.CompanyID = V.CompanyID
+				FROM	Bookings B INNER JOIN Docks D ON B.BRID = D.BRID
+							INNER JOIN Vessels V ON V.VNID = B.VNID
+							INNER JOIN Companies C ON C.CID = V.CID
 				WHERE	Status = 'c'
 					AND	B.Deleted = '0'
 					AND	V.Deleted = '0'
@@ -220,7 +220,7 @@ function EditSubmit ( selectedform )
 			</CFIF>
 
 			<cfform action="editMaintBlock_action.cfm?#urltoken#" method="post" id="bookingreq" preservedata="Yes">
-			<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
+			<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" />
 
 			<table style="width:80%;" align="center">
 				<tr><td align="left"><div style="font-weight:bold;">Booking:</div></td></tr>

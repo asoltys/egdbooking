@@ -18,7 +18,7 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT CompanyID, Name
+	SELECT CID, Name
 	FROM Companies
 	WHERE Deleted = 0 AND Approved = 1
 	ORDER BY Name
@@ -64,8 +64,8 @@ function EditSubmit ( selectedform )
 
 				<cfparam name="form.compID" default="">
 				<cfparam name="Variables.compID" default="#form.compID#">
-				<cfparam name="Variables.vesselID" default="">
-				<cfparam name="Variables.userID" default="">
+				<cfparam name="Variables.VNID" default="">
+				<cfparam name="Variables.UID" default="">
 				<cfparam name="form.StartDate" default="#DateAdd('d', 1, PacificNow)#">
 				<cfparam name="form.EndDate" default="#DateAdd('d', 1, PacificNow)#">
 				<cfparam name="Variables.StartDate" default="#form.StartDate#">
@@ -85,10 +85,10 @@ function EditSubmit ( selectedform )
 					<cfinclude template="#RootDir#includes/restore_params.cfm">
 				<cfelse>
 					<cfinclude template="#RootDir#includes/restore_params.cfm">
-					<cfif isDefined("form.vesselID")>
+					<cfif isDefined("form.VNID")>
 						<cfset Variables.compID = #form.compID#>
-						<cfset Variables.vesselID = #form.vesselID#>
-						<cfset Variables.userID = #form.userID#>
+						<cfset Variables.VNID = #form.VNID#>
+						<cfset Variables.UID = #form.UID#>
 						<cfset Variables.StartDate = #form.startDate#>
 						<cfset Variables.EndDate = #form.endDate#>
 						<cfset Variables.TheBookingDate = #Form.bookingDate#>
@@ -106,7 +106,7 @@ function EditSubmit ( selectedform )
 
 
 				<cfform action="addJettyBooking.cfm?#urltoken#" method="post" id="chooseUserForm">
-					<p><label for="selectCompany">Select Company:</label> <cfselect query="getCompanies" id="selectCompany" name="compID" value="CompanyID" display="Name" selected="#Variables.compID#" />
+					<p><label for="selectCompany">Select Company:</label> <cfselect query="getCompanies" id="selectCompany" name="compID" value="CID" display="Name" selected="#Variables.compID#" />
 					&nbsp;&nbsp;&nbsp;
 					<!--a href="javascript:EditSubmit('chooseUserForm');" class="textbutton">Submit</a-->
 					<input type="submit" name="submitForm" class="textbutton" value="submit" />
@@ -123,17 +123,17 @@ function EditSubmit ( selectedform )
 					<cfoutput>
 
 					<cfquery name="getVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-						SELECT VesselID, Name
+						SELECT VNID, Name
 						FROM Vessels
-						WHERE CompanyID = #Variables.compID# AND Deleted = 0
+						WHERE CID = #Variables.compID# AND Deleted = 0
 						ORDER BY Name
 					</cfquery>
 
 					<cfquery name="getAgents" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-						SELECT	Users.UserID, lastname + ', ' + firstname AS UserName
-						FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-								INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
-						WHERE	Companies.companyID = #Variables.compID# AND Users.Deleted = 0
+						SELECT	Users.UID, lastname + ', ' + firstname AS UserName
+						FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+								INNER JOIN Companies ON UserCompanies.CID = Companies.CID
+						WHERE	Companies.CID = #Variables.compID# AND Users.Deleted = 0
 								AND UserCompanies.Deleted = 0 AND UserCompanies.Approved = 1
 						ORDER BY lastname, firstname
 					</cfquery>
@@ -144,16 +144,16 @@ function EditSubmit ( selectedform )
 							<cfquery name="getCompanyName" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 								SELECT Name
 								FROM Companies
-								WHERE CompanyID = #Variables.compID#
+								WHERE CID = #Variables.compID#
 							</cfquery>
 
 							<td id="Company" style="width:20%;">Company:</td>
-							<td headers="Company" style="width:80%;"><input type="hidden" name="companyID" value="#variables.compID#" />
+							<td headers="Company" style="width:80%;"><input type="hidden" name="CID" value="#variables.compID#" />
 						</tr>
 						<tr>
 							<td id="Vessel">Vessel:</td>
 							<cfif getVessels.recordCount GE 1>
-								<td headers="Vessel"><cfselect name="vesselID" query="getVessels" display="Name" value="VesselID" selected="#Variables.vesselID#" /></td>
+								<td headers="Vessel"><cfselect name="VNID" query="getVessels" display="Name" value="VNID" selected="#Variables.VNID#" /></td>
 							<cfelse>
 								<td headers="Vessel">No ships currently registered.</td>
 							</cfif>
@@ -162,7 +162,7 @@ function EditSubmit ( selectedform )
 							<tr>
 								<td id="">Agent:</td>
 								<cfif getAgents.recordCount GE 1>
-									<td headers="Agent"><cfselect name="userID" query="getAgents" display="UserName" value="UserID" selected="#Variables.userID#" /></td>
+									<td headers="Agent"><cfselect name="UID" query="getAgents" display="UserName" value="UID" selected="#Variables.UID#" /></td>
 								<cfelse>
 									<td headers="Agent">No agents currently registered.</td>
 								</cfif>

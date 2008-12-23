@@ -53,13 +53,13 @@
 
 <cfset Variables.StartDate = CreateODBCDate(Form.StartDate)>
 <cfset Variables.EndDate = CreateODBCDate(Form.EndDate)>
-<cfset Variables.VesselID = Form.VesselID>
+<cfset Variables.VNID = Form.VNID>
 
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	VesselID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
+	SELECT 	VNID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
 	FROM 	Vessels, Companies
-	WHERE 	VesselID = '#Form.VesselID#'
-	AND		Companies.CompanyID = Vessels.CompanyID
+	WHERE 	VNID = '#Form.VNID#'
+	AND		Companies.CID = Vessels.CID
 	AND 	Vessels.Deleted = 0
 	AND		Companies.Deleted = 0
 </cfquery>
@@ -72,11 +72,11 @@
 <!---Check to see that vessel hasn't already been booked during this time--->
 <!--- 25 October 2005: This query now only looks at the jetties bookings --->
 <cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	Bookings.VesselID, Bookings.BookingID, Name, Bookings.StartDate, Bookings.EndDate
+	SELECT 	Bookings.VNID, Bookings.BRID, Name, Bookings.StartDate, Bookings.EndDate
 	FROM 	Bookings
-				INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-				INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
-	WHERE 	Bookings.VesselID = '#Form.VesselID#'
+				INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+				INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
+	WHERE 	Bookings.VNID = '#Form.VNID#'
 	AND
 	<!---Explanation of hellishly long condition statement: The client wants to be able to overlap the start and end dates
 		of bookings, so if a booking ends on May 6, another one can start on May 6.  This created problems with single day
@@ -102,12 +102,12 @@
 
 <!--- 25 October 2005: The next two queries have been modified to only get results from the jetties bookings --->
 <cfquery name="getNumStartDateBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Bookings.BookingID, Vessels.Name, Bookings.StartDate
+	SELECT	Bookings.BRID, Vessels.Name, Bookings.StartDate
 	FROM	Bookings
-				INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
-				INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
+				INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
+				INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 	WHERE	StartDate = #Variables.StartDate#
-				AND Bookings.VesselID = '#Form.VesselID#'
+				AND Bookings.VNID = '#Form.VNID#'
 				AND Bookings.Deleted = 0
 			<cfif IsDefined("Form.Jetty") AND form.Jetty EQ "north">
 				AND Jetties.NorthJetty = 1
@@ -117,12 +117,12 @@
 </cfquery>
 
 <cfquery name="getNumEndDateBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Bookings.BookingID, Vessels.Name, Bookings.EndDate
+	SELECT	Bookings.BRID, Vessels.Name, Bookings.EndDate
 	FROM	Bookings
-				INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
-				INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
+				INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
+				INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 	WHERE	EndDate = #Variables.EndDate#
-					AND Bookings.VesselID = '#Form.VesselID#'
+					AND Bookings.VNID = '#Form.VNID#'
 					AND Bookings.Deleted = 0
 				<cfif IsDefined("Form.Jetty") AND form.Jetty EQ "north">
 					AND Jetties.NorthJetty = 1
@@ -136,7 +136,7 @@
 	<cfoutput>#ArrayAppend(Errors, "#language.futureStartError#")#</cfoutput>
 	<cfset Proceed_OK = "No">
 
-<cfelseif isDefined("checkDblBooking.VesselID") AND checkDblBooking.VesselID NEQ "">
+<cfelseif isDefined("checkDblBooking.VNID") AND checkDblBooking.VNID NEQ "">
 	<cfoutput>#ArrayAppend(Errors, "#checkDblBooking.Name# #language.dblBookingError# #LSdateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# #language.to# #LSdateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
 	<cfset Proceed_OK = "No">
 <cfelseif getNumStartDateBookings.recordCount GTE 1>
@@ -166,17 +166,17 @@
 	<cfset Session.Return_Structure.Jetty = Form.Jetty>
 	<cfset Session.Return_Structure.StartDate = Form.StartDate>
 	<cfset Session.Return_Structure.EndDate = Form.EndDate>
-	<cfset Session.Return_Structure.VesselID = Form.vesselID>
-	<cfset Session.Return_Structure.CompanyID = Form.CompanyID>
+	<cfset Session.Return_Structure.VNID = Form.VNID>
+	<cfset Session.Return_Structure.CID = Form.CID>
 	<cfset Session.Return_Structure.Errors = Errors>
  	<cflocation url="#RootDir#reserve-book/jetdemande-jetrequest.cfm?lang=#lang#">
 </cfif>
 
 <cfquery name="getInfo" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	Companies.Name AS CompanyName, Companies.CompanyID, Vessels.Name AS VesselName, Vessels.VesselID
+	SELECT 	Companies.Name AS CompanyName, Companies.CID, Vessels.Name AS VesselName, Vessels.VNID
 	FROM 	Vessels, Companies
-	WHERE 	VesselID = '#Form.VesselID#'
-	AND		Companies.CompanyID = Vessels.CompanyID
+	WHERE 	VNID = '#Form.VNID#'
+	AND		Companies.CID = Vessels.CID
 	AND 	Companies.Deleted = 0
 	AND		Vessels.Deleted = 0
 </cfquery>
@@ -216,12 +216,12 @@
 
 
 						<label>#language.Company#:</label>
-						<input type="hidden" name="CompanyID" value="#getInfo.CompanyID#" />
+						<input type="hidden" name="CID" value="#getInfo.CID#" />
 						<p>#getInfo.CompanyName#</p>
 
 
 						<label>#language.vessel#:</label>
-						<input type="hidden" name="VesselID" value="#getInfo.VesselID#" />
+						<input type="hidden" name="VNID" value="#getInfo.VNID#" />
 						<p>#getInfo.VesselName#</p>
 
 
@@ -253,7 +253,7 @@
 
 					<div class="buttons">
 						<input type="submit" value="#language.confirm#" class="textbutton" />
-						<input type="button" value="#language.Back#" class="textbutton" onclick="self.location.href='jettyRequest.cfm?lang=#lang#&amp;CompanyID=#url.companyID#'" />
+						<input type="button" value="#language.Back#" class="textbutton" onclick="self.location.href='jettyRequest.cfm?lang=#lang#&amp;CID=#url.CID#'" />
 					</div>
 
 				</cfform>

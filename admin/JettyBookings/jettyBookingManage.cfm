@@ -60,7 +60,7 @@
 				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 			)
-		AND Jetties.BookingID = Bookings.BookingID AND (Status = 'P' OR Status = 'X' OR Status = 'Y') AND NorthJetty = '1' AND Bookings.Deleted = 0
+		AND Jetties.BRID = Bookings.BRID AND (Status = 'P' OR Status = 'X' OR Status = 'Y') AND NorthJetty = '1' AND Bookings.Deleted = 0
 </cfquery>
 <cfquery name="countConfirmedNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT count(*) as numConfNJ
@@ -71,7 +71,7 @@
 				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 			)
-		AND Jetties.BookingID = Bookings.BookingID AND Status = 'C' AND NorthJetty = '1' AND Bookings.Deleted = 0
+		AND Jetties.BRID = Bookings.BRID AND Status = 'C' AND NorthJetty = '1' AND Bookings.Deleted = 0
 </cfquery>
 <cfquery name="countTentativeNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT count(*) as numTentNJ
@@ -82,7 +82,7 @@
 				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 			)
-		AND Jetties.BookingID = Bookings.BookingID AND Status = 'T' AND NorthJetty = '1' AND Bookings.Deleted = 0
+		AND Jetties.BRID = Bookings.BRID AND Status = 'T' AND NorthJetty = '1' AND Bookings.Deleted = 0
 					<!--- Eliminates any Tentative bookings with a start date before today --->
 			AND ((Jetties.status <> 'T') OR (Jetties.status = 'T' AND Bookings.startDate >= #PacificNow#))
 </cfquery>
@@ -96,7 +96,7 @@
 				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 			)
-		AND Jetties.BookingID = Bookings.BookingID AND (Status = 'P' OR Status = 'X' OR Status = 'Y') AND SouthJetty = '1' AND Bookings.Deleted = 0
+		AND Jetties.BRID = Bookings.BRID AND (Status = 'P' OR Status = 'X' OR Status = 'Y') AND SouthJetty = '1' AND Bookings.Deleted = 0
 
 </cfquery>
 <cfquery name="countConfirmedSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -108,7 +108,7 @@
 				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 			)
-		AND Jetties.BookingID = Bookings.BookingID AND Status = 'C' AND SouthJetty = '1' AND Bookings.Deleted = 0
+		AND Jetties.BRID = Bookings.BRID AND Status = 'C' AND SouthJetty = '1' AND Bookings.Deleted = 0
 </cfquery>
 <cfquery name="countTentativeSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT count(*) as numTentSJ
@@ -119,7 +119,7 @@
 				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 			)
-		AND Jetties.BookingID = Bookings.BookingID AND Status = 'T' AND SouthJetty = '1' AND Bookings.Deleted = 0
+		AND Jetties.BRID = Bookings.BRID AND Status = 'T' AND SouthJetty = '1' AND Bookings.Deleted = 0
 					<!--- Eliminates any Tentative bookings with a start date before today --->
 			AND ((Jetties.status <> 'T') OR (Jetties.status = 'T' AND Bookings.startDate >= #PacificNow#))
 </cfquery>
@@ -259,8 +259,8 @@ function EditSubmit ( selectedform )
 				<cfloop index="jetty" from="1" to="2" step="1">
 					<cfquery name="getBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT Bookings.*, Vessels.Name AS VesselName, Vessels.EndHighlight AS EndHighlight, Jetties.*
-						FROM Jetties INNER JOIN Bookings ON Jetties.BookingID = Bookings.BookingID
-								INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
+						FROM Jetties INNER JOIN Bookings ON Jetties.BRID = Bookings.BRID
+								INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 						WHERE ((Bookings.startDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'
 								AND Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 							OR (Bookings.startDate <= '#dateformat(variables.startDate, "mm/dd/yyyy")#'
@@ -297,11 +297,11 @@ function EditSubmit ( selectedform )
 					</cfquery>
 					<cfif getBookings.recordCount GT 0>
 						<cfoutput query="getBookings">
-							<cfset Variables.id = #BookingID#>
+							<cfset Variables.id = #BRID#>
 							<form name="booking#id#" action="jettyBookingManage.cfm?#urltoken####id#" method="post" class="hidden">
 								<input type="hidden" name="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" />
 								<input type="hidden" name="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" />
-								<cfif (isDefined("form.ID") AND form.ID EQ #id#) OR (isDefined('url.bookingid') AND url.bookingid EQ id)>
+								<cfif (isDefined("form.ID") AND form.ID EQ #id#) OR (isDefined('url.BRID') AND url.BRID EQ id)>
 									<input type="hidden" name="ID" value="0" />
 								<cfelse>
 									<input type="hidden" name="ID" value="#id#" />
@@ -340,7 +340,7 @@ function EditSubmit ( selectedform )
 						</tr>
 
 					<cfif getBookings.recordCount GT 0><cfoutput query="getBookings">
-						<cfset Variables.id = #BookingID#>
+						<cfset Variables.id = #BRID#>
 						<tr>
 							<td headers="Start" nowrap>#LSdateformat(startDate, 'mmm d, yyyy')#</td>
 							<td headers="End" nowrap>#LSdateformat(endDate, 'mmm d, yyyy')#</td>
@@ -348,7 +348,7 @@ function EditSubmit ( selectedform )
 							<td headers="Status"><cfif getBookings.Status EQ "C"><div class="confirmed">Confirmed</div><cfelseif getBookings.Status EQ "P"><div class="pending">Pending T</div><cfelseif getBookings.Status EQ "Y"><div class="pending">Pending C</div><cfelseif getBookings.Status EQ "X"><div class="pending">Pending X</div><cfelseif getBookings.Status EQ "T"><div class="tentative">Tentative</div></cfif></td>
 						</tr>
 
-						<cfif (isDefined('form.id') AND form.id EQ id) OR (isDefined('url.bookingid') AND url.bookingid EQ id) OR form.expandAll EQ "yes">
+						<cfif (isDefined('form.id') AND form.id EQ id) OR (isDefined('url.BRID') AND url.BRID EQ id) OR form.expandAll EQ "yes">
 
 							<cfquery name="getData" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 								SELECT 	Bookings.StartDate, Bookings.EndDate, Vessels.Name AS VesselName, Vessels.EndHighlight AS EndHighlight, Vessels.*,
@@ -356,11 +356,11 @@ function EditSubmit ( selectedform )
 										Companies.Name AS CompanyName, Jetties.NorthJetty, Jetties.SouthJetty,
 										Jetties.Status, BookingTime, BookingTimeChange, BookingTimeChangeStatus
 								FROM 	Bookings, Jetties, Vessels, Users, Companies
-								WHERE	Bookings.VesselID = Vessels.VesselID
-								AND		Vessels.CompanyID = Companies.CompanyID
-								AND		Bookings.UserID = Users.UserID
-								AND		Bookings.BookingID = '#ID#'
-								AND		Jetties.BookingID = Bookings.BookingID
+								WHERE	Bookings.VNID = Vessels.VNID
+								AND		Vessels.CID = Companies.CID
+								AND		Bookings.UID = Users.UID
+								AND		Bookings.BRID = '#ID#'
+								AND		Jetties.BRID = Bookings.BRID
 								AND   Bookings.Deleted = 0
 							</cfquery>
 
@@ -375,27 +375,27 @@ function EditSubmit ( selectedform )
 							</form>
 
 							<form method="post" action="chgStatus_2c.cfm?#urltoken#" name="chgStatus_2c#ID#">
-								<input type="hidden" name="BookingID" value="#id#" />
+								<input type="hidden" name="BRID" value="#id#" />
 							</form>
 
 							<form method="post" action="chgStatus_2p.cfm?#urltoken#" name="chgStatus_2p#ID#">
-								<input type="hidden" name="BookingID" value="#id#" />
+								<input type="hidden" name="BRID" value="#id#" />
 							</form>
 
 							<form method="post" action="chgStatus_2t.cfm?#urltoken#" name="chgStatus_2t#ID#">
-								<input type="hidden" name="BookingID" value="#id#" />
+								<input type="hidden" name="BRID" value="#id#" />
 							</form>
 
 							<form method="post" action="deny.cfm?#urltoken#" name="deny#ID#">
-								<input type="hidden" name="BookingID" value="#id#" />
+								<input type="hidden" name="BRID" value="#id#" />
 							</form>
 
 							<form method="post" action="editJettyBooking.cfm?#urltoken#" name="editBooking#ID#">
-								<input type="hidden" name="BookingID" value="#id#" />
+								<input type="hidden" name="BRID" value="#id#" />
 							</form>
 
 							<form method="post" action="deleteJettyBooking_confirm.cfm?#urltoken#" name="delete#ID#">
-								<input type="hidden" name="BookingID" value="#id#" />
+								<input type="hidden" name="BRID" value="#id#" />
 							</form>
 
 							<tr><td colspan="5">
@@ -438,7 +438,7 @@ function EditSubmit ( selectedform )
 											</tr>
 											<tr class="containsbutton">
 												<td id="Company">Company:</td>
-												<td headers="Company">#getData.companyName# <a class="textbutton" href="changeCompany.cfm?BookingIDURL=#BookingID#&CompanyURL=#getData.companyName#&vesselNameURL=#getData.vesselName#&UserNameURL=#getData.UserName#">Change</a></td>
+												<td headers="Company">#getData.companyName# <a class="textbutton" href="changeCompany.cfm?BRIDURL=#BRID#&CompanyURL=#getData.companyName#&vesselNameURL=#getData.vesselName#&UserNameURL=#getData.UserName#">Change</a></td>
 											</tr>
 											<tr>
 												<td id="Time">Booking Time:</td>
@@ -451,7 +451,7 @@ function EditSubmit ( selectedform )
 											<tr class="containsbutton">
 												<td>Highlight for:</td>
 												<td>
-												<cfform action="highlight_action.cfm?BookingID=#BookingID#" method="post" id="updateHighlight">
+												<cfform action="highlight_action.cfm?BRID=#BRID#" method="post" id="updateHighlight">
 												<cfif EndHighlight NEQ "">
 												<cfset datediffhighlight = DateDiff("d", PacificNow, EndHighlight)>
 												<cfset datediffhighlight = datediffhighlight+"1">
@@ -531,7 +531,7 @@ function EditSubmit ( selectedform )
 
 				<cfquery name="getMaintenance" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT 	Bookings.*, Jetties.NorthJetty, Jetties.SouthJetty
-					FROM 	Bookings INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
+					FROM 	Bookings INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
 					WHERE	(
 								(Bookings.startDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 							OR	(Bookings.startDate <= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
@@ -544,12 +544,12 @@ function EditSubmit ( selectedform )
 
 				<cfif getMaintenance.RecordCount GT 0>
 					<cfoutput query="getMaintenance">
-						<cfset Variables.id = #BookingID#>
+						<cfset Variables.id = #BRID#>
 						<form name="MaintenanceEdit#id#" action="editJettyMaintBlock.cfm?#urltoken#" method="post">
-							<input type="hidden" name="BookingID" value="#id#" />
+							<input type="hidden" name="BRID" value="#id#" />
 						</form>
 						<form name="MaintenanceDel#id#" action="deleteJettyMaintBlock_confirm.cfm?#urltoken#" method="post">
-							<input type="hidden" name="BookingID" value="#id#" />
+							<input type="hidden" name="BRID" value="#id#" />
 						</form>
 					</cfoutput>
 				</cfif>
@@ -568,7 +568,7 @@ function EditSubmit ( selectedform )
 								<cfset variables.actionCap = "Delete">
 							</cfif>
 
-							<cfset Variables.id = #BookingID#>
+							<cfset Variables.id = #BRID#>
 							<tr>
 								<td headers="Start" nowrap>#dateformat(startDate, "mmm d, yyyy")#</td>
 								<td headers="End" nowrap>#dateformat(endDate, "mmm d, yyyy")#</td>

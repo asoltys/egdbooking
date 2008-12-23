@@ -36,14 +36,14 @@
 <cfquery name="getForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
 	FROM	TariffForms
-	<cfif isDefined("url.bookingID")>WHERE	BookingID = '#url.BookingID#'</cfif>
+	<cfif isDefined("url.BRID")>WHERE	BRID = '#url.BRID#'</cfif>
 </cfquery>
 
 <cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Vessels.Name AS VesselName, Vessels.CompanyID, Companies.Name AS CompanyName, StartDate, EndDate
-	FROM	Bookings INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-			INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
-	<cfif isDefined("url.bookingId")>WHERE	Bookings.BookingID = '#url.BookingID#'</cfif>
+	SELECT	Vessels.Name AS VesselName, Vessels.CID, Companies.Name AS CompanyName, StartDate, EndDate
+	FROM	Bookings INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+			INNER JOIN Companies ON Vessels.CID = Companies.CID
+	<cfif isDefined("url.BRID")>WHERE	Bookings.BRID = '#url.BRID#'</cfif>
 </cfquery>
 
 <cfif lang EQ 'eng'>
@@ -62,18 +62,18 @@
 
 <cflock timeout="20" scope="session" throwontimeout="no" type="readonly">
 	<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	Vessels.CompanyID
-		FROM	Bookings INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-				INNER JOIN UserCompanies ON Vessels.CompanyID = UserCompanies.CompanyID
-		WHERE	Bookings.Deleted = 0 <cfif isdefined("url.bookingid")>AND Bookings.BookingID = #url.BookingID#</cfif>
-				AND UserCompanies.UserID = #session.UserID# AND UserCompanies.Deleted = 0
+		SELECT	Vessels.CID
+		FROM	Bookings INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+				INNER JOIN UserCompanies ON Vessels.CID = UserCompanies.CID
+		WHERE	Bookings.Deleted = 0 <cfif isdefined("url.BRID")>AND Bookings.BRID = #url.BRID#</cfif>
+				AND UserCompanies.UID = #session.UID# AND UserCompanies.Deleted = 0
 	</cfquery>
 </cflock>
 
 <cfif getCompanies.recordCount EQ 0 OR getDetails.recordCount EQ 0>
-	<cfif isDefined("url.bookingID")>
+	<cfif isDefined("url.BRID")>
 		<cfif isDefined("url.referrer") AND url.referrer eq "archive">
-			<cflocation addtoken="no" url="#RootDir#reserve-book/archives.cfm?lang=#lang#&companyId=#url.companyID#">
+			<cflocation addtoken="no" url="#RootDir#reserve-book/archives.cfm?lang=#lang#&CID=#url.CID#">
 		<cfelse>
 			<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 		</cfif>
@@ -107,7 +107,7 @@
 
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 
-				<cfif isDefined("url.BookingID")>
+				<cfif isDefined("url.BRID")>
 				<cfoutput>
 					<h2>#getDetails.CompanyName#: #getDetails.VesselName#</h2>
 					<h3>#LSDateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #LSDateFormat(getDetails.EndDate, 'mmm d, yyyy')#</h3>
@@ -123,13 +123,13 @@
 					</tr>
 
 					<tr>
-						<td headers="checkHeader"><input id="other" name="other" type="checkbox" <cfif isDefined("url.bookingID")><cfif getForm.other EQ 1>checked="true"</cfif></cfif> disabled="disabled" /></td>
+						<td headers="checkHeader"><input id="other" name="other" type="checkbox" <cfif isDefined("url.BRID")><cfif getForm.other EQ 1>checked="true"</cfif></cfif> disabled="disabled" /></td>
 						<td headers="itemHeader">&nbsp;</td>
 						<td headers="serviceHeader">
 							<table>
 								<tr>
 									<td>#language.Misc#:</td>
-									<td><textarea name="otherText" cols="32" rows="3" disabled="disabled"><cfif isDefined("url.bookingID")><cfif getForm.other EQ 1>#getForm.otherText#</cfif></cfif></textarea></td>
+									<td><textarea name="otherText" cols="32" rows="3" disabled="disabled"><cfif isDefined("url.BRID")><cfif getForm.other EQ 1>#getForm.otherText#</cfif></cfif></textarea></td>
 								</tr>
 								<tr><td colspan="2">(#language.miscText#)</td></tr>
 							</table>
@@ -149,7 +149,7 @@
 						<td headers="checkHeader">
 							<cfif fee NEQ "">
 								<cfset Variables.Abbr = "getForm." & #abbreviation#>
-								<input name="#abbreviation#" id="#abbreviation#" type="checkbox" <cfif isDefined("url.bookingID")><cfif Evaluate(Variables.Abbr) EQ 1>checked="true"</cfif></cfif> disabled="disabled" />
+								<input name="#abbreviation#" id="#abbreviation#" type="checkbox" <cfif isDefined("url.BRID")><cfif Evaluate(Variables.Abbr) EQ 1>checked="true"</cfif></cfif> disabled="disabled" />
 							</cfif>
 						</td>
 						<td headers="itemHeader">
@@ -182,9 +182,9 @@
 				</table>
 				<div class="buttons">
 					<cfif isDefined("url.referrer") AND url.referrer eq "archive">
-						<cfoutput><a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;CompanyID=#url.CompanyID#" class="textbutton">#language.Back#</a></cfoutput>
+						<cfoutput><a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;CID=#url.CID#" class="textbutton">#language.Back#</a></cfoutput>
 					<cfelse>
-						<cfoutput><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CompanyID=#getDetails.CompanyID#" class="textbutton">#language.Back#</a></cfoutput>
+						<cfoutput><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#getDetails.CID#" class="textbutton">#language.Back#</a></cfoutput>
 					</cfif>
 				</div>
 

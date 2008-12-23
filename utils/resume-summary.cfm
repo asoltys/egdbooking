@@ -48,7 +48,7 @@
 </CFIF>
 
 <cfquery name="getDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-SELECT	Bookings.VesselID,
+SELECT	Bookings.VNID,
 		Vessels.Name AS VesselName, Anonymous,
 		Length AS VesselLength,
 		StartDate,
@@ -58,9 +58,9 @@ SELECT	Bookings.VesselID,
 		BookingTime, 
 		Companies.Abbreviation
 FROM	Bookings
-	INNER JOIN	Docks ON Bookings.BookingID = Docks.BookingID
-	INNER JOIN	Vessels ON Bookings.VesselID = Vessels.VesselID
-	INNER JOIN	Companies ON Vessels.CompanyID = Companies.CompanyID
+	INNER JOIN	Docks ON Bookings.BRID = Docks.BRID
+	INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
+	INNER JOIN	Companies ON Vessels.CID = Companies.CID
 WHERE	(Status = 'c' OR Status = 't')
 	AND	Bookings.Deleted = '0'
 	AND	Vessels.Deleted = '0'
@@ -73,7 +73,7 @@ ORDER BY	StartDate, EndDate, VesselName
 </cfquery>
 
 <cfquery name="getJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-SELECT	Bookings.VesselID,
+SELECT	Bookings.VNID,
 		Vessels.Name AS VesselName, Anonymous,
 		Length AS VesselLength,
 		StartDate,
@@ -83,9 +83,9 @@ SELECT	Bookings.VesselID,
 		BookingTime, 
 		Companies.Abbreviation
 FROM	Bookings
-	INNER JOIN	Jetties ON Bookings.BookingID = Jetties.BookingID
-	INNER JOIN	Vessels ON Bookings.VesselID = Vessels.VesselID
-	INNER JOIN	Companies ON Vessels.CompanyID = Companies.CompanyID
+	INNER JOIN	Jetties ON Bookings.BRID = Jetties.BRID
+	INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
+	INNER JOIN	Companies ON Vessels.CID = Companies.CID
 
 WHERE	Bookings.Deleted = '0'
 	AND	Vessels.Deleted = '0'

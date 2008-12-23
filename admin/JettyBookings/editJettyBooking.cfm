@@ -61,10 +61,10 @@
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 
 				<!--- Initiate Variables --------------------------------------------------------------------------------------------------->
-				<cfparam name="Variables.BookingID" default="">
+				<cfparam name="Variables.BRID" default="">
 				<cfparam name="Variables.VesselName" default="">
-				<cfparam name="Variables.VesselID" default="">
-				<cfparam name="Variables.UserID" default="">
+				<cfparam name="Variables.VNID" default="">
+				<cfparam name="Variables.UID" default="">
 				<cfparam name="Variables.StartDate" default="">
 				<cfparam name="Variables.EndDate" default="">
 				<cfparam name="Variables.Status" default="">
@@ -72,48 +72,48 @@
 				<cfparam name="Variables.SouthJetty" default="0">
 				<cfparam name="Variables.CompanyName" default="">
 				<cfparam name="Variables.Jetty" default="">
-				<cfparam name="Variables.CompanyID" default="">
+				<cfparam name="Variables.CID" default="">
 
 				<cfif NOT IsDefined("Session.form_Structure")>
 					<cfinclude template="#RootDir#includes/build_form_struct.cfm">
 					<cfinclude template="#RootDir#includes/restore_params.cfm">
 				<cfelse>
 					<cfinclude template="#RootDir#includes/restore_params.cfm">
-					<cfif isDefined("form.bookingID")>
-						<cfset Variables.bookingID = #form.bookingID#>
+					<cfif isDefined("form.BRID")>
+						<cfset Variables.BRID = #form.BRID#>
 					</cfif>
 				</cfif>
 				<cfif IsDefined("Session.Return_Structure")>
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 					<cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-						SELECT	Companies.CompanyID, Bookings.UserID, Status
+						SELECT	Companies.CID, Bookings.UID, Status
 						FROM	Vessels, Bookings, Companies, Jetties
-						WHERE	Vessels.VesselID = Bookings.VesselID
-						AND		Vessels.CompanyID = Companies.CompanyID
-						AND		Jetties.BookingID = Bookings.BookingID
-						AND		Bookings.BookingID = '#Variables.BookingID#'
+						WHERE	Vessels.VNID = Bookings.VNID
+						AND		Vessels.CID = Companies.CID
+						AND		Jetties.BRID = Bookings.BRID
+						AND		Bookings.BRID = '#Variables.BRID#'
 						AND 	Bookings.Deleted = '0'
 					</cfquery>
-					<cfset Variables.CompanyID = getBooking.CompanyID>
-					<cfset Variables.UserID = getBooking.UserID>
-				<cfelseif IsDefined("Form.BookingID") AND Form.BookingID NEQ "">
-					<cfset Variables.BookingID = Form.BookingID>
+					<cfset Variables.CID = getBooking.CID>
+					<cfset Variables.UID = getBooking.UID>
+				<cfelseif IsDefined("Form.BRID") AND Form.BRID NEQ "">
+					<cfset Variables.BRID = Form.BRID>
 					<cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT	Vessels.Name AS VesselName,
-								Bookings.VesselID,
+								Bookings.VNID,
 								Bookings.StartDate, Bookings.EndDate, Bookings.BookingTime,
 								Status, NorthJetty, SouthJetty,
 								Companies.Name AS CompanyName,
-								Companies.CompanyID, Bookings.UserID
+								Companies.CID, Bookings.UID
 						FROM	Vessels, Jetties, Bookings, Companies
-						WHERE	Vessels.VesselID = Bookings.VesselID
-						AND		Vessels.CompanyID = Companies.CompanyID
-						AND		Jetties.BookingID = Bookings.BookingID
-						AND		Bookings.BookingID = '#Variables.BookingID#'
+						WHERE	Vessels.VNID = Bookings.VNID
+						AND		Vessels.CID = Companies.CID
+						AND		Jetties.BRID = Bookings.BRID
+						AND		Bookings.BRID = '#Variables.BRID#'
 						AND 	Bookings.Deleted = '0'
 					</cfquery>
 					<cfset Variables.VesselName = getBooking.VesselName>
-					<cfset Variables.VesselID = getBooking.VesselID>
+					<cfset Variables.VNID = getBooking.VNID>
 					<cfset Variables.StartDate = getBooking.StartDate>
 					<cfset Variables.EndDate = getBooking.EndDate>
 					<cfset Variables.TheBookingDate = DateFormat(getBooking.BookingTime, 'mm/dd/yyyy')>
@@ -122,26 +122,26 @@
 					<cfset Variables.NorthJetty = getBooking.NorthJetty>
 					<cfset Variables.SouthJetty = getBooking.SouthJetty>
 					<cfset Variables.CompanyName = getBooking.CompanyName>
-					<cfset Variables.CompanyID = getBooking.CompanyID>
-					<cfset Variables.UserID = getBooking.UserID>
-				<cfelseif IsDefined("URL.BookingID") AND URL.BookingID NEQ "">
-					<cfset Variables.BookingID = URL.BookingID>
+					<cfset Variables.CID = getBooking.CID>
+					<cfset Variables.UID = getBooking.UID>
+				<cfelseif IsDefined("URL.BRID") AND URL.BRID NEQ "">
+					<cfset Variables.BRID = URL.BRID>
 					<cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT	Vessels.Name AS VesselName,
-								Bookings.VesselID,
+								Bookings.VNID,
 								Bookings.StartDate, Bookings.EndDate, Bookings.BookingTime,
 								Status, NorthJetty, SouthJetty,
 								Companies.Name AS CompanyName,
-								Companies.CompanyID, Bookings.UserID
+								Companies.CID, Bookings.UID
 						FROM	Vessels, Jetties, Bookings, Companies
-						WHERE	Vessels.VesselID = Bookings.VesselID
-						AND		Vessels.CompanyID = Companies.CompanyID
-						AND		Jetties.BookingID = Bookings.BookingID
-						AND		Bookings.BookingID = '#Variables.BookingID#'
+						WHERE	Vessels.VNID = Bookings.VNID
+						AND		Vessels.CID = Companies.CID
+						AND		Jetties.BRID = Bookings.BRID
+						AND		Bookings.BRID = '#Variables.BRID#'
 						AND 	Bookings.Deleted = '0'
 					</cfquery>
 					<cfset Variables.VesselName = getBooking.VesselName>
-					<cfset Variables.VesselID = getBooking.VesselID>
+					<cfset Variables.VNID = getBooking.VNID>
 					<cfset Variables.StartDate = getBooking.StartDate>
 					<cfset Variables.EndDate = getBooking.EndDate>
 					<cfset Variables.TheBookingDate = DateFormat(getBooking.BookingTime, 'mm/dd/yyyy')>
@@ -150,15 +150,15 @@
 					<cfset Variables.NorthJetty = getBooking.NorthJetty>
 					<cfset Variables.SouthJetty = getBooking.SouthJetty>
 					<cfset Variables.CompanyName = getBooking.CompanyName>
-					<cfset Variables.CompanyID = getBooking.CompanyID>
-					<cfset Variables.UserID = getBooking.UserID>
+					<cfset Variables.CID = getBooking.CID>
+					<cfset Variables.UID = getBooking.UID>
 				<cfelse>
 					<cflocation addtoken="no" url="#returnTo#?lang=#lang#">
 				</cfif>
 				<cfif IsDefined("Session.form_Structure")>
 					<cfinclude template="#RootDir#includes/restore_params.cfm">
-					<cfif isDefined("form.userID")>
-						<cfset Variables.userID = #form.userID#>
+					<cfif isDefined("form.UID")>
+						<cfset Variables.UID = #form.UID#>
 						<cfset Variables.StartDate = #form.startDate#>
 						<cfset Variables.EndDate = #form.endDate#>
 						<cfif isDefined("form.jetty") AND form.jetty EQ "north">
@@ -172,15 +172,15 @@
 				</cfif>
 				<cfquery name="getAgents" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT
-						Users.UserID,
+						Users.UID,
 						lastname + ', ' + firstname AS UserName
 					FROM
 						Users INNER JOIN UserCompanies
-							ON Users.UserID = UserCompanies.UserID
+							ON Users.UID = UserCompanies.UID
 						INNER JOIN Companies
-							ON UserCompanies.CompanyID = Companies.CompanyID
+							ON UserCompanies.CID = Companies.CID
 					WHERE
-				<!---		Companies.companyID = #Variables.companyID#
+				<!---		Companies.CID = #Variables.CID#
 					AND --->
 						Users.Deleted = 0
 					AND
@@ -198,16 +198,16 @@
 
 				<cfoutput query="getBooking">
 
-					<form method="post" action="chgStatus_2c.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2c#BookingID#" style="margin: 0; padding: 0; ">
-						<input type="hidden" name="BookingID" value="#BookingID#" />
+					<form method="post" action="chgStatus_2c.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2c#BRID#" style="margin: 0; padding: 0; ">
+						<input type="hidden" name="BRID" value="#BRID#" />
 					</form>
 
-					<form method="post" action="chgStatus_2p.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2p#BookingID#" style="margin: 0; padding: 0; ">
-						<input type="hidden" name="BookingID" value="#BookingID#" />
+					<form method="post" action="chgStatus_2p.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2p#BRID#" style="margin: 0; padding: 0; ">
+						<input type="hidden" name="BRID" value="#BRID#" />
 					</form>
 
-					<form method="post" action="chgStatus_2t.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2t#BookingID#" style="margin: 0; padding: 0; ">
-						<input type="hidden" name="BookingID" value="#BookingID#" />
+					<form method="post" action="chgStatus_2t.cfm?#urltoken#&referrer=#URLEncodedFormat(variables.referrer)##variables.dateValue#" name="chgStatus_2t#BRID#" style="margin: 0; padding: 0; ">
+						<input type="hidden" name="BRID" value="#BRID#" />
 					</form>
 				</cfoutput>
 
@@ -225,7 +225,7 @@
 					<tr>
 						<td id="Agent">Agent:</td>
 						<cfif getAgents.recordCount GE 1>
-							<td headers="Agent"><cfselect name="userID" query="getAgents" display="UserName" value="UserID" selected="#Variables.UserID#" /></td>
+							<td headers="Agent"><cfselect name="UID" query="getAgents" display="UserName" value="UID" selected="#Variables.UID#" /></td>
 						<cfelse>
 							<td headers="Agent">No agents currently registered.</td>
 						</cfif>
@@ -259,18 +259,18 @@
 						<td headers="Status">
 							<cfif variables.Status EQ "C">
 								<strong>Confirmed</strong>
-								<a href="javascript:EditSubmit('chgStatus_2t#BookingID#');" class="textbutton">Make Tentative</a>
-								<a href="javascript:EditSubmit('chgStatus_2p#BookingID#');" class="textbutton">Make Pending</a>
+								<a href="javascript:EditSubmit('chgStatus_2t#BRID#');" class="textbutton">Make Tentative</a>
+								<a href="javascript:EditSubmit('chgStatus_2p#BRID#');" class="textbutton">Make Pending</a>
 							<cfelseif variables.Status EQ "T">
-								<a href="javascript:EditSubmit('chgStatus_2c#BookingID#');" class="textbutton">Make Confirmed</a>
+								<a href="javascript:EditSubmit('chgStatus_2c#BRID#');" class="textbutton">Make Confirmed</a>
 								<strong>Tentative</strong>
-								<a href="javascript:EditSubmit('chgStatus_2p#BookingID#');" class="textbutton">Make Pending</a>
+								<a href="javascript:EditSubmit('chgStatus_2p#BRID#');" class="textbutton">Make Pending</a>
 							<cfelse>
-								<a href="javascript:EditSubmit('chgStatus_2c#BookingID#');" class="textbutton">Make Confirmed</a>
-								<a href="javascript:EditSubmit('chgStatus_2t#BookingID#');" class="textbutton">Make Tentative</a>
+								<a href="javascript:EditSubmit('chgStatus_2c#BRID#');" class="textbutton">Make Confirmed</a>
+								<a href="javascript:EditSubmit('chgStatus_2t#BRID#');" class="textbutton">Make Tentative</a>
 								<strong>Pending</strong>
 								<cfif getBooking.Status EQ "Y">
-									<a href="javascript:EditSubmit('deny#BookingID#');" class="textbutton">Deny Request</a>
+									<a href="javascript:EditSubmit('deny#BRID#');" class="textbutton">Deny Request</a>
 								</cfif>
 							</cfif>
 						</td>
@@ -292,9 +292,9 @@
 							<cfif isdefined('overwrite')>
 							<input type="submit" name="submitForm" class="textbutton" value="overwrite" />
 							</cfif>
-							<input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#variables.bookingID##variables.dateValue####variables.bookingID#'" class="textbutton" />
+							<input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken#&BRID=#variables.BRID##variables.dateValue####variables.BRID#'" class="textbutton" />
 							<br />
-							<input type="Hidden" name="BookingID" value="#Variables.BookingID#" />
+							<input type="Hidden" name="BRID" value="#Variables.BRID#" />
 							<input type="Hidden" name="Submitted" value="yes" />
 						</td>
 					</tr>

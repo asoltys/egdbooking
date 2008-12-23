@@ -1,4 +1,4 @@
-<cfif isDefined("form.bookingID") AND (NOT isDefined("url.referrer") OR url.referrer NEQ "Edit Booking")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.BRID") AND (NOT isDefined("url.referrer") OR url.referrer NEQ "Edit Booking")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfhtmlhead text="
@@ -53,38 +53,38 @@
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 
 				<!--- -------------------------------------------------------------------------------------------- --->
-				<cfparam name="Variables.BookingID" default="">
+				<cfparam name="Variables.BRID" default="">
 				
 				<cfif IsDefined("Session.Return_Structure")>
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
-				<cfelseif IsDefined("Form.BookingID")>
-					<cfset Variables.BookingID = Form.BookingID>
+				<cfelseif IsDefined("Form.BRID")>
+					<cfset Variables.BRID = Form.BRID>
 				<cfelse>
 					<cflocation url="#returnTo#?#urltoken##dateValue#&referrer=#url.referrer#" addtoken="no">
 				</cfif>
 				
 				<cfquery name="theBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT 
-						Bookings.BookingID, 
+						Bookings.BRID, 
 						StartDate, 
 						EndDate, 
-						Vessels.VesselID, 
+						Vessels.VNID, 
 						Vessels.Name AS VesselName, 
 						Companies.Name AS CompanyName, 
 						NorthJetty
 					FROM 
 						Bookings INNER JOIN Jetties
-							ON Bookings.BookingID = Jetties.BookingID
+							ON Bookings.BRID = Jetties.BRID
 						INNER JOIN Vessels
-							ON Vessels.VesselID = Bookings.VesselID
+							ON Vessels.VNID = Bookings.VNID
 						INNER JOIN Companies 
-							ON Companies.CompanyID = Vessels.CompanyID
+							ON Companies.CID = Vessels.CID
 					WHERE 
-						Bookings.BookingID = '#Variables.BookingID#'
+						Bookings.BRID = '#Variables.BRID#'
 				
 				</cfquery>
 				
-				<cfset Variables.VesselID = theBooking.VesselID>
+				<cfset Variables.VNID = theBooking.VNID>
 				<cfset Variables.VesselName = theBooking.VesselName>
 				<cfset Variables.CompanyName = theBooking.CompanyName>
 				<cfset Variables.Start = CreateODBCDate(theBooking.StartDate)>
@@ -104,11 +104,11 @@
 					Are you sure you want to change this booking's status to tentative?
 				<br /><br />
 					<cfoutput>
-					<input type="hidden" name="BookingID" value="#Form.BookingID#" />
+					<input type="hidden" name="BRID" value="#Form.BRID#" />
 					<table style="width:85%; padding-left:15px;" >
 					<tr>
 						<td id="Vessel" style="width:25%;" align="left">Vessel:</td>
-						<td headers="Vessel"><input type="hidden" name="vesselID" value="<cfoutput>#Variables.VesselID#</cfoutput>" /><cfoutput>#Variables.VesselName#</cfoutput></td>
+						<td headers="Vessel"><input type="hidden" name="VNID" value="<cfoutput>#Variables.VNID#</cfoutput>" /><cfoutput>#Variables.VesselName#</cfoutput></td>
 					</tr>
 					<tr>
 						<td id="Company" align="left">Company:</td>
@@ -135,7 +135,7 @@
 					<tr>
 						<td>
 						<input type="submit" value="submit" class="textbutton" />
-						<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton" /></cfoutput>
+						<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&BRID=#Variables.BRID###id#Variables.BRID#'" value="Cancel" class="textbutton" /></cfoutput>
 						</td>
 					</tr>
 					</table>

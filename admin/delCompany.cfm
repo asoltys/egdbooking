@@ -8,7 +8,7 @@
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="getCompanyList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT CompanyID, Name
+	SELECT CID, Name
 	FROM Companies
 	WHERE Approved = 1 AND Deleted = 0
 	ORDER BY Name
@@ -18,13 +18,13 @@
 <!---
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="getCompanyList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT CompanyID, Name
+		SELECT CID, Name
 		FROM Companies
-		WHERE NOT EXISTS (SELECT CompanyID
+		WHERE NOT EXISTS (SELECT CID
 							FROM UserCompanies
-							WHERE UserCompanies.CompanyID = Companies.CompanyID
+							WHERE UserCompanies.CID = Companies.CID
 							AND UserCompanies.Deleted = 0 AND UserCompanies.Approved = 1
-							AND UserCompanies.UserID = #session.UserID#)
+							AND UserCompanies.UID = #session.UID#)
 		AND Companies.Deleted = 0
 		ORDER BY Name
 	</cfquery>
@@ -32,10 +32,10 @@
 --->
 
 <cfinclude template="#RootDir#includes/restore_params.cfm">
-<cfif isDefined("form.companyID")>
-	<cfset variables.companyID = #form.companyID#>
+<cfif isDefined("form.CID")>
+	<cfset variables.CID = #form.CID#>
 <cfelse>
-	<cfset variables.companyID = 0>
+	<cfset variables.CID = 0>
 </cfif>
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
@@ -71,7 +71,7 @@
 
 				<div style="text-align:center;">
 					<cfform action="delCompany_confirm.cfm?lang=#lang#" method="post" id="delCompanyForm">
-						<cfselect name="companyID" query="getcompanyList" value="companyID" display="name" selected="#variables.companyID#"/>
+						<cfselect name="CID" query="getcompanyList" value="CID" display="name" selected="#variables.CID#"/>
 						<input type="submit" name="submitForm" class="textbutton" value="Delete" />
 						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" /></cfoutput>
 					</cfform>

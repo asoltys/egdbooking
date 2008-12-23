@@ -3,7 +3,7 @@
 	<cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT ReadOnly
 		FROM Users
-		WHERE UserID = #Session.UserID#
+		WHERE UID = #Session.UID#
 	</cfquery>
 	<cfoutput query="readonlycheck">
 		<cfset Session.ReadOnly = #ReadOnly#>
@@ -27,10 +27,10 @@
 	</cfif>
 
 	<cfset Variables.BookingRequestString = "">
-	<cfif IsDefined("URL.VesselID")>
-		<cfset Variables.BookingRequestString = "&amp;VesselID=#URL.VesselID#">
-	<cfelseif IsDefined("URL.CompanyID")>
-		<cfset Variables.BookingRequestString = "&amp;CompanyID=#URL.CompanyID#">
+	<cfif IsDefined("URL.VNID")>
+		<cfset Variables.BookingRequestString = "&amp;VNID=#URL.VNID#">
+	<cfelseif IsDefined("URL.CID")>
+		<cfset Variables.BookingRequestString = "&amp;CID=#URL.CID#">
 	</cfif>
 	<cfif IsDefined("URL.Date") AND DateCompare(#url.date#, #PacificNow#, 'd') EQ 1>
 		<cfset Variables.BookingRequestString = "#Variables.BookingRequestString#&amp;Date=#URL.Date#">

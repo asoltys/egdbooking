@@ -60,7 +60,7 @@
 
 <cfif Proceed_OK EQ "No">
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->
-	<cfset Session.Return_Structure.BookingID = Form.BookingID>
+	<cfset Session.Return_Structure.BRID = Form.BRID>
 	<cfif isDefined("Form.Section1")><cfset Session.Return_Structure.Section1 = Form.Section1></cfif>
 	<cfif isDefined("Form.Section2")><cfset Session.Return_Structure.Section2 = Form.Section2></cfif>	
 	<cfif isDefined("Form.Section3")><cfset Session.Return_Structure.Section3 = Form.Section3></cfif>
@@ -92,14 +92,14 @@
 			<cfelse>
 				section3 = '0'
 			</cfif>	
-			WHERE 	BookingID = '#tempTower[count].BookingID#'
+			WHERE 	BRID = '#tempTower[count].BRID#'
 		</cfquery>
 		<cfset count = count + 1>
 	</cfloop>
 	<cfquery name="reshuffleBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE 	Docks
 		SET 	Status = 'C'	
-		WHERE 	BookingID = #Form.BookingID#
+		WHERE 	BRID = #Form.BRID#
 	</cfquery>
 <cfelse>
 	<cfquery name="forceBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -108,7 +108,7 @@
 				<cfif IsDefined("Form.Section1")>Section1 = '1', <cfelse>Section1 = '0',</cfif>
 				<cfif IsDefined("Form.Section2")>Section2 = '1', <cfelse>Section2 = '0',</cfif>
 				<cfif IsDefined("Form.Section3")>Section3 = '1' <cfelse>Section3 = '0'</cfif>
-		WHERE 	BookingID = #Form.BookingID#
+		WHERE 	BRID = #Form.BRID#
 	</cfquery>
 </cfif>
 
@@ -116,16 +116,16 @@
 
 <cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Email, Vessels.Name AS VesselName, StartDate, EndDate
-	FROM	Users INNER JOIN Bookings ON Users.UserID = Bookings.UserID 
-			INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-	WHERE	BookingID = '#Form.BookingID#'
+	FROM	Users INNER JOIN Bookings ON Users.UID = Bookings.UID 
+			INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+	WHERE	BRID = '#Form.BRID#'
 </cfquery>
 
 <cflock throwontimeout="no" scope="session" timeout="30" type="readonly">
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UserID = '#session.userID#'
+		WHERE	UID = '#session.UID#'
 	</cfquery>
 </cflock>
 
@@ -133,7 +133,7 @@
 	UPDATE  Bookings
 	SET		BookingTimeChange = #PacificNow#,
 			BookingTimeChangeStatus = 'Confirmed at'
-	WHERE	BookingID = '#Form.BookingID#'
+	WHERE	BRID = '#Form.BRID#'
 </cfquery>
 
 <cfoutput>
@@ -152,11 +152,11 @@
 	<cfset Session.Success.Title = "Change Booking Status">
 	<cfset Session.Success.Message = "Booking status for <b>#getDetails.vesselName#</b> from #LSDateFormat(CreateODBCDate(getDetails.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getDetails.endDate), 'mmm d, yyyy')# is now <b>Confirmed</b>.  Email notification of this change has been sent to the agent.">
 	<cfset Session.Success.Back = "Back to #url.referrer#">
-	<cfset Session.Success.Link = "#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Form.BookingId###id#form.bookingid#">
+	<cfset Session.Success.Link = "#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&BRID=#Form.BRID###id#form.BRID#">
 	<cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 <cfelse>
-	<cflocation addtoken="no" url="#returnTo#?#urltoken##dateValue#&bookingID=#Form.BookingId#">
+	<cflocation addtoken="no" url="#returnTo#?#urltoken##dateValue#&BRID=#Form.BRID#">
 </cfif>
 
-<!---cflocation addtoken="no" url="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.bookingID#"--->
+<!---cflocation addtoken="no" url="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.BRID#"--->
 

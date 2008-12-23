@@ -67,15 +67,15 @@
 		</cfquery>
 	
 		<cfquery name="getID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			SELECT UserID
+			SELECT UID
 			FROM Users
 			WHERE EMail = '#trim(form.Email)#'
 		</cfquery>
 		
-		<cfloop list="#companyList#" index="companyID">
+		<cfloop list="#companyList#" index="CID">
 			<cfquery name="companyRequests" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-				INSERT INTO	UserCompanies(UserID, CompanyID)
-				VALUES		(#getID.userID#, #companyID#)
+				INSERT INTO	UserCompanies(UID, CID)
+				VALUES		(#getID.UID#, #CID#)
 			</cfquery>
 		</cfloop>
 	</cftransaction>
@@ -94,7 +94,7 @@
 	</cfmail>
 </cfoutput>
 
-	<!---<cflocation addtoken="no" url="addNewUserCompany.cfm?userID=#getID.UserID#">--->--->
+	<!---<cflocation addtoken="no" url="addNewUserCompany.cfm?UID=#getID.UID#">--->--->
 	
 <cfif getUser.recordcount EQ 0>
 	<cftransaction>
@@ -119,22 +119,22 @@
 		</cfquery>
 	
 		<cfquery name="getID2" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			SELECT UserID
+			SELECT UID
 			FROM Users
 			WHERE EMail = '#trim(form.Email)#'
 		</cfquery>
 		
-		<cfloop list="#companyList#" index="companyID">
+		<cfloop list="#companyList#" index="CID">
 			<cfquery name="getRelationship" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT	*
 				FROM	UserCompanies
-				WHERE	UserID = #getID2.userID# AND CompanyID = #companyID# AND Deleted = 0
+				WHERE	UID = #getID2.UID# AND CID = #CID# AND Deleted = 0
 			</cfquery>
 			
 			<cfif getRelationship.recordCount EQ 0>
 				<cfquery name="companyRequests" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-					INSERT INTO	UserCompanies(UserID, CompanyID, Approved)
-					VALUES		(#getID2.userID#, #companyID#, 1)
+					INSERT INTO	UserCompanies(UID, CID, Approved)
+					VALUES		(#getID2.UID#, #CID#, 1)
 				</cfquery>
 			</cfif>
 		</cfloop>
@@ -146,7 +146,7 @@
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UserID = '#session.userID#'
+		WHERE	UID = '#session.UID#'
 	</cfquery>
 </cflock>
 	
@@ -163,7 +163,7 @@
 	</cfmail>
 </cfoutput>
 	
-	<!---<cflocation addtoken="no" url="addNewUserCompany.cfm?userID=#getID2.UserID#">--->
+	<!---<cflocation addtoken="no" url="addNewUserCompany.cfm?UID=#getID2.UID#">--->
 </cfif>
 
 <cfhtmlhead text="

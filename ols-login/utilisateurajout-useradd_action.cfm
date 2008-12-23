@@ -86,10 +86,10 @@
 			WHERE 	EMail = '#trim(form.Email)#'
 		</cfquery>
 		
-		<cfloop list="companyList" index="companyID">
+		<cfloop list="companyList" index="CID">
 			<cfquery name="companyRequests" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-				INSERT INTO	UserCompanies(UserID, CompanyID)
-				VALUES		(#getID.userID#, #companyID#)
+				INSERT INTO	UserCompanies(UserID, CID)
+				VALUES		(#getID.userID#, #CID#)
 			</cfquery>
 		</cfloop>
 	</cftransaction>
@@ -131,17 +131,17 @@
 			AND Deleted = 0 <!--- Joao Edit --->
 		</cfquery>
 
-		<cfloop list="#companyList#" index="companyID">
+		<cfloop list="#companyList#" index="CID">
 			<cfquery name="getRelationship" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT	*
 				FROM	UserCompanies
-				WHERE	UserID = #getID2.userID# AND CompanyID = #companyID# AND Deleted = 0
+				WHERE	UserID = #getID2.userID# AND CID = #CID# AND Deleted = 0
 			</cfquery>
 			
 			<cfif getRelationship.recordCount EQ 0>
 				<cfquery name="companyRequests" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-					INSERT INTO	UserCompanies(UserID, CompanyID)
-					VALUES		(#getID2.userID#, #companyID#)
+					INSERT INTO	UserCompanies(UserID, CID)
+					VALUES		(#getID2.userID#, #CID#)
 				</cfquery>
 			</cfif>
 		</cfloop>

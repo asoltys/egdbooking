@@ -11,7 +11,7 @@ commented out 09/23/05 as not all ships have a Lloyd's ID or IMO Number
 </CFIF>
 --->
 
-<cfif isDefined('form.vesselID')>
+<cfif isDefined('form.VNID')>
 
 	<cfquery name="editVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Vessels
@@ -25,7 +25,7 @@ commented out 09/23/05 as not all ships have a Lloyd's ID or IMO Number
 			Tonnage = '#trim(form.tonnage)#',
 			Anonymous = '#(Form.Anonymous)#'<!---,
 			EndHighlight = '#DateFormat(Form.EndHighlight, "mm/dd/yyyy")#'--->
-		WHERE vesselID = #form.vesselID#
+		WHERE VNID = #form.VNID#
 		AND deleted = 0
 	</cfquery>
 

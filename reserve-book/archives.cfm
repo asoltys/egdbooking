@@ -6,14 +6,14 @@
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	C.Name AS CompanyName
-	FROM	Companies C INNER JOIN UserCompanies UC ON C.CompanyID = UC.CompanyID
-	WHERE	(C.CompanyID = '#url.companyID#')
-		AND	(UC.UserID = '#Session.UserID#')
+	FROM	Companies C INNER JOIN UserCompanies UC ON C.CID = UC.CID
+	WHERE	(C.CID = '#url.CID#')
+		AND	(UC.UID = '#Session.UID#')
 		AND	UC.Deleted = '0'
 </cfquery>
 
 <CFIF getCompany.RecordCount EQ 0>
-	<CFLOCATION addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?companyID=#url.companyID#">
+	<CFLOCATION addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?CID=#url.CID#">
 </CFIF>
 
 <cfif lang EQ 'eng'>
@@ -60,33 +60,33 @@
 <cfquery name="getDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Bookings.*, Vessels.Name, Docks.*, FirstName, LastName, Users.FirstName + ' ' + Users.LastName AS AgentName
 	FROM Bookings INNER JOIN
-		Vessels ON Bookings.VesselID = Vessels.VesselID INNER JOIN
-		Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-		Docks ON Bookings.BookingID = Docks.BookingID INNER JOIN
-		Users ON Bookings.UserID = Users.UserID
-	WHERE Companies.CompanyID = '#url.companyID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID
+	WHERE Companies.CID = '#url.CID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0
 	ORDER BY startDate, enddate
 </cfquery>
 
 <cfquery name="getNorthJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Bookings.*, Vessels.Name, Jetties.*, FirstName, LastName, Users.FirstName + ' ' + Users.LastName AS AgentName
 	FROM Bookings INNER JOIN
-		Vessels ON Bookings.VesselID = Vessels.VesselID INNER JOIN
-		Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-		Jetties ON Bookings.BookingID = Jetties.BookingID INNER JOIN
-		Users ON Bookings.UserID = Users.UserID
-	WHERE Companies.CompanyID = '#url.companyID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID
+	WHERE Companies.CID = '#url.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0
 	ORDER BY startDate, enddate
 </cfquery>
 
 <cfquery name="getSouthJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Bookings.*, Vessels.Name, Jetties.*, FirstName, LastName, Users.FirstName + ' ' + Users.LastName AS AgentName
 	FROM Bookings INNER JOIN
-		Vessels ON Bookings.VesselID = Vessels.VesselID INNER JOIN
-		Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-		Jetties ON Bookings.BookingID = Jetties.BookingID INNER JOIN
-		Users ON Bookings.UserID = Users.UserID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0
-	WHERE Companies.CompanyID = '#url.companyID#'
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0
+	WHERE Companies.CID = '#url.CID#'
 	ORDER BY startDate, enddate
 </cfquery>
 
@@ -95,7 +95,7 @@
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
-			<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CompanyID=#url.companyID#">#language.welcomePage#</a> &gt;
+			<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#url.CID#">#language.welcomePage#</a> &gt;
 			#language.archivedBookings#
 			</cfoutput>
 		</p>
@@ -127,15 +127,15 @@
 									<CFSET rowClass = "">
 								</CFIF>
 								<tr class="#rowClass#">
-									<td style="width:60%;"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#&amp;referrer=#variables.referrer#&amp;CompanyID=#url.companyID#">#Name#</a></td>
+									<td style="width:60%;"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">#Name#</a></td>
 									<td style="width:15%;">
 										<cfif status EQ "P"><i>#language.pending#</i>
 										<cfelseif status EQ "C"><i>#language.confirmed#</i>
 										<cfelseif status EQ "T"><i>#language.tentative#</i></cfif>
 									</td>
 									<td style="width:25%;">
-										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BookingID=#BookingID#&amp;referrer=#variables.referrer#&amp;CompanyID=#url.companyID#" title="#language.editTariff#">#language.editTariff#</a></div>
-										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BookingID=#BookingID#&amp;referrer=#variables.referrer#&amp;CompanyID=#url.companyID#" title="#language.viewTariff#">#language.viewTariff#</a></div></cfif>
+										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#" title="#language.editTariff#">#language.editTariff#</a></div>
+										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#" title="#language.viewTariff#">#language.viewTariff#</a></div></cfif>
 									</td>
 								</tr>
 								<tr class="#rowClass#"><td colspan="3">
@@ -166,7 +166,7 @@
 									<CFSET rowClass = "">
 								</CFIF>
 								<tr class="#rowClass#">
-									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#&amp;referrer=#variables.referrer#&amp;CompanyID#url.companyID#">#Name#</a></td>
+									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID#url.CID#">#Name#</a></td>
 									<td style="width:40%;">
 										<cfif NOT status eq 'c'><i>#language.pending#</i>
 										<cfelse><i>#language.confirmed#</i></cfif>
@@ -202,7 +202,7 @@
 									<CFSET rowClass = "">
 								</CFIF>
 								<tr class="#rowClass#">
-									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingId#&amp;referrer=#variables.referrer#&amp;CompanyID#url.companyID#">#Name#</a></td>
+									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID#url.CID#">#Name#</a></td>
 									<td style="width:40%;">
 										<cfif NOT status eq 'c'><i>#language.pending#</i>
 										<cfelse><i>#language.confirmed#</i></cfif>
@@ -225,7 +225,7 @@
 						<p>#language.None#.</p>
 					</cfif>
 				<br />
-				<div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CompanyID#url.companyID#" class="textbutton">#language.returnTo#</a></div>
+				<div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID#url.CID#" class="textbutton">#language.returnTo#</a></div>
 
 				</cfoutput>
 			</div>

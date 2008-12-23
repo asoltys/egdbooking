@@ -1,4 +1,4 @@
-<cfif isDefined("form.bookingID") AND (NOT isDefined("url.referrer") OR url.referrer NEQ "Edit Booking")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.BRID") AND (NOT isDefined("url.referrer") OR url.referrer NEQ "Edit Booking")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfhtmlhead text="
@@ -48,28 +48,28 @@
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 
 				<!--- -------------------------------------------------------------------------------------------- --->
-				<cfparam name="Variables.BookingID" default="">
+				<cfparam name="Variables.BRID" default="">
 				<cfparam name="Variables.Section1" default="false">
 				<cfparam name="Variables.Section2" default="false">
 				<cfparam name="Variables.Section3" default="false">
 
 				<cfif IsDefined("Session.Return_Structure")>
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
-				<cfelseif IsDefined("Form.BookingID")>
-					<cfset Variables.BookingID = Form.BookingID>
+				<cfelseif IsDefined("Form.BRID")>
+					<cfset Variables.BRID = Form.BRID>
 				<cfelse>
 					<cflocation url="#returnTo#?#urltoken##dateValue#&referrer=#url.referrer#" addtoken="no">
 				</cfif>
 
 				<cfinclude template="includes/getConflicts.cfm">
-				<cfset conflictArray = getConflicts_Conf(Variables.BookingID)>
+				<cfset conflictArray = getConflicts_Conf(Variables.BRID)>
 				<cfif ArrayLen(conflictArray) GT 0>
 					<cfset Variables.waitListText = "The following vessels are on the wait list ahead of this booking.  The companies/agents should be given 24 hours notice to submit a downpayment.">
 					<cfinclude template="includes/displayWaitList.cfm">
 				</cfif>
 
 				<cfinclude template="includes/getOverlaps.cfm">
-				<cfset overlapQuery = getOverlaps_Conf(Variables.BookingID)>
+				<cfset overlapQuery = getOverlaps_Conf(Variables.BRID)>
 				<cfif overlapQuery.RecordCount GT 0>
 				<div class="critical">
 					<p>This vessel has other overlapping bookings listed below:</p>
@@ -101,14 +101,14 @@
 				</cfif>
 
 				<cfquery name="theBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-					SELECT	BookingID, StartDate, EndDate, Vessels.VesselID, Vessels.Length, Vessels.Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName, BookingTime
+					SELECT	BRID, StartDate, EndDate, Vessels.VNID, Vessels.Length, Vessels.Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName, BookingTime
 					FROM	Bookings, Vessels, Companies
-					WHERE	Bookings.BookingID = '#Variables.BookingID#'
-					AND		Vessels.VesselID = Bookings.VesselID
-					AND		Companies.CompanyID = Vessels.CompanyID
+					WHERE	Bookings.BRID = '#Variables.BRID#'
+					AND		Vessels.VNID = Bookings.VNID
+					AND		Companies.CID = Vessels.CID
 				</cfquery>
 
-				<cfset Variables.VesselID = theBooking.VesselID>
+				<cfset Variables.VNID = theBooking.VNID>
 				<cfset Variables.VesselName = theBooking.VesselName>
 				<cfset Variables.CompanyName = theBooking.CompanyName>
 				<cfset Variables.Start = CreateODBCDate(theBooking.StartDate)>
@@ -139,11 +139,11 @@
 				</cfif>
 							<!--- -------------------------------------------------------------------------------------------- --->
 				<cfform id="BookingConfirm" action="chgStatus_2c_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)#" method="post">
-				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" /></cfoutput>
+				<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" /></cfoutput>
 				<table style="width:85%; padding-left:15px;" >
 				<tr>
 					<td id="Vessel" style="width:25%;" align="left">Vessel:</td>
-					<td headers="Vessel"><input type="hidden" name="vesselID" value="<cfoutput>#Variables.VesselID#</cfoutput>" /><cfoutput>#Variables.VesselName#</cfoutput></td>
+					<td headers="Vessel"><input type="hidden" name="VNID" value="<cfoutput>#Variables.VNID#</cfoutput>" /><cfoutput>#Variables.VesselName#</cfoutput></td>
 				</tr>
 				<tr>
 					<td id="Company" align="left">Company:</td>
@@ -179,7 +179,7 @@
 				<tr>
 					<td>
 						<input type="submit" value="Confirm" class="textbutton" />
-						<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#Variables.bookingID###id#Variables.bookingid#'" value="Cancel" class="textbutton" /></cfoutput>
+						<cfoutput><input type="button" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&BRID=#Variables.BRID###id#Variables.BRID#'" value="Cancel" class="textbutton" /></cfoutput>
 					</td>
 				</tr>
 				</table>

@@ -1,4 +1,4 @@
-<cfif isDefined("form.userID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.UID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfhtmlhead text="
@@ -10,49 +10,49 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="getUserList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT UserID, LastName + ', ' + FirstName AS UserName, ReadOnly
+	SELECT UID, LastName + ', ' + FirstName AS UserName, ReadOnly
 	FROM Users
 	WHERE Deleted = 0
 	ORDER BY LastName
 </cfquery>
 
-<cfparam name="form.userID" default="#session.userID#">
-<cfif isDefined("url.userID")>
-	<cfset form.userID = #url.userID#>
+<cfparam name="form.UID" default="#session.UID#">
+<cfif isDefined("url.UID")>
+	<cfset form.UID = #url.UID#>
 </cfif>
 
 
 <cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	Companies.CompanyID, Name
+	SELECT 	Companies.CID, Name
 	FROM 	Companies
 	WHERE 	Companies.Deleted = '0'
 	AND		NOT EXISTS
-			(	SELECT	UserCompanies.CompanyID
+			(	SELECT	UserCompanies.CID
 				FROM	UserCompanies
 				WHERE	UserCompanies.Deleted = '0'
-				AND		UserCompanies.CompanyID = Companies.CompanyID
-				AND		UserCompanies.UserID = '#form.UserID#'
+				AND		UserCompanies.CID = Companies.CID
+				AND		UserCompanies.UID = '#form.UID#'
 			)
 	ORDER BY Companies.Name
 </cfquery>
 
-<!---<cfparam name="url.userID" default="#form.userID#">
-<cfif isDefined("form.UserID")>
-	<cfset url.userID = #form.userID#>
+<!---<cfparam name="url.UID" default="#form.UID#">
+<cfif isDefined("form.UID")>
+	<cfset url.UID = #form.UID#>
 </cfif>--->
 
 <cfquery name="getUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Name, UserCompanies.Approved, Companies.CompanyID
-	FROM	UserCompanies INNER JOIN Users ON UserCompanies.UserID = Users.UserID
-			INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
-	WHERE	Users.UserID = #form.UserID# AND UserCompanies.Deleted = 0
+	SELECT	Name, UserCompanies.Approved, Companies.CID
+	FROM	UserCompanies INNER JOIN Users ON UserCompanies.UID = Users.UID
+			INNER JOIN Companies ON UserCompanies.CID = Companies.CID
+	WHERE	Users.UID = #form.UID# AND UserCompanies.Deleted = 0
 	ORDER BY UserCompanies.Approved DESC, Companies.Name
 </cfquery>
 
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT *
 	FROM Users
-	WHERE UserID = #form.UserID#
+	WHERE UID = #form.UID#
 </cfquery>
 
 
@@ -103,7 +103,7 @@ function EditSubmit ( selectedform )
 
 				<div style="text-align:left;">
 					<cfform action="editUser.cfm?lang=#lang#" id="chooseUserForm" method="post">
-						<cfselect name="UserID" query="getUserList" value="UserID" display="UserName" selected="#form.userID#" />
+						<cfselect name="UID" query="getUserList" value="UID" display="UserName" selected="#form.UID#" />
 						<!--a href="javascript:EditSubmit('chooseUserForm');" class="textbutton">Edit</a-->
 						<input type="submit" name="submitForm" value="View" class="textbutton" />
 					</cfform>
@@ -138,8 +138,8 @@ function EditSubmit ( selectedform )
 						<tr>
 							<td colspan="2" align="center">
 								<!--a href="javascript:document.editUserForm.submitForm.click();" class="textbutton">Submit</a-->
-								<cfif isDefined("form.UserID")><cfoutput><input type="hidden" name="userId" value="#form.userID#" /></cfoutput></cfif>
-								<cfoutput><input type="hidden" name="userID" value="#form.userID#" /></cfoutput>
+								<cfif isDefined("form.UID")><cfoutput><input type="hidden" name="UID" value="#form.UID#" /></cfoutput></cfif>
+								<cfoutput><input type="hidden" name="UID" value="#form.UID#" /></cfoutput>
 								<input type="submit" value="Save Name Changes" class="textbutton" />
 							</td>
 						</tr>
@@ -149,9 +149,9 @@ function EditSubmit ( selectedform )
 				<hr width="65%" align="center">
 
 				<cfoutput query="getUserCompanies">
-					<form method="post" action="removeUserCompany_confirm.cfm?lang=#lang#" name="remCompany#CompanyID#">
-						<input type="hidden" name="CompanyID" value="#CompanyID#" />
-						<input type="hidden" name="userID" value="#form.userID#" />
+					<form method="post" action="removeUserCompany_confirm.cfm?lang=#lang#" name="remCompany#CID#">
+						<input type="hidden" name="CID" value="#CID#" />
+						<input type="hidden" name="UID" value="#form.UID#" />
 					</form>
 				</cfoutput>
 
@@ -162,7 +162,7 @@ function EditSubmit ( selectedform )
 				<cfoutput query="getUserCompanies">
 					<tr>
 						<td id="#name#">&nbsp;</td><td style="width:50%;" valign="top">#name#</td>
-						<td headers="#name#" align="right" valign="top" style="width:20%;"><cfif getUserCompanies.recordCount GT 1><a href="javascript:EditSubmit('remCompany#CompanyID#');" class="textbutton">Remove</a></cfif></td>
+						<td headers="#name#" align="right" valign="top" style="width:20%;"><cfif getUserCompanies.recordCount GT 1><a href="javascript:EditSubmit('remCompany#CID#');" class="textbutton">Remove</a></cfif></td>
 						<td headers="#name#" align="right" valign="top" style="width:30%;"><cfif approved EQ 0><i>awaiting approval</i><cfelse>&nbsp;</cfif></td>
 					</tr>
 				</cfoutput>
@@ -177,16 +177,16 @@ function EditSubmit ( selectedform )
 						<tr>
 							<td>&nbsp;</td>
 							<td colspan="3">
-								<cfselect name="companyID" id="companySelect" required="yes" message="Please select a company.">
+								<cfselect name="CID" id="companySelect" required="yes" message="Please select a company.">
 									<option value="">(Please select a company)
 									<cfloop query="getCompanies">
-										<cfoutput><option value="#companyID#">#Name#</cfoutput>
+										<cfoutput><option value="#CID#">#Name#</cfoutput>
 									</cfloop>
 								</cfselect>
 								<input type="submit" name="submitForm" value="Add" class="textbutton" />
-								<cfoutput><input type="hidden" name="userID" value="#form.userID#" /></cfoutput>
+								<cfoutput><input type="hidden" name="UID" value="#form.UID#" /></cfoutput>
 								<br />
-								<cfoutput><font size="-2">If the desired company is not listed, click <a href="editUser_addCompany.cfm?lang=#lang#&userID=#form.userID#">here</a> to create one.</font></cfoutput>
+								<cfoutput><font size="-2">If the desired company is not listed, click <a href="editUser_addCompany.cfm?lang=#lang#&UID=#form.UID#">here</a> to create one.</font></cfoutput>
 							</td>
 						</tr>
 					</table>
@@ -210,7 +210,7 @@ function EditSubmit ( selectedform )
 						<tr>
 							<td colspan="2" align="center">
 								<input type="submit" value="Change Password" class="textbutton" />
-								<cfoutput><input type="hidden" name="userID" value="#form.userID#" /></cfoutput>
+								<cfoutput><input type="hidden" name="UID" value="#form.UID#" /></cfoutput>
 								<input type="button" value="Cancel" class="button" onclick="javascript:location.href='#RootDir#reserve-book-e.cfm'" />
 							</td>
 						</tr>

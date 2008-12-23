@@ -1,13 +1,13 @@
-<cfif isDefined("form.vesselID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.VNID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT Name, vesselID
+	SELECT Name, VNID
 	FROM Vessels
 	WHERE Name = '#trim(form.Name)#'
 	AND Deleted = 0
-	AND VesselID != #form.vesselID#
-	AND CompanyID = #form.companyID#
+	AND VNID != #form.VNID#
+	AND CID = #form.CID#
 </cfquery>
 
 <cfset Variables.Errors = ArrayNew(1)>
@@ -21,7 +21,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="editVessel.cfm?VesselID=#form.VesselID#&CompanyID=#form.CompanyID#" addtoken="no">
+	<cflocation url="editVessel.cfm?VNID=#form.VNID#&CID=#form.CID#" addtoken="no">
 </cfif>
 
 <cfhtmlhead text="
@@ -55,14 +55,14 @@
 					</a></h1>
 
 				<cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-					SELECT Vessels.*, Companies.CompanyID, Companies.Name AS CompanyName
-					FROM  Vessels INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
-					WHERE VesselID = #Form.VesselID#
+					SELECT Vessels.*, Companies.CID, Companies.Name AS CompanyName
+					FROM  Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
+					WHERE VNID = #Form.VNID#
 					AND Vessels.Deleted = 0
 				</cfquery>
 
 				<cfif getVesselDetail.recordCount EQ 0>
-					<cflocation addtoken="no" url="booking.cfm?lang=#lang#&CompanyID=#url.companyID#">
+					<cflocation addtoken="no" url="booking.cfm?lang=#lang#&CID=#url.CID#">
 				</cfif>
 
 				<cfset Variables.Name = Form.Name>
@@ -137,8 +137,8 @@
 						</tr>--->
 						<tr>
 							<td colspan="2" align="center" style="padding-top:20px;">
-								<input type="hidden" name="vesselID" value="<cfoutput>#Form.vesselID#</cfoutput>" />
-								<input type="hidden" name="companyID" value="<cfoutput>#Form.companyID#</cfoutput>" />
+								<input type="hidden" name="VNID" value="<cfoutput>#Form.VNID#</cfoutput>" />
+								<input type="hidden" name="CID" value="<cfoutput>#Form.CID#</cfoutput>" />
 								<!---a href="javascript:document.editVessel.submitForm.click();" class="textbutton">Submit</a>
 								<a href="javascript:history.go(-1);" class="textbutton">Back</a>
 								<a href="menu.cfm?lang=#lang#" class="textbutton">Cancel</a>

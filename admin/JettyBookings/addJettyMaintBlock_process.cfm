@@ -71,7 +71,7 @@ function EditSubmit ( selectedform )
 				<cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT 	NorthJetty, SouthJetty, StartDate, EndDate
 					FROM 	Bookings, Jetties
-					WHERE 	Jetties.BookingID = Bookings.BookingID
+					WHERE 	Jetties.BRID = Bookings.BRID
 					AND		Status = 'M'
 					AND		Deleted = '0'
 					AND 	(
@@ -145,9 +145,9 @@ function EditSubmit ( selectedform )
 				<!-- Gets all Bookings that would be affected by the maintenance block --->
 				<cfquery name="checkConflicts" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	NorthJetty, SouthJetty, StartDate, EndDate, V.Name AS VesselName, C.Name AS CompanyName
-					FROM	Bookings B INNER JOIN Jetties J ON B.bookingID = J.bookingID
-								INNER JOIN Vessels V ON V.vesselID = B.vesselID
-								INNER JOIN Companies C ON C.CompanyID = V.CompanyID
+					FROM	Bookings B INNER JOIN Jetties J ON B.BRID = J.BRID
+								INNER JOIN Vessels V ON V.VNID = B.VNID
+								INNER JOIN Companies C ON C.CID = V.CID
 					WHERE	B.Deleted = '0'
 						AND	V.Deleted = '0'
 						AND	EndDate >= <cfqueryparam value="#CreateODBCDate(Variables.StartDate)#" cfsqltype="cf_sql_date">

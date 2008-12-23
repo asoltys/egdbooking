@@ -70,7 +70,7 @@
 <!--- CREATE AN "IF" STATEMENT THAT COVERS EACH ITEM IN THE FIRST SELECT BOX --->
 <!--- WITHIN THE "IF" STATMENT, PRE-POPULATE ARRAY WITH CORRESPONDING ITEMS FOR SECOND SELECT  --->
 <cfoutput QUERY="MyQuery" GROUP="#Attributes.Display1#">
-				case '#CompanyID#':
+				case '#CID#':
 					NewOpt = [];
 					NewVal = [];
 		<cfset Counter2 = IIF(Attributes.EmptyText2 is not "", 1, 0)>

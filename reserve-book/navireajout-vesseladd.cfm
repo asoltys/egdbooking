@@ -26,17 +26,17 @@
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT Name, Companies.companyID
-		FROM Companies INNER JOIN UserCompanies ON Companies.CompanyID = UserCompanies.CompanyID
-		WHERE UserCompanies.UserID = #session.UserID# AND UserCompanies.Approved = 1
+		SELECT Name, Companies.CID
+		FROM Companies INNER JOIN UserCompanies ON Companies.CID = UserCompanies.CID
+		WHERE UserCompanies.UID = #session.UID# AND UserCompanies.Approved = 1
 				AND Companies.Deleted = 0 AND UserCompanies.Deleted = 0 AND Companies.Approved = 1
 	</cfquery>
 </cflock>
 
-<cfparam name="variables.userID" default="">
-<cfparam name="variables.companyID" default="">
-<cfif isDefined("url.companyID")>
-	<cfset variables.companyID = #url.companyID#>
+<cfparam name="variables.UID" default="">
+<cfparam name="variables.CID" default="">
+<cfif isDefined("url.CID")>
+	<cfset variables.CID = #url.CID#>
 </cfif>
 <cfparam name="variables.name" default="">
 <cfparam name="variables.length" default="">
@@ -85,15 +85,15 @@
 					<cfset variables.tonnage = form.tonnage>
 				</cfif>
 
-				<form action="#RootDir#reserve-book/navireajout-vesseladd_confirm.cfm?lang=#lang#&amp;CompanyID=#CompanyID#" method="post" id="addVessel">
+				<form action="#RootDir#reserve-book/navireajout-vesseladd_confirm.cfm?lang=#lang#&amp;CID=#CID#" method="post" id="addVessel">
 					<fieldset>
 						
 						<cfif getCompanies.recordCount GT 1>
-							<label for="companyID">#language.CompanyName#:</label>
-							<select name="companyID" id="companyID" query="getCompanies" display="Name" value="companyID" selected="#variables.companyID#" />
+							<label for="CID">#language.CompanyName#:</label>
+							<select name="CID" id="CID" query="getCompanies" display="Name" value="CID" selected="#variables.CID#" />
 						<cfelse>
 							<cfoutput>#getCompanies.Name#</cfoutput>
-							<cfoutput><input type="hidden" name="companyID" value="#getCompanies.companyID#" id="companyID" /></cfoutput>
+							<cfoutput><input type="hidden" name="CID" value="#getCompanies.CID#" id="CID" /></cfoutput>
 						</cfif>
 						<br />
 
@@ -134,7 +134,7 @@
 
 					<div class="buttons">
 						<input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
-						<cfoutput><input type="button" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#&amp;CompanyID=#CompanyID#'" class="textbutton" /></cfoutput>
+						<cfoutput><input type="button" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#&amp;CID=#CID#'" class="textbutton" /></cfoutput>
 					</div>
 				</form>
 				</cfoutput>

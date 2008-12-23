@@ -17,7 +17,7 @@
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Errors>
- 	<cflocation url="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&bookingID=#url.bookingId#" addtoken="no">
+ 	<cflocation url="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&BRID=#url.BRID#" addtoken="no">
 </cfif>
 
 <cfquery name="submitTariffForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -159,14 +159,14 @@
 				OtherText = '',
 				Other = 0
 			</cfif>
-	WHERE	BookingID = '#url.BookingID#'
+	WHERE	BRID = '#url.BRID#'
 </cfquery>
 
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS vesselName, startDate, endDate
 	FROM	Bookings
-		INNER JOIN	Vessels ON Bookings.VesselID = Vessels.VesselID
-	WHERE	BookingID = '#url.BookingID#'
+		INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
+	WHERE	BRID = '#url.BRID#'
 </cfquery>
 
 <CFPARAM name="url.referrer" default="Booking Home">
@@ -188,6 +188,6 @@
 	<cfset Session.Success.Message = "Le formulaire de tarif pour <b>#getBooking.vesselName#</b>, qui fait l'objet d'une r&eacute;servation du #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')#, a &eacute;t&eacute; mis &agrave; jour.">
 	<cfif url.referrer eq "archive"><cfset Session.Success.Back = "Retour aux archives des r&eacute;servations "><cfelse><cfset Session.Success.Back = "Retour &agrave; Accueil&nbsp;- R&eacute;servation"></cfif>
 </cfif>
-<cfset Session.Success.Link = "#returnTo#?lang=#lang#&CompanyID=#FORM.CompanyID#">
+<cfset Session.Success.Link = "#returnTo#?lang=#lang#&CID=#FORM.CID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 

@@ -8,27 +8,27 @@
 </cfoutput>
 
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-SELECT VesselID
+SELECT VNID
 FROM Vessels
-WHERE CompanyID = '#newCompanyID#' AND Name = '#vesselNameURL#'
+WHERE CID = '#newCID#' AND Name = '#vesselNameURL#'
 </cfquery>
 
 <!---
 <cfoutput query="getVessel">
-#BookingIDURL#
+#BRIDURL#
 <br />
 #newUserName#
 <br />
-#VesselID#
+#VNID#
 </cfoutput>--->
 
 
 <cfquery name="insertdata" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 UPDATE Bookings
 SET
-<cfoutput query="getVessel">	VesselID = '#Trim(VesselID)#', </cfoutput>
-	UserID = '#Trim(newUserName)#'
-WHERE BookingID = #BookingIDURL#
+<cfoutput query="getVessel">	VNID = '#Trim(VNID)#', </cfoutput>
+	UID = '#Trim(newUserName)#'
+WHERE BRID = #BRIDURL#
 </cfquery>
 
 <!---<cflocation url="#RootDir#admin/JettyBookings/jettyBookingmanage.cfm">--->

@@ -99,16 +99,16 @@
 				<p><cfoutput>#language.yourbookings#</cfoutput></p>
 
 				<cfquery name="getDockDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-					SELECT	Bookings.BookingID, Bookings.EndHighlight,
+					SELECT	Bookings.BRID, Bookings.EndHighlight,
 						StartDate, EndDate,
 						Status,
 						Section1, Section2, Section3,
-						Vessels.Name AS VesselName, Vessels.VesselID, Anonymous,
+						Vessels.Name AS VesselName, Vessels.VNID, Anonymous,
 						BookingTime, Users.FirstName, Users.LastName
 					FROM	Bookings
-						INNER JOIN	Vessels ON Bookings.VesselID = Vessels.vesselID
-						INNER JOIN	Docks ON Bookings.BookingID = Docks.BookingID
-						INNER JOIN	Users ON Bookings.userID = Users.userID
+						INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
+						INNER JOIN	Docks ON Bookings.BRID = Docks.BRID
+						INNER JOIN	Users ON Bookings.UID = Users.UID
 					WHERE	Bookings.StartDate <= '#URL.Date#'
 						AND	Bookings.EndDate >= '#URL.Date#'
 						AND Bookings.Deleted = '0'
@@ -117,16 +117,16 @@
 				</cfquery>
 
 				<cfquery name="getJettyDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-					SELECT	Bookings.BookingID, Bookings.EndHighlight,
+					SELECT	Bookings.BRID, Bookings.EndHighlight,
 						StartDate, EndDate,
 						Status,
 						NorthJetty, SouthJetty,
-						Vessels.Name AS VesselName, Vessels.VesselID, Anonymous,
+						Vessels.Name AS VesselName, Vessels.VNID, Anonymous,
 						BookingTime, Users.FirstName, Users.LastName
 					FROM	Bookings
-						INNER JOIN	Vessels ON Bookings.VesselID = Vessels.vesselID
-						INNER JOIN	Jetties ON Bookings.BookingID = Jetties.BookingID
-						INNER JOIN	Users ON Bookings.userID = Users.userID
+						INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
+						INNER JOIN	Jetties ON Bookings.BRID = Jetties.BRID
+						INNER JOIN	Users ON Bookings.UID = Users.UID
 					WHERE	Bookings.StartDate <= '#URL.Date#'
 						AND	Bookings.EndDate >= '#URL.Date#'
 						AND Bookings.Deleted = '0'
@@ -139,7 +139,7 @@
 						StartDate, EndDate,
 						Section1, Section2, Section3
 					FROM	Bookings
-						INNER JOIN	Docks ON Bookings.BookingID = Docks.BookingID
+						INNER JOIN	Docks ON Bookings.BRID = Docks.BRID
 					WHERE	Bookings.StartDate <= '#URL.Date#'
 						AND	Bookings.EndDate >= '#URL.Date#'
 						AND	Bookings.Deleted = '0'
@@ -152,7 +152,7 @@
 						StartDate, EndDate,
 						NorthJetty, SouthJetty
 					FROM	Bookings
-						INNER JOIN	Jetties ON Bookings.BookingID = Jetties.BookingID
+						INNER JOIN	Jetties ON Bookings.BRID = Jetties.BRID
 					WHERE	Bookings.StartDate <= '#URL.Date#'
 						AND	Bookings.EndDate >= '#URL.Date#'
 						AND	Bookings.Deleted = '0'
@@ -184,16 +184,16 @@
 				<cfoutput query="getDockDetail">
 				<!---check if ship belongs to user's company--->
 				<cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
-					<cfquery name="userVessel#bookingID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-						SELECT	Vessels.VesselID
-						FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-								INNER JOIN Vessels ON UserCompanies.CompanyID = Vessels.CompanyID
-						WHERE	Users.UserID = #Session.UserID# AND Vessels.VesselID = #getDockDetail.VesselID#
+					<cfquery name="userVessel#BRID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+						SELECT	Vessels.VNID
+						FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+								INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
+						WHERE	Users.UID = #Session.UID# AND Vessels.VNID = #getDockDetail.VNID#
 							AND UserCompanies.Approved = 1 AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
 					</cfquery>
 				</cflock>
 
-				<cfset Variables.countQName = "userVessel" & #bookingID# & ".recordCount">
+				<cfset Variables.countQName = "userVessel" & #BRID# & ".recordCount">
 				<cfset Variables.count = EVALUATE(countQName)>
 
 				<table class="bookingDetails" <CFIF EVALUATE(Variables.count) GT 0> bgcolor="##E0E6CF"</CFIF>>
@@ -202,7 +202,7 @@
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
 								#language.Deepsea#
 							<CFELSE>
-								#VesselName# (<a href="detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingID#&amp;date=#url.date#&amp;referrer=Details For">#language.moreInfo#</a>)
+								#VesselName# (<a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=Details For">#language.moreInfo#</a>)
 							</CFIF>
 						</td>
 					</tr>
@@ -264,16 +264,16 @@
 				</cfoutput>
 				<cfoutput query="getJettyDetail">
 				<cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
-					<cfquery name="jUserVessel#bookingID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-						SELECT	Vessels.VesselID
-						FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-								INNER JOIN Vessels ON UserCompanies.CompanyID = Vessels.CompanyID
-						WHERE	Users.UserID = '#Session.UserID#' AND Vessels.VesselID = '#VesselID#'
+					<cfquery name="jUserVessel#BRID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+						SELECT	Vessels.VNID
+						FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+								INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
+						WHERE	Users.UID = '#Session.UID#' AND Vessels.VNID = '#VNID#'
 							AND UserCompanies.Approved = 1 AND UserCompanies.Deleted = 0
 					</cfquery>
 				</cflock>
 
-				<cfset Variables.count = "jUserVessel" & #bookingID# & ".recordCount">
+				<cfset Variables.count = "jUserVessel" & #BRID# & ".recordCount">
 				<cfset "#Variables.count#" = EVALUATE(count)>
 
 				<table class="bookingDetails">
@@ -283,7 +283,7 @@
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND NOT IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
 								#language.Deepsea#
 							<CFELSE>
-								#VesselName# (<a href="detail-res-book.cfm?lang=#lang#&amp;bookingid=#BookingID#&amp;date=#url.date#&amp;referrer=Details For">#language.moreInfo#</a>)
+								#VesselName# (<a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=Details For">#language.moreInfo#</a>)
 							</CFIF>
 						</td>
 					</tr>

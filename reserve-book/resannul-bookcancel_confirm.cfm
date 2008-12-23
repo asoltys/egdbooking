@@ -46,18 +46,18 @@
 </cfif>
 
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Bookings.BookingID,
+	SELECT	Bookings.BRID,
 			StartDate, EndDate,
 			Docks.Status AS DStatus, Jetties.Status AS JStatus,
 			Vessels.Name AS VesselName,
-			Vessels.CompanyID,
+			Vessels.CID,
 			Companies.Name AS CompanyName
 	FROM	Bookings
-			LEFT JOIN	Docks ON Bookings.BookingID = Docks.BookingID
-			LEFT JOIN	Jetties ON Bookings.BookingID = Jetties.BookingID
-			INNER JOIN	Vessels ON Bookings.VesselID = Vessels.vesselID
-			INNER JOIN	Companies ON Vessels.CompanyID = Companies.CompanyID
-	WHERE	Bookings.BookingID = #url.bookingid#
+			LEFT JOIN	Docks ON Bookings.BRID = Docks.BRID
+			LEFT JOIN	Jetties ON Bookings.BRID = Jetties.BRID
+			INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
+			INNER JOIN	Companies ON Vessels.CID = Companies.CID
+	WHERE	Bookings.BRID = #url.BRID#
 			AND Bookings.Deleted = '0'
 			AND Vessels.Deleted = '0'
 </cfquery>
@@ -88,12 +88,12 @@
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 
 				<cfoutput>
-				<CFFORM action="#RootDir#reserve-book/resannul-bookcancel_action.cfm?lang=#lang#&amp;CompanyID=#getBooking.CompanyID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#&amp;jetty=#url.jetty#" id="cancelBooking">
+				<CFFORM action="#RootDir#reserve-book/resannul-bookcancel_action.cfm?lang=#lang#&amp;CID=#getBooking.CID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#&amp;jetty=#url.jetty#" id="cancelBooking">
 					<p>#language.areYouSure# <strong>#getBooking.VesselName#</strong> #language.from# #LSDateFormat(getBooking.StartDate, 'mmm d, yyyy')# #language.to# #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')#?</p>
 					<div class="buttons">
-						<input type="hidden" name="BookingID" value="#url.bookingID#" />
+						<input type="hidden" name="BRID" value="#url.BRID#" />
 						<input type="submit" value="#language.Continue#" class="textbutton" />
-						<input type="button" onclick="self.location.href='#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#" />
+						<input type="button" onclick="self.location.href='#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#url.BRID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#" />
 					</div>
 				</CFFORM>
 

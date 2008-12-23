@@ -20,14 +20,14 @@
 	</cffunction>
 	
 	<cffunction name="addBlock" access="public" output="no" returntype="struct">
-		<cfargument name="BookingID" type="numeric" required="yes">
+		<cfargument name="BRID" type="numeric" required="yes">
 		<cfargument name="startDate" type="date" required="yes">
 		<cfargument name="endDate" type="date" required="yes">
 		<cfargument name="Length" type="numeric" required="yes">
 		<cfargument name="Width" type="numeric" required="yes">
 
 		<cfset Variables.BlockStructure = StructNew()>
-		<cfset Variables.BlockStructure.BookingID = arguments.BookingID>
+		<cfset Variables.BlockStructure.BRID = arguments.BRID>
 		<cfset Variables.BlockStructure.Length = arguments.Length>
 		<cfset Variables.BlockStructure.Width = arguments.Width>
 		<cfset Variables.BlockStructure.startDate = CreateODBCDate("#arguments.startDate#")>
@@ -228,7 +228,7 @@
 	</cffunction>
 	
 	<cffunction name="addMaint" access="public" output="no" returntype="boolean">
-		<cfargument name="BookingID" type="numeric" required="yes">
+		<cfargument name="BRID" type="numeric" required="yes">
 		<cfargument name="startDate" type="date" required="yes">
 		<cfargument name="endDate" type="date" required="yes">
 		<cfargument name="Section1" type="boolean" required="yes">
@@ -236,7 +236,7 @@
 		<cfargument name="Section3" type="boolean" required="yes">
 
 		<cfset Variables.BlockStructure = StructNew()>
-		<cfset Variables.BlockStructure.BookingID = arguments.BookingID>
+		<cfset Variables.BlockStructure.BRID = arguments.BRID>
 		<cfset Variables.BlockStructure.startDate = CreateODBCDate("#arguments.startDate#")>
 		<cfset Variables.BlockStructure.endDate = CreateODBCDate("#arguments.endDate#")>
 		<cfset Variables.BlockStructure.Section1 = arguments.Section1>

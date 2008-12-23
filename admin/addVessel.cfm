@@ -6,14 +6,14 @@
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Add New Vessel</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 <cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT CompanyID, Name
+	SELECT CID, Name
 	FROM Companies
 	WHERE Deleted = 0 AND Approved = 1
 	ORDER BY Name
 </cfquery>
 
-<cfparam name="variables.userID" default="">
-<cfparam name="variables.companyID" default="">
+<cfparam name="variables.UID" default="">
+<cfparam name="variables.CID" default="">
 <cfparam name="variables.name" default="">
 <cfparam name="variables.length" default="">
 <cfparam name="variables.width" default="">
@@ -28,8 +28,8 @@
 	<cfinclude template="#RootDir#includes/restore_params.cfm">
 <cfelse>
 	<cfinclude template="#RootDir#includes/restore_params.cfm">
-	<cfif isDefined("form.companyID")>
-		<cfset Variables.companyID = #form.companyID#>
+	<cfif isDefined("form.CID")>
+		<cfset Variables.CID = #form.CID#>
 		<cfset Variables.name = #form.name#>
 		<cfset Variables.length = #form.length#>
 		<cfset Variables.width = #form.width#>
@@ -72,9 +72,9 @@
 				<cfform action="addVessel_process.cfm?lang=#lang#" method="post" id="addVessel">
 				<table>
 				<tr>
-					<td id="companyID_Header"><label for="companyID">Company Name:</label></td>
-					<td headers="companyID_Header">
-						<cfselect id="companyID" name="companyID" query="getCompanies" display="Name" value="companyID" selected="#variables.companyID#" />
+					<td id="CID_Header"><label for="CID">Company Name:</label></td>
+					<td headers="CID_Header">
+						<cfselect id="CID" name="CID" query="getCompanies" display="Name" value="CID" selected="#variables.CID#" />
 					</td>
 				</tr>
 				<tr>

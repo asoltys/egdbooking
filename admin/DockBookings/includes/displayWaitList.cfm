@@ -14,10 +14,10 @@
 			SELECT	Vessels.Name, Bookings.StartDate, Bookings.EndDate, Companies.Name AS CompanyName, 
 						Users.FirstName + ' ' + Users.LastName AS Agent, Bookings.BookingTime
 			FROM	Vessels, Bookings, Users, Companies
-			WHERE	Bookings.VesselID = Vessels.VesselID 
-			AND		Bookings.UserID = Users.UserID 
-			AND		Vessels.CompanyID = Companies.CompanyID
-			AND		Bookings.BookingID = '#conflictArray[count]#'
+			WHERE	Bookings.VNID = Vessels.VNID 
+			AND		Bookings.UID = Users.UID 
+			AND		Vessels.CID = Companies.CID
+			AND		Bookings.BRID = '#conflictArray[count]#'
 			AND		Bookings.Deleted = 0
 			AND		Vessels.Deleted = 0
 		</cfquery>

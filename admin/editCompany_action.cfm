@@ -1,9 +1,9 @@
-<cfif isdefined('form.companyid')>
+<cfif isdefined('form.CID')>
 	<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT Name
 		FROM Companies
 		WHERE Name = '#trim(form.Name)#'
-		AND companyID <> #form.companyID#
+		AND CID <> #form.CID#
 		AND Deleted = 0
 	</cfquery>
 	
@@ -11,7 +11,7 @@
 		SELECT Abbreviation
 		FROM Companies
 		WHERE Abbreviation = '#trim(form.abbr)#'
-		AND companyID <> #form.companyID#
+		AND CID <> #form.CID#
 		AND Deleted = 0
 	</cfquery>
 	
@@ -50,7 +50,7 @@
 	<cfif Proceed_OK EQ "No">
 		<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 		<cfset Session.Return_Structure.Errors = Variables.Errors>
-		<cflocation url="editCompany.cfm?companyID=#form.companyID#" addtoken="no">
+		<cflocation url="editCompany.cfm?CID=#form.CID#" addtoken="no">
 	</cfif>
 	
 	
@@ -72,7 +72,7 @@
 			Deleted = 0, 
 			fax = '#trim(form.fax)#',
 			approved = 1
-		WHERE companyid = #form.companyID#
+		WHERE CID = #form.CID#
 	</cfquery>
 
 

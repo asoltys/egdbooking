@@ -4,7 +4,7 @@
 	<cfset Form.Anonymous = 0  />
 </cfif>
 
-<cfif isDefined('form.vesselID')>
+<cfif isDefined('form.VNID')>
 
 	<cfquery name="editVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Vessels
@@ -17,7 +17,7 @@
 			LloydsID = '#trim(form.LloydsID)#',
 			Tonnage = '#trim(form.tonnage)#',
 			Anonymous = '#(Form.Anonymous)#'
-		WHERE vesselID = #form.vesselID#
+		WHERE VNID = #form.VNID#
 		AND deleted = 0
 	</cfquery>
 
@@ -26,14 +26,14 @@
 		<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	firstname + ' ' + lastname AS UserName, Email
 			FROM	Users
-			WHERE	UserID = #session.userID#
+			WHERE	UID = #session.UID#
 		</cfquery>
 	</cflock>
 
 	<cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	vessels.name AS VesselName, companies.name AS CompanyName
-		FROM	Vessels INNER JOIN Companies ON Vessels.COmpanyID = Companies.CompanyID
-		WHERE	vesselID = #form.vesselID#
+		FROM	Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
+		WHERE	VNID = #form.VNID#
 	</cfquery>
 
 	<cfoutput>
@@ -46,4 +46,4 @@
 
 <!--- Clear Form Structure --->
 <cfset StructDelete(Session, "Form_Structure")>
-<cflocation addtoken="no" url="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&vesselID=#form.vesselID#&CompanyID=#url.companyID#">
+<cflocation addtoken="no" url="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&VNID=#form.VNID#&CID=#url.CID#">

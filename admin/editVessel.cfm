@@ -6,25 +6,25 @@
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Vessel</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<cfif isDefined("form.companyID")>
+<cfif isDefined("form.CID")>
 	<cfinclude template="#RootDir#includes/build_form_struct.cfm">
 </cfif>
 
-<CFIF IsDefined('url.companyID')>
-	<CFSET form.companyID = url.companyID>
+<CFIF IsDefined('url.CID')>
+	<CFSET form.CID = url.CID>
 </CFIF>
-<CFIF IsDefined('url.vesselID')>
-	<CFSET form.vesselID = url.vesselID>
+<CFIF IsDefined('url.VNID')>
+	<CFSET form.VNID = url.VNID>
 </CFIF>
 
 <cfinclude template="#RootDir#includes/restore_params.cfm">
-<cfif isDefined("form.companyID")>
-	<cfset companyDefault = #form.companyID#>
+<cfif isDefined("form.CID")>
+	<cfset companyDefault = #form.CID#>
 <cfelse>
 	<cfset companyDefault = 0>
 </cfif>
-<cfif isDefined("form.vesselID")>
-	<cfset vesselDefault = #form.vesselID#>
+<cfif isDefined("form.VNID")>
+	<cfset vesselDefault = #form.VNID#>
 <cfelse>
 	<cfset vesselDefault = 0>
 </cfif>
@@ -52,18 +52,18 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<cfparam name="form.vesselID" default="">
+				<cfparam name="form.VNID" default="">
 
 				<!---<cfquery name="getVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-					SELECT 	VesselID, Name
+					SELECT 	VNID, Name
 					FROM 	Vessels
 					WHERE 	Deleted = 0
 					ORDER BY Name
 				</cfquery>--->
 
 				<cfquery name="companyVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-					SELECT vesselID, vessels.Name AS VesselName, companies.companyID, companies.Name AS CompanyName
-					FROM Vessels INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
+					SELECT VNID, vessels.Name AS VesselName, companies.CID, companies.Name AS CompanyName
+					FROM Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
 					WHERE Vessels.Deleted = 0 AND Companies.Deleted = 0 AND Companies.Approved = 1
 					ORDER BY Companies.Name, Vessels.Name
 				</cfquery>
@@ -73,18 +73,18 @@
 
 				<cfform action="editVessel.cfm?lang=#lang#" method="post" id="chooseVesselForm">
 				<table style="width:100%;">
-					<!---<cfselect name="vesselID" query="getVessels" display="name" value="vesselID" selected="#form.vesselID#" />--->
+					<!---<cfselect name="VNID" query="getVessels" display="name" value="VNID" selected="#form.VNID#" />--->
 					<tr>
 						<td valign="baseline">Company:</td>
 						<td>
 							<CF_TwoSelectsRelated
 								QUERY="companyVessels"
-								id1="CompanyID"
-								id2="VesselID"
+								id1="CID"
+								id2="VNID"
 								DISPLAY1="CompanyName"
 								DISPLAY2="VesselName"
-								VALUE1="companyID"
-								VALUE2="vesselID"
+								VALUE1="CID"
+								VALUE2="VNID"
 								SIZE1="1"
 								SIZE2="1"
 								htmlBETWEEN="</td></tr><tr><td>Vessel:</td><td>"
@@ -104,12 +104,12 @@
 				</cfform>
 				<br />
 
-				<cfif form.vesselID NEQ "">
+				<cfif form.VNID NEQ "">
 
 					<cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-						SELECT	Vessels.*, Companies.CompanyID, Companies.Name AS CompanyName
-						FROM	Vessels INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
-						WHERE	VesselID = '#Form.VesselID#'
+						SELECT	Vessels.*, Companies.CID, Companies.Name AS CompanyName
+						FROM	Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
+						WHERE	VNID = '#Form.VNID#'
 							AND	Vessels.Deleted = 0
 					</cfquery>
 
@@ -136,12 +136,12 @@
 					</cfif>
 
 					<!--- 	<cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-							SELECT Vessels.*, Companies.CompanyID, Companies.Name AS CompanyName, Users.FirstName + ' ' + Users.LastName AS UserName, Users.userID
+							SELECT Vessels.*, Companies.CID, Companies.Name AS CompanyName, Users.FirstName + ' ' + Users.LastName AS UserName, Users.UID
 							FROM  Vessels INNER JOIN
-								Companies ON Vessels.CompanyID = Companies.CompanyID INNER JOIN
-								UserCompanies ON Companies.CompanyID = UserCompanies.CompanyID INNER JOIN
-								Users ON UserCompanies.UserID = Users.UserID
-							WHERE VesselID = #form.VesselID#
+								Companies ON Vessels.CID = Companies.CID INNER JOIN
+								UserCompanies ON Companies.CID = UserCompanies.CID INNER JOIN
+								Users ON UserCompanies.UID = Users.UID
+							WHERE VNID = #form.VNID#
 							AND Vessels.Deleted = 0
 						</cfquery> --->
 
@@ -154,7 +154,7 @@
 						<tr>
 							<td id="Company_Header" style="width:42%;">Company Name:</td>
 							<td headers="Company_Header"><cfoutput>#getVesselDetail.companyName#</cfoutput></td>
-							<!---<td><cfselect name="companyID" query="getCompanies" display="Name" value="companyID" selected="#getVesselDetail.companyID#" /></td>--->
+							<!---<td><cfselect name="CID" query="getCompanies" display="Name" value="CID" selected="#getVesselDetail.CID#" /></td>--->
 						</tr>
 						<tr>
 							<td id="name_Header"><label for="name">Name:</label></td>
@@ -205,8 +205,8 @@
 								<!--a href="javascript:document.editVessel.submitForm.click();" class="textbutton">Submit</a>
 								<a href="javascript:history.go(-1);" class="textbutton">Cancel</a>
 								<br-->
-								<input type="hidden" name="vesselID" value="<cfoutput>#form.vesselID#</cfoutput>" />
-								<input type="hidden" name="companyID" value="<cfoutput>#form.companyID#</cfoutput>" />
+								<input type="hidden" name="VNID" value="<cfoutput>#form.VNID#</cfoutput>" />
+								<input type="hidden" name="CID" value="<cfoutput>#form.CID#</cfoutput>" />
 								<input type="submit" value="submit" class="textbutton" />
 								<cfoutput><input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" /></cfoutput>
 							</td>

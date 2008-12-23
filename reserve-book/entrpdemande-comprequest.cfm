@@ -8,7 +8,7 @@
 <cfset Variables.Errors = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
 
-<cfif isDefined("form.companyID") AND form.companyID EQ "">
+<cfif isDefined("form.CID") AND form.CID EQ "">
 	<cfoutput>#ArrayAppend(Variables.Errors, "#language.selectCompany#")#</cfoutput>
 	<cfset Proceed_OK = "No">
 </cfif>
@@ -22,39 +22,39 @@
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	FirstName + ' ' + LastName AS UserName, Email
-		FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-		WHERE	Users.UserID = #session.userID#
+		FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+		WHERE	Users.UID = #session.UID#
 	</cfquery>
 	
 	<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Name AS CompanyName
 		FROM	Companies
-		WHERE	CompanyID = #form.companyID#
+		WHERE	CID = #form.CID#
 	</cfquery>
 	
 	<cfquery name="getUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	CompanyID
+		SELECT	CID
 		FROM	UserCompanies
-		WHERE	UserCompanies.UserID = #session.userID# AND UserCompanies.CompanyID = #form.companyID#
+		WHERE	UserCompanies.UID = #session.UID# AND UserCompanies.CID = #form.CID#
 	</cfquery>
 	
 	<cfquery name="userCompaniesApproved" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	CompanyID
-		FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-		WHERE	UserCompanies.Approved = 1 AND UserCompanies.Deleted = 0 AND Users.UserID = #session.UserID#
+		SELECT	CID
+		FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+		WHERE	UserCompanies.Approved = 1 AND UserCompanies.Deleted = 0 AND Users.UID = #session.UID#
 	</cfquery>
 
 	<cfif getUserCompanies.recordCount EQ 1>
 		<cfquery name="editUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			UPDATE	UserCompanies
 			SET		Deleted = '0', Approved = '0'
-			WHERE	UserCompanies.UserID = '#session.userID#' AND UserCompanies.CompanyID = '#form.companyID#' 
+			WHERE	UserCompanies.UID = '#session.UID#' AND UserCompanies.CID = '#form.CID#' 
 					AND UserCompanies.Deleted = '1'
 		</cfquery>
 	<cfelse>
 		<cfquery name="insertUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			INSERT INTO UserCompanies(UserID, CompanyID)
-			VALUES		('#session.userID#', '#form.companyID#')
+			INSERT INTO UserCompanies(UID, CID)
+			VALUES		('#session.UID#', '#form.CID#')
 		</cfquery>
 	</cfif>
 </cflock>

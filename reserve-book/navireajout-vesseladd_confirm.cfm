@@ -37,7 +37,7 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&CompanyID=#CompanyID#" addtoken="no">
+	<cflocation url="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&CID=#CID#" addtoken="no">
 </cfif>
 
 <cfhtmlhead text="
@@ -50,24 +50,24 @@
 
 
 
-<cfif isDefined("form.companyID")>
-	<cfset url.companyID = #form.companyID#>
+<cfif isDefined("form.CID")>
+	<cfset url.CID = #form.CID#>
 <cfelse>
 	<cflocation addtoken="no" url="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#">
 </cfif>
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	Companies.CompanyID, Companies.Name AS CompanyName
+	SELECT 	Companies.CID, Companies.Name AS CompanyName
 	FROM  	Companies
-	WHERE 	CompanyID = '#url.CompanyID#'
+	WHERE 	CID = '#url.CID#'
 	AND		Deleted = '0'
 </cfquery>
 
 <cfif getCompany.recordCount EQ 0>
-	<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CompanyID=#url.companyID#">
+	<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CID=#url.CID#">
 </cfif>
 
-<cfset Variables.CompanyID = getCompany.CompanyID>
+<cfset Variables.CID = getCompany.CID>
 <cfset Variables.CompanyName = getCompany.CompanyName>
 <cfset Variables.Name = Form.Name>
 <cfset Variables.Length = Form.Length>
@@ -111,10 +111,10 @@
 					<div id="actionErrors">#language.boatTooBig# (#Variables.MaxLength#m x #Variables.MaxWidth#m).</div>
 				</cfif>
 
-				<cfform id="addVessel" action="#RootDir#reserve-book/navireajout-vesseladd_action.cfm?lang=#lang#&amp;CompanyID=#url.companyID#" method="post">
+				<cfform id="addVessel" action="#RootDir#reserve-book/navireajout-vesseladd_action.cfm?lang=#lang#&amp;CID=#url.CID#" method="post">
 					<fieldset>
 						<label>#language.CompanyName#:</label>
-						<input type="hidden" name="CompanyID" value="#Variables.CompanyID#" />
+						<input type="hidden" name="CID" value="#Variables.CID#" />
 						<p>#variables.CompanyName#</p>
 
 						<label>#language.vesselName#:</label>
@@ -152,8 +152,8 @@
 
 					<div class="buttons">
 						<input type="submit" name="submitForm" value="#language.Submit#" class="textbutton" />
-						<input type="button" name="back" value="#language.Back#" onclick="self.location.href='addVessel.cfm?lang=#lang#&amp;CompanyID=#CompanyID#'" class="textbutton" />
-						<input type="button" name="cancel" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#&amp;CompanyID=#CompanyID#'" class="textbutton" />
+						<input type="button" name="back" value="#language.Back#" onclick="self.location.href='addVessel.cfm?lang=#lang#&amp;CID=#CID#'" class="textbutton" />
+						<input type="button" name="cancel" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#&amp;CID=#CID#'" class="textbutton" />
 					</div>
 
 				</cfform>

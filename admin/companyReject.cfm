@@ -12,15 +12,15 @@
 <CFSET This_Page = "../admin/userReject.cfm">
 
 <cfquery name="GetNewCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	CompanyID, Name
+	SELECT 	CID, Name
 	FROM	Companies
-	WHERE	CompanyID = '#Form.CompanyID#'
+	WHERE	CID = '#Form.CID#'
 </cfquery>
 <!---<cfquery name="GetUsers" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT 	FirstName, LastName, Email
-	FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
+	FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
 	WHERE	Users.Deleted = '0' AND UserCompanies.Deleted = '0'
-	AND		CompanyID = '#Form.CompanyID#'
+	AND		CID = '#Form.CID#'
 </cfquery>--->
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
@@ -60,7 +60,7 @@
 					<p>
 					<cfoutput>
 					<form action="companyReject_action.cfm?lang=#lang#" method="post">
-						<input type="hidden" name="CompanyID" value="#Form.CompanyID#" />
+						<input type="hidden" name="CID" value="#Form.CID#" />
 						<input type="submit" value="Reject" class="textbutton" />
 						<input type="button" value="Cancel" class="textbutton" onclick="javascript:location.href='companyApprove.cfm?lang=#lang#'" />
 					</form>

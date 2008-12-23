@@ -7,8 +7,8 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="getCompanyList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-SELECT Companies.CompanyID, Companies.Name
-	FROM Companies JOIN Vessels ON Companies.CompanyID = Vessels.CompanyID
+SELECT Companies.CID, Companies.Name
+	FROM Companies JOIN Vessels ON Companies.CID = Vessels.CID
 	WHERE Companies.Approved = 1 AND Companies.Deleted = 0 AND Vessels.Name = '#vesselNameURL#' AND Companies.Name <> '#CompanyURL#'
 	ORDER BY Companies.Name
 </cfquery>
@@ -49,7 +49,7 @@ SELECT Companies.CompanyID, Companies.Name
 				<cfform action="changeCompany2.cfm" method="post">
 				<table>
 				  <tr>
-					<td><br /><cfinput type="text" style="border:0; font-weight:bold" value="#vesselNameURL#" name="vesselNameURL" required="Yes" readonly="yes"><cfinput type="text" style="border:0; color:##FFFFFF" value="#BookingIDURL#" name="BookingIDURL" required="Yes" readonly="yes" />
+					<td><br /><cfinput type="text" style="border:0; font-weight:bold" value="#vesselNameURL#" name="vesselNameURL" required="Yes" readonly="yes"><cfinput type="text" style="border:0; color:##FFFFFF" value="#BRIDURL#" name="BRIDURL" required="Yes" readonly="yes" />
 					
 					</td>
 				  </tr>
@@ -64,9 +64,9 @@ SELECT Companies.CompanyID, Companies.Name
 					<td><br />Change to Company:</td>
 				  </tr>
 				  <tr>
-					<td><cfselect name="newCompanyID" size="1" required="yes">
+					<td><cfselect name="newCID" size="1" required="yes">
 					  <cfoutput query="getCompanyList">
-						<option value="#CompanyID#">#Name#</option>
+						<option value="#CID#">#Name#</option>
 					  </cfoutput> </cfselect></td>
 				  </tr>
 				  <tr>

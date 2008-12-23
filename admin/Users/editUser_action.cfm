@@ -17,11 +17,11 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="editUser.cfm?lang=#lang#&userID=#form.userID#" addtoken="no">
+	<cflocation url="editUser.cfm?lang=#lang#&UID=#form.UID#" addtoken="no">
 </cfif>
 
 
-<cfif isdefined("form.userID")>
+<cfif isdefined("form.UID")>
 
 	<cfquery name="editUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Users
@@ -30,7 +30,7 @@
 			FirstName = '#trim(form.firstname)#',
 			LastName = '#trim(form.lastname)#',
 			ReadOnly = '#trim(form.ReadOnly)#'
-		WHERE UserID = #form.userID#
+		WHERE UID = #form.UID#
 	</cfquery>
 
 </cfif>
@@ -38,4 +38,4 @@
 <!--- doesn't seem to need a success notice since it gets sent back to the same page with 
 	the new info on it.  It really should be painfully obvious. --->
 
-<cflocation addtoken="no" url="editUser.cfm?lang=#lang#&userID=#form.userID#">
+<cflocation addtoken="no" url="editUser.cfm?lang=#lang#&UID=#form.UID#">

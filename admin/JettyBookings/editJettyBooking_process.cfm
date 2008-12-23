@@ -54,16 +54,16 @@
 
 				<cfparam name = "Form.StartDate" default="">
 				<cfparam name = "Form.EndDate" default="">
-				<cfparam name = "Variables.BookingID" default="#Form.BookingID#">
+				<cfparam name = "Variables.BRID" default="#Form.BRID#">
 				<cfparam name = "Variables.StartDate" default = "#Form.StartDate#">
 				<cfparam name = "Variables.EndDate" default = "#Form.EndDate#">
-				<cfparam name = "Form.VesselID" default="">
-				<cfparam name = "Form.UserID" default="">
-				<cfparam name = "Variables.UserID" default = "#Form.UserID#">
+				<cfparam name = "Form.VNID" default="">
+				<cfparam name = "Form.UID" default="">
+				<cfparam name = "Variables.UID" default = "#Form.UID#">
 
 				<cfset Variables.Jetty = Form.Jetty>
 
-				<cfif (NOT IsDefined("Form.BookingID") OR Form.BookingID eq '') AND (NOT IsDefined("URL.BookingID") OR URL.BookingID eq '')>
+				<cfif (NOT IsDefined("Form.BRID") OR Form.BRID eq '') AND (NOT IsDefined("URL.BRID") OR URL.BRID eq '')>
 					<cflocation addtoken="no" url="#RootDir#admin/DockBookings/bookingManage.cfm?#urltoken#">
 				</cfif>
 
@@ -80,30 +80,30 @@
 				</cfif>
 
 				<cfquery name="getData" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-					SELECT 	Vessels.VesselID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName, Jetties.Status
+					SELECT 	Vessels.VNID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName, Jetties.Status
 					FROM 	Vessels, Companies, Bookings, Jetties
-					WHERE 	Vessels.VesselID = Bookings.VesselID
-					AND		Bookings.BookingID = '#Form.BookingID#'
-					AND		Jetties.BookingID = Bookings.BookingID
-					AND		Companies.CompanyID = Vessels.CompanyID
+					WHERE 	Vessels.VNID = Bookings.VNID
+					AND		Bookings.BRID = '#Form.BRID#'
+					AND		Jetties.BRID = Bookings.BRID
+					AND		Companies.CID = Vessels.CID
 					AND 	Vessels.Deleted = 0
 					AND		Companies.Deleted = 0
 				</cfquery>
 				<cfquery name="getAgent" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT 	lastname + ', ' + firstname AS UserName
 					FROM 	Users
-					WHERE 	UserID = '#Variables.UserID#'
+					WHERE 	UID = '#Variables.UID#'
 				</cfquery>
-				<cfset Variables.VesselID = getData.VesselID>
+				<cfset Variables.VNID = getData.VNID>
 
 				<!---Check to see that vessel hasn't already been booked during this time--->
 				<cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-					SELECT 	Bookings.VesselID, Name, StartDate, EndDate
+					SELECT 	Bookings.VNID, Name, StartDate, EndDate
 					FROM 	Bookings
-								INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
-								INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
-					WHERE 	Bookings.VesselID = '#Variables.VesselID#'
-					AND 	Bookings.BookingID != '#Form.BookingID#'
+								INNER JOIN Vessels ON Vessels.VNID = Bookings.VNID
+								INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
+					WHERE 	Bookings.VNID = '#Variables.VNID#'
+					AND 	Bookings.BRID != '#Form.BRID#'
 					AND 	(
 								(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# <= Bookings.EndDate )
 							OR 	(	Bookings.StartDate <= #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate )
@@ -150,9 +150,9 @@
 					<cfset Session.Return_Structure.EndDate = Form.EndDate>
 					<cfset Session.Return_Structure.TheBookingDate = Variables.TheBookingDate>
 					<cfset Session.Return_Structure.TheBookingTime = Variables.TheBookingTime>
-					<cfset Session.Return_Structure.BookingID = Form.BookingID>
-					<cfset Session.Return_Structure.VesselID = Form.vesselID>
-					<cfset Session.Return_Structure.UserID = Form.UserID>
+					<cfset Session.Return_Structure.BRID = Form.BRID>
+					<cfset Session.Return_Structure.VNID = Form.VNID>
+					<cfset Session.Return_Structure.UID = Form.UID>
 					<cfif Form.Jetty EQ "north">
 						<cfset Session.Return_Structure.NorthJetty = 1>
 						<cfset Session.Return_Structure.SouthJetty = 0>
@@ -171,8 +171,8 @@
 				<!---------------------------------------------------------------------------------------------------------------------->
 
 				<p>Please confirm the following information.</p>
-				<cfform action="editJettyBooking_action.cfm?#urltoken#&BookingID=#form.BookingID#&editStart=#form.startDate#&editEnd=#form.endDate#&jetty=#form.jetty#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" id="bookingreq" preservedata="Yes">
-				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
+				<cfform action="editJettyBooking_action.cfm?#urltoken#&BRID=#form.BRID#&editStart=#form.startDate#&editEnd=#form.endDate#&jetty=#form.jetty#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" id="bookingreq" preservedata="Yes">
+				<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" />
 				<div style="font-weight:bold;">Booking:</div>
 				<table style="width:100%; padding-left:15px;" align="center" >
 					<tr>
@@ -185,7 +185,7 @@
 					</tr>
 					<tr>
 						<td id="Agent" align="left">Agent:</td>
-						<td headers="Agent"><input type="hidden" name="userID" value="<cfoutput>#Variables.userID#</cfoutput>" />
+						<td headers="Agent"><input type="hidden" name="UID" value="<cfoutput>#Variables.UID#</cfoutput>" />
 					</tr>
 					<tr>
 						<td id="Start" align="left">Start Date:</td>
@@ -228,8 +228,8 @@
 				<br />
 				<div style="text-align:center;">
 						<input type="submit" value="Confirm" class="textbutton" />
-						<cfoutput><input type="button" value="Back" class="textbutton" onclick="self.location.href='editJettyBooking.cfm?#urltoken#&bookingID=#form.bookingID##variables.dateValue#';" /></cfoutput>
-						<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='#returnTo#?#urltoken#&bookingID=#form.bookingID##variables.dateValue####form.bookingID#';" /></cfoutput>
+						<cfoutput><input type="button" value="Back" class="textbutton" onclick="self.location.href='editJettyBooking.cfm?#urltoken#&BRID=#form.BRID##variables.dateValue#';" /></cfoutput>
+						<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='#returnTo#?#urltoken#&BRID=#form.BRID##variables.dateValue####form.BRID#';" /></cfoutput>
 				</div>
 				</cfform>
 

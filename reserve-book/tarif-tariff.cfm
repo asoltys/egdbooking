@@ -45,11 +45,11 @@
 
 <cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS VesselName, Companies.Name AS CompanyName, StartDate, EndDate
-	FROM	Bookings INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-			INNER JOIN Companies ON Vessels.CompanyID = Companies.CompanyID
-			INNER JOIN UserCompanies ON UserCompanies.CompanyID = Vessels.CompanyID
-	WHERE	Bookings.BookingID = '#URL.BookingID#'
-		AND	UserCompanies.UserID = '#session.UserID#'
+	FROM	Bookings INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+			INNER JOIN Companies ON Vessels.CID = Companies.CID
+			INNER JOIN UserCompanies ON UserCompanies.CID = Vessels.CID
+	WHERE	Bookings.BRID = '#URL.BRID#'
+		AND	UserCompanies.UID = '#session.UID#'
 </cfquery>
 
 <cfif lang EQ 'eng'>
@@ -103,7 +103,7 @@
 					</div>
 				</cfoutput>
 				<br />
-				<cfform id="serviceSelect" action="#RootDir#reserve-book/tarif-tariff_action.cfm?lang=#lang#&BookingID=#url.BookingID#">
+				<cfform id="serviceSelect" action="#RootDir#reserve-book/tarif-tariff_action.cfm?lang=#lang#&BRID=#url.BRID#">
 				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the available services for a booking and allows the user to select the desired services.">
 				<cfoutput>
 					<tr>
@@ -172,7 +172,7 @@
 				</table>
 
 				<cfoutput>
-				<input type="hidden" name="bookingID" value="#url.bookingID#" />
+				<input type="hidden" name="BRID" value="#url.BRID#" />
 				<p><div style="text-align:right;">
 					<input type="submit" value="#language.Submit#" class="textbutton" />
 				</div></p>

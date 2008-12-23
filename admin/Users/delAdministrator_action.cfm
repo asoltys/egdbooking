@@ -1,16 +1,16 @@
 <!--- action page for deleting an administrator.--->
 
-<cfif isDefined('form.userID')>
+<cfif isDefined('form.UID')>
 	<cfquery name="delAdministrator" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		DELETE FROM Administrators 
-		WHERE UserID = #form.userID#
+		WHERE UID = #form.UID#
 	</cfquery>
 </cfif>
 
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT FirstName, LastName
 	FROM Users
-	WHERE UserID = #form.UserID#
+	WHERE UID = #form.UID#
 </cfquery>
 
 

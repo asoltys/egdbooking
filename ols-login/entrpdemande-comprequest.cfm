@@ -2,7 +2,7 @@
 <cfset Variables.Errors = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
 
-<cfif isDefined("form.companyID") AND form.companyID EQ "">
+<cfif isDefined("form.CID") AND form.CID EQ "">
 	<cfoutput>#ArrayAppend(Variables.Errors, "#language.selectCompany#")#</cfoutput>
 	<cfset Proceed_OK = "No">
 </cfif>
@@ -77,7 +77,7 @@
 	</cfif>
 </cfif>
 
-<cfif isDefined("form.companyID") OR isDefined("form.firstname")>
+<cfif isDefined("form.CID") OR isDefined("form.firstname")>
 	<cfset StructDelete(Session, "Form_Structure")>
 	<cfinclude template="#RootDir#includes/build_form_struct.cfm">
 </cfif>
@@ -130,7 +130,7 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	Companies.CompanyID, Name
+	SELECT 	Companies.CID, Name
 	FROM 	Companies
 	WHERE 	Companies.Deleted = '0'
 	ORDER BY Companies.Name
@@ -203,9 +203,9 @@ function EditSubmit ( selectedform )
 								<cfelse>
 								<cfset companyList = cfusion_decrypt(ToString(ToBinary(URLDecode(url.companies))), "shanisnumber1")>
 							</cfif>
-							<cfif isDefined("form.companyID")>
-								<cfif ListFind(companyList, "#form.companyID#") EQ 0>
-									<cfset companyList = ListAppend(companyList, "#form.companyID#")>
+							<cfif isDefined("form.CID")>
+								<cfif ListFind(companyList, "#form.CID#") EQ 0>
+									<cfset companyList = ListAppend(companyList, "#form.CID#")>
 								</cfif>
 							</cfif>
 
@@ -228,12 +228,12 @@ function EditSubmit ( selectedform )
 								<cfquery name="detailsID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 									SELECT	Name, Approved
 									FROM	Companies
-									WHERE	CompanyID = '#ID#'
+									WHERE	CID = '#ID#'
 								</cfquery>
 								<tr>
 									<td style="width:5%;">
 										<form action="entrpsup-comprem_confirm.cfm?lang=#lang#&companies=#companies#&info=#Variables.info#" method="post" id="remCompany#ID#">
-											<input type="hidden" name="CompanyID" value="#ID#" />
+											<input type="hidden" name="CID" value="#ID#" />
 										</form> 						</td>
 									<td>#detailsID.Name#</td>
 									<cfif lang EQ 'e'><td align="left" valign="top" style="width:45%;"><cfelse></td>
@@ -256,11 +256,11 @@ function EditSubmit ( selectedform )
 						<tr>
 							<td valign="top"><label for="companies">#language.AddCompany#:</label></td>
 							<td>
-								<cfselect name="companyID" id="companies" required="yes" message="#language.selectCompany#">
+								<cfselect name="CID" id="companies" required="yes" message="#language.selectCompany#">
 									<option value="">(#language.selectCompany#)									</option>
 									<cfloop query="getCompanies">
-										<cfif ListFind(companyList, "#companyID#") EQ 0>
-											<option value="#companyID#">#Name#
+										<cfif ListFind(companyList, "#CID#") EQ 0>
+											<option value="#CID#">#Name#
 										</cfif>
 									</cfloop>
 								</cfselect>

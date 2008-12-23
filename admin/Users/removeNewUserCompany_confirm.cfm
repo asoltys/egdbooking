@@ -9,24 +9,24 @@
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm Remove Company</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<!---<CFIF not IsDefined('form.userID')>
+<!---<CFIF not IsDefined('form.UID')>
 	<cflocation addtoken="no" url="editUser.cfm?lang=#lang#">
 </CFIF>
 
-<cfif NOT IsDefined('form.companyID')>
-	<cflocation addtoken="no" url="editUser.cfm?lang=#lang#&userID=#form.userID#">
+<cfif NOT IsDefined('form.CID')>
+	<cflocation addtoken="no" url="editUser.cfm?lang=#lang#&UID=#form.UID#">
 </cfif>--->
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name
 	FROM	Companies
-	WHERE	CompanyId = #form.CompanyID#
+	WHERE	CID = #form.CID#
 </cfquery>
 
 <!---<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT FirstName + ' ' + LastName AS UserName
 	FROM Users
-	WHERE UserID = #url.UserID#
+	WHERE UID = #url.UID#
 </cfquery>--->
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
@@ -71,8 +71,8 @@
 					<input type="button" value="Cancel" onclick="javascript:location.href='delVessel.cfm'" class="button" />
 					</div></p>
 
-					<cfoutput><input type="hidden" name="CompanyID" value="#form.CompanyID#" />
-					<!---<cfoutput><input type="hidden" name="userID" value="#url.userID#" />
+					<cfoutput><input type="hidden" name="CID" value="#form.CID#" />
+					<!---<cfoutput><input type="hidden" name="UID" value="#url.UID#" />
 				</cfform>
 
 			</div>

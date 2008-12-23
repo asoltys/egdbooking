@@ -8,9 +8,9 @@
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="getAdminList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT Users.UserID, LastName + ', ' + FirstName AS UserName
+		SELECT Users.UID, LastName + ', ' + FirstName AS UserName
 		FROM Users, Administrators
-		WHERE Users.UserID <> #session.userID# AND Users.UserID = Administrators.UserID
+		WHERE Users.UID <> #session.UID# AND Users.UID = Administrators.UID
 				AND Deleted = 0
 		ORDER BY LastName
 	</cfquery>
@@ -47,17 +47,17 @@
 	<cfinclude template="#RootDir#includes/getStructure.cfm">
 </cfif>
 
-<cfparam name="variables.userID" default="0">
+<cfparam name="variables.UID" default="0">
 <cfif IsDefined("Session.form_Structure")>
 	<cfinclude template="#RootDir#includes/restore_params.cfm">
-	<cfif isDefined("form.userID")>
-		<cfset Variables.userID = #form.userID#>
+	<cfif isDefined("form.UID")>
+		<cfset Variables.UID = #form.UID#>
 	</cfif>
 </cfif>
 
 <div style="text-align:center;">
 	<cfform action="delAdministrator_confirm.cfm?lang=#lang#" method="post" id="delAdministratorForm">
-		<cfselect name="UserID" query="getAdminList" value="UserID" display="UserName" selected="#variables.userID#" />
+		<cfselect name="UID" query="getAdminList" value="UID" display="UserName" selected="#variables.UID#" />
 		<input type="submit" value="Remove" class="textbutton" />
 		<cfoutput><input type="button" value="Cancel" onclick="self.location.href='../menu.cfm?lang=#lang#'" class="textbutton" /></cfoutput>
 	</cfform>

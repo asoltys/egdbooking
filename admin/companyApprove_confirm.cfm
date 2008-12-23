@@ -1,4 +1,4 @@
-<cfif isDefined("form.companyID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.CID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfset Variables.Errors = ArrayNew(1)>
@@ -40,9 +40,9 @@
 
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	CompanyID, Name AS CompanyName
+	SELECT 	CID, Name AS CompanyName
 	FROM 	Companies
-	WHERE 	CompanyID = '#Form.CompanyID#'
+	WHERE 	CID = '#Form.CID#'
 </cfquery>
 
 <!-- Start JavaScript Block -->
@@ -84,7 +84,7 @@ function EditSubmit ( selectedform )
 				<div style="text-align:center;">
 					<p>Are you sure you want to approve <strong>#getCompany.companyName#</strong>?</p>
 					<form action="companyApprove_action.cfm?lang=#lang#" id="approveCompany" method="post">
-						<input type="hidden" name="CompanyId" value="#Form.CompanyId#" />
+						<input type="hidden" name="CID" value="#Form.CID#" />
 						<input type="hidden" name="abbrev" value="#Form.abbrev#" />
 						<!---a href="javascript:EditSubmit('rejectUser');" class="textbutton">Submit</a--->
 						<input type="submit" class="textbutton" value="Approve" />

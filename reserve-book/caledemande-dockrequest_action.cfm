@@ -29,11 +29,11 @@
 <!---Check to see that vessel hasn't already been booked during this time--->
 <!--- 25 October 2005: This query now only looks at the drydock bookings --->
 <cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	Bookings.VesselID, Vessels.Name, Bookings.StartDate, Bookings.EndDate
+	SELECT 	Bookings.VNID, Vessels.Name, Bookings.StartDate, Bookings.EndDate
 	FROM 	Bookings
-				INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-				INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
-	WHERE 	Bookings.VesselID = '#Form.VesselID#'
+				INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+				INNER JOIN Docks ON Bookings.BRID = Docks.BRID
+	WHERE 	Bookings.VNID = '#Form.VNID#'
 	AND
 	<!---Explanation of hellishly long condition statement: The client wants to be able to overlap the start and end dates
 		of bookings, so if a booking ends on May 6, another one can start on May 6.  This created problems with single day
@@ -55,7 +55,7 @@
 <cfif DateCompare(PacificNow, Form.StartDate, 'd') NEQ -1>
 	<cfoutput>#ArrayAppend(Errors, "#language.futureStartError#")#</cfoutput>
 	<cfset Proceed_OK = "No">
-<cfelseif NOT isDefined("checkDblBooking.VesselID") OR checkDblBooking.VesselID NEQ "">
+<cfelseif NOT isDefined("checkDblBooking.VNID") OR checkDblBooking.VNID NEQ "">
 	<cfoutput>#ArrayAppend(Errors, "#checkDblBooking.Name# #language.dblBookingError# #LSdateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# #language.to# #LSdateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
 	<cfset Proceed_OK = "No">
 </cfif>
@@ -75,47 +75,47 @@
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->
 	<cfset Session.Return_Structure.StartDate = Form.StartDate>
 	<cfset Session.Return_Structure.EndDate = Form.EndDate>
-	<cfset Session.Return_Structure.VesselID = Form.VesselID>
+	<cfset Session.Return_Structure.VNID = Form.VNID>
 	<cfset Session.Return_Structure.Errors = Errors>
 
  	<cflocation url="#RootDir#reserve-book/caledemande-dockrequest.cfm?lang=#lang#" addtoken="no">
 <cfelse>
 	<cftransaction>
 		<cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			INSERT INTO	Bookings ( VesselID, StartDate, EndDate, BookingTime, UserID)
-			VALUES	('#Form.VesselID#',
+			INSERT INTO	Bookings ( VNID, StartDate, EndDate, BookingTime, UID)
+			VALUES	('#Form.VNID#',
 					<cfqueryparam value="#CreateODBCDate(Form.StartDate)#" cfsqltype="cf_sql_date">,
 					<cfqueryparam value="#CreateODBCDate(Form.EndDate)#" cfsqltype="cf_sql_date">,
 					<cfqueryparam value="#CreateODBCDateTime(PacificNow)#" cfsqltype="cf_sql_timestamp">,
-					'#Session.UserID#')
+					'#Session.UID#')
 		</cfquery>
 		<cfquery name="getID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			SELECT	DISTINCT @@IDENTITY AS BookingID
+			SELECT	DISTINCT @@IDENTITY AS BRID
 			FROM	Bookings
 		</cfquery>
 		<cfquery name="insertDock" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			INSERT INTO Docks (BookingID, Status)
-			VALUES		('#getID.BookingID#', '#status#')
+			INSERT INTO Docks (BRID, Status)
+			VALUES		('#getID.BRID#', '#status#')
 		</cfquery>
 		<cfquery name="insertBlankForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			INSERT INTO TariffForms(BookingID)
-			VALUES		('#getID.BookingID#')
+			INSERT INTO TariffForms(BRID)
+			VALUES		('#getID.BRID#')
 		</cfquery>
 	</cftransaction>
 
 	<cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	Vessels.Name AS vesselName, CompanyID
+		SELECT	Vessels.Name AS vesselName, CID
 		FROM	Vessels
-			INNER JOIN	Bookings ON Bookings.VesselID = Vessels.VesselID
-		WHERE	BookingID = ('#getID.BookingID#')
+			INNER JOIN	Bookings ON Bookings.VNID = Vessels.VNID
+		WHERE	BRID = ('#getID.BRID#')
 	</cfquery>
 
 	<cflock scope="session" throwontimeout="no" timeout="30" type="READONLY">
 		<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	firstname + ' ' + lastname AS UserName, Email, Companies.Name AS CompanyName
-			FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-					INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
-			WHERE	Users.UserID = #session.userID# AND Companies.CompanyID = '#getDetails.companyID#'
+			FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+					INNER JOIN Companies ON UserCompanies.CID = Companies.CID
+			WHERE	Users.UID = #session.UID# AND Companies.CID = '#getDetails.CID#'
 		</cfquery>
 	</cflock>
 
@@ -139,7 +139,7 @@
 		<cfset Session.Success.Message = "Une nouvelle demande de r&eacute;servation pour le #getDetails.vesselName# du #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# a &eacute;t&eacute; cr&eacute;&eacute;e et est en attente d'approbation.">
 		<cfset Session.Success.Back = "Pr&eacute;ciser les services et les installations">
 	</cfif>
-	<cfset Session.Success.Link = "#RootDir#reserve-book/tarif-tariff.cfm?lang=#lang#&amp;BookingID=#getID.BookingID#">
+	<cfset Session.Success.Link = "#RootDir#reserve-book/tarif-tariff.cfm?lang=#lang#&amp;BRID=#getID.BRID#">
 	<cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
 </cfif>

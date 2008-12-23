@@ -1,5 +1,5 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
-<cfif isDefined("form.bookingID") AND (NOT isDefined("url.referrer") OR url.referrer NEQ "Edit Booking")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.BRID") AND (NOT isDefined("url.referrer") OR url.referrer NEQ "Edit Booking")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <CFPARAM name="url.referrer" default="Booking Management">
@@ -16,14 +16,14 @@
 </cfif>
 
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Status, Bookings.BookingID, StartDate, EndDate,
+	SELECT	Status, Bookings.BRID, StartDate, EndDate,
 			Vessels.Name AS VesselName, Companies.Name AS CompanyName,
 			Section1, Section2, Section3
 	FROM	Docks, Bookings, Vessels, Companies
-	WHERE	Bookings.BookingID = Docks.BookingID
-	AND		Bookings.BookingID = '#Form.BookingID#'
-	AND		Vessels.VesselID = Bookings.VesselID
-	AND		Companies.CompanyID = Vessels.CompanyID
+	WHERE	Bookings.BRID = Docks.BRID
+	AND		Bookings.BRID = '#Form.BRID#'
+	AND		Vessels.VNID = Bookings.VNID
+	AND		Companies.CID = Vessels.CID
 </cfquery>
 
 <cfif url.referrer EQ "Edit Booking" AND isDefined("form.startDate")>
@@ -72,7 +72,7 @@ function EditSubmit ( selectedform )
 			<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 			<cfif getBooking.Status EQ "C">
 				<cfinclude template="includes/getConflicts.cfm">
-				<cfset conflictArray = getConflicts_remConf(Form.BookingID)>
+				<cfset conflictArray = getConflicts_remConf(Form.BRID)>
 				<cfif ArrayLen(conflictArray) GT 0>
 					<cfset Variables.waitListText = "The booking slot that this vessel held is now available for the following tentative bookings.  The companies/agents should be given 24 hours notice to submit a downpayment.">
 					<cfinclude template="includes/displayWaitList.cfm">
@@ -84,7 +84,7 @@ function EditSubmit ( selectedform )
 				Are you sure you want to change this booking's status to tentative?
 			<br /><br />
 				<cfoutput>
-				<input type="hidden" name="BookingID" value="#Form.BookingID#" />
+				<input type="hidden" name="BRID" value="#Form.BRID#" />
 				<table style="padding-top:5px;">
 					<tr>
 						<td><strong>Booking Details:</strong></td>
@@ -134,7 +134,7 @@ function EditSubmit ( selectedform )
 				<!--a href="javascript:EditSubmit('change2tentative');" class="textbutton">Submit</a-->
 				<input type="submit" name="submitForm" class="textbutton" value="submit" />
 				<cfoutput>
-          <input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&bookingID=#getBooking.bookingID###id#getBooking.bookingid#'" class="textbutton" />
+          <input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&BRID=#getBooking.BRID###id#getBooking.BRID#'" class="textbutton" />
         </cfoutput>
 				</div></p>
 			</cfform>

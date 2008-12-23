@@ -7,15 +7,15 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="getUserList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT UserID, LastName + ', ' + FirstName AS UserName
+	SELECT UID, LastName + ', ' + FirstName AS UserName
 	FROM Users
 	WHERE Deleted = 0
-	AND NOT EXISTS (SELECT	UserID
+	AND NOT EXISTS (SELECT	UID
 					FROM	Administrators
-					WHERE	Users.UserID = Administrators.UserID)
+					WHERE	Users.UID = Administrators.UID)
 	AND EXISTS (SELECT	*
 				FROM	UserCompanies
-				WHERE	UserCompanies.UserID = Users.UserID AND Approved = 1)
+				WHERE	UserCompanies.UID = Users.UID AND Approved = 1)
 	ORDER BY LastName, Firstname
 </cfquery>
 
@@ -61,13 +61,13 @@ function EditSubmit ( selectedform )
 
 			<!---<div style="text-align:left;">
 				<cfform action="addAdministrator_action.cfm?lang=#lang#" id="chooseUserForm" method="post">
-					<cfselect name="UserID" query="getUserList" value="UserID" display="UserName" />
+					<cfselect name="UID" query="getUserList" value="UID" display="UserName" />
 					<a href="javascript:EditSubmit('chooseUserForm');">Add</a>
 				</cfform>
 			</div>--->
 
 			<cfform action="addAdministrator_action.cfm?lang=#lang#" id="addAdministratorForm" method="post">
-				Select User: <cfselect name="UserID" query="getUserList" value="UserID" display="UserName" />
+				Select User: <cfselect name="UID" query="getUserList" value="UID" display="UserName" />
 				&nbsp;&nbsp;&nbsp;
 				<!--a href="javascript:EditSubmit('addAdministratorForm');" class="textbutton">Submit</a-->
 				<input type="submit" name="submitForm" value="submit" class="textbutton" />

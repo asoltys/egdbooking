@@ -46,7 +46,7 @@ function EditSubmit ( selectedform )
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 
 				<!--- -------------------------------------------------------------------------------------------- --->
-				<cfparam name="Variables.BookingID" default="">
+				<cfparam name="Variables.BRID" default="">
 				<cfparam name="Variables.NorthJetty" default="false">
 				<cfparam name="Variables.SouthJetty" default="false">
 
@@ -55,28 +55,28 @@ function EditSubmit ( selectedform )
 					<cfinclude template="#RootDir#includes/restore_params.cfm">
 				<cfelse>
 					<cfinclude template="#RootDir#includes/restore_params.cfm">
-					<cfif isDefined("form.bookingID")>
-						<cfset Variables.bookingID = #form.bookingID#>
+					<cfif isDefined("form.BRID")>
+						<cfset Variables.BRID = #form.BRID#>
 					</cfif>
 				</cfif>
 
 				<cfif IsDefined("Session.Return_Structure")>
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
-				<cfelseif IsDefined("Form.BookingID") AND Form.BookingID NEQ "">
+				<cfelseif IsDefined("Form.BRID") AND Form.BRID NEQ "">
 					<cfquery name="GetBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-						SELECT	Bookings.StartDate, Bookings.EndDate, Bookings.BookingID, Jetties.NorthJetty, Jetties.SouthJetty
+						SELECT	Bookings.StartDate, Bookings.EndDate, Bookings.BRID, Jetties.NorthJetty, Jetties.SouthJetty
 						FROM	Bookings, Jetties
-						WHERE	Bookings.BookingID = Jetties.BookingID
+						WHERE	Bookings.BRID = Jetties.BRID
 						AND		Deleted = '0'
 						AND		Status = 'M'
-						AND		Bookings.BookingID = '#Form.BookingID#'
+						AND		Bookings.BRID = '#Form.BRID#'
 					</cfquery>
 
 					<cfset Variables.StartDate = getBooking.StartDate>
 					<cfset Variables.EndDate = getBooking.EndDate>
 					<cfset Variables.NorthJetty = getBooking.NorthJetty>
 					<cfset Variables.SouthJetty = getBooking.SouthJetty>
-					<cfset Variables.BookingID = getBooking.BookingID>
+					<cfset Variables.BRID = getBooking.BRID>
 				<cfelse>
 					<cflocation addtoken="no" url="jettyBookingManage.cfm?lang=#lang#">
 				</cfif>
@@ -111,7 +111,7 @@ function EditSubmit ( selectedform )
 				</cfif>
 				<!--- -------------------------------------------------------------------------------------------- --->
 				<cfform id="EditJettyMaintBlock" action="editJettyMaintBlock_process.cfm?#urltoken#" method="post">
-				<cfoutput><input type="hidden" name="BookingID" value="#Variables.BookingID#" />
+				<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" />
 				<table style="width:100%;">
 				<tr>
 					<td id="Start">Start Date:</td>

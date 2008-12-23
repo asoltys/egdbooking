@@ -12,7 +12,7 @@
 		UPDATE Bookings
 		SET
 			EndHighlight = '#DateFormat(Form.EndHighlight, "mm/dd/yyyy")#'
-		WHERE BookingID = #BookingID#
+		WHERE BRID = #BRID#
 		AND deleted = 0
 	</cfquery>
 

@@ -10,11 +10,11 @@
 <!---Check to see that vessel hasn't already been booked during this time--->
 <!--- 25 October 2005: This query now only looks at the jetties bookings --->
 <cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	Bookings.VesselID, Bookings.BookingID, Name, Bookings.StartDate, Bookings.EndDate
+	SELECT 	Bookings.VNID, Bookings.BRID, Name, Bookings.StartDate, Bookings.EndDate
 	FROM 	Bookings
-				INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-				INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
-	WHERE 	Bookings.VesselID = '#Form.VesselID#'
+				INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+				INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
+	WHERE 	Bookings.VNID = '#Form.VNID#'
 	AND
 	<!---Explanation of hellishly long condition statement: The client wants to be able to overlap the start and end dates
 		of bookings, so if a booking ends on May 6, another one can start on May 6.  This created problems with single day
@@ -42,12 +42,12 @@
 
 <!--- 25 October 2005: The next two queries have been modified to only get results from the jetties bookings --->
 <cfquery name="getNumStartDateBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Bookings.BookingID, Vessels.Name, Bookings.StartDate
+	SELECT	Bookings.BRID, Vessels.Name, Bookings.StartDate
 	FROM	Bookings
-				INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
-				INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
+				INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
+				INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 	WHERE	(StartDate = #Variables.StartDate# OR EndDate = #Variables.StartDate#)
-				AND Bookings.VesselID = '#Form.VesselID#'
+				AND Bookings.VNID = '#Form.VNID#'
 				AND Bookings.Deleted = 0
 			<cfif IsDefined("Form.Jetty") AND form.Jetty EQ "north">
 				AND Jetties.NorthJetty = 1
@@ -57,12 +57,12 @@
 </cfquery>
 
 <cfquery name="getNumEndDateBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Bookings.BookingID, Vessels.Name, Bookings.EndDate
+	SELECT	Bookings.BRID, Vessels.Name, Bookings.EndDate
 	FROM	Bookings
-				INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
-				INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
+				INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
+				INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 	WHERE	(EndDate = #Variables.EndDate# OR StartDate = #Variables.EndDate#)
-				AND Bookings.VesselID = '#Form.VesselID#'
+				AND Bookings.VNID = '#Form.VNID#'
 				AND Bookings.Deleted = 0
 			<cfif IsDefined("Form.Jetty") AND form.Jetty EQ "north">
 				AND Jetties.NorthJetty = 1
@@ -87,7 +87,7 @@
 <cfif DateCompare(PacificNow, Form.StartDate, 'd') EQ 1>
 	<cfoutput>#ArrayAppend(Errors, "The Start Date cannot be in the past.")#</cfoutput>
 	<cfset Proceed_OK = "No">
-<cfelseif isDefined("checkDblBooking.VesselID") AND checkDblBooking.VesselID NEQ "">
+<cfelseif isDefined("checkDblBooking.VNID") AND checkDblBooking.VNID NEQ "">
 	<cfoutput>#ArrayAppend(Errors, "#checkDblBooking.Name# has already been booked from #dateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# to #dateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
 	<cfset Proceed_OK = "No">
 <cfelseif getNumStartDateBookings.recordCount GTE 1>
@@ -111,8 +111,8 @@
 	<cfset Session.Return_Structure.EndDate = Form.EndDate>
 	<cfset Session.Return_Structure.TheBookingDate = Variables.TheBookingDate>
 	<cfset Session.Return_Structure.TheBookingTime = Variables.TheBookingTime>
-	<cfset Session.Return_Structure.VesselID = Form.vesselID>
-	<cfset Session.Return_Structure.userID = Form.userID>
+	<cfset Session.Return_Structure.VNID = Form.VNID>
+	<cfset Session.Return_Structure.UID = Form.UID>
 	<cfset Session.Return_Structure.Jetty = Form.Jetty>
 	<cfset Session.Return_Structure.Status = Form.Status>
 	<cfset Session.Return_Structure.Errors = Errors>
@@ -145,17 +145,17 @@
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name
 	FROM	Companies
-	WHERE	Companies.CompanyID = #form.CompanyID#
+	WHERE	Companies.CID = #form.CID#
 </cfquery>
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name
 	FROM	Vessels
-	WHERE	Vessels.VesselID = #form.VesselID#
+	WHERE	Vessels.VNID = #form.VNID#
 </cfquery>
 <cfquery name="getAgent" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	firstname + ' ' + lastname AS Name
 	FROM	Users
-	WHERE	Users.UserID = #form.UserID#
+	WHERE	Users.UID = #form.UID#
 </cfquery>
 
 <cfhtmlhead text="
@@ -215,15 +215,15 @@ function EditSubmit ( selectedform )
 				<table style="width:100%;" align="center">
 					<tr>
 						<td align="left" style="width:20%;">Company:</td>
-						<td><input type="hidden" name="company" value="<cfoutput>#form.companyID#</cfoutput>" />
+						<td><input type="hidden" name="company" value="<cfoutput>#form.CID#</cfoutput>" />
 					</tr>
 					<tr>
 						<td align="left">Vessel:</td>
-						<td><input type="hidden" name="vessel" value="<cfoutput>#form.vesselID#</cfoutput>" />
+						<td><input type="hidden" name="vessel" value="<cfoutput>#form.VNID#</cfoutput>" />
 					</tr>
 					<tr>
 						<td align="left">Agent:</td>
-						<td><input type="hidden" name="agent" value="<cfoutput>#form.userID#</cfoutput>" />
+						<td><input type="hidden" name="agent" value="<cfoutput>#form.UID#</cfoutput>" />
 					</tr>
 					<tr>
 						<td align="left">Start Date:</td>

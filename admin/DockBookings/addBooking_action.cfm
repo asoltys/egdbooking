@@ -24,8 +24,8 @@
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->
 	<cfset Session.Return_Structure.StartDate = Form.StartDate>
 	<cfset Session.Return_Structure.EndDate = Form.EndDate>
-	<cfset Session.Return_Structure.VesselID = Form.vesselID>
-	<cfset Session.Return_Structure.UserID = Form.UserID>
+	<cfset Session.Return_Structure.VNID = Form.VNID>
+	<cfset Session.Return_Structure.UID = Form.UID>
 	<cfif isDefined("Form.Section1B")><cfset Session.Return_Structure.Section1B = Form.Section1B></cfif>
 	<cfif isDefined("Form.Section2B")><cfset Session.Return_Structure.Section2B = Form.Section2B></cfif>	
 	<cfif isDefined("Form.Section3B")><cfset Session.Return_Structure.Section3B = Form.Section3B></cfif>
@@ -40,20 +40,20 @@
 <cftransaction>
 	<cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		INSERT INTO	Bookings
-				(VesselID,
+				(VNID,
 				StartDate,
 				EndDate, 
 				BookingTime, 
-				UserID)
+				UID)
 		VALUES	
-				(#form.vesselID#,
+				(#form.VNID#,
 				#CreateODBCDate(Form.StartDate)#,
 				#CreateODBCDate(Form.EndDate)#, 
 				#CreateODBCDateTime(Variables.BookingDateTime)#, 
-				'#form.UserID#')
+				'#form.UID#')
 	</cfquery>
 	<cfquery name="getID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	@@IDENTITY AS BookingID
+		SELECT	@@IDENTITY AS BRID
 		FROM	Bookings
 	</cfquery>
 </cftransaction>
@@ -68,7 +68,7 @@
 							<CFIF (isDefined("Form.Section3B") AND Form.Status EQ "C") OR (isDefined("Form.Section3A") AND Form.Section3A EQ 1)>
 							Section3, 
 							</CFIF>
-							BookingID, Status)
+							BRID, Status)
 		VALUES		(<CFIF (isDefined("Form.Section1B") AND Form.Status EQ "C") OR (isDefined("Form.Section1A") AND Form.Section1A EQ 1)>
 					1,
 					</CFIF>
@@ -78,28 +78,28 @@
 					<CFIF (isDefined("Form.Section3B") AND Form.Status EQ "C") OR (isDefined("Form.Section3A") AND Form.Section3A EQ 1)>
 					1,
 					</CFIF>
-					'#getID.BookingID#',
+					'#getID.BRID#',
 					'#Form.Status#'
 					)
 	</cfquery>
 
 	<cfquery name="insertBlankForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		INSERT INTO TariffForms(BookingID)
-		VALUES		('#getID.BookingID#')
+		INSERT INTO TariffForms(BRID)
+		VALUES		('#getID.BRID#')
 	</cfquery>
 	
 	<cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email, Vessels.Name AS VesselName, StartDate, EndDate
-		FROM	Bookings INNER JOIN Users ON Bookings.UserID = Users.UserID 
-				INNER JOIN Vessels ON Bookings.VesselID = Vessels.VesselID
-		WHERE	BookingID = '#getID.BookingID#'
+		FROM	Bookings INNER JOIN Users ON Bookings.UID = Users.UID 
+				INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+		WHERE	BRID = '#getID.BRID#'
 	</cfquery>
 		
 	<cflock throwontimeout="no" scope="session" timeout="30" type="readonly">
 		<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	Email
 			FROM	Users
-			WHERE	UserID = '#session.userID#'
+			WHERE	UID = '#session.UID#'
 		</cfquery>
 	</cflock>
 		

@@ -32,7 +32,7 @@
 		UPDATE 	Users
 		SET		FirstName = '#trim(form.firstname)#',
 				LastName = '#trim(form.lastname)#'
-		WHERE 	UserID = '#session.userID#'
+		WHERE 	UID = '#session.UID#'
 	</cfquery>
 
 </cflock>

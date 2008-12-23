@@ -1,15 +1,15 @@
-<cfif isdefined('form.vesselID')>
+<cfif isdefined('form.VNID')>
 	
 	<cfquery name="delVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Vessels
 		SET Deleted = 1
-		WHERE vesselID = #form.vesselID#
+		WHERE VNID = #form.VNID#
 	</cfquery>
 	
 </cfif>
 
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT Name FROM Vessels WHERE vesselID = #form.vesselID#
+	SELECT Name FROM Vessels WHERE VNID = #form.VNID#
 </cfquery>
 
 <cfset Session.Success.Breadcrumb = "Delete Vessel">

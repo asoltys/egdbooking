@@ -16,18 +16,18 @@
 	<cflocation url="editUser.cfm?lang=#lang#" addtoken="no">
 </cfif>
 
-<cfif isdefined('form.userid')>
+<cfif isdefined('form.UID')>
 	<cfquery name="editPass" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Users
 		SET Password = '#trim(form.password1)#'
-		WHERE UserID = #form.userID#
+		WHERE UID = #form.UID#
 	</cfquery>
 </cfif>
 
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT FirstName, LastName, email, password
 	FROM Users
-	WHERE UserID = #form.UserID#
+	WHERE UID = #form.UID#
 </cfquery>
 
 
@@ -36,12 +36,12 @@
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UserID = '#session.userID#'
+		WHERE	UID = '#session.UID#'
 	</cfquery>
 </cflock>
 
 <cflock scope="session" throwontimeout="no" timeout="30" type="READONLY">
-	<cfif form.UserID NEQ "#session.userID#">
+	<cfif form.UID NEQ "#session.UID#">
 		<cfoutput>
 			<cfmail to="#getUser.Email#" from="#Session.AdminEmail#" subject="Password Changed - Mot de passe chang&eacute;" type="html">
 				<p>#getUser.firstName# #getUser.lastName#,</p>
@@ -61,6 +61,6 @@
 <cfset Session.Success.Title = "Change Password">
 <cfset Session.Success.Message = "<b>#getUser.FirstName# #getUser.LastName#</b>'s password has been changed.">
 <cfset Session.Success.Back = "Back to Edit User Profile">
-<cfset Session.Success.Link = "#RootDir#admin/Users/editUser.cfm?lang=#lang#&userID=#form.userID#">
+<cfset Session.Success.Link = "#RootDir#admin/Users/editUser.cfm?lang=#lang#&UID=#form.UID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 

@@ -7,10 +7,10 @@
 	SET		StartDate = #Variables.Start#, 
 			EndDate = #Variables.End#,
 			BookingTime = #CreateODBCDateTime(Variables.BookingDateTime)#,
-			UserID = #Form.UserID#,
+			UID = #Form.UID#,
 			BookingTimeChange = #PacificNow#,
 			BookingTimeChangeStatus = 'Edited at'
-	WHERE	BookingID = '#url.BookingID#'
+	WHERE	BRID = '#url.BRID#'
 </cfquery>
 
 <cfquery name="updateBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -22,7 +22,7 @@
 				NorthJetty = 0,
 				SouthJetty = 1 
 			</cfif>
-	WHERE	BookingID = '#url.BookingID#'
+	WHERE	BRID = '#url.BRID#'
 </cfquery>
 	
 
@@ -33,14 +33,14 @@
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	startDate, endDate
 	from	Bookings
-	WHERE	BookingID = '#FORM.BookingID#'
+	WHERE	BRID = '#FORM.BRID#'
 </cfquery>
 
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS vesselName
 	FROM	Vessels
-		INNER JOIN	Bookings ON Bookings.VesselID = Vessels.VesselID
-	WHERE	BookingID = '#Form.BookingID#'
+		INNER JOIN	Bookings ON Bookings.VNID = Vessels.VNID
+	WHERE	BRID = '#Form.BRID#'
 </cfquery>
 
 <!--- URL tokens set-up.  Do not edit unless you KNOW something is wrong.
@@ -80,7 +80,7 @@
 <cfset Session.Success.Title = "Edit Jetty Booking Information">
 <cfset Session.Success.Message = "Booking for <b>#getVessel.vesselName#</b> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been updated.">
 <cfset Session.Success.Back = "Back to #url.referrer#">
-<cfset Session.Success.Link = "#returnTo#?#urltoken#&bookingID=#form.bookingID##variables.dateValue####form.bookingid#">
+<cfset Session.Success.Link = "#returnTo#?#urltoken#&BRID=#form.BRID##variables.dateValue####form.BRID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
 <!---cflocation url="jettyBookingmanage.cfm?#urltoken#" addToken="no"--->

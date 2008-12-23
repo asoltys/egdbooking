@@ -7,14 +7,14 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="getUserName" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-SELECT UserCompanies.UserID, Users.FirstName, Users.LastName
-	FROM UserCompanies JOIN Users ON UserCompanies.UserID = Users.UserID
-	WHERE UserCompanies.Approved = 1 AND UserCompanies.Deleted = 0 AND UserCompanies.CompanyID = '#newCompanyID#'
+SELECT UserCompanies.UID, Users.FirstName, Users.LastName
+	FROM UserCompanies JOIN Users ON UserCompanies.UID = Users.UID
+	WHERE UserCompanies.Approved = 1 AND UserCompanies.Deleted = 0 AND UserCompanies.CID = '#newCID#'
 </cfquery>
 <cfquery name="getCompanyDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 SELECT Name as CompanyDetail
 	FROM Companies
-	WHERE CompanyID = '#newCompanyID#'
+	WHERE CID = '#newCID#'
 </cfquery>
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
@@ -47,7 +47,7 @@ SELECT Name as CompanyDetail
 				<cfform action="changeCompany3.cfm" method="post">
 				<table>
 				  <tr>
-					<td><br /><cfinput type="text" style="border:0; font-weight:bold" value="#vesselNameURL#" name="vesselNameURL" required="Yes" readonly="yes"><cfinput type="text" style="border:0; color:##FFFFFF" value="#BookingIDURL#" name="BookingIDURL" required="Yes" readonly="yes" /></td>
+					<td><br /><cfinput type="text" style="border:0; font-weight:bold" value="#vesselNameURL#" name="vesselNameURL" required="Yes" readonly="yes"><cfinput type="text" style="border:0; color:##FFFFFF" value="#BRIDURL#" name="BRIDURL" required="Yes" readonly="yes" /></td>
 				  </tr>
 				  <tr>
 					<td>
@@ -57,12 +57,12 @@ SELECT Name as CompanyDetail
 					<td>Original Agent: <cfinput type="text" style="border:0;" value="#UserNameURL#" name="UserNameURL" required="Yes" readonly="yes" /></td>
 				  </tr>
 						<tr>
-					<td><br />Change to Company: <cfoutput query="getCompanyDetail">#CompanyDetail#</cfoutput> <cfinput type="text" style="border:0; color:##FFFFFF" value="#newCompanyID#" name="newCompanyID" required="Yes" readonly="yes" /></td>
+					<td><br />Change to Company: <cfoutput query="getCompanyDetail">#CompanyDetail#</cfoutput> <cfinput type="text" style="border:0; color:##FFFFFF" value="#newCID#" name="newCID" required="Yes" readonly="yes" /></td>
 				  </tr>
 				  <tr>
 					<td>Change to Agent: <cfselect name="newUserName" size="1" required="yes">
 					  <cfoutput query="getUserName">
-						<option value="#UserID#">#LastName#, #FirstName#</option>
+						<option value="#UID#">#LastName#, #FirstName#</option>
 					  </cfoutput> </cfselect></td>
 				  </tr>
 				  <tr>

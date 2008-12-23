@@ -1,18 +1,18 @@
 <cfquery name="deleteBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE	Bookings
 	SET		Deleted = 1
-	WHERE	BookingID = '#Form.BookingID#'
+	WHERE	BRID = '#Form.BRID#'
 </cfquery>
 
 <!--- get the details for the booking --->
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 SELECT	Bookings.StartDate, Bookings.EndDate, Users.Email, Vessels.Name AS VesselName, Companies.Name as CompanyName, UserCompanies.Deleted as UserRemovedFromComp, Users.Deleted as UserDeleted, Companies.Deleted as CompanyDeleted, Companies.Approved as CompanyApproved, UserCompanies.Approved as UserLinkedToComp
 FROM	Bookings INNER JOIN Vessels ON 
-		Bookings.VesselID = Vessels.VesselID INNER JOIN UserCompanies ON
-		Vessels.CompanyID = UserCompanies.CompanyID INNER JOIN Companies ON 
-		Vessels.CompanyID = Companies.CompanyID INNER JOIN Users ON
-		Bookings.UserID = Users.UserID AND UserCompanies.UserID = Users.UserID
-WHERE   Bookings.BookingID = '#Form.BookingID#'
+		Bookings.VNID = Vessels.VNID INNER JOIN UserCompanies ON
+		Vessels.CID = UserCompanies.CID INNER JOIN Companies ON 
+		Vessels.CID = Companies.CID INNER JOIN Users ON
+		Bookings.UID = Users.UID AND UserCompanies.UID = Users.UID
+WHERE   Bookings.BRID = '#Form.BRID#'
 </cfquery>
 
 <cfif getBooking.RecordCount NEQ 0>
@@ -111,5 +111,5 @@ WHERE   Bookings.BookingID = '#Form.BookingID#'
 
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
-<!---cflocation addToken="no" url="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.bookingID#"--->
+<!---cflocation addToken="no" url="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.BRID#"--->
 

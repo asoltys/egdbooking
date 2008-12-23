@@ -2,7 +2,7 @@
 <cfset Variables.Errors = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
 
-<cfif isDefined("form.companyID") AND form.companyID EQ "">
+<cfif isDefined("form.CID") AND form.CID EQ "">
 	<cfoutput>#ArrayAppend(Variables.Errors, "Please select a company.")#</cfoutput>
 	<cfset Proceed_OK = "No">
 </cfif>
@@ -10,27 +10,27 @@
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation addtoken="no" url="editUser.cfm?lang=#lang#&userID=#form.userID#">
+	<cflocation addtoken="no" url="editUser.cfm?lang=#lang#&UID=#form.UID#">
 </cfif>
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="getUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT	CompanyID
+		SELECT	CID
 		FROM	UserCompanies
-		WHERE	UserCompanies.UserID = '#form.userID#' AND UserCompanies.CompanyID = '#form.companyID#'
+		WHERE	UserCompanies.UID = '#form.UID#' AND UserCompanies.CID = '#form.CID#'
 	</cfquery>
 
 	<cfif getUserCompanies.recordCount EQ 1>
 		<cfquery name="editUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			UPDATE	UserCompanies
 			SET		Deleted = '0', Approved = '1'
-			WHERE	UserCompanies.UserID = '#form.userID#' AND UserCompanies.CompanyID = '#form.companyID#' 
+			WHERE	UserCompanies.UID = '#form.UID#' AND UserCompanies.CID = '#form.CID#' 
 					AND UserCompanies.Deleted = '1'
 		</cfquery>
 	<cfelse>
 		<cfquery name="insertUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			INSERT INTO UserCompanies(UserID, CompanyID, Approved)
-			VALUES		('#form.userID#', '#form.companyID#', 1)
+			INSERT INTO UserCompanies(UID, CID, Approved)
+			VALUES		('#form.UID#', '#form.CID#', 1)
 		</cfquery>
 	</cfif>
 </cflock>
@@ -39,13 +39,13 @@
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT FirstName, LastName, email
 	FROM Users
-	WHERE UserID = #form.UserID#
+	WHERE UID = #form.UID#
 </cfquery>
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT name AS companyName
 	FROM Companies
-	WHERE CompanyID = #form.CompanyID#
+	WHERE CID = #form.CID#
 </cfquery>
 
 
@@ -54,12 +54,12 @@
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UserID = '#session.userID#'
+		WHERE	UID = '#session.UID#'
 	</cfquery>
 </cflock>
 
 <cflock scope="session" throwontimeout="no" timeout="30" type="READONLY">
-	<cfif form.UserID NEQ "#session.userID#">
+	<cfif form.UID NEQ "#session.UID#">
 		<cfoutput>
 			<cfmail to="#getUser.Email#" from="#Session.AdminEmail#" subject="Company Added - Entreprise ajout&eacute;e" type="html">
 				<p>#getUser.firstName# #getUser.lastName#,</p>
@@ -75,10 +75,10 @@
 <!---cfquery name="getDetails">
 	SELECT	Users.FirstName, Users.LastName, Companies.Name AS CompanyName
 	FROM	UserCompanies
-		INNER JOIN	Users ON UserCompanies.UserID = Users.UserID
-		INNER JOIN	Companies ON UserCompanies.CompanyID = Companies.CompanyID
-	WHERE	UserCompanies.UserID = '#form.userID#'
-		AND	UserCompanies.CompanyID = '#form.companyID#'
+		INNER JOIN	Users ON UserCompanies.UID = Users.UID
+		INNER JOIN	Companies ON UserCompanies.CID = Companies.CID
+	WHERE	UserCompanies.UID = '#form.UID#'
+		AND	UserCompanies.CID = '#form.CID#'
 </cfquery>
 
 <cfif lang EQ "eng">
@@ -90,11 +90,11 @@
 	<cfset Session.Success.Message = "">
 	<cfset Session.Success.Back = "">
 </cfif>
-<cfset Session.Success.Link = "addNewUserCompany.cfm?userID=#url.userID#">
+<cfset Session.Success.Link = "addNewUserCompany.cfm?UID=#url.UID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#"--->
 
 <!--- doesn't seem to need a success notice since it gets sent back to the same page with 
 	the new info on it.  It really should be painfully obvious. --->
 
-<cflocation addtoken="no" url="editUser.cfm?lang=#lang#&userID=#form.userID#">
+<cflocation addtoken="no" url="editUser.cfm?lang=#lang#&UID=#form.UID#">
 

@@ -23,7 +23,7 @@ commented out 09/23/05 as not all ships are required to have a Lloyd's ID or IMO
 	FROM Vessels
 	WHERE Name = '#trim(form.Name)#'
 	AND Deleted = 0
-	AND CompanyId = #form.companyID#
+	AND CID = #form.CID#
 </cfquery>
 
 <!---<cfset Variables.Errors = ArrayNew(1)>
@@ -37,7 +37,7 @@ commented out 09/23/05 as not all ships are required to have a Lloyd's ID or IMO
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="addVessel.cfm?CompanyID=#form.CompanyID#" addtoken="no">
+	<cflocation url="addVessel.cfm?CID=#form.CID#" addtoken="no">
 </cfif>--->
 <!--- 
 <cfif getDeletedVessel.recordcount GT 0>
@@ -46,8 +46,8 @@ commented out 09/23/05 as not all ships are required to have a Lloyd's ID or IMO
 		UPDATE Vessels
 		SET
 			name = '#trim(form.name)#',
-			companyid = #trim(form.companyid)#,
-			<!---companyid = #session.companyid#,--->
+			CID = #trim(form.CID)#,
+			<!---CID = #session.CID#,--->
 			length = '#trim(form.length)#',
 			width = '#trim(form.width)#',
 			blocksetuptime = '#trim(form.blocksetuptime)#',
@@ -69,7 +69,7 @@ commented out 09/23/05 as not all ships are required to have a Lloyd's ID or IMO
 		INSERT INTO Vessels
 		(
 			Name,
-			companyID,
+			CID,
 			length,
 			width,
 			blocksetuptime,
@@ -83,7 +83,7 @@ commented out 09/23/05 as not all ships are required to have a Lloyd's ID or IMO
 		VALUES
 		(
 			'#trim(form.Name)#',
-			'#trim(form.companyid)#',
+			'#trim(form.CID)#',
 			'#trim(form.length)#',
 			'#trim(form.width)#',
 			'#trim(form.blocksetuptime)#',

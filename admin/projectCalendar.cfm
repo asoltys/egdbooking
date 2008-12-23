@@ -92,15 +92,15 @@ var params = {
 	SELECT 	Status,
 			Section1, Section2, Section3,
 			StartDate, EndDate,
-			Bookings.VesselID,
+			Bookings.VNID,
 			Vessels.Name AS VesselName, Vessels.Anonymous,
-			Vessels.CompanyID,
+			Vessels.CID,
 			Bookings.EndHighlight
 	FROM	Bookings
-		INNER JOIN	Vessels ON Bookings.VesselID = Vessels.VesselID
-		INNER JOIN	Docks ON Bookings.BookingID = Docks.BookingID
-		<!---INNER JOIN	Users ON Vessels.UserID = Users.UserID--->
-		INNER JOIN	Companies ON Vessels.CompanyID = Companies.CompanyID
+		INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
+		INNER JOIN	Docks ON Bookings.BRID = Docks.BRID
+		<!---INNER JOIN	Users ON Vessels.UID = Users.UID--->
+		INNER JOIN	Companies ON Vessels.CID = Companies.CID
 	WHERE	Bookings.Deleted = '0'
 		<CFIF isDefined("CalStartDate") AND CalStartDate neq "">AND	EndDate &gt;= <cfqueryPARAM value="#CalStartDate#" cfsqltype="cf_sql_date"></CFIF>
 		<CFIF isDefined("CalEndDate") AND CalEndDate neq "">AND	StartDate &lt;= <cfqueryPARAM value="#CalEndDate#" cfsqltype="cf_sql_date"></CFIF>
@@ -110,13 +110,13 @@ var params = {
 	SELECT 	Status,
 			Section1, Section2, Section3,
 			StartDate, EndDate,
-			Bookings.VesselID,
+			Bookings.VNID,
 			'lol' as dummy1, '0' as dummy2,
 			'0' as dummy3,
 			Bookings.EndHighlight
 	FROM	Bookings
-		INNER JOIN	Docks ON Bookings.BookingID = Docks.BookingID
-		<!---INNER JOIN	Users ON Vessels.UserID = Users.UserID--->
+		INNER JOIN	Docks ON Bookings.BRID = Docks.BRID
+		<!---INNER JOIN	Users ON Vessels.UID = Users.UID--->
 	WHERE	Bookings.Deleted = '0'
 		<CFIF isDefined("CalStartDate") AND CalStartDate neq "">AND	EndDate &gt;= <cfqueryPARAM value="#CalStartDate#" cfsqltype="cf_sql_date"></CFIF>
 		<CFIF isDefined("CalEndDate") AND CalEndDate neq "">AND	StartDate &lt;= <cfqueryPARAM value="#CalEndDate#" cfsqltype="cf_sql_date"></CFIF>
@@ -126,9 +126,9 @@ var params = {
 </cfquery>
 
 <cfquery name="hablah" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	CompanyID
+	SELECT	CID
 	FROM	UserCompanies
-	WHERE	UserID = #session.userID#
+	WHERE	UID = #session.UID#
 </cfquery>
 
 <!--- Create an array-like struct for each part of the dock: docks 1, 2, 3, tentative, pending. --->
@@ -270,7 +270,7 @@ var params = {
 				StructInsert(n, Evaluate("as"), foo(), false);
 				// StructInsert(n, Evaluate("bl"), t - f + 1, true);
 
-				if (CompanyID eq hablah.CompanyID)
+				if (CID eq hablah.CID)
 					// mark the entry as belonging to the user
 					StructInsert(n, Evaluate("iy"), true, true);
 				else

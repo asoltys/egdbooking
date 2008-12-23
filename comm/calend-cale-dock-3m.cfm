@@ -90,11 +90,11 @@
 					SELECT 	Status,
 						StartDate, EndDate,
 						Section1, Section2, Section3,
-						Vessels.Name AS VesselName, Vessels.VesselID,
+						Vessels.Name AS VesselName, Vessels.VNID,
 						Vessels.Anonymous
 					FROM	Bookings
-						INNER JOIN	Docks ON Bookings.BookingID = Docks.BookingID
-						INNER JOIN	Vessels ON Bookings.VesselID = Vessels.VesselID
+						INNER JOIN	Docks ON Bookings.BRID = Docks.BRID
+						INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
 					WHERE	StartDate <= #lastdayofbunch#
 						AND EndDate >= #firstdayofbunch#
 						AND	Bookings.Deleted = '0'
@@ -108,7 +108,7 @@
 						'o' AS dummy1, '0' AS dummy2,
 						'0' AS dummy3
 					FROM	Bookings
-						INNER JOIN	Docks ON Bookings.BookingID = Docks.BookingID
+						INNER JOIN	Docks ON Bookings.BRID = Docks.BRID
 					WHERE	StartDate <= #lastdayofbunch#
 						AND EndDate >= #firstdayofbunch#
 						AND	Bookings.Deleted = '0'

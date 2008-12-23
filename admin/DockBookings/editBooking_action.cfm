@@ -22,19 +22,19 @@
 <cfset Variables.EndDate = CreateODBCDate(Form.EndDate)>
 
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	VesselID, Length, Width
+	SELECT 	VNID, Length, Width
 	FROM 	Vessels
-	WHERE 	VesselID = '#Form.BookingID#'
+	WHERE 	VNID = '#Form.BRID#'
 	AND 	Deleted= 0
 </cfquery>
 
 <!---Check to see that vessel hasn't already been booked during this time--->
 <cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	Bookings.VesselID, Name, StartDate, EndDate
+	SELECT 	Bookings.VNID, Name, StartDate, EndDate
 	FROM 	Bookings, Vessels
-	WHERE 	Bookings.VesselID = '#getVessel.VesselID#'
-	AND		Vessels.VesselID = Bookings.VesselID
-	AND		Bookings.BookingID != '#Form.BookingID#'
+	WHERE 	Bookings.VNID = '#getVessel.VNID#'
+	AND		Vessels.VNID = Bookings.VNID
+	AND		Bookings.BRID != '#Form.BRID#'
 	AND 	(
 				(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# <= Bookings.EndDate )
 			OR 	(	Bookings.StartDate <= #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate )
@@ -49,7 +49,7 @@
 <cfelseif DateCompare(PacificNow, Form.StartDate, 'd') EQ 0>
 	<cfoutput>#ArrayAppend(Errors, "The start date can not be set for today.")#</cfoutput>
 	<cfset Proceed_OK = "No">n
-<cfelseif NOT isDefined("checkDblBooking.VesselID") OR checkDblBooking.VesselID NEQ "">
+<cfelseif NOT isDefined("checkDblBooking.VNID") OR checkDblBooking.VNID NEQ "">
 	<cfoutput>#ArrayAppend(Errors, "#checkDblBooking.Name# has already been booked from #dateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# to #dateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
 	<cfset Proceed_OK = "No">
 </cfif>
@@ -62,7 +62,7 @@
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->
 	<cfset Session.Return_Structure.StartDate = Form.StartDate>
 	<cfset Session.Return_Structure.EndDate = Form.EndDate>
-	<cfset Session.Return_Structure.BookingID = Form.BookingID>	
+	<cfset Session.Return_Structure.BRID = Form.BRID>	
 	<cfset Session.Return_Structure.Errors = Errors>
 	
  	<cflocation url="editBooking.cfm?lang=#lang#" addtoken="no">
@@ -74,11 +74,11 @@
 	UPDATE  Bookings
 	SET		StartDate = <cfqueryparam value="#CreateODBCDate(Form.StartDate)#" cfsqltype="cf_sql_date">,
 			EndDate = <cfqueryparam value="#CreateODBCDate(Form.EndDate)#" cfsqltype="cf_sql_date">, 
-			UserID = '#Form.UserID#',
+			UID = '#Form.UID#',
 			BookingTime = #CreateODBCDateTime(Variables.BookingDateTime)#,
 			BookingTimeChange = #PacificNow#,
 			BookingTimeChangeStatus = 'Edited at'
-	WHERE	BookingID = '#Form.BookingID#'
+	WHERE	BRID = '#Form.BRID#'
 	</cfquery>
 <!--- </cfif> --->
 
@@ -87,14 +87,14 @@
 	SET		<cfif isDefined("form.section1") AND form.section1 EQ true>section1 = 1,<cfelse>section1 = 0,</cfif>
 			<cfif isDefined("form.section2") AND form.section2 EQ true>section2 = 1,<cfelse>section2 = 0,</cfif>
 			<cfif isDefined("form.section3") AND form.section3 EQ true>section3 = 1<cfelse>section3 = 0</cfif>
-	WHERE	BookingID = '#Form.BookingID#'
+	WHERE	BRID = '#Form.BRID#'
 </cfquery>
 
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS vesselName
 	FROM	Vessels
-		INNER JOIN	Bookings ON Bookings.VesselID = Vessels.VesselID
-	WHERE	BookingID = '#Form.BookingID#'
+		INNER JOIN	Bookings ON Bookings.VNID = Vessels.VNID
+	WHERE	BRID = '#Form.BRID#'
 </cfquery>
 
 <!--- URL tokens set-up.  Do not edit unless you KNOW something is wrong.
@@ -136,7 +136,7 @@
 <cfset Session.Success.Message = "Booking for <b>#getBooking.vesselName#</b> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been updated.">
 <cfset Session.Success.Back = "Back to #url.referrer#">
 
-<cfset Session.Success.Link = "#returnTo#?#urltoken#&bookingid=#form.bookingid#&#variables.dateValue###id#form.bookingid#">
+<cfset Session.Success.Link = "#returnTo#?#urltoken#&BRID=#form.BRID#&#variables.dateValue###id#form.BRID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
-<!---CFLOCATION addtoken="no" url="#RootDir#admin/DockBookings/bookingManage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.bookingID#"--->
+<!---CFLOCATION addtoken="no" url="#RootDir#admin/DockBookings/bookingManage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.BRID#"--->

@@ -17,7 +17,7 @@
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Errors>
- 	<cflocation url="#RootDir#reserve-book/tarif-tariff.cfm?lang=#lang#&bookingID=#url.bookingId#" addtoken="no">
+ 	<cflocation url="#RootDir#reserve-book/tarif-tariff.cfm?lang=#lang#&BRID=#url.BRID#" addtoken="no">
 </cfif>
 
 <cfquery name="submitTariffForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -159,29 +159,29 @@
 					otherText = '',
 					Other = '0'
 				</cfif>
-				WHERE BookingID = #form.BookingID#
+				WHERE BRID = #form.BRID#
 </cfquery>
 
 <!--- queries to populate details in e-mail sent to dock administrators --->
 
 <cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Vessels.Name AS vesselName, CompanyID
+	SELECT	Vessels.Name AS vesselName, CID
 	FROM	Vessels
-		INNER JOIN	Bookings ON Bookings.VesselID = Vessels.VesselID
-	WHERE	BookingID = ('#form.BookingID#')
+		INNER JOIN	Bookings ON Bookings.VNID = Vessels.VNID
+	WHERE	BRID = ('#form.BRID#')
 </cfquery>
 	
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	firstname + ' ' + lastname AS UserName, Email, Companies.Name AS CompanyName
-	FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID 
-			INNER JOIN Companies ON UserCompanies.CompanyID = Companies.CompanyID
-	WHERE	Users.UserID = #session.userID# AND Companies.CompanyID = '#getDetails.companyID#'
+	FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID 
+			INNER JOIN Companies ON UserCompanies.CID = Companies.CID
+	WHERE	Users.UID = #session.UID# AND Companies.CID = '#getDetails.CID#'
 </cfquery>
 
 <cfquery name="BookingDates" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 SELECT     EndDate, StartDate
 FROM       Bookings
-WHERE     (BookingID = '#form.BookingID#')
+WHERE     (BRID = '#form.BRID#')
 </cfquery>
 	<cfoutput>
 		<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Drydock Booking Request - Services and Facilities Requested" type="html">
@@ -189,5 +189,5 @@ WHERE     (BookingID = '#form.BookingID#')
 		</cfmail>
 	</cfoutput>
 
-<cflocation addtoken="no" url="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#&BookingID=#url.BookingID#">
+<cflocation addtoken="no" url="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#&BRID=#url.BRID#">
 

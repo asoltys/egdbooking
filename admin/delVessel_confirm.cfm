@@ -1,4 +1,4 @@
-<cfif isDefined("form.VesselID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.VNID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfset Errors = ArrayNew(1)>
@@ -6,10 +6,10 @@
 <cfset Proceed_OK = "Yes">
 
 <!--- Validate the form data --->
-<cfif NOT isDefined("Form.CompanyID") OR form.companyID EQ "">
+<cfif NOT isDefined("Form.CID") OR form.CID EQ "">
 	<cfoutput>#ArrayAppend(Errors, "You must select a company.")#</cfoutput>
 	<cfset Proceed_OK = "No">
-<cfelseif NOT isDefined("Form.VesselID") OR form.VesselID EQ "">
+<cfelseif NOT isDefined("Form.VNID") OR form.VNID EQ "">
 	<cfoutput>#ArrayAppend(Errors, "You must select a user to delete.")#</cfoutput>
 	<cfset Proceed_OK = "No">
 </cfif>
@@ -17,8 +17,8 @@
 
 <cfif Proceed_OK EQ "No">
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->
-	<cfset Session.Return_Structure.CompanyID = Form.CompanyID>
-	<cfset Session.Return_Structure.UserID = Form.VesselID>
+	<cfset Session.Return_Structure.CID = Form.CID>
+	<cfset Session.Return_Structure.UID = Form.VNID>
 
 	<cfset Session.Return_Structure.Errors = Errors>
 
@@ -34,29 +34,29 @@
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm Delete Vessel</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<cfif isDefined("form.vesselID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.VNID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <!---retrieve information on the company selected--->
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Vessels.*, Companies.Name AS companyName
-	FROM Vessels INNER JOIN Companies ON Vessels.companyID = Companies.companyID
-	WHERE Vessels.VesselID = #form.vesselID#
+	FROM Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
+	WHERE Vessels.VNID = #form.VNID#
 </cfquery>
 
 <!-- 2005-09-27: Added new resriction on the following two queries, Deleted must be 0 -->
 <cfquery name="getVesselDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
-	FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
-			INNER JOIN Docks ON Bookings.BookingID = Docks.BookingID
-	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #form.VesselID# AND Bookings.Deleted = 0
+	FROM	Bookings INNER JOIN Vessels ON Vessels.VNID = Bookings.VNID
+			INNER JOIN Docks ON Bookings.BRID = Docks.BRID
+	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VNID = #form.VNID# AND Bookings.Deleted = 0
 </cfquery>
 
 <cfquery name="getVesselJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
-	FROM	Bookings INNER JOIN Vessels ON Vessels.VesselID = Bookings.VesselID
-			INNER JOIN Jetties ON Bookings.BookingID = Jetties.BookingID
-	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VesselID = #form.VesselID# AND Bookings.Deleted = 0
+	FROM	Bookings INNER JOIN Vessels ON Vessels.VNID = Bookings.VNID
+			INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
+	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VNID = #form.VNID# AND Bookings.Deleted = 0
 </cfquery>
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
@@ -94,7 +94,7 @@
 				<cfform action="delVessel_action.cfm?lang=#lang#" method="post" id="delVesselConfirmForm">
 					Are you sure you want to delete <cfoutput><strong>#getVessel.Name#</strong></cfoutput>?
 
-					<input type="hidden" name="vesselID" value="<cfoutput>#form.vesselID#</cfoutput>" />
+					<input type="hidden" name="VNID" value="<cfoutput>#form.VNID#</cfoutput>" />
 			<br /><br />
 					<cfoutput query="getVessel">
 					<table style="padding-top:10px;">

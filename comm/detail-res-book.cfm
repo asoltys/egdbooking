@@ -46,7 +46,7 @@
 <cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT ReadOnly
 	FROM Users
-	WHERE UserID = #Session.UserID#
+	WHERE UID = #Session.UID#
 </cfquery>
 <cfoutput query="readonlycheck">
 	<cfset Session.ReadOnly = #ReadOnly#>
@@ -61,7 +61,7 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 
-<cfif NOT IsDefined('url.bookingid') OR NOT IsNumeric(url.bookingid)>
+<cfif NOT IsDefined('url.BRID') OR NOT IsNumeric(url.BRID)>
 	<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 		<cflocation addtoken="no" url="#RootDir#admin/menu.cfm?lang=#lang#"><br />
 	<CFELSE>
@@ -82,32 +82,32 @@
 </CFIF>
 
 <cfquery name="getBookingDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	Bookings.EndHighlight, Bookings.BookingID, Docks.BookingID as DBID, Jetties.BookingID as JBID,
+	SELECT	Bookings.EndHighlight, Bookings.BRID, Docks.BRID as DBID, Jetties.BRID as JBID,
 		StartDate, EndDate,
 		Section1, Section2, Section3,
 		NorthJetty, SouthJetty,
 		Docks.Status AS DStatus, Jetties.Status AS JStatus,
-		Vessels.Name AS VesselName, Vessels.VesselID, Anonymous,
+		Vessels.Name AS VesselName, Vessels.VNID, Anonymous,
 		Length, Width, LloydsID, Tonnage,
 		BookingTime,
-		Companies.Name AS CompanyName, Companies.CompanyID, City, Country,
+		Companies.Name AS CompanyName, Companies.CID, City, Country,
 		FirstName, LastName
 	FROM	Bookings
-		LEFT JOIN	Docks ON Bookings.BookingID = Docks.BookingID
-		LEFT JOIN	Jetties ON Bookings.BookingID = Jetties.BookingID
-		INNER JOIN	Vessels ON Bookings.VesselID = Vessels.vesselID
-		INNER JOIN	Companies ON Vessels.CompanyID = Companies.CompanyID
-		INNER JOIN	Users ON Bookings.userID = Users.userID
-	WHERE	Bookings.BookingID = #url.bookingid#
+		LEFT JOIN	Docks ON Bookings.BRID = Docks.BRID
+		LEFT JOIN	Jetties ON Bookings.BRID = Jetties.BRID
+		INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
+		INNER JOIN	Companies ON Vessels.CID = Companies.CID
+		INNER JOIN	Users ON Bookings.UID = Users.UID
+	WHERE	Bookings.BRID = #url.BRID#
 		AND Bookings.Deleted = '0'
 		AND Vessels.Deleted = '0'
 </cfquery>
 
 <cfquery name="isUsers" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	UserID, CompanyID
+	SELECT	UID, CID
 	FROM	UserCompanies
-	WHERE	UserID = '#session.userID#'
-		AND	CompanyID = '#getBookingDetail.CompanyID#'
+	WHERE	UID = '#session.UID#'
+		AND	CID = '#getBookingDetail.CID#'
 		AND	Approved = 1
 		AND	Deleted = 0
 </cfquery>
@@ -121,7 +121,7 @@
 </cfif>
 
 <cfoutput query="getBookingDetail">
-	<CFIF DBID eq BookingID>
+	<CFIF DBID eq BRID>
 		<CFSET Variables.isJetty = 0>
 	<CFELSE>
 		<CFSET Variables.isJetty = 1>
@@ -163,10 +163,10 @@
 				<!---check if ship belongs to user's company--->
 				<cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
 					<cfquery name="userVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-						SELECT	Vessels.VesselID
-						FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-								INNER JOIN Vessels ON UserCompanies.CompanyID = Vessels.CompanyID
-						WHERE	Users.UserID = #Session.UserID# AND Vessels.VesselID = #getBookingDetail.VesselID#
+						SELECT	Vessels.VNID
+						FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+								INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
+						WHERE	Users.UID = #Session.UID# AND Vessels.VNID = #getBookingDetail.VNID#
 					</cfquery>
 				</cflock>
 
@@ -293,14 +293,14 @@
 
 							<cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn>
 								<cfif not isJetty>
-									<a href="#RootDir#admin/DockBookings/feesForm_admin.cfm?#urltoken#&amp;bookingid=#url.bookingid#&amp;referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">#language.tariff#</a>
-									<a href="#RootDir#admin/DockBookings/editBooking.cfm?lang=#lang#&amp;bookingid=#url.bookingid#&amp;referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">
+									<a href="#RootDir#admin/DockBookings/feesForm_admin.cfm?#urltoken#&amp;BRID=#url.BRID#&amp;referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">#language.tariff#</a>
+									<a href="#RootDir#admin/DockBookings/editBooking.cfm?lang=#lang#&amp;BRID=#url.BRID#&amp;referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">
 								<cfelse>
-									<a href="#RootDir#admin/JettyBookings/editJettyBooking.cfm?lang=#lang#&amp;bookingid=#url.bookingid#&amp;CompanyID=#companyID#&amp;referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">
+									<a href="#RootDir#admin/JettyBookings/editJettyBooking.cfm?lang=#lang#&amp;BRID=#url.BRID#&amp;CID=#CID#&amp;referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">
 								</cfif>#language.EditBooking#</a>
 
 								<cfif isJetty>
-									<a href="#RootDir#admin/JettyBookings/deleteJettyBooking_confirm.cfm?lang=#lang#&bookingID=#url.bookingID#&amp;CompanyID=#getBookingDetail.CompanyID#&referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">
+									<a href="#RootDir#admin/JettyBookings/deleteJettyBooking_confirm.cfm?lang=#lang#&BRID=#url.BRID#&amp;CID=#getBookingDetail.CID#&referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">
 										<cfif bookingIsInPast>
 											#language.DeleteBooking#
 										<cfelse>
@@ -308,7 +308,7 @@
 										</cfif>
 									</a>
 								<cfelse>
-									<a href="#RootDir#admin/DockBookings/deleteBooking_confirm.cfm?lang=#lang#& bookingID=#url.bookingID#&amp;CompanyID=#getBookingDetail.CompanyID#&referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">
+									<a href="#RootDir#admin/DockBookings/deleteBooking_confirm.cfm?lang=#lang#& BRID=#url.BRID#&amp;CID=#getBookingDetail.CID#&referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">
 										<cfif bookingIsInPast>
 											#language.DeleteBooking#
 										<cfelse>
@@ -322,20 +322,20 @@
 									<cfif bookingIsInFuture AND (getBookingDetail.DStatus NEQ 'C' AND getBookingDetail.JStatus NEQ 'C') AND userVessel.recordCount GT 0>
 
 										<CFIF (isDefined("DStatus") AND DStatus eq 't') OR (isDefined("JStatus") AND JStatus eq 't')>
-											<a href="#RootDir#reserve-book/resconf-bookconf_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;date=#url.date#&amp;jetty=#isJetty#" class="textbutton">#language.confirmbooking#</a>
+											<a href="#RootDir#reserve-book/resconf-bookconf_confirm.cfm?lang=#lang#&amp;BRID=#url.BRID#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;date=#url.date#&amp;jetty=#isJetty#" class="textbutton">#language.confirmbooking#</a>
 										</CFIF>
 
-										<a href="#RootDir#reserve-book/resmod-bookedit.cfm?lang=#lang#&amp;BookingID=#url.bookingid#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;date=#url.date#" class="textbutton">#language.EditBooking#</a>
+										<a href="#RootDir#reserve-book/resmod-bookedit.cfm?lang=#lang#&amp;BRID=#url.BRID#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;date=#url.date#" class="textbutton">#language.EditBooking#</a>
 
-										<a href="#RootDir#reserve-book/resannul-bookcancel_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;date=#url.date#&amp;jetty=#isJetty#" class="textbutton">#language.requestCancelBooking#</a>
+										<a href="#RootDir#reserve-book/resannul-bookcancel_confirm.cfm?lang=#lang#&amp;BRID=#url.BRID#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;date=#url.date#&amp;jetty=#isJetty#" class="textbutton">#language.requestCancelBooking#</a>
 
 									<cfelseif userVessel.recordCount GT 0 AND (getBookingDetail.DStatus EQ 'C' OR getBookingDetail.JStatus EQ 'C' OR DateCompare(PacificNow, getBookingDetail.StartDate, 'd') NEQ -1) AND DateCompare(PacificNow, getBookingDetail.endDate, 'd') NEQ 1>
-										<a href="#RootDir#reserve-book/resannul-bookcancel_confirm.cfm?lang=#lang#&amp;bookingID=#url.bookingID#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;date=#url.date#&amp;jetty=#isJetty#" class="textbutton">#language.requestCancelBooking#</a>
+										<a href="#RootDir#reserve-book/resannul-bookcancel_confirm.cfm?lang=#lang#&amp;BRID=#url.BRID#&amp;referrer=#URLEncodedFormat(url.referrer)#&amp;date=#url.date#&amp;jetty=#isJetty#" class="textbutton">#language.requestCancelBooking#</a>
 									</cfif>
 								</CFIF>
 
 								<cfif url.referrer eq "Archive">
-									<a href="#returnTo#?lang=#lang#&amp;date=#url.date#&amp;CompanyID=#url.companyID#" class="textbutton">#language.Back#</a>
+									<a href="#returnTo#?lang=#lang#&amp;date=#url.date#&amp;CID=#url.CID#" class="textbutton">#language.Back#</a>
 								<cfelse>
 									<a href="#returnTo#?lang=#lang#&amp;date=#url.date#" class="textbutton">#language.Back#</a>
 								</cfif>

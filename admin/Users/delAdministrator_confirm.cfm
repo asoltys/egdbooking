@@ -6,14 +6,14 @@
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Delete Administrator</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<cfif isDefined("form.userID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.UID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT Users.UserID, FirstName + ' ' + LastName AS UserName
+		SELECT Users.UID, FirstName + ' ' + LastName AS UserName
 		FROM Users
-		WHERE UserID = #form.UserID#
+		WHERE UID = #form.UID#
 	</cfquery>
 </cflock>
 
@@ -70,7 +70,7 @@ function EditSubmit ( selectedform )
 
 					</div>
 
-					<input type="hidden" name="userID" value="<cfoutput>#form.UserID#</cfoutput>" />
+					<input type="hidden" name="UID" value="<cfoutput>#form.UID#</cfoutput>" />
 				</cfform>
 
 			</div>

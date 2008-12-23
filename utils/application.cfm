@@ -31,4 +31,4 @@
 <cfparam name="url.EndDate" default="#DateAdd('d', 30, PacificNow)#">
 <cfparam name="url.showConfirmed" default="off">
 <cfparam name="url.showPending" default="off">
-<!--- <cfparam name="url.userID" default="#session.userID#"> --->
+<!--- <cfparam name="url.UID" default="#session.UID#"> --->

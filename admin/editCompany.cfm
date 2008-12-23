@@ -1,6 +1,6 @@
 <cfinclude template="#RootDir#includes/companyInfoVariables.cfm">
 
-<cfif isDefined("form.companyID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif isDefined("form.CID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 
@@ -13,25 +13,25 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="getCompanyList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT CompanyID, Name
+	SELECT CID, Name
 	FROM Companies
 	WHERE Approved = 1 AND Deleted = 0
 	ORDER BY Name
 </cfquery>
 
-<cfparam name="form.companyID" default="">
+<cfparam name="form.CID" default="">
 
-<CFIF IsDefined('url.companyID')>
-	<CFSET form.companyID = url.companyID>
+<CFIF IsDefined('url.CID')>
+	<CFSET form.CID = url.CID>
 </CFIF>
 <!---<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 
-	<cfparam name="form.companyID" default="#session.companyID#">
+	<cfparam name="form.CID" default="#session.CID#">
 
 	<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT *
 		FROM Companies
-		WHERE companyID = #form.companyID#
+		WHERE CID = #form.CID#
 	</cfquery>
 
 </cflock>--->
@@ -91,17 +91,17 @@ function EditSubmit ( selectedform )
 				</cfif>
 
 				<cfform action="editCompany.cfm?lang=#lang#" method="post" id="chooseCompanyForm">
-					<cfselect name="companyID" query="getCompanyList" value="companyID" display="Name" selected="#form.companyID#" />
+					<cfselect name="CID" query="getCompanyList" value="CID" display="Name" selected="#form.CID#" />
 					<!---a href="javascript:EditSubmit('chooseCompanyForm');" class="textbutton">View</a--->
 					<input type="submit" value="View" class="textbutton" />
 					<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='menu.cfm?lang=#lang#'" /></cfoutput>
 				</cfform>
 
-				<cfif form.CompanyID NEQ "">
+				<cfif form.CID NEQ "">
 					<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT	*
 						FROM	Companies
-						WHERE	Companies.CompanyID = #form.CompanyID#
+						WHERE	Companies.CID = #form.CID#
 							AND	Deleted = '0'
 							AND	Approved = '1'
 						ORDER BY	Name
@@ -111,7 +111,7 @@ function EditSubmit ( selectedform )
 						<CFLOCATION addtoken="no" url="editCompany.cfm">
 					</CFIF>
 
-					<cfif NOT isDefined("url.companyID")>
+					<cfif NOT isDefined("url.CID")>
 						<cfoutput query="getCompany">
 							<CFSET "Variables.name" = Name>
 							<CFSET "Variables.address1" = Address1>
@@ -172,7 +172,7 @@ function EditSubmit ( selectedform )
 						</tr>
 						<tr>
 							<td id="" colspan="2" align="center" style="padding-top:20px;">
-								<input type="hidden" name="companyID" value="#form.companyID#" />
+								<input type="hidden" name="CID" value="#form.CID#" />
 								<input type="submit" class="textbutton" value="submit" />
 								<input type="button" value="Cancel" onclick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" />
 							</td>
