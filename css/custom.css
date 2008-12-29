@@ -17,6 +17,14 @@
 
 /* GENERAL CONTROL DEFINITIONS ------------------------- */
 
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
 .hidden {
   display: none;
 }
@@ -53,6 +61,16 @@ table tr {
 }
 
 /* CALENDAR TABLE -------------------------------------- */
+
+div.date-select {
+	width: 100%;
+	text-align: center;
+}
+
+div.date-select form {
+	background: none;
+	border: none;
+}
 
 /* Fixes height of each row of the calendar. */
 tr.week {

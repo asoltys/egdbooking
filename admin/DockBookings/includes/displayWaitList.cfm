@@ -2,11 +2,11 @@
 	<p><cfoutput>#Variables.waitListText#</cfoutput></p>
 	<table class="basic smallFont">
 		<tr>
-			<th align="left" id="Booked" style="width:18%;">Booked</th>
+			<th align="left" id="Booked">Booked</th>
 			<th id="Agent" align="left">Agent</th>
 			<th id="Company" align="left">Company</th>
 			<th id="Vessel" align="left">Vessel</th>
-			<th align="left" id="Dates" style="width:20%;">Docking Dates</th>
+			<th align="left" id="Dates">Docking Dates</th>
 		</tr>
 	<cfset count = 1>
 	<cfloop condition="count LTE ArrayLen(conflictArray)">

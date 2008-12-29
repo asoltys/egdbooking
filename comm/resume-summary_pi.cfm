@@ -177,12 +177,12 @@ WHERE	SouthJetty = 1
 
 <!-- FIP HEADER BEGINS | DEBUT DE L'EN-TETE PCIM -->
 <CFIF lang EQ "eng">
-<div style="float:right; position:relative; z-index:1; height:33px;">
+<div>
 	<img src="#CLF_URL#/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
 </div>
 <a name="tphp" id="tphp"><img src="#CLF_URL#/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></a>
 <CFELSE>
-<div style="float:right; position:relative; z-index:1; height:33px;">
+<div>
 	<img src="#CLF_URL#/clf20/images/wmms.gif" width="83" height="20" alt="Symbole du gouvernement du Canada" />
 </div>
 <a name="tphp" id="tphp"><img src="#CLF_URL#/clf20/images/sig-fra.gif" width="364" height="33" alt="Travaux publics et Services gouvernementaux Canada" /></a>

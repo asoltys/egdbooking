@@ -129,10 +129,10 @@
 
 
 				<cfoutput>
-				<div style="float:left;"><a href="calend-jet-3m.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
-				<div style="float:right;"><a href="calend-jet-3m.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
-				<div style="width:100%; text-align:center;">
-					<form id="dateSelect" action="calend-cale-dock-3m.cfm?lang=#lang#" method="post" style="margin: 0; padding:0; ">
+				<div class="left"><a href="calend-jet-3m.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
+				<div class="right"><a href="calend-jet-3m.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
+				<div class="date-select">
+					<form id="dateSelect" action="calend-cale-dock-3m.cfm?lang=#lang#" method="post">
 						<select name="month" id="month">
 							<CFLOOP index="i" from="1" to="12">
 								<option value="#i#" <cfif i eq url.month>selected="selected"</cfif>>#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
@@ -166,8 +166,8 @@
 				</CFLOOP>
 
 				<cfoutput>
-				<div style="float:left;"><a href="calend-jet-3m.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
-				<div style="text-align:right;"><a href="calend-jet-3m.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
+				<div class="left"><a href="calend-jet-3m.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
+				<div class="right"><a href="calend-jet-3m.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
 				</cfoutput>
 
 				<CFSET pos="bottom">

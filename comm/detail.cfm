@@ -171,7 +171,7 @@
 						<td colspan="2">#language.closedForMaint#</td>
 					</tr>
 					<tr>
-						<td id="SectionsBooked" style="width:35%;">#language.SectionsBooked#:</td>
+						<td id="SectionsBooked">#language.SectionsBooked#:</td>
 						<td><CFIF Section1>#language.Drydock1#</CFIF><CFIF Section2><CFIF Section1> &amp; </CFIF>#language.Drydock2#</CFIF><CFIF Section3><CFIF Section1 OR Section2> &amp; </CFIF>#language.Drydock3#</CFIF></td>
 					</tr>
 					<tr>
@@ -198,12 +198,13 @@
 
 				<table class="bookingDetails" <CFIF EVALUATE(Variables.count) GT 0> bgcolor="##E0E6CF"</CFIF>>
 					<tr>
-						<td colspan="2" <CFIF Status eq 'c'>style="font-weight: bold;"</CFIF> ><cfif #EndHighlight# GTE PacificNow>* </cfif>
+						<td colspan="2"><CFIF Status eq 'c'><strong></cfif><cfif #EndHighlight# GTE PacificNow>* </cfif>
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
 								#language.Deepsea#
 							<CFELSE>
 								#VesselName# (<a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=Details For">#language.moreInfo#</a>)
 							</CFIF>
+							<CFIF Status eq 'c'></strong></cfif>
 						</td>
 					</tr>
 					<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR IsDefined('session.AdminLoggedIn')>
@@ -278,13 +279,15 @@
 
 				<table class="bookingDetails">
 					<tr>
-						<td colspan="2" <CFIF Status eq 'c'>style="font-weight: bold;"</CFIF> >
+						<td colspan="2">
+						<CFIF Status eq 'c'><strong></cfif>
 							<cfif #EndHighlight# GTE PacificNow>* </cfif>
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND NOT IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
 								#language.Deepsea#
 							<CFELSE>
 								#VesselName# (<a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=Details For">#language.moreInfo#</a>)
 							</CFIF>
+							<CFIF Status eq 'c'></strong></cfif>
 						</td>
 					</tr>
 					<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR IsDefined('session.AdminLoggedIn')>

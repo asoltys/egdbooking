@@ -179,7 +179,7 @@ WHERE	SouthJetty = 1
 							<cfset Variables.countQName = "userVessel" & #VNID# & ".recordCount">
 							<cfset Variables.count = EVALUATE(countQName)>
 
-						<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
+						<tr>
 							<td headers="vessel"><cfif #EndHighlight# GTE PacificNow>* </cfif><abbr title="#CompanyName#">#Abbreviation#</abbr> #VesselLength#M
 								<CFIF Anonymous
 									AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn)
@@ -236,7 +236,7 @@ WHERE	SouthJetty = 1
 							<cfset Variables.countQName = "userVessel" & #VNID# & ".recordCount">
 							<cfset Variables.count = EVALUATE(countQName)>
 
-						<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
+						<tr>
 							<td headers="vessel2"><cfif #EndHighlight# GTE PacificNow>* </cfif><aBBR title="#CompanyName#">#Abbreviation#</aBBR> #VesselLength#M
 								<CFIF Anonymous
 									AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn)
@@ -286,7 +286,7 @@ WHERE	SouthJetty = 1
 							<cfset Variables.countQName = "userVessel" & #VNID# & ".recordCount">
 							<cfset Variables.count = EVALUATE(countQName)>
 
-						<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
+						<tr>
 							<td headers="vessel3"><cfif #EndHighlight# GTE PacificNow>* </cfif><aBBR title="#CompanyName#">#Abbreviation#</aBBR> #VesselLength#M
 								<CFIF Anonymous
 									AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn)
@@ -312,7 +312,7 @@ WHERE	SouthJetty = 1
 				<caption><cfoutput>#language.legend#:</cfoutput></caption>
 					<tr>
 				<cfoutput query="getCompanies">
-						<td style="width:30%;">#Abbreviation# - #CompanyName#</td>
+						<td>#Abbreviation# - #CompanyName#</td>
 					<cfif RecordCount gt 3>
 						<CFIF CurrentRow mod 3 eq 0>
 						</tr>
