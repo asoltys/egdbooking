@@ -70,7 +70,7 @@
 	<meta name="dc.identifier" content=" " />
 	<meta name="dc.type" content="" />
 		
-	<meta name="dc.title" content="#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#" />
+	<meta name="dc.title" content="#language.title# - #language.esqGravingDock# - #language.PWGSC#" />
 	<meta name="keywords" content="#language.masterKeywords# #language.title#" />
 	<meta name="description" content="#language.title#" />
 	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
@@ -80,7 +80,7 @@
 	
 	<!-- METADATA ENDS | FIN DES METADONNEES -->
 	
-	<title><cfoutput>#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#</cfoutput> </title>
+	<title><cfoutput>#language.BookingsSummary# - #language.esqGravingDock# - #language.PWGSC#</cfoutput> </title>
 	
 	<!-- CSS needed for correct printout of table headers in IE 6.0 -->
 	<style type='text/css'>

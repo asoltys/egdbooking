@@ -122,11 +122,11 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.CreateUser#"" />
+	<meta name=""dc.title"" content=""#language.CreateUser# - #language.esqGravingDock# - #language.PWGSC#"" />
 	<meta name=""keywords"" content=""#language.keywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.masterSubjects#"" />
-	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.CreateUser#</title>">
+	<title>#language.CreateUser# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">

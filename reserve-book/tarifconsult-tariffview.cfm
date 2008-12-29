@@ -26,11 +26,11 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.ViewTariffHeading#"" />
+	<meta name=""dc.title"" content=""#language.ViewTariffHeading# - #language.esqGravingDock# - #language.PWGSC#"" />
 	<meta name=""keywords"" content=""#language.keywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.ViewTariffHeading#</title>">
+	<title>#language.ViewTariffHeading# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="getForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">

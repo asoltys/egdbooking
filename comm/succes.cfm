@@ -14,7 +14,7 @@
 	<meta name=""keywords"" content=""#Language.masterKeywords#"" />
 	<meta name=""description"" content="""" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #Variables.Success.Breadcrumb#</title>">
+	<title>#Variables.Success.Breadcrumb# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfparam name="Variables.Success.Title" default="">

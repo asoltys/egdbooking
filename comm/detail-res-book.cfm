@@ -56,7 +56,7 @@
 	<meta name=""keywords"" content=""#Language.masterKeywords#, #language.bookingDetail#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.bookingDetail#</title>
+	<title>#language.bookingDetail# - #language.esqGravingDock# - #language.PWGSC#</title>
 ">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 

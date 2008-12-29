@@ -22,11 +22,11 @@
 </cfif>
 
 	<cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.DeleteVessel#"" />
+	<meta name=""dc.title"" content=""#language.DeleteVessel# - #language.esqGravingDock# - #language.PWGSC#"" />
 	<meta name=""keywords"" content=""#language.DeleteVessel#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.DeleteVessel#</title>">
+	<title>#language.DeleteVessel# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <script type="text/javascript">

@@ -20,7 +20,7 @@
 
 
 <cfhtmlhead text="
-<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.forgot#"" />
+<meta name=""dc.title"" content=""#language.forgot# - #language.esqGravingDock# - #language.PWGSC#"" />
 <meta name=""keywords"" content=""#language.keywords#"" />
 <meta name=""description"" content=""#language.description#"" />
 <meta name=""dc.subject"" scheme=""gccore"" content=""#language.masterSubjects#"" />
@@ -28,7 +28,7 @@
 <meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 <meta name=""dc.date.modified"" content=""2005-07-25"" />
 <meta name=""dc.date.created"" content=""2005-07-25"" />
-<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.forgot#</title>">
+<title>#language.forgot# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfset Variables.onLoad = "javascript:document.forgotForm.email.focus();">

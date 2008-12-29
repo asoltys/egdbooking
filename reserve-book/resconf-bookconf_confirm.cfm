@@ -24,11 +24,11 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.ConfirmBooking#"" />
+	<meta name=""dc.title"" content=""#language.ConfirmBooking# - #language.esqGravingDock# - #language.PWGSC#"" />
 	<meta name=""keywords"" content=""#language.keywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.ConfirmBooking#</title>
+	<title>#language.ConfirmBooking# - #language.esqGravingDock# - #language.PWGSC#</title>
 	<link rel=""styleSHEET"" type=""text/css"" href=""#RootDir#css/booking.css"">
 ">
 

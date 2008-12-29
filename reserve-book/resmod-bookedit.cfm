@@ -30,11 +30,11 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#"" />
+	<meta name=""dc.title"" content=""#language.title# - #language.esqGravingDock# - #language.PWGSC#"" />
 	<meta name=""keywords"" content=""#language.keywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#</title>">
+	<title>#language.title# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <CFPARAM name="url.referrer" default="Booking Home">

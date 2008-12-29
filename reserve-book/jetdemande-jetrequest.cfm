@@ -26,11 +26,11 @@
 
 <cfsavecontent variable="js">
 	<cfoutput>
-	<meta name="dc.title" content="#language.PWGSC# - #language.EsqGravingDockCaps# - #language.submitJettyBooking#" />
+	<meta name="dc.title" content="#language.submitJettyBooking# - #language.esqGravingDock# - #language.PWGSC#" />
 	<meta name="keywords" content="#language.keywords#" />
 	<meta name="description" content="#language.description#" />
 	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.submitJettyBooking#</title>
+	<title>#language.submitJettyBooking# - #language.esqGravingDock# - #language.PWGSC#</title>
 	<script type="text/javascript">
 		/* <![CDATA[ */
 		var bookingLength = 0;

@@ -36,11 +36,11 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.jettyCalendar#"" />
+	<meta name=""dc.title"" content=""#language.jettyCalendar# - #language.esqGravingDock# - #language.PWGSC#"" />
 	<meta name=""keywords"" content=""#Language.masterKeywords#, #language.keywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
-	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.jettyCalendar#</title>">
+	<title>#language.jettyCalendar# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->

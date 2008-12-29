@@ -29,11 +29,11 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.esqGravingDockCaps# - #language.bookingsSummary#"" />
+	<meta name=""dc.title"" content=""#language.bookingsSummary# - #language.esqGravingDock# - #language.PWGSC#"" />
 	<meta name=""keywords"" content=""#language.masterKeywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
-	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.bookingsSummary#</title>">
+	<title>#language.bookingsSummary# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <!-- Start JavaScript Block -->

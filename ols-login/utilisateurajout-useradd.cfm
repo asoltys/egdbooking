@@ -34,11 +34,11 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.CreateUser#"" />
+	<meta name=""dc.title"" content=""#language.CreateUser# - #language.esqGravingDock# - #language.PWGSC#"" />
 	<meta name=""keywords"" content=""#language.keywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.masterSubjects#"" />
-	<title>#language.PWGSC#-#language.EsqGravingDockCaps#-#language.CreateUser#</title>">
+	<title>#language.PWGSC#-#language.esqGravingDock#-#language.CreateUser#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfset Variables.onLoad = "javascript:document.addUserForm.firstname.focus();">

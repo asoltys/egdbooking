@@ -44,11 +44,11 @@
 </cfif>
 <cfsavecontent variable="js">
 	<cfoutput>
-	<meta name="dc.title" content="#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#" />
+	<meta name="dc.title" content="#language.BookingsSummary# - #language.esqGravingDock# - #language.PWGSC#" />
 	<meta name="keywords" content="#language.masterKeywords#" />
 	<meta name="description" content="#language.description#" />
 	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
-	<title>#language.PWGSC# - #language.esqGravingDockCaps# - #language.BookingsSummary#</title>
+	<title>#language.BookingsSummary# - #language.esqGravingDock# - #language.PWGSC#</title>
 	<script type="text/javascript">
 		/* <![CDATA[ */
 		var bookingLength = 0;

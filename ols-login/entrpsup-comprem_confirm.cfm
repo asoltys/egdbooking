@@ -18,11 +18,11 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.confirmRem#"" />
+	<meta name=""dc.title"" content=""#language.confirmRem# - #language.esqGravingDock# - #language.PWGSC#"" />
 	<meta name=""keywords"" content=""#language.keywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.masterSubjects#"" />
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.confirmRem#</title>">
+	<title>#language.confirmRem# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfif NOT IsDefined('form.CID')>

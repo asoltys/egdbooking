@@ -39,11 +39,11 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#"" />
+	<meta name=""dc.title"" content=""#language.title# - #language.esqGravingDock# - #language.PWGSC#"" />
 	<meta name=""keywords"" content=""#language.masterKeywords# #language.Login#"" />
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.masterSubjects#"" />
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.title#</title>">
+	<title>#language.title# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfif IsDefined("Session.Return_Structure") AND isDefined("url.pass") AND url.pass EQ "true">

@@ -26,11 +26,11 @@
 
 <cfsavecontent variable="js">
 	<cfoutput>
-	<meta name="dc.title" content="#language.PWGSC# - #language.EsqGravingDockCaps# - #language.editTariffHeading#" />
+	<meta name="dc.title" content="#language.editTariffHeading# - #language.esqGravingDock# - #language.PWGSC#" />
 	<meta name="keywords" content="#language.keywords#" />
 	<meta name="description" content="#language.description#" />
 	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
-	<title>#language.PWGSC# - #language.EsqGravingDockCaps# - #language.editTariffHeading#</title>
+	<title>#language.editTariffHeading# - #language.esqGravingDock# - #language.PWGSC#</title>
 	<script type="text/javascript">
 		/* <![CDATA[ */
 		Event.observe(window, 'load', function() {
