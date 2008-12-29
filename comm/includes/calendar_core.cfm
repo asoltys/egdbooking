@@ -14,13 +14,13 @@
 <cfset LastDay = CreateDate(url.year, url.month, LastDayofMonth)>
 <cfset CurDayofWeek = LSDateFormat(FirstDay, "dddd")>
 
-<table class="basic calendar" id="calendar<cfoutput>#url.month#</cfoutput>">
+<table class="basic calendar" id="calendar<cfoutput>#url.month#</cfoutput>" summary="<cfoutput>#language.calendar#</cfoutput>">
 	<!--- Output the days of the week at the top of the calendar --->
 	<tr>
 		<cfloop index="doh" from="1" to="#ArrayLen(DaysofWeek)#" step="1">
 		<cfoutput>
 			<CFSET dummydate = CreateDate(2005, 5, doh)>
-			<th>#LSDateFormat(dummydate, 'ddd')#</th>
+			<th scope="col">#LSDateFormat(dummydate, 'ddd')#</th>
 		</cfoutput>
 		</cfloop>
 	</tr>
