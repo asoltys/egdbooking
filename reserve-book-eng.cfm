@@ -31,17 +31,8 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 				<cfoutput>
-				<img src="#RootDir#images/EGD_aerial_small.jpg" usemap="##aerial" alt="Aerial view of the Esquimalt Graving Dock" width="435" height="342" title="Aerial view of the Esquimalt Graving Dock" />
-				<map name="aerial" id="aerial">
-					<area href="javascript:void(0);" alt="Operations Centre Building" title="Operations Centre Building" shape="rect" coords="84,207,111,231" />
-					<area href="javascript:void(0);" alt="North Landing Wharf" title="North Landing Wharf" shape="rect" coords="2,301,175,340" />
-					<area href="javascript:void(0);" alt="Pumphouse" title="Pumphouse" shape="rect" coords="60,130,98,168" />
-					<area href="javascript:void(0);" alt="South Jetty" title="South Jetty" shape="rect" coords="270,300,433,340" />
-					<area href="javascript:void(0);" alt="Drydock Section 1" title="Drydock Section 1" shape="rect" coords="168,51,260,128" />
-					<area href="javascript:void(0);" alt="Drydock Section 2" title="Drydock Section 2" shape="rect" coords="170,130,262,198" />
-					<area href="javascript:void(0);" alt="Drydock Section 3" title="Drydock Section 3" shape="rect" coords="170,200,273,298" />
-					<area href="javascript:void(0);" alt="Aerial view of the Esquimalt Graving Dock" title="Aerial view of the Esquimalt Graving Dock" shape="rect" coords="0,0,435,342" />
-				</map>
+				<img src="#RootDir#images/EGD_aerial_small.jpg" alt="Aerial view of the Esquimalt Graving Dock" width="435" height="342" title="Aerial view of the Esquimalt Graving Dock" />
+
 				<p>To reserve space for a vessel at any of the facilities of the Esquimalt Graving
 				  Dock, please proceed to the <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=eng">Booking 
 				  Application</a>.  If you experience any problems with the booking application, please
