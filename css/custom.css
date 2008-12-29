@@ -73,10 +73,15 @@ table.calendar td {
 	width: 14%;
   font-size: 11px;
 }
-table.calendar a {
-  display: block;
+table.calendar div.vessel {
   padding: 3px 0px 3px 0px;
   text-align: center;
+}
+
+table.calendar a.legend {
+  color: #fff;
+  display: none;
+  text-decoration: none;
 }
 
 /* These are smallified version of the calendar table for

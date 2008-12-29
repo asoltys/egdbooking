@@ -152,7 +152,7 @@
 							<CFIF Evaluate(sec).maint eq true>
 								<div class="maintenance"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="maintenance" title="#language.maintenance#">#language.maintenance#</a></div>
 							<CFELSEIF Evaluate(sec).name neq "">
-								<div class="#sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="confirmed" title="#Evaluate(sec).name#">#vessel_name#</a></div>
+								<div class="#sec#"><div class="vessel"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="confirmed" title="#Evaluate(sec).name#">#vessel_name#</a><a class="legend" href="###sec#"><sup>#bloop#</sup></a></div></div>
 							<CFELSE>
 								<div>&nbsp;</div>
 							</CFIF>
