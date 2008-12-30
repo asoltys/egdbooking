@@ -128,7 +128,7 @@
 						<td headers="serviceHeader">
 							<table>
 								<tr>
-									<td>#language.Misc#:</td>
+									<td><label for="other">#language.Misc#:</label></td>
 									<td><textarea name="otherText" cols="32" rows="3" disabled="disabled"><cfif isDefined("url.BRID")><cfif getForm.other EQ 1>#getForm.otherText#</cfif></cfif></textarea></td>
 								</tr>
 								<tr><td colspan="2">(#language.miscText#)</td></tr>
