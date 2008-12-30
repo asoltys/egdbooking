@@ -76,7 +76,7 @@
 <script src="#RootDir#scripts/common.js" type="text/javascript"></script>
 <!-- CUSTOM SCRIPTS/CSS END | FIN DES SCRIPTS/CSS PERSONNALISES -->
 
-<noscript>JavaScript Required</noscript>
+<noscript><p>JavaScript Required</p></noscript>
 
 <!-- TEMPLATE PRINT CSS BEGINS | DEBUT DU CSS DU GABARIT POUR L'IMPRESSION -->
 <link href="#CLF_URL#/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
