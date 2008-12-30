@@ -140,6 +140,7 @@ function EditSubmit ( selectedform )
 
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 
+				<cfoutput>
 				<table style="width:85%;">
 						<tr>
 							<td colspan="2">Requested companies: </td>
@@ -201,6 +202,7 @@ function EditSubmit ( selectedform )
 					<cfset companies = URLEncodedFormat(ToBase64(cfusion_encrypt(companyList, "shanisnumber1")))>
 				</cfif>
 
+				
 				<cfform action="addNewUserCompany.cfm?lang=#lang#&companies=#companies#&info=#Variables.info#" id="addUserCompanyForm" method="post">
 				<table style="width:88%;">
 					<tr>
@@ -220,21 +222,24 @@ function EditSubmit ( selectedform )
 					</tr>
 				</table>
 				</cfform>
-
-				<br /><div style="text-align:center;"><cfoutput><input type="button" value="Done" onclick="self.location.href='#RootDir#admin/Users/editUser.cfm?lang=#lang#&UID=#url.UID#'" class="textbutton" /></cfoutput>
-
-				<cfform id="newUserForm" action="addUser_action.cfm?lang=#lang#&info=#Variables.info#">
-					<input type="hidden" name="firstname" value="#Variables.firstname#" />
-					<input type="hidden" name="lastname" value="#Variables.lastname#" />
-					<input type="hidden" name="email" value="#Variables.email#" />
-					<input type="hidden" name="password1" value="#Variables.password1#" />
-					<input type="hidden" name="companies" value="#companies#" />
-					<br /><div style="text-align:right;"><input type="submit" onclick="javascript:EditSubmit('newUserForm');" value="Submit New User" class="textbutton" />
-					<input type="button" onclick="javascript:self.location.href='addUser.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#'" value="Edit Profile" class="textbutton" />
-					<input type="button" onclick="javascript:self.location.href='../menu.cfm?lang=#lang#'" value="Cancel" class="textbutton" />
-				</cfform>
-
 				</cfoutput>
+
+				<cfif isDefined("URL.UID")>
+					<br /><div style="text-align:center;"><cfoutput><input type="button" value="Done" onclick="self.location.href='#RootDir#admin/Users/editUser.cfm?lang=#lang#&UID=#url.UID#'" class="textbutton" /></cfoutput>
+				</cfif>
+
+        <cfoutput>
+          <cfform id="newUserForm" action="addUser_action.cfm?lang=#lang#&info=#Variables.info#">
+            <input type="hidden" name="firstname" value="#Variables.firstname#" />
+            <input type="hidden" name="lastname" value="#Variables.lastname#" />
+            <input type="hidden" name="email" value="#Variables.email#" />
+            <input type="hidden" name="password1" value="#Variables.password1#" />
+            <input type="hidden" name="companies" value="#companies#" />
+            <br /><div style="text-align:right;"><input type="submit" onclick="javascript:EditSubmit('newUserForm');" value="Submit New User" class="textbutton" />
+            <input type="button" onclick="javascript:self.location.href='addUser.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#'" value="Edit Profile" class="textbutton" />
+            <input type="button" onclick="javascript:self.location.href='../menu.cfm?lang=#lang#'" value="Cancel" class="textbutton" />
+          </cfform>
+        </cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

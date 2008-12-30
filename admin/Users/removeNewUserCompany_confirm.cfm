@@ -9,25 +9,11 @@
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm Remove Company</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<!---<CFIF not IsDefined('form.UID')>
-	<cflocation addtoken="no" url="editUser.cfm?lang=#lang#">
-</CFIF>
-
-<cfif NOT IsDefined('form.CID')>
-	<cflocation addtoken="no" url="editUser.cfm?lang=#lang#&UID=#form.UID#">
-</cfif>--->
-
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name
 	FROM	Companies
 	WHERE	CID = #form.CID#
 </cfquery>
-
-<!---<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT FirstName + ' ' + LastName AS UserName
-	FROM Users
-	WHERE UID = #url.UID#
-</cfquery>--->
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
@@ -61,18 +47,16 @@
 					<cfinclude template="#RootDir#includes/getStructure.cfm">
 				</cfif>
 
-				<cfform action="removeNewUserCompany_action.cfm?info=#url.info#&companies=#url.companies#" method="post" id="remCompanyConfirmForm">
+				<cfform action="removeNewUserCompany_action.cfm?info=#url.info#&companies=#url.companies#" method="post" id="remCompanyConfirmForm" name="remCompanyConfirmForm">
 					<div style="text-align:center;">Are you sure you want to remove <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
 
 					<p><div style="text-align:center;">
 						<input type="button" value="Remove" onclick="document.remCompanyConfirmForm.submit();" class="textbutton" />
 						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='addNewUserCompany.cfm?info=#url.info#&companies=#url.companies#'" class="textbutton" /></cfoutput>
-					<!---<input type="submit" value="Delete" class="button" />
-					<input type="button" value="Cancel" onclick="javascript:location.href='delVessel.cfm'" class="button" />
-					</div></p>
-
-					<cfoutput><input type="hidden" name="CID" value="#form.CID#" />
-					<!---<cfoutput><input type="hidden" name="UID" value="#url.UID#" />
+					<cfoutput><input type="hidden" name="CID" value="#form.CID#" /></cfoutput>
+					<cfif isDefined("URL.UID")>
+					<cfoutput><input type="hidden" name="UID" value="#url.UID#" /></cfoutput>
+					</cfif>
 				</cfform>
 
 			</div>

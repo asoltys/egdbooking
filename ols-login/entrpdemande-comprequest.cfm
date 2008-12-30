@@ -1,3 +1,39 @@
+<cfif lang EQ "eng">
+	<cfset language.createUser = "Create New User">
+	<cfset language.keywords = "Add New User Account">
+	<cfset language.description = "Allows user to create a new user account.">
+	<cfset language.company = "Company">
+	<cfset language.companies = "Companies">
+	<cfset language.remove = "Remove">
+	<cfset language.awaitingApproval = "awaiting approval">
+	<cfset language.addCompany = "Add Company">
+	<cfset language.notListed = "If the desired company is not listed,">
+	<cfset language.toCreate = "create it.">
+	<cfset language.add = "Add">
+	<cfset language.editProfile = "Edit Profile">
+	<cfset language.noCompanies = "No Companies">
+	<cfset language.yourCompanies = "Your requested companies">
+	<cfset language.submitUserRequest = "Submit New User Request">
+	<cfset language.selectCompany = "Please select a company.">
+<cfelse>
+	<cfset language.createUser = "Cr&eacute;er un nouvel utilisateur">
+	<cfset language.keywords = "#language.masterKeywords#" & ", Ajout d'un nouveau compte d'utilisateur">
+	<cfset language.description = "Permet &agrave; l'utilisateur de cr&eacute;er un nouveau compte d'utilisateur.">
+	<cfset language.company = "Entreprise">
+	<cfset language.companies = "Entreprises">
+	<cfset language.remove = "Supprimer">
+	<cfset language.awaitingApproval = "en attente d'approbation">
+	<cfset language.addCompany = "Ajout d'une entreprise">
+	<cfset language.notListed = "Si l'entreprise recherch&eacute;e ne se trouve pas dans la liste,">
+	<cfset language.toCreate = "cr&eacute;er elle.">
+	<cfset language.add = "Ajouter">
+	<cfset language.editProfile = "Modification de r&eacute;servation">
+	<cfset language.noCompanies = "Aucune entreprise">
+	<cfset language.yourCompanies = "Les entreprises que vous avez demand&eacute;es">
+	<cfset language.submitUserRequest = "Pr&eacute;senter une nouvelle demande d'utilisateur">
+	<cfset language.selectCompany = "Veuillez s&eacute;lectionner une entreprise.">
+</cfif>
+
 <!---error checking for adding a company--->
 <cfset Variables.Errors = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
@@ -82,42 +118,6 @@
 	<cfinclude template="#RootDir#includes/build_form_struct.cfm">
 </cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
-
-<cfif lang EQ "eng">
-	<cfset language.createUser = "Create New User">
-	<cfset language.keywords = "Add New User Account">
-	<cfset language.description = "Allows user to create a new user account.">
-	<cfset language.company = "Company">
-	<cfset language.companies = "Companies">
-	<cfset language.remove = "Remove">
-	<cfset language.awaitingApproval = "awaiting approval">
-	<cfset language.addCompany = "Add Company">
-	<cfset language.notListed = "If the desired company is not listed,">
-	<cfset language.toCreate = "create it.">
-	<cfset language.add = "Add">
-	<cfset language.editProfile = "Edit Profile">
-	<cfset language.noCompanies = "No Companies">
-	<cfset language.yourCompanies = "Your requested companies">
-	<cfset language.submitUserRequest = "Submit New User Request">
-	<cfset language.selectCompany = "Please select a company.">
-<cfelse>
-	<cfset language.createUser = "Cr&eacute;er un nouvel utilisateur">
-	<cfset language.keywords = "#language.masterKeywords#" & ", Ajout d'un nouveau compte d'utilisateur">
-	<cfset language.description = "Permet &agrave; l'utilisateur de cr&eacute;er un nouveau compte d'utilisateur.">
-	<cfset language.company = "Entreprise">
-	<cfset language.companies = "Entreprises">
-	<cfset language.remove = "Supprimer">
-	<cfset language.awaitingApproval = "en attente d'approbation">
-	<cfset language.addCompany = "Ajout d'une entreprise">
-	<cfset language.notListed = "Si l'entreprise recherch&eacute;e ne se trouve pas dans la liste,">
-	<cfset language.toCreate = "cr&eacute;er elle.">
-	<cfset language.add = "Ajouter">
-	<cfset language.editProfile = "Modification de r&eacute;servation">
-	<cfset language.noCompanies = "Aucune entreprise">
-	<cfset language.yourCompanies = "Les entreprises que vous avez demand&eacute;es">
-	<cfset language.submitUserRequest = "Pr&eacute;senter une nouvelle demande d'utilisateur">
-	<cfset language.selectCompany = "Veuillez s&eacute;lectionner une entreprise.">
-</cfif>
 
 <cfhtmlhead text="
 	<meta name=""dc.title"" content=""#language.CreateUser# - #language.esqGravingDock# - #language.PWGSC#"" />
