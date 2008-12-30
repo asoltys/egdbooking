@@ -139,11 +139,13 @@
 
 					<form id="dateSelect" class="noBorder" action="calend-cale-dock.cfm?lang=#lang#" method="post">
 						<fieldset>
+							<label for="month">Month</label>
 							<select name="month" id="month">
 								<CFLOOP index="i" from="1" to="12">
 									<option value="#i#" <cfif i eq url.month>selected="selected"</cfif>>#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
 									</CFLOOP>
 								</select>
+							<label for="year">Year</label>
 							<select name="year" id="year">
 								<CFLOOP index="i" from="-5" to="25">
 									<cfset year = #DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
