@@ -204,7 +204,7 @@ function EditSubmit ( selectedform )
 
 			<p>Please confirm the following information.</p>
 			<cfform action="editBooking_action.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" id="bookingreq" preservedata="Yes">
-			<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" />
+			<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" /></cfoutput>
 			<div style="font-weight:bold;">Booking:</div>
 			<table style="width:100%; padding-left:15px;" align="center" >
 				<tr>
@@ -249,9 +249,9 @@ function EditSubmit ( selectedform )
 				<tr>
 					<td id="Sections" align="left">Sections:</td>
 					<td headers="Sections">
-						<CFIF Variables.Section1>Section 1<input type="hidden" name="Section1" value="true" />
-						<CFIF Variables.Section2><CFIF Variables.Section1> &amp; </CFIF>Section 2<input type="hidden" name="Section2" value="true" />
-						<CFIF Variables.Section3><CFIF Variables.Section1 OR Variables.Section2> &amp; </CFIF>Section 3<input type="hidden" name="Section3" value="true" />
+						<CFIF Variables.Section1>Section 1<input type="hidden" name="Section1" value="true" /></CFIF>
+						<CFIF Variables.Section2><CFIF Variables.Section1> &amp; </CFIF>Section 2<input type="hidden" name="Section2" value="true" /></CFIF>
+						<CFIF Variables.Section3><CFIF Variables.Section1 OR Variables.Section2> &amp; </CFIF>Section 3<input type="hidden" name="Section3" value="true" /></CFIF>
 					</td>
 				</tr>
 				</cfif>
