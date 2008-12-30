@@ -114,7 +114,7 @@
 								<td headers="fax_header"><cfinput id="fax" name="fax" type="text" size="10" maxlength="32" /></td>
 							</tr>
 							<tr>
-								<td colspan="2" align="center" style="padding-top:20px;">
+								<td colspan="2" align="center">
 									<input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
 									<input type="button" value="#language.Cancel#" onclick="self.location.href='addUserCompanies.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#'" class="textbutton" />							</td>
 							</tr>

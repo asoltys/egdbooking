@@ -71,9 +71,9 @@
 
 				<cfoutput>
 				<cfform action="#RootDir#reserve-book/entrpsup-comprem_action.cfm?lang=#lang#" method="post" id="remCompanyConfirmForm">
-					<div style="text-align:center;">#language.AreYouSure# <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
+					<div>#language.AreYouSure# <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
 
-					<p><div style="text-align:center;">
+					<p><div>
 						<!--a href="javascript:document.remCompanyConfirmForm.submit();" class="textbutton">Submit</a>
 						<a href="profilmod-profileedit.cfm" class="textbutton">Cancel</a-->
 					<input type="submit" value="#language.Remove#" class="textbutton" />

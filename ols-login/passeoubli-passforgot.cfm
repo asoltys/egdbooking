@@ -58,7 +58,7 @@
 						<br />
 					</cfif>
 
-					<div style="text-align:center;">#language.enterEmail#<br />#language.getPassword#</div><br />
+					<div>#language.enterEmail#<br />#language.getPassword#</div><br />
 
 					<form action="passeoubli-passforgot_action.cfm?lang=#lang#" id="forgotForm">
 						<table>
@@ -71,7 +71,7 @@
 						</table>
 					</form>
 
-					<div style="text-align:center;"><a href="ols-login.cfm?lang=#lang#">#language.returnlogin#</a></div>
+					<div><a href="ols-login.cfm?lang=#lang#">#language.returnlogin#</a></div>
 				</cfoutput>
 				</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->

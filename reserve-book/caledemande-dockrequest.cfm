@@ -171,7 +171,7 @@
 				</form>
 				</cfoutput>
 
-				<p style="text-align:center; font-weight: bold; text-transform: uppercase; "><cfoutput>#language.or#</cfoutput></p>
+				<p><cfoutput>#language.or#</cfoutput></p>
 
 				<cfoutput>
 				<p>#language.daysToBook#  #language.dateInclusive#</p>

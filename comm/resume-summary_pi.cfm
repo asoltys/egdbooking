@@ -200,10 +200,10 @@ WHERE	SouthJetty = 1
 	<cfoutput>
 	<thead>
 	<tr bgcolor="##EEEEEE">
-		<th id="vessel" style="width: 40%;">#language.VESSELCaps#</th>
-		<th id="section" style="width: 10%;">#language.SECTIONCaps#</th>
-		<th id="docking" style="width: 25%;">#language.DOCKINGCaps#</th>
-		<th id="booking" style="width: 25%;">#language.BOOKINGDATECaps#</th>
+		<th id="vessel">#language.VESSELCaps#</th>
+		<th id="section">#language.SECTIONCaps#</th>
+		<th id="docking">#language.DOCKINGCaps#</th>
+		<th id="booking">#language.BOOKINGDATECaps#</th>
 	</tr>
 	</thead>
 	</cfoutput>
@@ -225,13 +225,13 @@ WHERE	SouthJetty = 1
 			<cfset Variables.countQName = "userVessel" & #VNID# & ".recordCount">
 			<cfset Variables.count = EVALUATE(countQName)>
 
-		<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
+		<tr>
 			<td headers="vessel"><aBBR title="#CompanyName#">#Abbreviation#</aBBR> #VesselLength#M 
 				<CFIF Anonymous 
 					AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
 					AND Variables.count eq 0 
 					AND Status neq 'c'>#language.deepsea#<CFELSE>#VesselName#</CFIF></td>
-			<td headers="section"><div style="text-align:center;"><CFIF Status eq 'c'>
+			<td headers="section"><div><CFIF Status eq 'c'>
 									<CFIF Section1 eq true>1</CFIF>
 									<CFIF Section2 eq true>
 										<CFIF Section1> &amp; </CFIF>
@@ -262,10 +262,10 @@ WHERE	SouthJetty = 1
 	<cfoutput>
 	<thead>
 	<tr bgcolor="##EEEEEE">
-		<th id="vessel2" style="width: 40%;">#language.VESSELCaps#</th>
-		<th id="section2" style="width: 10%;">#language.SECTIONCaps#</th>
-		<th id="docking2" style="width: 25%;">#language.DOCKINGCaps#</th>
-		<th id="booking2" style="width: 25%;">#language.BOOKINGDATECaps#</th>
+		<th id="vessel2">#language.VESSELCaps#</th>
+		<th id="section2">#language.SECTIONCaps#</th>
+		<th id="docking2">#language.DOCKINGCaps#</th>
+		<th id="booking2">#language.BOOKINGDATECaps#</th>
 	</tr>
 	</thead>
 	</cfoutput>
@@ -287,13 +287,13 @@ WHERE	SouthJetty = 1
 			<cfset Variables.countQName = "userVessel" & #VNID# & ".recordCount">
 			<cfset Variables.count = EVALUATE(countQName)>
 
-		<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
+		<tr>
 			<td headers="vessel2"><aBBR title="#CompanyName#">#Abbreviation#</aBBR> #VesselLength#M 
 				<CFIF Anonymous 
 					AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
 					AND Variables.count eq 0 
 					AND Status neq 'c'>#language.deepsea#<CFELSE>#VesselName#</CFIF></td>
-			<td headers="section2"><div style="text-align:center;"><CFIF Status eq 'c'>#language.Booked#
+			<td headers="section2"><div><CFIF Status eq 'c'>#language.Booked#
 										<CFELSEIF Status eq 't'>#language.tentative#
 										<CFELSE>#language.Pending#
 										</CFIF></div></td>
@@ -314,10 +314,10 @@ WHERE	SouthJetty = 1
 	<cfoutput>
 	<thead>
 	<tr bgcolor="##EEEEEE">
-		<th id="vessel3" style="width: 40%;">#language.VESSELCaps#</th>
-		<th id="section3" style="width: 10%;">#language.SECTIONCaps#</th>
-		<th id="docking3" style="width: 25%;">#language.DOCKINGCaps#</th>
-		<th id="booking3" style="width: 25%;">#language.BOOKINGDATECaps#</th>
+		<th id="vessel3">#language.VESSELCaps#</th>
+		<th id="section3">#language.SECTIONCaps#</th>
+		<th id="docking3">#language.DOCKINGCaps#</th>
+		<th id="booking3">#language.BOOKINGDATECaps#</th>
 	</tr>
 	</thead>	
 	</cfoutput>
@@ -339,13 +339,13 @@ WHERE	SouthJetty = 1
 			<cfset Variables.countQName = "userVessel" & #VNID# & ".recordCount">
 			<cfset Variables.count = EVALUATE(countQName)>
 
-		<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
+		<tr>
 			<td headers="vessel3"><aBBR title="#CompanyName#">#Abbreviation#</aBBR> #VesselLength#M 
 				<CFIF Anonymous 
 					AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
 					AND Variables.count eq 0 
 					AND Status neq 'c'>#language.deepsea#<CFELSE>#VesselName#</CFIF></td>
-			<td headers="section3"><div style="text-align:center;"><CFIF Status eq 'c'>#language.Booked#
+			<td headers="section3"><div><CFIF Status eq 'c'>#language.Booked#
 										<CFELSEIF Status eq 't'>#language.tentative#
 										<CFELSE>#language.Pending#
 										</CFIF></div></td>
@@ -363,11 +363,11 @@ WHERE	SouthJetty = 1
 <br /><br />
 
 <!--- Legend of company abbreviations --->
-<table border="1" cellpadding="2" style="width:60%;">
+<table border="1" cellpadding="2">
 <CAPTION><cfoutput><strong>#language.legend#:</strong></cfoutput></CAPTION>
 	<tr>
 <cfoutput query="getCompanies">
-		<td style="width:30%;">#Abbreviation# - #CompanyName#</td>
+		<td>#Abbreviation# - #CompanyName#</td>
 	<CFIF CurrentRow mod 3 eq 0>
 	</tr>
 	<tr>
@@ -386,7 +386,7 @@ WHERE	SouthJetty = 1
 			<!-- FOOTER BEGINS | DEBUT DU PIED DE LA PAGE -->
 			<div class="footer">
 				<hr />
-				<div style="float:left; width:33.25%; text-align:left;">
+				<div>
 					<!-- DATE MODIFIED BEGINS | DEBUT DE LA DATE DE MODIFICATION -->
 					<CFIF lang EQ 'eng' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>Date Modified:
 					<CFELSE>Date de modification&nbsp;:
@@ -397,10 +397,10 @@ WHERE	SouthJetty = 1
 					<!-- DATE MODIFIED ENDS | FIN DE LA DATE DE MODIFICATION -->
 				</div>
 				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.html ====== -->
-				<div class="screenonly" style="float:left; width:33.25%; text-align:center">
+				<div class="screenonly">
 					<a href="#tphp" title="Return to Top of Page"><img class="uparrow" src="#CLF_URL#/clf20/images/tphp.gif" width="19" height="12" alt="" /><br />Top of Page</a>
 				</div>
-				<div style="float:left; width:33.25%; text-align:right">
+				<div>
 					<a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html">Important Notices</a>
 				</div>
 				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.html ====== -->

@@ -118,7 +118,7 @@
 					<cfset counter = 0>
 					<h2>#language.Drydock#</h2>
 					<cfif "getDockBookings.recordCount" GE 1>
-						<table style="padding-left:20px; width:100%;" cellspacing="0" >
+						<table cellspacing="0" >
 
 							<cfloop query="getDockBookings">
 								<CFIF counter mod 2 eq 1>
@@ -127,13 +127,13 @@
 									<CFSET rowClass = "">
 								</CFIF>
 								<tr class="#rowClass#">
-									<td style="width:60%;"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">#Name#</a></td>
-									<td style="width:15%;">
+									<td><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">#Name#</a></td>
+									<td>
 										<cfif status EQ "P"><i>#language.pending#</i>
 										<cfelseif status EQ "C"><i>#language.confirmed#</i>
 										<cfelseif status EQ "T"><i>#language.tentative#</i></cfif>
 									</td>
-									<td style="width:25%;">
+									<td>
 										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#" title="#language.editTariff#">#language.editTariff#</a></div>
 										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#" title="#language.viewTariff#">#language.viewTariff#</a></div></cfif>
 									</td>
@@ -142,9 +142,9 @@
 									<table>
 										<tr class="#rowClass#">
 											<td>&nbsp;</td>
-											<td style="width:50%;"><div class="smallFont">#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td style="width:10%;"><div class="smallFont">#language.Agent#: </div></td>
-											<td style="width:40%;"><div class="smallFont">#AgentName#</div></td>
+											<td><div class="smallFont">#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
+											<td><div class="smallFont">#language.Agent#: </div></td>
+											<td><div class="smallFont">#AgentName#</div></td>
 										</tr>
 									</table>
 								</td></tr>
@@ -158,7 +158,7 @@
 					<cfset counter = 0>
 					<h2>#language.NorthLandingWharf#</h2>
 					<cfif getNorthJettyBookings.recordCount GE 1>
-						<table style="padding-left:20px; width:100%;" cellspacing="0" >
+						<table cellspacing="0" >
 							<cfloop query="getNorthJettyBookings">
 								<CFIF counter mod 2 eq 1>
 									<CFSET rowClass = "highlight">
@@ -166,8 +166,8 @@
 									<CFSET rowClass = "">
 								</CFIF>
 								<tr class="#rowClass#">
-									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID#url.CID#">#Name#</a></td>
-									<td style="width:40%;">
+									<td colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID#url.CID#">#Name#</a></td>
+									<td>
 										<cfif NOT status eq 'c'><i>#language.pending#</i>
 										<cfelse><i>#language.confirmed#</i></cfif>
 									</td>
@@ -177,9 +177,9 @@
 									<table>
 										<tr class="#rowClass#">
 											<td>&nbsp;</td>
-											<td style="width:50%;"><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td style="width:10%;"><div class="smallFont">#language.Agent#: </div></td>
-											<td style="width:40%;"><div class="smallFont">#AgentName#</div></td>
+											<td><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
+											<td><div class="smallFont">#language.Agent#: </div></td>
+											<td><div class="smallFont">#AgentName#</div></td>
 
 										</tr>
 									</table>
@@ -194,7 +194,7 @@
 				<cfset counter = 0>
 					<h2>#language.SouthJetty#</h2>
 					<cfif getSouthJettyBookings.recordCount GE 1>
-						<table style="padding-left:20px; width:100%;" cellspacing="0" >
+						<table cellspacing="0" >
 							<cfloop query="getSouthJettyBookings">
 								<CFIF counter mod 2 eq 1>
 									<CFSET rowClass = "highlight">
@@ -202,8 +202,8 @@
 									<CFSET rowClass = "">
 								</CFIF>
 								<tr class="#rowClass#">
-									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID#url.CID#">#Name#</a></td>
-									<td style="width:40%;">
+									<td colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID#url.CID#">#Name#</a></td>
+									<td>
 										<cfif NOT status eq 'c'><i>#language.pending#</i>
 										<cfelse><i>#language.confirmed#</i></cfif>
 									</td>
@@ -212,9 +212,9 @@
 									<table>
 										<tr class="#rowClass#">
 											<td>&nbsp;</td>
-											<td style="width:50%;"><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td style="width:10%;"><div class="smallFont">#language.Agent#: </div></td>
-											<td style="width:40%;"><div class="smallFont">#AgentName#</div></td>
+											<td><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
+											<td><div class="smallFont">#language.Agent#: </div></td>
+											<td><div class="smallFont">#AgentName#</div></td>
 										</tr>
 									</table>
 								</td></tr>

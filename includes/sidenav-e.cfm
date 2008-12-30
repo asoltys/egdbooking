@@ -2,10 +2,10 @@
 <tr> 	
 	<td colspan="2" valign="top">
 	<div id="sidenav"> 			
-		<table width="132" height="450" border="0" cellpadding="0" cellspacing="0" style="background: url(<cfoutput>#RootDir#</cfoutput>images/sidenav_images/bg.gif)">
+		<table width="132" height="450" border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td>
-				<table width="132" border="0" cellspacing="0" cellpadding="0" style="background: url(<cfoutput>#RootDir#</cfoutput>images/transp3.gif)">
+				<table width="132" border="0" cellspacing="0" cellpadding="0">
 
 				<tr valign="middle">
 					<td width="132" height="35" valign="top"><a href="http://www.pwgsc.gc.ca/pacific/egd/text/location-e.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('button1','','<cfoutput>#RootDir#</cfoutput>images/sidenav_images/button_location-e_on.gif',1)"><img name="button1" border="0" src="<cfoutput>#RootDir#</cfoutput>images/sidenav_images/button_location-e.gif" width="132" height="35" alt="Location" title="Location"></a></td>

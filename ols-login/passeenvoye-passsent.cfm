@@ -46,9 +46,9 @@
 						<br />
 					</cfif>
 					
-					<div style="text-align:center;">#language.sentPassword#</div><br />
+					<div>#language.sentPassword#</div><br />
 					
-					<div style="text-align:center;"><a href="ols-login.cfm?lang=#lang#" class="textbutton">#language.returnlogin#</a></div>
+					<div><a href="ols-login.cfm?lang=#lang#" class="textbutton">#language.returnlogin#</a></div>
 				</cfoutput>					
 			</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->

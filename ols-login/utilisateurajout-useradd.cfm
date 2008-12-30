@@ -97,7 +97,7 @@ function EditSubmit ( selectedform )
 						<cfset Variables.action = "entrpdemande-comprequest.cfm?lang=#lang#">
 					</cfif>
 					<form action="#Variables.action#" id="addUserForm" method="post">
-						<table style="width: 100%; padding-left:10px;">
+						<table>
 							<tr>
 								<td id="firstname_header"><label for="firstname">#language.FirstName#:</label></td>
 								<td headers="firstname_header"><input name="firstname" type="text" value="#variables.firstName#" size="23" maxlength="40" id="firstname" /></td>
@@ -123,7 +123,7 @@ function EditSubmit ( selectedform )
 								<td>&nbsp;</td>
 							</tr>
 							<tr>
-								<td colspan="2" align="center" style="padding-top:20px;"><!---a href="javascript:EditSubmit('addUserForm');" class="textbutton">Submit</a>
+								<td colspan="2" align="center"><!---a href="javascript:EditSubmit('addUserForm');" class="textbutton">Submit</a>
 										<a href="ols-login.cfm?<cfoutput>lang=#lang#</cfoutput>" class="textbutton">Cancel</a--->
 									<input type="submit" value="#language.continue#" class="textbutton" />
 									<input type="button" value="#language.Cancel#" onclick="self.location.href='ols-login.cfm?<cfoutput>lang=#lang#</cfoutput>'" class="textbutton" />								</td>

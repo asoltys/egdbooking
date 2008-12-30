@@ -49,7 +49,7 @@
 		<th align="left">#language.Period#</th>
 		<th align="left">#language.Vessel#</th>
 		<th align="left">#language.Company#</th>
-		<th align="left" style="width:15%;">#language.Sections#</th>
+		<th align="left">#language.Sections#</th>
 	</tr>
 	</cfoutput>
 	<cfset counter = 0>
@@ -80,7 +80,7 @@
 	<table class="basic smallFont">
 	<tr>
 		<th align="left">#language.Period#</th>
-		<th align="left" style="width:15%;">#language.Sections#</th>
+		<th align="left">#language.Sections#</th>
 	</tr>
 	</cfoutput>
 	<cfoutput query="currentMaintenance">

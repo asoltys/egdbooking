@@ -55,12 +55,12 @@
 		</div>
 	</cfif>
 
-	<div style="min-height:30px; text-align:center;">
+	<div>
 		<cfoutput>
 		<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton">#language.BookingHomeButton#</a>
 		<a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang##datetoken#" class="textbutton">#language.DrydockCalButton#</a>
 		<a href="#RootDir#comm/calend-jet.cfm?lang=#lang##datetoken#" class="textbutton">#language.JettyCalButton#</a>
-		<div style="height: 5px; ">&nbsp;</div>
+		<div>&nbsp;</div>
 
 		<cfif #Session.ReadOnly# EQ "1"><cfelse>
 		<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang##Variables.BookingRequestString#" class="textbutton">#language.RequestBookingButton#</a>

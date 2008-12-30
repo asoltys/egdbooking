@@ -8,12 +8,12 @@
 		<CFSET variables.datetoken = variables.datetoken & "&year=#url.year#">
 	</CFIF>
 
-	<div style="min-height:30px; text-align:center;">
+	<div>
 		<cfoutput>
 		<a href="#RootDir#admin/menu.cfm?lang=#lang#" class="textbutton">Admin Home</a>
 		<a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang##datetoken#" class="textbutton">Drydock Calendar</a>
 		<a href="#RootDir#comm/calend-jet.cfm?lang=#lang##datetoken#" class="textbutton">Jetty Calendar</a>
-		<div style="height: 5px; ">&nbsp;</div>
+		<div>&nbsp;</div>
 		<a href="#RootDir#admin/DockBookings/bookingmanage.cfm?lang=#lang#" class="textbutton">Drydock Bookings</a>
 		<a href="#RootDir#admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#" class="textbutton">Jetty Bookings</a>
 		<a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#" class="textbutton">Logout</a>

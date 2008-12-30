@@ -38,7 +38,7 @@
 
 				<cfoutput>
 					<p>#language.thankYou#</p>
-					<div style="text-align:center;"><a href="ols-login.cfm?lang=#lang#" class="textbutton">#language.returnlogin#</a></div><br />
+					<div><a href="ols-login.cfm?lang=#lang#" class="textbutton">#language.returnlogin#</a></div><br />
 				</cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

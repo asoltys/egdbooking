@@ -152,24 +152,16 @@
 							<CFIF Evaluate(sec).maint eq true>
 								<div class="maintenance"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="maintenance" title="#language.maintenance#">#language.maintenance#</a></div>
 							<CFELSEIF Evaluate(sec).name neq "">
-								<div class="#sec#"><div class="vessel"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="confirmed" title="#Evaluate(sec).name#">#vessel_name#</a><a class="legend" href="###sec#"><sup>#bloop#</sup></a></div></div>
-							<CFELSE>
-								<div>&nbsp;</div>
+								<div class="vessel #sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="confirmed" title="#Evaluate(sec).name#">#vessel_name#</a><a class="legend" href="###sec#"><sup>#bloop#</sup></a></div>
 							</CFIF>
 						</CFLOOP>
 						<cfif tent.num neq 0>
 							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="tentative" title="#tent.name#">#tent.name#</a></div>
-						<cfelse>
-							<div>&nbsp;</div>
 						</cfif>
 						<cfif pend.num neq 0>
 							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#pend.name#">#pend.name#</a></div>
-						<cfelse>
-							<div>&nbsp;</div>
 						</cfif>
 					</cfoutput>
-				<cfelse>
-					&nbsp;
 				</cfif>
 			</td>
 		</cfloop>

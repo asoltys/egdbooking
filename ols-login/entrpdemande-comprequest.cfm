@@ -194,7 +194,7 @@ function EditSubmit ( selectedform )
 							</tr>
 						<cfif NOT isDefined("url.companies")>
 							<tr>
-								<td style="width:8%;">&nbsp;</td><td>#language.NoCompanies#</td>
+								<td>&nbsp;</td><td>#language.NoCompanies#</td>
 							</tr>
 							<cfset companyList = ArrayToList(ArrayNew(1))>
 							<cfelse>
@@ -211,7 +211,7 @@ function EditSubmit ( selectedform )
 
 							<cfif Len(companyList) EQ 0>
 								<tr>
-									<td style="width:8%;">&nbsp;</td><td>#language.NoCompanies#</td>
+									<td>&nbsp;</td><td>#language.NoCompanies#</td>
 								</tr>
 							</cfif>
 
@@ -231,12 +231,12 @@ function EditSubmit ( selectedform )
 									WHERE	CID = '#ID#'
 								</cfquery>
 								<tr>
-									<td style="width:5%;">
+									<td>
 										<form action="entrpsup-comprem_confirm.cfm?lang=#lang#&companies=#companies#&info=#Variables.info#" method="post" id="remCompany#ID#">
 											<input type="hidden" name="CID" value="#ID#" />
 										</form> 						</td>
 									<td>#detailsID.Name#</td>
-									<cfif lang EQ 'e'><td align="left" valign="top" style="width:45%;"><cfelse></td>
+									<cfif lang EQ 'e'><td align="left" valign="top"><cfelse></td>
 									<td align="left" valign="top" style="width:50%;"></cfif><a href="javascript:EditSubmit('remCompany#ID#');" class="textbutton">#language.Remove#</a>
 									&nbsp;<i>#language.awaitingApproval#</i></td>
 								</tr>

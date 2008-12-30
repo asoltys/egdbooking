@@ -202,12 +202,12 @@
 					</a></h1>
 				<cfoutput>
 					<p>#language.message#</p>
-					<div style="text-align:center;">
+					<div>
 						<br />#language.Username#: #form.email#<br />#language.Password#: #form.password1#
 					</div>
 					
 					<br /><br />	
-					<div style="text-align:center;"><a href="ols-login.cfm?lang=#lang#" class="textbutton">#language.login#</a></div>
+					<div><a href="ols-login.cfm?lang=#lang#" class="textbutton">#language.login#</a></div>
 				</cfoutput>
 			</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->
