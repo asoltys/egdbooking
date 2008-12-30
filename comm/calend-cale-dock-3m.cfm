@@ -11,15 +11,15 @@
 	<cfset language.keywords = "Calendar, three month view, 3 month view, drydock side">
 	<cfset language.go = "Go">
 	<cfset language.viewInfo = "Click on a date to view booking information.">
-	<cfset language.key = "Colour Key">
+	<cfset language.key = "Key">
 	<cfset language.bookingtype = "Booking Type">
 	<cfset language.sec = "Dock Section">
 	<cfset language.tentBook = "Tentative Booking">
 	<cfset language.pendBook = "Pending Booking">
 	<cfset language.confBook = "Confirmed Booking">
-	<cfset language.sec1 = "Section 1 of Drydock">
-	<cfset language.sec2 = "Section 2 of Drydock">
-	<cfset language.sec3 = "Section 3 of Drydock">
+	<cfset language.sec1 = "Confirmed in Section 1 of Drydock">
+	<cfset language.sec2 = "Confirmed in Section 2 of Drydock">
+	<cfset language.sec3 = "Confirmed in Section 3 of Drydock">
 	<cfset language.prev = "previous">
 	<cfset language.next = "next">
 <cfelse>
@@ -29,15 +29,15 @@
 	<cfset language.keywords = "Calendrier, visualisation de trois mois, visualisation de 3 mois, secteur de la cale s&egrave;che">
 	<cfset language.go = "Afficher">
 	<cfset language.viewInfo = "Cliquez sur une date pour voir les renseignements sur la r&eacute;servation.">
-	<cfset language.key = "L&eacute;gende des couleurs">
+	<cfset language.key = "L&eacute;gende">
 	<cfset language.bookingtype = "Type de r&eacute;servation">
 	<cfset language.sec = "Section de la cale s&egrave;che">
 	<cfset language.tentBook = "R&eacute;servation provisoire">
 	<cfset language.pendBook = "R&eacute;servation en traitement">
 	<cfset language.confBook = "R&eacute;servation confirm&eacute;e">
-	<cfset language.sec1 = "Section 1 de la cale s&egrave;che">
-	<cfset language.sec2 = "Section 2 de la cale s&egrave;che">
-	<cfset language.sec3 = "Section 3 de la cale s&egrave;che">
+	<cfset language.sec1 = "Section 1 de la cale s&egrave;che confirm&eacute;e">
+	<cfset language.sec2 = "Section 2 de la cale s&egrave;che confirm&eacute;e">
+	<cfset language.sec3 = "Section 3 de la cale s&egrave;che confirm&eacute;e">
 	<cfset language.prev = "pr&eacute;c&eacute;dent">
 	<cfset language.next = "suivant">
 </cfif>

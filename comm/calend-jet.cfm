@@ -14,7 +14,7 @@
 	<cfset language.keywords = "Calendar, one month view, 1 month view, drydock side">
 	<cfset language.go = "Go">
 	<cfset language.viewInfo = "Click on a date to view booking information.">
-	<cfset language.key = "Colour Key">
+	<cfset language.key = "Key">
 	<cfset language.bookingtype = "Booking Type">
 	<cfset language.sec = "Dock Section">
 	<cfset language.pendBook = "Pending Booking">
@@ -29,7 +29,7 @@
 	<cfset language.keywords = "Calendrier,  visualisation d'un mois, visualisation de 3 mois, secteur de la jet&eacute;e">
 	<cfset language.go = "Afficher">
 	<cfset language.viewInfo = "Cliquez sur une date pour voir les renseignements sur la r&eacute;servation.">
-	<cfset language.key = "L&eacute;gende des couleurs">
+	<cfset language.key = "L&eacute;gende">
 	<cfset language.bookingtype = "Type de r&eacute;servation">
 	<cfset language.sec = "Section de la cale s&egrave;che">
 	<cfset language.pendBook = "R&eacute;servation en traitement">

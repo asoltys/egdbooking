@@ -13,7 +13,7 @@
 	<cfset language.keywords = "calendar, 1 month view, one month view, drydock side">
 	<cfset language.go = "Go">
 	<cfset language.viewInfo = "Click on a date to view booking information.">
-	<cfset language.key = "Colour Key">
+	<cfset language.key = "Key">
 	<cfset language.bookingtype = "Booking Type">
 	<cfset language.sec = "Dock Section">
 	<cfset language.tentBook = "Tentative Booking">
@@ -30,15 +30,15 @@
 	<cfset language.keywords = "Calendrier, visualisation d'un mois, visualisation de 1 mois, secteur de la cale s&egrave;che">
 	<cfset language.go = "Afficher">
 	<cfset language.viewInfo = "Cliquez sur une date pour voir les renseignements sur la r&eacute;servation.">
-	<cfset language.key = "L&eacute;gende des couleurs">
+	<cfset language.key = "L&eacute;gende">
 	<cfset language.bookingtype = "Type de r&eacute;servation">
 	<cfset language.sec = "Section de la cale s&egrave;che">
 	<cfset language.tentBook = "R&eacute;servation provisoire">
 	<cfset language.pendBook = "R&eacute;servation en traitement">
 	<cfset language.confBook = "R&eacute;servation confirm&eacute;e">
-	<cfset language.sec1 = "Section 1 de la cale s&egrave;che">
-	<cfset language.sec2 = "Section 2 de la cale s&egrave;che">
-	<cfset language.sec3 = "Section 3 de la cale s&egrave;che">
+	<cfset language.sec1 = "Section 1 de la cale s&egrave;che confirm&eacute;e">
+	<cfset language.sec2 = "Section 2 de la cale s&egrave;che confirm&eacute;e">
+	<cfset language.sec3 = "Section 3 de la cale s&egrave;che confirm&eacute;e">
 	<cfset language.prev = "pr&eacute;c&eacute;dent">
 	<cfset language.next = "suivant">
 </cfif>
