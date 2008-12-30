@@ -185,12 +185,10 @@ div.center a.confirmed, div.center a.confirmed:visited, div.center a.confirmed:h
 div.center .tentative, div.center a.tentative, div.center a.tentative:visited, div.center a.tentative:hover {
 	border: none;
 	color: #0033CC;
-	text-decoration: underline;
 }
 div.center .pending, div.center a.pending, div.center a.pending:visited, div.center a.pending:hover {
 	border: none;
 	color: #009933;
-	text-decoration: underline;
 }
 .cancelled, .cancelled:visited, .cancelled:hover {
 	color: #FF0000;
