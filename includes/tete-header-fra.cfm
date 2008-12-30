@@ -76,7 +76,6 @@
 <script src="#RootDir#scripts/common.js" type="text/javascript"></script>
 <!-- CUSTOM SCRIPTS/CSS END | FIN DES SCRIPTS/CSS PERSONNALISES -->
 
-<noscript><p>JavaScript requis</p></noscript>
 
 <!-- DEBUT DU CSS DU GABARIT POUR L'IMPRESSION | TEMPLATE PRINT CSS BEGINS -->
 <link href="#CLF_URL#/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
@@ -84,6 +83,7 @@
 <!-- FIN DU CSS DU GABARIT POUR L'IMPRESSION | TEMPLATE PRINT CSS ENDS -->
 </head>
 <body>
+<noscript><p>JavaScript requis</p></noscript>
 <div class="page">
 	<div class="core">
 		<!-- HEADER BEGINS | DEBUT DE L'EN-TETE -->
