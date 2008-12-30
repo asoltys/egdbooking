@@ -156,10 +156,10 @@
 							</CFIF>
 						</CFLOOP>
 						<cfif tent.num neq 0>
-							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="tentative" title="#tent.name#">#tent.name#</a></div>
+							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="tentative" title="#tent.name#">#tent.name#</a><a href="##tentative" class="legend tentative"><sup>4</sup></a></div>
 						</cfif>
 						<cfif pend.num neq 0>
-							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#pend.name#">#pend.name#</a></div>
+							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#pend.name#">#pend.name#</a><a href="##pending" class="legend pending"><sup><cfif sec3.name NEQ "">5<cfelse>3</cfif></sup></a></div>
 						</cfif>
 					</cfoutput>
 				</cfif>

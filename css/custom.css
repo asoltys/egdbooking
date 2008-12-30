@@ -17,11 +17,11 @@
 
 /* GENERAL CONTROL DEFINITIONS ------------------------- */
 
-.left {
+div.center .left {
 	text-align: left;
 }
 
-.right {
+div.center .right {
 	text-align: right;
 }
 
@@ -100,9 +100,16 @@ table.calendar div.vessel {
   text-align: center;
 }
 
+table.calendar sup {
+  font-size: 8px;
+}
+
 table.calendar a.legend {
+  text-decoration: none;
+}
+
+div.vessel a.legend {
   color: #fff;
-  display: none;
   text-decoration: none;
 }
 
