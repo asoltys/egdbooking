@@ -73,14 +73,6 @@
 				<cfset Variables.LloydsID = Form.LloydsID>
 				<cfset Variables.Tonnage = Form.Tonnage>
 
-				<!---
-				<cfset Form.EndHighlight = DateAdd("d", Form.EndHighlight, PacificNow) >
-				<cfelse>
-				<cfset Form.EndHighlight = DateAdd("yyyy", "-100", PacificNow) >
-				</cfif>
-				<cfset Variables.EndHighlight = Form.EndHighlight>
-				--->
-
 				<cfparam name="Variables.Anonymous" default="0">
 				<cfif IsDefined("Form.Anonymous")>
 					<cfset Variables.Anonymous = 1>
@@ -131,18 +123,10 @@
 							<td id="anonymous">Anonymous:</td>
 							<td headers="anonymous"><input type="hidden" name="Anonymous" value="#Variables.Anonymous#" />#Variables.Anonymous#</td>
 						</tr>
-						<!---<tr>
-							<td id="EndHighlight">Highlight until:</td>
-							<td headers="EndHighlight"><input type="hidden" name="EndHighlight" value="#Variables.EndHighlight#)" /><cfif Variables.EndHighlight GTE PacificNow>#DateFormat(Variables.EndHighlight, "mmm dd, yyyy"" />
-						</tr>--->
 						<tr>
 							<td colspan="2" align="center" style="padding-top:20px;">
 								<input type="hidden" name="VNID" value="<cfoutput>#Form.VNID#</cfoutput>" />
 								<input type="hidden" name="CID" value="<cfoutput>#Form.CID#</cfoutput>" />
-								<!---a href="javascript:document.editVessel.submitForm.click();" class="textbutton">Submit</a>
-								<a href="javascript:history.go(-1);" class="textbutton">Back</a>
-								<a href="menu.cfm?lang=#lang#" class="textbutton">Cancel</a>
-								<br--->
 								<input type="submit" value="Confirm" class="textbutton" />
 								<input type="button" value="Back" onclick="self.location.href='editVessel.cfm?lang=#lang#'" class="textbutton" />
 								<input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
