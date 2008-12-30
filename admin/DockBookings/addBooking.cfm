@@ -155,7 +155,7 @@ function EditSubmit ( selectedform )
 						</cfif>
 						<cfif getVessels.recordCount GE 1 AND getAgents.recordCount GE 1>
 							<tr>
-								<td id="startDate"><label for="start">Start Date:</label></td>
+								<td><label for="start">Start Date:</label></td>
 								<td headers="startDate">
 									<cfoutput>
 									<cfinput type="text" name="startDate" message="Please enter a start date." validate="date" required="yes" class="startDate" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
@@ -163,7 +163,7 @@ function EditSubmit ( selectedform )
 								</td>
 							</tr>
 							<tr>
-								<td id="endDate"><label for="end">End Date:</label></td>
+								<td><label for="end">End Date:</label></td>
 								<td headers="endDate">
 									<cfoutput>
 									<cfinput type="text" name="endDate" message="Please enter an end date." validate="date" required="yes" class="endDate" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
@@ -171,7 +171,7 @@ function EditSubmit ( selectedform )
 								</td>
 							</tr>
 							<tr>
-								<td id="bookingDT">Booking Time:</td>
+								<td>Booking Time:</td>
 								<td headers="bookingDT">
 									<cfoutput>
 										<cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" />
