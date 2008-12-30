@@ -302,7 +302,7 @@
 						<cfelse>
               <ul>
                 <cfloop query="getVessels">
-                  <li><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VNID=#VNID#" title="#Name#">#Name#</a></li>
+                  <li><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VNID=#VNID#" title="#Name# #VNID#">#Name#</a></li>
                 </cfloop>
               </ul>
 						</cfif>
@@ -349,7 +349,7 @@
 									</td>
 									<td style="width:25%;">
 										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.editTariff# #Name# #BRID#">#language.editTariff#</a></div>
-										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.viewTariff# #Name#">#language.viewTariff#</a></div></cfif>
+										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.viewTariff# #Name# #BRID#">#language.viewTariff#</a></div></cfif>
 									</td>
 								</tr>
 								<tr class="#rowClass#"><td colspan="3">

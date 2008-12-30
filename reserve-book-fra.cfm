@@ -1,10 +1,101 @@
-<cfhtmlhead text="
-	<meta name=""dc.title"" content=""TPSGC - CALE S&Egrave;CHE D'ESQUIMALT - R&eacute;servation pour travaux le Cale S&egrave;che d'Esquimalt"" />
-	<meta name=""keywords"" content=""cale seche d'Esquimalt, reservation pour travaux, reparation de navires, bateaux, entretien de navires, cale seche, bassin de radoub, chantier naval"" />
-	<meta name=""description"" content=""Reservation pour travaux le Cale seche d'Esquimalt"" />
-	<meta name=""dc.subject"" scheme=""gccore"" content=""Quai, Transport maritime, Navire, Traversier, Bateau de plaisance, Embarcation, Repair, Entretien, Gestion"" />
-	<title>TPSGC - CALE S&Egrave;CHE D'ESQUIMALT - Booking Space at the Esquimalt Graving Dock</title>">
-<cfinclude template="#RootDir#includes/tete-header-fra.cfm">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+
+<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
+<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,"\"), "\")>
+<cfdirectory action="LIST" directory="#PageDir#" name="GetFile" filter="#PageFileName#">
+<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
+<head>
+<!-- VERSION 1.04 DU GABARIT NSI 2.0 | CLF 2.0 TEMPLATE VERSION 1.04 -->
+<!-- VERSION 1.0 DU GABARIT TPSGC | PWGSC TEMPLATE VERSION 1.0 -->
+<!-- DEBUT DE L'EN-TETE | HEADER BEGINS -->
+
+<!-- DEBUT DU TITRE | title BEGINS -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+<link rel="schema.dc" href="http://purl.org/dc/terms/" />
+
+<meta name="dc.language" scheme="ISO639-2/T" content="fra" />
+<meta name="dc.creator" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada" />
+<meta name="dc.publisher" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada" />
+
+<meta name="dc.audience" content=" " />
+<meta name="dc.contributor" content=" " />
+<meta name="dc.coverage" content=" " />
+<meta name="dc.date.created" content="2008-06-13" />
+<meta name="dc.date.modified" content="2008-11-12" />
+<meta name="dc.format" content=" " />
+<meta name="dc.identifier" content=" " />
+<meta name="dc.type" content="" />
+
+<meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-fra.html" />
+<meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
+<meta name="dcterms.modified" scheme="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
+
+<meta name="dc.title" content="TPSGC - CALE S&Egrave;CHE D'ESQUIMALT - R&eacute;servation pour travaux le Cale S&egrave;che d'Esquimalt" />
+<meta name="keywords" content="cale seche d'Esquimalt, reservation pour travaux, reparation de navires, bateaux, entretien de navires, cale seche, bassin de radoub, chantier naval" />
+<meta name="description" content="Reservation pour travaux le Cale seche d'Esquimalt" />
+<meta name="dc.subject" scheme="gccore" content="Quai, Transport maritime, Navire, Traversier, Bateau de plaisance, Embarcation, Repair, Entretien, Gestion" />
+<title>TPSGC - CALE S&Egrave;CHE D'ESQUIMALT - Booking Space at the Esquimalt Graving Dock</title>
+
+<meta name="pwgsc.contact.email" content="questions@tpsgc.gc.ca" />
+<!-- FIN DES METADONNEES | METADATA ENDS -->
+<!-- DEBUT DES CSS DU GABARIT TPSGC | PWGSC TEMPLATE CSS BEGIN -->
+<link href="<cfoutput>#CLF_URL#</cfoutput>/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="<cfoutput>#CLF_URL#</cfoutput>/clf20/css/3col.css" media="screen, print" rel="stylesheet" type="text/css" />
+<style type="text/css" media="all">
+/* <![CDATA[ */
+	@import url(<cfoutput>#CLF_URL#</cfoutput>/clf20/css/base2.css);
+/* ]]> */
+</style>
+<!-- FIN DES SCRIPTS/CSS DU GABARIT | TEMPLATE SCRIPTS/CSS END -->
+
+<!-- PROGRESSIVE ENHANCEMENT BEGINS | DEBUT DE L'AMELIORATION PROGRESSIVE -->
+<cfoutput>
+<script src="#CLF_URL#/clf20/scripts/pe-ap.js" type="text/javascript"></script>
+<script src="#Rootdir#scripts/external.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	/* <![CDATA[ */
+		var params = {
+			lng:"fra",
+			pngfix:"#CLF_URL#/clf20/images/inv.gif"
+		};
+		PE.progress(params);
+	/* ]]> */
+</script>
+</cfoutput>
+<!-- PROGRESSIVE ENHANCEMENT ENDS | FIN DE L'AMELIORATION PROGRESSIVE -->
+
+<!-- CUSTOM SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS PERSONNALISES -->
+<cfoutput>
+<link href="#CLF_URL#/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="#CLF_URL#/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+
+<link href="#RootDir#css/custom.css" media="screen, print" rel="stylesheet" type="text/css" />
+<style type="text/css" media="screen,print">@import url(#RootDir#css/advanced.css);</style>
+<link href="#RootDir#css/calendar.css" media="screen" rel="stylesheet" type="text/css"/>
+
+<script src="#RootDir#scripts/prototype.js" type="text/javascript"></script>
+<script src="#RootDir#scripts/calendar.js" type="text/javascript"></script>
+<script src="#RootDir#scripts/common.js" type="text/javascript"></script>
+<!-- CUSTOM SCRIPTS/CSS END | FIN DES SCRIPTS/CSS PERSONNALISES -->
+
+<noscript>JavaScript requis</noscript>
+
+<!-- DEBUT DU CSS DU GABARIT POUR L'IMPRESSION | TEMPLATE PRINT CSS BEGINS -->
+<link href="#CLF_URL#/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
+</cfoutput>
+<!-- FIN DU CSS DU GABARIT POUR L'IMPRESSION | TEMPLATE PRINT CSS ENDS -->
+</head>
+<body>
+<div class="page">
+	<div class="core">
+		<!-- HEADER BEGINS | DEBUT DE L'EN-TETE -->
+		<cfinclude template="#CLF_Path#/clf20/ssi/tete-header-fra.html">
+		<!-- HEADER ENDS | FIN DE L'EN-TETE -->
+
 
 <cfoutput>
 <script type="text/javascript">
@@ -23,6 +114,23 @@ function popUp(pageID) {
 		<!-- FIN DE LA PISTE DE NAVIGATION | BREAD CRUMB ENDS -->
 		<div class="colLayout">
 		<cfinclude template="#RootDir#includes/left-menu-gauche-fra.cfm">
+		<!-- DEBUT DU MENU LATERAL DROIT | RIGHT SIDE MENU BEGINS -->
+			<div class="right">
+
+				<!-- ====== /pac/cse-egd/SSI/RIGHT-MENU-DROITE-FRA.HTML ====== -->
+<ul class="rightNav">
+	<li>
+		<h2>Saviez-vous?</h2>
+		<ul>
+			<li>La <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym> est une des rares installations de réparation de grands bâtiments au monde à avoir adopté la norme <acronym title="Organisation internationale de normailisation">ISO</acronym> 14001.  <a title="EGD: Leading the Way with ISO 14001" href="/pac/cse-egd/env/voie-way-fra.html">Détails &gt; </a></li>
+
+		</ul>
+	</li>
+</ul>
+<!-- <a href="http://www.iso.org/iso/fr/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=31807"><img src="/pac/cse-egd/images/ISO14001.gif" width="195" height="68" alt="ISO 14001" title="ISO 14001" /></a> -->
+<!-- ====== /pac/cse-egd/SSI/RIGHT-MENU-DROITE-FRA.HTML ====== -->
+			</div>
+
 			<!-- DEBUT DU CONTENU | CONTENT BEGINS -->
 			<div class="center">
 				<h1><a name="cont" id="cont">
@@ -32,7 +140,7 @@ function popUp(pageID) {
 					</a></h1>
 					
 				<cfoutput>
-				<img src="#RootDir#images/EGD_aerial_small.jpg" alt="Aerial view of the Esquimalt Graving Dock" width="435" height="342" title="Aerial view of the Esquimalt Graving Dock" />
+				<img src="#RootDir#images/EGD_aerial_small.jpg" alt="Aerial view of the Esquimalt Graving Dock" width="405" height="342" title="Aerial view of the Esquimalt Graving Dock" />
 
 				<p>Afin de r&eacute;server une place pour un navire &agrave; l'une des installations de la Cale s&egrave;che d'Esquimalt, veuillez lancer <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=fra">l'application des r&eacute;servations</a>.
 				  Si vous &eacute;prouvez des probl&egrave;mes avec l'application des r&eacute;servations, pri&egrave;re d'utiliser la <a href="#egd_url#/cse-egd/cn-cu-fra.html">page Contactez-nous</a>.</p>
