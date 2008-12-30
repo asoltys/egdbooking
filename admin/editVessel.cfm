@@ -54,13 +54,6 @@
 
 				<cfparam name="form.VNID" default="">
 
-				<!---<cfquery name="getVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-					SELECT 	VNID, Name
-					FROM 	Vessels
-					WHERE 	Deleted = 0
-					ORDER BY Name
-				</cfquery>--->
-
 				<cfquery name="companyVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT VNID, vessels.Name AS VesselName, companies.CID, companies.Name AS CompanyName
 					FROM Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
@@ -105,7 +98,6 @@
 				<br />
 
 				<cfif form.VNID NEQ "">
-
 					<cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT	Vessels.*, Companies.CID, Companies.Name AS CompanyName
 						FROM	Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
@@ -135,16 +127,6 @@
 						<cfset variables.Anonymous = "#getVesselDetail.Anonymous#">
 					</cfif>
 
-					<!--- 	<cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-							SELECT Vessels.*, Companies.CID, Companies.Name AS CompanyName, Users.FirstName + ' ' + Users.LastName AS UserName, Users.UID
-							FROM  Vessels INNER JOIN
-								Companies ON Vessels.CID = Companies.CID INNER JOIN
-								UserCompanies ON Companies.CID = UserCompanies.CID INNER JOIN
-								Users ON UserCompanies.UID = Users.UID
-							WHERE VNID = #form.VNID#
-							AND Vessels.Deleted = 0
-						</cfquery> --->
-
 					<cfif getVesselDetail.recordCount EQ 0>
 						<cflocation addtoken="no" url="menu.cfm?lang=#lang#">
 					</cfif>
@@ -154,7 +136,6 @@
 						<tr>
 							<td id="Company_Header" style="width:42%;">Company Name:</td>
 							<td headers="Company_Header"><cfoutput>#getVesselDetail.companyName#</cfoutput></td>
-							<!---<td><cfselect name="CID" query="getCompanies" display="Name" value="CID" selected="#getVesselDetail.CID#" /></td>--->
 						</tr>
 						<tr>
 							<td id="name_Header"><label for="name">Name:</label></td>
@@ -187,24 +168,9 @@
 						<tr>
 							<td id="Anonymous_Header"><label for="Anonymous">Keep this vessel anonymous:</label></td>
 							<td headers="Anonymous_Header"><input id="Anonymous" type="checkbox" name="Anonymous"<cfif variables.Anonymous EQ 1> checked="true"</cfif> value="Yes" />
-						</tr><!---
-						<tr>
-							<td id="Highlight_Header"><label for="Anonymous">Highlight for this many days:</label></td>
-							<td headers="Highlight_Header">
-							<cfif variables.EndHighlight NEQ "">
-							<cfset datediffhighlight = DateDiff("d", PacificNow, variables.EndHighlight)>
-							<cfset datediffhighlight = datediffhighlight+"1">
-							<cfif datediffhighlight LTE "0"><cfset datediffhighlight = "0"></cfif>
-							<cfelse>
-							<cfset datediffhighlight = "0">
-							</cfif>
-							<cfinput id="EndHighlight" name="EndHighlight" type="text" value="#datediffhighlight#" size="8" maxlength="8" required="yes" message="Please enter an End Highlight Date." /></td>
-						</tr>--->
+						</tr>
 						<tr>
 							<td colspan="2" align="center" style="padding-top:20px;">
-								<!--a href="javascript:document.editVessel.submitForm.click();" class="textbutton">Submit</a>
-								<a href="javascript:history.go(-1);" class="textbutton">Cancel</a>
-								<br-->
 								<input type="hidden" name="VNID" value="<cfoutput>#form.VNID#</cfoutput>" />
 								<input type="hidden" name="CID" value="<cfoutput>#form.CID#</cfoutput>" />
 								<input type="submit" value="submit" class="textbutton" />
