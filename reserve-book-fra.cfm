@@ -118,15 +118,17 @@ function popUp(pageID) {
 			<div class="right">
 
 				<!-- ====== /pac/cse-egd/SSI/RIGHT-MENU-DROITE-FRA.HTML ====== -->
+<cfoutput>
 <ul class="rightNav">
 	<li>
 		<h2>Saviez-vous?</h2>
 		<ul>
-			<li>La <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym> est une des rares installations de réparation de grands bâtiments au monde à avoir adopté la norme <acronym title="Organisation internationale de normailisation">ISO</acronym> 14001.  <a title="EGD: Leading the Way with ISO 14001" href="/pac/cse-egd/env/voie-way-fra.html">Détails &gt; </a></li>
+			<li>La <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym> est une des rares installations de réparation de grands bâtiments au monde à avoir adopté la norme <acronym title="Organisation internationale de normailisation">ISO</acronym> 14001.  <a title="EGD: Leading the Way with ISO 14001" href="#EGD_URL#/cse-egd/env/voie-way-fra.html">Détails &gt; </a></li>
 
 		</ul>
 	</li>
 </ul>
+</cfoutput>				
 <!-- <a href="http://www.iso.org/iso/fr/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=31807"><img src="/pac/cse-egd/images/ISO14001.gif" width="195" height="68" alt="ISO 14001" title="ISO 14001" /></a> -->
 <!-- ====== /pac/cse-egd/SSI/RIGHT-MENU-DROITE-FRA.HTML ====== -->
 			</div>

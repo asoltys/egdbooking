@@ -122,6 +122,7 @@
 					<!-- RIGHT SIDE MENU BEGINS | DEBUT DU MENU LATERAL DROIT -->
 			<div class="right">
 				<!-- ====== /pac/cse-egd/SSI/RIGHT-MENU-DROITE-ENG.HTML ====== -->
+				<cfoutput>
 				<ul class="rightNav">
 				
 					<li>
@@ -129,10 +130,11 @@
 				
 						<ul>
 							<li><acronym title="Esquimalt Graving Dock">EGD</acronym> is one of the few large ship repair facilities in the world who has implemented
-								<acronym title="International Organization for Standardization">ISO</acronym> 14001.  <a title="EGD: Leading the Way with ISO 14001" href="/pac/cse-egd/env/voie-way-eng.html">More &gt; </a></li>
+								<acronym title="International Organization for Standardization">ISO</acronym> 14001.  <a title="EGD: Leading the Way with ISO 14001" href="#EGD_URL#/cse-egd/env/voie-way-eng.html">More &gt; </a></li>
 						</ul>
 					</li>
 				</ul>
+				</cfoutput>
 			<!-- <a href="http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=31807"><img src="/pac/cse-egd/images/ISO14001.gif" width="195" height="68" alt="ISO 14001" title="ISO 14001" /></a> -->
 			<!-- ====== /pac/cse-egd/SSI/RIGHT-MENU-DROITE-ENG.HTML ====== -->
 			</div>
