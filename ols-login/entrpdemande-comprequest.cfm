@@ -92,9 +92,8 @@
 	<cfset language.remove = "Remove">
 	<cfset language.awaitingApproval = "awaiting approval">
 	<cfset language.addCompany = "Add Company">
-	<cfset language.notListed = "If the desired company is not listed, click">
-	<cfset language.here = "here">
-	<cfset language.toCreate = "to create one.">
+	<cfset language.notListed = "If the desired company is not listed,">
+	<cfset language.toCreate = "create it.">
 	<cfset language.add = "Add">
 	<cfset language.editProfile = "Edit Profile">
 	<cfset language.noCompanies = "No Companies">
@@ -110,9 +109,8 @@
 	<cfset language.remove = "Supprimer">
 	<cfset language.awaitingApproval = "en attente d'approbation">
 	<cfset language.addCompany = "Ajout d'une entreprise">
-	<cfset language.notListed = "Si l'entreprise recherch&eacute;e ne se trouve pas dans la liste, cliquez">
-	<cfset language.here = "ici">
-	<cfset language.toCreate = "pour en cr&eacute;er une.">
+	<cfset language.notListed = "Si l'entreprise recherch&eacute;e ne se trouve pas dans la liste,">
+	<cfset language.toCreate = "cr&eacute;er elle.">
 	<cfset language.add = "Ajouter">
 	<cfset language.editProfile = "Modification de r&eacute;servation">
 	<cfset language.noCompanies = "Aucune entreprise">
@@ -266,7 +264,7 @@ function EditSubmit ( selectedform )
 								</cfselect>
 								<input type="submit" name="submitCompany" value="#language.add#" class="textbutton" />
 								<br />
-								<font size="-2">#language.notListed# <a href="entrpajout-compadd.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#">#language.here#</a> #language.toCreate#</font>				</td>
+								<font size="-2">#language.notListed# <a href="entrpajout-compadd.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#">#language.toCreate#</a></font>				</td>
 						</tr>
 						</table>
 					</cfform>
