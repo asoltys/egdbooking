@@ -89,39 +89,39 @@
 					<table>
 						<tr>
 							<td id="CID">Company Name:</td>
-							<td headers="CID"><input type="hidden" name="CID" value="#Variables.CID#" />
+							<td headers="CID"><input type="hidden" name="CID" value="#Variables.CID#" />#Variables.CompanyName#</td>
 						</tr>
 						<tr>
 							<td id="name">Name:</td>
-							<td headers="name"><input type="hidden" name="name" value="#Variables.Name#" />
+							<td headers="name"><input type="hidden" name="name" value="#Variables.Name#" />#Variables.name#</td>
 						</tr>
 						<tr>
 							<td id="LloydsID">Lloyds ID:</td>
-							<td headers="LloydsID"><input type="hidden" name="LloydsID" value="#Variables.LloydsID#" />
+							<td headers="LloydsID"><input type="hidden" name="LloydsID" value="#Variables.LloydsID#" />#Variables.LloydsID#</td>
 						</tr>
 						<tr>
 							<td id="length">Length:</td>
-							<td headers="length"><input type="hidden" name="length" value="#Variables.Length#" />
+							<td headers="length"><input type="hidden" name="length" value="#Variables.Length#" />#Variables.Length#</td>
 						</tr>
 						<tr>
 							<td id="width">Width:</td>
-							<td headers="width"><input type="hidden" name="width" value="#Variables.Width#" />
+							<td headers="width"><input type="hidden" name="width" value="#Variables.Width#" />#Variables.Width#</td>
 						</tr>
 						<tr>
 							<td id="blocksetuptime">Block Setup Time:</td>
-							<td headers="blocksetuptime"><input type="hidden" name="blocksetuptime" value="#Variables.BlockSetuptime#" />
+							<td headers="blocksetuptime"><input type="hidden" name="blocksetuptime" value="#Variables.BlockSetuptime#" />#Variables.BlockSetuptime#</td>
 						</tr>
 						<tr>
 							<td id="blockteardowntime">Block Teardown Time:</td>
-							<td headers="blockteardowntime"><input type="hidden" name="blockteardowntime" value="#Variables.Blockteardowntime#" />
+							<td headers="blockteardowntime"><input type="hidden" name="blockteardowntime" value="#Variables.Blockteardowntime#" />#Variables.Blockteardowntime#</td>
 						</tr>
 						<tr>
 							<td id="tonnage">Tonnage:</td>
-							<td headers="tonnage"><input type="hidden" name="tonnage" value="#Variables.Tonnage#" />
+							<td headers="tonnage"><input type="hidden" name="tonnage" value="#Variables.Tonnage#" />#Variables.CompanyName#</td>
 						</tr>
 						<tr>
 							<td id="Anonymous">Anonymous:</td>
-							<td headers="Anonymous"><input type="hidden" name="Anonymous" value="#Variables.Anonymous#" />
+							<td headers="Anonymous"><input type="hidden" name="Anonymous" value="#Variables.Anonymous#" />#Variables.Anonymous#</td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center" style="padding-top:20px;">
