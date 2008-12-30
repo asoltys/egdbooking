@@ -73,8 +73,8 @@
 
 	<cflock throwontimeout="no" timeout="30" scope="session">
 		<cfquery name="addUserRelation" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			INSERT INTO	UserCompanies (UserID, CID)
-			VALUES		(#Session.userID# , #getDeletedCompany.CID#)
+			INSERT INTO	UserCompanies (UID, CID)
+			VALUES		(#Session.UID# , #getDeletedCompany.CID#)
 		</cfquery>
 	</cflock>--->
 	
@@ -124,8 +124,8 @@
 	
 		<cflock throwontimeout="no" timeout="30" scope="session">
 			<cfquery name="addUserRelation" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-				INSERT INTO	UserCompanies (UserID, CID)
-				VALUES		(#Session.userID# , #getID.CID#)
+				INSERT INTO	UserCompanies (UID, CID)
+				VALUES		(#Session.UID# , #getID.CID#)
 			</cfquery>
 		</cflock>
 	</cftransaction>
@@ -133,8 +133,8 @@
 
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	FirstName + ' ' + LastName AS UserName, Email
-	FROM	Users INNER JOIN UserCompanies ON Users.UserID = UserCompanies.UserID
-	WHERE	Users.UserID = #session.userID#
+	FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+	WHERE	Users.UID = #session.UID#
 </cfquery>
 
 	
