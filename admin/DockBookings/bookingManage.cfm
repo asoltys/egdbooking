@@ -140,7 +140,7 @@ function EditSubmit ( selectedform )
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 
 				<p>Please enter a range of dates for which you would like to see the bookings:</p>
-				<form action="bookingManage.cfm?lang=#lang#" method="get" id="dateSelect">
+				<form action="bookingManage.cfm?lang=#lang#" method="get">
 					<input type="hidden" name="lang" value="<cfoutput>#lang#</cfoutput>" />
 					<table style="width: 100%;" >
 						<tr>
