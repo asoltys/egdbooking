@@ -88,7 +88,7 @@ function EditSubmit ( selectedform )
 						</cfif>
 						<tr class="#rowClass#">
 							<td headers="firstname"><a href="javascript:void(0);" onclick="popUp('admin/viewCompany.cfm?lang=#lang#&amp;CID=#CID#');">#Name#</a></td>
-							<td headers="abbrev"><cfform action="companyApprove_confirm.cfm?lang=#lang#" method="post" name="App#CID#" style="margin-top: 0; margin-bottom: 0; "><label for="abbreviation">Abbrev.: </label><cfinput type="text" name="abbrev" id="abbreviation" maxlength="3" size="4" required="yes" message="Please enter the company abbreviation." /></td>
+							<td headers="abbrev"><cfform action="companyApprove_confirm.cfm?lang=#lang#" method="post" name="App#CID#" style="margin-top: 0; margin-bottom: 0; "><label for="abbreviation">Abbrev.: </label><cfinput type="text" name="abbrev" id="abbreviation" maxlength="3" size="4" required="yes" message="Please enter the company abbreviation." /></cfform></td>
 							<td headers="approve"><input type="hidden" name="CID" value="#CID#" /><a href="javascript:EditSubmit('App#CID#')" class="textbutton" />
 							<td headers="reject"><form action="companyReject.cfm?lang=#lang#" method="post" name="Del#CID#" style="margin-top: 0; margin-bottom: 0; "><input type="hidden" name="CID" value="#CID#" /><a href="javascript:EditSubmit('Del#CID#')" class="textbutton" />
 						</tr>
