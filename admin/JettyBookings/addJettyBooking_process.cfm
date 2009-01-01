@@ -212,54 +212,56 @@ function EditSubmit ( selectedform )
 				<p>Please confirm the following maintenance block information.</p>
 				<cfform action="addJettyBooking_action.cfm?startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" method="post" id="bookingreq" preservedata="Yes">
 				<div style="font-weight:bold;">Booking:</div>
-				<table style="width:100%;" align="center">
-					<tr>
-						<td align="left" style="width:20%;">Company:</td>
-						<td><input type="hidden" name="company" value="<cfoutput>#form.CID#</cfoutput>" />
-					</tr>
-					<tr>
-						<td align="left">Vessel:</td>
-						<td><input type="hidden" name="vessel" value="<cfoutput>#form.VNID#</cfoutput>" />
-					</tr>
-					<tr>
-						<td align="left">Agent:</td>
-						<td><input type="hidden" name="agent" value="<cfoutput>#form.UID#</cfoutput>" />
-					</tr>
-					<tr>
-						<td align="left">Start Date:</td>
-						<td><input type="hidden" name="StartDate" value="<cfoutput>#Variables.StartDate#</cfoutput>" /><cfoutput>#DateFormat(Variables.StartDate, 'mmm d, yyyy')#</cfoutput></td>
-					</tr>
-					<tr>
-						<td align="left">End Date:</td>
-						<td><input type="hidden" name="EndDate" value="<cfoutput>#Variables.EndDate#</cfoutput>" /><cfoutput>#DateFormat(Variables.EndDate, 'mmm d, yyyy')#</cfoutput></td>
-					</tr>
-					<tr>
-						<td id="bookingDate" align="left">Booking Time:</td>
-						<td headers="bookingDate">
-							<cfoutput>
-								<input type="hidden" name="bookingDate" value="#Variables.TheBookingDate#" />
-								<input type="hidden" name="bookingTime" value="#Variables.TheBookingTime#" />
-								#DateFormat(Variables.TheBookingDate, 'mmm d, yyyy')# #TimeFormat(Variables.TheBookingTime, 'HH:mm:ss')#
-							</cfoutput>
-						</td>
-					</tr>
-					<tr>
-						<td align="left">Status:</td>
-						<td><input type="hidden" name="Status" value="<cfoutput>#Variables.Status#</cfoutput>" /><cfif Variables.Status EQ "P">Pending<cfelseif Variables.Status EQ "T">Tentative</cfif></td>
-					</tr>
-					<tr>
-						<td align="left">Section:</td>
-						<td>
-							<input type="hidden" name="NorthJetty" value="<cfoutput>#Variables.NorthJetty#</cfoutput>" />
-							<input type="hidden" name="SouthJetty" value="<cfoutput>#Variables.SouthJetty#</cfoutput>" />
-							<cfif Variables.NorthJetty EQ 1>
-								North Landing Wharf
-							<cfelseif Variables.SouthJetty EQ 1>
-								South Jetty
-							</cfif>
-						</td>
-					</tr>
-				</table>
+        <cfoutput>
+          <table style="width:100%;" align="center">
+            <tr>
+              <td align="left" style="width:20%;">Company:</td>
+              <td><input type="hidden" name="company" value="#form.CID#" /> #getCompany.Name#</td>
+            </tr>
+            <tr>
+              <td align="left">Vessel:</td>
+              <td><input type="hidden" name="vessel" value="#form.VNID#" /> #getVessel.Name#</td>
+            </tr>
+            <tr>
+              <td align="left">Agent:</td>
+              <td><input type="hidden" name="agent" value="#form.UID#" /> #getAgent.Name#</td>
+            </tr>
+            <tr>
+              <td align="left">Start Date:</td>
+              <td><input type="hidden" name="StartDate" value="#Variables.StartDate#" />#DateFormat(Variables.StartDate, 'mmm d, yyyy')#</td>
+            </tr>
+            <tr>
+              <td align="left">End Date:</td>
+              <td><input type="hidden" name="EndDate" value="<cfoutput>#Variables.EndDate#</cfoutput>" /><cfoutput>#DateFormat(Variables.EndDate, 'mmm d, yyyy')#</cfoutput></td>
+            </tr>
+            <tr>
+              <td id="bookingDate" align="left">Booking Time:</td>
+              <td headers="bookingDate">
+                <cfoutput>
+                  <input type="hidden" name="bookingDate" value="#Variables.TheBookingDate#" />
+                  <input type="hidden" name="bookingTime" value="#Variables.TheBookingTime#" />
+                  #DateFormat(Variables.TheBookingDate, 'mmm d, yyyy')# #TimeFormat(Variables.TheBookingTime, 'HH:mm:ss')#
+                </cfoutput>
+              </td>
+            </tr>
+            <tr>
+              <td align="left">Status:</td>
+              <td><input type="hidden" name="Status" value="<cfoutput>#Variables.Status#</cfoutput>" /><cfif Variables.Status EQ "P">Pending<cfelseif Variables.Status EQ "T">Tentative</cfif></td>
+            </tr>
+            <tr>
+              <td align="left">Section:</td>
+              <td>
+                <input type="hidden" name="NorthJetty" value="<cfoutput>#Variables.NorthJetty#</cfoutput>" />
+                <input type="hidden" name="SouthJetty" value="<cfoutput>#Variables.SouthJetty#</cfoutput>" />
+                <cfif Variables.NorthJetty EQ 1>
+                  North Landing Wharf
+                <cfelseif Variables.SouthJetty EQ 1>
+                  South Jetty
+                </cfif>
+              </td>
+            </tr>
+          </table>
+        </cfoutput>
 
 				<br />
 				<table style="width:100%;" cellspacing="0" cellpadding="1" border="0">

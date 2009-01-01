@@ -186,13 +186,20 @@ function EditSubmit ( selectedform )
 								</td>
 							</tr>
 							<tr>
-								<td id="bookingDT">Booking Time:</td>
+								<td id="bookingDT">Booking Date:</td>
 								<td headers="bookingDT">
 									<cfoutput>
-										<cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" />
-										<cfinput name="bookingTime" type="text" value="#TimeFormat(Variables.TheBookingTime, 'HH:mm:ss')#" size="5" maxlength="8" required="yes" message="Please enter a valid booking time." validate="time" />
+										<cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" /> (MM/DD/YYYY)
+                    <img src="#RootDir#images/calendar.gif" alt="Calendar" class="calendar" width="25px" height="17px" />
+                  </cfoutput>
+                </td>
+              </tr>
+              <tr>
+                <td>Booking Time:</td>
+                <td>
+                  <cfoutput>
+										<cfinput name="bookingTime" type="text" value="#TimeFormat(Variables.TheBookingTime, 'HH:mm:ss')#" size="5" maxlength="8" required="yes" message="Please enter a valid booking time." validate="time" /> (HH:MM)
 									</cfoutput>
-									<img src="#RootDir#images/calendar.gif" alt="Calendar" class="calendar" width="25px" height="17px" />
 								</td>
 							</tr>
 							<tr><td colspan="2"><p><b>Note: Booking dates are inclusive</b>; i.e. a three day booking is denoted as from May 1 to May 3.</p></td></tr>
