@@ -172,7 +172,7 @@
 
 				<p>Please confirm the following information.</p>
 				<cfform action="editJettyBooking_action.cfm?#urltoken#&BRID=#form.BRID#&editStart=#form.startDate#&editEnd=#form.endDate#&jetty=#form.jetty#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" method="post" id="bookingreq" preservedata="Yes">
-				<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" />
+				<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" /></cfoutput>
 				<div style="font-weight:bold;">Booking:</div>
 				<table style="width:100%; padding-left:15px;" align="center" >
 					<tr>
@@ -185,7 +185,7 @@
 					</tr>
 					<tr>
 						<td id="Agent" align="left">Agent:</td>
-						<td headers="Agent"><input type="hidden" name="UID" value="<cfoutput>#Variables.UID#</cfoutput>" />
+						<td headers="Agent"><input type="hidden" name="UID" value="<cfoutput>#Variables.UID#</cfoutput>" /><cfoutput>#getAgent.UserName#</cfoutput></td>
 					</tr>
 					<tr>
 						<td id="Start" align="left">Start Date:</td>
