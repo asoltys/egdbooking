@@ -62,10 +62,10 @@ SELECT LastName + ', ' + FirstName as newFullName
 					<td>Original Agent: <cfinput type="text" style="border:0;" value="#UserNameURL#" name="UserNameURL" required="Yes" readonly="yes" /></td>
 				  </tr>
 						<tr>
-					<td><br />Change to Company: <cfoutput query="getCompanyDetail">#CompanyDetail#</cfoutput> <cfinput type="text" style="border:0; color:##FFFFFF" value="#newCID#" name="newCID" required="Yes" readonly="yes" /></td>
+					<td><br />Change to Company: <cfloop query="getCompanyDetail">#CompanyDetail#</cfloop> <cfinput type="text" style="border:0; color:##FFFFFF" value="#newCID#" name="newCID" required="Yes" readonly="yes" /></td>
 				  </tr>
 				  <tr>
-					<td>Change to Agent: <cfoutput query="getUIDDetail">#newFullName#</cfoutput> <cfinput type="text" style="border:0; color:##FFFFFF" value="#newUserName#" name="newUserName" required="Yes" readonly="yes" /></td>
+					<td>Change to Agent: <cfloop query="getUIDDetail">#newFullName#</cfloop> <cfinput type="text" style="border:0; color:##FFFFFF" value="#newUserName#" name="newUserName" required="Yes" readonly="yes" /></td>
 				  </tr>
 				
 				  <tr>

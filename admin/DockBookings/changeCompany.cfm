@@ -61,9 +61,9 @@
 					  </tr>
 					  <tr>
 						<td><cfselect name="newCID" size="1" required="yes">
-						  <cfoutput query="getCompanyList">
+						  <cfloop query="getCompanyList">
 							<option value="#CID#">#Name#</option>
-						  </cfoutput> </cfselect></td>
+						  </cfloop> </cfselect></td>
 					  </tr>
 					  <tr>
 						<td><input id="submit" type="submit" value="submit" />

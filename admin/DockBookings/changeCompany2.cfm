@@ -57,13 +57,13 @@ SELECT Name as CompanyDetail
 					<td>Original Agent: <cfinput type="text" style="border:0;" value="#UserNameURL#" name="UserNameURL" required="Yes" readonly="yes" /></td>
 				  </tr>
 						<tr>
-					<td><br />Change to Company: <cfoutput query="getCompanyDetail">#CompanyDetail#</cfoutput> <cfinput type="text" style="border:0; color:##FFFFFF" value="#newCID#" name="newCID" required="Yes" readonly="yes" /></td>
+					<td><br />Change to Company: <cfloop query="getCompanyDetail">#CompanyDetail#</cfloop> <cfinput type="text" style="border:0; color:##FFFFFF" value="#newCID#" name="newCID" required="Yes" readonly="yes" /></td>
 				  </tr>
 				  <tr>
 					<td>Change to Agent: <cfselect name="newUserName" size="1" required="yes">
-					  <cfoutput query="getUserName">
+					  <cfloop query="getUserName">
 						<option value="#UID#">#LastName#, #FirstName#</option>
-					  </cfoutput> </cfselect></td>
+					  </cfloop> </cfselect></td>
 				  </tr>
 				  <tr>
 					<td><input id="submit" type="submit" value="submit" />
