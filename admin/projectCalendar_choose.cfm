@@ -58,7 +58,11 @@ var params = {
 <link href="#CLF_URL#/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
 <link href="#CLF_URL#/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
 <style type="text/css" media="screen,print">@import url(#RootDir#css/advanced.css);</style>
+<link href="#RootDir#css/calendar.css" media="screen" rel="stylesheet" type="text/css"/>
 
+<script src="#RootDir#scripts/prototype.js" type="text/javascript"></script>
+<script src="#RootDir#scripts/calendar.js" type="text/javascript"></script>
+<script src="#RootDir#scripts/common.js" type="text/javascript"></script>
 <!-- CUSTOM SCRIPTS/CSS END | FIN DES SCRIPTS/CSS PERSONNALISES -->
 <!-- TEMPLATE PRINT CSS BEGINS | DEBUT DU CSS DU GABARIT POUR L'IMPRESSION -->
 <link href="#CLF_URL#/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
@@ -100,7 +104,6 @@ var params = {
 					<td headers="From_Header">
 						<cfinput type="text" name="startDate" message="Please enter a valid From Date." validate="date" class="startDate" id="Start" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="calendar" width="25px" height="17px" />
-						<a href="javascript:void(0);" onclick="document.procal.startDate.value='';" class="textbutton">clear</a>
 					</td>
 				</tr>
 				<tr>
@@ -108,7 +111,6 @@ var params = {
 					<td headers="To_Header">
 						<cfinput type="text" name="endDate" message="Please enter a valid From Date." validate="date" class="endDate" id="End" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="calendar" width="25px" height="17px" />
-						<a href="javascript:void(0);" onclick="document.procal.endDate.value='';" class="textbutton">clear</a>
 					</td>
 				</tr>
 				<tr><td colspan="2">&nbsp;</td></tr>

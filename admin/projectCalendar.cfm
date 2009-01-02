@@ -102,8 +102,8 @@ var params = {
 		<!---INNER JOIN	Users ON Vessels.UID = Users.UID--->
 		INNER JOIN	Companies ON Vessels.CID = Companies.CID
 	WHERE	Bookings.Deleted = '0'
-		<CFIF isDefined("CalStartDate") AND CalStartDate neq "">AND	EndDate &gt;= <cfqueryPARAM value="#CalStartDate#" cfsqltype="cf_sql_date"></CFIF>
-		<CFIF isDefined("CalEndDate") AND CalEndDate neq "">AND	StartDate &lt;= <cfqueryPARAM value="#CalEndDate#" cfsqltype="cf_sql_date"></CFIF>
+		<CFIF isDefined("CalStartDate") AND CalStartDate neq "">AND	EndDate <= <cfqueryPARAM value="#CalStartDate#" cfsqltype="cf_sql_date"></CFIF>
+		<CFIF isDefined("CalEndDate") AND CalEndDate neq "">AND	StartDate >= <cfqueryPARAM value="#CalEndDate#" cfsqltype="cf_sql_date"></CFIF>
 	
 	UNION
 
@@ -118,8 +118,8 @@ var params = {
 		INNER JOIN	Docks ON Bookings.BRID = Docks.BRID
 		<!---INNER JOIN	Users ON Vessels.UID = Users.UID--->
 	WHERE	Bookings.Deleted = '0'
-		<CFIF isDefined("CalStartDate") AND CalStartDate neq "">AND	EndDate &gt;= <cfqueryPARAM value="#CalStartDate#" cfsqltype="cf_sql_date"></CFIF>
-		<CFIF isDefined("CalEndDate") AND CalEndDate neq "">AND	StartDate &lt;= <cfqueryPARAM value="#CalEndDate#" cfsqltype="cf_sql_date"></CFIF>
+		<CFIF isDefined("CalStartDate") AND CalStartDate neq "">AND	EndDate >= <cfqueryPARAM value="#CalStartDate#" cfsqltype="cf_sql_date"></CFIF>
+		<CFIF isDefined("CalEndDate") AND CalEndDate neq "">AND	StartDate <= <cfqueryPARAM value="#CalEndDate#" cfsqltype="cf_sql_date"></CFIF>
 		AND Status = 'm'
 	ORDER BY	StartDate
 
@@ -139,7 +139,7 @@ var params = {
 <CFSET megaStruct[5] = structnew()>
 
 <!--- Create an array of acceptable colours for use in the calendar blocks --->
-<!--- scheme 1
+
 <CFSET accColour[1] = "7F9900">  <!--- olive green --->
 <CFSET accColour[2] = "C28E00">  <!--- neutral orange --->
 <CFSET accColour[3] = "026999">  <!--- neutral blue --->
@@ -156,7 +156,7 @@ var params = {
 <CFSET accColour[14] = "3E3299">  <!--- navy blue --->
 <CFSET accColour[15] = "00571F">  <!--- deep forest --->
 <CFSET accColour[16] = "998200">  <!--- dark mustard --->
----&gt;
+
 <!--- scheme 2: using colour wheel, with additions from favourites of scheme 1! --->
 <CFSET accColour[1] = "E6AC73">  <!--- browns --->
 <CFSET accColour[2] = "886644">
@@ -326,7 +326,7 @@ var params = {
 
 <!--- Populate the structs.  If toDate is not given, then keep increasing the size of the calendar to contain all bookings. --->
 <cfoutput query="megaquery">
-	<CFIF (NOT IsDefined("CalEndDate") OR CalEndDate eq "")<!--- AND (#EndDate# GT #CalEndDate#) wtf is this doing here--->&gt;
+	<CFIF (NOT IsDefined("CalEndDate") OR CalEndDate eq "")>
 		<CFSET CalEndDate = '#EndDate#'>
 	</CFIF>
 	

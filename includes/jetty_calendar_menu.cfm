@@ -16,11 +16,7 @@
 <script type="text/javascript">
 /* <![CDATA[ */
 function popUp(pageID) {
-	if (checkIt()) {
 		window.open("<cfoutput>#RootDir#</cfoutput>" + pageID + ".cfm?lang=<cfoutput>#lang#</cfoutput>", "", "width=800, height=400, resizable=yes, menubar=yes, scrollbars=yes, toolbar=no");
-	} else {
-		alert("<cfoutput>#language.warning#</cfoutput>");
-	}
 }
 /* ]]> */
 </script>
