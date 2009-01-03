@@ -163,6 +163,12 @@ div.selector a.nextLink {
 
 /* SUMMARIES ------------------------------------------- */
 /*  */
+
+tr.confirmed td {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+  
 th.vessel, th.docking, th.booking {
 	width: 30%;
 }
