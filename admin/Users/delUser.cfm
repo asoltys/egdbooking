@@ -83,8 +83,6 @@ function EditSubmit ( selectedform )
 					<tr>
 						<td>Company:</td>
 						<td>
-							<!---<cfform action="delUser_confirm.cfm?lang=#lang#" method="post" id="delUserForm">
-							<cfselect name="UID" query="getUserList" value="UID" display="UserName" />--->
 							<CF_TwoSelectsRelated
 								QUERY="companyUsers"
 								id1="CID"

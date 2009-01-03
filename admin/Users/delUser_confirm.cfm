@@ -17,9 +17,7 @@
 
 <cfif Proceed_OK EQ "No">
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->
-	<cfset Session.Return_Structure.CID = Form.CID>
-	<cfset Session.Return_Structure.UID = Form.UID>
-
+	<cfset Session.Return_Structure = Duplicate(Form) />
 	<cfset Session.Return_Structure.Errors = Errors>
 
  	<cflocation url="delUser.cfm?lang=#lang#" addToken="no">
@@ -128,26 +126,21 @@ function EditSubmit ( selectedform )
 						<tr>
 							<td>&nbsp;</td>
 						</tr>
-						<!---<tr>
-							<td colspan="2"><strong>User Vessels:</strong></td>
-						</tr>
-						<cfloop query="getUserVessels">
-							<tr>
-								<td colspan="2">#Name#</td>
-							</tr>
-						</cfloop>--->
 					</table>
 				</cfoutput>
 
 				<cfform action="delUser_action.cfm?lang=#lang#" method="post" id="delUserConfirmForm">
 					<div style="text-align:center;">
-						<!---a href="javascript:EditSubmit('delUserConfirmForm');" class="textbutton">Delete</a>
-						<a href="delUser.cfm" class="textbutton">Back</a>
-						<a href="<cfoutput>#RootDir#</cfoutput>admin/menu.cfm?lang=#lang#" class="textbutton">Cancel</a--->
-						<cfif getCompanies.recordCount GT 1><cfoutput><input type="button" value="remove user from #getCompany.companyName#" onclick="self.location.href='removeUserCompany_action.cfm?UID=#form.UID#&amp;CID=#form.CID#'" class="textbutton" /></cfoutput>
-						<input type="submit" value="Delete user account" class="textbutton" />
-						<cfoutput><input type="button" value="Back" onclick="self.location.href='delUser.cfm?lang=#lang#'" class="textbutton" /></cfoutput>
-						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" /></cfoutput>
+						<cfif getCompanies.recordCount GTE 1>
+              <cfoutput>
+              <input type="button" value="remove user from #getCompany.companyName#" onclick="self.location.href='removeUserCompany_action.cfm?UID=#form.UID#&amp;CID=#form.CID#'" class="textbutton" />
+              </cfoutput>
+						  <input type="submit" value="Delete user account" class="textbutton" />
+            </cfif>
+              <cfoutput>
+              <input type="button" value="Back" onclick="self.location.href='delUser.cfm?lang=#lang#'" class="textbutton" />
+              </cfoutput>
+              <cfoutput><input type="button" value="Cancel" onclick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" /></cfoutput>
 					</div>
 
 					<input type="hidden" name="UID" value="<cfoutput>#form.UID#</cfoutput>" />
