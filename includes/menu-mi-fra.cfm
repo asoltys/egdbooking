@@ -5,7 +5,7 @@
 	<h2><a href="#EGD_URL#/cse-egd/index-fra.html"><acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym></a></h2>
 		<ul>
 			<li><a href="#EGD_URL#/cse-egd/emp-loc-fra.html" title="Emplacement">Emplacement</a></li>
-			<li><a href="#EGD_URL#/cse-egd/services-fra.html" title="Services">Service</a></li>
+			<li><a href="#EGD_URL#/cse-egd/services-fra.html" title="Services">Services</a></li>
 			<li><a href="#EGD_URL#/cse-egd/conduite-conduct-fra.html" title="Code de conduite">Code de conduite</a></li>
 			<li><a href="#EGD_URL#/cse-egd/entreprises-firms-fra.html" title="Entreprises de radoub">Entreprise de radoub</a></li>
 			<li><a href="#EGD_URL#/cse-egd/env/programme-program-fra.html" title="Environnement">Environnement</a></li>
