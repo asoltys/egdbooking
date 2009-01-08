@@ -108,7 +108,7 @@
 						</table>
 						<div>
 								<label for="remember">#language.Remember#</label>
-								<input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked="true"</CFIF> />
+								<input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked="checked"</CFIF> />
 						</div>
 					</form>
 					<div><a href="utilisateurajout-useradd.cfm?lang=#lang#">#language.addUser#</a></div>
