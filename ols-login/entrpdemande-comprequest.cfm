@@ -56,7 +56,7 @@
 <!---error checking for new profile info--->
 <cfif isDefined("form.Password2")>
 	<cfinclude template="#RootDir#includes/errorMessages.cfm">
-	<cfif lang EQ "e">
+	<cfif lang EQ "eng">
 		<cfset language.unmatchedPasswordsError = "Passwords do not match, please retype.">
 		<cfset language.pass1ShortError = "Your password must be at least 6 characters.">
 		<cfset language.firstnameError = "Please enter your first name.">
