@@ -82,8 +82,6 @@
 <script src="#RootDir#scripts/common.js" type="text/javascript"></script>
 <!-- CUSTOM SCRIPTS/CSS END | FIN DES SCRIPTS/CSS PERSONNALISES -->
 
-<noscript>JavaScript requis</noscript>
-
 <!-- DEBUT DU CSS DU GABARIT POUR L'IMPRESSION | TEMPLATE PRINT CSS BEGINS -->
 <link href="#CLF_URL#/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
 </cfoutput>

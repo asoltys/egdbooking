@@ -87,8 +87,6 @@
 
 <body onload="<cfoutput>#Variables.onLoad#</cfoutput>">
 
-<noscript><p>JavaScript Required</p></noscript>
-
 <div class="page">
 	<div class="core">
 		<!-- HEADER BEGINS | DEBUT DE L'EN-TETE -->

@@ -83,7 +83,6 @@
 <!-- FIN DU CSS DU GABARIT POUR L'IMPRESSION | TEMPLATE PRINT CSS ENDS -->
 </head>
 <body>
-<noscript><p>JavaScript requis</p></noscript>
 <div class="page">
 	<div class="core">
 		<!-- HEADER BEGINS | DEBUT DE L'EN-TETE -->
