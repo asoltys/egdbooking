@@ -3,7 +3,7 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Company Approval"">
+	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Company Approval"" />
 	<meta name=""keywords"" content="""" />
 	<meta name=""description"" content="""" />
 	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
@@ -75,9 +75,9 @@ function EditSubmit ( selectedform )
 						
 						<tr align="left">
 							<th id="firstname">Name</th>
-							<th width="120" id="abbrev" style="width:120px;">&nbsp;</th>
-							<th width="60" id="approve" style="width:60px;">&nbsp;</th>
-							<th width="50" id="reject" style="width:50px;">&nbsp;</th>
+							<th id="abbrev" style="width:120px;">&nbsp;</th>
+							<th id="approve" style="width:60px;">&nbsp;</th>
+							<th id="reject" style="width:50px;">&nbsp;</th>
 						</tr>
 						
 						<cfoutput query="GetNewCompanies">
