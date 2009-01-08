@@ -31,7 +31,7 @@
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.login#</a> &gt;
-			<a href="#RootDir#ols-login/addUserCompanies.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#">#language.createUser#</a> &gt;
+			<a href="#RootDir#ols-login/entrpdemande-comprequest.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#">#language.createUser#</a> &gt;
 			#language.CreateComp#
 			</cfoutput>
 		</p>
@@ -74,40 +74,40 @@
 						<cfinclude template="#RootDir#includes/getStructure.cfm">
 					</cfif>
 
-					<cfform action="entrpajout-compadd_action.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#" id="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
+					<cfform action="entrpajout-compadd_action.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#" id="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
 	}">
 						<table>
 							<tr>
 								<td id="name_header"><label for="name">#language.companyName#:</label></td>
-								<td header="name_header"><cfinput name="name" id="name" type="text" size="40" maxlength="75" required="yes" value="#Variables.name#" message="#language.nameError#" /></td>
+								<td><cfinput name="name" id="name" type="text" size="40" maxlength="75" required="yes" value="#Variables.name#" message="#language.nameError#" /></td>
 							</tr>
 							<tr>
 								<td id="address1_header"><label for="address1">#language.Address# 1:</label></td>
-								<td header="address1_header"><cfinput name="address1" id="address1" type="text" size="40" maxlength="75" required="yes" value="#Variables.address1#" message="#language.addressError#" /></td>
+								<td><cfinput name="address1" id="address1" type="text" size="40" maxlength="75" required="yes" value="#Variables.address1#" message="#language.addressError#" /></td>
 							</tr>
 							<tr>
 								<td id="address2_header"><label for="address2">#language.Address# 2 #language.optional#:</label></td>
-								<td header="address2_header"><cfinput name="address2" id="address2" type="text" size="40" maxlength="75" value="#Variables.address2#" /></td>
+								<td><cfinput name="address2" id="address2" type="text" size="40" maxlength="75" value="#Variables.address2#" /></td>
 							</tr>
 							<tr>
 								<td id="city_header"><label for="city">#language.City#:</label></td>
-								<td header="city_header"><cfinput name="city" id="city" type="text" size="25" maxlength="40" required="yes" value="#Variables.city#" message="#language.cityError#" /></td>
+								<td><cfinput name="city" id="city" type="text" size="25" maxlength="40" required="yes" value="#Variables.city#" message="#language.cityError#" /></td>
 							</tr>
 							<tr>
 								<td id="province_header"><label for="province">#language.Province#:</label></td>
-								<td header="province_header"><cfinput name="province" id="province" type="text" size="25" maxlength="40" required="no" value="#Variables.province#" message="#language.provinceError#" /></td>
+								<td><cfinput name="province" id="province" type="text" size="25" maxlength="40" required="no" value="#Variables.province#" message="#language.provinceError#" /></td>
 							</tr>
 							<tr>
 								<td id="country_header"><label for="country">#language.Country#:</label></td>
-								<td header="country_header"><cfinput name="country" id="country" type="text" size="25" maxlength="40" required="yes" value="#Variables.country#" message="#language.countryError#" /></td>
+								<td><cfinput name="country" id="country" type="text" size="25" maxlength="40" required="yes" value="#Variables.country#" message="#language.countryError#" /></td>
 							</tr>
 							<tr>
 								<td id="zip_header"><label for="zip">#language.zip#:</label></td>
-								<td header="zip_header"><cfinput name="zip" id="zip" type="text" size="12" maxlength="10" required="no" value="#Variables.zip#" message="#language.zipError#" /></td>
+								<td><cfinput name="zip" id="zip" type="text" size="12" maxlength="10" required="no" value="#Variables.zip#" message="#language.zipError#" /></td>
 							</tr>
 							<tr>
 								<td id="phone_header"><label for="phone">#language.Phone#:</label></td>
-								<td header="phone_header"><cfinput name="phone" id="phone" type="text" size="25" maxlength="32" required="yes" value="#Variables.phone#" message="#language.phoneError#" /></td>
+								<td><cfinput name="phone" id="phone" type="text" size="25" maxlength="32" required="yes" value="#Variables.phone#" message="#language.phoneError#" /></td>
 							</tr>
 							<tr>
 								<td id="fax_header"><label for="fax">#language.Fax# #language.optional#:</label></td>
@@ -116,7 +116,7 @@
 							<tr>
 								<td colspan="2" align="center">
 									<input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
-									<input type="button" value="#language.Cancel#" onclick="self.location.href='addUserCompanies.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#'" class="textbutton" />							</td>
+									<input type="button" value="#language.Cancel#" onclick="self.location.href='entrpdemande-comprequest.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#'" class="textbutton" />							</td>
 							</tr>
 						</table>
 					</cfform>
