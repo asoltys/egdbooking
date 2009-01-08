@@ -337,7 +337,7 @@
 								</cfif>
 
 								<tr class="#rowClass#">
-									<td style="width:60%;"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+									<td style="width:60%;"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name# #BRID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 									<td style="width:15%;">
 										<cfif status EQ "P"><i class="pending">#language.pending#</i>
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
@@ -390,7 +390,7 @@
 									<cfset rowClass = "">
 								</cfif>
 								<tr class="#rowClass#">
-									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name# #BRID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 									<td style="width:40%;">
 
 										<cfif status EQ "P"><i class="pending">#language.pending#</i>
@@ -443,7 +443,7 @@
 									<cfset rowClass = "">
 								</cfif>
 								<tr class="#rowClass#">
-									<td colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+									<td colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name# #BRID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 									<td style="width:40%;">
 										<cfif status EQ "P"><i class="pending">#language.pending#</i>
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
