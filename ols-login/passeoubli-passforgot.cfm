@@ -60,7 +60,7 @@
 
 					<div>#language.enterEmail#<br />#language.getPassword#</div><br />
 
-					<form action="passeoubli-passforgot_action.cfm?lang=#lang#" id="forgotForm">
+					<form action="passeoubli-passforgot_action.cfm?lang=#lang#" id="forgotForm" method="post">
 						<table>
 							<tr>
 								<td><label for="email">#language.Email#:</label>&nbsp;&nbsp;<input type="text" name="email" id="email" size="30" /></td>
