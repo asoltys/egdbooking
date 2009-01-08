@@ -117,7 +117,7 @@
 						</tr>
 						<tr>
 							<td id="tonnage">Tonnage:</td>
-							<td headers="tonnage"><input type="hidden" name="tonnage" value="#Variables.Tonnage#" />#Variables.CompanyName#</td>
+							<td headers="tonnage"><input type="hidden" name="tonnage" value="#Variables.Tonnage#" />#Variables.Tonnage#</td>
 						</tr>
 						<tr>
 							<td id="Anonymous">Anonymous:</td>
