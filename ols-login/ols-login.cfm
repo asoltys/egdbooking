@@ -3,11 +3,10 @@
 	<cfset language.login = "Login">
 	<cfset language.description ="Login page for the booking application.">
 	<cfset language.browser = "Please ensure that your browser meets the following requirements before proceeding:">
-	<cfset language.criteria = '<li><a href="http://browser.netscape.com/ns8/" rel="extenal">Netscape 4.7+</a> (<a href="http://browser.netscape.com/ns8/download/archive72x.jsp" rel="extenal">link to older versions</a>), <a href="http://www.microsoft.com/windows/ie/downloads/critical/ie6sp1/default.mspx" rel="extenal">Internet Explorer 5+</a>, or <a href="http://www.mozilla.org/products/firefox/" rel="extenal">Mozilla Firefox</a></li>'
-		<!---& '<li>128-bit encryption</li>'--->
+	<cfset language.criteria = '<li><a href="http://www.microsoft.com/windows/ie/downloads/critical/ie6sp1/default.mspx" rel="extenal">Internet Explorer 6+</a>, or <a href="http://www.mozilla.com/en-US/firefox/" rel="external">Mozilla Firefox</a></li>'
 		& '<li>JavaScript enabled</li>'
 		& '<li>Cookies enabled</li>'
-		& '<li><a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" rel="external">Adobe Acrobat Reader</a> installed</li>'>
+		& '<li><a href="http://get.adobe.com/reader/otherversions/" rel="external">Adobe Acrobat Reader</a> installed</li>'>
 	<cfset language.displayproblem = "The application may not function properly without these components.">
 	<cfset language.jserror = "You do not have JavaScript enabled.  Parts of this application will not function properly.">
 	<cfset language.forgot = "Forgot password">
@@ -20,11 +19,10 @@
 	<cfset language.login = "Ouvrir la session">
 	<cfset language.description ="Page d'ouverture de session pour la demande de r&eacute;servation.">
 	<cfset language.browser = "Veuillez v&eacute;rifier que votre navigateur Web r&eacute;pond aux exigences suivantes avant de continuer&nbsp;:">
-	<cfset language.criteria = '<li><a href="http://browser.netscape.com/ns8/" rel="extenal">Netscape 4.7+</a> (<a href="http://browser.netscape.com/ns8/download/archive72x.jsp" rel="extenal">liens vers des versions ant&eacute;rieures</a>), <a href="http://www.microsoft.com/windows/ie/downloads/critical/ie6sp1/default.mspx" rel="extenal">Internet Explorer 5+</a>, ou <a href="http://www.mozilla.org/products/firefox/" rel="extenal">Mozilla Firefox</a></li>'
-		<!---& '<li>Permet le chiffrement de 128 bits du JavaScript</li>'--->
+	<cfset language.criteria = '<li><a href="http://www.microsoft.com/windows/ie/downloads/critical/ie6sp1/default.mspx" rel="external">Internet Explorer 6+</a>, ou <a href="http://www.mozilla.com/en-US/firefox/" rel="external">Mozilla Firefox</a></li>'
 		& '<li>JavaScript activ&eacute;</li>'
 		& '<li>T&eacute;moins activ&eacute;s</li>'
-		& '<li>Poss&egrave;de <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" rel="external">Adobe Acrobat Reader</a> install&eacute;</li>'>
+		& '<li>Poss&egrave;de <a href="http://get.adobe.com/reader/otherversions/" rel="external">Adobe Acrobat Reader</a> install&eacute;</li>'>
 	<cfset language.displayproblem = "L'application ne fonctionnera peut-&ecirc;tre pas correctement sans ces composantes.">
 	<cfset language.jserror = "La fonction JavaScript n'est pas activ&eacute;e. Des parties de l'application ne fonctionnent pas correctement.">
 	<cfset language.forgot = "Oubli du mot de passe">
