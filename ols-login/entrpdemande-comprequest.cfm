@@ -34,6 +34,10 @@
 	<cfset language.selectCompany = "Veuillez s&eacute;lectionner une entreprise.">
 </cfif>
 
+<cfif NOT isDefined("Form.firstname")>
+  <cflocation url="#RootDir#ols-login/utilisateurajout-useradd.cfm?lang=eng" addtoken="no" />
+</cfif>
+
 <!---error checking for adding a company--->
 <cfset Variables.Errors = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
