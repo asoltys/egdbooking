@@ -217,7 +217,7 @@ function EditSubmit ( selectedform )
 				</tr>
 				<tr>
 					<td id="Agent" align="left">Agent:</td>
-					<td headers="Agent"><input type="hidden" name="UID" value="<cfoutput>#Variables.UID#</cfoutput>" />
+					<td headers="Agent"><input type="hidden" name="UID" value="<cfoutput>#Variables.UID#</cfoutput>" /><cfoutput>#getAgent.UserName#</cfoutput></td>
 				</tr>
 				<tr>
 					<td id="Start" align="left">Start Date:</td>
