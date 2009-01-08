@@ -74,44 +74,44 @@
 						<cfinclude template="#RootDir#includes/getStructure.cfm">
 					</cfif>
 
-					<cfform action="entrpajout-compadd_action.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#" id="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
+					<form action="entrpajout-compadd_action.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#" id="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
 	}">
 						<table>
 							<tr>
 								<td id="name_header"><label for="name">#language.companyName#:</label></td>
-								<td><cfinput name="name" id="name" type="text" size="40" maxlength="75" required="yes" value="#Variables.name#" message="#language.nameError#" /></td>
+								<td><input name="name" id="name" type="text" size="40" maxlength="75" value="#Variables.name#" /></td>
 							</tr>
 							<tr>
 								<td id="address1_header"><label for="address1">#language.Address# 1:</label></td>
-								<td><cfinput name="address1" id="address1" type="text" size="40" maxlength="75" required="yes" value="#Variables.address1#" message="#language.addressError#" /></td>
+								<td><input name="address1" id="address1" type="text" size="40" maxlength="75" value="#Variables.address1#" /></td>
 							</tr>
 							<tr>
 								<td id="address2_header"><label for="address2">#language.Address# 2 #language.optional#:</label></td>
-								<td><cfinput name="address2" id="address2" type="text" size="40" maxlength="75" value="#Variables.address2#" /></td>
+								<td><input name="address2" id="address2" type="text" size="40" maxlength="75" value="#Variables.address2#" /></td>
 							</tr>
 							<tr>
 								<td id="city_header"><label for="city">#language.City#:</label></td>
-								<td><cfinput name="city" id="city" type="text" size="25" maxlength="40" required="yes" value="#Variables.city#" message="#language.cityError#" /></td>
+								<td><input name="city" id="city" type="text" size="25" maxlength="40" value="#Variables.city#" /></td>
 							</tr>
 							<tr>
 								<td id="province_header"><label for="province">#language.Province#:</label></td>
-								<td><cfinput name="province" id="province" type="text" size="25" maxlength="40" required="no" value="#Variables.province#" message="#language.provinceError#" /></td>
+								<td><input name="province" id="province" type="text" size="25" maxlength="40" value="#Variables.province#" /></td>
 							</tr>
 							<tr>
 								<td id="country_header"><label for="country">#language.Country#:</label></td>
-								<td><cfinput name="country" id="country" type="text" size="25" maxlength="40" required="yes" value="#Variables.country#" message="#language.countryError#" /></td>
+								<td><input name="country" id="country" type="text" size="25" maxlength="40" value="#Variables.country#" /></td>
 							</tr>
 							<tr>
 								<td id="zip_header"><label for="zip">#language.zip#:</label></td>
-								<td><cfinput name="zip" id="zip" type="text" size="12" maxlength="10" required="no" value="#Variables.zip#" message="#language.zipError#" /></td>
+								<td><input name="zip" id="zip" type="text" size="12" maxlength="10" value="#Variables.zip#" /></td>
 							</tr>
 							<tr>
 								<td id="phone_header"><label for="phone">#language.Phone#:</label></td>
-								<td><cfinput name="phone" id="phone" type="text" size="25" maxlength="32" required="yes" value="#Variables.phone#" message="#language.phoneError#" /></td>
+								<td><input name="phone" id="phone" type="text" size="25" maxlength="32" value="#Variables.phone#" /></td>
 							</tr>
 							<tr>
 								<td id="fax_header"><label for="fax">#language.Fax# #language.optional#:</label></td>
-								<td headers="fax_header"><cfinput id="fax" name="fax" type="text" size="10" maxlength="32" /></td>
+								<td headers="fax_header"><input id="fax" name="fax" type="text" size="10" maxlength="32" /></td>
 							</tr>
 							<tr>
 								<td colspan="2" align="center">
@@ -119,7 +119,7 @@
 									<input type="button" value="#language.Cancel#" onclick="self.location.href='entrpdemande-comprequest.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#'" class="textbutton" />							</td>
 							</tr>
 						</table>
-					</cfform>
+					</form>
 				</cfoutput>
 			</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->
