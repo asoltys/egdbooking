@@ -1,5 +1,4 @@
 <cfinclude template="#RootDir#includes/companyInfoVariables.cfm">
-
 <cfif lang EQ "eng">
 	<cfset language.createComp = "Create New Company">
 	<cfset language.keywords = "#language.masterKeywords#" & ", Add New Company">
@@ -12,34 +11,29 @@
 	<cfset language.description = "Permet &agrave; l'utilisateur de cr&eacute;er un nouveau compte pour une entreprise.">
 	<cfset language.subjects = "#language.masterSubjects#">
 	<cfset language.createUser = "Cr&eacute;er un nouvel utilisateur">
-
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.CreateComp# - #language.esqGravingDock# - #language.PWGSC#"" />
+	<meta name=""dc.title"" content=""#language.CreateUser# - #language.esqGravingDock# - #language.PWGSC#"" />
 	<meta name=""keywords"" content=""#language.keywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
-	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
-	<title>#language.CreateComp# - #language.esqGravingDock# - #language.PWGSC#</title>">
+	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.masterSubjects#"" />
+	<title>#language.CreateUser# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
-
-<cfset Variables.onLoad = "javascript:document.addCompanyForm.name.focus();">
-<cfinclude template="#RootDir#includes/checkFilledIn_js.cfm">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
 			<a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.login#</a> &gt;
-			<a href="#RootDir#ols-login/entrpdemande-comprequest.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#">#language.createUser#</a> &gt;
 			#language.CreateComp#
 			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-		<div class="colLayout">
+<div class="colLayout">
 		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
 			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
-			<div class="center">
+      <div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
 					<cfoutput>#language.CreateComp#</cfoutput>
@@ -74,7 +68,7 @@
 						<cfinclude template="#RootDir#includes/getStructure.cfm">
 					</cfif>
 
-					<form action="entrpajout-compadd_action.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#" id="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
+					<form name="addCompanyForm" action="entrpajout-compadd_action.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#" id="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
 	}">
 						<table>
 							<tr>
@@ -122,6 +116,9 @@
 					</form>
 				</cfoutput>
 			</div>
-			<!-- CONTENT ENDS | FIN DU CONTENU -->
+      <!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+
+
+
