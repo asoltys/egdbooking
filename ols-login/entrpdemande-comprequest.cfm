@@ -34,10 +34,6 @@
 	<cfset language.selectCompany = "Veuillez s&eacute;lectionner une entreprise.">
 </cfif>
 
-<cfif NOT isDefined("Form.firstname")>
-  <cflocation url="#RootDir#ols-login/utilisateurajout-useradd.cfm?lang=eng" addtoken="no" />
-</cfif>
-
 <!---error checking for adding a company--->
 <cfset Variables.Errors = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
@@ -283,7 +279,7 @@ function EditSubmit ( selectedform )
 						<div style="text-align:right;"><input type="submit" value="#language.SubmitUserRequest#" class="textbutton" />
 						<cfif lang EQ 'fra'></div><br />
 						<div style="text-align:right;"></cfif>
-						<input type="button" onclick="self.location.href='addUser.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#'" value="#language.editProfile#" class="textbutton" />
+						<input type="button" onclick="self.location.href='utilisateurajout-useradd.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#'" value="#language.editProfile#" class="textbutton" />
 						<input type="button" onclick="self.location.href='ols-login.cfm?lang=#lang#'" value="#language.cancel#" class="textbutton" />
 						</div>
 					</cfform>
