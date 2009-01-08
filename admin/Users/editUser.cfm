@@ -139,7 +139,6 @@ function EditSubmit ( selectedform )
 							<td colspan="2" align="center">
 								<!--a href="javascript:document.editUserForm.submitForm.click();" class="textbutton">Submit</a-->
 								<cfif isDefined("form.UID")><cfoutput><input type="hidden" name="UID" value="#form.UID#" /></cfoutput></cfif>
-								<cfoutput><input type="hidden" name="UID" value="#form.UID#" /></cfoutput>
 								<input type="submit" value="Save Name Changes" class="textbutton" />
 							</td>
 						</tr>
