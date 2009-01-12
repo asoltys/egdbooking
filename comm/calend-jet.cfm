@@ -4,8 +4,8 @@
 <cfif structKeyExists(form, 'm-m')>
 	<cfset url['m-m'] = form['m-m'] />
 </cfif>
-<cfif IsDefined('form.year')>
-	<cfset url.year = form.year />
+<cfif structKeyExists(form, 'a-y')>
+	<cfset url['a-y'] = form['a-y'] />
 </cfif>
 <cfif lang EQ "eng">
 	<cfset language.ScreenMessage = "There are no events available for display">
@@ -80,8 +80,8 @@
 
 
 				<CFINCLUDE template="includes/calendar_variables.cfm">
-				<cfset firstdayofbunch = CreateDate(url.year, url['m-m'], 1)>
-				<cfset lastdayofbunch = CreateDate(url.year, url['m-m'], DaysInMonth(firstdayofbunch))>
+				<cfset firstdayofbunch = CreateDate(url['a-y'], url['m-m'], 1)>
+				<cfset lastdayofbunch = CreateDate(url['a-y'], url['m-m'], DaysInMonth(firstdayofbunch))>
 				<cfquery name="GetEvents" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT 	Status,
 						StartDate, EndDate,
@@ -115,24 +115,24 @@
 
 				<CFIF url['m-m'] eq 1>
 					<CFSET prevmonth = 12>
-					<CFSET prevyear = url.year - 1>
+					<CFSET prevyear = url['a-y'] - 1>
 				<CFELSE>
 					<CFSET prevmonth = url['m-m'] - 1>
-					<CFSET prevyear = url.year>
+					<CFSET prevyear = url['a-y']>
 				</CFIF>
 
 				<CFIF url['m-m'] eq 12>
 					<CFSET nextmonth = 1>
-					<CFSET nextyear = url.year + 1>
+					<CFSET nextyear = url['a-y'] + 1>
 				<CFELSE>
 					<CFSET nextmonth = url['m-m'] + 1>
-					<CFSET nextyear = url.year>
+					<CFSET nextyear = url['a-y']>
 				</CFIF>
 
 				<cfoutput>
 				<div class="selector">
-					<a href="calend-jet.cfm?lang=#lang#&amp;m-m=#prevmonth#&amp;year=#prevyear#" class="previousLink">#language.prev#</a>
-					<a href="calend-jet.cfm?lang=#lang#&amp;m-m=#nextmonth#&amp;year=#nextyear#" class="nextLink">#language.next#</a>
+					<a href="calend-jet.cfm?lang=#lang#&amp;m-m=#prevmonth#&amp;a-y=#prevyear#" class="previousLink">#language.prev#</a>
+					<a href="calend-jet.cfm?lang=#lang#&amp;m-m=#nextmonth#&amp;a-y=#nextyear#" class="nextLink">#language.next#</a>
 					<form id="dateSelect" class="noBorder" action="calend-jet.cfm?lang=#lang#" method="post">
 						<fieldset>
 							<label for="month">Month</label>
@@ -145,7 +145,7 @@
 							<select name="year" id="year">
 								<CFLOOP index="i" from="-5" to="25">
 									<cfset year = #DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
-									<option <cfif year eq url.year>selected="selected"</cfif>>#year#</option>
+									<option <cfif year eq url['a-y']>selected="selected"</cfif>>#year#</option>
 									</CFLOOP>
 							</select>
 							<input type="submit" value="Go" />
@@ -160,8 +160,8 @@
 
 				<cfoutput>
 				<div class="selector">
-					<a href="calend-jet.cfm?lang=#lang#&amp;m-m=#prevmonth#&amp;year=#prevyear#" class="previousLink">#language.prev#</a>
-					<a href="calend-jet.cfm?lang=#lang#&amp;m-m=#nextmonth#&amp;year=#nextyear#" class="nextLink">#language.next#</a>
+					<a href="calend-jet.cfm?lang=#lang#&amp;m-m=#prevmonth#&amp;a-y=#prevyear#" class="previousLink">#language.prev#</a>
+					<a href="calend-jet.cfm?lang=#lang#&amp;m-m=#nextmonth#&amp;a-y=#nextyear#" class="nextLink">#language.next#</a>
 				</div>
 				</cfoutput>
 

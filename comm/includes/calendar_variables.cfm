@@ -22,8 +22,8 @@
 	<cfset url['m-m'] = DateFormat(PacificNow, "M")>
 </cfif>
 
-<cfif NOT IsDefined("url.year")>
-	<cfset url.year = DateFormat(PacificNow, "YYYY")>
+<cfif NOT structKeyExists(url, 'a-y')>
+	<cfset url['a-y'] = DateFormat(PacificNow, "YYYY")>
 </cfif>
 
 <!--- Create an array for the days of the week --->

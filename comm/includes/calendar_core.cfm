@@ -1,17 +1,17 @@
-<h2><cfoutput>#LSDateFormat(CreateDate(url.year, url['m-m'], 1), 'mmmm')# #url.year#</cfoutput></h2>
+<h2><cfoutput>#LSDateFormat(CreateDate(url['a-y'], url['m-m'], 1), 'mmmm')# #url['a-y']#</cfoutput></h2>
 
 <!--- Create an array for the days of the month --->
 <cfset DaysofMonth = ArrayNew(1)>
 <cfloop index="kounting" from="1" to="31" step="1">
-	<cfif isDate(url.year & "/" & url['m-m'] & "/" & kounting) eq "yes">
+	<cfif isDate(url['a-y'] & "/" & url['m-m'] & "/" & kounting) eq "yes">
 		<cfset DaysofMonth[kounting] = #kounting#>
 	</cfif>
 </cfloop>
 <cfset LastDayofMonth = ArrayMax(DaysofMonth)>
 
 <!--- Find the day of the week for the first day of the month, used for finding events in the query --->
-<cfset FirstDay = CreateDate(url.year, url['m-m'], 1)>
-<cfset LastDay = CreateDate(url.year, url['m-m'], LastDayofMonth)>
+<cfset FirstDay = CreateDate(url['a-y'], url['m-m'], 1)>
+<cfset LastDay = CreateDate(url['a-y'], url['m-m'], LastDayofMonth)>
 <cfset CurDayofWeek = LSDateFormat(FirstDay, "dddd")>
 
 <table class="basic calendar" id="calendar<cfoutput>#url['m-m']#</cfoutput>" summary="<cfoutput>#language.calendar#</cfoutput>">
@@ -47,7 +47,7 @@
 			</cfif>
 			<td>
 				<cfif not (Variables.DateCounter IS 0) AND NOT (Variables.DateCounter GT Variables.LastDayofMonth)>
-					<cfset taday = "#url['m-m']#" & "/" & "#DaysofMonth[DateCounter]#" & "/" & "#url.year#">
+					<cfset taday = "#url['m-m']#" & "/" & "#DaysofMonth[DateCounter]#" & "/" & "#url['a-y']#">
 					<cfoutput><a href="detail.cfm?lang=#lang#&amp;date=#taday#" title="#language.detailsFor# #taday#"><b>#DaysofMonth[DateCounter]#</b></a></cfoutput>
 
 					<cfquery name="GetEventsonDay" dbtype="query">

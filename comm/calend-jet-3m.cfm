@@ -1,8 +1,8 @@
 <cfif structKeyExists(form, 'm-m')>
 	<cfset url['m-m'] = form['m-m'] />
 </cfif>
-<cfif IsDefined('form.year')>
-	<cfset url.year = form.year />
+<cfif structKeyExists(form, 'a-y')>
+	<cfset url['a-y'] = form['a-y'] />
 </cfif><cfif lang EQ "eng">
 	<cfset language.ScreenMessage = "There are no events available for display">
 	<cfset language.jettyCalendar = "North Landing Wharf/South Jetty Calendar">
@@ -75,7 +75,7 @@
 				<CFINCLUDE template="#RootDir#includes/jetty_calendar_menu.cfm">
 
 				<CFINCLUDE template="includes/calendar_variables.cfm">
-				<cfset firstdayofbunch = CreateDate(url.year, url['m-m'], 1)>
+				<cfset firstdayofbunch = CreateDate(url['a-y'], url['m-m'], 1)>
 				<cfset ahead3months= DateAdd('m', 3, firstdayofbunch)>
 				<cfset lastdayofbunch = CreateDate(year(ahead3months), month(ahead3months), daysinmonth(ahead3months))>
 				<cfquery name="GetEvents" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -113,18 +113,18 @@
 
 				<CFIF url['m-m'] eq 1>
 					<CFSET prevmonth = 12>
-					<CFSET prevyear = url.year - 1>
+					<CFSET prevyear = url['a-y'] - 1>
 				<CFELSE>
 					<CFSET prevmonth = url['m-m'] - 1>
-					<CFSET prevyear = url.year>
+					<CFSET prevyear = url['a-y']>
 				</CFIF>
 
 				<CFIF url['m-m'] eq 12>
 					<CFSET nextmonth = 1>
-					<CFSET nextyear = url.year + 1>
+					<CFSET nextyear = url['a-y'] + 1>
 				<CFELSE>
 					<CFSET nextmonth = url['m-m'] + 1>
-					<CFSET nextyear = url.year>
+					<CFSET nextyear = url['a-y']>
 				</CFIF>
 
 
@@ -143,7 +143,7 @@
 						<select name="year" id="year">
 							<CFLOOP index="i" from="-5" to="25">
 								<cfset year = #DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
-								<option <cfif year eq url.year>selected="selecetd"</cfif>>#year#</option>
+								<option <cfif year eq url['a-y']>selected="selecetd"</cfif>>#year#</option>
 								</CFLOOP>
 							</select>
 						<input type="submit" value="Go" />
@@ -159,7 +159,7 @@
 							<cfset url['m-m'] = url['m-m']+1>
 						<cfelse>
 							<cfset url['m-m'] = 1>
-							<cfset url.year = url.year+1>
+							<cfset url['a-y'] = url['a-y']+1>
 						</cfif>
 					</cfif>
 

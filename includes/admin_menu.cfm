@@ -4,8 +4,8 @@
 	<CFIF structKeyExists(url, 'm-m')>
 		<CFSET variables.datetoken = variables.datetoken & "&m-m=#url['m-m']#">
 	</CFIF>
-	<CFIF IsDefined('url.year')>
-		<CFSET variables.datetoken = variables.datetoken & "&year=#url.year#">
+	<CFIF structKeyExists(form, 'a-y')>
+		<CFSET variables.datetoken = variables.datetoken & "&year=#url['a-y']#">
 	</CFIF>
 
 	<div>
