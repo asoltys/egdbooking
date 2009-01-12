@@ -1,5 +1,5 @@
-<cfif IsDefined('form.month')>
-	<cfset url.month = form.month />
+<cfif structKeyExists(form, 'm-m')>
+	<cfset url['m-m'] = form['m-m'] />
 </cfif>
 <cfif IsDefined('form.year')>
 	<cfset url.year = form.year />
@@ -75,7 +75,7 @@
 				<CFINCLUDE template="#RootDir#includes/jetty_calendar_menu.cfm">
 
 				<CFINCLUDE template="includes/calendar_variables.cfm">
-				<cfset firstdayofbunch = CreateDate(url.year, url.month, 1)>
+				<cfset firstdayofbunch = CreateDate(url.year, url['m-m'], 1)>
 				<cfset ahead3months= DateAdd('m', 3, firstdayofbunch)>
 				<cfset lastdayofbunch = CreateDate(year(ahead3months), month(ahead3months), daysinmonth(ahead3months))>
 				<cfquery name="GetEvents" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -111,32 +111,32 @@
 
 				<CFSET pos="top">
 
-				<CFIF url.month eq 1>
+				<CFIF url['m-m'] eq 1>
 					<CFSET prevmonth = 12>
 					<CFSET prevyear = url.year - 1>
 				<CFELSE>
-					<CFSET prevmonth = url.month - 1>
+					<CFSET prevmonth = url['m-m'] - 1>
 					<CFSET prevyear = url.year>
 				</CFIF>
 
-				<CFIF url.month eq 12>
+				<CFIF url['m-m'] eq 12>
 					<CFSET nextmonth = 1>
 					<CFSET nextyear = url.year + 1>
 				<CFELSE>
-					<CFSET nextmonth = url.month + 1>
+					<CFSET nextmonth = url['m-m'] + 1>
 					<CFSET nextyear = url.year>
 				</CFIF>
 
 
 				<cfoutput>
-				<div class="left"><a href="calend-jet-3m.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
-				<div class="right"><a href="calend-jet-3m.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
+				<div class="left"><a href="calend-jet-3m.cfm?lang=#lang#&m-m=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
+				<div class="right"><a href="calend-jet-3m.cfm?lang=#lang#&m-m=#nextmonth#&year=#nextyear#">#language.next#</a></div>
 				<div class="date-select">
 					<form id="dateSelect" action="calend-cale-dock-3m.cfm?lang=#lang#" method="post">
 						<label for="month">Month</label>
-						<select name="month" id="month">
+						<select name="m-m" id="month">
 							<CFLOOP index="i" from="1" to="12">
-								<option value="#i#" <cfif i eq url.month>selected="selected"</cfif>>#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
+								<option value="#i#" <cfif i eq url['m-m']>selected="selected"</cfif>>#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
 								</CFLOOP>
 							</select>
 						<label for="year">Year</label>
@@ -155,10 +155,10 @@
 
 				<CFLOOP from="0" to="2" index="i">
 					<cfif i neq 0>
-						<cfif url.month neq 12>
-							<cfset url.month = url.month+1>
+						<cfif url['m-m'] neq 12>
+							<cfset url['m-m'] = url['m-m']+1>
 						<cfelse>
-							<cfset url.month = 1>
+							<cfset url['m-m'] = 1>
 							<cfset url.year = url.year+1>
 						</cfif>
 					</cfif>
@@ -168,8 +168,8 @@
 				</CFLOOP>
 
 				<cfoutput>
-				<div class="left"><a href="calend-jet-3m.cfm?lang=#lang#&month=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
-				<div class="right"><a href="calend-jet-3m.cfm?lang=#lang#&month=#nextmonth#&year=#nextyear#">#language.next#</a></div>
+				<div class="left"><a href="calend-jet-3m.cfm?lang=#lang#&m-m=#prevmonth#&year=#prevyear#">#language.prev#</a></div>
+				<div class="right"><a href="calend-jet-3m.cfm?lang=#lang#&m-m=#nextmonth#&year=#nextyear#">#language.next#</a></div>
 				</cfoutput>
 
 				<CFSET pos="bottom">

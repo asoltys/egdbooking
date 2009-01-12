@@ -1,8 +1,8 @@
 <cfif IsDefined("Session.Form_Structure")>
 	<cfset StructDelete(Session, "Form_Structure")>
 </cfif>
-<cfif IsDefined('form.month')>
-	<cfset url.month = form.month />
+<cfif structKeyExists(form, 'm-m')>
+	<cfset url['m-m'] = form['m-m'] />
 </cfif>
 <cfif IsDefined('form.year')>
 	<cfset url.year = form.year />
@@ -84,8 +84,8 @@
 
 
 				<CFINCLUDE template="includes/calendar_variables.cfm">
-				<cfset firstdayofbunch = CreateDate(url.year, url.month, 1)>
-				<cfset lastdayofbunch = CreateDate(url.year, url.month, DaysInMonth(firstdayofbunch))>
+				<cfset firstdayofbunch = CreateDate(url.year, url['m-m'], 1)>
+				<cfset lastdayofbunch = CreateDate(url.year, url['m-m'], DaysInMonth(firstdayofbunch))>
 				<cfquery name="GetEvents" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT 	Status,
 						StartDate, EndDate,
@@ -115,34 +115,34 @@
 						AND	Status = 'm'
 				</cfquery>
 
-				<CFIF url.month eq 1>
+				<CFIF url['m-m'] eq 1>
 					<CFSET prevmonth = 12>
 					<CFSET prevyear = url.year - 1>
 				<CFELSE>
-					<CFSET prevmonth = url.month - 1>
+					<CFSET prevmonth = url['m-m'] - 1>
 					<CFSET prevyear = url.year>
 				</CFIF>
 
-				<CFIF url.month eq 12>
+				<CFIF url['m-m'] eq 12>
 					<CFSET nextmonth = 1>
 					<CFSET nextyear = url.year + 1>
 				<CFELSE>
-					<CFSET nextmonth = url.month + 1>
+					<CFSET nextmonth = url['m-m'] + 1>
 					<CFSET nextyear = url.year>
 				</CFIF>
 
 
 				<cfoutput>
 				<div class="selector">
-					<a href="calend-cale-dock.cfm?lang=#lang#&amp;month=#prevmonth#&amp;year=#prevyear#" class="previousLink">#language.prev#</a>
-					<a href="calend-cale-dock.cfm?lang=#lang#&amp;month=#nextmonth#&amp;year=#nextyear#" class="nextLink">#language.next#</a>
+					<a href="calend-cale-dock.cfm?lang=#lang#&amp;m-m=#prevmonth#&amp;year=#prevyear#" class="previousLink">#language.prev#</a>
+					<a href="calend-cale-dock.cfm?lang=#lang#&amp;m-m=#nextmonth#&amp;year=#nextyear#" class="nextLink">#language.next#</a>
 
 					<form id="dateSelect" class="noBorder" action="calend-cale-dock.cfm?lang=#lang#" method="post">
 						<fieldset>
 							<label for="month">Month</label>
-							<select name="month" id="month">
+							<select name="m-m" id="month">
 								<CFLOOP index="i" from="1" to="12">
-									<option value="#i#" <cfif i eq url.month>selected="selected"</cfif>>#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
+									<option value="#i#" <cfif i eq url['m-m']>selected="selected"</cfif>>#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
 									</CFLOOP>
 								</select>
 							<label for="year">Year</label>
@@ -163,8 +163,8 @@
 
 				<cfoutput>
 				<div class="selector">
-					<a href="calend-cale-dock.cfm?lang=#lang#&amp;month=#prevmonth#&amp;year=#prevyear#" class="previousLink">#language.prev#</a>
-					<a href="calend-cale-dock.cfm?lang=#lang#&amp;month=#nextmonth#&amp;year=#nextyear#" class="nextLink">#language.next#</a>
+					<a href="calend-cale-dock.cfm?lang=#lang#&amp;m-m=#prevmonth#&amp;year=#prevyear#" class="previousLink">#language.prev#</a>
+					<a href="calend-cale-dock.cfm?lang=#lang#&amp;m-m=#nextmonth#&amp;year=#nextyear#" class="nextLink">#language.next#</a>
 				</div>
 				</cfoutput>
 

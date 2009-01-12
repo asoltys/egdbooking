@@ -18,8 +18,8 @@
 	This prevets long names from breaking the pretty calendar table.  Lois Chan, June 2005 --->
 <cfset magicnum = 8>
 
-<cfif NOT IsDefined("url.month")>
-	<cfset url.month = DateFormat(PacificNow, "M")>
+<cfif NOT structKeyExists(url, 'm-m')>
+	<cfset url['m-m'] = DateFormat(PacificNow, "M")>
 </cfif>
 
 <cfif NOT IsDefined("url.year")>

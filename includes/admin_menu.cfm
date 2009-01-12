@@ -1,8 +1,8 @@
 <div id="menu2">
 
 	<CFSET variables.datetoken = "">
-	<CFIF IsDefined('url.month')>
-		<CFSET variables.datetoken = variables.datetoken & "&month=#url.month#">
+	<CFIF structKeyExists(url, 'm-m')>
+		<CFSET variables.datetoken = variables.datetoken & "&m-m=#url['m-m']#">
 	</CFIF>
 	<CFIF IsDefined('url.year')>
 		<CFSET variables.datetoken = variables.datetoken & "&year=#url.year#">

@@ -37,8 +37,8 @@
 	</cfif>
 
 	<CFSET variables.datetoken = "">
-	<CFIF IsDefined('url.month')>
-		<CFSET variables.datetoken = variables.datetoken & "&amp;month=#url.month#">
+	<CFIF structKeyExists(url, 'm-m')>
+		<CFSET variables.datetoken = variables.datetoken & "&amp;m-m=#url['m-m']#">
 	</CFIF>
 	<CFIF IsDefined('url.year')>
 		<CFSET variables.datetoken = variables.datetoken & "&amp;year=#url.year#">
