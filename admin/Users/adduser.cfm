@@ -93,7 +93,7 @@
 							<td colspan="2" align="center" style="padding-top:20px;">
 								<!--a href="javascript:document.addUserForm.submitForm.click();" class="textbutton">Submit</a-->
 								<input type="submit" name="submitForm" value="Continue" class="textbutton" />
-								<cfoutput><input type="button" name="submitForm" value="Cancel" class="textbutton" onclick="self.location.href='../menu.cfm?lang=#lang#'" /></cfoutput>
+								<cfoutput><a href="../menu.cfm?lang=#lang#" class="textbutton">Cancel</a></cfoutput>
 							</td>
 						</tr>
 					</table>

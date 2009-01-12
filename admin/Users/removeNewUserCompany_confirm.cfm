@@ -52,7 +52,7 @@
 
 					<p><div style="text-align:center;">
 						<input type="button" value="Remove" onclick="document.remCompanyConfirmForm.submit();" class="textbutton" />
-						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='addNewUserCompany.cfm?info=#url.info#&companies=#url.companies#'" class="textbutton" /></cfoutput>
+						<cfoutput><a href="addNewUserCompany.cfm?info=#url.info#&companies=#url.companies#" class="textbutton">Cancel</a></cfoutput>
 					<cfoutput><input type="hidden" name="CID" value="#form.CID#" /></cfoutput>
 					<cfif isDefined("URL.UID")>
 					<cfoutput><input type="hidden" name="UID" value="#url.UID#" /></cfoutput>

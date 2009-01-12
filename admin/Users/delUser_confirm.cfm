@@ -133,14 +133,14 @@ function EditSubmit ( selectedform )
 					<div style="text-align:center;">
 						<cfif getCompanies.recordCount GTE 1>
               <cfoutput>
-              <input type="button" value="remove user from #getCompany.companyName#" onclick="self.location.href='removeUserCompany_action.cfm?UID=#form.UID#&amp;CID=#form.CID#'" class="textbutton" />
+              <a href="removeUserCompany_action.cfm?UID=#form.UID#&amp;CID=#form.CID#" class="textbutton">remove user from #getCompany.companyName#</a>
               </cfoutput>
 						  <input type="submit" value="Delete user account" class="textbutton" />
             </cfif>
               <cfoutput>
-              <input type="button" value="Back" onclick="self.location.href='delUser.cfm?lang=#lang#'" class="textbutton" />
+              <a href="delUser.cfm?lang=#lang#" class="textbutton">Back</a>
               </cfoutput>
-              <cfoutput><input type="button" value="Cancel" onclick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" /></cfoutput>
+              <cfoutput><a href="#RootDir#admin/menu.cfm?lang=#lang#" class="textbutton">Cancel</a></cfoutput>
 					</div>
 
 					<input type="hidden" name="UID" value="<cfoutput>#form.UID#</cfoutput>" />

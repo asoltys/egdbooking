@@ -65,8 +65,8 @@ function EditSubmit ( selectedform )
 						<a href="delAdministrator.cfm" class="textbutton">Back</a>
 						<a href="../menu.cfm?lang=#lang#" class="textbutton">Cancel</a--->
 						<input type="submit" value="Remove" class="textbutton" />
-						<cfoutput><input type="button" value="Back" onclick="self.location.href='delAdministrator.cfm?lang=#lang#'" class="textbutton" /></cfoutput>
-						<cfoutput><input type="button" value="Cancel" onclick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" /></cfoutput>
+						<cfoutput><a href="delAdministrator.cfm?lang=#lang#" class="textbutton">Back</a></cfoutput>
+						<cfoutput><a href="#RootDir#admin/menu.cfm?lang=#lang#" class="textbutton">Cancel</a></cfoutput>
 
 					</div>
 

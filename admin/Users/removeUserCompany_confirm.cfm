@@ -69,7 +69,7 @@ function EditSubmit ( selectedform )
 						<!--a href="javascript:EditSubmit('remCompanyConfirmForm');" class="textbutton">Submit</a>
 						<a href="editUser.cfm?UID=#form.UID#" class="textbutton">Cancel</a-->
 						<input type="submit" name="submitForm" value="Remove" class="textbutton" />
-						<input type="button" name="cancel" value="Cancel" class="textbutton" onclick="self.location.href='editUser.cfm?lang=#lang#&UID=#form.UID#'" />
+						<a href="editUser.cfm?lang=#lang#&UID=#form.UID#" class="textbutton">Cancel</a>
 					</div></p>
 
 					<input type="hidden" name="CID" value="#form.CID#" />

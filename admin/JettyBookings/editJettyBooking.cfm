@@ -297,7 +297,7 @@
 							<cfif isdefined('overwrite')>
 							<input type="submit" name="submitForm" class="textbutton" value="overwrite" />
 							</cfif>
-							<input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken#&BRID=#variables.BRID##variables.dateValue####variables.BRID#'" class="textbutton" />
+							<a href="#returnTo#?#urltoken#&BRID=#variables.BRID##variables.dateValue####variables.BRID#" class="textbutton">Cancel</a>
 							<br />
 							<input type="Hidden" name="BRID" value="#Variables.BRID#" />
 							<input type="Hidden" name="Submitted" value="yes" />

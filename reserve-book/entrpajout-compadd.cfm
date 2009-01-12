@@ -124,7 +124,7 @@
 						<tr>
 							<td colspan="2">
 								<input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
-								<input type="button" value="#language.Cancel#" onclick="self.location.href='editUser.cfm?lang=#lang#'" class="textbutton" />
+								<a href="editUser.cfm?lang=#lang#" class="textbutton">#language.Cancel#</a>
 							</td>
 						</tr>
 					</table>

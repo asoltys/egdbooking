@@ -239,7 +239,7 @@
 				<td colspan="2" align="center">
 					<input type="hidden" value="<cfoutput>#Form.Status#</cfoutput>" name="Status" />
 					<input type="submit" value="submit" class="textbutton" />
-					<cfoutput><input type="button" value="Back" class="textbutton" onclick="self.location.href='addBooking.cfm?#urltoken#'" /></cfoutput>
+					<cfoutput><a href="addBooking.cfm?#urltoken#" class="textbutton">Back</a></cfoutput>
 					<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='bookingmanage.cfm?#urltoken#';" /></cfoutput>
 				</td>
 			</tr>

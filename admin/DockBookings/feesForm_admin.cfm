@@ -147,7 +147,7 @@ function EditSubmit ( selectedform )
 				<div style="text-align:right;">
 					<!--a href="javascript:EditSubmit('serviceSelect');" class="textbutton">Submit</a-->
 					<input type="submit" name="submitForm" class="textbutton" value="submit" />
-					<input type="button" value="Back" onclick="self.location.href='#returnTo#?#urltoken#&BRID=#variables.BRID##variables.dateValue###id#variables.BRID#'" class="textbutton" />
+					<a href="#returnTo#?#urltoken#&BRID=#variables.BRID##variables.dateValue###id#variables.BRID#" class="textbutton">Back</a>
 				</div>
 
 				</form>

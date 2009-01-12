@@ -210,7 +210,7 @@
 				<cfoutput>
 					<input type="hidden" name="CID" value="#getDetails.CID#" />
 					<input type="submit" value="#language.Submit#" class="textbutton" />
-					<input type="button" value="#language.Back#" onclick="self.location.href='#returnTo#?lang=#lang#&amp;CID=#getDetails.CID#'" class="textbutton" />
+					<a href="#returnTo#?lang=#lang#&amp;CID=#getDetails.CID#" class="textbutton">#language.Back#</a>
 				</cfoutput>
 				</div>
 				</cfform>

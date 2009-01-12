@@ -277,7 +277,7 @@
 						<td colspan="2" align="center">
 							<!--a href="javascript:document.editBookingForm.submitForm.click();" class="textbutton">Submit</a-->
 							<input type="submit" class="textbutton" value="submit" />
-							<input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken#&BRID=#variables.BRID##variables.dateValue#'" class="textbutton" />
+							<a href="#returnTo#?#urltoken#&BRID=#variables.BRID##variables.dateValue#" class="textbutton">Cancel</a>
 							<!--- <a href="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" class="textbutton">Cancel</a> --->
 						</td>
 					</tr>

@@ -128,8 +128,8 @@
 								<input type="hidden" name="VNID" value="<cfoutput>#Form.VNID#</cfoutput>" />
 								<input type="hidden" name="CID" value="<cfoutput>#Form.CID#</cfoutput>" />
 								<input type="submit" value="Confirm" class="textbutton" />
-								<input type="button" value="Back" onclick="self.location.href='editVessel.cfm?lang=#lang#'" class="textbutton" />
-								<input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
+								<a href="editVessel.cfm?lang=#lang#" class="textbutton">Back</a>
+								<a href="menu.cfm?lang=#lang#" class="textbutton">Cancel</a>
 							</td>
 						</tr>
 					</table>

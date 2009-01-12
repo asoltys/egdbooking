@@ -176,7 +176,7 @@
 						<input type="hidden" name="VNID" value="<cfoutput>#url.VNID#</cfoutput>" />
 						<input type="submit" value="#language.Submit#" name="submitForm" class="textbutton" />
 						<input type="reset" value="#language.Reset#" name="resetForm" class="textbutton" />
-						<input type="button" value="#language.Cancel#" name="cancel" class="textbutton" onclick="self.location.href='#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#GetVesselDetail.CID#'" />
+						<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#GetVesselDetail.CID#" class="textbutton">#language.Cancel#" name="cancel</a>
 					</div>
 				</cfform>
 				</cfoutput>

@@ -138,8 +138,8 @@
 					<br />
 					<div style="text-align:center;">
 						<input type="submit" class="textbutton" value="submit" />
-						<input type="button" value="Back" onclick="self.location.href='delVessel.cfm?lang=#lang#'" class="textbutton" />
-						<input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
+						<a href="delVessel.cfm?lang=#lang#" class="textbutton">Back</a>
+						<a href="menu.cfm?lang=#lang#" class="textbutton">Cancel</a>
 					</div>
 					</cfoutput>
 				</cfform>
@@ -202,8 +202,8 @@
 					</cfif>
 
 					<p><div style="text-align:center;">
-						<input type="button" value="Back" onclick="self.location.href='delVessel.cfm?lang=<cfoutput>#lang#</cfoutput>'" class="textbutton" />
-						<input type="button" value="Return to Administrative Functions" onclick="self.location.href='menu.cfm?lang=<cfoutput>#lang#</cfoutput>'" class="textbutton" />
+						<a href="delVessel.cfm?lang=<cfoutput>#lang#</cfoutput>" class="textbutton">Back</a>
+						<a href="menu.cfm?lang=<cfoutput>#lang#</cfoutput>" class="textbutton">Return to Administrative Functions</a>
 					</div></p>
 				</div>
 			</cfif>

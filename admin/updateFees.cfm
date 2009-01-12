@@ -104,7 +104,7 @@ function EditSubmit ( selectedform )
 				<div style="text-align:right;">
 					<!--a href="javascript:EditSubmit('serviceSelect');" class="textbutton">Submit</a-->
 					<input type="submit" name="submitForm" class="textbutton" value="submit" />
-					<cfoutput><input type="button" value="Cancel" onclick="self.location.href='otherForms.cfm?lang=#lang#'" class="textbutton" /></cfoutput>
+					<cfoutput><a href="otherForms.cfm?lang=#lang#" class="textbutton">Cancel</a></cfoutput>
 				</div>
 				</cfform>
 			</div>

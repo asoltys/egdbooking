@@ -225,7 +225,7 @@ function EditSubmit ( selectedform )
 				</cfoutput>
 
 				<cfif isDefined("URL.UID")>
-					<br /><div style="text-align:center;"><cfoutput><input type="button" value="Done" onclick="self.location.href='#RootDir#admin/Users/editUser.cfm?lang=#lang#&UID=#url.UID#'" class="textbutton" /></cfoutput>
+					<br /><div style="text-align:center;"><cfoutput><a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#&UID=#url.UID#" class="textbutton">Done</a></cfoutput>
 				</cfif>
 
         <cfoutput>

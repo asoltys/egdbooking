@@ -98,7 +98,7 @@
 		<tr>
 			<td colspan="2" align="center" style="padding-top:20px;">
 				<input type="submit" name="submitForm" value="submit" class="textbutton" />
-				<input type="button" name="cancel" value="Cancel" class="textbutton" onclick="self.location.href='addNewUserCompany.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#'" />
+				<a href="addNewUserCompany.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#" class="textbutton">Cancel</a>
 			</td>
 		</tr>
 	</table>

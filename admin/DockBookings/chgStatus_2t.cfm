@@ -134,7 +134,7 @@ function EditSubmit ( selectedform )
 				<!--a href="javascript:EditSubmit('change2tentative');" class="textbutton">Submit</a-->
 				<input type="submit" name="submitForm" class="textbutton" value="submit" />
 				<cfoutput>
-          <input type="button" value="Cancel" onclick="self.location.href='#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&BRID=#getBooking.BRID###id#getBooking.BRID#'" class="textbutton" />
+          <a href="#returnTo#?#urltoken##dateValue#&referrer=#URLEncodedFormat(url.referrer)#&BRID=#getBooking.BRID###id#getBooking.BRID#" class="textbutton">Cancel</a>
         </cfoutput>
 				</div></p>
 			</cfform>

@@ -170,8 +170,8 @@ function EditSubmit ( selectedform )
 
 					<cfoutput>
 					<div style="text-align:center;">
-						<input type="button" value="Back" onclick="self.location.href='delCompany.cfm?lang=#lang#'" class="textbutton" />
-						<input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
+						<a href="delCompany.cfm?lang=#lang#" class="textbutton">Back</a>
+						<a href="menu.cfm?lang=#lang#" class="textbutton">Cancel</a>
 					</div>
 					</cfoutput>
 
@@ -184,8 +184,8 @@ function EditSubmit ( selectedform )
 					<!--a href="javascript:EditSubmit('delCompanyConfirmForm');" class="textbutton">Submit</a>
 					<a href="menu.cfm?lang=#lang#" class="textbutton">Cancel</a-->
 					<input type="submit" name="submitForm" class="textbutton" value="submit" />
-					<input type="button" value="Back" onclick="self.location.href='delCompany.cfm?lang=#lang#'" class="textbutton" />
-					<input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" />
+					<a href="delCompany.cfm?lang=#lang#" class="textbutton">Back</a>
+					<a href="menu.cfm?lang=#lang#" class="textbutton">Cancel</a>
 					</div></p>
 					</cfoutput>
 

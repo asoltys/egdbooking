@@ -94,7 +94,7 @@ function EditSubmit ( selectedform )
 					<cfselect name="CID" query="getCompanyList" value="CID" display="Name" selected="#form.CID#" />
 					<!---a href="javascript:EditSubmit('chooseCompanyForm');" class="textbutton">View</a--->
 					<input type="submit" value="View" class="textbutton" />
-					<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='menu.cfm?lang=#lang#'" /></cfoutput>
+					<cfoutput><a href="menu.cfm?lang=#lang#" class="textbutton">Cancel</a></cfoutput>
 				</cfform>
 
 				<cfif form.CID NEQ "">
@@ -174,7 +174,7 @@ function EditSubmit ( selectedform )
 							<td id="" colspan="2" align="center" style="padding-top:20px;">
 								<input type="hidden" name="CID" value="#form.CID#" />
 								<input type="submit" class="textbutton" value="submit" />
-								<input type="button" value="Cancel" onclick="self.location.href='#RootDir#admin/menu.cfm?lang=#lang#'" class="textbutton" />
+								<a href="#RootDir#admin/menu.cfm?lang=#lang#" class="textbutton">Cancel</a>
 							</td>
 						</tr>
 					</table>

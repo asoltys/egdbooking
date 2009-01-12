@@ -241,9 +241,9 @@ function EditSubmit ( selectedform )
 							<cfoutput><a href="bookingmanage.cfm?#urltoken#" class="textbutton">Cancel</a></cfoutput>
 							<br--->
 							<input type="submit" value="submit" class="textbutton" />
-							<cfoutput><input type="button" value="Back" class="textbutton" onclick="self.location.href='editJettyMaintBlock.cfm?#urltoken#'" /></cfoutput>
+							<cfoutput><a href="editJettyMaintBlock.cfm?#urltoken#" class="textbutton">Back</a></cfoutput>
 							<!--- <cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='jettybookingmanage.cfm?#urltoken#;" /></cfoutput>
-							<cfoutput><input type="button" value="Cancel" onclick="self.location.href='jettyBookingManage.cfm?#urltoken#'" class="textbutton" /></cfoutput>
+							<cfoutput><a href="jettyBookingManage.cfm?#urltoken#" class="textbutton">Cancel</a></cfoutput>
 						</td>
 					</tr>
 				</table>

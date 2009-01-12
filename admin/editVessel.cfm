@@ -174,7 +174,7 @@
 								<input type="hidden" name="VNID" value="<cfoutput>#form.VNID#</cfoutput>" />
 								<input type="hidden" name="CID" value="<cfoutput>#form.CID#</cfoutput>" />
 								<input type="submit" value="submit" class="textbutton" />
-								<cfoutput><input type="button" value="Cancel" onclick="self.location.href='menu.cfm?lang=#lang#'" class="textbutton" /></cfoutput>
+								<cfoutput><a href="menu.cfm?lang=#lang#" class="textbutton">Cancel</a></cfoutput>
 							</td>
 						</tr>
 					</table>

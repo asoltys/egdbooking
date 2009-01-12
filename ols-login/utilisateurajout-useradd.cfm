@@ -126,7 +126,7 @@ function EditSubmit ( selectedform )
 								<td colspan="2" align="center"><!---a href="javascript:EditSubmit('addUserForm');" class="textbutton">Submit</a>
 										<a href="ols-login.cfm?<cfoutput>lang=#lang#</cfoutput>" class="textbutton">Cancel</a--->
 									<input type="submit" value="#language.continue#" class="textbutton" />
-									<input type="button" value="#language.Cancel#" onclick="self.location.href='ols-login.cfm?<cfoutput>lang=#lang#</cfoutput>'" class="textbutton" />								</td>
+									<a href="ols-login.cfm?<cfoutput>lang=#lang#</cfoutput>" class="textbutton">#language.Cancel#</a>								</td>
 							</tr>
 						</table>
 					</form>

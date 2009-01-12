@@ -253,7 +253,7 @@
 
 					<div class="buttons">
 						<input type="submit" value="#language.confirm#" class="textbutton" />
-						<input type="button" value="#language.Back#" class="textbutton" onclick="self.location.href='jettyRequest.cfm?lang=#lang#&amp;CID=#url.CID#'" />
+						<a href="jettyRequest.cfm?lang=#lang#&amp;CID=#url.CID#" class="textbutton">#language.Back#</a>
 					</div>
 
 				</cfform>

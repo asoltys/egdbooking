@@ -269,7 +269,7 @@ function EditSubmit ( selectedform )
 						</table>
 					</cfform>
 
-					<cfform id="newUserForm" action="utilisateurajout-useradd_action.cfm?lang=#lang#&info=#Variables.info#">
+					<form id="newUserForm" action="utilisateurajout-useradd_action.cfm?lang=#lang#&info=#Variables.info#" method="post">
 						<input type="hidden" name="firstname" value="#Variables.firstname#" />
 						<input type="hidden" name="lastname" value="#Variables.lastname#" />
 						<input type="hidden" name="email" value="#Variables.email#" />
@@ -279,10 +279,10 @@ function EditSubmit ( selectedform )
 						<div style="text-align:right;"><input type="submit" value="#language.SubmitUserRequest#" class="textbutton" />
 						<cfif lang EQ 'fra'></div><br />
 						<div style="text-align:right;"></cfif>
-						<input type="button" onclick="self.location.href='utilisateurajout-useradd.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#'" value="#language.editProfile#" class="textbutton" />
-						<input type="button" onclick="self.location.href='ols-login.cfm?lang=#lang#'" value="#language.cancel#" class="textbutton" />
+						<a href="utilisateurajout-useradd.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#" class="textbutton">#language.editProfile#</a>
+						<a href="ols-login.cfm?lang=#lang#" class="textbutton">#language.cancel#</a>
 						</div>
-					</cfform>
+					</form>
 				</cfoutput>
 			</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->

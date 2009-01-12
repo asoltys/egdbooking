@@ -134,7 +134,7 @@
 
 					<div class="buttons">
 						<input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
-						<cfoutput><input type="button" value="#language.Cancel#" onclick="self.location.href='booking.cfm?lang=#lang#&amp;CID=#CID#'" class="textbutton" /></cfoutput>
+						<cfoutput><a href="booking.cfm?lang=#lang#&amp;CID=#CID#" class="textbutton">#language.Cancel#</a></cfoutput>
 					</div>
 				</form>
 				</cfoutput>

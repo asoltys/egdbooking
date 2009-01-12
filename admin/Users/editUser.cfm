@@ -215,7 +215,7 @@ function EditSubmit ( selectedform )
 						</tr>
 					</table>
 					<br />
-					<div style="text-align:right;"><cfoutput><input type="button" name="cancel" value="Cancel" class="textbutton" onclick="self.location.href='../menu.cfm?lang=#lang#'" /></cfoutput>
+					<div style="text-align:right;"><cfoutput><a href="../menu.cfm?lang=#lang#" class="textbutton">Cancel</a></cfoutput>
 				</cfform>
 
 				<p><em>*Email notification of profile updates is automatically sent to the user after their password is changed or a company is added to their profile.</em></p>
