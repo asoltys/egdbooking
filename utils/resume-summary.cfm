@@ -150,8 +150,6 @@ function popUp(pageID) {
 					<CFIF getDockBookings.RecordCount neq 0>
 						<cfoutput query="getDockBookings">
 						<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
-							<!---td class="calendar">#VesselLength#M <CFIF Anonymous>Deapsea Vessel<CFELSE>#VesselName#</CFIF></td--->
-							<!---td headers="company" class="calendar">#abbreviation#</td--->
 							<td headers="section" style="text-align:center;"><CFIF Status eq 'c'>
 													<CFIF Section1 eq true>1</CFIF>
 													<CFIF Section2 eq true>
@@ -186,8 +184,8 @@ function popUp(pageID) {
 					<CFIF getNJBookings.RecordCount neq 0>
 						<cfoutput query="getNJBookings">
 						<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
-							<!---td class="calendar">#VesselLength#M <CFIF Anonymous eq true>Deapsea Vessel<CFELSE>#VesselName#</CFIF></td--->
-							<!---td headers="company2" class="calendar">#abbreviation#</td--->
+							<!---td class="invisible calendar">#VesselLength#M <CFIF Anonymous eq true>Deapsea Vessel<CFELSE>#VesselName#</CFIF></td--->
+							<!---td headers="company2" class="invisible calendar">#abbreviation#</td--->
 							<td headers="section2"><div style="text-align:center;"><CFIF Status eq 'c'>#language.booked#
 														<CFELSEIF Status eq 't'>#language.tentative#
 														</CFIF></div></td>
@@ -215,8 +213,6 @@ function popUp(pageID) {
 					<CFIF getSJBookings.RecordCount neq 0>
 						<cfoutput query="getSJBookings">
 						<tr style="<CFIF Status eq 'c'>text-transform: uppercase; font-weight: bold; <CFELSE> font-style: italic;</CFIF>">
-							<!---td class="calendar">#VesselLength#M <CFIF Anonymous eq true>Deapsea Vessel<CFELSE>#VesselName#</CFIF></td--->
-							<!---td headers="company3" class="calendar">#abbreviation#</td--->
 							<td headers="section3"><div style="text-align:center;"><CFIF Status eq 'c'>#language.booked#
 														<CFELSEIF Status eq 't'>#language.tentative#
 														<CFELSE>#language.pending#

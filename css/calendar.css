@@ -1,3 +1,7 @@
+img.invisible {
+  visibility: hidden;
+}
+
 /* the div that holds the date picker calendar */
 .dpDiv {
 	}

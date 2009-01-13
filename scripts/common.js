@@ -3,6 +3,7 @@ var previous_value = '';
 Event.observe(window, 'load', function() {
 
   $$('img.calendar').each(function(e) {
+    e.removeClassName('invisible');
     e.previous().observe('focus', function(e) {
       previous_value = e.element().getValue();
     });

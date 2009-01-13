@@ -208,7 +208,7 @@
 						<td headers="Start">
 							<cfoutput>
 							<cfinput id="startDate" type="text" name="startDate" message="Please enter a start date." validate="date" required="yes" class="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
-							<img src="#RootDir#images/calendar.gif" alt="Calendar" class="calendar" width="25px" height="17px" />
+							<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
 						</td>
 					</tr>
 					<tr>
@@ -216,7 +216,7 @@
 						<td headers="End">
 							<cfoutput>
 							<cfinput id="endDate" type="text" name="endDate" message="Please enter an end date." validate="date" required="yes" class="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
-							<img src="#RootDir#images/calendar.gif" alt="Calendar" class="calendar" width="25px" height="17px" />
+							<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
 						</td>
 					</tr>
 					<tr>
@@ -224,7 +224,7 @@
 						<td headers="bookingDT">
 							<cfoutput>
 								<cfinput id="bookingDate" name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" /> #language.dateform#
-                <img src="#RootDir#images/calendar.gif" alt="Calendar" class="calendar" width="25px" height="17px" />
+                <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
               </cfoutput>
 						</td>
 					</tr>

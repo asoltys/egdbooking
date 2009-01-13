@@ -26,7 +26,6 @@
 	<cfset language.login = "Login">
 	<cfset language.masterKeywords = "Esquimalt Graving Dock, EGD, Booking Request">
 	<cfset language.masterSubjects = "Wharfs, Water Transport, Ships, Ferries, Pleasure Craft, Vessels, Repair, Maintenance, Management">
-  <cfset language.javascriptRequired = "JavaScript is required to use this part of the page">
 
 <cfelse>
 	<cfset language.PWGSC = "TPSGC">
@@ -56,7 +55,6 @@
 	<cfset language.login = "Ouvrir la session">
 	<cfset language.masterKeywords = "Cale s&egrave;che d'Esquimalt, CSE, Demande de r&eacute;servation">
 	<cfset language.masterSubjects = "Quai, Transport maritime, Navire, Traversier, Bateau de plaisance, Embarcation, Repair, Entretien, Gestion">
-  <cfset language.javascriptRequired = "JavaScript est nécessaire pour utiliser cette partie de la page">
 
 </cfif>
 

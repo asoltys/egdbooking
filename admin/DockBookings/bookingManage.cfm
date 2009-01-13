@@ -150,7 +150,7 @@ function EditSubmit ( selectedform )
 							<td headers="" colspan="2">
 								<cfoutput>
 									<input id="startDate" name="startDate" type="text" class="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
-                  <img src="#RootDir#images/calendar.gif" alt="Calendar" class="calendar" width="25px" height="17px" />
+                  <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
 								</cfoutput>
 							</td>
 						</tr>
@@ -161,7 +161,7 @@ function EditSubmit ( selectedform )
 							<td headers="" colspan="2">
 								<cfoutput>
 									<input id="endDate" name="endDate" type="text" class="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
-                  <img src="#RootDir#images/calendar.gif" alt="Calendar" class="calendar" width="25px" height="17px" />
+                  <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
 								</cfoutput>
 							</td>
 						</tr>

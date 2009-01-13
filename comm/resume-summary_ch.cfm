@@ -98,13 +98,11 @@
 					<fieldset>
 						<label for="start">&nbsp; #language.fromDate#</label>
 						<cfinput id="start" type="text" name="startDate" class="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" validate="date" message="#language.invalidfromDate#" /> #language.dateform#
-						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="calendar" width="25px" height="17px" />
-						<a href="javascript:$('bookSum').startDate.value=''; void(0);" class="textbutton">#language.clear#</a>
+						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
 
 						<label for="end">&nbsp; #language.toDate#</label>
 						<cfinput type="text" name="endDate" message="#language.invalidtoDate#" validate="date" class="endDate" id="end" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
-						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="calendar" width="25px" height="17px" />
-						<a href="javascript:$('bookSum').endDate.value=''; void(0);" class="textbutton">#language.clear#</a>
+						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
 
 						<div class="buttons">
 							<input type="submit" value="#language.submit#" class="textbutton" />
