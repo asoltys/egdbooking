@@ -370,9 +370,9 @@ dl.basic dd {
 /* ----- BASIC TABLE FORMAT 
 -------------------------- */
 table.basic {
-	width: 100%;
 	border-collapse: collapse;
 	margin-bottom: 1em;
+  width: 100%;
 }
 	
 table.basic caption {

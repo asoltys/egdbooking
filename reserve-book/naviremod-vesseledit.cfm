@@ -132,22 +132,22 @@
 
 							<label for="length">#language.Length#:</label>
 							<p>#variables.length# m</p>
-							<input type="hidden" name="length" value="#variables.length#">&nbsp;&nbsp;&nbsp;<span class="smallFont" style="color:red;" />
+							<input type="hidden" name="length" value="#variables.length#">
 
 
 							<label for="width">#language.Width#:</label>
 							<p>#variables.width# m</p>
-							<input type="hidden" name="width" value="#variables.width#">&nbsp;&nbsp;&nbsp;<span class="smallFont" style="color:red;" />
+							<input type="hidden" name="width" value="#variables.width#">
 
 						<cfelse>
 
 							<label for="length">#language.Length#:</label>
-							<cfinput id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" message="#language.lengthError#">  <span class="smallFont red">#language.Max#: #Variables.MaxLength# m</span>
+							<cfinput id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" message="#language.lengthError#">#language.Max#: #Variables.MaxLength# m
 							<br />
 
 
 							<label for="width">#language.Width#:</label>
-							<cfinput id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" required="yes" validate="float" message="#language.widthError#">  <span class="smallFont red">#language.Max#: #Variables.MaxWidth# m</span>
+							<cfinput id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" required="yes" validate="float" message="#language.widthError#">#language.Max#: #Variables.MaxWidth# m
 							<br />
 
 						</cfif>
@@ -176,7 +176,7 @@
 						<input type="hidden" name="VNID" value="<cfoutput>#url.VNID#</cfoutput>" />
 						<input type="submit" value="#language.Submit#" name="submitForm" class="textbutton" />
 						<input type="reset" value="#language.Reset#" name="resetForm" class="textbutton" />
-						<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#GetVesselDetail.CID#" class="textbutton">#language.Cancel#" name="cancel</a>
+						<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#GetVesselDetail.CID#" class="textbutton">#language.Cancel#</a>
 					</div>
 				</cfform>
 				</cfoutput>

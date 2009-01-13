@@ -78,7 +78,6 @@
 
 				<CFINCLUDE template="#RootDir#includes/jetty_calendar_menu.cfm">
 
-
 				<CFINCLUDE template="includes/calendar_variables.cfm">
 				<cfset firstdayofbunch = CreateDate(url['a-y'], url['m-m'], 1)>
 				<cfset lastdayofbunch = CreateDate(url['a-y'], url['m-m'], DaysInMonth(firstdayofbunch))>
@@ -152,10 +151,8 @@
 						</fieldset>
 					</form>
 				</div>
-
 				</cfoutput>
 
-				<!--- THE MEAT OF THE CALENDAR HAS BEEN MOVED --->
 				<CFINCLUDE template="includes/calendar_core.cfm">
 
 				<cfoutput>
@@ -165,7 +162,7 @@
 				</div>
 				</cfoutput>
 
-				<CFINCLUDE template="includes/jetty_key.cfm">
+				<CFINCLUDE template="includes/jetty_key.cfm"> 
 
 			</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->
