@@ -201,13 +201,11 @@
 							<label for="StartDateB">#language.StartDate#:</label>
 							<input id="StartDateB" name="startDate" type="text" class="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
-							<noscript>#language.javascriptRequired#</noscript>
 							<br />
 
 							<label for="EndDateB">#language.EndDate#:</label>
 							<input id="EndDateB" name="endDate" type="text" class="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 							<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
-							<noscript>#language.javascriptRequired#</noscript>
 							<br />
 
 							<label for="NumDays">#language.NumDays#:</label>
