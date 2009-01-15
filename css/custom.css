@@ -29,6 +29,10 @@ div.center .right {
   display: none;
 }
 
+.clear {
+  clear: both;
+}
+
 img {
 	border: none;
 }

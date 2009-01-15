@@ -145,15 +145,15 @@
 							FORMNAME="bookingreq">
 						<br />
 
-						<label for="startDateA">#language.StartDate#:</label>
-						<input id="startDateA" name="startDate" class="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> #language.dateform#
+						<label for="startDateA">#language.StartDate#<br /><small>#language.dateform#</small>:</label>
+						<input id="startDateA" name="startDate" class="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> 
 						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
-						<br />
+						<br class="clear" />
 
-						<label for="endDateA">#language.EndDate#:</label>
-						<input id="endDateA" name="endDate" class="endDate" type="text" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#"  /> #language.dateform#
+						<label for="endDateA">#language.EndDate#:<br /><small>#language.dateform#</small></label>
+						<input id="endDateA" name="endDate" class="endDate" type="text" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#"  />
 						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
-						<br />
+						<br class="clear" />
 
 						<label for="status">#language.requestedStatus#:</label>
 						<select id="status" name="status" >
