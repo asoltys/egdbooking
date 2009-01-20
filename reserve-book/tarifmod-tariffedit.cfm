@@ -142,10 +142,10 @@
 				<cfoutput>
 				<table class="basic" id="tariffs" summary="#language.tableSummary#">
 					<tr>
-						<th id="checkHeader"><label for="otherCheck">&nbsp;</label></th>
-						<th id="itemHeader">#language.Item#</th>
-						<th id="serviceHeader">#language.Services#</th>
-						<th id="feeHeader">#language.Fees#</th>
+						<th scope="col" id="checkHeader"><label for="otherCheck">&nbsp;</label></th>
+						<th scope="col" id="itemHeader">#language.Item#</th>
+						<th scope="col" id="serviceHeader">#language.Services#</th>
+						<th scope="col" id="feeHeader">#language.Fees#</th>
 					</tr>
 
 					<tr>
@@ -186,9 +186,9 @@
 
 						<td headers="serviceHeader">
 							<cfif fee NEQ "">
-								<label for="#abbreviation#">#service#</label>
+								<label for="#abbreviation#">#XmlFormat(service)#</label>
 							<cfelse>
-								#service#
+								#XmlFormat(service)#
 							</cfif>
 						</td>
 
