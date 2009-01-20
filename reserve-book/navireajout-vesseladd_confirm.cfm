@@ -113,40 +113,40 @@
 
 				<cfform id="addVessel" action="#RootDir#reserve-book/navireajout-vesseladd_action.cfm?lang=#lang#&amp;CID=#url.CID#" method="post">
 					<fieldset>
-						<label>#language.CompanyName#:</label>
-						<input type="hidden" name="CID" value="#Variables.CID#" />
+						<label for="CID">#language.CompanyName#:</label>
+						<input type="hidden" id="CID" name="CID" value="#Variables.CID#" />
 						<p>#variables.CompanyName#</p>
 
-						<label>#language.vesselName#:</label>
-						<input type="hidden" name="name" value="#Variables.Name#" />
+						<label for="Anonymous">#language.vesselName#:</label>
+						<input type="hidden" id="name" name="name" value="#Variables.Name#" />
 						<p>#variables.Name#</p>
 
-						<label>#language.Length#:</label>
-						<input type="hidden" name="length" value="#Variables.Length#" />
+						<label for="length">#language.Length#:</label>
+						<input type="hidden" id="length" name="length" value="#Variables.Length#" />
 						<p>#variables.Length#</p>
 
-						<label>#language.Width#:</label>
-						<input type="hidden" name="width" value="#Variables.Width#" />
+						<label for="width">#language.Width#:</label>
+						<input type="hidden" id="width" name="width" value="#Variables.Width#" />
 						<p>#variables.Width#</p>
 
-						<label>#language.BlockSetup# #language.days#:</label>
-						<input type="hidden" name="blocksetuptime" value="#Variables.BlockSetuptime#" />
+						<label for="blocksetuptime">#language.BlockSetup# #language.days#:</label>
+						<input type="hidden" id="blocksetuptime" name="blocksetuptime" value="#Variables.BlockSetuptime#" />
 						<p id="block_setuptime">#variables.BlockSetuptime#</p>
 
-						<label>#language.BlockTeardown# #language.days#:</label>
-						<input type="hidden" name="blockteardowntime" value="#Variables.Blockteardowntime#" />
+						<label for="blockteardowntime">#language.BlockTeardown# #language.days#:</label>
+						<input type="hidden" id="blockteardowntime" name="blockteardowntime" value="#Variables.Blockteardowntime#" />
 						<p id="block_teardown_time">#variables.Blockteardowntime#</p>
 
-						<label>#language.LloydsID#:</label>
-						<input type="hidden" name="LloydsID" value="#Variables.LloydsID#" />
+						<label for="LloydsID">#language.LloydsID#:</label>
+						<input type="hidden" id="LloydsID" name="LloydsID" value="#Variables.LloydsID#" />
 						<p id="lloyds_id">#variables.LloydsID#</p>
 
-						<label>#language.Tonnage#:</label>
-						<input type="hidden" name="tonnage" value="#Variables.Tonnage#" />
+						<label for="tonnage">#language.Tonnage#:</label>
+						<input type="hidden" id="tonnage" name="tonnage" value="#Variables.Tonnage#" />
 						<p>#variables.Tonnage#</p>
 
-						<label>#language.anonymous#:</label>
-						<input type="hidden" name="Anonymous" value="#Variables.Anonymous#" />
+						<label for="Anonymous">#language.anonymous#:</label>
+						<input type="hidden" id="Anonymous" name="Anonymous" value="#Variables.Anonymous#" />
 						<p>#variables.Anonymous#</p>
 					</fieldset>
 

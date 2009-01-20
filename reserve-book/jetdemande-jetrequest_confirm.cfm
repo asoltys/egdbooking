@@ -54,6 +54,7 @@
 <cfset Variables.StartDate = CreateODBCDate(Form.StartDate)>
 <cfset Variables.EndDate = CreateODBCDate(Form.EndDate)>
 <cfset Variables.VNID = Form.VNID>
+<cfset Variables.CID = Form.CID>
 
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT 	VNID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
@@ -207,7 +208,7 @@
 
 				<cfform action="#RootDir#reserve-book/jetdemande-jetrequest_action.cfm?lang=#lang#" method="post" id="bookingreq" preservedata="Yes">
 					<fieldset>
-						<label>#language.Agent#:</label>
+						#language.Agent#:
 						<p>
 							<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 								#session.lastName#, #session.firstName#
@@ -215,33 +216,33 @@
 						</p>
 
 
-						<label>#language.Company#:</label>
-						<input type="hidden" name="CID" value="#getInfo.CID#" />
+						<label for="CID">#language.Company#:</label>
+						<input type="hidden" id="CID" name="CID" value="#getInfo.CID#" />
 						<p>#getInfo.CompanyName#</p>
 
 
-						<label>#language.vessel#:</label>
-						<input type="hidden" name="VNID" value="#getInfo.VNID#" />
+						<label for="VNID">#language.vessel#:</label>
+						<input type="hidden" id="VNID" name="VNID" value="#getInfo.VNID#" />
 						<p>#getInfo.VesselName#</p>
 
 
-						<label>#language.StartDate#:</label>
-						<input type="hidden" name="startDate" value="#CreateODBCDate(startDate)#" />
+						<label for="startDate">#language.StartDate#:</label>
+						<input type="hidden" id="startDate" name="startDate" value="#CreateODBCDate(startDate)#" />
 						<p>#LSDateFormat(CreateODBCDate(startDate), 'mmm d, yyyy')#</p>
 
 
-						<label>#language.EndDate#:</label>
-						<input type="hidden" name="endDate" value="#CreateODBCDate(endDate)#" />
+						<label for="endDate">#language.EndDate#:</label>
+						<input type="hidden" id="endDate" name="endDate" value="#CreateODBCDate(endDate)#" />
 						<p>#LSDateFormat(CreateODBCDate(endDate), 'mmm d, yyyy')#</p>
 
 
-						<label>#language.requestedStatus#:</label>
-						<input type="hidden" name="Status" value="#Form.Status#" />
+						<label for="Status">#language.requestedStatus#:</label>
+						<input type="hidden" id="Status" name="Status" value="#Form.Status#" />
 						<p><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></p>
 
 
-						<label>#language.RequestedJetty#:</label>
-						<input id="jettySelect" type="hidden" name="jetty" value="#Form.Jetty#" />
+						<label for="jetty">#language.RequestedJetty#:</label>
+						<input id="jettySelect" id="jetty" type="hidden" name="jetty" value="#Form.Jetty#" />
 						<p>
 							<cfif Form.Jetty EQ "north">
 								#language.northJetty#

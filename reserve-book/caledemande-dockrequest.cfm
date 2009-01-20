@@ -122,12 +122,12 @@
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 				<form action="#RootDir#reserve-book/caledemande-dockrequest_confirm.cfm?lang=#lang#" method="post" id="booking">
 					<fieldset>
-						<label>#language.Agent#:</label>
+						#language.Agent#:
 						<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 							<p>#session.lastName#, #session.firstName#</p>
 						</cflock>
 
-						<label>#language.Company#:</label>
+						<label for="booking_CID">#language.Company#:</label>
 						<CF_TwoSelectsRelated
 							query="companyVessels"
 							id1="booking_CID"
@@ -138,7 +138,7 @@
 							VALUE2="VNID"
 							DEFAULT1="#Variables.CID#"
 							DEFAULT2="#Variables.VNID#"
-							htmlBETWEEN="<br /><label>#language.vessel#:</label>"
+							htmlBETWEEN="<br /><label for=""booking_VNID"">#language.vessel#:</label>"
 							AUTOSELECTFIRST="Yes"
 							EMPTYTEXT1="(#language.chooseCompany#)"
 							EMPTYTEXT2="(#language.chooseVessel#)"
@@ -177,7 +177,7 @@
 				<p>#language.daysToBook#  #language.dateInclusive#</p>
 				<form action="#RootDir#reserve-book/caledemande-dockrequest_confirm2.cfm?lang=#lang#" method="post" id="bookingByRange">
 					<fieldset>
-						<label>#language.Company#:</label>
+						<label for="bookingByRange_CID">#language.Company#:</label>
 						<CF_TwoSelectsRelated
 							QUERY="companyVessels"
 							id1="bookingByRange_CID"
@@ -188,7 +188,7 @@
 							VALUE2="VNID"
 							DEFAULT1="#Variables.CID#"
 							DEFAULT2="#Variables.VNID#"
-							htmlBETWEEN="<br /><label>#language.vessel#:</label>"
+							htmlBETWEEN="<br /><label for=""bookingByRange_VNID"">#language.vessel#:</label>"
 							AUTOSELECTFIRST="Yes"
 							EMPTYTEXT1="(#language.chooseCompany#)"
 							EMPTYTEXT2="(#language.chooseVessel#)"

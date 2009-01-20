@@ -81,6 +81,7 @@
 				</cfif>
 
 				<cfset Variables.VNID = Form.booking_VNID>
+				<cfset Variables.CID = Form.booking_CID>
 				<cfset Variables.StartDate = CreateODBCDate(Form.StartDate)>
 				<cfset Variables.EndDate = CreateODBCDate(Form.EndDate)>
 
@@ -198,29 +199,30 @@
 				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action.cfm?lang=#lang#" method="post" id="bookingreq" preservedata="Yes">
 				<h2>#language.new#:</h2>
 					<fieldset>
-						<label>#language.vessel#:</label>
+						<label for="VNID">#language.vessel#:</label>
 						<p>#getVessel.VesselName#</p>
-						<input type="hidden" name="VNID" value="#Variables.VNID#" />
+						<input type="hidden" id="VNID" name="VNID" value="#Variables.VNID#" />
 
-						<label>#language.Company#:</label>
+						<label for="CID">#language.Company#:</label>
+						<input type="hidden" id="CID" name="CID" value="#Variables.CID#" />
 						<p>#getVessel.CompanyName#</p>
 
-						<label>#language.StartDate#:</label>
-						<input type="hidden" name="StartDate" value="#Variables.StartDate#" />
+						<label for="StartDate">#language.StartDate#:</label>
+						<input type="hidden" id="StartDate" name="StartDate" value="#Variables.StartDate#" />
 						<p>#LSDateFormat(Variables.StartDate, 'mmm d, yyyy')#</p>
 
-						<label>#language.EndDate#:</label>
-						<input type="hidden" name="EndDate" value="#Variables.EndDate#" />
+						<label for="EndDate">#language.EndDate#:</label>
+						<input type="hidden" id="EndDate" name="EndDate" value="#Variables.EndDate#" />
 						<p>#LSDateFormat(Variables.EndDate, 'mmm d, yyyy')#</p>
 
-						<label>#language.requestedStatus#:</label>
-						<input type="hidden" name="Status" value="#Form.Status#">
+						<label for="Status">#language.requestedStatus#:</label>
+						<input type="hidden" id="Status" name="Status" value="#Form.Status#" />
 						<p><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></p>
 					</fieldset>
 
 					<div class="buttons">
 						<input type="submit" value="#language.Submit#" class="textbutton" />
-						<a href="bookingRequest.cfm?lang=#lang#" class="textbutton">#language.Back#</a>
+						<a href="caledemande-dockrequest.cfm?lang=#lang#" class="textbutton">#language.Back#</a>
 						<input type="button" value="#language.Cancel#" class="textbutton" onclick="self.location.href='reserve-booking.cfm?lang=<cfoutput>#lang#</cfoutput>';" />
 					</div>
 

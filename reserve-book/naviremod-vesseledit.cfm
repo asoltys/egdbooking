@@ -112,20 +112,21 @@
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 
-				<cfform id="editVessel" action="#RootDir#reserve-book/naviremod-vesseledit_action.cfm?lang=#lang#&amp;CID=#getVesselDetail.CID#&amp;VNID=#VNID#" method="post">
+				<form id="editVessel" action="#RootDir#reserve-book/naviremod-vesseledit_action.cfm?lang=#lang#&amp;CID=#getVesselDetail.CID#&amp;VNID=#VNID#" method="post">
 					<cfif getVesselDockBookings.recordCount GT 0 OR getVesselJettyBookings.recordCount GT 0>
 					<div id="actionErrors">#language.notEditVesselDimensions#</div>
 					</cfif>
 					<fieldset>
-						<label>#language.CompanyName#:</label>
+						#language.CompanyName#:
+						
 						<p>#getVesselDetail.CompanyName#</p>
 
 						<label for="name">#language.vessel#:</label>
-						<cfinput id="name" name="name" type="text" value="#variables.Name#" size="37" maxlength="100" required="yes" message="#language.nameError#" />
+						<input id="name" name="name" type="text" value="#variables.Name#" size="37" maxlength="100" />
 						<br />
 
 						<label for="LloydsID">#language.LloydsID#:</label>
-						<cfinput id="LloydsID" name="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" >
+						<input id="LloydsID" name="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" >
 						<br />
 
 						<cfif getVesselDockBookings.recordCount GT 0 OR getVesselJettyBookings.recordCount GT 0>
@@ -142,28 +143,28 @@
 						<cfelse>
 
 							<label for="length">#language.Length#:</label>
-							<cfinput id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" message="#language.lengthError#">#language.Max#: #Variables.MaxLength# m
+							<input id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" />#language.Max#: #Variables.MaxLength# m
 							<br />
 
 
 							<label for="width">#language.Width#:</label>
-							<cfinput id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" required="yes" validate="float" message="#language.widthError#">#language.Max#: #Variables.MaxWidth# m
+							<input id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" />#language.Max#: #Variables.MaxWidth# m
 							<br />
 
 						</cfif>
 
 						<label for="blocksetuptime">#language.BlockSetup# #language.days#:</label>
-						<cfinput id="blocksetuptime" name="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" required="yes" validate="float" message="#language.setupError#" />
+						<input id="blocksetuptime" name="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" />
 						<br />
 
 
 						<label for="blockteardowntime">#language.BlockTeardown# #language.days#:</label>
-						<cfinput id="blockteardowntime" name="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" required="yes" validate="float" message="#language.teardownError#" />
+						<input id="blockteardowntime" name="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" />
 						<br />
 
 
 						<label for="tonnage">#language.Tonnage#:</label>
-						<cfinput id="tonnage" name="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" required="yes" validate="float" message="#language.tonnageError#" />
+						<input id="tonnage" name="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" />
 						<br />
 
 						<label for="anonymous">#language.anonymous#:</label>
@@ -178,7 +179,7 @@
 						<input type="reset" value="#language.Reset#" name="resetForm" class="textbutton" />
 						<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#GetVesselDetail.CID#" class="textbutton">#language.Cancel#</a>
 					</div>
-				</cfform>
+				</form>
 				</cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

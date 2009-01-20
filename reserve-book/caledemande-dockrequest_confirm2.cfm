@@ -204,30 +204,31 @@
 				<cfoutput>
 				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action2.cfm?lang=#lang#" method="post" id="bookingreq" preservedata="Yes">
 					<p>#language.bookingFound# #LSDateFormat(Variables.FoundStartDate, 'mmm d, yyyy')# - #LSDateFormat(Variables.FoundEndDate, 'mmm d, yyyy')#.</p>
-					<label>#language.Agent#:</label>
+					#language.Agent#:
 					<p>
 						<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 							#session.lastName#, #session.firstName#
 						</cflock>
 					</p>
 
-					<label>#language.vessel#:</label>
-					<input type="hidden" name="VNID" value="#Form.bookingByRange_VNID#" />
+					<label for="VNID">#language.vessel#:</label>
+					<input type="hidden" id="VNID"  name="VNID" value="#Form.bookingByRange_VNID#" />
 					<p>#getVessel.VesselName#</p>
 
-					<label>#language.Company#:</label>
+					<label for="VNID">#language.Company#:</label>
+					<input type="hidden" id="CID"  name="CID" value="#Form.bookingByRange_CID#" />
 					<p>#getVessel.CompanyName#</p>
 
-					<label>#language.StartDate#:</label>
-					<input type="hidden" name="startDate" value="#Variables.FoundStartDate#" />
+					<label for="startDate">#language.StartDate#:</label>
+					<input type="hidden" id="startDate" name="startDate" value="#Variables.FoundStartDate#" />
 					<p>#LSDateFormat(CreateODBCDate(Variables.StartDate), 'mmm d, yyyy')#</p>
 
-					<label>#language.EndDate#:</label>
-					<input type="hidden" name="EndDate" value="#Variables.FoundEndDate#" />
+					<label for="EndDate">#language.EndDate#:</label>
+					<input type="hidden" id="EndDate" name="EndDate" value="#Variables.FoundEndDate#" />
 					<p>#LSDateFormat(Variables.EndDate, 'mmm d, yyyy')#</p>
 
-					<label>#language.requestedStatus#:</label>
-					<input type="hidden" name="Status" value="<cfoutput>#Form.Status#</cfoutput>">
+					<label for="Status">#language.requestedStatus#:</label>
+					<input type="hidden" id="Status" name="Status" value="<cfoutput>#Form.Status#</cfoutput>">
 					<p><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></p>
 
 					<div class="buttons">

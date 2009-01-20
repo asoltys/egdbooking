@@ -149,7 +149,7 @@ function EditSubmit ( selectedform )
 							<label for="lastname">#language.LastName#:</label>
 							<input name="lastname" id="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40"  />
 
-							<label>#language.Email#:</label>
+							#language.Email#:
 							<p>#variables.email#</p>
 
 						</fieldset>
