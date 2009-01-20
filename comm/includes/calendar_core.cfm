@@ -1,4 +1,37 @@
+<cfoutput>
+<div class="selector">
+  <form id="dateSelect" action="#CGI.script_name#?lang=#lang#" method="post">
+    <fieldset>
+      <label for="month">Month</label>
+      <select name="m-m" id="month">
+        <CFLOOP index="i" from="1" to="12">
+          <option value="#i#" <cfif i eq url['m-m']>selected="selected"</cfif>>#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
+        </CFLOOP>
+      </select>
+      <br />
+      <label for="year">Year</label>
+      <select name="year" id="year">
+        <CFLOOP index="i" from="-5" to="25">
+          <cfset year = #DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
+          <option <cfif year eq url['a-y']>selected="selected"</cfif>>#year#</option>
+        </CFLOOP>
+      </select>
+      <br />
+      <label>&nbsp;</label>
+      <input type="submit" value="Go" />
+    </fieldset>
+  </form>
+</div>
+</cfoutput>
+
 <h2><cfoutput>#LSDateFormat(CreateDate(url['a-y'], url['m-m'], 1), 'mmmm')# #url['a-y']#</cfoutput></h2>
+
+<cfoutput>
+<div class="selector">
+  <a href="#cgi.script_name#?lang=#lang#&amp;m-m=#prevmonth#&amp;a-y=#prevyear#" class="previousLink">#language.prev#</a>
+  <a href="#cgi.script_name#?lang=#lang#&amp;m-m=#nextmonth#&amp;a-y=#nextyear#" class="nextLink">#language.next#</a>
+</div>
+</cfoutput>
 
 <!--- Create an array for the days of the month --->
 <cfset DaysofMonth = ArrayNew(1)>

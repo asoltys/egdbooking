@@ -66,20 +66,6 @@ table tr {
 
 /* CALENDAR TABLE -------------------------------------- */
 
-form#dateSelect label {
-	display: none;
-}
-
-div.date-select {
-	width: 100%;
-	text-align: center;
-}
-
-div.date-select form {
-	background: none;
-	border: none;
-}
-
 /* Fixes height of each row of the calendar. */
 tr.week {
 	height: 84px;
@@ -149,11 +135,6 @@ div.keytableWrapper {
 	clear: both;
 	padding-left: 25%;
 	padding-right: 25%;
-}
-
-/* Styles for the month/year selectors. */
-div.selector {
-	text-align: center;
 }
 
 div.selector a.previousLink {

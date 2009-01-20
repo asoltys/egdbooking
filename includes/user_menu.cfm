@@ -15,6 +15,7 @@
 		<cfset language.requestBookingButton = "Request Booking">
 		<cfset language.editProfileButton = "Edit Profile">
 		<cfset language.help = "Help">
+    <cfset language.bookingsSummary = "Bookings Summary">
 		<cfset language.logoutButton = "Logout">
 	<cfelse>
 		<cfset language.bookingHomeButton = "Accueil - R&eacute;servation">
@@ -23,6 +24,7 @@
 		<cfset language.requestBookingButton = "Pr&eacute;senter une r&eacute;servation">
 		<cfset language.editProfileButton = "Modifier le profil">
 		<cfset language.help = "Aide">
+    <cfset language.bookingsSummary = "R&eacute;sum&eacute; des R&eacute;servations">
 		<cfset language.logoutButton = "Fermer la session">
 	</cfif>
 
@@ -67,6 +69,7 @@
 		</cfif>
 
 		<a href="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#" class="textbutton">#language.EditProfileButton#</a>
+    <a href="#RootDir#comm/resume-summary_ch.cfm?lang=#lang#" class="textbutton">#language.bookingsSummary#</a>
 		<a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#" class="textbutton">#language.LogoutButton#</a>
 		</cfoutput>
 

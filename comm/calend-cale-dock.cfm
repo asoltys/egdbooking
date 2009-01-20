@@ -80,9 +80,6 @@
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				</CFIF>
 
-				<CFINCLUDE template="#RootDir#includes/dock_calendar_menu.cfm">
-
-
 				<CFINCLUDE template="includes/calendar_variables.cfm">
 				<cfset firstdayofbunch = CreateDate(url['a-y'], url['m-m'], 1)>
 				<cfset lastdayofbunch = CreateDate(url['a-y'], url['m-m'], DaysInMonth(firstdayofbunch))>
@@ -131,45 +128,7 @@
 					<CFSET nextyear = url['a-y']>
 				</CFIF>
 
-
-				<cfoutput>
-				<div class="selector">
-					<a href="calend-cale-dock.cfm?lang=#lang#&amp;m-m=#prevmonth#&amp;a-y=#prevyear#" class="previousLink">#language.prev#</a>
-					<a href="calend-cale-dock.cfm?lang=#lang#&amp;m-m=#nextmonth#&amp;a-y=#nextyear#" class="nextLink">#language.next#</a>
-
-					<form id="dateSelect" class="noBorder" action="calend-cale-dock.cfm?lang=#lang#" method="post">
-						<fieldset>
-							<label for="month">Month</label>
-							<select name="m-m" id="month">
-								<CFLOOP index="i" from="1" to="12">
-									<option value="#i#" <cfif i eq url['m-m']>selected="selected"</cfif>>#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
-									</CFLOOP>
-								</select>
-							<label for="year">Year</label>
-							<select name="year" id="year">
-								<CFLOOP index="i" from="-5" to="25">
-									<cfset year = #DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
-									<option <cfif year eq url['a-y']>selected="selected"</cfif>>#year#</option>
-									</CFLOOP>
-							</select>
-							<input type="submit" value="Go" />
-						</fieldset>
-					</form>
-				</div>
-				</cfoutput>
-
-				<!--- THE MEAT OF THE CALENDAR HAS BEEN MOVED --->
 				<CFINCLUDE template="includes/calendar_core.cfm">
-
-				<cfoutput>
-				<div class="selector">
-					<a href="calend-cale-dock.cfm?lang=#lang#&amp;m-m=#prevmonth#&amp;a-y=#prevyear#" class="previousLink">#language.prev#</a>
-					<a href="calend-cale-dock.cfm?lang=#lang#&amp;m-m=#nextmonth#&amp;a-y=#nextyear#" class="nextLink">#language.next#</a>
-				</div>
-				</cfoutput>
-
-        <br />
-
 				<CFINCLUDE template="includes/dock_key.cfm">
 
 			</div>
