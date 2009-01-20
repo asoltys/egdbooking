@@ -76,8 +76,6 @@
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				</CFIF>
 
-				<CFINCLUDE template="#RootDir#includes/jetty_calendar_menu.cfm">
-
 				<CFINCLUDE template="includes/calendar_variables.cfm">
 				<cfset firstdayofbunch = CreateDate(url['a-y'], url['m-m'], 1)>
 				<cfset lastdayofbunch = CreateDate(url['a-y'], url['m-m'], DaysInMonth(firstdayofbunch))>
@@ -110,8 +108,6 @@
 						AND	Status = 'm'
 				</cfquery>
 
-				<p><cfoutput>#Language.viewInfo#</cfoutput></p>
-
 				<CFIF url['m-m'] eq 1>
 					<CFSET prevmonth = 12>
 					<CFSET prevyear = url['a-y'] - 1>
@@ -127,31 +123,6 @@
 					<CFSET nextmonth = url['m-m'] + 1>
 					<CFSET nextyear = url['a-y']>
 				</CFIF>
-
-				<cfoutput>
-				<div class="selector">
-					<a href="calend-jet.cfm?lang=#lang#&amp;m-m=#prevmonth#&amp;a-y=#prevyear#" class="previousLink">#language.prev#</a>
-					<a href="calend-jet.cfm?lang=#lang#&amp;m-m=#nextmonth#&amp;a-y=#nextyear#" class="nextLink">#language.next#</a>
-					<form id="dateSelect" class="noBorder" action="calend-jet.cfm?lang=#lang#" method="post">
-						<fieldset>
-							<label for="month">Month</label>
-							<select name="m-m" id="month">
-								<CFLOOP index="i" from="1" to="12">
-									<option value="#i#" <cfif i eq url['m-m']>selected="selected"</cfif>>#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
-									</CFLOOP>
-								</select>
-							<label for="year">Year</label>
-							<select name="year" id="year">
-								<CFLOOP index="i" from="-5" to="25">
-									<cfset year = #DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
-									<option <cfif year eq url['a-y']>selected="selected"</cfif>>#year#</option>
-									</CFLOOP>
-							</select>
-							<input type="submit" value="Go" />
-						</fieldset>
-					</form>
-				</div>
-				</cfoutput>
 
 				<CFINCLUDE template="includes/calendar_core.cfm">
 
