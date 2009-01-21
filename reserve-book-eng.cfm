@@ -75,7 +75,6 @@
 <link href="#CLF_URL#/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
 
 <link href="#RootDir#css/custom.css" media="screen, print" rel="stylesheet" type="text/css" />
-<style type="text/css" media="screen,print">@import url(#RootDir#css/advanced.css);</style>
 <link href="#RootDir#css/calendar.css" media="screen" rel="stylesheet" type="text/css"/>
 
 <script src="#RootDir#scripts/prototype.js" type="text/javascript"></script>
