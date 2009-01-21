@@ -1,3 +1,4 @@
+<cfoutput>
 <cfif isDefined("form.startDate")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
@@ -19,10 +20,11 @@ function EditSubmit ( selectedform )
 /* ]]> */
 </script>
 <!-- End JavaScript Block -->
+
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
+			
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
@@ -30,7 +32,7 @@ function EditSubmit ( selectedform )
 			</CFIF>
 			<a href="bookingManage.cfm?lang=#lang#">Drydock Management</a> &gt;
 			Edit Maintenance Block
-			</cfoutput>
+			
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -39,7 +41,7 @@ function EditSubmit ( selectedform )
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>Edit Maintenance Block</cfoutput>
+					Edit Maintenance Block
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -72,7 +74,7 @@ function EditSubmit ( selectedform )
 			<cfset Variables.EndDate = CreateODBCDate(#Variables.EndDate#)> --->
 
 			<cfif IsDefined("Session.Return_Structure")>
-				<cfoutput>#StructDelete(Session, "Return_Structure")#</cfoutput>
+				#StructDelete(Session, "Return_Structure")#
 			</cfif>
 
 
@@ -106,43 +108,43 @@ function EditSubmit ( selectedform )
 
 			<!--- Validate the form data --->
 			<cfif (NOT isDefined("Form.Section1")) AND (NOT isDefined("Form.Section2")) AND (NOT isDefined("Form.Section3"))>
-				<cfoutput>#ArrayAppend(Errors, "You must choose at least one section of the dock for confirmed bookings.")#</cfoutput>
+				#ArrayAppend(Errors, "You must choose at least one section of the dock for confirmed bookings.")#
 				no sections
 				<cfset Proceed_OK = "No">
 			</cfif>
 
 			<cfif checkDblBooking.RecordCount GT 0>
 				<cfif checkDblBooking.section1 AND checkDblBooking.section2 AND checkDblBooking.section3>
-					<cfoutput>#ArrayAppend(Errors, "There is already a maintenance booking for all sections of the dock from #DateFormat(checkDblBooking.startDate, 'mmm d, yyyy')# to #DateFormat(checkDblBooking.endDate, 'mmm d, yyyy')#.")#</cfoutput>
+					#ArrayAppend(Errors, "There is already a maintenance booking for all sections of the dock from #DateFormat(checkDblBooking.startDate, 'mmm d, yyyy')# to #DateFormat(checkDblBooking.endDate, 'mmm d, yyyy')#.")#
 				<cfelseif checkDblBooking.section1 AND checkDblBooking.section2>
-					<cfoutput>#ArrayAppend(Errors, "There is already a maintenance booking for sections 1 and 2 of the dock from #DateFormat(checkDblBooking.startDate, 'mmm d, yyyy')# to #DateFormat(checkDblBooking.endDate, 'mmm d, yyyy')#.")#</cfoutput>
+					#ArrayAppend(Errors, "There is already a maintenance booking for sections 1 and 2 of the dock from #DateFormat(checkDblBooking.startDate, 'mmm d, yyyy')# to #DateFormat(checkDblBooking.endDate, 'mmm d, yyyy')#.")#
 				<cfelseif checkDblBooking.section3 AND checkDblBooking.section2>
-					<cfoutput>#ArrayAppend(Errors, "There is already a maintenance booking for sections 2 and 3 of the dock from #DateFormat(checkDblBooking.startDate, 'mmm d, yyyy')# to #DateFormat(checkDblBooking.endDate, 'mmm d, yyyy')#.")#</cfoutput>
+					#ArrayAppend(Errors, "There is already a maintenance booking for sections 2 and 3 of the dock from #DateFormat(checkDblBooking.startDate, 'mmm d, yyyy')# to #DateFormat(checkDblBooking.endDate, 'mmm d, yyyy')#.")#
 				<cfelseif checkDblBooking.section3>
-					<cfoutput>#ArrayAppend(Errors, "There is already a maintenance booking for section 3 of the dock from #DateFormat(checkDblBooking.startDate, 'mmm d, yyyy')# to #DateFormat(checkDblBooking.endDate, 'mmm d, yyyy')#.")#</cfoutput>
+					#ArrayAppend(Errors, "There is already a maintenance booking for section 3 of the dock from #DateFormat(checkDblBooking.startDate, 'mmm d, yyyy')# to #DateFormat(checkDblBooking.endDate, 'mmm d, yyyy')#.")#
 				<cfelseif checkDblBooking.section2>
-					<cfoutput>#ArrayAppend(Errors, "There is already a maintenance booking for section 2 of the dock from #DateFormat(checkDblBooking.startDate, 'mmm d, yyyy')# to #DateFormat(checkDblBooking.endDate, 'mmm d, yyyy')#.")#</cfoutput>
+					#ArrayAppend(Errors, "There is already a maintenance booking for section 2 of the dock from #DateFormat(checkDblBooking.startDate, 'mmm d, yyyy')# to #DateFormat(checkDblBooking.endDate, 'mmm d, yyyy')#.")#
 				<cfelseif checkDblBooking.section1>
-					<cfoutput>#ArrayAppend(Errors, "There is already a maintenance booking for section 1 of the dock from #DateFormat(checkDblBooking.startDate, 'mmm d, yyyy')# to #DateFormat(checkDblBooking.endDate, 'mmm d, yyyy')#.")#</cfoutput>
+					#ArrayAppend(Errors, "There is already a maintenance booking for section 1 of the dock from #DateFormat(checkDblBooking.startDate, 'mmm d, yyyy')# to #DateFormat(checkDblBooking.endDate, 'mmm d, yyyy')#.")#
 				</cfif>
 				<cfset Proceed_OK = "No">
 			</cfif>
 
 			<cfif Variables.StartDate GT Variables.EndDate>
-				<cfoutput>#ArrayAppend(Errors, "The Start Date must be before the End Date.")#</cfoutput>
+				#ArrayAppend(Errors, "The Start Date must be before the End Date.")#
 				<cfset Proceed_OK = "No">
 			</cfif>
 
 			<cfif DateDiff("d",Variables.StartDate,Variables.EndDate) LT 0>
-				<cfoutput>#ArrayAppend(Errors, "The minimum booking time is 1 day.")#</cfoutput>
+				#ArrayAppend(Errors, "The minimum booking time is 1 day.")#
 				<cfset Proceed_OK = "No">
 			</cfif>
 
 			<cfif DateCompare(PacificNow, Variables.StartDate, 'd') EQ 1 AND DateCompare(PacificNow, Variables.EndDate, 'd') EQ 1>
-				<cfoutput>#ArrayAppend(Errors, "This maintenance period has ended. Please create a new block.")#</cfoutput>
+				#ArrayAppend(Errors, "This maintenance period has ended. Please create a new block.")#
 				<cfset Proceed_OK = "No">
 			<!--- <cfelseif checkDblBooking.RecordCound GT 0>
-				<cfoutput>#ArrayAppend(Errors, "There are section already been booked for maintenance during this time.")#</cfoutput>
+				#ArrayAppend(Errors, "There are section already been booked for maintenance during this time.")#
 				<cfset Proceed_OK = "No"> --->
 			</cfif>
 
@@ -193,7 +195,7 @@ function EditSubmit ( selectedform )
 				</tr>
 
 				<cfset counter = 0>
-				<cfoutput query="checkConflicts">
+				<cfloop query="checkConflicts">
 					<CFIF counter mod 2 eq 1>
 						<CFSET rowClass = "highlight">
 					<CFELSE>
@@ -210,7 +212,7 @@ function EditSubmit ( selectedform )
 						</td>
 					</tr>
 					<cfset counter = counter + 1>
-				</cfoutput>
+		    </cfloop>	
 				</table>
 
 				<p>If you would like to go ahead and book the maintenance block, please <b class="red">confirm</b> the following information, or <b class="red">go back</b> to change the information.</p>
@@ -219,25 +221,25 @@ function EditSubmit ( selectedform )
 				<p>Please confirm the following maintenance block information.</p>
 			</CFIF>
 
-			<cfform action="editMaintBlock_action.cfm?#urltoken#" method="post" id="bookingreq" preservedata="Yes">
-			<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" />
+			<form action="editMaintBlock_action.cfm?#urltoken#" method="post" id="bookingreq" preservedata="Yes">
+			<input type="hidden" name="BRID" value="#Variables.BRID#" />
 
 			<table style="width:80%;" align="center">
 				<tr><td align="left"><div style="font-weight:bold;">Booking:</div></td></tr>
 				<tr>
 					<td id="Start" align="left" style="width:25%;">Start Date:</td>
-					<td headers="Start"><input type="hidden" name="StartDate" value="<cfoutput>#Variables.StartDate#</cfoutput>" /><cfoutput>#DateFormat(Variables.StartDate, 'mmm d, yyyy')#</cfoutput></td>
+					<td headers="Start"><input type="hidden" name="StartDate" value="#Variables.StartDate#" />#DateFormat(Variables.StartDate, 'mmm d, yyyy')#</td>
 				</tr>
 				<tr>
 					<td id="End" align="left">End Date:</td>
-					<td headers="End"><input type="hidden" name="EndDate" value="<cfoutput>#Variables.EndDate#</cfoutput>" /><cfoutput>#DateFormat(Variables.EndDate, 'mmm d, yyyy')#</cfoutput></td>
+					<td headers="End"><input type="hidden" name="EndDate" value="#Variables.EndDate#" />#DateFormat(Variables.EndDate, 'mmm d, yyyy')#</td>
 				</tr>
 				<tr>
 					<td id="Sections" align="left">Sections:</td>
 					<td headers="Sections">
-						<input type="hidden" name="Section1" value="<cfoutput>#Variables.Section1#</cfoutput>" />
-						<input type="hidden" name="Section2" value="<cfoutput>#Variables.Section2#</cfoutput>" />
-						<input type="hidden" name="Section3" value="<cfoutput>#Variables.Section3#</cfoutput>" />
+						<input type="hidden" name="Section1" value="#Variables.Section1#" />
+						<input type="hidden" name="Section2" value="#Variables.Section2#" />
+						<input type="hidden" name="Section3" value="#Variables.Section3#" />
 						<cfif Variables.Section1 EQ 1>
 							Section 1
 						</cfif>
@@ -260,19 +262,20 @@ function EditSubmit ( selectedform )
 					<td colspan="2" align="center">
 						<!---a href="javascript:EditSubmit('bookingreq');" class="textbutton">Confirm</a>
 						<a href="javascript:history.go(-1);" class="textbutton">Back</a>
-						<cfoutput><a href="bookingmanage.cfm?#urltoken#" class="textbutton">Cancel</a></cfoutput>
+						<a href="bookingmanage.cfm?#urltoken#" class="textbutton">Cancel</a>
 						<br--->
 						<input type="submit" value="submit" class="textbutton" />
-						<cfoutput><a href="editMaintBlock.cfm?#urltoken#" class="textbutton">Back</a></cfoutput>
-						<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='bookingmanage.cfm?#urltoken#';" /></cfoutput>
+						<a href="editMaintBlock.cfm?#urltoken#" class="textbutton">Back</a>
+						<input type="button" value="Cancel" class="textbutton" onclick="self.location.href='bookingmanage.cfm?#urltoken#';" />
 						<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
 					</td>
 				</tr>
 			</table>
 
-			</cfform>
+			</form>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+</cfoutput>

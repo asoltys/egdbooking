@@ -495,17 +495,6 @@ function EditSubmit ( selectedform )
 						ORDER BY Bookings.startDate, Bookings.endDate
 					</cfquery>
 
-					<cfif getMaintenance.RecordCount GT 0>
-						<cfoutput query="getMaintenance">
-							<cfset Variables.id = #BRID#>
-							<form name="MaintenanceEdit#id#" action="editMaintBlock.cfm?#urltoken#" method="post">
-								<input type="hidden" name="BRID" value="#id#" />
-							</form>
-							<form name="MaintenanceDel#id#" action="deleteMaintBlock_confirm.cfm?#urltoken#" method="post">
-								<input type="hidden" name="BRID" value="#id#" />
-							</form>
-						</cfoutput>
-					</cfif>
 					<table class="basic">
 						<tr>
 							<th id="Start" style="width: 20%;">Start Date</th>
@@ -534,8 +523,8 @@ function EditSubmit ( selectedform )
 											<cfif getMaintenance.Section3><cfif getMaintenance.Section1 OR getMaintenance.Section2> &amp; </cfif>Section 3</cfif>
 										</cfif>
 									</td>
-									<td><a href="javascript:EditSubmit('MaintenanceEdit#id#');">Edit</a></td>
-									<td><a href="javascript:EditSubmit('MaintenanceDel#id#');">#variables.actionCap#</a></td>
+									<td><a href="#RootDir#admin/DockBookings/editMaintBlock.cfm?BRID=#getMaintenance.BRID#">Edit</a></td>
+									<td><a href="#RootDir#admin/DockBookings/deleteMaintBlock_confirm.cfm?BRID=#getMaintenance.BRID#">#variables.actionCap#</a></td>
 								</tr>
 							</cfoutput>
 						<cfelse>

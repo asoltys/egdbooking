@@ -82,46 +82,46 @@
 
 			<!--- -------------------------------------------------------------------------------------------- --->
 
-			<cfform id="AddMaintBlock" action="addMaintBlock_process.cfm?#urltoken#" method="post">
-			<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" /></cfoutput>
-			<table style="width:100%;">
-			<tr>
-				<td id="Start">Start Date:</td>
-				<td headers="Start">
-					<cfoutput>
-					<cfinput type="text" name="startDate" message="Please enter a start date." validate="date" required="yes" class="startDate" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
-					<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
-				</td>
-			</tr>
-			<tr>
-				<td id="End">End Date:</td>
-				<td headers="End">
-					<cfoutput>
-					<cfinput type="text" name="endDate" message="Please enter an end date." validate="date" required="yes" class="endDate" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
-					<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
-				</td>
-			</tr>
-			<tr><td colspan="2">Please choose the sections of the dock that you wish to book for maintenance.</td></tr>
-			<tr>
-				<td id="header1"><label for="Section1">Section 1</label></td>
-				<td headers="header1"><cfinput type="checkbox" id="Section1" name="Section1" checked="#Variables.Section1#" /></td></tr>
-			<tr>
-				<td id="header2"><label for="Section2">Section 2</label></td>
-				<td headers="header2"><cfinput type="checkbox" id="Section2" name="Section2" checked="#Variables.Section2#" /></td>
-			</tr>
-			<tr>
-				<td id="header3"><label for="Section3">Section 3</label></td>
-				<td headers="header3"><cfinput type="checkbox" id="Section3" name="Section3" checked="#Variables.Section3#" /></td>
-			</tr>
-			<tr><td>&nbsp;</td></tr>
-			<tr>
-				<td colspan="2" align="center">
-					<input type="submit" name="submitForm" class="textbutton" value="submit" />
-					<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='bookingmanage.cfm?#urltoken#';" /></cfoutput>
-				</td>
-			</tr>
-			</table>
-			</cfform>
+      <cfoutput>
+        <form id="AddMaintBlock" action="addMaintBlock_process.cfm?#urltoken#" method="post">
+        <input type="hidden" name="BRID" value="#Variables.BRID#" />
+        <table style="width:100%;">
+        <tr>
+          <td id="Start"><label for="startDate">Start Date:<br /><small>#language.dateform#</small></label></td>
+          <td headers="Start">
+            <input type="text" id="startDate" name="startDate" message="Please enter a start date." validate="date" required="yes" class="startDate" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
+            <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+          </td>
+        </tr>
+        <tr>
+          <td id="End"><label for="endDate">End Date:<br /><small>#language.dateform#</small></label></td>
+          <td headers="End">
+            <input type="text" id="endDate" name="endDate" message="Please enter an end date." validate="date" required="yes" class="endDate" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
+            <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+          </td>
+        </tr>
+        <tr><td colspan="2">Please choose the sections of the dock that you wish to book for maintenance.</td></tr>
+        <tr>
+          <td id="header1"><label for="Section1">Section 1</label></td>
+          <td headers="header1"><input type="checkbox" id="Section1" name="Section1" checked="#Variables.Section1#" /></td></tr>
+        <tr>
+          <td id="header2"><label for="Section2">Section 2</label></td>
+          <td headers="header2"><input type="checkbox" id="Section2" name="Section2" checked="#Variables.Section2#" /></td>
+        </tr>
+        <tr>
+          <td id="header3"><label for="Section3">Section 3</label></td>
+          <td headers="header3"><input type="checkbox" id="Section3" name="Section3" checked="#Variables.Section3#" /></td>
+        </tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr>
+          <td colspan="2" align="center">
+            <input type="submit" name="submitForm" class="textbutton" value="submit" />
+            <input type="button" value="Cancel" class="textbutton" onclick="self.location.href='bookingmanage.cfm?#urltoken#';" />
+          </td>
+        </tr>
+        </table>
+        </form>
+      </cfoutput>
 
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
