@@ -121,7 +121,7 @@
 						</tr>
 						<tr>
 							<td id="anonymous">Anonymous:</td>
-							<td headers="anonymous"><input type="hidden" name="Anonymous" value="#Variables.Anonymous#" />#Variables.Anonymous#</td>
+							<td headers="anonymous"><input type="hidden" name="Anonymous" value="#Variables.Anonymous#" /><cfif Variables.Anonymous EQ 1>Yes<cfelse>No</cfif></td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center" style="padding-top:20px;">
