@@ -145,8 +145,6 @@ WHERE	SouthJetty = 1
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				</CFIF>
 
-				<CFINCLUDE template="#RootDir#includes/dock_calendar_menu.cfm"><br />
-
 				<cfoutput><a href="resume-summary_pi.cfm?lang=#lang#&amp;fromDate=#CalStartDate#&amp;toDate=#CalEndDate#" class="textbutton" rel="external">#language.PRINtable#</a></cfoutput>
 				<br />
 				<h2><cfoutput>#language.Drydock#</cfoutput></h2>
