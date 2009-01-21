@@ -64,6 +64,21 @@ table tr {
 	background-color: #fff;
 }
 
+/* Make a chunk of text look like a button by drawing a
+   border around it. Can be used with any class elements,
+   including DIV, SPAN, and A. */
+.textbutton, div.menu a {
+	font-family: sans-serif, arial;
+	font-size: 85%;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: 1px solid #CCCCCC;
+	background-color: White;
+	color: #369;
+	padding: 1px 2px 1px 2px;
+	white-space: nowrap;
+}
+
 /* CALENDAR TABLE -------------------------------------- */
 
 /* Fixes height of each row of the calendar. */
@@ -160,10 +175,6 @@ th.vessel, th.docking, th.booking {
 
 th.section {
 	width: 10%;
-}
-
-td[headers='section'], th[headers='section2'], th[headers='section3'] {
-	text-align: center;
 }
 
 /* STATUSES -------------------------------------------- */
@@ -295,4 +306,48 @@ table#tariffs th#feeHeader {
 
 table#tariffs label {
 	width: auto;
+}
+
+div.menu ul {
+  width: 400px;
+}
+
+div.menu li {
+  display: inline;
+  list-style: none;
+}
+
+div.menu h2 {
+  font-size: 12px;
+}
+
+input[type="button"],
+input[type="submit"] {
+	font-family: sans-serif, arial;
+	font-size: 85%;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: 1px solid #CCCCCC;
+	background-color: White;
+	color: #369;
+	padding: 1px 2px 1px 2px;
+	white-space: nowrap;
+}
+
+/* Increases padding on rows that have inline text
+   buttons. */
+tr.containsbutton td {
+	padding: 5px;
+}
+
+/* Highlights the button onmouseover. #FFFCFC, when viewed
+   on a 256-colour screen, would be white. */
+.textbutton:hover {
+	background: #FFFCFC;
+	text-decoration: none;
+}
+
+div#print_summary td, div#print_summary th {
+  border: 1px solid #ccc;
+  padding: 3px;
 }
