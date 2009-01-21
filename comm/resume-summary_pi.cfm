@@ -80,13 +80,10 @@
 	
 	<!-- METADATA ENDS | FIN DES METADONNEES -->
 	
-	<title><cfoutput>#language.BookingsSummary# - #language.esqGravingDock# - #language.PWGSC#</cfoutput> </title>
-	
-	<!-- CSS needed for correct printout of table headers in IE 6.0 -->
-	<style type='text/css'>
-        thead{display:table-header-group}
-	</style>
-
+  <cfoutput>
+	<title>#language.BookingsSummary# - #language.esqGravingDock# - #language.PWGSC#</title>
+  <link href="#RootDir#css/summary_print.css" media="print, screen" rel="stylesheet" type="text/css" />
+  </cfoutput>
 </head>
 <body>
 
@@ -175,31 +172,16 @@ WHERE	SouthJetty = 1
 
 <cfoutput>
 
-<!-- FIP HEADER BEGINS | DEBUT DE L'EN-TETE PCIM -->
-<CFIF lang EQ "eng">
-<div>
-	<img src="#CLF_URL#/clf20/images/wmms.gif" width="83" height="20" alt="Symbol of the Government of Canada" />
-</div>
-<a name="tphp" id="tphp"><img src="#CLF_URL#/clf20/images/sig-eng.gif" width="364" height="33" alt="Public Works and Government Services Canada" /></a>
-<CFELSE>
-<div>
-	<img src="#CLF_URL#/clf20/images/wmms.gif" width="83" height="20" alt="Symbole du gouvernement du Canada" />
-</div>
-<a name="tphp" id="tphp"><img src="#CLF_URL#/clf20/images/sig-fra.gif" width="364" height="33" alt="Travaux publics et Services gouvernementaux Canada" /></a>
-</CFIF>
-<!-- FIP HEADER ENDS | FIN DE L'EN-TETE PCIM -->
 
 <h1>#language.EsqGravingDock# #language.BookingsSummary#</h1>
-
-<p class="screenonly"><p><a href="javascript:self.close()">#language.closeme#</a></p>
 
 <h2>#language.Drydock#</h2>
 </cfoutput>
 <!--- Begin Dry Dock table --->
-<table style="width:90%;" border="1" cellpadding="2">
+<table>
 	<cfoutput>
 	<thead>
-	<tr bgcolor="##EEEEEE">
+	<tr>
 		<th id="vessel">#language.VESSELCaps#</th>
 		<th id="section">#language.SECTIONCaps#</th>
 		<th id="docking">#language.DOCKINGCaps#</th>
@@ -226,7 +208,7 @@ WHERE	SouthJetty = 1
 			<cfset Variables.count = EVALUATE(countQName)>
 
 		<tr>
-			<td headers="vessel"><aBBR title="#CompanyName#">#Abbreviation#</aBBR> #VesselLength#M 
+			<td headers="vessel"><abbr title="#CompanyName#">#Abbreviation#</abbr> #VesselLength#M 
 				<CFIF Anonymous 
 					AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
 					AND Variables.count eq 0 
@@ -258,10 +240,10 @@ WHERE	SouthJetty = 1
 
 <h2><cfoutput>#language.NorthLandingWharf#</cfoutput></h2>
 <!-- Begin North Jetty table -->
-<table style="width:90%;" border="1" cellpadding="2">
+<table>
 	<cfoutput>
 	<thead>
-	<tr bgcolor="##EEEEEE">
+	<tr>
 		<th id="vessel2">#language.VESSELCaps#</th>
 		<th id="section2">#language.SECTIONCaps#</th>
 		<th id="docking2">#language.DOCKINGCaps#</th>
@@ -288,7 +270,7 @@ WHERE	SouthJetty = 1
 			<cfset Variables.count = EVALUATE(countQName)>
 
 		<tr>
-			<td headers="vessel2"><aBBR title="#CompanyName#">#Abbreviation#</aBBR> #VesselLength#M 
+			<td headers="vessel2"><abbr title="#CompanyName#">#Abbreviation#</abbr> #VesselLength#M 
 				<CFIF Anonymous 
 					AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
 					AND Variables.count eq 0 
@@ -310,10 +292,10 @@ WHERE	SouthJetty = 1
 
 <h2><cfoutput>#language.SouthJetty#</cfoutput></h2>
 <!-- Begin South Jetty table -->
-<table style="width:90%;" border="1" cellpadding="2">
+<table>
 	<cfoutput>
 	<thead>
-	<tr bgcolor="##EEEEEE">
+	<tr>
 		<th id="vessel3">#language.VESSELCaps#</th>
 		<th id="section3">#language.SECTIONCaps#</th>
 		<th id="docking3">#language.DOCKINGCaps#</th>
@@ -340,7 +322,7 @@ WHERE	SouthJetty = 1
 			<cfset Variables.count = EVALUATE(countQName)>
 
 		<tr>
-			<td headers="vessel3"><aBBR title="#CompanyName#">#Abbreviation#</aBBR> #VesselLength#M 
+			<td headers="vessel3"><abbr title="#CompanyName#">#Abbreviation#</abbr> #VesselLength#M 
 				<CFIF Anonymous 
 					AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
 					AND Variables.count eq 0 
@@ -363,7 +345,7 @@ WHERE	SouthJetty = 1
 <br /><br />
 
 <!--- Legend of company abbreviations --->
-<table border="1" cellpadding="2">
+<table>
 <CAPTION><cfoutput><strong>#language.legend#:</strong></cfoutput></CAPTION>
 	<tr>
 <cfoutput query="getCompanies">
@@ -380,33 +362,6 @@ WHERE	SouthJetty = 1
 	</CFIF>
 </cfoutput>
 </table>
-
-<p class="screenonly"><p><a href="javascript:self.close()"><cfoutput>#language.closeme#</cfoutput></a></p>
-
-			<!-- FOOTER BEGINS | DEBUT DU PIED DE LA PAGE -->
-			<div class="footer">
-				<hr />
-				<div>
-					<!-- DATE MODIFIED BEGINS | DEBUT DE LA DATE DE MODIFICATION -->
-					<CFIF lang EQ 'eng' OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>Date Modified:
-					<CFELSE>Date de modification&nbsp;:
-					</CFIF>
-						<span class="date">
-						<cfoutput query="GetFile">	#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>
-					</span>
-					<!-- DATE MODIFIED ENDS | FIN DE LA DATE DE MODIFICATION -->
-				</div>
-				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.html ====== -->
-				<div class="screenonly">
-					<a href="#tphp" title="Return to Top of Page"><img class="uparrow" src="#CLF_URL#/clf20/images/tphp.gif" width="19" height="12" alt="" /><br />Top of Page</a>
-				</div>
-				<div>
-					<a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html">Important Notices</a>
-				</div>
-				<!-- ====== /clf20/ssi/FOOT-PIED-ENG.html ====== -->
-				
-			</div>
-			<!-- FOOTER ENDS | FIN DU PIED DE LA PAGE -->
 
 </body>
 </html>
