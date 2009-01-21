@@ -89,14 +89,14 @@
         <tr>
           <td id="Start"><label for="startDate">Start Date:<br /><small>#language.dateform#</small></label></td>
           <td headers="Start">
-            <input type="text" id="startDate" name="startDate" message="Please enter a start date." validate="date" required="yes" class="startDate" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
+            <input type="text" id="startDate" name="startDate" class="startDate" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
             <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
           </td>
         </tr>
         <tr>
           <td id="End"><label for="endDate">End Date:<br /><small>#language.dateform#</small></label></td>
           <td headers="End">
-            <input type="text" id="endDate" name="endDate" message="Please enter an end date." validate="date" required="yes" class="endDate" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
+            <input type="text" id="endDate" name="endDate" class="endDate" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
             <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
           </td>
         </tr>

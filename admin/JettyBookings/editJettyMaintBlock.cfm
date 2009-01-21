@@ -1,3 +1,8 @@
+<cfif structKeyExists(URL, 'BRID')>
+  <cfset Form.BRID = URL.BRID />
+</cfif>
+
+<cfoutput>
 <!---cfinclude template="#RootDir#includes/restore_params.cfm">
 <cfinclude template="#RootDir#includes/build_form_struct.cfm"--->
 
@@ -22,7 +27,7 @@ function EditSubmit ( selectedform )
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
+			
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
@@ -30,7 +35,7 @@ function EditSubmit ( selectedform )
 			</CFIF>
 			<a href="jettyBookingManage.cfm?lang=#lang#">Jetty Management</a> &gt;
 			Edit Maintenance Block
-			</cfoutput>
+			
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -110,43 +115,44 @@ function EditSubmit ( selectedform )
 					</cfif>
 				</cfif>
 				<!--- -------------------------------------------------------------------------------------------- --->
-				<cfform id="EditJettyMaintBlock" action="editJettyMaintBlock_process.cfm?#urltoken#" method="post">
-				<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" />
+				<form id="EditJettyMaintBlock" action="editJettyMaintBlock_process.cfm?#urltoken#" method="post">
+				<input type="hidden" name="BRID" value="#Variables.BRID#" />
 				<table style="width:100%;">
-				<tr>
-					<td id="Start">Start Date:</td>
-					<td headers="Start">
-						<cfoutput><cfinput type="text" name="startDate" message="Please enter a start date." validate="date" required="yes" class="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
-						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
-					</td>
-				</tr>
-				<tr>
-					<td id="End">End Date:</td>
-					<td headers="End">
-						<cfoutput><cfinput type="text" name="endDate" message="Please enter an end date." validate="date" required="yes" class="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
-						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
-					</td>
-				</tr>
-				<tr><td colspan="2">Please select the jetty/jetties that you wish to book for maintenance:</td></tr>
-				<tr>
-					<td id="nj"><label for="NorthJetty">North Landing Wharf</label></td>
-					<td headers="nj"><cfinput type="checkbox" id="NorthJetty" name="NorthJetty" checked="#Variables.NorthJetty#" /></td></tr>
-				<tr>
-					<td id="sj"><label for="SouthJetty">South Jetty</label></td>
-					<td headers="sj"><cfinput type="checkbox" id="SouthJetty" name="SouthJetty" checked="#Variables.SouthJetty#" /></td>
-				</tr>
-				<tr><td>&nbsp;</td></tr>
-				<tr>
-					<td colspan="2" align="center">
-						<input type="submit" class="textbutton" value="submit" />
-						<a href="jettyBookingManage.cfm?#urltoken#" class="textbutton">Cancel</a>
-					</td>
-				</tr>
+          <tr>
+            <td id="Start"><label for="startDate">Start Date:<br /><small>#language.dateform#</small></label></td>
+            <td headers="Start">
+              <input type="text" id="startDate" name="startDate" class="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
+              <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+            </td>
+          </tr>
+          <tr>
+            <td id="End"><label for="endDate">End Date:<br /><small>#language.dateform#</small></label></td>
+            <td headers="End">
+              <input type="text" id="endDate" name="endDate" class="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
+              <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+            </td>
+          </tr>
+          <tr><td colspan="2">Please select the jetty/jetties that you wish to book for maintenance:</td></tr>
+          <tr>
+            <td id="nj"><label for="NorthJetty">North Landing Wharf</label></td>
+            <td headers="nj"><input type="checkbox" id="NorthJetty" name="NorthJetty" checked="#Variables.NorthJetty#" /></td></tr>
+          <tr>
+            <td id="sj"><label for="SouthJetty">South Jetty</label></td>
+            <td headers="sj"><input type="checkbox" id="SouthJetty" name="SouthJetty" checked="#Variables.SouthJetty#" /></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr>
+            <td colspan="2" align="center">
+              <input type="submit" class="textbutton" value="submit" />
+              <a href="jettyBookingManage.cfm?#urltoken#" class="textbutton">Cancel</a>
+            </td>
+          </tr>
 				</table>
-				</cfform>
+				</form>
 
 
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+</cfoutput>

@@ -1,8 +1,10 @@
+<cfoutput>
+
 <!---cfinclude template="#RootDir#includes/restore_params.cfm">
 <cfinclude template="#RootDir#includes/build_form_struct.cfm"--->
 
 <cfsavecontent variable="js">
-	<cfoutput>
+	
 <meta name=""dc.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Add Maintenance Block">
 <meta name="keywords" content="" />
 <meta name="description" content="" />
@@ -18,7 +20,7 @@
 		/* ]]> */
 	</script>
 	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
-	</cfoutput>
+	
 </cfsavecontent>
 <cfhtmlhead text="#js#">
 
@@ -38,7 +40,7 @@ function EditSubmit ( selectedform )
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
+			
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
 			<CFELSE>
@@ -46,7 +48,7 @@ function EditSubmit ( selectedform )
 			</CFIF>
 			<a href="jettyBookingManage.cfm?lang=#lang#">Jetty Management</a> &gt;
 			Add Maintenance Block
-			</cfoutput>
+			
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -116,24 +118,22 @@ function EditSubmit ( selectedform )
 
 				<!--- -------------------------------------------------------------------------------------------- --->
 				<cfform id="AddJettyMaintBlock" action="addJettyMaintBlock_process.cfm?#urltoken#" method="post">
-				<cfoutput><input type="hidden" name="BRID" value="#Variables.BRID#" />
+				<input type="hidden" name="BRID" value="#Variables.BRID#" />
 				<table style="width:100%;">
-				<tr>
-					<td id="Start">Start Date:</td>
-					<td headers="Start">
-						<cfoutput>
-						<cfinput type="text" name="startDate" message="Please enter a start date." validate="date" required="yes" class="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
-						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
-					</td>
-				</tr>
-				<tr>
-					<td id="End">End Date:</td>
-					<td headers="End">
-						<cfoutput>
-						<cfinput type="text" name="endDate" message="Please enter an end date." validate="date" required="yes" class="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
-						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
-					</td>
-				</tr>
+        <tr>
+          <td id="Start"><label for="startDate">Start Date:<br /><small>#language.dateform#</small></label></td>
+          <td headers="Start">
+            <input type="text" id="startDate" name="startDate" class="startDate" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
+            <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+          </td>
+        </tr>
+        <tr>
+          <td id="End"><label for="endDate">End Date:<br /><small>#language.dateform#</small></label></td>
+          <td headers="End">
+            <input type="text" id="endDate" name="endDate" class="endDate" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
+            <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+          </td>
+        </tr>
 				<tr>
 					<td colspan="2">Please select the jetty/jetties that you wish to book for maintenance:</td>
 				</tr>
@@ -149,7 +149,7 @@ function EditSubmit ( selectedform )
 				<tr>
 					<td colspan="2" align="center">
 						<input type="submit" value="submit" class="textbutton" />
-						<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='jettybookingmanage.cfm?#urltoken#';" /></cfoutput>
+						<input type="button" value="Cancel" class="textbutton" onclick="self.location.href='jettybookingmanage.cfm?#urltoken#';" />
 					</td>
 				</tr>
 				</table>
@@ -159,3 +159,5 @@ function EditSubmit ( selectedform )
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+
+</cfoutput>
