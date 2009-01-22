@@ -100,10 +100,11 @@
 				#DateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#</p>
 					<p>#language.optional#</p>
 					<div style="text-align:center;">
-						<input type="button" value="#language.later#" class="textbutton" onclick="javascript:self.location.href='otherForms.cfm?lang=#lang#';" />
+						<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton">#language.later#</a>
 					</div>
 				<br />
-				<form id="serviceSelect" action="#RootDir#reserve-book/tarif-tariff_action.cfm?lang=#lang#&amp;BRID=#url.BRID#">
+
+				<form id="serviceSelect" action="#RootDir#reserve-book/tarif-tariff_action.cfm?lang=#lang#&amp;BRID=#url.BRID#" method="post">
 				<table summary="This table displays the available services for a booking and allows the user to select the desired services.">
 					<tr>
 						<th></th>
