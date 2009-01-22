@@ -43,8 +43,8 @@
 	<cfset form.endDate = "12/31/2031">
 </cfif>
 
-<cfparam name="form.startDate" default="#DateFormat(PacificNow, 'mm/dd/yyyy')#">
-<cfparam name="form.endDate" default="#DateFormat(DateAdd('d', 30, PacificNow), 'mm/dd/yyyy')#">
+<cfparam name="form.startDate" default="#DateFormat(PacificNow, 'MM/dd/yyyy')#">
+<cfparam name="form.endDate" default="#DateFormat(DateAdd('d', 30, PacificNow), 'MM/dd/yyyy')#">
 <cfparam name="Variables.startDate" default="#form.startDate#">
 <cfparam name="Variables.endDate" default="#form.endDate#">
 
@@ -72,7 +72,7 @@
 			)
 		AND Docks.BRID = Bookings.BRID AND Status = 'T' AND Bookings.Deleted = '0'
 		<!--- Eliminates any Tentative bookings with a start date before today --->
-		AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= #PacificNow#))
+		AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= '#LSDateFormat(PacificNow, "yyyy-MM-dd")#'))
 </cfquery>
 <cfquery name="countConfirmed" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT count(*) as numConf
@@ -238,7 +238,7 @@ function EditSubmit ( selectedform )
 							AND Bookings.Deleted = 0
 							AND Vessels.Deleted = 0
 							<!--- Eliminates any Tentative bookings with a start date before today --->
-							AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= #PacificNow#))
+							AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= '#LSDateFormat(PacificNow, "yyyy-MM-dd")#'))
 
 						<cfif variables.showPend EQ true AND variables.showTent EQ false AND variables.showConf EQ false>
 							AND (Docks.Status = 'P' OR Docks.Status = 'Y' OR Docks.Status = 'X' OR Docks.Status = 'Z')
