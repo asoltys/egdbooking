@@ -226,7 +226,7 @@ table.bookingDetails td {
 .sec2 { background-color: #336699; color: #ddd; }
 .sec3 { background-color: #556677; color: #ddd; }
 .maintenance, a.maintenance, a.maintenance:visited, maintenance:hover {
-	background-color: #ddd;
+	background-color: #eee;
 	color: #FFFFFF;
 }
 
