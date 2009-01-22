@@ -1,3 +1,5 @@
+<cfoutput>
+
 <cfinclude template="#RootDir#includes/generalLanguageVariables.cfm">
 <cfif lang EQ "eng">
 	<cfset language.viewTariffHeading = "View Tariff of Dock Charges">
@@ -83,14 +85,14 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
+			
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.ViewTariffHeading#
-			</cfoutput>
+			
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -99,7 +101,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#language.ViewTariffHeading#</cfoutput>
+					#language.ViewTariffHeading#
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -108,37 +110,19 @@
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 
 				<cfif isDefined("url.BRID")>
-				<cfoutput>
+				
 					<h2>#getDetails.CompanyName#: #getDetails.VesselName#</h2>
 					<h3>#LSDateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #LSDateFormat(getDetails.EndDate, 'mmm d, yyyy')#</h3>
-				</cfoutput></cfif>
+				</cfif>
 
 				<table summary="#language.tablesummary#">
-				<cfoutput>
 					<tr>
-						<th id="checkHeader" style="width:5%;"><label for="other">&nbsp;</label></th>
-						<th id="itemHeader" style="width:4%;"><strong>#language.Item#</strong></th>
-						<th id="serviceHeader" class="feesformheader"><strong>#language.Services#</strong></th>
-						<th id="feeHeader" style="width:19%;"><strong>#language.Fees#</strong></th>
+						<th>#language.Services#</th>
+						<th>#language.Fees#</th>
 					</tr>
+				
 
-					<tr>
-						<td headers="checkHeader"><input id="other" name="other" type="checkbox" <cfif isDefined("url.BRID")><cfif getForm.other EQ 1>checked="true"</cfif></cfif> disabled="disabled" /></td>
-						<td headers="itemHeader">&nbsp;</td>
-						<td headers="serviceHeader">
-							<table>
-								<tr>
-									<td><label for="other">#language.Misc#:</label></td>
-									<td><textarea name="otherText" cols="32" rows="3" disabled="disabled"><cfif isDefined("url.BRID")><cfif getForm.other EQ 1>#getForm.otherText#</cfif></cfif></textarea></td>
-								</tr>
-								<tr><td colspan="2">(#language.miscText#)</td></tr>
-							</table>
-						</td>
-						<td headers="feeHeader">&nbsp;</td>
-					</tr>
-				</cfoutput>
-
-				<cfoutput query="getFees">
+				<cfloop query="getFees">
 					<cfif item NEQ "" AND item mod 2>
 						<cfset rowClass = "highlight">
 					<cfelseif item NEQ "">
@@ -146,21 +130,6 @@
 					</cfif>
 
 					<tr class="#rowClass#">
-						<td headers="checkHeader">
-							<cfif fee NEQ "">
-								<cfset Variables.Abbr = "getForm." & #abbreviation#>
-								<input name="#abbreviation#" id="#abbreviation#" type="checkbox" <cfif isDefined("url.BRID")><cfif Evaluate(Variables.Abbr) EQ 1>checked="true"</cfif></cfif> disabled="disabled" />
-							</cfif>
-						</td>
-						<td headers="itemHeader">
-							<strong>
-								<cfif fee NEQ "">
-									<label for="#abbreviation#">#item#</label>
-								<cfelse>
-									#item#
-								</cfif>
-							</strong>
-						</td>
 						<td headers="serviceHeader">
 							<cfif fee NEQ "">
 								<label for="#abbreviation#">#service#</label>
@@ -178,13 +147,14 @@
 						<td headers="feeHeader">&nbsp;</td>
 						</cfif>
 					</tr>
-				</cfoutput>
+        </cfloop>
+				
 				</table>
 				<div class="buttons">
 					<cfif isDefined("url.referrer") AND url.referrer eq "archive">
-						<cfoutput><a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;CID=#url.CID#" class="textbutton">#language.Back#</a></cfoutput>
+						<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;CID=#url.CID#" class="textbutton">#language.Back#</a>
 					<cfelse>
-						<cfoutput><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#getDetails.CID#" class="textbutton">#language.Back#</a></cfoutput>
+						<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#getDetails.CID#" class="textbutton">#language.Back#</a>
 					</cfif>
 				</div>
 
@@ -193,3 +163,4 @@
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 
+</cfoutput>
