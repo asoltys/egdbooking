@@ -1,6 +1,6 @@
 <cfif lang EQ "eng">
 	<cfset language.bookingsSummary = "Bookings Summary">
-	<cfset language.ScreenMessage = '<p>Please use the pop-up <span class="textbutton">calendar</span> to enter the range of dates you would like to view.  To start from the first booking record, clear the "From Date" field.  To end after the last booking record, clear the "To Date" field.  To see all records, clear both fields.</p>'>
+	<cfset language.ScreenMessage = '<p>Please use the pop-up calendar to enter the range of dates you would like to view.  To start from the first booking record, clear the "From Date" field.  To end after the last booking record, clear the "To Date" field.  To see all records, clear both fields.</p>'>
 	<cfset language.description = "Allows user to view a summary of all bookings from present onward.">
 	<cfset language.vesselCaps = "VESSEL">
 	<cfset language.dockingCaps = "DOCKING DATES">

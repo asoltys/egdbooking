@@ -5,28 +5,24 @@
 	<cfset language.description = "Refers user to contact the administration for editing a booking.">
 	<cfset language.subjects = language.masterSubjects & "">
 	<cfset language.changeForm = "Tentative Vessel and Change Booking Form">
-	<cfset language.explanation = "Bookings cannot be edited online.  If you wish to edit your booking request details, please inform the Esquimalt Graving Dock via phone, fax or email, and mail or fax a hard copy of the Tentative Vessel and Booking Change Form.">
+	<cfset language.explanation = "Bookings cannot be edited online.  If you wish to edit your booking request details, please inform the Esquimalt Graving Dock via phone, fax or email, and fax a hard copy of the Tentative Vessel and Booking Change Form.">
 	<cfset language.phone = "Phone">
 	<cfset language.fax = "Fax">
 	<cfset language.emailAddress = "Email">
 	<cfset language.or = "or">
 	<cfset language.acrobatrequired = 'The following file requires <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" rel="external">Adobe Acrobat Reader</a> to be installed.  The links will open in a new window.'>
-	<cfset language.mail = "Mailing Address">
-	<cfset language.mailing = "Operations Manager<br />Esquimalt Graving Dock<br />825 Admirals Road<br />Esquimalt, BC<br />V9A 2P1<br />Canada">
 <cfelse>
 	<cfset language.title = "Modification de r&eacute;servation">
 	<cfset language.keywords = language.masterKeywords & ", Modification de r&eacute;servation">
 	<cfset language.description = "Invite l'utilisateur &agrave; communiquer avec l'administration pour modifier une r&eacute;servation.">
 	<cfset language.subjects = language.masterSubjects & "">
 	<cfset language.changeForm = "Formulaire de r&eacute;servation provisoire pour les navires et les modifications">
-	<cfset language.explanation = "Les r&eacute;servations ne peuvent &ecirc;tre modifi&eacute;es en ligne. Si vous voulez modifier les renseignements de votre demande de r&eacute;servation, veuillez en aviser la Cale s&egrave;che d'Esquimalt par t&eacute;l&eacute;phone, fax ou courriel, puis faites parvenir par courrier traditionnel ou par fax une copie papier du formulaire de modification d'une r&eacute;servation.">
+	<cfset language.explanation = "Les r&eacute;servations ne peuvent &ecirc;tre modifi&eacute;es en ligne. Si vous voulez modifier les renseignements de votre demande de r&eacute;servation, veuillez en aviser la Cale s&egrave;che d'Esquimalt par t&eacute;l&eacute;phone, fax ou courriel, puis faites parvenir par fax une copie papier du formulaire de modification d'une r&eacute;servation.">
 	<cfset language.phone = "T&eacute;l&eacute;phone">
 	<cfset language.fax = "Fac-simil&eacute;">
 	<cfset language.emailAddress = "Adresse de courriel">
 	<cfset language.or = "ou">
 	<cfset language.acrobatrequired = 'Il faut le logiciel <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" rel="external">Adobe Acrobat Reader</a> pour le fichier suivant. Le lien ouvrira une nouvelle fen&ecirc;tre.'>
-	<cfset language.mail = "Adresse postale">
-	<cfset language.mailing = "Directeur des op&eacute;rations<br />Cale s&egrave;che d'Esquimalt<br />825 Admirals Road<br />Esquimalt (C.-B.)<br />V9A 2P1<br />Canada">
 </cfif>
 
 <cfhtmlhead text="
@@ -110,8 +106,6 @@
 						<cfloop list="#Variables.emailList#" index="email"><tr><td>&nbsp;</td><td><a href="mailto:#email#?subject=#emailSubject#">#email#</a></td></tr></cfloop>
 					</table>
 					</cfif>
-					<p>#language.mail#:<br />
-					<div style="padding-left:25px">#language.mailing#</div></p>
 				</div>
 				<br />
 				<div style="text-align:center;">
