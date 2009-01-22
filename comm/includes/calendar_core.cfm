@@ -24,6 +24,12 @@
 </div>
 </cfoutput>
 
+<cfif find("jet", cgi.script_name) EQ 0>
+  <cfinclude template="#RootDir#comm/includes/dock_key.cfm" />
+<cfelse>
+  <cfinclude template="#RootDir#comm/includes/jetty_key.cfm" />
+</cfif>
+
 <h2><cfoutput>#LSDateFormat(CreateDate(url['a-y'], url['m-m'], 1), 'mmmm')# #url['a-y']#</cfoutput></h2>
 
 <cfoutput>
@@ -47,7 +53,8 @@
 <cfset LastDay = CreateDate(url['a-y'], url['m-m'], LastDayofMonth)>
 <cfset CurDayofWeek = LSDateFormat(FirstDay, "dddd")>
 
-<table class="basic calendar" id="calendar<cfoutput>#url['m-m']#</cfoutput>" summary="<cfoutput>#language.calendar#</cfoutput>">
+<table class="basic calendar" id="calendar<cfoutput>#url['m-m']#</cfoutput>" 
+summary="<cfoutput>#language.calendar#</cfoutput>">
 	<!--- Output the days of the week at the top of the calendar --->
 	<tr>
 		<cfloop index="doh" from="1" to="#ArrayLen(DaysofWeek)#" step="1">
@@ -80,8 +87,8 @@
 			</cfif>
 			<td>
 				<cfif not (Variables.DateCounter IS 0) AND NOT (Variables.DateCounter GT Variables.LastDayofMonth)>
-					<cfset taday = "#url['m-m']#" & "/" & "#DaysofMonth[DateCounter]#" & "/" & "#url['a-y']#">
-					<cfoutput><a href="detail.cfm?lang=#lang#&amp;date=#taday#" title="#language.detailsFor# #taday#"><b>#DaysofMonth[DateCounter]#</b></a></cfoutput>
+					<cfset taday = DateFormat(CreateDate(url['a-y'], url['m-m'], DaysofMonth[DateCounter]), "yyyy-MM-dd")>
+					<cfoutput><a href="detail.cfm?lang=#lang#&amp;date=#taday#" title="#language.detailsFor# #taday#"><strong>#DaysofMonth[DateCounter]#</strong></a></cfoutput>
 
 					<cfquery name="GetEventsonDay" dbtype="query">
 						SELECT 	VesselName, VNID,
@@ -183,9 +190,9 @@
               <CFSET vessel_name = Evaluate(sec).name />
 
 							<CFIF Evaluate(sec).maint eq true>
-								<div class="maintenance"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="maintenance" title="#language.maintenance#">#language.maintenance#</a></div>
+								<div class="maintenance"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="maintenance" title="#language.maintenance# #taday#">#language.maintenance#</a></div>
 							<CFELSEIF Evaluate(sec).name neq "">
-								<div class="vessel #sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="confirmed" title="#Evaluate(sec).name#">#vessel_name#</a><a class="legend" href="###sec#"><sup>#bloop#</sup></a></div>
+								<div class="vessel #sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="confirmed" title="#Evaluate(sec).name# #taday#">#vessel_name#</a><a class="legend" href="###sec#"><sup>#bloop#</sup></a></div>
 							</CFIF>
 						</CFLOOP>
 						<cfif tent.num neq 0>

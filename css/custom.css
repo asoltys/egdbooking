@@ -95,10 +95,10 @@ table.calendar {
 }
 table.calendar td {
 	background-color: #FFFFFF;
+  font-size: 80%;
 	text-align: left;
 	vertical-align: top;
 	width: 14%;
-  font-size: 11px;
 }
 table.calendar div.vessel {
   padding: 3px 0px 3px 0px;
@@ -106,7 +106,7 @@ table.calendar div.vessel {
 }
 
 table.calendar sup {
-  font-size: 8px;
+  font-size: 80%;
 }
 
 table.calendar a.legend {
@@ -225,9 +225,9 @@ table.bookingDetails td {
 .sec1 { background-color: #335544; color: #ddd; }
 .sec2 { background-color: #336699; color: #ddd; }
 .sec3 { background-color: #556677; color: #ddd; }
-.maintenance, a.maintenance, a.maintenance:visited, maintenance:hover {
+div.center .maintenance, div.center a.maintenance, div.center a.maintenance:visited, div.center maintenance:hover {
 	background-color: #eee;
-	color: #FFFFFF;
+	color: #003399;
 }
 
 /* CONFLICTS ------------------------------------------- */

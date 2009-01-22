@@ -1,6 +1,4 @@
 <cfoutput>
-<br />
-<br />
 	<table class="keytable">
 	<tr>
 		<th colspan="2">#language.Key#</th>

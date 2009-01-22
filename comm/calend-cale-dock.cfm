@@ -129,7 +129,6 @@
 				</CFIF>
 
 				<CFINCLUDE template="includes/calendar_core.cfm">
-				<CFINCLUDE template="includes/dock_key.cfm">
 
 			</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->

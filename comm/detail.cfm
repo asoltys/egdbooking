@@ -63,11 +63,6 @@
 	<cflocation addtoken="no" url="#RootDir#comm/calend-cale-dock.cfm?lang=#lang#">
 </CFIF>
 
-<CFSET moonth=GetToken(URL.Date, 1, '/')>
-<CFSET daay=GetToken(URL.Date, 2, '/')>
-<CFSET yeaar=getToken(URL.Date, 3, '/')>
-
-
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
@@ -86,7 +81,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#language.DetailsFor# #LSDateFormat(CreateDate(yeaar, moonth, daay), 'mmmm d, yyyy')#</cfoutput>
+					<cfoutput>#language.DetailsFor# #LSDateFormat(URL.date, "mmmm dd, yyyy")#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -239,7 +234,7 @@
 				</cfoutput>
 				<cfoutput>
 				<CFIF getDockDetail.RecordCount eq 0 AND getDockMaintenanceDetail.RecordCount eq 0>#language.noBookings#<br /><br /></CFIF>
-				<div class="buttons"><a href="calend-cale-dock.cfm?lang=#lang#&amp;m-m=#moonth#&amp;a-y=#yeaar#" class="textbutton">#language.drydockCalButton#</a></div>
+				<div class="buttons"><a href="calend-cale-dock.cfm?lang=#lang#&amp;m-m=#Month(URL.date)#&amp;a-y=#Year(URL.date)#" class="textbutton">#language.drydockCalButton#</a></div>
 
 
 				<h2>#language.JettyBookings#</h2>
@@ -325,7 +320,7 @@
 				<cfoutput>
 				<CFIF getJettyDetail.RecordCount eq 0 AND getJettyMaintenanceDetail.RecordCount eq 0>#language.noBookings#</CFIF>
 
-				<div class="buttons"><a href="calend-jet.cfm?lang=#lang#&amp;m-m=#moonth#&amp;a-y=#yeaar#" class="textbutton">#language.jettyCalButton#</a></div>
+				<div class="buttons"><a href="calend-jet.cfm?lang=#lang#&amp;m-m=#Month(URL.date)#&amp;a-y=#Year(URL.date)#" class="textbutton">#language.jettyCalButton#</a></div>
 				</cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

@@ -19,7 +19,7 @@
 	<cfset language.confirmed = "confirmed">
 	<cfset language.bookings = "Bookings">
 	<cfset language.booking = "Booking">
-	<cfset language.calendar = "calendar">
+	<cfset language.calendar = "This calendar provides a day by day availability summary for the Esquimalt Graving Dock">
 	<cfset language.calendars = "calendars">
 	<cfset language.dateform = "(MM/DD/YYYY)">
 	<cfset language.welcomePage = "Welcome Page">
@@ -48,7 +48,7 @@
 	<cfset language.confirmed = "confirm&eacute;">
 	<cfset language.bookings = "R&eacute;servations">
 	<cfset language.booking = "R&eacute;servation">
-	<cfset language.calendar = "calendrier">
+	<cfset language.calendar = "Ce calendrier offre un r&eacute;sum&eacute; au jour le jour de disponibilit&eacute; pour le Cale s&egrave;che d'Esquimalt">
 	<cfset language.calendars = "calendriers">
 	<cfset language.dateform = "(MM/JJ/AAAA)">
 	<cfset language.welcomePage = "Page de bienvenue">

@@ -126,15 +126,6 @@
 
 				<CFINCLUDE template="includes/calendar_core.cfm">
 
-				<cfoutput>
-				<div class="selector">
-					<a href="calend-jet.cfm?lang=#lang#&amp;m-m=#prevmonth#&amp;a-y=#prevyear#" class="previousLink">#language.prev#</a>
-					<a href="calend-jet.cfm?lang=#lang#&amp;m-m=#nextmonth#&amp;a-y=#nextyear#" class="nextLink">#language.next#</a>
-				</div>
-				</cfoutput>
-
-				<CFINCLUDE template="includes/jetty_key.cfm"> 
-
 			</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
