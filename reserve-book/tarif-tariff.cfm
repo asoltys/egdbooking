@@ -1,3 +1,5 @@
+<cfoutput>
+
 <cfif lang EQ "eng">
 	<cfset language.tariffHeading = "Tariff of Dock Charges">
 	<cfset language.keywords = language.masterKeywords & ", Tariff of Dock Charges">
@@ -69,15 +71,15 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
+			
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
-			<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=<cfoutput>#lang#</cfoutput>">#language.bookingRequest#</a> &gt;
+			<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#">#language.bookingRequest#</a> &gt;
 			#language.tariffHeading#
-			</cfoutput>
+			
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -86,7 +88,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#language.tariffHeading#</cfoutput>
+					#language.tariffHeading#
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -94,42 +96,33 @@
 
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 
-				<cfoutput>
 				<p style="font-weight:bold;">#getDetails.CompanyName#: #getDetails.VesselName#<br />
 				#DateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#</p>
 					<p>#language.optional#</p>
 					<div style="text-align:center;">
 						<input type="button" value="#language.later#" class="textbutton" onclick="javascript:self.location.href='otherForms.cfm?lang=#lang#';" />
 					</div>
-				</cfoutput>
 				<br />
-				<cfform id="serviceSelect" action="#RootDir#reserve-book/tarif-tariff_action.cfm?lang=#lang#&BRID=#url.BRID#">
-				<table border="0" cellpadding="3" cellspacing="0" summary="This table displays the available services for a booking and allows the user to select the desired services.">
-				<cfoutput>
+				<form id="serviceSelect" action="#RootDir#reserve-book/tarif-tariff_action.cfm?lang=#lang#&amp;BRID=#url.BRID#">
+				<table summary="This table displays the available services for a booking and allows the user to select the desired services.">
 					<tr>
-						<th class="feesformheader" id="checkHeader" style="width:5%;"><label for="otherCheck">&nbsp;</label></th>
-						<th class="feesformheader" id="itemHeader" style="width:4%;"><strong>#language.Item#</strong></th>
-						<th id="serviceHeader" class="feesformheader"><strong>#language.Services#</strong></th>
-						<th class="feesformheader" id="feeHeader" style="width:19%;"><strong>#language.Fees#</strong></th>
+						<th></th>
+						<th>#language.Services#</th>
+						<th>#language.Fees#</th>
 					</tr>
 
 					<tr>
-						<td id="checkHeader"><input name="other" id="otherCheck" type="checkbox" onclick="if (this.checked) this.form.otherBox.focus();" />
-						<td id="itemHeader">&nbsp;</td>
+						<td id="checkHeader"><input name="other" id="otherCheck" type="checkbox" /></td>
 						<td id="serviceHeader">
-							<table>
-								<tr>
-									<td><label for="otherBox">#language.Misc#:</label></td>
-									<td><textarea name="otherText" id="otherBox" cols="32" rows="3" onFocus="this.form.otherCheck.checked = true;"></textarea></td>
-								</tr>
-								<tr><td colspan="2">#language.miscText2#<br /><br />(#language.miscText#)</td></tr>
-							</table>
+              Misc:<br />
+							<textarea name="otherText" id="otherBox" rows="3" cols="32"></textarea>
+              <br />
+							(#language.miscText#)
 						</td>
 						<td id="feeHeader">&nbsp;</td>
 					</tr>
-				</cfoutput>
 
-				<cfoutput query="getFees">
+				<cfloop query="getFees">
 					<cfif item NEQ "" AND item mod 2>
 						<cfset rowClass = "highlight">
 					<cfelseif item NEQ "">
@@ -137,49 +130,41 @@
 					</cfif>
 
 					<tr class="#rowClass#">
-						<td id="checkHeader">
+						<td>
 							<cfif fee NEQ "">
 								<input name="#abbreviation#" id="#abbreviation#" type="checkbox" />
 							</cfif>
 						</td>
-						<td headers="itemHeader">
-							<strong>
-								<cfif fee NEQ "">
-									<label for="#abbreviation#">#item#</label>
-								<cfelse>
-									#item#
-								</cfif>
-							</strong>
-						</td>
-						<td headers="serviceHeader">
+						<td>
 							<cfif fee NEQ "">
-								<label for="#abbreviation#">#service#</label>
+								<label for="#abbreviation#">#XmlFormat(service)#</label>
 							<cfelse>
-								#service#
+								#XmlFormat(service)#
 							</cfif>
 						</td>
 						<cfif fee NEQ "">
 							<cfif flex EQ 0>
-						<td headers="feeHeader" nowrap><label for="#abbreviation#"><strong>#LSCurrencyFormat(fee)#</strong></label></td>
+						<td><label for="#abbreviation#"><strong>#LSCurrencyFormat(fee)#</strong></label></td>
 							<cfelse>
-						<td headers="feeHeader"><label for="#abbreviation#"><strong>#language.pricesVary#</strong></label></td>
+						<td><label for="#abbreviation#"><strong>#language.pricesVary#</strong></label></td>
 							</cfif>
 						<cfelse>
-						<td headers="feeHeader">&nbsp;</td>
+						<td>&nbsp;</td>
 						</cfif>
 					</tr>
-				</cfoutput>
+				</cfloop>
 				</table>
 
-				<cfoutput>
-				<input type="hidden" name="BRID" value="#url.BRID#" />
-				<p><div style="text-align:right;">
+				<p>
+          <input type="hidden" name="BRID" value="#url.BRID#" />
 					<input type="submit" value="#language.Submit#" class="textbutton" />
-				</div></p>
-				</cfoutput>
-				</cfform>
+				</p>
+				
+				</form>
 			</div>
 
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+
+</cfoutput>
