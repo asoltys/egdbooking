@@ -13,7 +13,7 @@
 	<cfset language.keywords = "calendar, 1 month view, one month view, drydock side">
 	<cfset language.go = "Go">
 	<cfset language.viewInfo = "Click on a date to view booking information.">
-	<cfset language.key = "Key">
+	<cfset language.key = "Legend">
 	<cfset language.bookingtype = "Booking Type">
 	<cfset language.sec = "Dock Section">
 	<cfset language.tentBook = "Tentative Booking">

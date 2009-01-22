@@ -4,6 +4,7 @@
 	<cfset language.pending = "pending bookings">
 	<cfset language.tentative = "tentative bookings">
 	<cfset language.deepsea = "Deepsea Vessel">
+	<cfset language.details = "Details">
 	<cfset language.detailsFor = "Details For">
 <CFELSEIF url.lang eq 'fra'>
 	<CFSET language.maintenance = "P&eacute;riode de maintenance">
@@ -11,6 +12,7 @@
 	<cfset language.pending = "r&eacute;servations en traitement">
 	<cfset language.tentative = "r&eacute;servations provisoire">
 	<cfset language.deepsea = "Navire oc&eacute;anique">
+	<cfset language.details = "D&eacute;tails">
 	<cfset language.detailsFor = "D&eacute;tails pour">
 </CFIF>
 
