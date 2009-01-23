@@ -1,27 +1,8 @@
-<cfoutput>
-     <CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-      
-      <CFELSE>
-      
-    </CFIF>
-    
-</cfoutput>
-
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 SELECT VNID
 FROM Vessels
 WHERE CID = '#newCID#' AND Name = '#vesselNameURL#'
 </cfquery>
-
-<!---
-<cfoutput query="getVessel">
-#BRIDURL#
-<br />
-#newUserName#
-<br />
-#VNID#
-</cfoutput>--->
-
 
 <cfquery name="insertdata" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 UPDATE Bookings
@@ -31,5 +12,4 @@ SET
 WHERE BRID = #BRIDURL#
 </cfquery>
 
-<!---<cflocation url="#RootDir#admin/JettyBookings/jettyBookingmanage.cfm">--->
-<cflocation url="https://www.egdbooking.gc.ca/admin/JettyBookings/jettyBookingmanage.cfm">
+<cflocation url="#RootDir#admin/JettyBookings/jettyBookingmanage.cfm" addtoken="no" />
