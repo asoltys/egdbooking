@@ -152,8 +152,8 @@
 
 					<div class="buttons">
 						<input type="submit" name="submitForm" value="#language.Submit#" class="textbutton" />
-						<a href="addVessel.cfm?lang=#lang#&amp;CID=#CID#" class="textbutton">#language.Back#</a>
-						<a href="booking.cfm?lang=#lang#&amp;CID=#CID#" class="textbutton">#language.Cancel#</a>
+						<a href="navireajout-vesseladd.cfm?lang=#lang#&amp;CID=#CID#" class="textbutton">#language.Back#</a>
+						<a href="reserve-booking.cfm?lang=#lang#&amp;CID=#CID#" class="textbutton">#language.Cancel#</a>
 					</div>
 
 				</cfform>
