@@ -118,7 +118,7 @@
 						<tr>
 							<td id="tonnage">Tonnage:</td>
 							<td headers="tonnage"><input type="hidden" name="tonnage" value="#Variables.Tonnage#" />#Variables.Tonnage#</td>
-						</tr>
+						</tr>
 						<tr>
 							<td id="Anonymous">Anonymous:</td>
 							<td headers="Anonymous"><input type="hidden" name="Anonymous" value="#Variables.Anonymous#" /><cfif Variables.Anonymous EQ 1>Yes<cfelse>No</cfif></td>
