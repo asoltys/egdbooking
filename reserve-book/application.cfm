@@ -35,29 +35,9 @@
 	<cflocation url="#RootDir#admin/menu.cfm?lang=#lang#" addtoken="no">
 </cfif>
 
-<!--- The following allows the WPSS toolkits to bypass the login and validate the pages beyond --->
-
-<cfquery name="getSample" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-  SELECT UID FROM Users WHERE deleted = 0 AND FirstName LIKE 'Sample'
-</cfquery>
-
-<CFSET Session.LoggedIn = "1">
-<!--- Set the session variables for the session --->
-<CFSCRIPT>
-Session.UID = getSample.UID;
-Session.FirstName = "Sample";
-Session.LastName = "User";
-Session.EMail = "adam.soltys@pwgsc.gc.ca";
-</CFSCRIPT>
-
-
-<!--- TODO REMOVE comment out the following check to allow WPSS toolkit to bypass login and validate the pages beyond --->
-<!---
-<cfif NOT IsDefined("Session.LoggedIn") AND GetFileFromPath(GetCurrentTemplatePath()) NEQ "public.cfm">
+<cfif NOT IsDefined("Session.LoggedIn")>
 	<cflocation url="#RootDir#ols-login/ols-login.cfm?lang=#lang#" addtoken="no">
 </cfif>
---->
-
 </cflock>
 
 <cfset Variables.MaxLength = 347.67>
