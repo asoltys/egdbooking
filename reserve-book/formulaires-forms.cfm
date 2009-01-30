@@ -62,15 +62,26 @@
 				<!---p>#language.acrobatrequired#</p--->
 
 				<ul>
-					<li>#language.schedule# (#LSDateFormat(CreateDate(2004, 7, 14), 'long')#)
-						<ul>
-							<li><a href="#RootDir#formes-forms/tableau1_page1-schedule1_page1.html" title="#language.schedule#" rel="external">page 1</a></li>
-							<li><a href="#RootDir#formes-forms/tableau1_page2-schedule1_page2.html" title="#language.schedule#" rel="external">page 2</a></li>
-						</ul>
+					<li>
+            <a href="#RootDir#formes-forms/DockBookingApplication.pdf">
+            #language.schedule# (#LSDateFormat(CreateDate(2004, 7, 14), 'long')#) [PDF]
+            </a>
 					</li>
-					<li><a href="#RootDir#formes-forms/clause_indemnite-indemnification_clause.html" title="#language.Indemnification#" rel="external">#language.Indemnification# (#LSDateFormat(CreateDate(2002, 6, 18), 'long')#)</a></li>
-					<li><a href="#RootDir#formes-forms/reservation_modification-change_booking.html" title="#language.changeForm#" rel="external">#language.changeForm#</a></li>
-					<li><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#" title="Tariff of Dock Charges">Tariff of Dock Charges</a></li>
+					<li>
+            <a href="#RootDir#formes-forms/indemnificationClause.pdf" title="#language.Indemnification#" rel="external">
+            #language.Indemnification# (#LSDateFormat(CreateDate(2002, 6, 18), 'long')#) [PDF]
+            </a>
+          </li>
+					<li>
+            <a href="#RootDir#formes-forms/Tentative_ChangeForm.pdf" title="#language.changeForm#" rel="external">
+            #language.changeForm# [PDF]
+            </a>
+          </li>
+					<li>
+          <a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#" title="Tariff of Dock Charges">
+          Tariff of Dock Charges
+          </a>
+          </li>
 				</ul>
 				</cfoutput>
 			</div>
