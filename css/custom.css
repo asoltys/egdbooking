@@ -33,6 +33,11 @@ div.center .right {
   clear: both;
 }
 
+div.notice {
+  border: 1px solid #ddd;
+  width: 80%;
+}
+
 img {
 	border: none;
 }

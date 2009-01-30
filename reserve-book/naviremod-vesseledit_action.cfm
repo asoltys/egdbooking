@@ -42,6 +42,8 @@
 		</cfmail>
 	</cfoutput>
 
+  <cfset session.vessel_edit_success = true />
+
 </cfif>
 
 <!--- Clear Form Structure --->
