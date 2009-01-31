@@ -52,13 +52,13 @@
 	<meta name="dc.creator" content="Government of Canada, Public Works and Government Services Canada" />
 	<meta name="dc.publisher" content="Government of Canada, Public Works and Government Services Canada" />
 	<meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html" />
-	<meta name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
+	<meta name="pwgsc.contact.email" content="egd-cse@pwgsc-tpsgc.gc.ca" />
 	<cfelse>
 	<meta name="dc.language" scheme="ISO639-2/T" content="fra" />
 	<meta name="dc.creator" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada" />
 	<meta name="dc.publisher" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada" />
 	<meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-fra.html" />
-	<meta name="pwgsc.contact.email" content="questions@tpsgc.gc.ca" />
+	<meta name="pwgsc.contact.email" content="egd-cse@pwgsc-tpsgc.gc.ca" />
 	</cfif>
 
 	<meta name="dc.audience" content=" " />

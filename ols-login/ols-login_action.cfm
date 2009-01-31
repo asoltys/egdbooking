@@ -129,8 +129,7 @@
 <cfif CheckAdmin.NumFound GT 0>
 	<CFLOCK TIMEOUT="60" THROWONTIMEOUT="No" TYPE="EXCLUSIVE" SCOPE="SESSION"> 
 		<CFSET Session.AdminLoggedIn = "1">
-		<CFSET Session.AdminEmail = "lois.chan@pwgsc.gc.ca">
-		<!--- change this back to EGDBooking@pwgsc.gc.ca when done --->
+		<CFSET Session.AdminEmail = "egd-cse@pwgsc-tpsgc.gc.ca">
 	</CFLOCK>
 	<CFheadER STATUSCODE="302" STATUSTEXT="Object Temporarily Moved">
 	<CFheadER NAME="location" value="#RootDir#admin/menu.cfm?lang=#lang#">

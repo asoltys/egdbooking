@@ -34,8 +34,8 @@
 	<meta name="keywords" content=" " />
 	<meta name="keywords" content=" " />
 
-	<meta name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
-	<meta name="pwgsc.contact.email" content="questions@tpsgc.gc.ca" />
+	<meta name="pwgsc.contact.email" content="egd-cse@pwgsc-tpsgc.gc.ca" />
+	<meta name="pwgsc.contact.email" content="egd-cse@pwgsc-tpsgc.gc.ca" />
 	<!-- FIN DES METADONNEES BILINGUES | BILINGUAL METADATA ENDS -->
 
 	<!-- DEBUT DES SCRIPTS/CSS DU GABARIT | TEMPLATE SCRIPTS/CSS BEGIN -->
