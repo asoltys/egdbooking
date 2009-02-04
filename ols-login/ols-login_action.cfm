@@ -93,7 +93,7 @@
 	</cfif>
 </cfif>
 
-<CFCOOKIE NAME="LoggedIn" value="Yes" PATH="/EGD" DOMAIN=".monster.pac.pwgsc.gc.ca">
+<CFCOOKIE NAME="LoggedIn" value="Yes" PATH="/EGD" DOMAIN="cse-egd.tpsgc-pwgsc.gc.ca">
 
 <!---Remember user's email address--->
 <CFIF IsDefined('form.remember')>
