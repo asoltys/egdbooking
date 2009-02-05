@@ -146,7 +146,7 @@ function popUp(pageID) {
 				<p>Les frais de r&eacute;servation de la cale s&egrave;che d&rsquo;Esquimalt sont de 3&nbsp;500&nbsp;$ canadiens, plus  210,00&nbsp;$ de taxe sur les produits et services&nbsp;(TPS), ce qui donne en  tout 3&nbsp;710,00&nbsp;$ payables en esp&egrave;ces, par ch&egrave;que certifi&eacute; d&rsquo;une banque  canadienne ou par mandat international. Le 1 er avril 2008, des int&eacute;r&ecirc;ts seront appliqu&eacute;s sur un compte en suspens plus de 30 jours.  Les demandes de r&eacute;servation sont  provisoires jusqu&rsquo;&agrave; ce que les frais de r&eacute;servation soient pay&eacute;s. Les frais de r&eacute;servation ne sont pas remboursables.</p>
 				<p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=fra">Application des r&eacute;servations</a> -
 					R&eacute;server la cale s&egrave;che et les jet&eacute;es en ligne.</p>
-				<p><a href="#RootDir#comm/resume-summary_ch.cfm?lang=fra">R&eacute;sum&eacute; des r&eacute;servations</a> - Voir toutes les r&eacute;servations.</p>
+				<p><a href="#RootDir#utils/resume-summary_ch.cfm?lang=fra">R&eacute;sum&eacute; des r&eacute;servations</a> - Voir toutes les r&eacute;servations.</p>
 				<p><em>Les liens suivants vous m&egrave;neront &agrave; des sites externes:</em><br /></p>
 				(<img src="#RootDir#images/www1.gif" width="31" height="9" alt="emplacement de WWW" title="emplacement de WWW" />)  <p><a href="http://lois.justice.gc.ca/fr/P-38.2/DORS-89-332/index.html">R&egrave;glement CSE</a></p>
 				</cfoutput>
