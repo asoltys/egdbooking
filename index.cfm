@@ -87,8 +87,8 @@
 	<!-- DEBUT DU PIED DE LA PAGE | FOOTER BEGINS --> 
 	<div class="imptext">
 		<div>
-			<div id="inlft"><a href="/comm/ai-in-fra.html" lang="fr" xml:lang="fr">Avis importants</a></div>
-			<div id="inrgt"><a href="/comm/ai-in-eng.html">Important Notices</a></div>
+			<div id="inlft"><a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-fra.html" lang="fr" xml:lang="fr">Avis importants</a></div>
+			<div id="inrgt"><a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html">Important Notices</a></div>
 		</div>
 	</div>
 	<!-- FIN DU PIED DE LA PAGE | FOOTER ENDS -->
