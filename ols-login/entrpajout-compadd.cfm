@@ -70,49 +70,45 @@
 
 					<form name="addCompanyForm" action="entrpajout-compadd_action.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#" id="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
 	}">
-						<table>
-							<tr>
-								<td id="name_header"><label for="name">#language.companyName#:</label></td>
-								<td><input name="name" id="name" type="text" size="40" maxlength="75" value="#Variables.name#" /></td>
-							</tr>
-							<tr>
-								<td id="address1_header"><label for="address1">#language.Address# 1:</label></td>
-								<td><input name="address1" id="address1" type="text" size="40" maxlength="75" value="#Variables.address1#" /></td>
-							</tr>
-							<tr>
-								<td id="address2_header"><label for="address2">#language.Address# 2 #language.optional#:</label></td>
-								<td><input name="address2" id="address2" type="text" size="40" maxlength="75" value="#Variables.address2#" /></td>
-							</tr>
-							<tr>
-								<td id="city_header"><label for="city">#language.City#:</label></td>
-								<td><input name="city" id="city" type="text" size="25" maxlength="40" value="#Variables.city#" /></td>
-							</tr>
-							<tr>
-								<td id="province_header"><label for="province">#language.Province#:</label></td>
-								<td><input name="province" id="province" type="text" size="25" maxlength="40" value="#Variables.province#" /></td>
-							</tr>
-							<tr>
-								<td id="country_header"><label for="country">#language.Country#:</label></td>
-								<td><input name="country" id="country" type="text" size="25" maxlength="40" value="#Variables.country#" /></td>
-							</tr>
-							<tr>
-								<td id="zip_header"><label for="zip">#language.zip#:</label></td>
-								<td><input name="zip" id="zip" type="text" size="12" maxlength="10" value="#Variables.zip#" /></td>
-							</tr>
-							<tr>
-								<td id="phone_header"><label for="phone">#language.Phone#:</label></td>
-								<td><input name="phone" id="phone" type="text" size="25" maxlength="32" value="#Variables.phone#" /></td>
-							</tr>
-							<tr>
-								<td id="fax_header"><label for="fax">#language.Fax# #language.optional#:</label></td>
-								<td headers="fax_header"><input id="fax" name="fax" type="text" size="10" maxlength="32" /></td>
-							</tr>
-							<tr>
-								<td colspan="2" align="center">
-									<input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
-									<a href="entrpdemande-comprequest.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#" class="textbutton">#language.Cancel#</a>							</td>
-							</tr>
-						</table>
+            <label for="name">#language.companyName#:</label>
+            <input name="name" id="name" type="text" size="40" maxlength="75" value="#Variables.name#" />
+            <br />
+          
+            <label for="address1">#language.Address# 1:</label>
+            <input name="address1" id="address1" type="text" size="40" maxlength="75" value="#Variables.address1#" />
+            <br />
+          
+            <label for="address2">#language.Address# 2 #language.optional#:</label>
+            <input name="address2" id="address2" type="text" size="40" maxlength="75" value="#Variables.address2#" />
+            <br />
+          
+            <label for="city">#language.City#:</label>
+            <input name="city" id="city" type="text" size="25" maxlength="40" value="#Variables.city#" />
+            <br />
+          
+            <label for="province">#language.Province#:</label>
+            <input name="province" id="province" type="text" size="25" maxlength="40" value="#Variables.province#" />
+            <br />
+          
+            <label for="country">#language.Country#:</label>
+            <input name="country" id="country" type="text" size="25" maxlength="40" value="#Variables.country#" />
+            <br />
+          
+            <label for="zip">#language.zip#:</label>
+            <input name="zip" id="zip" type="text" size="12" maxlength="10" value="#Variables.zip#" />
+            <br />
+          
+            <label for="phone">#language.Phone#:</label>
+            <input name="phone" id="phone" type="text" size="25" maxlength="32" value="#Variables.phone#" />
+            <br />
+          
+            <label for="fax">#language.Fax# #language.optional#:</label>
+            <input id="fax" name="fax" type="text" size="10" maxlength="32" />
+          
+            <fieldset>	
+              <input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
+              <a href="entrpdemande-comprequest.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#" class="textbutton">#language.Cancel#</a>							
+            </fieldset>
 					</form>
 				</cfoutput>
 			</div>
