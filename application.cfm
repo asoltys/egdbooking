@@ -4,7 +4,7 @@
 <cfinclude template="server_settings.cfm">
 
 <cfif ServerType EQ "Production" AND cgi.server_port NEQ 443 AND cgi.request_method EQ "get">
-	<cflocation url="https://#cgi.server_name##cgi.script_name#?#cgi.query_string#" />
+	<cflocation url="https://#cgi.server_name##cgi.script_name#?#cgi.query_string#" addtoken="no" />
 </cfif>
 
 <cfset SetLocale("English (Canadian)")>
@@ -20,4 +20,3 @@
 
 <cfset Variables.MaxLength = 347.67>
 <cfset Variables.MaxWidth = 45.40>
-

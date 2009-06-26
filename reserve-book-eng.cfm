@@ -127,7 +127,7 @@
 				
 						<ul>
 							<li><acronym title="Esquimalt Graving Dock">EGD</acronym> is one of the few large ship repair facilities in the world who has implemented
-								<acronym title="International Organization for Standardization">ISO</acronym> 14001.  <a title="EGD: Leading the Way with ISO 14001" href="#EGD_URL#/cse-egd/env/voie-way-eng.html">More &gt; </a></li>
+								<acronym title="International Organization for Standardization">ISO</acronym> 14001.  <a title="EGD: Leading the Way with ISO 14001" href="#EGD_URL#/env/voie-way-eng.html">More &gt; </a></li>
 						</ul>
 					</li>
 				</ul>
@@ -150,10 +150,10 @@
 				<p>To reserve space for a vessel at any of the facilities of the Esquimalt Graving
 				  Dock, please proceed to the <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=eng">Booking 
 				  Application</a>.  If you experience any problems with the booking application, please
-				  use the <a href="#egd_url#/cse-egd/cn-cu-eng.html">contact us</a> page.</p>
+				  use the <a href="#EGD_URL#/cn-cu-eng.html">contact us</a> page.</p>
 				<p>The Esquimalt Graving Dock booking fee is $3,500 Cdn. plus $175.00 Goods &amp; Services Tax (GST) for a total of $3675.00 payable in cash, certified cheque drawn on a Canadian bank or by an international money order. Effective April 1, 2008, interest will be applied on any account outstanding over 30 days.  Reservation requests are tentative until the booking fee is paid. Booking fees are non-refundable.</p>
 				<p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=eng">Booking Application</a> - Book drydock and jetty space online.</p>
-				<p><a href="#RootDir#comm/resume-summary_ch.cfm?lang=eng">Booking Summary</a> - View all bookings.</p>
+				<p><a href="#RootDir#utils/resume-summary_ch.cfm?lang=eng">Booking Summary</a> - View all bookings.</p>
 				<p><em>The following links will direct you to an external site:</em><br /></p>
 				(<img src="#RootDir#images/www1.gif" width="31" height="9" alt="www site" title="www site" />) <p><a href="http://laws.justice.gc.ca/en/p-38.2/sor-89-332/92221.html">EGD Regulations</a></p>
 				</cfoutput>

@@ -195,7 +195,7 @@ function EditSubmit ( selectedform )
 				<cfif isdefined('proceed') and proceed EQ "yes">
 					<cfoutput>
 					<cfparam name="form.expandAll" default="">
-					<form action="bookingManage.cfm?#urltoken#" method="post" id="expandAll">
+					<form action="bookingManage.cfm?#urltoken#" method="post" id="expandAll" class="hidden">
 						<input type="hidden" name="startDate" value="#variables.startdate#" />
 						<input type="hidden" name="endDate" value="#variables.endDate#" />
 						<cfif form.expandAll NEQ "yes">
@@ -283,8 +283,10 @@ function EditSubmit ( selectedform )
 							<th id="Vessel" style="width: 45%;">Vessel Name</th>
 							<th id="Status" style="width: 15%;">Status</th>
 						</tr>
-						<cfif getBookings.RecordCount GT 0>
-							<cfoutput query="getBookings">
+          <cfif getBookings.RecordCount GT 0>
+            <cfoutput query="getBookings">
+              <tr style="display: none">
+                <td>
 								<cfset Variables.id = #BRID#>
 
 								<form method="post" action="deleteBooking_confirm.cfm?#urltoken#" name="delete#ID#">
@@ -313,6 +315,8 @@ function EditSubmit ( selectedform )
 								<form method="post" action="feesForm_admin.cfm?#urltoken#" name="viewForm#ID#">
 									<input type="hidden" name="BRID" value="#id#" />
 								</form>
+              </td>
+            </tr>
 
 						<tr>
 							<td headers="start" nowrap>#LSdateformat(startDate, "mmm d, yyyy")#</td>

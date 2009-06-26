@@ -32,7 +32,7 @@
 <meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html" />
 <meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
 <meta name="dcterms.modified" scheme="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
-<meta name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
+<meta name="pwgsc.contact.email" content="egd-cse@pwgsc-tpsgc.gc.ca" />
 <!-- METADATA ENDS | FIN DES METADONNEES -->
 
 <!-- TEMPLATE SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS DU GABARIT -->

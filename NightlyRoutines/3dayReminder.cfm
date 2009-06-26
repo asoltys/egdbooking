@@ -25,8 +25,8 @@
 		<CFDUMP var="#GetDockBookings#">
 		<CFLOOP query="GetDockBookings">
 				<!--- And, finally, e-mail the registrant --->
-				<!--- Production only <CFMAIL from="egdbooking@pwgsc.gc.ca" subject="EGD Booking expiry" type="html" to="#GetDockBookings.email#" --->
-				<CFMAIL from="egdbooking@pwgsc.gc.ca" subject="EGD Booking expiration reminder" type="html" to="dirk.sieber@pwgsc.gc.ca"> 
+				<CFMAIL from="egd-cse@pwgsc-tpsgc.gc.ca" subject="EGD Booking expiry" type="html" to="#GetDockBookings.email#" --->
+				<!--- DEV <CFMAIL from="egd-cse@pwgsc-tpsgc.gc.ca" subject="EGD Booking expiration reminder" type="html" to="dirk.sieber@pwgsc.gc.ca">  --->
 	 				Hello,<br />
 					<br />
 					Your booking for the #GetDockBookings.Name# will be expiring in 3 days.<br />
@@ -50,8 +50,8 @@
 		<CFDUMP var="#GetJettyBookings#">
 		<CFLOOP query="GetJettyBookings">
 				<!--- And, finally, e-mail the registrant --->
-				<!--- Production only <CFMAIL from="egdbooking@pwgsc.gc.ca" subject="EGD Booking expiry" type="html" to="#GetJettyBookings.email#" --->
-				<CFMAIL from="egdbooking@pwgsc.gc.ca" subject="EGD Booking expiration reminder" type="html" to="dirk.sieber@pwgsc.gc.ca"> 
+				<CFMAIL from="egd-cse@pwgsc-tpsgc.gc.ca" subject="EGD Booking expiry" type="html" to="#GetJettyBookings.email#">
+				<!--- DEV <CFMAIL from="egd-cse@pwgsc-tpsgc.gc.ca" subject="EGD Booking expiration reminder" type="html" to="dirk.sieber@pwgsc.gc.ca"> 
 	 				Hello,<br />
 					<br />
 					Your booking for the #GetJettyBookings.Name# will be expiring in 3 days.<br />

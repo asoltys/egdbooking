@@ -39,7 +39,7 @@
 <meta name="dc.subject" scheme="gccore" content="Quai, Transport maritime, Navire, Traversier, Bateau de plaisance, Embarcation, Repair, Entretien, Gestion" />
 <title>TPSGC - CALE S&Egrave;CHE D'ESQUIMALT - Booking Space at the Esquimalt Graving Dock</title>
 
-<meta name="pwgsc.contact.email" content="questions@tpsgc.gc.ca" />
+<meta name="pwgsc.contact.email" content="egd-cse@pwgsc-tpsgc.gc.ca" />
 <!-- FIN DES METADONNEES | METADATA ENDS -->
 <!-- DEBUT DES CSS DU GABARIT TPSGC | PWGSC TEMPLATE CSS BEGIN -->
 <link href="<cfoutput>#CLF_URL#</cfoutput>/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
@@ -120,7 +120,7 @@ function popUp(pageID) {
 	<li>
 		<h2>Saviez-vous?</h2>
 		<ul>
-			<li>La <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym> est une des rares installations de réparation de grands bâtiments au monde à avoir adopté la norme <acronym title="Organisation internationale de normailisation">ISO</acronym> 14001.  <a title="EGD: Leading the Way with ISO 14001" href="#EGD_URL#/cse-egd/env/voie-way-fra.html">Détails &gt; </a></li>
+			<li>La <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym> est une des rares installations de réparation de grands bâtiments au monde à avoir adopté la norme <acronym title="Organisation internationale de normailisation">ISO</acronym> 14001.  <a title="EGD: Leading the Way with ISO 14001" href="#EGD_URL#/env/voie-way-fra.html">Détails &gt; </a></li>
 
 		</ul>
 	</li>
@@ -142,11 +142,11 @@ function popUp(pageID) {
 				<img src="#RootDir#images/EGD_aerial_small.jpg" alt="Aerial view of the Esquimalt Graving Dock" width="405" height="342" title="Aerial view of the Esquimalt Graving Dock" />
 
 				<p>Afin de r&eacute;server une place pour un navire &agrave; l'une des installations de la Cale s&egrave;che d'Esquimalt, veuillez lancer <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=fra">l'application des r&eacute;servations</a>.
-				  Si vous &eacute;prouvez des probl&egrave;mes avec l'application des r&eacute;servations, pri&egrave;re d'utiliser la <a href="#egd_url#/cse-egd/cn-cu-fra.html">page Contactez-nous</a>.</p>
+				  Si vous &eacute;prouvez des probl&egrave;mes avec l'application des r&eacute;servations, pri&egrave;re d'utiliser la <a href="#EGD_URL#/cn-cu-fra.html">page Contactez-nous</a>.</p>
 				<p>Les frais de r&eacute;servation de la cale s&egrave;che d&rsquo;Esquimalt sont de 3&nbsp;500&nbsp;$ canadiens, plus  210,00&nbsp;$ de taxe sur les produits et services&nbsp;(TPS), ce qui donne en  tout 3&nbsp;710,00&nbsp;$ payables en esp&egrave;ces, par ch&egrave;que certifi&eacute; d&rsquo;une banque  canadienne ou par mandat international. Le 1 er avril 2008, des int&eacute;r&ecirc;ts seront appliqu&eacute;s sur un compte en suspens plus de 30 jours.  Les demandes de r&eacute;servation sont  provisoires jusqu&rsquo;&agrave; ce que les frais de r&eacute;servation soient pay&eacute;s. Les frais de r&eacute;servation ne sont pas remboursables.</p>
 				<p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=fra">Application des r&eacute;servations</a> -
 					R&eacute;server la cale s&egrave;che et les jet&eacute;es en ligne.</p>
-				<p><a href="#RootDir#comm/resume-summary_ch.cfm?lang=fra">R&eacute;sum&eacute; des r&eacute;servations</a> - Voir toutes les r&eacute;servations.</p>
+				<p><a href="#RootDir#utils/resume-summary_ch.cfm?lang=fra">R&eacute;sum&eacute; des r&eacute;servations</a> - Voir toutes les r&eacute;servations.</p>
 				<p><em>Les liens suivants vous m&egrave;neront &agrave; des sites externes:</em><br /></p>
 				(<img src="#RootDir#images/www1.gif" width="31" height="9" alt="emplacement de WWW" title="emplacement de WWW" />)  <p><a href="http://lois.justice.gc.ca/fr/P-38.2/DORS-89-332/index.html">R&egrave;glement CSE</a></p>
 				</cfoutput>

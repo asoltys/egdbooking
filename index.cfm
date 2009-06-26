@@ -34,8 +34,8 @@
 	<meta name="keywords" content=" " />
 	<meta name="keywords" content=" " />
 
-	<meta name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
-	<meta name="pwgsc.contact.email" content="questions@tpsgc.gc.ca" />
+	<meta name="pwgsc.contact.email" content="egd-cse@pwgsc-tpsgc.gc.ca" />
+	<meta name="pwgsc.contact.email" content="egd-cse@pwgsc-tpsgc.gc.ca" />
 	<!-- FIN DES METADONNEES BILINGUES | BILINGUAL METADATA ENDS -->
 
 	<!-- DEBUT DES SCRIPTS/CSS DU GABARIT | TEMPLATE SCRIPTS/CSS BEGIN -->
@@ -87,8 +87,8 @@
 	<!-- DEBUT DU PIED DE LA PAGE | FOOTER BEGINS --> 
 	<div class="imptext">
 		<div>
-			<div id="inlft"><a href="/comm/ai-in-fra.html" lang="fr" xml:lang="fr">Avis importants</a></div>
-			<div id="inrgt"><a href="/comm/ai-in-eng.html">Important Notices</a></div>
+			<div id="inlft"><a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-fra.html" lang="fr" xml:lang="fr">Avis importants</a></div>
+			<div id="inrgt"><a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html">Important Notices</a></div>
 		</div>
 	</div>
 	<!-- FIN DU PIED DE LA PAGE | FOOTER ENDS -->
