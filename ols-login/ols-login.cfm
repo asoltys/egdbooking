@@ -92,23 +92,14 @@
 					<h2>#language.login#</h2>
 					<!-- Display the login form and pass contents to login_action.cfm -->
 					<form action="ols-login_action.cfm?lang=#lang#" method="post" id="login_form">
-						<table border="0" cellspacing="2" cellpadding="2">
-							<tr>
-								<td align="right"><label for="email">#language.Email#:</label></td>
-								<td><input type="text" name="email" id="email" size="40" maxlength="100" value="#email#" /></td>
-							</tr>
-							<tr>
-								<td align="right"><label for="password">#language.Password#:</label></td>
-								<td><input type="password" name="Password" id="password" size="25" maxlength="40" /></td>
-							</tr>
-							<tr>
-								<td>&nbsp;</td>
-								<td align="right"><input type="submit" name="submitForm" value="#language.Login#" class="textbutton" /></td>
-							</tr>
-						</table>
-						<div>
-								<label for="remember">#language.Remember#</label>
-								<input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked="checked"</CFIF> />
+            <label for="email">#language.Email#:</label>
+            <input type="text" name="email" id="email" size="40" maxlength="100" value="#email#" />
+            <label for="password">#language.Password#:</label>
+            <input type="password" name="Password" id="password" size="25" maxlength="40" />
+            <input type="submit" name="submitForm" value="#language.Login#" class="textbutton" />
+            <div>
+              <label for="remember">#language.Remember#</label>
+              <input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked="checked"</CFIF> />
 						</div>
 					</form>
 					<div><a href="utilisateurajout-useradd.cfm?lang=#lang#">#language.addUser#</a></div>
