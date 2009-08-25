@@ -68,7 +68,7 @@
 		</cfquery>
 	</cflock>
 	
-	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="New Booking - Nouvelle r&eacute;servation" type="html">
+	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="New Booking - Nouvelle r&eacute;servation: #getDetails.VesselName#" type="html">
 <p>#getDetails.Vesselname# has been booked on the #jetty# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#.</p>
 <p>Esquimalt Graving Dock</p>
 <br />

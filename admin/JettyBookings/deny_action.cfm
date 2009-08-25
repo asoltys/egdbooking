@@ -23,7 +23,7 @@
 </cflock>
 
 <cfoutput>
-	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Denied - Votre Confirmation est Refus&eacute;e" type="html">
+	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Denied - Votre Confirmation est Refus&eacute;e: #getDetails.VesselName#" type="html">
 <p>Your confirmation is declined due to other priority. The confirmation on your jetty booking for #getDetails.VesselName# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# has been removed.  The booking status is now tentative.</p>
 <p>Esquimalt Graving Dock</p>
 <br />

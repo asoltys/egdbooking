@@ -80,7 +80,7 @@ WHERE   Bookings.BRID = '#Form.BRID#'
 	<!--- booking agent is valid --->
 	<cfif DateCompare(PacificNow, getBooking.EndDate, 'd') EQ -1>
 		<!--- booking is in the future, so send notification --->	
-		<cfmail to="#getBooking.Email#" from="#Session.AdminEmail#" subject="Booking Cancelled - R&eacute;servation annul&eacute;e" type="html">
+		<cfmail to="#getBooking.Email#" from="#Session.AdminEmail#" subject="Booking Cancelled - R&eacute;servation annul&eacute;e: #getDetails.VesselName#" type="html">
 		<cfoutput>
 <p>Your jetty booking for #getBooking.VesselName# from #LSDateFormat(getBooking.startDate, 'mmm d, yyyy')# to #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')# has been #actionPast.eng#.</p>
 <p>Esquimalt Graving Dock</p>

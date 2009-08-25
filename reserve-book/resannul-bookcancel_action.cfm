@@ -43,7 +43,7 @@
 <p>#getUser.UserName# has requested to cancel the booking for #getBooking.VesselName# from #DateFormat(getBooking.StartDate, 'mmm d, yyyy')# to #DateFormat(getBooking.EndDate, 'mmm d, yyyy')#.</p>
 	</cfmail>
 	
-	<cfmail to="#getUser.email#" from="#Variables.AdminEmail#" subject="Booking Cancellation Request - Demande d'annulation de r&eacute;servation" type="html">
+	<cfmail to="#getUser.email#" from="#Variables.AdminEmail#" subject="Booking Cancellation Request - Demande d'annulation de r&eacute;servation: #getDetails.VesselName#" type="html">
 <p>Your cancellation request for the booking for #getBooking.VesselName# from #DateFormat(getBooking.StartDate, 'mmm d, yyyy')# to #DateFormat(getBooking.EndDate, 'mmm d, yyyy')# is now pending.  EGD administration has been notified of your request.  You will receive a follow-up email responding to your request shortly.</p>
 <p>&nbsp;</p>
 <p>Votre demande d'annulation de la r&eacute;servation pour le #getBooking.VesselName# du #DateFormat(getBooking.StartDate, 'mmm d, yyyy')# au #DateFormat(getBooking.EndDate, 'mmm d, yyyy')# est en cours de traitement. L'administration de la CSE a &eacute;t&eacute; avis&eacute;e de votre demande. Vous recevrez sous peu un courriel de suivi en r&eacute;ponse &agrave; votre demande. D'ici l&agrave;, votre place est consid&eacute;r&eacute;e comme r&eacute;serv&eacute;e pour les dates indiqu&eacute;es.</p>
