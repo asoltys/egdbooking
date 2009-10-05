@@ -50,7 +50,7 @@
 
 <cfquery name="confirmBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE 	Jetties
-	SET 	Status = 'P'	
+	SET 	Status = '#Form.pendingType#'
 	WHERE 	BRID = #Form.BRID#
 </cfquery>
 

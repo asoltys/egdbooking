@@ -206,15 +206,15 @@ function EditSubmit ( selectedform )
 							<tr><td colspan="2">Please set the status of the booking:</td></tr>
 							<tr>
 								<td id="pend" align="right"><label for="pending">Pending</label></td>
-								<td headers="pend"><input type="radio" name="Status" id="pending" value="P" <cfif Variables.Status EQ "P">selected="selected"</cfif>/></td>
+								<td headers="pend"><input type="radio" name="Status" id="pending" value="P" <cfif Variables.Status EQ "P">checked</cfif> /></td>
 							</tr>
 							<tr>
 								<td id="tent" align="right"><label for="tentative">Tentative</label></td>
-								<td headers="tent"><input type="radio" name="Status" id="tentative" value="T" <cfif Variables.Status EQ "T">selected="selected"</cfif>/></td>
+								<td headers="tent"><input type="radio" name="Status" id="tentative" value="T" <cfif Variables.Status EQ "T">checked</cfif> /></td>
 							</tr>
 							<tr>
 								<td id="conf" align="right"><label for="confirmed">Confirmed</label></td>
-								<td headers="conf"><input type="radio" name="Status" id="confirmed" value="C" <cfif Variables.Status EQ "C">selected="selected"</cfif>/></td>
+								<td headers="conf"><input type="radio" name="Status" id="confirmed" value="C" <cfif Variables.Status EQ "C">checked</cfif> /></td>
 							</tr>
 							<tr>
 								<td>&nbsp;</td>

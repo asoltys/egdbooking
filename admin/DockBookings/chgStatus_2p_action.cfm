@@ -13,7 +13,7 @@
 	SET 	Section1 = '0',
 			Section2 = '0',
 			Section3 = '0',
-			Status = 'P'
+			Status = '#Form.pendingType#'
 	WHERE 	BRID = '#Form.BRID#'
 </cfquery>
 

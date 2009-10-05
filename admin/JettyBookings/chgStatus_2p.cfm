@@ -123,6 +123,14 @@
 						<td id="Jetty" align="left">Jetty:</td>
 						<td headers="Jetty"><cfoutput>#Variables.Jetty#</cfoutput></td>
 					</tr>
+					<tr>
+						<td id="Pending" align="left">Pending Type:</td>
+						<td headers="Pending">
+							<input type="radio" name="pendingType" value="T" checked />Pending T
+							<input type="radio" name="pendingType" value="C" checked />Pending C
+							<input type="radio" name="pendingType" value="X" checked />Pending X
+						</td>
+					</tr>
 					<tr><td>&nbsp;</td></tr>
 					</table>
 					</cfoutput>

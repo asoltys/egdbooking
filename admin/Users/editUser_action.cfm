@@ -1,5 +1,6 @@
 <cfset language.noFirstName = "Please enter a first name.">
 <cfset language.noLastName = "Please enter a last name.">
+<cfset language.noEmail = "Please enter a last name.">
 
 <cfset Variables.Errors = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
@@ -11,6 +12,11 @@
 
 <cfif trIM(Form.LastName) EQ "">
 	<cfoutput>#ArrayAppend(Errors, "#language.noLastName#")#</cfoutput>
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfif trIM(Form.Email) EQ "">
+	<cfoutput>#ArrayAppend(Errors, "#language.noEmail#")#</cfoutput>
 	<cfset Proceed_OK = "No">
 </cfif>
 
@@ -29,7 +35,8 @@
 			<!---LoginID = '#trim(form.loginID)#',--->
 			FirstName = '#trim(form.firstname)#',
 			LastName = '#trim(form.lastname)#',
-			ReadOnly = '#trim(form.ReadOnly)#'
+			ReadOnly = '#trim(form.ReadOnly)#',
+			Email = '#trim(form.email)#'
 		WHERE UID = #form.UID#
 	</cfquery>
 

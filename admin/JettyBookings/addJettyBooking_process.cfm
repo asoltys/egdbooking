@@ -102,7 +102,9 @@
 	<cfoutput>#ArrayAppend(Errors, "The Start Date must be before the End Date.")#</cfoutput>
 	<cfset Proceed_OK = "No">
 </cfif>
-
+<cfif IsDefined("Form.Status") EQ False>
+	<cfset Form.Status = 'P'>
+</cfif>
 <cfif Proceed_OK EQ "No">
 
 	<!--- Save the form data in a session structure so it can be sent back to the form page --->

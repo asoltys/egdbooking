@@ -133,13 +133,19 @@ function EditSubmit ( selectedform )
 						</tr>
 						<tr>
 							<td id="Email">Email:</td>
-							<td headers="Email"><cfoutput>#variables.email#</cfoutput></td>
+							
+							<td headers="Email"><cfinput name="email" type="text" value="#variables.email#" size="25" maxlength="40" required="yes" id="email" /></td>
+							
+							<!---<td headers="Email"><cfoutput>#variables.email#</cfoutput></td>--->
+							
+							
+							
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
 								<!--a href="javascript:document.editUserForm.submitForm.click();" class="textbutton">Submit</a-->
 								<cfif isDefined("form.UID")><cfoutput><input type="hidden" name="UID" value="#form.UID#" /></cfoutput></cfif>
-								<input type="submit" value="Save Name Changes" class="textbutton" />
+								<input type="submit" value="Save Profile Changes" class="textbutton" />
 							</td>
 						</tr>
 						</table>

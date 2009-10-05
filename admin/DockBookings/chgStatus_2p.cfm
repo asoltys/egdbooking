@@ -116,6 +116,14 @@
 						<td id="End">End Date:</td>
 						<td headers="End">#DateFormat(Variables.End, "mmm d, yyyy")#</td>
 					</tr>
+					<tr>
+						<td id="Pending" align="left">Pending Type:</td>
+						<td headers="Pending">
+							<input type="radio" name="pendingType" value="T" checked />Pending T
+							<input type="radio" name="pendingType" value="C" checked />Pending C
+							<input type="radio" name="pendingType" value="X" checked />Pending X
+						</td>
+					</tr>
 				</table>	
 				</cfoutput>
 				

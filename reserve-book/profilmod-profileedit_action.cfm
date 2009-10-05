@@ -1,9 +1,11 @@
 <cfif lang EQ "eng">
 	<cfset language.noFirstName = "Please enter a first name.">
 	<cfset language.noLastName = "Please enter a last name.">
+	<cfset language.noEmail = "Please enter an Email">
 <cfelse>
 	<cfset language.noFirstName = "Veuillez entrer votre pr&eacute;nom.">
 	<cfset language.noLastName = "Veuillez entrer votre nom de famille.">
+	<cfset language.noEmail = "Veuillez entrer votre email.">
 </cfif>
 
 <cfset Variables.Errors = ArrayNew(1)>
@@ -19,6 +21,11 @@
 	<cfset Proceed_OK = "No">
 </cfif>
 
+<cfif Form.Email EQ "">
+	<cfoutput>#ArrayAppend(Errors, "#language.noEmail#")#</cfoutput>
+	<cfset Proceed_OK = "No">
+</cfif>
+
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
@@ -31,7 +38,8 @@
 	<cfquery name="editUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE 	Users
 		SET		FirstName = '#trim(form.firstname)#',
-				LastName = '#trim(form.lastname)#'
+				  LastName = '#trim(form.lastname)#',
+			  	Email = '#trim(form.email)#'
 		WHERE 	UID = '#session.UID#'
 	</cfquery>
 

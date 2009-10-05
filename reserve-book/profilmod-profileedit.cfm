@@ -17,6 +17,7 @@
 	<cfset language.characters = "characters">
 	<cfset language.firstNameError = "Please enter your first name.">
 	<cfset language.lastNameError = "Please enter your last name.">
+	<cfset language.emailError = "Please enter your email.">
 	<cfset language.password1Error = "Please enter your password.">
 	<cfset language.password2Error = "Please repeat your password for verification.">
 	<cfset language.selectCompany = "Please select a company.">
@@ -42,6 +43,7 @@
 	<cfset language.characters = "caract&egrave;res">
 	<cfset language.firstNameError = "Veuillez entrer votre pr&eacute;nom.">
 	<cfset language.lastNameError = "Veuillez entrer votre nom de famille.">
+	<cfset language.emailError = "Veuillez entrer votre email.">
 	<cfset language.password1Error = "Veuillez entrer votre mot de passe.">
 	<cfset language.password2Error = "Veuillez entrer de nouveau votre mot de passe aux fins de v&eacute;rification.">
 	<cfset language.selectCompany = "Veuillez s&eacute;lectionner une entreprise.">
@@ -149,8 +151,10 @@ function EditSubmit ( selectedform )
 							<label for="lastname">#language.LastName#:</label>
 							<input name="lastname" id="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40"  />
 
-							#language.Email#:
-							<p>#variables.email#</p>
+
+							<label for="firstname">#language.Email#:</label>
+							<input name="email" id="email" type="text" value="#variables.email#" size="25" maxlength="40"  />
+							
 
 						</fieldset>
 						<div class="buttons">

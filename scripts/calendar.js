@@ -214,7 +214,7 @@ function refreshDatePicker(dateFieldId, year, month, day)
   var TR_todaybutton = "<tr class='dpTodayButtonTR'>";
   var xTR = "</tr>" + crlf;
   var TD = "<td class='dpTD' onMouseOut='this.className=\"dpTD\";' onMouseOver=' this.className=\"dpTDHover\";' ";    // leave this tag open, because we'll be adding an onClick event
-  var TD_title = "<td colspan=5 class='dpTitleTD'>";
+  var TD_title = "<td colspan='3' class='dpTitleTD'>";
   var TD_buttons = "<td class='dpButtonTD'>";
   var TD_todaybutton = "<td colspan=7 class='dpTodayButtonTD'>";
   var TD_days = "<td class='dpDayTD'>";
@@ -230,9 +230,11 @@ function refreshDatePicker(dateFieldId, year, month, day)
   // this is the title bar, which displays the month and the buttons to
   // go back to a previous month or forward to the next month
   html += TR_title;
+	html += TD_buttons + getButtonCode(dateFieldId, thisDay, -12, "&lt;&lt;") + xTD;
   html += TD_buttons + getButtonCode(dateFieldId, thisDay, -1, "&lt;") + xTD;
-  html += TD_title + DIV_title + monthArrayLong[ thisDay.getMonth()] + " " + thisDay.getFullYear() + xDIV + xTD;
+  html += TD_title + DIV_title + monthArrayShort[ thisDay.getMonth()] + " " + thisDay.getFullYear() + xDIV + xTD;
   html += TD_buttons + getButtonCode(dateFieldId, thisDay, 1, "&gt;") + xTD;
+	html += TD_buttons + getButtonCode(dateFieldId, thisDay, 12, "&gt;&gt;") + xTD;
   html += xTR;
 
   // this is the row that indicates which day of the week we're on

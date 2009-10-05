@@ -435,7 +435,7 @@ function EditSubmit ( selectedform )
 													<cfelse>
 														<a href="javascript:EditSubmit('chgStatus_2c#ID#');" class="textbutton">Make Confirmed</a>
 														<a href="javascript:EditSubmit('chgStatus_2t#ID#');" class="textbutton">Make Tentative</a>
-														<strong>Pending</strong>
+														<a href="javascript:EditSubmit('chgStatus_2p#ID#');" class="textbutton">Make Pending</a>
 														<cfif getData.Status EQ "Y">
 															<a href="javascript:EditSubmit('deny#ID#');" class="textbutton">Deny Request</a>
 														</cfif>

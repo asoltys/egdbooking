@@ -16,6 +16,7 @@ img.invisible {
 	background-color: #FFFFFF;
 	border: 1px solid #AAAAAA;
 	border-collapse: collapse;
+	width:210px;
 	}
 
 
@@ -43,6 +44,7 @@ img.invisible {
 .dpTD {
 	border: 1px solid #DDDFE1;
 	padding: 1px;
+	width: 30px;
 	}
 
 
