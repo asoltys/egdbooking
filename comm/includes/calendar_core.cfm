@@ -11,7 +11,7 @@
       </select>
       <br />
       <label for="year">Year</label>
-      <select name="year" id="year">
+      <select name="a-y" id="year">
         <CFLOOP index="i" from="-5" to="25">
           <cfset year = #DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
           <option <cfif year eq url['a-y']>selected="selected"</cfif>>#year#</option>
