@@ -126,8 +126,9 @@ function popUp(pageID) {
 		<br />
 		<h2>Quoi de neuf...</h2>
 		<ul>
-			<li>Dernières étapes en vue de la modification des tarifs de la cale sèche d’Esquimalt.   <a title="CSE: tarifs" href="#EGD_URL#/env/tarifs-rates-fra.html">Suite &gt; </a></li>
-			<li>Futurs projets d'investissement impact sur les opérations de la cale sèche d'Esquimalt.  <a title="CSE: Capital Projects" href="#EGD_URL#/env/projects-projets-fra.html">Suite &gt; </a></li>
+			<li><a title="CSE: tarifs" href="#EGD_URL#/env/tarifs-rates-fra.html">Dernières étapes en vue de la modification des tarifs de la cale sèche d'Esquimalt.</a></li>
+			<li><a title="CSE: Capital Projects" href="#EGD_URL#/env/projects-projets-fra.html">Futurs projets d'investissement impact sur les opérations de la cale sèche d'Esquimalt.  </a></li>
+			<li><a title="CSE Reglement" href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-fra.html">Règlement modifiant le Règlement de 1989 sur la cale sèche d¿Esquimalt.</a></li>
 
 		</ul>
 	</li>
@@ -161,5 +162,4 @@ function popUp(pageID) {
 		<!-- FIN DU CONTENU | CONTENT ENDS -->
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-fra.cfm">
-
 
