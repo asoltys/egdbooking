@@ -127,6 +127,7 @@ function popUp(pageID) {
 		<h2>Quoi de neuf...</h2>
 		<ul>
 			<li>Dernières étapes en vue de la modification des tarifs de la cale sèche d’Esquimalt.   <a title="CSE: tarifs" href="#EGD_URL#/env/tarifs-rates-fra.html">Suite &gt; </a></li>
+			<li>Futurs projets d'investissement impact sur les opérations de la cale sèche d'Esquimalt.  <a title="CSE: Capital Projects" href="#EGD_URL#/env/projects-projets-fra.html">Suite &gt; </a></li>
 
 		</ul>
 	</li>

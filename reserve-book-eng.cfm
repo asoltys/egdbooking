@@ -139,6 +139,8 @@
 				
 						<ul>
 							<li>Proposed changes to the Esquimalt Graving Dock rates now in the final stages.   <a title="EGD: Rates" href="#EGD_URL#/env/tarifs-rates-eng.html">More &gt; </a></li>
+
+              <li>Upcoming capital projects impacting operations for the Esquimalt Graving Dock. <a title="EGD: Capital Projects" href="#EGD_URL#/env/projects-projets-eng.html">More &gt; </a></li>
 						</ul>
 					</li>
 				</ul>
