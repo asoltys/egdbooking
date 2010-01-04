@@ -131,6 +131,17 @@
 						</ul>
 					</li>
 				</ul>
+				<br />
+				<ul class="rightNav">
+				
+					<li>
+						<h2>What's New</h2>
+				
+						<ul>
+							<li>Proposed changes to the Esquimalt Graving Dock rates now in the final stages.   <a title="EGD: Rates" href="#EGD_URL#/env/tarifs-rates-eng.html">More &gt; </a></li>
+						</ul>
+					</li>
+				</ul>
 				</cfoutput>
 			<!-- <a href="http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=31807"><img src="/pac/cse-egd/images/ISO14001.gif" width="195" height="68" alt="ISO 14001" title="ISO 14001" /></a> -->
 			<!-- ====== /pac/cse-egd/SSI/RIGHT-MENU-DROITE-ENG.HTML ====== -->

@@ -123,6 +123,12 @@ function popUp(pageID) {
 			<li>La <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym> est une des rares installations de réparation de grands bâtiments au monde à avoir adopté la norme <acronym title="Organisation internationale de normailisation">ISO</acronym> 14001.  <a title="EGD: Leading the Way with ISO 14001" href="#EGD_URL#/env/voie-way-fra.html">Détails &gt; </a></li>
 
 		</ul>
+		<br />
+		<h2>Quoi de neuf...</h2>
+		<ul>
+			<li>Dernières étapes en vue de la modification des tarifs de la cale sèche d’Esquimalt.   <a title="CSE: tarifs" href="#EGD_URL#/env/tarifs-rates-fra.html">Suite &gt; </a></li>
+
+		</ul>
 	</li>
 </ul>
 </cfoutput>				
