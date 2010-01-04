@@ -1,7 +1,8 @@
 <cfset Variables.Start = CreateODBCDate(url.editStart)>
 <cfset Variables.End = CreateODBCDate(url.editEnd)>
 <cfset Variables.BookingDateTime = #CreateDateTime(DatePart('yyyy',Form.bookingDate), DatePart('m',Form.bookingDate), DatePart('d',Form.bookingDate), DatePart('h',Form.bookingTime), DatePart('n',Form.bookingTime), DatePart('s',Form.bookingTime))#>
-	
+<cfset Variables.EndHighlight = DateAdd("d", 5, PacificNow)>
+
 <cfquery name="updateBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE	Bookings
 	SET		StartDate = #Variables.Start#, 
@@ -9,7 +10,8 @@
 			BookingTime = #CreateODBCDateTime(Variables.BookingDateTime)#,
 			UID = #Form.UID#,
 			BookingTimeChange = #PacificNow#,
-			BookingTimeChangeStatus = 'Edited at'
+			BookingTimeChangeStatus = 'Edited at',
+			EndHighlight = '#DateFormat(Variables.EndHighlight, "mm/dd/yyyy")#'
 	WHERE	BRID = '#url.BRID#'
 </cfquery>
 

@@ -69,6 +69,7 @@
 <cfelse> --->
 
 <cfset Variables.BookingDateTime = #CreateDateTime(DatePart('yyyy',Form.bookingDate), DatePart('m',Form.bookingDate), DatePart('d',Form.bookingDate), DatePart('h',Form.bookingTime), DatePart('n',Form.bookingTime), DatePart('s',Form.bookingTime))#>
+<cfset Variables.EndHighlight = DateAdd("d", 5, PacificNow)>
 
 	<cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE  Bookings
@@ -77,7 +78,8 @@
 			UID = '#Form.UID#',
 			BookingTime = #CreateODBCDateTime(Variables.BookingDateTime)#,
 			BookingTimeChange = #PacificNow#,
-			BookingTimeChangeStatus = 'Edited at'
+			BookingTimeChangeStatus = 'Edited at',
+			EndHighlight = '#DateFormat(Variables.EndHighlight, "mm/dd/yyyy")#'
 	WHERE	BRID = '#Form.BRID#'
 	</cfquery>
 <!--- </cfif> --->
