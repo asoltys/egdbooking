@@ -2,10 +2,10 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
-<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
-<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,"\"), "\")>
+<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"/")>
+<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,"/"), "/")>
 <cfdirectory action="LIST" directory="#PageDir#" name="GetFile" filter="#PageFileName#">
-<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
+<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"/")>
 <head>
 <!-- CLF 2.0 TEMPLATE VERSION 1.04 | VERSION 1.04 DU GABARIT NSI 2.0 -->
 <!-- PWGSC TEMPLATE VERSION 1.0 | VERSION 1.0 DU GABARIT TPSGC -->

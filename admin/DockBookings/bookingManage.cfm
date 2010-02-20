@@ -322,7 +322,7 @@ function EditSubmit ( selectedform )
 							<td headers="start" nowrap>#LSdateformat(startDate, "mmm d, yyyy")#</td>
 							<td headers="end" nowrap>#LSdateformat(endDate, "mmm d, yyyy")#</td>
 							<td headers="vessel"><a href="javascript:EditSubmit('booking#id#');" name="id#id#" id="id#id#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#VesselName#</a></td>
-							<td headers="status"><cfif status EQ "C"><div class="confirmed">Confirmed</div><cfelseif status EQ "T"><div class="tentative">Tentative</div><cfelseif status EQ "P"><div class="pending">Pending T</div><cfelseif status EQ "Y" OR status EQ "Z"><div class="pending">Pending C</div><cfelseif status EQ "X"><a href="javascript:EditSubmit('delete#ID#');"><div class="pending">Pending X</div></a></cfif></td>
+							<td headers="status"><cfif status EQ "C"><div class="confirmed">Confirmed</div><cfelseif status EQ "T"><div class="tentative">Tentative</div><cfelseif status EQ "PT"><div class="pending">Pending T</div><cfelseif status EQ "PC"><div class="pending">Pending C</div><cfelseif status EQ "PX"><a href="javascript:EditSubmit('delete#ID#');"><div class="pending">Pending X</div></a></cfif></td>
 						</tr>
 
 						<cfif (isDefined('form.id') AND form.id EQ id) OR (isDefined('url.BRID') AND url.BRID EQ id) OR form.expandAll EQ "yes">
@@ -436,7 +436,7 @@ function EditSubmit ( selectedform )
 														<a href="javascript:EditSubmit('chgStatus_2c#ID#');" class="textbutton">Make Confirmed</a>
 														<a href="javascript:EditSubmit('chgStatus_2t#ID#');" class="textbutton">Make Tentative</a>
 														<a href="javascript:EditSubmit('chgStatus_2p#ID#');" class="textbutton">Make Pending</a>
-														<cfif getData.Status EQ "Y">
+														<cfif getData.Status EQ "PC">
 															<a href="javascript:EditSubmit('deny#ID#');" class="textbutton">Deny Request</a>
 														</cfif>
 													</cfif>

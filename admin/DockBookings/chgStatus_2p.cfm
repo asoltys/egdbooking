@@ -87,18 +87,6 @@
 						<td headers="Company">#getBooking.CompanyName#</td>
 					</tr>
 					<cfif getBooking.Status EQ "C">
-					<!---<tr>
-						<td id="Section1">Section 1:</td>
-						<td headers="Section1"><cfif getBooking.section1 EQ 1>Yes<cfelse>No</cfif></td>
-					</tr>
-					<tr>
-						<td id="Section2">Section 2:</td>
-						<td headers="Section2"><cfif getBooking.section2 EQ 1>Yes<cfelse>No</cfif></td>
-					</tr>
-					<tr>
-						<td id="Section3">Section 3:</td>
-						<td headers="Section3"><cfif getBooking.section3 EQ 1>Yes<cfelse>No</cfif></td>
-					</tr>--->
 					<tr>
 						<td id="Sections" align="left">Section(s):</td>
 						<td headers="Sections">
@@ -119,9 +107,9 @@
 					<tr>
 						<td id="Pending" align="left">Pending Type:</td>
 						<td headers="Pending">
-							<input type="radio" name="pendingType" value="T" checked />Pending T
-							<input type="radio" name="pendingType" value="C" checked />Pending C
-							<input type="radio" name="pendingType" value="X" checked />Pending X
+							<input type="radio" name="pendingType" value="PT" checked />Pending T
+							<input type="radio" name="pendingType" value="PC" checked />Pending C
+							<input type="radio" name="pendingType" value="PX" checked />Pending X
 						</td>
 					</tr>
 				</table>	
