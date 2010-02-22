@@ -60,7 +60,7 @@
 				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 			)
-		AND Jetties.BRID = Bookings.BRID AND (Status = 'P' OR Status = 'X' OR Status = 'Y') AND NorthJetty = '1' AND Bookings.Deleted = 0
+		AND Jetties.BRID = Bookings.BRID AND (Status = 'PC' OR Status = 'PX' OR Status = 'PT') AND NorthJetty = '1' AND Bookings.Deleted = 0
 </cfquery>
 <cfquery name="countConfirmedNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT count(*) as numConfNJ
@@ -96,7 +96,7 @@
 				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 			)
-		AND Jetties.BRID = Bookings.BRID AND (Status = 'P' OR Status = 'X' OR Status = 'Y') AND SouthJetty = '1' AND Bookings.Deleted = 0
+		AND Jetties.BRID = Bookings.BRID AND (Status = 'PC' OR Status = 'PX' OR Status = 'PT') AND SouthJetty = '1' AND Bookings.Deleted = 0
 
 </cfquery>
 <cfquery name="countConfirmedSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -271,7 +271,7 @@ function EditSubmit ( selectedform )
 							<!--- Eliminates any Tentative bookings with a start date before today --->
 							AND (((Jetties.status <> 'T') OR (Jetties.status = 'T' AND Bookings.startDate >= #dateformat(PacificNow, "mm/dd/yyyy")#))
 							<cfif variables.showPend EQ true AND variables.showTent EQ false AND variables.showConf EQ false>
-								AND Jetties.Status = 'P' OR Jetties.Status = 'X' OR Jetties.Status = 'Y'
+								AND Jetties.Status = 'PC' OR Jetties.Status = 'PX' OR Jetties.Status = 'PT'
 							</cfif>
 							<cfif variables.showTent EQ true AND variables.showPend EQ false AND variables.showConf EQ false>
 								AND Jetties.Status = 'T'
@@ -280,10 +280,10 @@ function EditSubmit ( selectedform )
 								AND Jetties.Status = 'C'
 							</cfif>
 							<cfif variables.showPend EQ true AND variables.showTent EQ true AND variables.showConf EQ false>
-								AND ((Jetties.Status = 'P' OR Jetties.Status = 'X' OR Jetties.Status = 'Y') OR (Jetties.Status = 'T'))
+								AND ((Jetties.Status = 'PC' OR Jetties.Status = 'PX' OR Jetties.Status = 'PT') OR (Jetties.Status = 'T'))
 							</cfif>
 							<cfif variables.showPend EQ true AND variables.showTent EQ false AND variables.showConf EQ true>
-								AND ((Jetties.Status = 'C') OR (Jetties.Status = 'P' OR Jetties.Status = 'X' OR Jetties.Status = 'Y'))
+								AND ((Jetties.Status = 'C') OR (Jetties.Status = 'PT' OR Jetties.Status = 'PX' OR Jetties.Status = 'PC'))
 							</cfif>
 							<cfif variables.showPend EQ false AND variables.showTent EQ true AND variables.showConf EQ true>
 								AND ((Jetties.Status = 'C') OR (Jetties.Status = 'T'))
@@ -345,7 +345,7 @@ function EditSubmit ( selectedform )
 							<td headers="Start" nowrap>#LSdateformat(startDate, 'mmm d, yyyy')#</td>
 							<td headers="End" nowrap>#LSdateformat(endDate, 'mmm d, yyyy')#</td>
 							<td headers="Vessel"><a href="javascript:EditSubmit('booking#id#');" name="#id#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#VesselName#</a></td>
-							<td headers="Status"><cfif getBookings.Status EQ "C"><div class="confirmed">Confirmed</div><cfelseif getBookings.Status EQ "P"><div class="pending">Pending T</div><cfelseif getBookings.Status EQ "Y"><div class="pending">Pending C</div><cfelseif getBookings.Status EQ "X"><div class="pending">Pending X</div><cfelseif getBookings.Status EQ "T"><div class="tentative">Tentative</div></cfif></td>
+							<td headers="Status"><cfif getBookings.Status EQ "C"><div class="confirmed">Confirmed</div><cfelseif getBookings.Status EQ "PT"><div class="pending">Pending T</div><cfelseif getBookings.Status EQ "PC"><div class="pending">Pending C</div><cfelseif getBookings.Status EQ "PX"><div class="pending">Pending X</div><cfelseif getBookings.Status EQ "T"><div class="tentative">Tentative</div></cfif></td>
 						</tr>
 
 						<cfif (isDefined('form.id') AND form.id EQ id) OR (isDefined('url.BRID') AND url.BRID EQ id) OR form.expandAll EQ "yes">
