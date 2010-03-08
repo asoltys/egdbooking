@@ -89,7 +89,7 @@
 							<td headers="Vessel" valign="top">
 							<cfif #trim(overlapQuery.Status)# EQ "C">Confirmed
 							<cfelseif #trim(overlapQuery.Status)# EQ "T">Tentative
-							<cfelseif #trim(overlapQuery.Status)# EQ "P">Pending
+							<cfelseif #trim(overlapQuery.Status)# EQ "PT">Pending
 							<cfelse>Cancelling
 							</cfif>
 							</td>

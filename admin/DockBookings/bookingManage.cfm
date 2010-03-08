@@ -59,7 +59,7 @@
 				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
 			)
-		AND Docks.BRID = Bookings.BRID AND (Status = 'P' OR Status = 'PC' OR Status = 'PT' OR Status = 'PX') AND Bookings.Deleted = '0'
+		AND Docks.BRID = Bookings.BRID AND (Status = 'PC' OR Status = 'PT' OR Status = 'PX') AND Bookings.Deleted = '0'
 </cfquery>
 <cfquery name="countTentative" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT count(*) as numTent
@@ -241,7 +241,7 @@ function EditSubmit ( selectedform )
 							AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= '#LSDateFormat(PacificNow, "yyyy-MM-dd")#'))
 
 						<cfif variables.showPend EQ true AND variables.showTent EQ false AND variables.showConf EQ false>
-							AND (Docks.Status = 'P' OR Docks.Status = 'PC' OR Docks.Status = 'PX' OR Docks.Status = 'PT')
+							AND (Docks.Status = 'PC' OR Docks.Status = 'PX' OR Docks.Status = 'PT')
 						</cfif>
 						<cfif variables.showTent EQ true AND variables.showPend EQ false AND variables.showConf EQ false>
 							AND Docks.Status = 'T'
@@ -250,10 +250,10 @@ function EditSubmit ( selectedform )
 							AND Docks.Status = 'C'
 						</cfif>
 						<cfif variables.showPend EQ true AND variables.showTent EQ true AND variables.showConf EQ false>
-							AND ((Docks.Status = 'P' OR Docks.Status = 'PC' OR Docks.Status = 'PX' OR Docks.Status = 'PT') OR (Docks.Status = 'T'))
+							AND ((Docks.Status = 'PC' OR Docks.Status = 'PX' OR Docks.Status = 'PT') OR (Docks.Status = 'T'))
 						</cfif>
 						<cfif variables.showPend EQ true AND variables.showTent EQ false AND variables.showConf EQ true>
-							AND ((Docks.Status = 'C') OR (Docks.Status = 'P' OR Docks.Status = 'PC' OR Docks.Status = 'PX' OR Docks.Status = 'PT'))
+							AND ((Docks.Status = 'C') OR (Docks.Status = 'PC' OR Docks.Status = 'PX' OR Docks.Status = 'PT'))
 						</cfif>
 						<cfif variables.showPend EQ false AND variables.showTent EQ true AND variables.showConf EQ true>
 							AND ((Docks.Status = 'C') OR (Docks.Status = 'T'))

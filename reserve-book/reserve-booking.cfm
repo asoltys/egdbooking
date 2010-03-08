@@ -119,7 +119,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#Variables.CID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND (Status ='P' OR Status = 'Y' OR Status = 'Z')
+	WHERE Companies.CID = '#Variables.CID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND (Status ='PT' OR Status = 'PC' OR Status = 'PX')
 </cfquery>
 <cfquery name="countTentative" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numTent
@@ -146,7 +146,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#Variables.CID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='X'
+	WHERE Companies.CID = '#Variables.CID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='PX'
 </cfquery>
 <!---North Jetty Status--->
 <cfquery name="countPendingNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -156,7 +156,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND (Status ='P' or Status ='Z' or Status='Y')
+	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND (Status ='PT' or Status ='PX' or Status='PC')
 </cfquery>
 <cfquery name="countConfirmedNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numConfNJ
@@ -174,7 +174,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='X'
+	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='PX'
 </cfquery>
 <!---South Jetty Status--->
 <cfquery name="countPendingSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -183,7 +183,7 @@
 		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
-		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='P'
+		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='PT'
 	WHERE Companies.CID = '#Variables.CID#'
 </cfquery>
 <cfquery name="countConfirmedSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -201,7 +201,7 @@
 		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
-		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='X'
+		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='PX'
 	WHERE Companies.CID = '#Variables.CID#'
 </cfquery>
 <cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -339,16 +339,16 @@
 								<tr class="#rowClass#">
 									<td style="width:60%;"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name# #BRID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 									<td style="width:15%;">
-										<cfif status EQ "P"><i class="pending">#language.pending#</i>
+										<cfif status EQ "PT"><i class="pending">#language.pending#</i>
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
 										<cfelseif status EQ "T"><i class="tentative">#language.tentative#</i>
-										<cfelseif status EQ "Y"><i class="pending">#language.confirming#</i>
-										<cfelseif status EQ "Z"><i class="pending">#language.confirming#</i>
+										<cfelseif status EQ "PC"><i class="pending">#language.confirming#</i>
+										<cfelseif status EQ "PX"><i class="pending">#language.confirming#</i>
 										<cfelseif status EQ "X"><i class="cancelled">#language.cancelling#</i>
 										</cfif>
 									</td>
 									<td style="width:25%;">
-										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.editTariff# #Name# #BRID#">#language.editTariff#</a></div>
+										<cfif status EQ "PT" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.editTariff# #Name# #BRID#">#language.editTariff#</a></div>
 										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.viewTariff# #Name# #BRID#">#language.viewTariff#</a></div></cfif>
 									</td>
 								</tr>
@@ -393,11 +393,11 @@
 									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name# #BRID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 									<td style="width:40%;">
 
-										<cfif status EQ "P"><i class="pending">#language.pending#</i>
+										<cfif status EQ "PT"><i class="pending">#language.pending#</i>
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
 										<cfelseif status EQ "T"><i class="tentative">#language.tentative#</i>
-										<cfelseif status EQ "Y"><i class="pending">#language.confirming#</i>
-										<cfelseif status EQ "Z"><i class="pending">#language.confirming#</i>
+										<cfelseif status EQ "PC"><i class="pending">#language.confirming#</i>
+										<cfelseif status EQ "PX"><i class="pending">#language.confirming#</i>
 										<cfelseif status EQ "X"><i class="cancelled">#language.cancelling#</i>
 										</cfif>
 									</td>
@@ -445,11 +445,11 @@
 								<tr class="#rowClass#">
 									<td colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name# #BRID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
 									<td style="width:40%;">
-										<cfif status EQ "P"><i class="pending">#language.pending#</i>
+										<cfif status EQ "PT"><i class="pending">#language.pending#</i>
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
 										<cfelseif status EQ "T"><i class="tentative">#language.tentative#</i>
-										<cfelseif status EQ "Y"><i class="pending">#language.confirming#</i>
-										<cfelseif status EQ "Z"><i class="pending">#language.confirming#</i>
+										<cfelseif status EQ "PC"><i class="pending">#language.confirming#</i>
+										<cfelseif status EQ "PX"><i class="pending">#language.confirming#</i>
 										<cfelseif status EQ "X"><i class="cancelled">#language.cancelling#</i>
 										</cfif>
 									</td>

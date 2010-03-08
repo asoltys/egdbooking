@@ -67,7 +67,7 @@ function EditSubmit ( selectedform )
 				<cfparam name="Variables.UID" default="">
 				<cfparam name="Variables.StartDate" default="#DateAdd('d', 1, PacificNow)#">
 				<cfparam name="Variables.EndDate" default="#DateAdd('d', 3, PacificNow)#">
-				<cfparam name="Variables.Status" default="P">
+				<cfparam name="Variables.Status" default="PT">
 				<cfparam name="Variables.TheBookingDate" default="#CreateODBCDate(PacificNow)#">
 				<cfparam name="Variables.TheBookingTime" default="#CreateODBCTime(PacificNow)#">
 
@@ -189,7 +189,7 @@ function EditSubmit ( selectedform )
 							<tr><td colspan="2">Please set the status of the booking:</td></tr>
 							<tr>
 								<td id="pend" align="right">&nbsp;&nbsp;&nbsp;<label for="pending">Pending</label></td>
-								<td headers="pend"><input type="radio" name="Status" id="pending" value="P" <cfif Variables.Status EQ "P">selected="selected"</cfif>/></td>
+								<td headers="pend"><input type="radio" name="Status" id="pending" value="PT" <cfif Variables.Status EQ "PT">selected="selected"</cfif>/></td>
 							</tr>
 							<tr>
 								<td id="tent" align="right">&nbsp;&nbsp;&nbsp;<label for="tentative">Tentative</label></td>

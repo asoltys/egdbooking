@@ -45,7 +45,7 @@
 						1,
 					</cfif>
 					<cfif Form.status NEQ "tentative">
-						'Y',
+						'PC',
 					</cfif>
 						'#getID.BRID#')
 	</cfquery>

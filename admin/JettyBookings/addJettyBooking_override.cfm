@@ -242,7 +242,7 @@ function EditSubmit ( selectedform )
 	</tr>
 	<tr>
 		<td align="left">Status:</td>
-		<td><input type="hidden" name="Status" value="<cfoutput>#Variables.Status#</cfoutput>" /><cfif Variables.Status EQ "P">Pending<cfelseif Variables.Status EQ "T">Tentative</cfif></td>
+		<td><input type="hidden" name="Status" value="<cfoutput>#Variables.Status#</cfoutput>" /><cfif Variables.Status EQ "PT">Pending<cfelseif Variables.Status EQ "T">Tentative</cfif></td>
 	</tr>
 	<tr>
 		<td align="left">Section:</td>

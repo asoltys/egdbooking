@@ -204,7 +204,7 @@
 				<tr>
 					<td id="Status" align="left">Status:</td>
 					<td headers="Status">
-						<cfif form.Status EQ 'P'>Pending
+						<cfif form.Status EQ 'PT'>Pending
 						<cfelseif form.Status EQ 'T'>Tentative
 						<cfelseif form.Status EQ 'C'>Confirmed
 						</cfif>

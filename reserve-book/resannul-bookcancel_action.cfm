@@ -6,13 +6,13 @@
 <CFIF #url.jetty#>
 	<cfquery name="cancelRequest" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	Jetties
-		SET		Status = 'X'
+		SET		Status = 'PX'
 		WHERE	BRID = #Form.BRID#
 	</cfquery>
 <CFELSE>
 	<cfquery name="cancelRequest" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	Docks
-		SET		Status = 'X'
+		SET		Status = 'PX'
 		WHERE	BRID = #Form.BRID#
 	</cfquery>
 </CFIF>

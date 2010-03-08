@@ -43,7 +43,7 @@
 	</cfmail>
 </cfoutput>
 
-<cfelseif getDetails.Status EQ 'P'>
+<cfelseif getDetails.Status EQ 'PT'>
 <cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE  Bookings
 	SET		BookingTimeChange = #PacificNow#,

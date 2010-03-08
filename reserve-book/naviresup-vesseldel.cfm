@@ -120,7 +120,7 @@
 									<td headers="start">#LSdateformat(startDate, "mmm d, yyyy")#</td>
 									<td headers="end">#LSdateformat(endDate, "mmm d, yyyy")#</td>
 									<td headers="status">
-										<cfif status EQ "P"><i>#language.pending#</i>
+										<cfif status EQ "PT"><i>#language.pending#</i>
 										<cfelseif status EQ "T"><i>#language.tentative#</i>
 										<cfelseif status EQ "C"><i>#language.confirmed#</i></cfif>
 									</td>
@@ -152,7 +152,7 @@
 										</cfif>
 									</td>
 									<td headers="status">
-										<cfif status EQ "P"><i>#language.pending#</i>
+										<cfif status EQ "PT"><i>#language.pending#</i>
 										<cfelseif status EQ "C"><i>#language.confirmed#</i></cfif>
 									</td>
 								</tr>

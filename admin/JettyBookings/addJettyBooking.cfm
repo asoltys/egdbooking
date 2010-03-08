@@ -72,7 +72,7 @@ function EditSubmit ( selectedform )
 				<cfparam name="Variables.EndDate" default="#form.endDate#">
 				<cfparam name="Variables.NorthJetty" default="0">
 				<cfparam name="Variables.SouthJetty" default="0">
-				<cfparam name="Variables.Status" default="P">
+				<cfparam name="Variables.Status" default="PT">
 				<cfparam name="Variables.TheBookingDate" default="#CreateODBCDate(PacificNow)#">
 				<cfparam name="Variables.TheBookingTime" default="#CreateODBCTime(PacificNow)#">
 					<cfset override="0">
@@ -206,7 +206,7 @@ function EditSubmit ( selectedform )
 							<tr><td colspan="2">Please set the status of the booking:</td></tr>
 							<tr>
 								<td id="pend" align="right"><label for="pending">Pending</label></td>
-								<td headers="pend"><input type="radio" name="Status" id="pending" value="P" <cfif Variables.Status EQ "P">checked</cfif> /></td>
+								<td headers="pend"><input type="radio" name="Status" id="pending" value="PT" <cfif Variables.Status EQ "PT">checked</cfif> /></td>
 							</tr>
 							<tr>
 								<td id="tent" align="right"><label for="tentative">Tentative</label></td>

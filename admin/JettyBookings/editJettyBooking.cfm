@@ -274,7 +274,7 @@
 								<a href="javascript:EditSubmit('chgStatus_2c#BRID#');" class="textbutton">Make Confirmed</a>
 								<a href="javascript:EditSubmit('chgStatus_2t#BRID#');" class="textbutton">Make Tentative</a>
 								<a href="javascript:EditSubmit('chgStatus_2p#BRID#');" class="textbutton">Make Pending</a>
-								<cfif getBooking.Status EQ "Y">
+								<cfif getBooking.Status EQ "PC">
 									<a href="javascript:EditSubmit('deny#BRID#');" class="textbutton">Deny Request</a>
 								</cfif>
 							</cfif>

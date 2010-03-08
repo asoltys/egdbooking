@@ -44,12 +44,12 @@
 
 	<CFSET newStatus = "Confirmed">
 	
-<cfelseif form.status EQ "P">
+<cfelseif form.status EQ "PT">
 	
 	<!---updates booking--->
 	<cfquery name="updateBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Jetties
-		SET Status = 'P'
+		SET Status = 'PT'
 		WHERE BRID = #form.id#
 	</cfquery>
 	

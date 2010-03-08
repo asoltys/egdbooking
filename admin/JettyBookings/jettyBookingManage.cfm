@@ -371,7 +371,7 @@ function EditSubmit ( selectedform )
 
 							<form method="post" action="jettyBookingManage_action.cfm?#urltoken#" name="UnConfBooking#ID#">
 								<input type="hidden" name="ID" value="#id#" />
-								<input type="hidden" name="Status" value="P" />
+								<input type="hidden" name="Status" value="PT" />
 							</form>
 
 							<form method="post" action="chgStatus_2c.cfm?#urltoken#" name="chgStatus_2c#ID#">
@@ -485,7 +485,7 @@ function EditSubmit ( selectedform )
 														<a href="javascript:EditSubmit('chgStatus_2c#ID#');" class="textbutton">Make Confirmed</a>
 														<a href="javascript:EditSubmit('chgStatus_2t#ID#');" class="textbutton">Make Tentative</a>
 														<a href="javascript:EditSubmit('chgStatus_2p#ID#');" class="textbutton">Make Pending</a>
-														<cfif getData.Status EQ "Y">
+														<cfif getData.Status EQ "PC">
 															<a href="javascript:EditSubmit('deny#ID#');" class="textbutton">Deny Request</a>
 														</cfif>
 													</cfif>

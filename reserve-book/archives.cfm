@@ -129,12 +129,12 @@
 								<tr class="#rowClass#">
 									<td><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">#Name#</a></td>
 									<td>
-										<cfif status EQ "P"><i>#language.pending#</i>
+										<cfif status EQ "PT"><i>#language.pending#</i>
 										<cfelseif status EQ "C"><i>#language.confirmed#</i>
 										<cfelseif status EQ "T"><i>#language.tentative#</i></cfif>
 									</td>
 									<td>
-										<cfif status EQ "P" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#" title="#language.editTariff#">#language.editTariff#</a></div>
+										<cfif status EQ "PT" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#" title="#language.editTariff#">#language.editTariff#</a></div>
 										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#" title="#language.viewTariff#">#language.viewTariff#</a></div></cfif>
 									</td>
 								</tr>
