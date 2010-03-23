@@ -62,8 +62,6 @@ WHERE   Bookings.BRID = '#Form.BRID#'
 	<cfset variables.dateValue = "">
 </cfif>
 
-<cfdump var="#getBooking#">
-
 <cfset validAgent = 1>
 <cfif getBooking.RecordCount NEQ 0>
 	<!--- check if the user and the company who made the original booking is still kicking around --->
@@ -84,7 +82,7 @@ WHERE   Bookings.BRID = '#Form.BRID#'
 	<!--- booking agent is valid --->
 	<cfif DateCompare(PacificNow, getBooking.EndDate, 'd') EQ -1>
 		<!--- booking is in the future, so send notification --->
-		<cfmail to="#getBooking.Email#" from="#Session.AdminEmail#" subject="Booking #actionCap.eng# - R&eacute;servation #actionPast.fra#: #getDetails.VesselName#" type="html">
+		<cfmail to="#getBooking.Email#" from="#Session.AdminEmail#" subject="Booking #actionCap.eng# - R&eacute;servation #actionPast.fra#: #getBooking.VesselName#" type="html">
 		<cfoutput>
 <p>Your dock booking for #getBooking.VesselName# from #LSDateFormat(getBooking.startDate, 'mmm d, yyyy')# to #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')# has been #actionPast.eng#.</p>
 <p>Esquimalt Graving Dock</p>
@@ -106,8 +104,6 @@ WHERE   Bookings.BRID = '#Form.BRID#'
 <cfset Session.Success.Title = "#actionCap.eng# Drydock Booking">
 <cfset Session.Success.Back = "Back to #url.referrer#">
 <cfset Session.Success.Link = "#returnTo#?#urltoken##variables.dateValue#">
-
-<cfdump var="#session.success.message#">
 
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
