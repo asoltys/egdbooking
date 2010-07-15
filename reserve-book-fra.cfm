@@ -139,26 +139,25 @@ function popUp(pageID) {
 			</div>
 
 			<!-- DEBUT DU CONTENU | CONTENT BEGINS -->
-			<div class="center">
+		  <div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- DEBUT DU TITRE DU CONTENU | CONTENT TITLE BEGINS -->
 					R&eacute;servation pour travaux le <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym>
 					<!-- FIN DU TITRE DU CONTENU | CONTENT TITLE ENDS -->
 					</a></h1>
 					
-				<cfoutput>
+			  <cfoutput>
 				<img src="#RootDir#images/EGD_aerial_small.jpg" alt="Aerial view of the Esquimalt Graving Dock" width="405" height="342" title="Aerial view of the Esquimalt Graving Dock" />
 
 				<p>Afin de r&eacute;server une place pour un navire &agrave; l'une des installations de la Cale s&egrave;che d'Esquimalt, veuillez lancer <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=fra">l'application des r&eacute;servations</a>.
-				  Si vous &eacute;prouvez des probl&egrave;mes avec l'application des r&eacute;servations, pri&egrave;re d'utiliser la <a href="#EGD_URL#/cn-cu-fra.html">page Contactez-nous</a>.</p>
-				<p>Les frais de r&eacute;servation de la cale s&egrave;che d&rsquo;Esquimalt sont de 3&nbsp;500&nbsp;$ canadiens, plus  210,00&nbsp;$ de taxe sur les produits et services&nbsp;(TPS), ce qui donne en  tout 3&nbsp;710,00&nbsp;$ payables en esp&egrave;ces, par ch&egrave;que certifi&eacute; d&rsquo;une banque  canadienne ou par mandat international. Le 1 er avril 2008, des int&eacute;r&ecirc;ts seront appliqu&eacute;s sur un compte en suspens plus de 30 jours.  Les demandes de r&eacute;servation sont  provisoires jusqu&rsquo;&agrave; ce que les frais de r&eacute;servation soient pay&eacute;s. Les frais de r&eacute;servation ne sont pas remboursables.</p>
+			    Si vous &eacute;prouvez des probl&egrave;mes avec l'application des r&eacute;servations, pri&egrave;re d'utiliser la <a href="#EGD_URL#/cn-cu-fra.html">page Contactez-nous</a>.</p>
+				<p>Les frais de r&eacute;servation de la cale s&egrave;che d&rsquo;Esquimalt sont de 4 200,00$  canadiens, plus 504,00$ de taxe de vente harmonis&eacute;e (TVH), ce qui donne en  tout 4 704,00$ payables en esp&egrave;ces, par ch&egrave;que certifi&eacute; d&rsquo;une banque  canadienne ou par mandat international. Le 1 er avril 2008, des int&eacute;r&ecirc;ts seront appliqu&eacute;s sur un compte en suspens plus de 30 jours.  Les demandes de r&eacute;servation sont  provisoires jusqu&rsquo;&agrave; ce que les frais de r&eacute;servation soient pay&eacute;s. Les frais de r&eacute;servation ne sont pas remboursables.</p>
 				<p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=fra">Application des r&eacute;servations</a> -
-					R&eacute;server la cale s&egrave;che et les jet&eacute;es en ligne.</p>
+				  R&eacute;server la cale s&egrave;che et les jet&eacute;es en ligne.</p>
 				<p><a href="#RootDir#utils/resume-summary_ch.cfm?lang=fra">R&eacute;sum&eacute; des r&eacute;servations</a> - Voir toutes les r&eacute;servations.</p>
 				<p><em>Les liens suivants vous m&egrave;neront &agrave; des sites externes:</em><br /></p>
 				(<img src="#RootDir#images/www1.gif" width="31" height="9" alt="emplacement de WWW" title="emplacement de WWW" />)  <p><a href="http://lois.justice.gc.ca/fr/P-38.2/DORS-89-332/index.html">R&egrave;glement CSE</a></p>
-				</cfoutput>
-			</div>
+			  </cfoutput>			</div>
 		<!-- FIN DU CONTENU | CONTENT ENDS -->
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-fra.cfm">
