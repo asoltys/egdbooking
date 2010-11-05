@@ -227,6 +227,7 @@
 	<cfset language.welcome = "Welcome">
 	<cfset language.none = "None">
 	<cfset language.allBookings = "All Bookings">
+	<cfset language.pending_cancelling = "pending cancelling">
 	<cfset language.cancelling = "cancelling">
 	<cfset language.confirming = "confirming">
 
@@ -245,6 +246,7 @@
 	<cfset language.welcome = "Bienvenue">
 	<cfset language.none = "Aucun">
 	<cfset language.allBookings = "Toutes les r servations">
+	<cfset language.pending_cancelling = "en attendant l'annulation">	
 	<cfset language.cancelling = "annulation">
 	<cfset language.confirming = "confirmation ">
 </cfif>
@@ -343,7 +345,7 @@
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
 										<cfelseif status EQ "T"><i class="tentative">#language.tentative#</i>
 										<cfelseif status EQ "PC"><i class="pending">#language.confirming#</i>
-										<cfelseif status EQ "PX"><i class="pending">#language.confirming#</i>
+										<cfelseif status EQ "PX"><i class="pending">#language.pending_cancelling#</i>
 										<cfelseif status EQ "X"><i class="cancelled">#language.cancelling#</i>
 										</cfif>
 									</td>
