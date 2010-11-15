@@ -158,6 +158,15 @@
 		Users ON Bookings.UID = Users.UID
 	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND (Status ='PT' or Status ='PX' or Status='PC')
 </cfquery>
+<cfquery name="countTentativeNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+	SELECT count(*) as numTentNJ
+	FROM Bookings INNER JOIN
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID
+	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='T'
+</cfquery>
 <cfquery name="countConfirmedNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numConfNJ
 	FROM Bookings INNER JOIN
@@ -174,7 +183,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='PX'
+	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='X'
 </cfquery>
 <!---South Jetty Status--->
 <cfquery name="countPendingSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -184,6 +193,15 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='PT'
+	WHERE Companies.CID = '#Variables.CID#'
+</cfquery>
+<cfquery name="countTentativeSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+	SELECT count(*) as numTentSJ
+	FROM Bookings INNER JOIN
+		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
+		Companies ON Vessels.CID = Companies.CID INNER JOIN
+		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
+		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='T'
 	WHERE Companies.CID = '#Variables.CID#'
 </cfquery>
 <cfquery name="countConfirmedSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -399,7 +417,7 @@
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
 										<cfelseif status EQ "T"><i class="tentative">#language.tentative#</i>
 										<cfelseif status EQ "PC"><i class="pending">#language.confirming#</i>
-										<cfelseif status EQ "PX"><i class="pending">#language.confirming#</i>
+										<cfelseif status EQ "PX"><i class="pending">#language.pending_cancelling#</i>
 										<cfelseif status EQ "X"><i class="cancelled">#language.cancelling#</i>
 										</cfif>
 									</td>
@@ -424,6 +442,7 @@
 								<td><b>Total:&nbsp;&nbsp;</b>
 								<cfoutput>
 								<i class="pending">#language.pending# - #countPendingNJ.numPendNJ#</i>&nbsp;&nbsp;
+								<i class="tentative">#language.tentative# - #countTentativeNJ.numTentNJ#</i>&nbsp;&nbsp;
 								<i class="confirmed">#language.confirmed# - #countConfirmedNJ.numConfNJ#</i>&nbsp;&nbsp;
 								<i class="cancelled">#language.cancelling# - #countCancelledNJ.numCancNJ#</i>
 								</cfoutput>
@@ -451,7 +470,7 @@
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
 										<cfelseif status EQ "T"><i class="tentative">#language.tentative#</i>
 										<cfelseif status EQ "PC"><i class="pending">#language.confirming#</i>
-										<cfelseif status EQ "PX"><i class="pending">#language.confirming#</i>
+										<cfelseif status EQ "PX"><i class="pending">#language.pending_cancelling#</i>
 										<cfelseif status EQ "X"><i class="cancelled">#language.cancelling#</i>
 										</cfif>
 									</td>
@@ -476,6 +495,7 @@
                   <b>Total:&nbsp;&nbsp;</b>
                   <cfoutput>
                   <i class="pending">#language.pending# - #countPendingSJ.numPendSJ#</i>&nbsp;&nbsp;
+                  <i class="tentative">#language.tentative# - #countTentativeSJ.numTentSJ#</i>&nbsp;&nbsp;
                   <i class="confirmed">#language.confirmed# - #countConfirmedSJ.numConfSJ#</i>&nbsp;&nbsp;
                   <i class="cancelled">#language.cancelling# - #countCancelledSJ.numCancSJ#</i>
                   </cfoutput>
