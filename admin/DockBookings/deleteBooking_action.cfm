@@ -100,12 +100,12 @@ WHERE   Bookings.BRID = '#Form.BRID#'
 	</cfif>
 </cfif>
 
-<cfset Session.Success.Breadcrumb = "<a href='../admin/DockBookings/bookingmanage.cfm?lang=#lang#'>Drydock Management</a> &gt; #actionCap.eng# Drydock Booking">
+<cfset Session.Success.Breadcrumb = "<a href='../admin/DockBookings/bookingManage.cfm?lang=#lang#'>Drydock Management</a> &gt; #actionCap.eng# Drydock Booking">
 <cfset Session.Success.Title = "#actionCap.eng# Drydock Booking">
 <cfset Session.Success.Back = "Back to #url.referrer#">
 <cfset Session.Success.Link = "#returnTo#?#urltoken##variables.dateValue#">
 
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
-<!---cflocation addToken="no" url="bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.BRID#"--->
+<!---cflocation addToken="no" url="bookingManage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show####form.BRID#"--->
 

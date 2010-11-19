@@ -38,11 +38,11 @@
 </cfif>
 
 <!--- create structure for sending to mothership/success page. --->
-<cfset Session.Success.Breadcrumb = "<a href='../admin/DockBookings/bookingmanage.cfm?lang=#lang#'>Drydock Management</a> &gt; <cfoutput>#variables.actionCap#</cfoutput> Drydock Maintenance Block">
+<cfset Session.Success.Breadcrumb = "<a href='../admin/DockBookings/bookingManage.cfm?lang=#lang#'>Drydock Management</a> &gt; <cfoutput>#variables.actionCap#</cfoutput> Drydock Maintenance Block">
 <cfset Session.Success.Title = "<cfoutput>#variables.actionCap#</cfoutput> Drydock Maintenance Block">
 <cfset Session.Success.Message = "Maintenance block from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')# has been <cfoutput>#variables.actionPast#</cfoutput>.">
 <cfset Session.Success.Back = "Back to Dock Bookings Management">
-<cfset Session.Success.Link = "#RootDir#admin/DockBookings/bookingmanage.cfm?#urltoken#">
+<cfset Session.Success.Link = "#RootDir#admin/DockBookings/bookingManage.cfm?#urltoken#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 
 <!---cflocation addToken="no" url="Bookingmanage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#"--->

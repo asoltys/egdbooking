@@ -96,7 +96,7 @@ function EditSubmit ( selectedform )
 					&nbsp;&nbsp;&nbsp;
 					<!--a href="javascript:EditSubmit('chooseUserForm');" class="textbutton">Submit</a-->
 					<input type="submit" name="submitForm" class="textbutton" value="submit" />
-					<cfoutput><a href="bookingmanage.cfm?#urltoken#" class="textbutton">Back</a></cfoutput>
+					<cfoutput><a href="bookingManage.cfm?#urltoken#" class="textbutton">Back</a></cfoutput>
 				</cfform>
 
 				<cfif Variables.compID NEQ "">
@@ -208,7 +208,7 @@ function EditSubmit ( selectedform )
 									<input type="hidden" name="compID" value="#Variables.compID#" />
 									<input type="submit" name="submitForm" class="textbutton" value="submit" />
 								</cfif>
-								<cfoutput><a href="bookingmanage.cfm?#urltoken#" class="textbutton">Back</a></cfoutput>
+								<cfoutput><a href="bookingManage.cfm?#urltoken#" class="textbutton">Back</a></cfoutput>
 
 							</td>
 						</tr>

@@ -55,7 +55,7 @@
 			<CFELSE>
 				 <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">Welcome Page</a> &gt;
 			</CFIF>
-				<a href="bookingmanage.cfm?lang=#lang#">Jetty Management</a> &gt;
+				<a href="bookingManage.cfm?lang=#lang#">Jetty Management</a> &gt;
 			Confirm #variables.actionCap# Booking
 			</cfoutput>
 		</p>

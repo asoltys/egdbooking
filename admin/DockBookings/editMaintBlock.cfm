@@ -149,7 +149,7 @@
 				<td colspan="2" align="center">
 					<!--a href="javascript:EditSubmit('EditMaintBlock');" class="textbutton">Submit</a-->
 					<input type="submit" name="submitForm" class="textbutton" value="submit" />
-					<a href="bookingmanage.cfm?#urltoken#" class="textbutton">Cancel</a>
+					<a href="bookingManage.cfm?#urltoken#" class="textbutton">Cancel</a>
 				</td>
 			</tr>
 			</table>

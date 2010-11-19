@@ -110,7 +110,7 @@ function EditSubmit ( selectedform )
 					&nbsp;&nbsp;&nbsp;
 					<!--a href="javascript:EditSubmit('chooseUserForm');" class="textbutton">Submit</a-->
 					<input type="submit" name="submitForm" class="textbutton" value="submit" />
-					<cfoutput><a href="jettybookingmanage.cfm?#urltoken#" class="textbutton">Back</a></cfoutput>
+					<cfoutput><a href="jettybookingManage.cfm?#urltoken#" class="textbutton">Back</a></cfoutput>
 				</cfform>
 
 				<cfif Variables.compID NEQ "">
@@ -248,7 +248,7 @@ function EditSubmit ( selectedform )
 									<input type="submit" name="submitForm" class="textbutton" value="override" />
 									</cfif>
 								</cfif>
-								<cfoutput><a href="jettybookingmanage.cfm?#urltoken#" class="textbutton">Back</a></cfoutput>
+								<cfoutput><a href="jettybookingManage.cfm?#urltoken#" class="textbutton">Back</a></cfoutput>
 							</td>
 						</tr>
 					</table>

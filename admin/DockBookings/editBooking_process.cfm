@@ -266,7 +266,7 @@ function EditSubmit ( selectedform )
 						<!--a href="javascript:EditSubmit('bookingreq');" class="textbutton">Submit</a-->
 						<!---input type="submit" name="submitForm" class="textbutton" value="submit">
 						<a href="javascript:history.go(-1);" class="textbutton">Back</a>
-						<cfoutput><a href="bookingmanage.cfm?#urltoken#" class="textbutton">Cancel</a></cfoutput>
+						<cfoutput><a href="bookingManage.cfm?#urltoken#" class="textbutton">Cancel</a></cfoutput>
 						<br--->
 						<input type="submit" value="Confirm" class="textbutton" />
 						<cfoutput><a href="editBooking.cfm?#urltoken#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#" class="textbutton">Back</a></cfoutput>

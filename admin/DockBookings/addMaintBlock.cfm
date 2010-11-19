@@ -116,7 +116,7 @@
         <tr>
           <td colspan="2" align="center">
             <input type="submit" name="submitForm" class="textbutton" value="submit" />
-            <input type="button" value="Cancel" class="textbutton" onclick="self.location.href='bookingmanage.cfm?#urltoken#';" />
+            <input type="button" value="Cancel" class="textbutton" onclick="self.location.href='bookingManage.cfm?#urltoken#';" />
           </td>
         </tr>
         </table>

@@ -258,11 +258,11 @@ function EditSubmit ( selectedform )
 					<td colspan="2" align="center">
 						<!---a href="javascript:EditSubmit('bookingreq');" class="textbutton">Confirm</a>
 						<a href="javascript:history.go(-1);" class="textbutton">Back</a>
-						<cfoutput><a href="bookingmanage.cfm?#urltoken#" class="textbutton">Cancel</a></cfoutput>
+						<cfoutput><a href="bookingManage.cfm?#urltoken#" class="textbutton">Cancel</a></cfoutput>
 						<br--->
 						<input type="submit" value="Confirm" class="textbutton" />
 						<cfoutput><a href="addMaintBlock.cfm?#urltoken#" class="textbutton">Back</a></cfoutput>
-						<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='bookingmanage.cfm?#urltoken#';" /></cfoutput>
+						<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='bookingManage.cfm?#urltoken#';" /></cfoutput>
 						<!---<a href="javascript:formReset('bookingreq');">test reset</a>--->
 					</td>
 				</tr>

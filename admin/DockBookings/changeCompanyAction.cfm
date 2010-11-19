@@ -31,5 +31,5 @@ SET
 WHERE BRID = #BRIDURL#
 </cfquery>
 
-<cflocation url="#RootDir#admin/DockBookings/bookingmanage.cfm">
+<cflocation url="#RootDir#admin/DockBookings/bookingManage.cfm">
 
