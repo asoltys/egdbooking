@@ -143,6 +143,7 @@
 						<h2>What's New</h2>
 				
 						<ul>
+              <li><a title="EGD: 30 Tonne Cranes" href="#EGD_URL#/env/cranes-grues-eng.html">30 Tonne Cranes</a></li>
 							<li><a title="EGD: Rates" href="#EGD_URL#/env/tarifs-rates-eng.html">Proposed changes to the Esquimalt Graving Dock rates now in the final stages.</a></li>
 
               <li><a title="EGD: Capital Projects" href="#EGD_URL#/env/projects-projets-eng.html">Upcoming capital projects impacting operations for the Esquimalt Graving Dock.</a></li>
