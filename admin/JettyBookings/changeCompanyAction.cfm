@@ -12,4 +12,4 @@ SET
 WHERE BRID = #BRIDURL#
 </cfquery>
 
-<cflocation url="#RootDir#admin/JettyBookings/jettyBookingmanage.cfm" addtoken="no" />
+<cflocation url="#RootDir#admin/JettyBookings/jettyBookingManage.cfm" addtoken="no" />

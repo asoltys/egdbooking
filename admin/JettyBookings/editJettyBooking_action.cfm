@@ -78,12 +78,10 @@
 </cfif>
 
 <!--- create structure for sending to mothership/success page. --->
-<cfset Session.Success.Breadcrumb = "<a href=../admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#'>Jetty Management</a> &gt; Edit Jetty Booking">
+<cfset Session.Success.Breadcrumb = "<a href=../admin/JettyBookings/jettyBookingManage.cfm?lang=#lang#'>Jetty Management</a> &gt; Edit Jetty Booking">
 <cfset Session.Success.Title = "Edit Jetty Booking Information">
 <cfset Session.Success.Message = "Booking for <b>#getVessel.vesselName#</b> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been updated.">
 <cfset Session.Success.Back = "Back to #url.referrer#">
 <cfset Session.Success.Link = "#returnTo#?#urltoken#&BRID=#form.BRID##variables.dateValue####form.BRID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
-
-<!---cflocation url="jettyBookingmanage.cfm?#urltoken#" addToken="no"--->
 

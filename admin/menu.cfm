@@ -82,9 +82,9 @@
 
             <h2>Bookings</h2>
             <ul>
-              <li><a href="#RootDir#admin/DockBookings/bookingmanage.cfm?lang=#lang#">Drydock Booking Management</a></li>
+              <li><a href="#RootDir#admin/DockBookings/bookingManage.cfm?lang=#lang#">Drydock Booking Management</a></li>
               <li><a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang#">Dock Calendar</a></li>
-              <li><a href="#RootDir#admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#">Jetty Booking Management</a></li>
+              <li><a href="#RootDir#admin/JettyBookings/jettyBookingManage.cfm?lang=#lang#">Jetty Booking Management</a></li>
               <li><a href="#RootDir#comm/calend-jet.cfm?lang=#lang#">Jetty Calendar</a></li>
               <li><a href="#RootDir#admin/otherForms.cfm?lang=#lang#">Booking Forms</a></li>
             </ul>

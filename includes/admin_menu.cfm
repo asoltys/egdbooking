@@ -15,7 +15,7 @@
 		<a href="#RootDir#comm/calend-jet.cfm?lang=#lang##datetoken#" class="textbutton">Jetty Calendar</a>
 		<div>&nbsp;</div>
 		<a href="#RootDir#admin/DockBookings/bookingmanage.cfm?lang=#lang#" class="textbutton">Drydock Bookings</a>
-		<a href="#RootDir#admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#" class="textbutton">Jetty Bookings</a>
+		<a href="#RootDir#admin/JettyBookings/jettyBookingManage.cfm?lang=#lang#" class="textbutton">Jetty Bookings</a>
     <a href="#RootDir#comm/resume-summary_ch.cfm?lang=#lang#" class="textbutton">Bookings Summary</a>
 		<a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#" class="textbutton">Logout</a>
 		</cfoutput>

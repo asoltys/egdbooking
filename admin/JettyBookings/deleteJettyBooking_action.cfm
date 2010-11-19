@@ -98,7 +98,7 @@ WHERE   Bookings.BRID = '#Form.BRID#'
 	</cfif>
 </cfif>
 
-<cfset Session.Success.Breadcrumb = "<a href='..admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#'>Jetty Management</a> &gt; #actionCap.eng# Jetty Booking">
+<cfset Session.Success.Breadcrumb = "<a href='..admin/JettyBookings/jettyBookingManage.cfm?lang=#lang#'>Jetty Management</a> &gt; #actionCap.eng# Jetty Booking">
 <cfset Session.Success.Title = "#actionCap.eng# Jetty Booking">
 <cfset Session.Success.Back = "Back to #url.referrer#">
 <cfset Session.Success.Link = "#returnTo#?#urltoken#&BRID=#form.BRID##variables.dateValue#">

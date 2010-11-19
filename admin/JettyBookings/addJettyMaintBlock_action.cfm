@@ -40,7 +40,7 @@
 </CFIF>
 
 <!--- create structure for sending to mothership/success page. --->
-<cfset Session.Success.Breadcrumb = "<a href='../admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#'>Jetty Management</a> &gt; Add Maintenance Block">
+<cfset Session.Success.Breadcrumb = "<a href='../admin/JettyBookings/jettyBookingManage.cfm?lang=#lang#'>Jetty Management</a> &gt; Add Maintenance Block">
 <cfset Session.Success.Title = "Create New Maintenance Block">
 <cfset Session.Success.Message = "A new maintenance block has been created from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')#.">
 <cfset Session.Success.Back = "Back to Jetty Bookings Management">

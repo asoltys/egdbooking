@@ -111,7 +111,7 @@
 
 <cfif referrer NEQ "Edit Jetty Booking">
 	<!--- create structure for sending to mothership/success page. --->
-	<cfset Session.Success.Breadcrumb = "<a href='../admin/JettyBookings/jettyBookingmanage.cfm?lang=#lang#'>Jetty Management</a> &gt; Change Booking Status">
+	<cfset Session.Success.Breadcrumb = "<a href='../admin/JettyBookings/jettyBookingManage.cfm?lang=#lang#'>Jetty Management</a> &gt; Change Booking Status">
 	<cfset Session.Success.Title = "Change Booking Status">
 	<cfset Session.Success.Message = "Booking status for <b>#getDetails.vesselName#</b> from #LSDateFormat(CreateODBCDate(getDetails.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getDetails.endDate), 'mmm d, yyyy')# is now <b>#newStatus#</b>.  Email notification of this change has been sent to the agent.">
 	<cfset Session.Success.Back = "Back to #url.referrer#">
@@ -120,6 +120,3 @@
 <cfelse>
 	<cflocation addtoken="no" url="#returnTo#?#urltoken##dateValue#&BRID=#Form.ID#">
 </cfif>
-
-<!---cflocation addtoken="no" url="jettyBookingmanage.cfm?lang=#lang#&id=#form.id#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#"--->
-
