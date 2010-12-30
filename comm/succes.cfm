@@ -8,7 +8,6 @@
 	<cfset Variables.Success.Link = Session.Success.Link>
 	<!---<cfset StructDelete(Session, "Success")>--->
 </cfif>
-
 <cfhtmlhead text="
 	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDock# - #Variables.Success.Breadcrumb#"" />
 	<meta name=""keywords"" content=""#Language.masterKeywords#"" />

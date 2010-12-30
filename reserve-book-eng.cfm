@@ -123,38 +123,35 @@
 		<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm">
 					<!-- RIGHT SIDE MENU BEGINS | DEBUT DU MENU LATERAL DROIT -->
 			<div class="right">
-				<!-- ====== /pac/cse-egd/SSI/RIGHT-MENU-DROITE-ENG.HTML ====== -->
-				<cfoutput>
-				<ul class="rightNav">
-				
-					<li>
-						<h2>Did you know?</h2>
-				
-						<ul>
-							<li><acronym title="Esquimalt Graving Dock">EGD</acronym> is one of the few large ship repair facilities in the world who has implemented
-								<acronym title="International Organization for Standardization">ISO</acronym> 14001.  <a title="EGD: Leading the Way with ISO 14001" href="#EGD_URL#/env/voie-way-eng.html">More &gt; </a></li>
-						</ul>
-					</li>
-				</ul>
-				<br />
-				<ul class="rightNav">
-				
-					<li>
-						<h2>What's New</h2>
-				
-						<ul>
-              <li><a title="EGD: 30 Tonne Cranes" href="#EGD_URL#/env/cranes-grues-eng.html">30 Tonne Cranes</a></li>
-							<li><a title="EGD: Rates" href="#EGD_URL#/env/tarifs-rates-eng.html">Proposed changes to the Esquimalt Graving Dock rates now in the final stages.</a></li>
+        <!-- ====== /pac/cse-egd/SSI/RIGHT-MENU-DROITE-ENG.HTML ====== -->
+        <cfoutput>
+          <ul class="rightNav">
+            <li>
+              <h2>Did you know?</h2>
 
-              <li><a title="EGD: Capital Projects" href="#EGD_URL#/env/projects-projets-eng.html">Upcoming capital projects impacting operations for the Esquimalt Graving Dock.</a></li>
+              <ul>
+                <li><acronym title="Esquimalt Graving Dock">EGD</acronym> was one of the first large ship repair facilities in the world to implement
+                  <acronym title="International Organization for Standardization">ISO</acronym> 14001.  <a title="EGD: Leading the Way with ISO 14001" href="#EGD_URL#/env/programme-program-eng.html">More &gt; </a></li>
+              </ul>
+            </li>
+          </ul>
 
-              <li><a title="EGD Regulations" href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-eng.html">Regulations amending the Esquimalt Graving Dock regulations.</a></li>
-						</ul>
-					</li>
-				</ul>
-				</cfoutput>
-			<!-- <a href="http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=31807"><img src="/pac/cse-egd/images/ISO14001.gif" width="195" height="68" alt="ISO 14001" title="ISO 14001" /></a> -->
-			<!-- ====== /pac/cse-egd/SSI/RIGHT-MENU-DROITE-ENG.HTML ====== -->
+          <br />
+
+          <ul class="rightNav">
+            <li>
+              <h2>What's New</h2>
+
+              <ul>
+                <li><a title="EGD: 30 Tonne Cranes" href="#EGD_URL#/env/cranes-grues-eng.html">30 Tonne Cranes</a></li>
+                <li><a title="EGD: Rates" href="#EGD_URL#/env/tarifs-rates-eng.html">Effective tariff of dock charges for the Esquimalt Graving Dock</a></li>
+                <li><a title="EGD: Capital Projects" href="#EGD_URL#/env/projects-projets-eng.html">Upcoming capital projects impacting operations for the Esquimalt Graving Dock</a></li>
+                <li><a title="EGD Regulations" href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-eng.html">Regulations amending the Esquimalt Graving Dock regulations.</a></li>
+              </ul>
+            </li>
+          </ul>
+        </cfoutput>
+        <!-- ====== /pac/cse-egd/SSI/RIGHT-MENU-DROITE-ENG.HTML ====== -->
 			</div>
 			<!-- RIGHT SIDE MENU ENDS | FIN DU MENU LATERAL DROIT -->
 

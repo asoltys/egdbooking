@@ -34,6 +34,16 @@
 	<cfset Proceed_OK = "No">
 </cfif>
 
+<cfif trim(form.width) NEQ "" and not isNumeric(trim(form.width))>
+	<cfoutput>#ArrayAppend(Variables.Errors, "#language.widthError#")#</cfoutput>
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfif trim(form.length) NEQ "" and not isNumeric(trim(form.length))>
+	<cfoutput>#ArrayAppend(Variables.Errors, "#language.lengthError#")#</cfoutput>
+	<cfset Proceed_OK = "No">
+</cfif>
+
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>
