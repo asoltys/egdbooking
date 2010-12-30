@@ -44,6 +44,21 @@
 	<cfset Proceed_OK = "No">
 </cfif>
 
+<cfif trim(form.blockSetupTime) NEQ "" and not isNumeric(trim(form.blockSetupTime))>
+	<cfoutput>#ArrayAppend(Variables.Errors, "#language.setupError#")#</cfoutput>
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfif trim(form.BlockTearDownTime) NEQ "" and not isNumeric(trim(form.BlockTearDownTime))>
+	<cfoutput>#ArrayAppend(Variables.Errors, "#language.teardownError#")#</cfoutput>
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfif trim(form.tonnage) NEQ "" and not isNumeric(trim(form.tonnage))>
+	<cfoutput>#ArrayAppend(Variables.Errors, "#language.tonnageError#")#</cfoutput>
+	<cfset Proceed_OK = "No">
+</cfif>
+
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 	<cfset Session.Return_Structure.Errors = Variables.Errors>

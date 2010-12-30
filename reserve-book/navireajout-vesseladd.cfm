@@ -107,11 +107,11 @@
 						<br />
 
 						<label for="length">#language.Length#:</label>
-						<input name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" />#language.Max#: #Variables.MaxLength# m
+						<input name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" />#language.Max#: #Variables.MaxLength#
 						<br />
 
 						<label for="width">#language.Width#:</label>
-						<input name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" />#language.Max#: #Variables.MaxWidth# m
+						<input name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" />#language.Max#: #Variables.MaxWidth#
 						<br />
 
 						<label for="blocksetuptime" id="block_setup_time">#language.BlockSetup# #language.days#:</label>

@@ -87,11 +87,11 @@
 				</tr>
 				<tr>
 					<td id="length_Header"><label for="length">Length (m):</label></td>
-					<td headers="length_Header"><cfinput id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" message="Please enter the length in metres.">  <span class="smallFont" style="color:red;" />Max: <cfoutput>#Variables.MaxLength#</cfoutput>m</span></td>
+					<td headers="length_Header"><cfinput id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" required="yes" validate="float" message="Please enter the length in metres.">  <span class="smallFont" style="color:red;" />Max: <cfoutput>#Variables.MaxLength#</cfoutput></span></td>
 				</tr>
 				<tr>
 					<td id="width_Header"><label for="width">Width (m):</label></td>
-					<td headers="width_Header"><cfinput id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" validate="float" message="Please enter the width in metres.">  <span class="smallFont" style="color:red;" />Max: <cfoutput>#Variables.MaxWidth#</cfoutput>m</span></td>
+					<td headers="width_Header"><cfinput id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" validate="float" message="Please enter the width in metres.">  <span class="smallFont" style="color:red;" />Max: <cfoutput>#Variables.MaxWidth#</cfoutput></span></td>
 				</tr>
 				<tr>
 					<td id="blocksetuptime_Header"><label for="blocksetuptime">Block Setup Time (days):</label></td>
