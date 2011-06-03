@@ -10,7 +10,7 @@
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT 	Bookings.StartDate, Bookings.EndDate, Docks.Section1, Docks.Section2, Docks.Section3
 	FROM 	Bookings INNER JOIN Docks ON Bookings.BRID = Docks.BRID
-	WHERE	Bookings.BRID = '#Form.BRID#'
+	WHERE	Bookings.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfif DateCompare(PacificNow, getBooking.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBooking.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1)>

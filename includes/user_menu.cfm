@@ -3,7 +3,7 @@
 	<cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT ReadOnly
 		FROM Users
-		WHERE UID = #Session.UID#
+		WHERE UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	<cfoutput query="readonlycheck">
 		<cfset Session.ReadOnly = #ReadOnly#>

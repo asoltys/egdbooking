@@ -9,15 +9,15 @@
 	<cfquery name="editVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Vessels
 		SET
-			name = '#trim(form.name)#',
-			length = '#trim(form.length)#',
-			width = '#trim(form.width)#',
-			blocksetuptime = '#trim(form.blocksetuptime)#',
-			blockteardowntime = '#trim(form.blockteardowntime)#',
-			LloydsID = '#trim(form.LloydsID)#',
-			Tonnage = '#trim(form.tonnage)#',
-			Anonymous = '#(Form.Anonymous)#'
-		WHERE VNID = #form.VNID#
+			name = <cfqueryparam value="#trim(form.name)#" cfsqltype="cf_sql_varchar" />,
+			length = <cfqueryparam value="#trim(form.length)#" cfsqltype="cf_sql_float" />,
+			width = <cfqueryparam value="#trim(form.width)#" cfsqltype="cf_sql_float" />,
+			blocksetuptime = <cfqueryparam value="#trim(form.blocksetuptime)#" cfsqltype="cf_sql_float" />,
+			blockteardowntime = <cfqueryparam value="#trim(form.blockteardowntime)#" cfsqltype="cf_sql_float" />,
+			LloydsID = <cfqueryparam value="#trim(form.LloydsID)#" cfsqltype="cf_sql_varchar" />,
+			Tonnage = <cfqueryparam value="#trim(form.tonnage)#" cfsqltype="cf_sql_float" />,
+			Anonymous = <cfqueryparam value="#(Form.Anonymous)#" cfsqltype="cf_sql_bit" />
+		WHERE VNID = <cfqueryparam value="#form.VNID#" cfsqltype="cf_sql_integer" />
 		AND deleted = 0
 	</cfquery>
 
@@ -26,14 +26,14 @@
 		<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	firstname + ' ' + lastname AS UserName, Email
 			FROM	Users
-			WHERE	UID = #session.UID#
+			WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 	</cflock>
 
 	<cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	vessels.name AS VesselName, companies.name AS CompanyName
 		FROM	Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
-		WHERE	VNID = #form.VNID#
+		WHERE	VNID = <cfqueryparam value="#form.VNID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 
 	<cfoutput>

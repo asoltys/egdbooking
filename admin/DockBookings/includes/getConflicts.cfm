@@ -32,7 +32,7 @@
 		AND		Bookings.Deleted = '0'
 		AND		Vessels.Deleted = '0'
 		AND		Bookings.BookingTime <= <cfqueryparam value="#CreateODBCDateTime(Variables.BookingTime)#" cfsqltype="cf_sql_timestamp">
-		AND		Bookings.BRID != '#Variables.BRID#'
+		AND		Bookings.BRID != <cfqueryparam value="#Variables.BRID#" cfsqltype="cf_sql_integer" />
 		AND		(
 					(	Bookings.StartDate <= <cfqueryparam value="#CreateODBCDate(Variables.StartDate)#" cfsqltype="cf_sql_date"> AND <cfqueryparam value="#CreateODBCDate(Variables.StartDate)#" cfsqltype="cf_sql_date"> <= Bookings.EndDate )
 				OR 	(	Bookings.StartDate <= <cfqueryparam value="#CreateODBCDate(Variables.EndDate)#" cfsqltype="cf_sql_date"> AND <cfqueryparam value="#CreateODBCDate(Variables.EndDate)#" cfsqltype="cf_sql_date"> <= Bookings.EndDate )
@@ -125,7 +125,7 @@
 	<cfquery name="theBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	BRID, StartDate, EndDate, BookingTime
 		FROM	Bookings
-		WHERE	BRID = '#arguments.BRID#'
+		WHERE	BRID = <cfqueryparam value="#arguments.BRID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	
 	<cfset Variables.BookingTime = theBooking.BookingTime>
@@ -141,11 +141,11 @@
 		AND		Docks.Status = 'T'
 		AND		Vessels.Deleted = '0'
 		AND		Bookings.Deleted = '0'	
-		AND		Bookings.BRID != '#Variables.BRID#'
+		AND		Bookings.BRID != <cfqueryparam value="#Variables.BRID#" cfsqltype="cf_sql_integer" />
 		AND		(
-					(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# <= Bookings.EndDate )
-				OR 	(	Bookings.StartDate <= #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate )
-				OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate )
+					(	Bookings.StartDate <= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate )
+				OR 	(	Bookings.StartDate <= <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate )
+				OR	(	Bookings.StartDate >= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> >= Bookings.EndDate )
 				)
 		ORDER BY BookingTime
 	</cfquery>
@@ -164,9 +164,9 @@
 				AND		Deleted = '0'
 				AND		Docks.BRID = Bookings.BRID
 				AND		(
-							(	Bookings.StartDate <= #Variables.cStartDate# AND #Variables.cStartDate# <= Bookings.EndDate )
-						OR 	(	Bookings.StartDate <= #Variables.cEndDate# AND #Variables.cEndDate# <= Bookings.EndDate )
-						OR	(	Bookings.StartDate >= #Variables.cStartDate# AND #Variables.cEndDate# >= Bookings.EndDate )
+							(	Bookings.StartDate <= <cfqueryparam value="#Variables.cStartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.cStartDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate )
+						OR 	(	Bookings.StartDate <= <cfqueryparam value="#Variables.cEndDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.cEndDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate )
+						OR	(	Bookings.StartDate >= <cfqueryparam value="#Variables.cStartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.cEndDate#" cfsqltype="cf_sql_date" /> >= Bookings.EndDate )
 						)
 			</cfquery>
 			<cfquery name="GetMaxDate" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -176,9 +176,9 @@
 				AND		Deleted = '0'
 				AND		Docks.BRID = Bookings.BRID
 				AND		(
-							(	Bookings.StartDate <= #Variables.cStartDate# AND #Variables.cStartDate# <= Bookings.EndDate )
-						OR 	(	Bookings.StartDate <= #Variables.cEndDate# AND #Variables.cEndDate# <= Bookings.EndDate )
-						OR	(	Bookings.StartDate >= #Variables.cStartDate# AND #Variables.cEndDate# >= Bookings.EndDate )
+							(	Bookings.StartDate <= <cfqueryparam value="#Variables.cStartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.cStartDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate )
+						OR 	(	Bookings.StartDate <= <cfqueryparam value="#Variables.cEndDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.cEndDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate )
+						OR	(	Bookings.StartDate >= <cfqueryparam value="#Variables.cStartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.cEndDate#" cfsqltype="cf_sql_date" /> >= Bookings.EndDate )
 						)
 			</cfquery>
 			
@@ -190,8 +190,8 @@
 				AND		Docks.Status = 'C'
 				AND		Vessels.Deleted = '0'	
 				AND		Bookings.Deleted = '0'
-				AND		StartDate >= '#getMinDate.StartDate#'
-				AND		EndDate <=	'#getMaxDate.EndDate#'
+				AND		StartDate >= <cfqueryparam value="#getMinDate.StartDate#" cfsqltype="cf_sql_date" />
+				AND		EndDate <=	<cfqueryparam value="#getMaxDate.EndDate#" cfsqltype="cf_sql_date" />
 				ORDER BY StartDate
 			</cfquery>
 			
@@ -202,9 +202,9 @@
 				AND		Docks.Status = 'M'
 				AND		Deleted = '0'	
 				AND		(
-							(	Bookings.StartDate <= '#getMinDate.StartDate#' AND '#getMinDate.StartDate#' <= Bookings.EndDate )
-						OR 	(	Bookings.StartDate <= '#getMaxDate.EndDate#' AND '#getMaxDate.EndDate#' <= Bookings.EndDate )
-						OR	(	Bookings.StartDate >= '#getMinDate.StartDate#' AND '#getMaxDate.EndDate#' >= Bookings.EndDate )
+							(	Bookings.StartDate <= <cfqueryparam value="#getMinDate.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#getMinDate.StartDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate )
+						OR 	(	Bookings.StartDate <= <cfqueryparam value="#getMaxDate.EndDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#getMaxDate.EndDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate )
+						OR	(	Bookings.StartDate >= <cfqueryparam value="#getMinDate.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#getMaxDate.EndDate#" cfsqltype="cf_sql_date" /> >= Bookings.EndDate )
 						)
 				ORDER BY StartDate
 			</cfquery>

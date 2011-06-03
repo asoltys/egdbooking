@@ -26,7 +26,7 @@
 			INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 			INNER JOIN Users ON Bookings.UID = Users.UID
 			INNER JOIN Companies ON Vessels.CID = Companies.CID
-	WHERE	Bookings.BRID = '#Variables.BRID#'
+	WHERE	Bookings.BRID = <cfqueryparam value="#Variables.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfif DateCompare(PacificNow, getBooking.startDate, 'd') NEQ 1 OR (DateCompare(PacificNow, getBooking.startDate, 'd') EQ 1 AND DateCompare(PacificNow, getBooking.endDate, 'd') NEQ 1)>

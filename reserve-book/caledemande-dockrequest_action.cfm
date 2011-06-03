@@ -33,7 +33,7 @@
 	FROM 	Bookings
 				INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 				INNER JOIN Docks ON Bookings.BRID = Docks.BRID
-	WHERE 	Bookings.VNID = '#Form.VNID#'
+	WHERE 	Bookings.VNID = <cfqueryparam value="#Form.VNID#" cfsqltype="cf_sql_integer" />
 	AND
 	<!---Explanation of hellishly long condition statement: The client wants to be able to overlap the start and end dates
 		of bookings, so if a booking ends on May 6, another one can start on May 6.  This created problems with single day
@@ -41,13 +41,13 @@
 		a day that overlaps with the new booking if it is more than a day.  The next 4 lines check for single day bookings that
 		fall within a booking that is more than one day.--->
 			(
-				(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# < Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
-			OR 	(	Bookings.StartDate < #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
-			OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
-			OR  (	(Bookings.StartDate = Bookings.EndDate OR #Variables.StartDate# = #Variables.EndDate#) AND Bookings.StartDate <> #Variables.StartDate# AND Bookings.EndDate <> #Variables.EndDate# AND
-						((	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# < Bookings.EndDate)
-					OR 	(	Bookings.StartDate < #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate)
-					OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate)))
+				(	Bookings.StartDate <= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> < Bookings.EndDate AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <> <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND Bookings.StartDate <> Bookings.EndDate)
+			OR 	(	Bookings.StartDate < <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <> <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND Bookings.StartDate <> Bookings.EndDate)
+			OR	(	Bookings.StartDate >= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> >= Bookings.EndDate AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <> <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND Bookings.StartDate <> Bookings.EndDate)
+			OR  (	(Bookings.StartDate = Bookings.EndDate OR <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> = <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" />) AND Bookings.StartDate <> <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND Bookings.EndDate <> <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND
+						((	Bookings.StartDate <= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> < Bookings.EndDate)
+					OR 	(	Bookings.StartDate < <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate)
+					OR	(	Bookings.StartDate >= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> >= Bookings.EndDate)))
 			)
 	AND		Bookings.Deleted = 0
 </cfquery>
@@ -83,11 +83,11 @@
 	<cftransaction>
 		<cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			INSERT INTO	Bookings ( VNID, StartDate, EndDate, BookingTime, UID)
-			VALUES	('#Form.VNID#',
+			VALUES	(<cfqueryparam value="#Form.VNID#" cfsqltype="cf_sql_integer" />,
 					<cfqueryparam value="#CreateODBCDate(Form.StartDate)#" cfsqltype="cf_sql_date">,
 					<cfqueryparam value="#CreateODBCDate(Form.EndDate)#" cfsqltype="cf_sql_date">,
 					<cfqueryparam value="#CreateODBCDateTime(PacificNow)#" cfsqltype="cf_sql_timestamp">,
-					'#Session.UID#')
+					<cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />)
 		</cfquery>
 		<cfquery name="getID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	DISTINCT @@IDENTITY AS BRID
@@ -95,11 +95,11 @@
 		</cfquery>
 		<cfquery name="insertDock" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			INSERT INTO Docks (BRID, Status)
-			VALUES		('#getID.BRID#', '#status#')
+			VALUES		(<cfqueryparam value="#getID.BRID#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#status#" cfsqltype="cf_sql_varchar" />)
 		</cfquery>
 		<cfquery name="insertBlankForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			INSERT INTO TariffForms(BRID)
-			VALUES		('#getID.BRID#')
+			VALUES		(<cfqueryparam value="#getID.BRID#" cfsqltype="cf_sql_integer" />)
 		</cfquery>
 	</cftransaction>
 
@@ -107,7 +107,7 @@
 		SELECT	Vessels.Name AS vesselName, CID
 		FROM	Vessels
 			INNER JOIN	Bookings ON Bookings.VNID = Vessels.VNID
-		WHERE	BRID = ('#getID.BRID#')
+		WHERE	BRID = (<cfqueryparam value="#getID.BRID#" cfsqltype="cf_sql_integer" />)
 	</cfquery>
 
 	<cflock scope="session" throwontimeout="no" timeout="30" type="READONLY">
@@ -115,7 +115,7 @@
 			SELECT	firstname + ' ' + lastname AS UserName, Email, Companies.Name AS CompanyName
 			FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
 					INNER JOIN Companies ON UserCompanies.CID = Companies.CID
-			WHERE	Users.UID = #session.UID# AND Companies.CID = '#getDetails.CID#'
+			WHERE	Users.UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" /> AND Companies.CID = <cfqueryparam value="#getDetails.CID#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 	</cflock>
 

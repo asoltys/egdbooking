@@ -19,15 +19,15 @@
 <cfif isdefined('form.UID')>
 	<cfquery name="editPass" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Users
-		SET Password = '#trim(form.password1)#'
-		WHERE UID = #form.UID#
+		SET Password = <cfqueryparam value="#trim(form.password1)#" cfsqltype="cf_sql_varchar" />
+		WHERE UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cfif>
 
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT FirstName, LastName, email, password
 	FROM Users
-	WHERE UID = #form.UID#
+	WHERE UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 
@@ -36,7 +36,7 @@
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UID = '#session.UID#'
+		WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cflock>
 

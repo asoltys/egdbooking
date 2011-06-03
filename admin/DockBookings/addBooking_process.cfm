@@ -105,7 +105,7 @@
 			<cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT 	VNID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
 				FROM 	Vessels, Companies
-				WHERE 	VNID = '#Variables.VNID#'
+				WHERE 	VNID = <cfqueryparam value="#Variables.VNID#" cfsqltype="cf_sql_integer" />
 				AND		Companies.CID = Vessels.CID
 				AND 	Vessels.Deleted = 0
 				AND		Companies.Deleted = 0
@@ -114,7 +114,7 @@
 			<cfquery name="getAgent" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT 	lastname + ', ' + firstname AS UserName
 				FROM 	Users
-				WHERE 	UID = '#Variables.UID#'
+				WHERE 	UID = <cfqueryparam value="#Variables.UID#" cfsqltype="cf_sql_integer" />
 			</cfquery>
 
 			 <!--- Gets all Bookings that would be affected by the requested booking --->

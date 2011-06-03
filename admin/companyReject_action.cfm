@@ -1,32 +1,32 @@
 <cfquery name="RejectUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE 	UserCompanies
 	SET 	Deleted = 1
-	WHERE 	CID = '#Form.CID#'
+	WHERE 	CID = <cfqueryparam value="#Form.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfquery name="RejectCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE 	Companies
 	SET 	Deleted = 1
-	WHERE 	CID = '#Form.CID#'
+	WHERE 	CID = <cfqueryparam value="#Form.CID#" cfsqltype="cf_sql_integer" />
 	AND		Approved = '0'
 </cfquery>
 
 <cfquery name="getCompanyAgents" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Email
 	FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
-	WHERE	CID = '#Form.CID#'
+	WHERE	CID = <cfqueryparam value="#Form.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="companyName" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name
 	FROM	Companies
-	WHERE	CID = '#Form.CID#'
+	WHERE	CID = <cfqueryparam value="#Form.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cflock throwontimeout="no" scope="session" timeout="30" type="readonly">
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UID = '#session.UID#'
+		WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cflock>
 

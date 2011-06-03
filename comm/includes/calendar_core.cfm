@@ -129,7 +129,7 @@ summary="<cfoutput>#language.calendar#</cfoutput>">
 								SELECT	Vessels.VNID
 								FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
 										INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
-								WHERE	Users.UID = #Session.UID# AND VNID = #VNID#
+								WHERE	Users.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" /> AND VNID = <cfqueryparam value="#VNID#" cfsqltype="cf_sql_integer" />
 									AND UserCompanies.Approved = 1 AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
 							</cfquery>
 						</cflock>

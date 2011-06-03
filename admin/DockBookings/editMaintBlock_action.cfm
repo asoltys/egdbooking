@@ -3,14 +3,14 @@
 		UPDATE	Bookings
 		SET		StartDate = <cfqueryparam value="#CreateODBCDate(Form.StartDate)#" cfsqltype="cf_sql_date">,
 				EndDate = <cfqueryparam value="#CreateODBCDate(Form.EndDate)#" cfsqltype="cf_sql_date">
-		WHERE	Bookings.BRID = '#Form.BRID#'
+		WHERE	Bookings.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	<cfquery name="updateDock" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	Docks
-		SET		Section1 = '#Form.Section1#',
-				Section2 = '#Form.Section2#',
-				Section3 = '#Form.Section3#'
-		WHERE	Docks.BRID = '#Form.BRID#'
+		SET		Section1 = <cfqueryparam value="#Form.Section1#" cfsqltype="cf_sql_bit" />,
+				Section2 = <cfqueryparam value="#Form.Section2#" cfsqltype="cf_sql_bit" />,
+				Section3 = <cfqueryparam value="#Form.Section3#" cfsqltype="cf_sql_bit" />
+		WHERE	Docks.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cftransaction>
 	
@@ -18,7 +18,7 @@
 	SELECT	Vessels.Name AS vesselName
 	FROM	Vessels
 		INNER JOIN	Bookings ON Bookings.VNID = Vessels.VNID
-	WHERE	BRID = '#Form.BRID#'
+	WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <!--- URL tokens set-up.  Do not edit unless you KNOW something is wrong.

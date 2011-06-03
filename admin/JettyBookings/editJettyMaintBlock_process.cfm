@@ -81,16 +81,16 @@ function EditSubmit ( selectedform )
 					SELECT 	NorthJetty, SouthJetty, StartDate, EndDate
 					FROM 	Bookings, Jetties
 					WHERE 	Jetties.BRID = Bookings.BRID
-					AND		Bookings.BRID != '#Form.BRID#'
+					AND		Bookings.BRID != <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 					AND		Status = 'M'
 					AND		Deleted = '0'
 					AND 	(
-								(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# <= Bookings.EndDate )
-							OR 	(	Bookings.StartDate <= #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate )
-							OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate )
+								(	Bookings.StartDate <= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate )
+							OR 	(	Bookings.StartDate <= <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate )
+							OR	(	Bookings.StartDate >= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> >= Bookings.EndDate )
 							)
 					AND		(
-								(	NorthJetty = '1' AND '#Variables.NorthJetty#' = '1')
+								(	NorthJetty = '1' AND <cfqueryparam '#Variables.NorthJetty#' = '1')
 							OR	( 	SouthJetty = '1' AND '#Variables.SouthJetty#' = '1')
 							)
 				</cfquery>

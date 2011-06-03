@@ -3,14 +3,14 @@
 <cfquery name="getDeletedCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Name
 	FROM Companies
-	WHERE Name = '#trim(form.Name)#'
+	WHERE Name = <cfqueryparam value="#trim(form.Name)#" cfsqltype="cf_sql_varchar" />
 	AND Deleted = 1
 </cfquery>
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Name AS CompanyName
 	FROM Companies
-	WHERE Name = '#trim(form.Name)#'
+	WHERE Name = <cfqueryparam value="#trim(form.Name)#" cfsqltype="cf_sql_varchar" />
 </cfquery>
 
 <cfif lang EQ "eng">
@@ -100,18 +100,18 @@
 			
 			VALUES
 			(
-				'#trim(form.Name)#',
-				'#trim(form.address1)#',
+				<cfqueryparam value="#trim(form.Name)#" cfsqltype="cf_sql_varchar" />,
+				<cfqueryparam value="#trim(form.address1)#" cfsqltype="cf_sql_varchar" />,
 				<cfif isDefined('form.address2')>
-					'#trim(form.address2)#',
+					<cfqueryparam value="#trim(form.address2)#" cfsqltype="cf_sql_varchar" />,
 				</cfif>
-				'#trim(form.city)#',
-				'#trim(form.province)#',
-				'#trim(form.country)#',
-				'#trim(form.zip)#',
-				'#trim(form.phone)#',
+				<cfqueryparam value="#trim(form.city)#" cfsqltype="cf_sql_varchar" />,
+				<cfqueryparam value="#trim(form.province)#" cfsqltype="cf_sql_varchar" />,
+				<cfqueryparam value="#trim(form.country)#" cfsqltype="cf_sql_varchar" />,
+				<cfqueryparam value="#trim(form.zip)#" cfsqltype="cf_sql_varchar" />,
+				<cfqueryparam value="#trim(form.phone)#" cfsqltype="cf_sql_varchar" />,
 				 <cfif isDefined('form.fax')>
-					'#trim(form.fax)#',
+					<cfqueryparam value="#trim(form.fax)#" cfsqltype="cf_sql_varchar" />,
 				</cfif>
 				0
 			)
@@ -125,7 +125,7 @@
 		<cflock throwontimeout="no" timeout="30" scope="session">
 			<cfquery name="addUserRelation" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				INSERT INTO	UserCompanies (UID, CID)
-				VALUES		(#Session.UID# , #getID.CID#)
+				VALUES		(<cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" /> , <cfqueryparam value="#getID.CID#" cfsqltype="cf_sql_integer" />)
 			</cfquery>
 		</cflock>
 	</cftransaction>
@@ -134,7 +134,7 @@
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	FirstName + ' ' + LastName AS UserName, Email
 	FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
-	WHERE	Users.UID = #session.UID#
+	WHERE	Users.UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 	

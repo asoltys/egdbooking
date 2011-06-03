@@ -21,7 +21,7 @@
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT 	Email
 		FROM	Users
-		WHERE 	EMail = '#trim(form.Email)#'
+		WHERE 	EMail = <cfqueryparam value="#trim(form.Email)#" cfsqltype="cf_sql_varchar" />
 		AND		Deleted = '0'
 	</cfquery>
 
@@ -184,7 +184,7 @@ function EditSubmit ( selectedform )
 							<cfquery name="detailsID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 								SELECT	Name, Approved
 								FROM	Companies
-								WHERE	CID = '#ID#'
+								WHERE	CID = <cfqueryparam value="#ID#" cfsqltype="cf_sql_integer" />
 							</cfquery>
 							<tr>
 								<td style="width:8%;">&nbsp;</td><td>#detailsID.Name#</td>

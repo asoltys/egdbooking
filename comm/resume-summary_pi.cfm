@@ -119,8 +119,8 @@ FROM	Bookings
 WHERE	<!--- (Status = 'c' OR Status = 't')
 	AND --->	Bookings.Deleted = '0'
 	AND	Vessels.Deleted = '0'
-	<CFIF IsDefined('Variables.fromDate') and Variables.fromDate neq ''>AND EndDate >= '#Variables.fromDate#'</CFIF>
-	<CFIF IsDefined('Variables.toDate') and Variables.toDate neq ''>AND StartDate <= '#Variables.toDate#'</CFIF>
+	<CFIF IsDefined('Variables.fromDate') and Variables.fromDate neq ''>AND EndDate >= <cfqueryparam value="#Variables.fromDate#" cfsqltype="cf_sql_date" /></CFIF>
+	<CFIF IsDefined('Variables.toDate') and Variables.toDate neq ''>AND StartDate <= <cfqueryparam value="#Variables.toDate#" cfsqltype="cf_sql_date" /></CFIF>
 	
 ORDER BY	StartDate, VesselName
 </cfquery>
@@ -142,8 +142,8 @@ FROM	Bookings
 
 WHERE	Bookings.Deleted = '0'
 	AND	Vessels.Deleted = '0'
-	<CFIF IsDefined('Variables.fromDate') and Variables.fromDate neq ''>AND EndDate >= '#Variables.fromDate#'</CFIF>
-	<CFIF IsDefined('Variables.toDate') and Variables.toDate neq ''>AND StartDate <= '#Variables.toDate#'</CFIF>
+	<CFIF IsDefined('Variables.fromDate') and Variables.fromDate neq ''>AND EndDate >= <cfqueryparam value="#Variables.fromDate#" cfsqltype="cf_sql_date" /></CFIF>
+	<CFIF IsDefined('Variables.toDate') and Variables.toDate neq ''>AND StartDate <= <cfqueryparam value="#Variables.toDate#" cfsqltype="cf_sql_date" /></CFIF>
 
 ORDER BY	StartDate, VesselName
 </cfquery>
@@ -199,7 +199,7 @@ WHERE	SouthJetty = 1
             SELECT	Vessels.VNID
             FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
                 INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
-            WHERE	Users.UID = #Session.UID# AND VNID = #VNID#
+            WHERE	Users.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" /> AND VNID = <cfqueryparam value="#VNID#" cfsqltype="cf_sql_integer" />
               AND UserCompanies.Approved = 1 AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
           </cfquery>
         </cflock>
@@ -261,7 +261,7 @@ WHERE	SouthJetty = 1
             SELECT	Vessels.VNID
             FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
                 INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
-            WHERE	Users.UID = #Session.UID# AND VNID = #VNID#
+            WHERE	Users.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" /> AND VNID = <cfqueryparam value="#VNID#" cfsqltype="cf_sql_integer" />
               AND UserCompanies.Approved = 1 AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
           </cfquery>
         </cflock>
@@ -313,7 +313,7 @@ WHERE	SouthJetty = 1
             SELECT	Vessels.VNID
             FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
                 INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
-            WHERE	Users.UID = #Session.UID# AND VNID = #VNID#
+            WHERE	Users.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" /> AND VNID = <cfqueryparam value="#VNID#" cfsqltype="cf_sql_integer" />
               AND UserCompanies.Approved = 1 AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
           </cfquery>
         </cflock>

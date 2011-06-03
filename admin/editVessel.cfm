@@ -101,7 +101,7 @@
 					<cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT	Vessels.*, Companies.CID, Companies.Name AS CompanyName
 						FROM	Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
-						WHERE	VNID = '#Form.VNID#'
+						WHERE	VNID = <cfqueryparam value="#Form.VNID#" cfsqltype="cf_sql_integer" />
 							AND	Vessels.Deleted = 0
 					</cfquery>
 

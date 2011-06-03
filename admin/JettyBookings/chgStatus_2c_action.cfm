@@ -40,7 +40,7 @@
 <cfquery name="confirmBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE 	Jetties
 	SET 	Status = 'C'	
-	WHERE 	BRID = #Form.BRID#
+	WHERE 	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -55,21 +55,21 @@
 		INNER JOIN Vessels 
 			ON Bookings.VNID = Vessels.VNID
 	WHERE 
-		BRID = '#Form.BRID#'
+		BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cflock throwontimeout="no" scope="session" timeout="30" type="readonly">
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UID = '#session.UID#'
+		WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cflock>
 <cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE  Bookings
-	SET		BookingTimeChange = #PacificNow#,
+	SET		BookingTimeChange = <cfqueryparam value="#PacificNow#" cfsqltype="cf_sql_timestamp" />,
 			BookingTimeChangeStatus = 'Confirmed at'
-	WHERE	BRID = '#Form.BRID#'
+	WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfoutput>
 <cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Confirmed - R&eacute;servation confirm&eacute;e: #getDetails.VesselName#" type="html">

@@ -21,7 +21,7 @@
 			Section1, Section2, Section3
 	FROM	Docks, Bookings, Vessels, Companies
 	WHERE	Bookings.BRID = Docks.BRID
-	AND		Bookings.BRID = '#Form.BRID#'
+	AND		Bookings.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 	AND		Vessels.VNID = Bookings.VNID
 	AND		Companies.CID = Vessels.CID
 </cfquery>

@@ -10,11 +10,11 @@
 				EndDate, 
 				BookingTime, 
 				UID)
-		VALUES	(#form.VNID#,
-				#CreateODBCDate(Form.StartDate)#,
-				#CreateODBCDate(Form.EndDate)#, 
-				#CreateODBCDateTime(Variables.BookingDateTime)#, 
-				#form.UID#)
+		VALUES	(<cfqueryparam value="#form.VNID#" cfsqltype="cf_sql_integer" />,
+				<cfqueryparam value="#CreateODBCDate(Form.StartDate)#" cfsqltype="cf_sql_date" />,
+				<cfqueryparam value="#CreateODBCDate(Form.EndDate)#" cfsqltype="cf_sql_date" />, 
+				<cfqueryparam value="#CreateODBCDateTime(Variables.BookingDateTime)#" cfsqltype="cf_sql_timestamp" />, 
+				<cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />)
 	</cfquery>
 	<cfquery name="getID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT @@IDENTITY AS BRID
@@ -37,7 +37,7 @@
 						<cfelse>
 						SouthJetty
 						</cfif>, Status)
-	VALUES		('#getID.BRID#', 1, '#Form.Status#')
+	VALUES		(<cfqueryparam value="#getID.BRID#" cfsqltype="cf_sql_integer" />, 1, <cfqueryparam value="#Form.Status#" cfsqltype="cf_sql_varchar" />)
 </cfquery>
 
 <cflock timeout=20 scope="Session" type="Exclusive">
@@ -49,7 +49,7 @@
 	FROM	Bookings INNER JOIN Users ON Bookings.UID = Users.UID 
 			INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 			INNER JOIN Jetties ON Jetties.BRID = Bookings.BRID
-	WHERE	Bookings.BRID = '#getID.BRID#'
+	WHERE	Bookings.BRID = <cfqueryparam value="#getID.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 		
 			
@@ -64,7 +64,7 @@
 		<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	Email
 			FROM	Users
-			WHERE	UID = '#session.UID#'
+			WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 	</cflock>
 	

@@ -32,7 +32,7 @@
 <cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT ReadOnly
 	FROM Users
-	WHERE UID = #Session.UID#
+	WHERE UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfoutput query="readonlycheck">
 	<cfset Session.ReadOnly = #ReadOnly#>
@@ -59,7 +59,7 @@
 <cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Vessels.*, Companies.Name AS CompanyName, Companies.CID
 	FROM  Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
-	WHERE VNID = #url.VNID#
+	WHERE VNID = <cfqueryparam value="#url.VNID#" cfsqltype="cf_sql_integer" />
 	AND Vessels.deleted = 0
 </cfquery>
 

@@ -54,10 +54,10 @@
 		SELECT count(*) as numPend
 		FROM Docks, Bookings
 		WHERE (
-				(Bookings.StartDate = '#dateformat(variables.startDate, "mm/dd/yyyy")#' AND Bookings.EndDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
-				OR	(Bookings.startDate <= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
-				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
-				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
+				(Bookings.StartDate = <cfqueryparam value="#dateformat(variables.startDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" /> AND Bookings.EndDate <= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
+				OR	(Bookings.startDate <= <cfqueryparam value="#dateformat(variables.startDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />	AND Bookings.endDate >= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
+				OR	(Bookings.startDate <= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />	AND Bookings.endDate >= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
+				OR 	(Bookings.endDate >= <cfqueryparam value="#dateformat(variables.startDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />	AND Bookings.endDate <= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
 			)
 		AND Docks.BRID = Bookings.BRID AND (Status = 'PC' OR Status = 'PT' OR Status = 'PX') AND Bookings.Deleted = '0'
 </cfquery>
@@ -65,23 +65,23 @@
 		SELECT count(*) as numTent
 		FROM Docks, Bookings
 		WHERE (
-				(Bookings.StartDate = '#dateformat(variables.startDate, "mm/dd/yyyy")#' AND Bookings.EndDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
-				OR	(Bookings.startDate <= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
-				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
-				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
+				(Bookings.StartDate = <cfqueryparam value="#dateformat(variables.startDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" /> AND Bookings.EndDate <= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
+				OR	(Bookings.startDate <= <cfqueryparam value="#dateformat(variables.startDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />	AND Bookings.endDate >= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
+				OR	(Bookings.startDate <= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />	AND Bookings.endDate >= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
+				OR 	(Bookings.endDate >= <cfqueryparam value="#dateformat(variables.startDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />	AND Bookings.endDate <= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
 			)
 		AND Docks.BRID = Bookings.BRID AND Status = 'T' AND Bookings.Deleted = '0'
 		<!--- Eliminates any Tentative bookings with a start date before today --->
-		AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= '#LSDateFormat(PacificNow, "yyyy-MM-dd")#'))
+		AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= <cfqueryparam value="#LSDateFormat(PacificNow, 'yyyy-MM-dd')#" cfsqltype="cf_sql_date" />))
 </cfquery>
 <cfquery name="countConfirmed" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT count(*) as numConf
 		FROM Docks, Bookings
 		WHERE (
-				(Bookings.StartDate = '#dateformat(variables.startDate, "mm/dd/yyyy")#' AND Bookings.EndDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
-				OR	(Bookings.startDate <= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
-				OR	(Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
-				OR 	(Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
+				(Bookings.StartDate = <cfqueryparam value="#dateformat(variables.startDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" /> AND Bookings.EndDate <= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
+				OR	(Bookings.startDate <= <cfqueryparam value="#dateformat(variables.startDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />	AND Bookings.endDate >= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
+				OR	(Bookings.startDate <= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />	AND Bookings.endDate >= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
+				OR 	(Bookings.endDate >= <cfqueryparam value="#dateformat(variables.startDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />	AND Bookings.endDate <= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
 			)
 		AND Docks.BRID = Bookings.BRID AND Status = 'C' AND Bookings.Deleted = '0'
 </cfquery>
@@ -229,16 +229,16 @@ function EditSubmit ( selectedform )
 						SELECT 	Bookings.EndHighlight AS EndHighlight, Bookings.*, Vessels.Name AS VesselName, Docks.Status
 						FROM 	Bookings INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 									INNER JOIN Docks ON Bookings.BRID = Docks.BRID
-						WHERE  ((Bookings.startDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'
-								AND Bookings.startDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
-							OR (Bookings.startDate <= '#dateformat(variables.startDate, "mm/dd/yyyy")#'
-								AND Bookings.endDate >= '#dateformat(variables.endDate, "mm/dd/yyyy")#')
-							OR (Bookings.endDate >= '#dateformat(variables.startDate, "mm/dd/yyyy")#'
-								AND Bookings.endDate <= '#dateformat(variables.endDate, "mm/dd/yyyy")#'))
+						WHERE  ((Bookings.startDate >= <cfqueryparam value="#dateformat(variables.startDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />
+								AND Bookings.startDate <= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
+							OR (Bookings.startDate <= <cfqueryparam value="#dateformat(variables.startDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />
+								AND Bookings.endDate >= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
+							OR (Bookings.endDate >= <cfqueryparam value="#dateformat(variables.startDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />
+								AND Bookings.endDate <= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />))
 							AND Bookings.Deleted = 0
 							AND Vessels.Deleted = 0
 							<!--- Eliminates any Tentative bookings with a start date before today --->
-							AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= '#LSDateFormat(PacificNow, "yyyy-MM-dd")#'))
+							AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= <cfqueryparam value="#LSDateFormat(PacificNow, 'yyyy-MM-dd')#" cfsqltype="cf_sql_date" />))
 
 						<cfif variables.showPend EQ true AND variables.showTent EQ false AND variables.showConf EQ false>
 							AND (Docks.Status = 'PC' OR Docks.Status = 'PX' OR Docks.Status = 'PT')
@@ -336,7 +336,7 @@ function EditSubmit ( selectedform )
 								AND		Vessels.CID = Companies.CID
 
 								AND		Bookings.UID = Users.UID
-								AND		Bookings.BRID = '#ID#'
+								AND		Bookings.BRID = <cfqueryparam value="#ID#" cfsqltype="cf_sql_integer" />
 								AND		Docks.BRID = Bookings.BRID
 							</cfquery>
 
@@ -490,9 +490,9 @@ function EditSubmit ( selectedform )
 						SELECT  Bookings.*, Docks.Section1, Docks.Section2, Docks.Section3
 						FROM 	Bookings INNER JOIN Docks ON Bookings.BRID = Docks.BRID
 						WHERE	(
-									(Bookings.startDate >= '#dateformat(form.startDate, "mm/dd/yyyy")#'	AND Bookings.startDate <= '#dateformat(form.endDate, "mm/dd/yyyy")#')
-								OR	(Bookings.startDate <= '#dateformat(form.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate >= '#dateformat(form.endDate, "mm/dd/yyyy")#')
-								OR 	(Bookings.endDate >= '#dateformat(form.startDate, "mm/dd/yyyy")#'	AND Bookings.endDate <= '#dateformat(form.endDate, "mm/dd/yyyy")#')
+									(Bookings.startDate >= <cfqueryparam value="#dateformat(form.startDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />	AND Bookings.startDate <= <cfqueryparam value="#dateformat(form.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
+								OR	(Bookings.startDate <= <cfqueryparam value="#dateformat(form.startDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />	AND Bookings.endDate >= <cfqueryparam value="#dateformat(form.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
+								OR 	(Bookings.endDate >= <cfqueryparam value="#dateformat(form.startDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />	AND Bookings.endDate <= <cfqueryparam value="#dateformat(form.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />)
 								)
 						AND 	Bookings.Deleted = 0
 						AND 	Docks.Status = 'M'

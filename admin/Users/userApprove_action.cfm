@@ -1,20 +1,20 @@
 <cfquery name="ApproveUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE	UserCompanies
 	SET		Approved = 1
-	WHERE	UID = '#Form.UID#' 
-	AND		CID = '#Form.CID#'
+	WHERE	UID = <cfqueryparam value="#Form.UID#" cfsqltype="cf_sql_integer" /> 
+	AND		CID = <cfqueryparam value="#Form.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	FirstName + ' ' + LastName AS UserName, Email
 	FROM	Users
-	WHERE	UID = '#Form.UID#'
+	WHERE	UID = <cfqueryparam value="#Form.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name AS CompanyName
 	FROM	Companies
-	WHERE	CID = '#Form.CID#'
+	WHERE	CID = <cfqueryparam value="#Form.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 
@@ -23,7 +23,7 @@
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UID = '#session.UID#'
+		WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cflock>
 

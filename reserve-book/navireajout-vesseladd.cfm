@@ -28,7 +28,7 @@
 	<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT Name, Companies.CID
 		FROM Companies INNER JOIN UserCompanies ON Companies.CID = UserCompanies.CID
-		WHERE UserCompanies.UID = #session.UID# AND UserCompanies.Approved = 1
+		WHERE UserCompanies.UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" /> AND UserCompanies.Approved = 1
 				AND Companies.Deleted = 0 AND UserCompanies.Deleted = 0 AND Companies.Approved = 1
 	</cfquery>
 </cflock>

@@ -1,7 +1,7 @@
 <cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
 	<cfset language.invalidEmailError = "Please check that the email address is valid.">
 	<cfset language.unapprovedEmailError = "Your login has not yet been approved.  Please wait until you receive an approval email.">
-	<cfset language.incorrectPasswordError = "The password that was entered is incorrect.  Please try again.">
+	<cfset language.incorrectPasswordError = "The information that was entered is incorrect.  Please try again.">
 	<cfset language.duplicateVesselError = "A vessel with that name already exists.">
 	<cfset language.startTodayError = "The start date can not be set for today.">
 	<cfset language.endBeforeStartError = "The Start Date must be before the End Date.">
@@ -17,7 +17,7 @@
 <cfelse>
 	<cfset language.invalidEmailError = "Veuillez v&eacute;rifier la validit&eacute; de votre addresse de courriel.">
 	<cfset language.unapprovedEmailError = "Votre acc&egrave;s au syst&egrave;me n'a pas encore &eacute;t&eacute; approuv&eacute;. Veuillez attendre de recevoir un courriel d'approbation.">
-	<cfset language.incorrectPasswordError = "Le mot de passe entr&eacute; est incorrect. Veuillez r&eacute;essayer.">
+	<cfset language.incorrectPasswordError = "Les informations saisies sont incorrectes. Veuillez r&eacute;essayer.">
 	<cfset language.duplicateVesselError = "Un navire portant ce nom existe d&eacute;j&agrave;.">
 	<cfset language.startTodayError = "La date de d&eacute;but ne peut pas &ecirc;tre aujourd'hui.">
 	<cfset language.endBeforeStartError = "La date de d&eacute;but doit pr&eacute;c&eacute;der la date de fin.">

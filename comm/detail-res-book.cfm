@@ -46,7 +46,7 @@
 <cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT ReadOnly
 	FROM Users
-	WHERE UID = #Session.UID#
+	WHERE UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfoutput query="readonlycheck">
 	<cfset Session.ReadOnly = #ReadOnly#>
@@ -98,7 +98,7 @@
 		INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
 		INNER JOIN	Companies ON Vessels.CID = Companies.CID
 		INNER JOIN	Users ON Bookings.UID = Users.UID
-	WHERE	Bookings.BRID = #url.BRID#
+	WHERE	Bookings.BRID = <cfqueryparam value="#url.BRID#" cfsqltype="cf_sql_integer" />
 		AND Bookings.Deleted = '0'
 		AND Vessels.Deleted = '0'
 </cfquery>
@@ -106,8 +106,8 @@
 <cfquery name="isUsers" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	UID, CID
 	FROM	UserCompanies
-	WHERE	UID = '#session.UID#'
-		AND	CID = '#getBookingDetail.CID#'
+	WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
+		AND	CID = <cfqueryparam value="#getBookingDetail.CID#" cfsqltype="cf_sql_integer" />
 		AND	Approved = 1
 		AND	Deleted = 0
 </cfquery>
@@ -166,7 +166,7 @@
 						SELECT	Vessels.VNID
 						FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
 								INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
-						WHERE	Users.UID = #Session.UID# AND Vessels.VNID = #getBookingDetail.VNID#
+						WHERE	Users.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" /> AND Vessels.VNID = <cfqueryparam value="#getBookingDetail.VNID#" cfsqltype="cf_sql_integer" />
 					</cfquery>
 				</cflock>
 

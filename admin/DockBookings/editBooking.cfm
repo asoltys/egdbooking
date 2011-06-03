@@ -97,7 +97,7 @@
 						WHERE	Vessels.VNID = Bookings.VNID
 						AND		Vessels.CID = Companies.CID
 						AND		Docks.BRID = Bookings.BRID
-						AND		Bookings.BRID = '#Variables.BRID#'
+						AND		Bookings.BRID = <cfqueryparam value="#Variables.BRID#" cfsqltype="cf_sql_integer" />
 					</cfquery>
 					<cfif Variables.Section1 EQ 1>
 						<cfset Variables.Section1 = "checked">
@@ -124,7 +124,7 @@
 						WHERE	Vessels.VNID = Bookings.VNID
 							AND	Vessels.CID = Companies.CID
 							AND	Docks.BRID = Bookings.BRID
-							AND	Bookings.BRID = '#Variables.BRID#'
+							AND	Bookings.BRID = <cfqueryparam value="#Variables.BRID#" cfsqltype="cf_sql_integer" />
 					</cfquery>
 
 					<cfset Variables.StartDate = getBooking.StartDate>
@@ -157,7 +157,7 @@
 					SELECT	Users.UID, lastname + ', ' + firstname AS UserName
 					FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
 							INNER JOIN Companies ON UserCompanies.CID = Companies.CID
-					WHERE	Companies.CID = #getBooking.CID# AND Users.Deleted = 0
+					WHERE	Companies.CID = <cfqueryparam value="#getBooking.CID#" cfsqltype="cf_sql_integer" /> AND Users.Deleted = 0
 							AND UserCompanies.Deleted = 0 AND UserCompanies.Approved = 1
 					ORDER BY lastname, firstname
 				</cfquery>

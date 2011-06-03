@@ -107,7 +107,7 @@ function EditSubmit ( selectedform )
 				SELECT 	Vessels.VNID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName, Docks.Status
 				FROM 	Vessels, Companies, Bookings, Docks
 				WHERE 	Vessels.VNID = Bookings.VNID
-				AND		Bookings.BRID = '#Form.BRID#'
+				AND		Bookings.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 				AND		Docks.BRID = Bookings.BRID
 				AND		Companies.CID = Vessels.CID
 				AND 	Vessels.Deleted = 0
@@ -116,7 +116,7 @@ function EditSubmit ( selectedform )
 			<cfquery name="getAgent" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT 	lastname + ', ' + firstname AS UserName
 				FROM 	Users
-				WHERE 	UID = '#Variables.UID#'
+				WHERE 	UID = <cfqueryparam value="#Variables.UID#" cfsqltype="cf_sql_integer" />
 			</cfquery>
 			<cfset Variables.VNID = getData.VNID>
 
@@ -126,12 +126,12 @@ function EditSubmit ( selectedform )
 				FROM 	Bookings
 							INNER JOIN Vessels ON Vessels.VNID = Bookings.VNID
 							INNER JOIN Docks ON Bookings.BRID = Docks.BRID
-				WHERE 	Bookings.VNID = '#Variables.VNID#'
-				AND 	Bookings.BRID != '#Form.BRID#'
+				WHERE 	Bookings.VNID = <cfqueryparam value="#Variables.VNID#" cfsqltype="cf_sql_integer" />
+				AND 	Bookings.BRID != <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 				AND 	(
-							(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# <= Bookings.EndDate )
-						OR 	(	Bookings.StartDate <= #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate )
-						OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate)
+							(	Bookings.StartDate <= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate )
+						OR 	(	Bookings.StartDate <= <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate )
+						OR	(	Bookings.StartDate >= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> >= Bookings.EndDate)
 						)
 				AND		Bookings.Deleted = 0
 			</cfquery>

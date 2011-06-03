@@ -1,7 +1,7 @@
 <cfquery name="deleteBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE	Bookings
 	SET		Deleted = 1
-	WHERE	BRID = '#Form.BRID#'
+	WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <!--- get the details for the booking --->
@@ -12,7 +12,7 @@ FROM	Bookings INNER JOIN Vessels ON
 		Vessels.CID = UserCompanies.CID INNER JOIN Companies ON 
 		Vessels.CID = Companies.CID INNER JOIN Users ON
 		Bookings.UID = Users.UID AND UserCompanies.UID = Users.UID
-WHERE   Bookings.BRID = '#Form.BRID#'
+WHERE   Bookings.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfif getBooking.RecordCount NEQ 0>

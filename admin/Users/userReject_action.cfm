@@ -2,7 +2,7 @@
 <cfquery name="countCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT 	*
 	FROM 	UserCompanies
-	WHERE 	UID = '#Form.UID#' AND Deleted = 0
+	WHERE 	UID = <cfqueryparam value="#Form.UID#" cfsqltype="cf_sql_integer" /> AND Deleted = 0
 </cfquery>
 
 <!--- Joao Edit --->
@@ -10,7 +10,7 @@
 	<cfquery name="deleteUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE  Users
 		SET     Deleted = 1
-		WHERE 	UID = '#Form.UID#'
+		WHERE 	UID = <cfqueryparam value="#Form.UID#" cfsqltype="cf_sql_integer" />
 		AND     Deleted = 0
 	</cfquery>
 </cfif>
@@ -18,27 +18,27 @@
 <cfquery name="RejectUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE 	UserCompanies
 	SET 	Deleted = 1
-	WHERE 	UID = '#Form.UID#'
-	AND		CID = '#Form.CID#'
+	WHERE 	UID = <cfqueryparam value="#Form.UID#" cfsqltype="cf_sql_integer" />
+	AND		CID = <cfqueryparam value="#Form.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	FirstName + ' ' + LastName AS UserName, Email
 	FROM	Users
-	WHERE	UID = '#Form.UID#'
+	WHERE	UID = <cfqueryparam value="#Form.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name AS CompanyName
 	FROM	Companies
-	WHERE	CID = '#Form.CID#'
+	WHERE	CID = <cfqueryparam value="#Form.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cflock throwontimeout="no" scope="session" timeout="30" type="readonly">
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UID = '#session.UID#'
+		WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cflock>
 

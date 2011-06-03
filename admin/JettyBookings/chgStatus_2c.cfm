@@ -77,7 +77,7 @@
 						INNER JOIN Companies
 							ON Companies.CID = Vessels.CID
 					WHERE
-						Bookings.BRID = '#Variables.BRID#'
+						Bookings.BRID = <cfqueryparam value="#Variables.BRID#" cfsqltype="cf_sql_integer" />
 				</cfquery>
 				<!---Check to see if jetty has already reached capacity (304m for NLW and 301m for South Jetty)--->
 				<CFIF theBooking.NorthJetty>
@@ -90,7 +90,7 @@
 					FROM		Bookings INNER JOIN
 					Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 					Vessels ON Bookings.VNID = Vessels.VNID
-					WHERE		((Bookings.StartDate <= '#tempDate#' AND Bookings.EndDate >= '#tempDate#'))
+					WHERE		((Bookings.StartDate <= <cfqueryparam value="#tempDate#" cfsqltype="cf_sql_date" /> AND Bookings.EndDate >= <cfqueryparam value="#tempDate#" cfsqltype="cf_sql_date" />))
 					AND Jetties.NorthJetty = '1'
 					AND	Bookings.Deleted = '0'
 					AND Jetties.Status = 'C'
@@ -126,7 +126,7 @@
 					FROM		Bookings INNER JOIN
 					Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 					Vessels ON Bookings.VNID = Vessels.VNID
-					WHERE		((Bookings.StartDate <= '#errorDate#' AND Bookings.EndDate >= '#errorDate#'))
+					WHERE		((Bookings.StartDate <= <cfqueryparam value="#errorDate#" cfsqltype="cf_sql_date" /> AND Bookings.EndDate >= <cfqueryparam value="#errorDate#" cfsqltype="cf_sql_date" />))
 					AND Jetties.NorthJetty = '1'
 					AND	Bookings.Deleted = '0'
 					AND Jetties.Status = 'C'
@@ -153,7 +153,7 @@
 					FROM		Bookings INNER JOIN
 					Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 					Vessels ON Bookings.VNID = Vessels.VNID
-					WHERE		((Bookings.StartDate <= '#tempDate#' AND Bookings.EndDate >= '#tempDate#'))
+					WHERE		((Bookings.StartDate <= <cfqueryparam value="#tempDate#" cfsqltype="cf_sql_date" /> AND Bookings.EndDate >= <cfqueryparam value="#tempDate#" cfsqltype="cf_sql_date" />))
 					AND Jetties.SouthJetty = '1'
 					AND	Bookings.Deleted = '0'
 					AND Jetties.Status = 'C'
@@ -189,7 +189,7 @@
 					FROM		Bookings INNER JOIN
 					Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 					Vessels ON Bookings.VNID = Vessels.VNID
-					WHERE		((Bookings.StartDate <= '#errorDate#' AND Bookings.EndDate >= '#errorDate#'))
+					WHERE		((Bookings.StartDate <= <cfqueryparam value="#errorDate#" cfsqltype="cf_sql_date" /> AND Bookings.EndDate >= <cfqueryparam value="#errorDate#" cfsqltype="cf_sql_date" />))
 					AND Jetties.SouthJetty = '1'
 					AND	Bookings.Deleted = '0'
 					AND Jetties.Status = 'C'

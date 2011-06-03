@@ -2,26 +2,26 @@
 	<cfquery name="confirmRequest" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	Jetties
 		SET		Status = 'PC'
-		WHERE	BRID = #Form.BRID#
+		WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 <CFELSE>
 	<cfquery name="confirmRequest" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	Docks
 		SET		Status = 'PC'
-		WHERE	BRID = #Form.BRID#
+		WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </CFIF>
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS vesselName, StartDate, EndDate
 	FROM	Bookings INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
-	WHERE	Bookings.BRID = '#Form.BRID#'
+	WHERE	Bookings.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <CFIF #URL.jetty#>
 <cfquery name="NorthSouth" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	NorthJetty, SouthJetty, Jetties.BRID
 	FROM	Jetties 
-	WHERE   Jetties.BRID = '#Form.BRID#'
+	WHERE   Jetties.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfoutput query="NorthSouth">
 <cfif NorthJetty EQ "1"><cfset northorsouth = "North"></cfif>
@@ -33,16 +33,16 @@
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	firstname + ' ' + lastname AS UserName, Email
 		FROM	Users
-		WHERE	UID = #session.UID#
+		WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cflock>
 
 <cfoutput>
 <cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE  Bookings
-	SET		BookingTimeChange = #PacificNow#,
-			BookingTimeChangeStatus = '#getUser.UserName# requested to confirm at'
-	WHERE	BRID = '#Form.BRID#'
+	SET		BookingTimeChange = <cfqueryparam value="#PacificNow#" cfsqltype="cf_sql_timestamp" />,
+			BookingTimeChangeStatus = <cfqueryparam value="#getUser.UserName#" cfsqltype="cf_sql_varchar" /> requested to confirm at'
+	WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 

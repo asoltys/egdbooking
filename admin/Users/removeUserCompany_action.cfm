@@ -2,7 +2,7 @@
 	<cfquery name="editUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	UserCompanies
 		SET		Deleted = 1
-		WHERE	UserCompanies.UID = #form.UID# AND UserCompanies.CID = #form.CID#
+		WHERE	UserCompanies.UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" /> AND UserCompanies.CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	
 	<cflocation addtoken="no" url="editUser.cfm?lang=#lang#&UID=#form.UID#">
@@ -11,19 +11,19 @@
 	<cfquery name="removeUserCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	UserCompanies
 		SET		Deleted = 1
-		WHERE	UserCompanies.UID = #url.UID# AND UserCompanies.CID = #url.CID#
+		WHERE	UserCompanies.UID = <cfqueryparam value="#url.UID#" cfsqltype="cf_sql_integer" /> AND UserCompanies.CID = <cfqueryparam value="#url.CID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT FirstName, LastName
 		FROM Users
-		WHERE UID = #url.UID#
+		WHERE UID = <cfqueryparam value="#url.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	
 	<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Name AS CompanyName
 		FROM	Companies
-		WHERE	CID = #url.CID#
+		WHERE	CID = <cfqueryparam value="#url.CID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	
 	<cfset Session.Success.Breadcrumb = "Delete User">

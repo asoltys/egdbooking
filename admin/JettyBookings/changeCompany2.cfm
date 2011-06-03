@@ -9,12 +9,12 @@
 <cfquery name="getUserName" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 SELECT UserCompanies.UID, Users.FirstName, Users.LastName
 	FROM UserCompanies JOIN Users ON UserCompanies.UID = Users.UID
-	WHERE UserCompanies.Approved = 1 AND UserCompanies.Deleted = 0 AND UserCompanies.CID = '#newCID#'
+	WHERE UserCompanies.Approved = 1 AND UserCompanies.Deleted = 0 AND UserCompanies.CID = <cfqueryparam value="#newCID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfquery name="getCompanyDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 SELECT Name as CompanyDetail
 	FROM Companies
-	WHERE CID = '#newCID#'
+	WHERE CID = <cfqueryparam value="#newCID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->

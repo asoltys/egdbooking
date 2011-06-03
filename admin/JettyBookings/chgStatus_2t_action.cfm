@@ -45,20 +45,20 @@
 		INNER JOIN Vessels 
 			ON Bookings.VNID = Vessels.VNID
 	WHERE 
-		Bookings.BRID = '#Form.BRID#'
+		Bookings.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="confirmBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE 	Jetties
 	SET 	Status = 'T'	
-	WHERE 	BRID = #Form.BRID#
+	WHERE 	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cflock throwontimeout="no" scope="session" timeout="30" type="readonly">
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UID = '#session.UID#'
+		WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cflock>
 
@@ -66,9 +66,9 @@
 <cfif getDetails.Status EQ 'C'>
 <cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE  Bookings
-	SET		BookingTimeChange = #PacificNow#,
+	SET		BookingTimeChange = <cfqueryparam value="#PacificNow#" cfsqltype="cf_sql_timestamp" />,
 			BookingTimeChangeStatus = 'Set tentative at'
-	WHERE	BRID = '#Form.BRID#'
+	WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfoutput>
 <cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Unconfirmed - R&eacute;servation non confirm&eacute;e: #getDetails.VesselName#" type="html">
@@ -84,9 +84,9 @@
 <cfelseif getDetails.Status EQ 'PT'>
 <cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE  Bookings
-	SET		BookingTimeChange = #PacificNow#,
+	SET		BookingTimeChange = <cfqueryparam value="#PacificNow#" cfsqltype="cf_sql_timestamp" />,
 			BookingTimeChangeStatus = 'Set tentative at'
-	WHERE	BRID = '#Form.BRID#'
+	WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfoutput>
 	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Approved - R&eacute;servation approuv&eacute;: #getDetails.VesselName#" type="html">

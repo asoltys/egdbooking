@@ -75,7 +75,7 @@ var params = {
 	<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	*
 		FROM	Companies
-		WHERE	Companies.CID = '#url.CID#'
+		WHERE	Companies.CID = <cfqueryparam value="#url.CID#" cfsqltype="cf_sql_integer" />
 			AND	Deleted = '0'
 		ORDER BY	Name
 	</cfquery>
@@ -83,7 +83,7 @@ var params = {
 	<cfquery name="getAgents" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	FirstName, LastName
 		FROM	Users	INNER JOIN	UserCompanies ON Users.UID = UserCompanies.UID
-		WHERE	UserCompanies.CID = '#url.CID#'
+		WHERE	UserCompanies.CID = <cfqueryparam value="#url.CID#" cfsqltype="cf_sql_integer" />
 			AND Users.Deleted = '0'
 			AND UserCompanies.Approved = '1'
 			AND	UserCompanies.Deleted = '0'

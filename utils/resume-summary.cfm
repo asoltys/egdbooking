@@ -65,9 +65,9 @@ WHERE	(Status = 'c' OR Status = 't')
 	AND	Bookings.Deleted = '0'
 	AND	Vessels.Deleted = '0'
 	<!--- Eliminates any Tentative bookings with a start date before today --->
-	AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= #PacificNow#))
-	<CFIF IsDefined('Variables.CalStartDate') and Variables.CalStartDate neq ''>AND EndDate >= '#Variables.CalStartDate#'</CFIF>
-	<CFIF IsDefined('Variables.CalEndDate') and Variables.CalEndDate neq ''>AND StartDate <= '#Variables.CalEndDate#'</CFIF>
+	AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= <cfqueryparam value="#PacificNow#" cfsqltype="cf_sql_date" />))
+	<CFIF IsDefined('Variables.CalStartDate') and Variables.CalStartDate neq ''>AND EndDate >= <cfqueryparam value="#Variables.CalStartDate#" cfsqltype="cf_sql_date" /></CFIF>
+	<CFIF IsDefined('Variables.CalEndDate') and Variables.CalEndDate neq ''>AND StartDate <= <cfqueryparam value="#Variables.CalEndDate#" cfsqltype="cf_sql_date" /></CFIF>
 	
 ORDER BY	StartDate, EndDate, VesselName
 </cfquery>
@@ -90,10 +90,10 @@ FROM	Bookings
 WHERE	Bookings.Deleted = '0'
 	AND	Vessels.Deleted = '0'
 	AND (Status ='c' OR Status = 't')
-	<CFIF IsDefined('Variables.CalStartDate') and Variables.CalStartDate neq ''>AND EndDate >= '#Variables.CalStartDate#'</CFIF>
-	<CFIF IsDefined('Variables.CalEndDate') and Variables.CalEndDate neq ''>AND StartDate <= '#Variables.CalEndDate#'</CFIF>
+	<CFIF IsDefined('Variables.CalStartDate') and Variables.CalStartDate neq ''>AND EndDate >= <cfqueryparam value="#Variables.CalStartDate#" cfsqltype="cf_sql_date" /></CFIF>
+	<CFIF IsDefined('Variables.CalEndDate') and Variables.CalEndDate neq ''>AND StartDate <= <cfqueryparam value="#Variables.CalEndDate#" cfsqltype="cf_sql_date" /></CFIF>
 	<!--- Eliminates any Tentative bookings with a start date before today --->
-	AND ((Jetties.status <> 'T') OR (Jetties.status = 'T' AND Bookings.startDate >= #PacificNow#))
+	AND ((Jetties.status <> 'T') OR (Jetties.status = 'T' AND Bookings.startDate >= <cfqueryparam value="#PacificNow#" cfsqltype="cf_sql_date" />))
 
 ORDER BY	StartDate, EndDate, VesselName
 </cfquery>

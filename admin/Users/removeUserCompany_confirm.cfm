@@ -12,13 +12,13 @@
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name
 	FROM	Companies
-	WHERE	CID = #form.CID#
+	WHERE	CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT FirstName + ' ' + LastName AS UserName
 	FROM Users
-	WHERE UID = #form.UID#
+	WHERE UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <!-- Start JavaScript Block -->

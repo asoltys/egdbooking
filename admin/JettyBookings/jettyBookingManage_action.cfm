@@ -2,14 +2,14 @@
 	SELECT	Email, Vessels.Name AS VesselName, StartDate, EndDate
 	FROM	Bookings INNER JOIN Users ON Bookings.UID = Users.UID 
 			INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
-	WHERE	BRID = '#Form.ID#'
+	WHERE	BRID = <cfqueryparam value="#Form.ID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 	
 <cflock throwontimeout="no" scope="session" timeout="30" type="readonly">
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UID = '#session.UID#'
+		WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cflock>
 
@@ -29,7 +29,7 @@
 	<cfquery name="updateBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE 	Jetties
 		SET 	Status = 'C'
-		WHERE 	BRID = #form.id#
+		WHERE 	BRID = <cfqueryparam value="#Form.ID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	
 	<cfoutput>
@@ -50,7 +50,7 @@
 	<cfquery name="updateBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Jetties
 		SET Status = 'PT'
-		WHERE BRID = #form.id#
+		WHERE BRID = <cfqueryparam value="#Form.ID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	
 	

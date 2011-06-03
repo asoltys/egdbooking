@@ -88,8 +88,8 @@
 					FROM	Bookings
 						INNER JOIN	Jetties ON Bookings.BRID = Jetties.BRID
 						INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
-					WHERE	StartDate <= #lastdayofbunch#
-						AND EndDate >= #firstdayofbunch#
+					WHERE	StartDate <= <cfqueryparam value="#lastdayofbunch#" cfsqltype="cf_sql_date" />
+						AND EndDate >= <cfqueryparam value="#firstdayofbunch#" cfsqltype="cf_sql_date" />
 						AND	Bookings.Deleted = '0'
 						AND	Vessels.Deleted = '0'
 
@@ -102,8 +102,8 @@
 						'0' AS dummy3
 					FROM	Bookings
 						INNER JOIN	Jetties ON Bookings.BRID = Jetties.BRID
-					WHERE	StartDate <= #lastdayofbunch#
-						AND EndDate >= #firstdayofbunch#
+					WHERE	StartDate <= <cfqueryparam value="#lastdayofbunch#" cfsqltype="cf_sql_date" />
+						AND EndDate >= <cfqueryparam value="#firstdayofbunch#" cfsqltype="cf_sql_date" />
 						AND	Bookings.Deleted = '0'
 						AND	Status = 'm'
 				</cfquery>

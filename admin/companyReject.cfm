@@ -14,7 +14,7 @@
 <cfquery name="GetNewCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT 	CID, Name
 	FROM	Companies
-	WHERE	CID = '#Form.CID#'
+	WHERE	CID = <cfqueryparam value="#Form.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <!---<cfquery name="GetUsers" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT 	FirstName, LastName, Email

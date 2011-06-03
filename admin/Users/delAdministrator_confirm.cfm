@@ -13,7 +13,7 @@
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT Users.UID, FirstName + ' ' + LastName AS UserName
 		FROM Users
-		WHERE UID = #form.UID#
+		WHERE UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cflock>
 

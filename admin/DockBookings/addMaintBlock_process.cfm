@@ -84,14 +84,14 @@ function EditSubmit ( selectedform )
 				AND		Status = 'M'
 				AND		Deleted = '0'
 				AND 	(
-							(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# <= Bookings.EndDate )
-						OR 	(	Bookings.StartDate <= #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate )
-						OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate )
+							(	Bookings.StartDate <= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate )
+						OR 	(	Bookings.StartDate <= <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate )
+						OR	(	Bookings.StartDate >= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> >= Bookings.EndDate )
 						)
 				AND		(
-							(	Section1 = '1' AND '#Variables.Section1#' = '1')
-						OR	( 	Section2 = '1' AND '#Variables.Section2#' = '1')
-						OR	( 	Section3 = '1' AND '#Variables.Section3#' = '1')
+							(	Section1 = '1' AND <cfqueryparam value="#Variables.Section1#" cfsqltype="cf_sql_bit" /> = '1')
+						OR	( 	Section2 = '1' AND <cfqueryparam value="#Variables.Section2#" cfsqltype="cf_sql_bit" /> = '1')
+						OR	( 	Section3 = '1' AND <cfqueryparam value="#Variables.Section3#" cfsqltype="cf_sql_bit" /> = '1')
 						)
 			</cfquery>
 

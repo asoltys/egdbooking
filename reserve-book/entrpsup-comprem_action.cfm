@@ -7,7 +7,7 @@
 	<cfquery name="editUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	UserCompanies
 		SET		Deleted = 1
-		WHERE	UserCompanies.UID = #session.UID# AND UserCompanies.CID = #form.CID#
+		WHERE	UserCompanies.UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" /> AND UserCompanies.CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 
 </cflock>

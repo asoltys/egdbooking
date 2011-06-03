@@ -5,7 +5,7 @@
 			<cfqueryparam value="#CreateODBCDate(Form.StartDate)#" cfsqltype="cf_sql_date">,
 			<cfqueryparam value="#CreateODBCDate(Form.EndDate)#" cfsqltype="cf_sql_date">,
 			<cfqueryparam value="#CreateODBCDateTime(PacificNow)#" cfsqltype="cf_sql_timestamp">, 
-			'#Session.UID#'
+			<cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />
 			)
 	</cfquery>
 	<cfquery name="getID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -14,7 +14,7 @@
 	</cfquery>
 	<cfquery name="insertDock" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	INSERT INTO Docks (BRID, Status, Section1, Section2, Section3)
-	VALUES		('#getID.BRID#', 'M',
+	VALUES		(<cfqueryparam value="#getID.BRID#" cfsqltype="cf_sql_integer" />, 'M',
 			<cfif Form.Section1 EQ 1>'1',<cfelse>'0',</cfif>
 			<cfif Form.Section2 EQ 1>'1',<cfelse>'0',</cfif>
 			<cfif Form.Section3 EQ 1>'1'<cfelse>'0'</cfif>) <!--- M for Maintenance --->

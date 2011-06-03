@@ -58,7 +58,7 @@
 			LEFT JOIN	Jetties ON Bookings.BRID = Jetties.BRID
 			INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
 			INNER JOIN	Companies ON Vessels.CID = Companies.CID
-	WHERE	Bookings.BRID = #url.BRID#
+	WHERE	Bookings.BRID = <cfqueryparam value="#url.BRID#" cfsqltype="cf_sql_integer" />
 			AND Bookings.Deleted = '0'
 			AND Vessels.Deleted = '0'
 </cfquery>

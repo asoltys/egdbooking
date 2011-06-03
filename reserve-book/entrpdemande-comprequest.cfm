@@ -23,38 +23,38 @@
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	FirstName + ' ' + LastName AS UserName, Email
 		FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
-		WHERE	Users.UID = #session.UID#
+		WHERE	Users.UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	
 	<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Name AS CompanyName
 		FROM	Companies
-		WHERE	CID = #form.CID#
+		WHERE	CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	
 	<cfquery name="getUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	CID
 		FROM	UserCompanies
-		WHERE	UserCompanies.UID = #session.UID# AND UserCompanies.CID = #form.CID#
+		WHERE	UserCompanies.UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" /> AND UserCompanies.CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	
 	<cfquery name="userCompaniesApproved" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	CID
 		FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
-		WHERE	UserCompanies.Approved = 1 AND UserCompanies.Deleted = 0 AND Users.UID = #session.UID#
+		WHERE	UserCompanies.Approved = 1 AND UserCompanies.Deleted = 0 AND Users.UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 
 	<cfif getUserCompanies.recordCount EQ 1>
 		<cfquery name="editUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			UPDATE	UserCompanies
 			SET		Deleted = '0', Approved = '0'
-			WHERE	UserCompanies.UID = '#session.UID#' AND UserCompanies.CID = '#form.CID#' 
+			WHERE	UserCompanies.UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" /> AND UserCompanies.CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" /> 
 					AND UserCompanies.Deleted = '1'
 		</cfquery>
 	<cfelse>
 		<cfquery name="insertUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			INSERT INTO UserCompanies(UID, CID)
-			VALUES		('#session.UID#', '#form.CID#')
+			VALUES		(<cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />)
 		</cfquery>
 	</cfif>
 </cflock>

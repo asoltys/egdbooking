@@ -41,7 +41,7 @@
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Vessels.*, Companies.Name AS companyName
 	FROM Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
-	WHERE Vessels.VNID = #form.VNID#
+	WHERE Vessels.VNID = <cfqueryparam value="#form.VNID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <!-- 2005-09-27: Added new resriction on the following two queries, Deleted must be 0 -->
@@ -49,14 +49,14 @@
 	SELECT	*
 	FROM	Bookings INNER JOIN Vessels ON Vessels.VNID = Bookings.VNID
 			INNER JOIN Docks ON Bookings.BRID = Docks.BRID
-	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VNID = #form.VNID# AND Bookings.Deleted = 0
+	WHERE	EndDate >= <cfqueryparam value="#CreateODBCDate(PacificNow)#" cfsqltype="cf_sql_date" /> AND Vessels.VNID = <cfqueryparam value="#form.VNID#" cfsqltype="cf_sql_integer" /> AND Bookings.Deleted = 0
 </cfquery>
 
 <cfquery name="getVesselJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
 	FROM	Bookings INNER JOIN Vessels ON Vessels.VNID = Bookings.VNID
 			INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
-	WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VNID = #form.VNID# AND Bookings.Deleted = 0
+	WHERE	EndDate >= <cfqueryparam value="#CreateODBCDate(PacificNow)#" cfsqltype="cf_sql_date" /> AND Vessels.VNID = <cfqueryparam value="#form.VNID#" cfsqltype="cf_sql_integer" /> AND Bookings.Deleted = 0
 </cfquery>
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->

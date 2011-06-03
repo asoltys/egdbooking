@@ -8,13 +8,13 @@
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Name
 	FROM Companies
-	WHERE Name = '#trim(form.Name)#' AND Deleted = 0
+	WHERE Name = <cfqueryparam value="#trim(form.Name)#" cfsqltype="cf_sql_varchar" /> AND Deleted = 0
 </cfquery>
 
 <cfquery name="getAbbrev" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Abbreviation
 	FROM Companies
-	WHERE Abbreviation = '#trim(form.abbrev)#'
+	WHERE Abbreviation = <cfqueryparam value="#trim(form.abbrev)#" cfsqltype="cf_sql_varchar" />
 	AND Deleted = 0
 </cfquery>
 
@@ -104,19 +104,19 @@
 		
 			VALUES
 			(
-				'#trim(form.Name)#',
-				'#trim(form.abbrev)#',
-				'#trim(form.address1)#',
+				<cfqueryparam value="#trim(form.Name)#" cfsqltype="cf_sql_varchar" />,
+				<cfqueryparam value="#trim(form.abbrev)#" cfsqltype="cf_sql_varchar" />,
+				<cfqueryparam value="#trim(form.address1)#" cfsqltype="cf_sql_varchar" />,
 				<cfif isDefined('form.address2')>
-					'#trim(form.address2)#',
+					<cfqueryparam value="#trim(form.address2)#" cfsqltype="cf_sql_varchar" />,
 				</cfif>
-				'#trim(form.city)#',
-				'#trim(form.province)#',
-				'#trim(form.country)#',
-				'#trim(form.zip)#',
-				'#trim(form.phone)#',
+				<cfqueryparam value="#trim(form.city)#" cfsqltype="cf_sql_varchar" />,
+				<cfqueryparam value="#trim(form.province)#" cfsqltype="cf_sql_varchar" />,
+				<cfqueryparam value="#trim(form.country)#" cfsqltype="cf_sql_varchar" />,
+				<cfqueryparam value="#trim(form.zip)#" cfsqltype="cf_sql_varchar" />,
+				<cfqueryparam value="#trim(form.phone)#" cfsqltype="cf_sql_varchar" />,
 				 <cfif isDefined('form.fax')>
-					'#trim(form.fax)#',
+					<cfqueryparam value="#trim(form.fax)#" cfsqltype="cf_sql_varchar" />,
 				</cfif>
 				0,
 				1
@@ -130,7 +130,7 @@
 	
 		<cfquery name="addUserRelation" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			INSERT INTO	UserCompanies (UID, CID, Approved)
-			VALUES		(#url.UID# , #getID.CID#, 1)
+			VALUES		(<cfqueryparam value="#url.UID#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#getID.CID#" cfsqltype="cf_sql_integer" />, 1)
 		</cfquery>
 	</cftransaction>
 

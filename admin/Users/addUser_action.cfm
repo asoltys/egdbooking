@@ -50,7 +50,7 @@
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Deleted
 	FROM Users
-	WHERE EMail = '#trim(form.Email)#' AND Deleted = 0
+	WHERE EMail = <cfqueryparam value="#trim(form.Email)#" cfsqltype="cf_sql_varchar" /> AND Deleted = 0
 </cfquery>
 
 
@@ -110,10 +110,10 @@
 			
 			VALUES
 			(
-				'#trim(form.firstname)#',
-				'#trim(form.lastname)#',
-				'#trim(form.password1)#',
-				'#trim(form.email)#',
+				<cfqueryparam value="#trim(form.firstname)#" cfsqltype="cf_sql_varchar" />,
+				<cfqueryparam value="#trim(form.lastname)#" cfsqltype="cf_sql_varchar" />,
+				<cfqueryparam value="#trim(form.password1)#" cfsqltype="cf_sql_varchar" />,
+				<cfqueryparam value="#trim(form.email)#" cfsqltype="cf_sql_varchar" />,
 				0
 			)
 		</cfquery>
@@ -121,20 +121,20 @@
 		<cfquery name="getID2" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT UID
 			FROM Users
-			WHERE EMail = '#trim(form.Email)#'
+			WHERE EMail = <cfqueryparam value="#trim(form.email)#" cfsqltype="cf_sql_varchar" />
 		</cfquery>
 		
 		<cfloop list="#companyList#" index="CID">
 			<cfquery name="getRelationship" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT	*
 				FROM	UserCompanies
-				WHERE	UID = #getID2.UID# AND CID = #CID# AND Deleted = 0
+				WHERE	UID = <cfqueryparam value="#getID2.UID#" cfsqltype="cf_sql_integer" /> AND CID = <cfqueryparam value="#CID#" cfsqltype="cf_sql_integer" /> AND Deleted = 0
 			</cfquery>
 			
 			<cfif getRelationship.recordCount EQ 0>
 				<cfquery name="companyRequests" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					INSERT INTO	UserCompanies(UID, CID, Approved)
-					VALUES		(#getID2.UID#, #CID#, 1)
+					VALUES		(<cfqueryparam value="#getID2.UID#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#CID#" cfsqltype="cf_sql_integer" />, 1)
 				</cfquery>
 			</cfif>
 		</cfloop>
@@ -146,7 +146,7 @@
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UID = '#session.UID#'
+		WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cflock>
 	

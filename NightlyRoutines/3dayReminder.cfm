@@ -17,8 +17,8 @@
 			AND Bookings.VNID=Vessels.VNID
 			AND Users.UID=Bookings.UID
 			AND Docks.Status='C'
-			AND Bookings.EndDate>=#CreateODBCDate(DateAdd("d",3,PacificNow))# 
-			AND Bookings.EndDate < #CreateODBCDate(DateAdd("d",4,PacificNow))#
+			AND Bookings.EndDate >= <cfqueryparam value="#CreateODBCDate(DateAdd('d',3,PacificNow))#" cfsqltype="cf_sql_date" /> 
+			AND Bookings.EndDate < <cfqueryparam value="#CreateODBCDate(DateAdd('d',4,PacificNow))#" cfsqltype="cf_sql_date" />
 			AND Bookings.Deleted=0
 		</cfquery>
 		
@@ -42,8 +42,8 @@
 			AND Bookings.VNID=Vessels.VNID
 			AND Users.UID=Bookings.UID
 			AND Jetties.Status='C'
-			AND Bookings.EndDate>=#CreateODBCDate(DateAdd("d",3,PacificNow))# 
-			AND Bookings.EndDate < #CreateODBCDate(DateAdd("d",4,PacificNow))#
+			AND Bookings.EndDate >= <cfqueryparam value="#CreateODBCDate(DateAdd('d',3,PacificNow))#" cfsqltype="cf_sql_date" /> 
+			AND Bookings.EndDate < <cfqueryparam value="#CreateODBCDate(DateAdd('d',4,PacificNow))#" cfsqltype="cf_sql_date" />
 			AND Bookings.Deleted=0
 		</cfquery>
 		

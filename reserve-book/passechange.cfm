@@ -28,8 +28,8 @@
 
 	<cfquery name="editPass" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Users
-		SET Password = '#trim(form.password1)#'
-		WHERE UID = #session.UID#
+		SET Password = <cfqueryparam value="#trim(form.password1)#" cfsqltype="cf_sql_varchar" />
+		WHERE UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 
 </cflock>

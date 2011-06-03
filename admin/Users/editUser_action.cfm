@@ -33,11 +33,11 @@
 		UPDATE Users
 		SET
 			<!---LoginID = '#trim(form.loginID)#',--->
-			FirstName = '#trim(form.firstname)#',
-			LastName = '#trim(form.lastname)#',
-			ReadOnly = '#trim(form.ReadOnly)#',
-			Email = '#trim(form.email)#'
-		WHERE UID = #form.UID#
+			FirstName = <cfqueryparam value="#trim(form.firstname)#" cfsqltype="cf_sql_varchar" />,
+			LastName = <cfqueryparam value="#trim(form.lastname)#" cfsqltype="cf_sql_varchar" />,
+			ReadOnly = <cfqueryparam value="#trim(form.ReadOnly)#" cfsqltype="cf_sql_varchar" />,
+			Email = <cfqueryparam value="#trim(form.email)#" cfsqltype="cf_sql_varchar" />
+		WHERE UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 
 </cfif>

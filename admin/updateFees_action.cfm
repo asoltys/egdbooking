@@ -75,7 +75,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.BookFeeFee#', 
+					Fee = <cfqueryparam value="#Form.BookFeeFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'BookFee'
@@ -86,7 +86,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.FullDrainFee#', 
+					Fee = <cfqueryparam value="#Form.FullDrainFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'FullDrainFee'
@@ -97,7 +97,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.VesselDockageFee#', 
+					Fee = <cfqueryparam value="#Form.VesselDockageFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'VesselDockage'
@@ -108,7 +108,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.CargoDockageFee#', 
+					Fee = <cfqueryparam value="#Form.CargoDockageFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'CargoDockage'
@@ -119,7 +119,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.WorkVesselBerthNorthFee#', 
+					Fee = <cfqueryparam value="#Form.WorkVesselBerthNorthFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'WorkVesselBerthNorth'
@@ -130,7 +130,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.NonworkVesselBerthNorthFee#', 
+					Fee = <cfqueryparam value="#Form.NonworkVesselBerthNorthFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'NonworkVesselBerthNorth'
@@ -141,7 +141,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.VesselBerthSouthFee#', 
+					Fee = <cfqueryparam value="#Form.VesselBerthSouthFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'VesselBerthSouth'
@@ -152,7 +152,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.CargoStoreFee#', 
+					Fee = <cfqueryparam value="#Form.CargoStoreFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'CargoStore'
@@ -163,7 +163,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.TopWharfageFee#', 
+					Fee = <cfqueryparam value="#Form.TopWharfageFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'TopWharfage'
@@ -174,7 +174,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.CraneLightHookFee#', 
+					Fee = <cfqueryparam value="#Form.CraneLightHookFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'CraneLightHook'
@@ -185,7 +185,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.CraneMedHookFee#', 
+					Fee = <cfqueryparam value="#Form.CraneMedHookFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'CraneMedHook'
@@ -196,7 +196,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.CraneBigHookFee#', 
+					Fee = <cfqueryparam value="#Form.CraneBigHookFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'CraneBigHook'
@@ -207,7 +207,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.CraneHysterFee#', 
+					Fee = <cfqueryparam value="#Form.CraneHysterFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'CraneHyster'
@@ -218,7 +218,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.CraneGroveFee#', 
+					Fee = <cfqueryparam value="#Form.CraneGroveFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'CraneGrove'
@@ -229,7 +229,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.ForkliftFee#', 
+					Fee = <cfqueryparam value="#Form.ForkliftFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'Forklift'
@@ -240,7 +240,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.CompressPrimaryFee#', 
+					Fee = <cfqueryparam value="#Form.CompressPrimaryFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'CompressPrimary'
@@ -251,7 +251,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.CompressSecondaryFee#', 
+					Fee = <cfqueryparam value="#Form.CompressSecondaryFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'CompressSecondary'
@@ -262,7 +262,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.CompressPortableFee#', 
+					Fee = <cfqueryparam value="#Form.CompressPortableFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'CompressPortable'
@@ -273,7 +273,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.TugFee#', 
+					Fee = <cfqueryparam value="#Form.TugFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'Tug'
@@ -284,7 +284,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.FreshH2OFee#', 
+					Fee = <cfqueryparam value="#Form.FreshH2OFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'FreshH2O'
@@ -295,7 +295,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.ElectricFee#', 
+					Fee = <cfqueryparam value="#Form.ElectricFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'Electric'
@@ -306,7 +306,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.TieUpFee#', 
+					Fee = <cfqueryparam value="#Form.TieUpFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'TieUp'
@@ -317,7 +317,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.CommissionaireFee#', 
+					Fee = <cfqueryparam value="#Form.CommissionaireFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'Commissionaire'
@@ -328,7 +328,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.OvertimeLabourFee#', 
+					Fee = <cfqueryparam value="#Form.OvertimeLabourFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'OvertimeLabour'
@@ -339,7 +339,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.LightsStandardFee#', 
+					Fee = <cfqueryparam value="#Form.LightsStandardFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'LightsStandard'
@@ -350,7 +350,7 @@
 					Fee = 'prices vary', 
 					Flex = 1
 				<cfelse>
-					Fee = '#Form.LightsCaissonFee#', 
+					Fee = <cfqueryparam value="#Form.LightsCaissonFee#" cfsqltype="cf_sql_varchar" />, 
 					Flex = 0
 				</cfif>
 		WHERE	Abbreviation = 'LightsCaisson'

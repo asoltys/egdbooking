@@ -2,16 +2,16 @@
 	<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT Name
 		FROM Companies
-		WHERE Name = '#trim(form.Name)#'
-		AND CID <> #form.CID#
+		WHERE Name = <cfqueryparam value="#trim(form.Name)#" cfsqltype="cf_sql_varchar" />
+		AND CID <> <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 		AND Deleted = 0
 	</cfquery>
 	
 	<cfquery name="getAbbrev" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT Abbreviation
 		FROM Companies
-		WHERE Abbreviation = '#trim(form.abbr)#'
-		AND CID <> #form.CID#
+		WHERE Abbreviation = <cfqueryparam value="#trim(form.abbr)#" cfsqltype="cf_sql_varchar" />
+		AND CID <> <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 		AND Deleted = 0
 	</cfquery>
 	
@@ -58,21 +58,21 @@
 	<cfquery name="editCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Companies
 		SET
-			name = '#trim(form.name)#',
-			address1 = '#trim(form.address1)#',
+			name = <cfqueryparam value="#trim(form.name)#" cfsqltype="cf_sql_varchar" />,
+			address1 = <cfqueryparam value="#trim(form.address1)#" cfsqltype="cf_sql_varchar" />,
 			<cfif isDefined('form.address2')>
-				address2 = '#trim(form.address2)#',
+				address2 = <cfqueryparam value="#trim(form.address2)#" cfsqltype="cf_sql_varchar" />,
 			</cfif>
-			city = '#trim(form.city)#',
-			province = '#trim(form.province)#',
-			country = '#trim(form.country)#',
-			zip = '#trim(form.zip)#',
-			phone = '#trim(form.phone)#',
-			abbreviation = '#trim(ucase(form.abbr))#',
+			city = <cfqueryparam value="#trim(form.city)#" cfsqltype="cf_sql_varchar" />,
+			province = <cfqueryparam value="#trim(form.province)#" cfsqltype="cf_sql_varchar" />,
+			country = <cfqueryparam value="#trim(form.country)#" cfsqltype="cf_sql_varchar" />,
+			zip = <cfqueryparam value="#trim(form.zip)#" cfsqltype="cf_sql_varchar" />,
+			phone = <cfqueryparam value="#trim(form.phone)#" cfsqltype="cf_sql_varchar" />,
+			abbreviation = <cfqueryparam value="#trim(ucase(form.abbr))#" cfsqltype="cf_sql_varchar" />,
 			Deleted = 0, 
-			fax = '#trim(form.fax)#',
+			fax = <cfqueryparam value="#trim(form.fax)#" cfsqltype="cf_sql_varchar" />,
 			approved = 1
-		WHERE CID = #form.CID#
+		WHERE CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 
 

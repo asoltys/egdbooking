@@ -14,7 +14,7 @@
 	FROM 	Bookings
 				INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 				INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
-	WHERE 	Bookings.VNID = '#Form.VNID#'
+	WHERE 	Bookings.VNID = <cfqueryparam value="#Form.VNID#" cfsqltype="cf_sql_integer" />
 	AND
 	<!---Explanation of hellishly long condition statement: The client wants to be able to overlap the start and end dates
 		of bookings, so if a booking ends on May 6, another one can start on May 6.  This created problems with single day
@@ -22,13 +22,13 @@
 		a day that overlaps with the new booking if it is more than a day.  The next 4 lines check for single day bookings that
 		fall within a booking that is more than one day.--->
 			(
-				(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# < Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
-			OR 	(	Bookings.StartDate < #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
-			OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate AND #Variables.StartDate# <> #Variables.EndDate# AND Bookings.StartDate <> Bookings.EndDate)
-			OR  (	(Bookings.StartDate = Bookings.EndDate OR #Variables.StartDate# = #Variables.EndDate#) AND Bookings.StartDate <> #Variables.StartDate# AND Bookings.EndDate <> #Variables.EndDate# AND
-						((	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# < Bookings.EndDate)
-					OR 	(	Bookings.StartDate < #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate)
-					OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate)))
+				(	Bookings.StartDate <= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> < Bookings.EndDate AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <> <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND Bookings.StartDate <> Bookings.EndDate)
+			OR 	(	Bookings.StartDate < <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <> <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND Bookings.StartDate <> Bookings.EndDate)
+			OR	(	Bookings.StartDate >= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> >= Bookings.EndDate AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <> <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND Bookings.StartDate <> Bookings.EndDate)
+			OR  (	(Bookings.StartDate = Bookings.EndDate OR <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> = <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" />) AND Bookings.StartDate <> <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND Bookings.EndDate <> <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND
+						((	Bookings.StartDate <= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> < Bookings.EndDate)
+					OR 	(	Bookings.StartDate < <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate)
+					OR	(	Bookings.StartDate >= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> >= Bookings.EndDate)))
 			)
 	AND		Bookings.Deleted = 0
 	<cfif IsDefined("Form.Jetty") AND form.Jetty EQ "north">
@@ -46,8 +46,8 @@
 	FROM	Bookings
 				INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
 				INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
-	WHERE	(StartDate = #Variables.StartDate# OR EndDate = #Variables.StartDate#)
-				AND Bookings.VNID = '#Form.VNID#'
+	WHERE	(StartDate = <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> OR EndDate = <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" />)
+				AND Bookings.VNID = <cfqueryparam value="#Form.VNID#" cfsqltype="cf_sql_integer" />
 				AND Bookings.Deleted = 0
 			<cfif IsDefined("Form.Jetty") AND form.Jetty EQ "north">
 				AND Jetties.NorthJetty = 1
@@ -61,8 +61,8 @@
 	FROM	Bookings
 				INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
 				INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
-	WHERE	(EndDate = #Variables.EndDate# OR StartDate = #Variables.EndDate#)
-				AND Bookings.VNID = '#Form.VNID#'
+	WHERE	(EndDate = <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> OR StartDate = <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" />)
+				AND Bookings.VNID = <cfqueryparam value="#Form.VNID#" cfsqltype="cf_sql_integer" />
 				AND Bookings.Deleted = 0
 			<cfif IsDefined("Form.Jetty") AND form.Jetty EQ "north">
 				AND Jetties.NorthJetty = 1
@@ -147,17 +147,17 @@
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name
 	FROM	Companies
-	WHERE	Companies.CID = #form.CID#
+	WHERE	Companies.CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name
 	FROM	Vessels
-	WHERE	Vessels.VNID = #form.VNID#
+	WHERE	Vessels.VNID = <cfqueryparam value="#Form.VNID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfquery name="getAgent" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	firstname + ' ' + lastname AS Name
 	FROM	Users
-	WHERE	Users.UID = #form.UID#
+	WHERE	Users.UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfhtmlhead text="

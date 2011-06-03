@@ -21,7 +21,7 @@
 
 <cfquery name="updateConfig" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE	Configuration
-	SET		Email = '#variables.emailList#'
+	SET		Email = <cfqueryparam value="#variables.emailList#" cfsqltype="cf_sql_varchar" />
 </cfquery>
 
 

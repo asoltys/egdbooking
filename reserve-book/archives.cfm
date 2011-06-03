@@ -7,8 +7,8 @@
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	C.Name AS CompanyName
 	FROM	Companies C INNER JOIN UserCompanies UC ON C.CID = UC.CID
-	WHERE	(C.CID = '#url.CID#')
-		AND	(UC.UID = '#Session.UID#')
+	WHERE	(C.CID = <cfqueryparam value="#url.CID#" cfsqltype="cf_sql_integer" />)
+		AND	(UC.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />)
 		AND	UC.Deleted = '0'
 </cfquery>
 
@@ -64,7 +64,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#url.CID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0
+	WHERE Companies.CID = <cfqueryparam value="#url.CID#" cfsqltype="cf_sql_integer" /> AND Bookings.Deleted = '0' AND Vessels.Deleted = 0
 	ORDER BY startDate, enddate
 </cfquery>
 
@@ -75,7 +75,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#url.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0
+	WHERE Companies.CID = <cfqueryparam value="#url.CID#" cfsqltype="cf_sql_integer" /> AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0
 	ORDER BY startDate, enddate
 </cfquery>
 
@@ -86,7 +86,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0
-	WHERE Companies.CID = '#url.CID#'
+	WHERE Companies.CID = <cfqueryparam value="#url.CID#" cfsqltype="cf_sql_integer" />
 	ORDER BY startDate, enddate
 </cfquery>
 

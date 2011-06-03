@@ -13,7 +13,7 @@
 	<cfquery name="getCompanyUsers" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT Users.UID
 		FROM Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
-		WHERE UserCompanies.CID = #form.CID#
+		WHERE UserCompanies.CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 		AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
 	</cfquery>
 	
@@ -28,7 +28,7 @@
 		<cfquery name="delUserCompanies#UID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			UPDATE	UserCompanies
 			SET		Deleted = 1
-			WHERE	UID = #UID# AND CID = '#form.CID#'
+			WHERE	UID = <cfqueryparam value="#UID#" cfsqltype="cf_sql_integer" /> AND CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 			
 	</cfloop>
@@ -36,7 +36,7 @@
 	<cfquery name="getVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT VNID
 		FROM Vessels
-		WHERE CID = #form.CID#
+		WHERE CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	
 	<cfloop query="getVessels">
@@ -44,13 +44,13 @@
 		<cfquery name="updateBooking#VNID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			UPDATE	Bookings
 			SET		Deleted = 1
-			WHERE	VNID = #VNID#
+			WHERE	VNID = <cfqueryparam value="#VNID#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 		
 		<cfquery name="deleteVessel#VNID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			UPDATE	Vessels
 			SET		Deleted = 1
-			WHERE	VNID = #VNID#
+			WHERE	VNID = <cfqueryparam value="#VNID#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 		
 	</cfloop>
@@ -58,13 +58,13 @@
 	<cfquery name="delCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	Companies
 		SET		Deleted = 1
-		WHERE	CID = #form.CID#
+		WHERE	CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	
 </cfif>
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT Name FROM Companies WHERE CID = #form.CID#
+	SELECT Name FROM Companies WHERE CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 

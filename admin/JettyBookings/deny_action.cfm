@@ -5,20 +5,20 @@
 	FROM	Jetties INNER JOIN Bookings ON Jetties.BRID = Bookings.BRID
 			INNER JOIN Users ON Bookings.UID = Users.UID 
 			INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
-	WHERE	Bookings.BRID = '#Form.BRID#'
+	WHERE	Bookings.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="removeConfirmation" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE 	Jetties
 	SET 	Status = 'T'
-	WHERE 	BRID = '#Form.BRID#'
+	WHERE 	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cflock throwontimeout="no" scope="session" timeout="30" type="readonly">
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UID = '#session.UID#'
+		WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cflock>
 

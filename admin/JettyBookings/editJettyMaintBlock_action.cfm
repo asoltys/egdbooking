@@ -3,20 +3,20 @@
 		UPDATE	Bookings
 		SET		StartDate = <cfqueryparam value="#CreateODBCDate(Form.StartDate)#" cfsqltype="cf_sql_date">,
 				EndDate = <cfqueryparam value="#CreateODBCDate(Form.EndDate)#" cfsqltype="cf_sql_date">
-		WHERE	Bookings.BRID = '#Form.BRID#'
+		WHERE	Bookings.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	<cfquery name="updateDock" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	Jetties
-		SET		NorthJetty = '#Form.NorthJetty#',
-				SouthJetty = '#Form.SouthJetty#'
-		WHERE	Jetties.BRID = '#Form.BRID#'
+		SET		NorthJetty = <cfqueryparam value="#Form.NorthJetty#" cfsqltype="cf_sql_bit" />,
+				SouthJetty = <cfqueryparam value="#Form.SouthJetty#" cfsqltype="cf_sql_bit" />
+		WHERE	Jetties.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cftransaction>
 	
 	<cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	startDate, endDate
 	from	Bookings
-	WHERE	BRID = '#FORM.BRID#'
+	WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <!--- URL tokens set-up.  Do not edit unless you KNOW something is wrong.

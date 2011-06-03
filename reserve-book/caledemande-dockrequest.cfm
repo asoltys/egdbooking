@@ -52,7 +52,7 @@
 		FROM 	Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
 				INNER JOIN UserCompanies ON Companies.CID = UserCompanies.CID
 				INNER JOIN Users ON UserCompanies.UID = Users.UID
-		WHERE 	Users.UID = #session.UID#
+		WHERE 	Users.UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 		AND		UserCompanies.Approved = 1
 		AND		UserCompanies.Deleted = 0
 		AND		Companies.Deleted = '0'
@@ -75,7 +75,7 @@
 		<cfquery name="GetCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	CID
 			FROM	Vessels
-			WHERE	Vessels.VNID = '#Variables.VNID#'
+			WHERE	Vessels.VNID = <cfqueryparam value="#Variables.VNID#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 		<cfset Variables.CID = GetCompany.CID>
 	<cfelseif IsDefined("URL.CID")>

@@ -103,7 +103,7 @@
 				<cfquery name="theBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	BRID, StartDate, EndDate, Vessels.VNID, Vessels.Length, Vessels.Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName, BookingTime
 					FROM	Bookings, Vessels, Companies
-					WHERE	Bookings.BRID = '#Variables.BRID#'
+					WHERE	Bookings.BRID = <cfqueryparam value="#Variables.BRID#" cfsqltype="cf_sql_integer" />
 					AND		Vessels.VNID = Bookings.VNID
 					AND		Companies.CID = Vessels.CID
 				</cfquery>

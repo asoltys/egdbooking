@@ -3,13 +3,13 @@
 	<cfquery name="delVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Vessels
 		SET Deleted = 1
-		WHERE VNID = #form.VNID#
+		WHERE VNID = <cfqueryparam value="#form.VNID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	
 </cfif>
 
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT Name FROM Vessels WHERE VNID = #form.VNID#
+	SELECT Name FROM Vessels WHERE VNID = <cfqueryparam value="#form.VNID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfset Session.Success.Breadcrumb = "Delete Vessel">

@@ -10,7 +10,7 @@
 	<cfquery name="getAdminList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT Users.UID, LastName + ', ' + FirstName AS UserName
 		FROM Users, Administrators
-		WHERE Users.UID <> #session.UID# AND Users.UID = Administrators.UID
+		WHERE Users.UID <> <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" /> AND Users.UID = Administrators.UID
 				AND Deleted = 0
 		ORDER BY LastName
 	</cfquery>

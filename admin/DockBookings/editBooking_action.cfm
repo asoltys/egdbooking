@@ -75,12 +75,12 @@
 	UPDATE  Bookings
 	SET		StartDate = <cfqueryparam value="#CreateODBCDate(Form.StartDate)#" cfsqltype="cf_sql_date">,
 			EndDate = <cfqueryparam value="#CreateODBCDate(Form.EndDate)#" cfsqltype="cf_sql_date">, 
-			UID = '#Form.UID#',
-			BookingTime = #CreateODBCDateTime(Variables.BookingDateTime)#,
-			BookingTimeChange = #PacificNow#,
+			UID = <cfqueryparam value="#Form.UID#" cfsqltype="cf_sql_integer" />,
+			BookingTime = <cfqueryparam value="#CreateODBCDateTime(Variables.BookingDateTime)#" cfsqltype="cf_sql_timestamp" />,
+			BookingTimeChange = <cfqueryparam value="#PacificNow#" cfsqltype="cf_sql_timestamp" />,
 			BookingTimeChangeStatus = 'Edited at',
-			EndHighlight = '#DateFormat(Variables.EndHighlight, "mm/dd/yyyy")#'
-	WHERE	BRID = '#Form.BRID#'
+			EndHighlight = <cfqueryparam value="#DateFormat(Variables.EndHighlight, 'mm/dd/yyyy')#" cfsqltype="cf_sql_timestamp" />
+	WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 <!--- </cfif> --->
 
@@ -89,14 +89,14 @@
 	SET		<cfif isDefined("form.section1") AND form.section1 EQ true>section1 = 1,<cfelse>section1 = 0,</cfif>
 			<cfif isDefined("form.section2") AND form.section2 EQ true>section2 = 1,<cfelse>section2 = 0,</cfif>
 			<cfif isDefined("form.section3") AND form.section3 EQ true>section3 = 1<cfelse>section3 = 0</cfif>
-	WHERE	BRID = '#Form.BRID#'
+	WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS vesselName
 	FROM	Vessels
 		INNER JOIN	Bookings ON Bookings.VNID = Vessels.VNID
-	WHERE	BRID = '#Form.BRID#'
+	WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <!--- URL tokens set-up.  Do not edit unless you KNOW something is wrong.

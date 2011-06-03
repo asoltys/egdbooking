@@ -1,11 +1,11 @@
 <cftransaction>
 	<cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	INSERT INTO	Bookings ( VNID, StartDate, EndDate, BookingTime, UID)
-	VALUES	('#Form.VNID#',
+	VALUES	(<cfqueryparam value="#Form.VNID#" cfsqltype="cf_sql_integer" />,
 			<cfqueryparam value="#CreateODBCDate(Form.StartDate)#" cfsqltype="cf_sql_date">,
 			<cfqueryparam value="#CreateODBCDate(Form.EndDate)#" cfsqltype="cf_sql_date">,
 			<cfqueryparam value="#CreateODBCDateTime(PacificNow)#" cfsqltype="cf_sql_timestamp">,
-			'#Session.UID#')
+			<cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />)
 	</cfquery>
 	<cfquery name="getID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	@@Identity AS BRID
@@ -13,7 +13,7 @@
 	</cfquery>
 	<cfquery name="insertDock" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	INSERT INTO Docks (BRID)
-	VALUES	('#getID.BRID#')
+	VALUES	(<cfqueryparam value="#getID.BRID#" cfsqltype="cf_sql_integer" />)
 	</cfquery>
 </cftransaction>
 
@@ -21,7 +21,7 @@
 	SELECT	Vessels.Name AS vesselName, CID
 	FROM	Vessels
 		INNER JOIN	Bookings ON Bookings.VNID = Vessels.VNID
-	WHERE	BRID = ('#getID.BRID#')
+	WHERE	BRID = (<cfqueryparam value="#getID.BRID#" cfsqltype="cf_sql_integer" />)
 </cfquery>
 
 <cflock scope="session" throwontimeout="no" timeout="30" type="READONLY">
@@ -29,7 +29,7 @@
 		SELECT	firstname + ' ' + lastname AS UserName, Email, Companies.Name AS CompanyName
 		FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
 				INNER JOIN Companies ON UserCompanies.CID = Companies.CID
-		WHERE	Users.UID = #session.UID# AND Companies.CID = '#getDetails.CID#'
+		WHERE	Users.UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" /> AND Companies.CID = <cfqueryparam value="#getDetails.CID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cflock>
 

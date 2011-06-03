@@ -13,7 +13,7 @@
 <cfquery name="getPassword" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	password
 	FROM	users
-	WHERE	deleted = 0 AND email = '#trim(form.email)#'
+	WHERE	deleted = 0 AND email = <cfqueryparam value="#trim(form.email)#" cfsqltype="cf_sql_varchar" />
 </cfquery>
 
 

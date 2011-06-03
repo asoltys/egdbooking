@@ -26,7 +26,7 @@
 	<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Companies.CID, Name AS CompanyName, UserCompanies.Approved
 		FROM	UserCompanies INNER JOIN Companies ON UserCompanies.CID = Companies.CID
-		WHERE	UID = #session.UID# AND UserCompanies.Deleted = 0 AND UserCompanies.Approved = 1 AND Companies.approved = 1
+		WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" /> AND UserCompanies.Deleted = 0 AND UserCompanies.Approved = 1 AND Companies.approved = 1
 		ORDER BY Companies.Name
 	</cfquery>
 </cflock>
@@ -52,13 +52,13 @@
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Name AS CompanyName
 	FROM	Companies
-	WHERE	CID = '#variables.CID#'
+	WHERE	CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="getVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT VNID, Name
 	FROM Vessels
-	WHERE CID = '#Variables.CID#'
+	WHERE CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" />
 	AND Deleted = 0
 	ORDER BY Name
 </cfquery>
@@ -72,7 +72,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#Variables.CID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today#
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" />
 	ORDER BY startDate, enddate
 </cfquery>
 
@@ -83,7 +83,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today#
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" />
 	ORDER BY startDate, enddate
 </cfquery>
 
@@ -93,21 +93,21 @@
 		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
-		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today#
-	WHERE Companies.CID = '#Variables.CID#'
+		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" />
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" />
 	ORDER BY startDate, enddate
 </cfquery>
 
 <cfquery name="currentCompany" dbtype="query">
 	SELECT	CompanyName
 	FROM	getCompanies
-	WHERE	 getCompanies.CID = #variables.CID#
+	WHERE	 getCompanies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="unapprovedCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Name AS CompanyName
 		FROM	UserCompanies INNER JOIN Companies ON UserCompanies.CID = Companies.CID
-		WHERE	 UID = #session.UID# AND UserCompanies.Deleted = 0 AND (UserCompanies.Approved = 0 OR Companies.approved = 0)
+		WHERE	 UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" /> AND UserCompanies.Deleted = 0 AND (UserCompanies.Approved = 0 OR Companies.approved = 0)
 		ORDER  BY Companies.Name
 </cfquery>
 
@@ -119,7 +119,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#Variables.CID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND (Status ='PT' OR Status = 'PC' OR Status = 'PX')
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND (Status ='PT' OR Status = 'PC' OR Status = 'PX')
 </cfquery>
 <cfquery name="countTentative" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numTent
@@ -128,7 +128,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#Variables.CID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='T'
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='T'
 </cfquery>
 <cfquery name="countConfirmed" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numConf
@@ -137,7 +137,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#Variables.CID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='C'
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='C'
 </cfquery>
 <cfquery name="countCancelled" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numCanc
@@ -146,7 +146,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#Variables.CID#' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='PX'
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='PX'
 </cfquery>
 <!---North Jetty Status--->
 <cfquery name="countPendingNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -156,7 +156,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND (Status ='PT' or Status ='PX' or Status='PC')
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND (Status ='PT' or Status ='PX' or Status='PC')
 </cfquery>
 <cfquery name="countTentativeNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numTentNJ
@@ -165,7 +165,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='T'
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='T'
 </cfquery>
 <cfquery name="countConfirmedNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numConfNJ
@@ -174,7 +174,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='C'
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='C'
 </cfquery>
 <cfquery name="countCancelledNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numCancNJ
@@ -183,7 +183,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = '#Variables.CID#' AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='X'
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='X'
 </cfquery>
 <!---South Jetty Status--->
 <cfquery name="countPendingSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -192,8 +192,8 @@
 		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
-		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='PT'
-	WHERE Companies.CID = '#Variables.CID#'
+		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='PT'
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfquery name="countTentativeSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numTentSJ
@@ -201,8 +201,8 @@
 		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
-		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='T'
-	WHERE Companies.CID = '#Variables.CID#'
+		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='T'
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfquery name="countConfirmedSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numConfSJ
@@ -210,8 +210,8 @@
 		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
-		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='C'
-	WHERE Companies.CID = '#Variables.CID#'
+		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='C'
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfquery name="countCancelledSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numCancSJ
@@ -219,13 +219,13 @@
 		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
-		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= #variables.today# AND Status ='PX'
-	WHERE Companies.CID = '#Variables.CID#'
+		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='PX'
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT ReadOnly
 	FROM Users
-	WHERE UID = #Session.UID#
+	WHERE UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfoutput query="readonlycheck">
 	<cfset Session.ReadOnly = #ReadOnly#>

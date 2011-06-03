@@ -37,14 +37,14 @@
 <cfquery name="getForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
 	FROM	TariffForms
-	WHERE	BRID = '#Variables.BRID#'
+	WHERE	BRID = <cfqueryparam value="#Variables.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS VesselName, Companies.Name AS CompanyName, StartDate, EndDate
 	FROM	Bookings INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 			INNER JOIN Companies ON Vessels.CID = Companies.CID
-	WHERE	Bookings.BRID = '#Variables.BRID#'
+	WHERE	Bookings.BRID = <cfqueryparam value="#Variables.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="getFees" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">

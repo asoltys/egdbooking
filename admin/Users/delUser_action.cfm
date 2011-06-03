@@ -2,20 +2,20 @@
 	<cfquery name="delUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Users
 		SET Deleted = 1
-		WHERE UID = #form.UID#
+		WHERE UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	
 	<cfquery name="delUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	UserCompanies
 		SET		Deleted = 1
-		WHERE	UID = #form.UID#
+		WHERE	UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cfif>
 
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT FirstName, LastName
 	FROM Users
-	WHERE UID = #form.UID#
+	WHERE UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 

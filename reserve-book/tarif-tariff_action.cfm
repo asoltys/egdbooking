@@ -153,13 +153,13 @@
 					LightsCaisson = '0',
 				</cfif>
 				<cfif isDefined("Form.Other") AND Form.Other EQ "on" AND trIM(Form.otherText) NEQ "">
-					otherText = '#Form.otherText#',
+					otherText = <cfqueryparam value="#Form.otherText#" cfsqltype="cf_sql_varchar" />,
 					Other = '1'
 				<cfelse>
 					otherText = '',
 					Other = '0'
 				</cfif>
-				WHERE BRID = #form.BRID#
+				WHERE BRID = <cfqueryparam value="#form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <!--- queries to populate details in e-mail sent to dock administrators --->
@@ -168,20 +168,20 @@
 	SELECT	Vessels.Name AS vesselName, CID
 	FROM	Vessels
 		INNER JOIN	Bookings ON Bookings.VNID = Vessels.VNID
-	WHERE	BRID = ('#form.BRID#')
+	WHERE	BRID = (<cfqueryparam value="#form.BRID#" cfsqltype="cf_sql_integer" />)
 </cfquery>
 	
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	firstname + ' ' + lastname AS UserName, Email, Companies.Name AS CompanyName
 	FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID 
 			INNER JOIN Companies ON UserCompanies.CID = Companies.CID
-	WHERE	Users.UID = #session.UID# AND Companies.CID = '#getDetails.CID#'
+	WHERE	Users.UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" /> AND Companies.CID = <cfqueryparam value="#getDetails.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="BookingDates" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 SELECT     EndDate, StartDate
 FROM       Bookings
-WHERE     (BRID = '#form.BRID#')
+WHERE     (BRID = <cfqueryparam value="#form.BRID#" cfsqltype="cf_sql_integer" />)
 </cfquery>
 	<cfoutput>
 		<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Drydock Booking Request - Services and Facilities Requested" type="html">

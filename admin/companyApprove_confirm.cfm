@@ -12,7 +12,7 @@
 <cfquery name="getAbbrev" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Abbreviation
 	FROM Companies
-	WHERE Abbreviation = '#trim(form.abbrev)#'
+	WHERE Abbreviation = <cfqueryparam value="#trim(form.abbrev)#" cfsqltype="cf_sql_varchar" />
 	AND Deleted = 0
 </cfquery>
 
@@ -42,7 +42,7 @@
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT 	CID, Name AS CompanyName
 	FROM 	Companies
-	WHERE 	CID = '#Form.CID#'
+	WHERE 	CID = <cfqueryparam value="#Form.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <!-- Start JavaScript Block -->

@@ -14,15 +14,15 @@
 	<cfquery name="GetUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	*
 		FROM	Users
-		WHERE	email = '#Cookie.email#'
+		WHERE	email = <cfqueryparam value="#Cookie.email#" cfsqltype="cf_sql_varchar" />
 	</cfquery>
 <cfelse>
 	<!---Lookup the login in the database --->
 	<cfquery name="IsValidLogin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Count(*) AS Login_Match
 		FROM	Users
-		WHERE	email = '#Form.email#'
-		AND		Password = '#Form.Password#'
+		WHERE	email = <cfqueryparam value="#Form.email#" cfsqltype="cf_sql_varchar" />
+		AND		Password = <cfqueryparam value="#Form.Password#" cfsqltype="cf_sql_varchar" />
 		AND 	Deleted = '0'
 		AND	EXISTS (SELECT	*
 					FROM	UserCompanies
@@ -39,13 +39,13 @@
 		<cfquery name="checkEmail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	Count(*) AS NumFound
 			FROM	Users
-			WHERE	email = '#Form.email#'
+			WHERE	email = <cfqueryparam value="#Form.email#" cfsqltype="cf_sql_varchar" />
 			AND 	Deleted = '0'
 		</cfquery>
 		<cfquery name="notApproved" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	Count(*) AS NumFound
 			FROM	Users
-			WHERE	email = '#Form.email#'
+			WHERE	email = <cfqueryparam value="#Form.email#" cfsqltype="cf_sql_varchar" />
 			AND 	Deleted = '0'
 			AND	NOT EXISTS (SELECT	*
 							FROM	UserCompanies
@@ -56,8 +56,8 @@
 		<cfquery name="wrongPassword" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	Count(*) AS NumFound
 			FROM	Users
-			WHERE	email = '#Form.email#'
-			AND		Password != '#Form.Password#'
+			WHERE	email = <cfqueryparam value="#Form.email#" cfsqltype="cf_sql_varchar" />
+			AND		Password != <cfqueryparam value="#Form.Password#" cfsqltype="cf_sql_varchar" />
 			AND 	Deleted = '0'
 		</cfquery>
 		
@@ -68,7 +68,7 @@
 		<cfelseif NOT REFindNoCase("^([a-zA-Z_\.\-\']*[a-zA-Z0-9_\.\-\'])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$",#trim(Form.Email)#)>
 			<cfoutput>#ArrayAppend(Variables.Errors, "#language.invalidEmailError#")#</cfoutput>
 		<cfelseif checkEmail.NumFound EQ 0>
-			<cfoutput>#ArrayAppend(Variables.Errors, "#language.address#, #Form.Email#, #language.notReg#.")#</cfoutput>
+			<cfoutput>#ArrayAppend(Variables.Errors, "#language.incorrectPasswordError#")#</cfoutput>
 		<cfelseif notApproved.NumFound GT 0 AND checkEmail.NumFound GT 0>
 			<cfoutput>#ArrayAppend(Variables.Errors, "#language.unapprovedEmailError#")#</cfoutput>
 		<cfelseif wrongPassword.NumFound GT 0 AND checkEmail.NumFound GT 0>
@@ -86,8 +86,8 @@
 		<cfquery name="GetUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	*
 			FROM	Users 
-			WHERE	email = '#Form.email#'
-			AND		Password = '#Form.Password#'
+			WHERE	email = <cfqueryparam value="#Form.email#" cfsqltype="cf_sql_varchar" />
+			AND		Password = <cfqueryparam value="#Form.Password#" cfsqltype="cf_sql_varchar" />
 			AND     Deleted = 0 <!--- Joao Edit --->
 		</cfquery>
 	</cfif>
@@ -123,7 +123,7 @@
 <cfquery name="CheckAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Count(UID) AS NumFound
 	FROM	Administrators
-	WHERE	UID = '#GetUser.UID#'
+	WHERE	UID = <cfqueryparam value="#GetUser.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfif CheckAdmin.NumFound GT 0>

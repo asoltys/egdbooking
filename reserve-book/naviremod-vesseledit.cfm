@@ -60,7 +60,7 @@
 				<cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT Vessels.*, Companies.CID, Companies.Name AS CompanyName
 					FROM  Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
-					WHERE VNID = #url.VNID#
+					WHERE VNID = <cfqueryparam value="#url.VNID#" cfsqltype="cf_sql_integer" />
 					AND Vessels.Deleted = 0
 				</cfquery>
 
@@ -68,7 +68,7 @@
 					SELECT	*
 					FROM	Bookings INNER JOIN Vessels ON Vessels.VNID = Bookings.VNID
 							INNER JOIN Docks ON Bookings.BRID = Docks.BRID
-					WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VNID = #url.VNID# AND Bookings.Deleted = 0
+					WHERE	EndDate >= <cfqueryparam value="#CreateODBCDate(PacificNow)#" cfsqltype="cf_sql_date" /> AND Vessels.VNID = <cfqueryparam value="#url.VNID#" cfsqltype="cf_sql_integer" /> AND Bookings.Deleted = 0
 							AND Status = 'c'
 				</cfquery>
 
@@ -76,7 +76,7 @@
 					SELECT	*
 					FROM	Bookings INNER JOIN Vessels ON Vessels.VNID = Bookings.VNID
 							INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
-					WHERE	EndDate >= #CreateODBCDate(PacificNow)# AND Vessels.VNID = #url.VNID# AND Bookings.Deleted = 0
+					WHERE	EndDate >= <cfqueryparam value="#CreateODBCDate(PacificNow)#" cfsqltype="cf_sql_date" /> AND Vessels.VNID = <cfqueryparam value="#url.VNID#" cfsqltype="cf_sql_integer" /> AND Bookings.Deleted = 0
 							AND Status = 'c'
 				</cfquery>
 

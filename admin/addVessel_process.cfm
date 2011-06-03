@@ -4,9 +4,9 @@
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Name
 	FROM Vessels
-	WHERE Name = '#trim(form.Name)#'
+	WHERE Name = <cfqueryparam value="#trim(form.Name)#" cfsqltype="cf_sql_varchar" />
 	AND Deleted = 0
-	AND CID = #form.CID#
+	AND CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfset Variables.Errors = ArrayNew(1)>
@@ -56,7 +56,7 @@
 				<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT 	Companies.CID, Companies.Name AS CompanyName
 					FROM  	Companies
-					WHERE 	CID = '#Form.CID#'
+					WHERE 	CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 					AND		Deleted = '0'
 				</cfquery>
 

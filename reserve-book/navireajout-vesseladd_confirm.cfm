@@ -84,7 +84,7 @@
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT 	Companies.CID, Companies.Name AS CompanyName
 	FROM  	Companies
-	WHERE 	CID = '#url.CID#'
+	WHERE 	CID = <cfqueryparam value="#url.CID#" cfsqltype="cf_sql_integer" />
 	AND		Deleted = '0'
 </cfquery>
 

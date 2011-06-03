@@ -3,14 +3,14 @@
 <cfif isDefined('form.UID')>
 	<cfquery name="delAdministrator" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		DELETE FROM Administrators 
-		WHERE UID = #form.UID#
+		WHERE UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cfif>
 
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT FirstName, LastName
 	FROM Users
-	WHERE UID = #form.UID#
+	WHERE UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 

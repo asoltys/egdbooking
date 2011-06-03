@@ -50,8 +50,8 @@
 	FROM	Bookings INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 			INNER JOIN Companies ON Vessels.CID = Companies.CID
 			INNER JOIN UserCompanies ON UserCompanies.CID = Vessels.CID
-	WHERE	Bookings.BRID = '#URL.BRID#'
-		AND	UserCompanies.UID = '#session.UID#'
+	WHERE	Bookings.BRID = <cfqueryparam value="#URL.BRID#" cfsqltype="cf_sql_integer" />
+		AND	UserCompanies.UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfif lang EQ 'eng'>

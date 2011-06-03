@@ -11,8 +11,8 @@
 	<cfquery name="editHighlight" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Bookings
 		SET
-			EndHighlight = '#DateFormat(Form.EndHighlight, "mm/dd/yyyy")#'
-		WHERE BRID = #BRID#
+			EndHighlight = <cfqueryparam value="#DateFormat(Form.EndHighlight, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />
+		WHERE BRID = <cfqueryparam value="#BRID#" cfsqltype="cf_sql_integer" />
 		AND deleted = 0
 	</cfquery>
 

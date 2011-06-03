@@ -125,7 +125,7 @@ function EditSubmit ( selectedform )
 					<cfquery name="getVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT VNID, Name
 						FROM Vessels
-						WHERE CID = #Variables.compID# AND Deleted = 0
+						WHERE CID = <cfqueryparam value="#Variables.compID#" cfsqltype="cf_sql_integer" /> AND Deleted = 0
 						ORDER BY Name
 					</cfquery>
 
@@ -133,7 +133,7 @@ function EditSubmit ( selectedform )
 						SELECT	Users.UID, lastname + ', ' + firstname AS UserName
 						FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
 								INNER JOIN Companies ON UserCompanies.CID = Companies.CID
-						WHERE	Companies.CID = #Variables.compID# AND Users.Deleted = 0
+						WHERE	Companies.CID = <cfqueryparam value="#Variables.compID#" cfsqltype="cf_sql_integer" /> AND Users.Deleted = 0
 								AND UserCompanies.Deleted = 0 AND UserCompanies.Approved = 1
 						ORDER BY lastname, firstname
 					</cfquery>
@@ -144,7 +144,7 @@ function EditSubmit ( selectedform )
 							<cfquery name="getCompanyName" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 								SELECT Name
 								FROM Companies
-								WHERE CID = #Variables.compID#
+								WHERE CID = <cfqueryparam value="#Variables.compID#" cfsqltype="cf_sql_integer" />
 							</cfquery>
 
 							<td id="Company" style="width:20%;">Company:</td>

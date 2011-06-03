@@ -35,20 +35,20 @@
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Users.email, FirstName + ' ' + LastName AS UserName
 		FROM	Users
-		WHERE	UID = #form.UID#
+		WHERE	UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 
 	<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Name AS CompanyName
 		FROM	Companies
-		WHERE	CID = #form.CID#
+		WHERE	CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 
 	<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Companies.Name AS CompanyName
 		FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
 				INNER JOIN Companies ON UserCompanies.CID = Companies.CID
-		WHERE	Users.UID = #form.UID# AND UserCompanies.Approved = 1
+		WHERE	Users.UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" /> AND UserCompanies.Approved = 1
 				AND UserCompanies.Deleted = 0 AND Companies.Approved = 1 AND Companies.Deleted = 0
 	</cfquery>
 </cflock>

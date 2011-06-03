@@ -104,8 +104,8 @@
 						INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
 						INNER JOIN	Docks ON Bookings.BRID = Docks.BRID
 						INNER JOIN	Users ON Bookings.UID = Users.UID
-					WHERE	Bookings.StartDate <= '#URL.Date#'
-						AND	Bookings.EndDate >= '#URL.Date#'
+					WHERE	Bookings.StartDate <= <cfqueryparam value="#URL.Date#" cfsqltype="cf_sql_date" />
+						AND	Bookings.EndDate >= <cfqueryparam value="#URL.Date#" cfsqltype="cf_sql_date" />
 						AND Bookings.Deleted = '0'
 						AND Vessels.Deleted = '0'
 					ORDER BY	Status, startdate, enddate, vessels.name
@@ -122,8 +122,8 @@
 						INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
 						INNER JOIN	Jetties ON Bookings.BRID = Jetties.BRID
 						INNER JOIN	Users ON Bookings.UID = Users.UID
-					WHERE	Bookings.StartDate <= '#URL.Date#'
-						AND	Bookings.EndDate >= '#URL.Date#'
+					WHERE	Bookings.StartDate <= <cfqueryparam value="#URL.Date#" cfsqltype="cf_sql_date" />
+						AND	Bookings.EndDate >= <cfqueryparam value="#URL.Date#" cfsqltype="cf_sql_date" />
 						AND Bookings.Deleted = '0'
 						AND Vessels.Deleted = '0'
 					ORDER BY	Status, startdate, enddate, vessels.name
@@ -135,8 +135,8 @@
 						Section1, Section2, Section3
 					FROM	Bookings
 						INNER JOIN	Docks ON Bookings.BRID = Docks.BRID
-					WHERE	Bookings.StartDate <= '#URL.Date#'
-						AND	Bookings.EndDate >= '#URL.Date#'
+					WHERE	Bookings.StartDate <= <cfqueryparam value="#URL.Date#" cfsqltype="cf_sql_date" />
+						AND	Bookings.EndDate >= <cfqueryparam value="#URL.Date#" cfsqltype="cf_sql_date" />
 						AND	Bookings.Deleted = '0'
 						AND	Status = 'm'
 
@@ -148,8 +148,8 @@
 						NorthJetty, SouthJetty
 					FROM	Bookings
 						INNER JOIN	Jetties ON Bookings.BRID = Jetties.BRID
-					WHERE	Bookings.StartDate <= '#URL.Date#'
-						AND	Bookings.EndDate >= '#URL.Date#'
+					WHERE	Bookings.StartDate <= <cfqueryparam value="#URL.Date#" cfsqltype="cf_sql_date" />
+						AND	Bookings.EndDate >= <cfqueryparam value="#URL.Date#" cfsqltype="cf_sql_date" />
 						AND	Bookings.Deleted = '0'
 						AND	Status = 'm'
 
@@ -183,7 +183,7 @@
 						SELECT	Vessels.VNID
 						FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
 								INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
-						WHERE	Users.UID = #Session.UID# AND Vessels.VNID = #getDockDetail.VNID#
+						WHERE	Users.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" /> AND Vessels.VNID = <cfqueryparam value="#getDockDetail.VNID#" cfsqltype="cf_sql_integer" />
 							AND UserCompanies.Approved = 1 AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
 					</cfquery>
 				</cflock>
@@ -264,7 +264,7 @@
 						SELECT	Vessels.VNID
 						FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
 								INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
-						WHERE	Users.UID = '#Session.UID#' AND Vessels.VNID = '#VNID#'
+						WHERE	Users.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" /> AND Vessels.VNID = <cfqueryparam value="#VNID#" cfsqltype="cf_sql_integer" />
 							AND UserCompanies.Approved = 1 AND UserCompanies.Deleted = 0
 					</cfquery>
 				</cflock>

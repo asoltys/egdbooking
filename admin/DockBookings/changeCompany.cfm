@@ -34,7 +34,7 @@
 				<cfquery name="getCompanyList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 				SELECT Companies.CID, Companies.Name
 					FROM Companies JOIN Vessels ON Companies.CID = Vessels.CID
-					WHERE Companies.Approved = 1 AND Companies.Deleted = 0 AND Vessels.Name = '#vesselNameURL#' AND Companies.Name <> '#CompanyURL#'
+					WHERE Companies.Approved = 1 AND Companies.Deleted = 0 AND Vessels.Name = <cfqueryparam value="#vesselNameURL#" cfsqltype="cf_sql_varchar" /> AND Companies.Name <> <cfqueryparam value="#CompanyURL#" cfsqltype="cf_sql_varchar" />
 					ORDER BY Companies.Name
 				</cfquery>
 		

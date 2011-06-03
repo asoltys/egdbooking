@@ -7,26 +7,26 @@
 	<cfquery name="cancelRequest" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	Jetties
 		SET		Status = 'PX'
-		WHERE	BRID = #Form.BRID#
+		WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 <CFELSE>
 	<cfquery name="cancelRequest" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	Docks
 		SET		Status = 'PX'
-		WHERE	BRID = #Form.BRID#
+		WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </CFIF>
 <cfquery name="getBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS vesselName, StartDate, EndDate
 	FROM	Bookings INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
-	WHERE	Bookings.BRID = '#Form.BRID#'
+	WHERE	Bookings.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cflock scope="session" throwontimeout="no" timeout="30" type="READONLY">
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	firstname + ' ' + lastname AS UserName, Email
 		FROM	Users
-		WHERE	UID = #session.UID#
+		WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cflock>
 
@@ -34,9 +34,9 @@
 
 <cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE  Bookings
-	SET		BookingTimeChange = #PacificNow#,
-			BookingTimeChangeStatus = '#getUser.UserName# requested to cancel at'
-	WHERE	BRID = '#Form.BRID#'
+	SET		BookingTimeChange = <cfqueryparam value="#PacificNow#" cfsqltype="cf_sql_timestamp" />,
+			BookingTimeChangeStatus = <cfqueryparam value="#getUser.UserName#" cfsqltype="cf_sql_varchar" /> requested to cancel at'
+	WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 	<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Booking Cancellation Request" type="html">

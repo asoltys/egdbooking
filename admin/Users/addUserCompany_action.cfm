@@ -17,20 +17,20 @@
 	<cfquery name="getUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	CID
 		FROM	UserCompanies
-		WHERE	UserCompanies.UID = '#form.UID#' AND UserCompanies.CID = '#form.CID#'
+		WHERE	UserCompanies.UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" /> AND UserCompanies.CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 
 	<cfif getUserCompanies.recordCount EQ 1>
 		<cfquery name="editUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			UPDATE	UserCompanies
 			SET		Deleted = '0', Approved = '1'
-			WHERE	UserCompanies.UID = '#form.UID#' AND UserCompanies.CID = '#form.CID#' 
+			WHERE	UserCompanies.UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" /> AND UserCompanies.CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" /> 
 					AND UserCompanies.Deleted = '1'
 		</cfquery>
 	<cfelse>
 		<cfquery name="insertUserCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			INSERT INTO UserCompanies(UID, CID, Approved)
-			VALUES		('#form.UID#', '#form.CID#', 1)
+			VALUES		(<cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />, 1)
 		</cfquery>
 	</cfif>
 </cflock>
@@ -39,13 +39,13 @@
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT FirstName, LastName, email
 	FROM Users
-	WHERE UID = #form.UID#
+	WHERE UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT name AS companyName
 	FROM Companies
-	WHERE CID = #form.CID#
+	WHERE CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 
@@ -54,7 +54,7 @@
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UID = '#session.UID#'
+		WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cflock>
 

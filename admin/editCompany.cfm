@@ -101,7 +101,7 @@ function EditSubmit ( selectedform )
 					<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT	*
 						FROM	Companies
-						WHERE	Companies.CID = #form.CID#
+						WHERE	Companies.CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 							AND	Deleted = '0'
 							AND	Approved = '1'
 						ORDER BY	Name

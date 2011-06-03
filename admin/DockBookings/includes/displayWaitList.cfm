@@ -17,7 +17,7 @@
 			WHERE	Bookings.VNID = Vessels.VNID 
 			AND		Bookings.UID = Users.UID 
 			AND		Vessels.CID = Companies.CID
-			AND		Bookings.BRID = '#conflictArray[count]#'
+			AND		Bookings.BRID = <cfqueryparam value="#conflictArray[count]#" cfsqltype="cf_sql_integer" />
 			AND		Bookings.Deleted = 0
 			AND		Vessels.Deleted = 0
 		</cfquery>

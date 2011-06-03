@@ -75,13 +75,13 @@ function EditSubmit ( selectedform )
 					AND		Status = 'M'
 					AND		Deleted = '0'
 					AND 	(
-								(	Bookings.StartDate <= #Variables.StartDate# AND #Variables.StartDate# <= Bookings.EndDate )
-							OR 	(	Bookings.StartDate <= #Variables.EndDate# AND #Variables.EndDate# <= Bookings.EndDate )
-							OR	(	Bookings.StartDate >= #Variables.StartDate# AND #Variables.EndDate# >= Bookings.EndDate )
+								(	Bookings.StartDate <= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate )
+							OR 	(	Bookings.StartDate <= <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate )
+							OR	(	Bookings.StartDate >= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> >= Bookings.EndDate )
 							)
 					AND		(
-								(	NorthJetty = '1' AND '#Variables.NorthJetty#' = '1')
-							OR	( 	SouthJetty = '1' AND '#Variables.SouthJetty#' = '1')
+								(	NorthJetty = '1' AND <cfqueryparam value="#Variables.NorthJetty#" cfsqltype="cf_sql_bit" /> = '1')
+							OR	( 	SouthJetty = '1' AND <cfqueryparam value="#Variables.SouthJetty#" cfsqltype="cf_sql_bit" /> = '1')
 							)
 				</cfquery>
 

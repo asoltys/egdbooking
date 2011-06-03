@@ -75,7 +75,7 @@
 					FROM	UserCompanies
 					WHERE	UserCompanies.Deleted = '0'
 					AND		UserCompanies.CID = Companies.CID
-					AND		UserCompanies.UID = '#Session.UID#'
+					AND		UserCompanies.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />
 				)
 		ORDER BY Companies.Name
 	</cfquery>
@@ -84,14 +84,14 @@
 		SELECT	Name, UserCompanies.Approved, Companies.CID
 		FROM	UserCompanies INNER JOIN Users ON UserCompanies.UID = Users.UID
 				INNER JOIN Companies ON UserCompanies.CID = Companies.CID
-		WHERE	Users.UID = '#session.UID#' AND UserCompanies.Deleted = 0
+		WHERE	Users.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" /> AND UserCompanies.Deleted = 0
 		ORDER BY UserCompanies.Approved DESC, Companies.Name
 	</cfquery>
 
 	<cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT *
 		FROM Users
-		WHERE UID = #session.UID#
+		WHERE UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cflock>
 

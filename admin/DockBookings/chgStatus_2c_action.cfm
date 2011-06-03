@@ -92,14 +92,14 @@
 			<cfelse>
 				section3 = '0'
 			</cfif>	
-			WHERE 	BRID = '#tempTower[count].BRID#'
+			WHERE 	BRID = <cfqueryparam value="#tempTower[count].BRID#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 		<cfset count = count + 1>
 	</cfloop>
 	<cfquery name="reshuffleBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE 	Docks
 		SET 	Status = 'C'	
-		WHERE 	BRID = #Form.BRID#
+		WHERE 	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 <cfelse>
 	<cfquery name="forceBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -108,7 +108,7 @@
 				<cfif IsDefined("Form.Section1")>Section1 = '1', <cfelse>Section1 = '0',</cfif>
 				<cfif IsDefined("Form.Section2")>Section2 = '1', <cfelse>Section2 = '0',</cfif>
 				<cfif IsDefined("Form.Section3")>Section3 = '1' <cfelse>Section3 = '0'</cfif>
-		WHERE 	BRID = #Form.BRID#
+		WHERE 	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cfif>
 
@@ -118,22 +118,22 @@
 	SELECT	Email, Vessels.Name AS VesselName, StartDate, EndDate
 	FROM	Users INNER JOIN Bookings ON Users.UID = Bookings.UID 
 			INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
-	WHERE	BRID = '#Form.BRID#'
+	WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cflock throwontimeout="no" scope="session" timeout="30" type="readonly">
 	<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email
 		FROM	Users
-		WHERE	UID = '#session.UID#'
+		WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cflock>
 
 <cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE  Bookings
-	SET		BookingTimeChange = #PacificNow#,
+	SET		BookingTimeChange = <cfqueryparam value="#PacificNow#" cfsqltype="cf_sql_timestamp" />,
 			BookingTimeChangeStatus = 'Confirmed at'
-	WHERE	BRID = '#Form.BRID#'
+	WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfoutput>

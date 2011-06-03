@@ -74,7 +74,7 @@ function EditSubmit ( selectedform )
 						WHERE	Bookings.BRID = Jetties.BRID
 						AND		Deleted = '0'
 						AND		Status = 'M'
-						AND		Bookings.BRID = '#Form.BRID#'
+						AND		Bookings.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 					</cfquery>
 
 					<cfset Variables.StartDate = getBooking.StartDate>

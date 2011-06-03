@@ -76,7 +76,7 @@
 						INNER JOIN Companies 
 							ON Companies.CID = Vessels.CID
 					WHERE 
-						Bookings.BRID = '#Variables.BRID#'
+						Bookings.BRID = <cfqueryparam value="#Variables.BRID#" cfsqltype="cf_sql_integer" />
 						
 				</cfquery>
 				

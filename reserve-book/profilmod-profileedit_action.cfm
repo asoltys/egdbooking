@@ -37,10 +37,10 @@
 
 	<cfquery name="editUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE 	Users
-		SET		FirstName = '#trim(form.firstname)#',
-				  LastName = '#trim(form.lastname)#',
-			  	Email = '#trim(form.email)#'
-		WHERE 	UID = '#session.UID#'
+		SET		FirstName = <cfqueryparam value="#trim(form.firstname)#" cfsqltype="cf_sql_varchar" />,
+				  LastName = <cfqueryparam value="#trim(form.lastname)#" cfsqltype="cf_sql_varchar" />,
+			  	Email = <cfqueryparam value="#trim(form.email)#" cfsqltype="cf_sql_varchar" />
+		WHERE 	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 
 </cflock>

@@ -13,7 +13,7 @@
 <cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT *
 	FROM Companies
-	WHERE Companies.CID = #form.CID#
+	WHERE Companies.CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <!---get a list of companies besides the one to be deleted,
@@ -21,7 +21,7 @@ so the users who belong to that current company can choose another company--->
 <cfquery name="getCompanyList" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT CID, Name
 	FROM Companies
-	WHERE CID <> #form.CID#
+	WHERE CID <> <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" />
 	AND Deleted = 0
 	ORDER BY Name
 </cfquery>
@@ -31,7 +31,7 @@ so the users who belong to that current company can choose another company--->
 	SELECT Users.UID, LastName + ', ' + FirstName AS UserName
 	FROM Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
 			INNER JOIN Companies ON UserCompanies.CID = Companies.CID
-	WHERE UserCompanies.CID = #form.CID# AND Users.Deleted = 0
+	WHERE UserCompanies.CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" /> AND Users.Deleted = 0
 	AND UserCompanies.Deleted = 0 AND UserCompanies.Approved = 1
 	AND	Companies.Deleted = 0 AND Companies.Approved = 1
 	AND (SELECT COUNT(*) AS MatchFui
@@ -43,22 +43,22 @@ so the users who belong to that current company can choose another company--->
 	SELECT Bookings.BRID, Name, StartDate, EndDate, Status
 	FROM Vessels INNER JOIN Bookings ON Vessels.VNID = Bookings.VNID
 			INNER JOIN Docks ON Bookings.BRID = Docks.BRID
-	WHERE CID = #form.CID# AND Docks.Status = 'c' AND Bookings.Deleted = 0
-			AND EndDate >= #CreateODBCDate(PacificNow)#
+	WHERE CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" /> AND Docks.Status = 'c' AND Bookings.Deleted = 0
+			AND EndDate >= <cfqueryparam value="#CreateODBCDate(PacificNow)#" cfsqltype="cf_sql_date" />
 </cfquery>
 
 <cfquery name="getJettyBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Bookings.BRID, Name, StartDate, EndDate, Status
 	FROM Vessels INNER JOIN Bookings ON Vessels.VNID = Bookings.VNID
 			INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
-	WHERE CID = #form.CID# AND Jetties.Status = 'c' AND Bookings.Deleted = 0
-			AND EndDate >= #CreateODBCDate(PacificNow)#
+	WHERE CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" /> AND Jetties.Status = 'c' AND Bookings.Deleted = 0
+			AND EndDate >= <cfqueryparam value="#CreateODBCDate(PacificNow)#" cfsqltype="cf_sql_date" />
 </cfquery>
 
 <cfquery name="getVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name
 	FROM	Companies INNER JOIN Vessels ON Companies.CID = Vessels.CID
-	WHERE	Companies.CID = #form.CID# AND Vessels.Deleted = 0
+	WHERE	Companies.CID = <cfqueryparam value="#form.CID#" cfsqltype="cf_sql_integer" /> AND Vessels.Deleted = 0
 </cfquery>
 
 <!-- Start JavaScript Block -->

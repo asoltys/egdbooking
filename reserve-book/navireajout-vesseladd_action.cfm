@@ -70,15 +70,15 @@
 
 		VALUES
 		(
-			'#trim(form.Name)#',
-			'#trim(form.CID)#',
-			'#trim(form.length)#',
-			'#trim(form.width)#',
-			'#trim(form.blocksetuptime)#',
-			'#trim(form.blockteardowntime)#',
-			'#trim(form.lloydsID)#',
-			'#trim(form.tonnage)#',
-			'#Form.Anonymous#',
+			<cfqueryparam value="#trim(form.Name)#" cfsqltype="cf_sql_varchar" />,
+			<cfqueryparam value="#trim(form.CID)#" cfsqltype="cf_sql_integer" />,
+			<cfqueryparam value="#trim(form.length)#" cfsqltype="cf_sql_float" />,
+			<cfqueryparam value="#trim(form.width)#" cfsqltype="cf_sql_float" />,
+			<cfqueryparam value="#trim(form.blocksetuptime)#" cfsqltype="cf_sql_float" />,
+			<cfqueryparam value="#trim(form.blockteardowntime)#" cfsqltype="cf_sql_float" />,
+			<cfqueryparam value="#trim(form.lloydsID)#" cfsqltype="cf_sql_varchar" />,
+			<cfqueryparam value="#trim(form.tonnage)#" cfsqltype="cf_sql_float" />,
+			<cfqueryparam value="#Form.Anonymous#" cfsqltype="cf_sql_bit" />,
 			0
 		)
 	</cfquery>

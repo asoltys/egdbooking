@@ -46,11 +46,11 @@
 				BookingTime, 
 				UID)
 		VALUES	
-				(#form.VNID#,
-				#CreateODBCDate(Form.StartDate)#,
-				#CreateODBCDate(Form.EndDate)#, 
-				#CreateODBCDateTime(Variables.BookingDateTime)#, 
-				'#form.UID#')
+				(<cfqueryparam value="#form.VNID#" cfsqltype="cf_sql_integer" />,
+				<cfqueryparam value="#CreateODBCDate(Form.StartDate)#" cfsqltype="cf_sql_date" />,
+				<cfqueryparam value="#CreateODBCDate(Form.EndDate)#" cfsqltype="cf_sql_date" />, 
+				<cfqueryparam value="#CreateODBCDateTime(Variables.BookingDateTime)#" cfsqltype="cf_sql_timestamp" />, 
+				<cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />)
 	</cfquery>
 	<cfquery name="getID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	@@IDENTITY AS BRID
@@ -78,28 +78,28 @@
 					<CFIF (isDefined("Form.Section3B") AND Form.Status EQ "C") OR (isDefined("Form.Section3A") AND Form.Section3A EQ 1)>
 					1,
 					</CFIF>
-					'#getID.BRID#',
-					'#Form.Status#'
+					<cfqueryparam value="#getID.BRID#" cfsqltype="cf_sql_integer" />,
+					<cfqueryparam value="#Form.Status#" cfsqltype="cf_sql_varchar" maxlength="2" />
 					)
 	</cfquery>
 
 	<cfquery name="insertBlankForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		INSERT INTO TariffForms(BRID)
-		VALUES		('#getID.BRID#')
+		VALUES		(<cfqueryparam value="#getID.BRID#" cfsqltype="cf_sql_integer" />)
 	</cfquery>
 	
 	<cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email, Vessels.Name AS VesselName, StartDate, EndDate
 		FROM	Bookings INNER JOIN Users ON Bookings.UID = Users.UID 
 				INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
-		WHERE	BRID = '#getID.BRID#'
+		WHERE	BRID = <cfqueryparam value="#getID.BRID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 		
 	<cflock throwontimeout="no" scope="session" timeout="30" type="readonly">
 		<cfquery name="getAdmin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	Email
 			FROM	Users
-			WHERE	UID = '#session.UID#'
+			WHERE	UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 	</cflock>
 		

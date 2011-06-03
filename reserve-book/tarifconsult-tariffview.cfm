@@ -38,14 +38,14 @@
 <cfquery name="getForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
 	FROM	TariffForms
-	<cfif isDefined("url.BRID")>WHERE	BRID = '#url.BRID#'</cfif>
+	<cfif isDefined("url.BRID")>WHERE	BRID = <cfqueryparam value="#url.BRID#" cfsqltype="cf_sql_integer" /></cfif>
 </cfquery>
 
 <cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS VesselName, Vessels.CID, Companies.Name AS CompanyName, StartDate, EndDate
 	FROM	Bookings INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 			INNER JOIN Companies ON Vessels.CID = Companies.CID
-	<cfif isDefined("url.BRID")>WHERE	Bookings.BRID = '#url.BRID#'</cfif>
+	<cfif isDefined("url.BRID")>WHERE	Bookings.BRID = <cfqueryparam value="#url.BRID#" cfsqltype="cf_sql_integer" /></cfif>
 </cfquery>
 
 <cfif lang EQ 'eng'>
@@ -67,8 +67,8 @@
 		SELECT	Vessels.CID
 		FROM	Bookings INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 				INNER JOIN UserCompanies ON Vessels.CID = UserCompanies.CID
-		WHERE	Bookings.Deleted = 0 <cfif isdefined("url.BRID")>AND Bookings.BRID = #url.BRID#</cfif>
-				AND UserCompanies.UID = #session.UID# AND UserCompanies.Deleted = 0
+		WHERE	Bookings.Deleted = 0 <cfif isdefined("url.BRID")>AND Bookings.BRID = <cfqueryparam value="#url.BRID#" cfsqltype="cf_sql_integer" /></cfif>
+				AND UserCompanies.UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" /> AND UserCompanies.Deleted = 0
 	</cfquery>
 </cflock>
 

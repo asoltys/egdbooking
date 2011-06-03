@@ -62,7 +62,7 @@
 <cfquery name="getForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	*
 	FROM	TariffForms
-	WHERE	BRID = '#url.BRID#'
+	WHERE	BRID = <cfqueryparam value="#url.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -70,8 +70,8 @@
 	FROM	Bookings INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 			INNER JOIN Companies ON Vessels.CID = Companies.CID
 			INNER JOIN UserCompanies ON UserCompanies.CID = Vessels.CID
-	WHERE	Bookings.BRID = '#URL.BRID#'
-		AND	UserCompanies.UID = '#session.UID#'
+	WHERE	Bookings.BRID = <cfqueryparam value="#url.BRID#" cfsqltype="cf_sql_integer" />
+		AND	UserCompanies.UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfif lang EQ 'eng'>
@@ -93,8 +93,8 @@
 		SELECT	Vessels.CID
 		FROM	Bookings INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
 				INNER JOIN UserCompanies ON Vessels.CID = UserCompanies.CID
-		WHERE	Bookings.Deleted = 0 AND Bookings.BRID = #url.BRID#
-				AND UserCompanies.UID = #session.UID# AND UserCompanies.Deleted = 0
+		WHERE	Bookings.Deleted = 0 AND Bookings.BRID = <cfqueryparam value="#url.BRID#" cfsqltype="cf_sql_integer" />
+				AND UserCompanies.UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" /> AND UserCompanies.Deleted = 0
 	</cfquery>
 </cflock>
 
