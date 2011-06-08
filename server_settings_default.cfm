@@ -9,3 +9,4 @@
 <cfset FileDir = "C:\ColdFusion8\wwwroot\egdbooking\">
 <cfset ServerType = "Development">
 <cfset PacificNow = DateAdd('h',0,Now()) />
+<cfset slash = "\" />
