@@ -18,7 +18,7 @@
 	</cfquery>
 <cfelse>
 	<cfquery name="getPassHash" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT Password
+	SELECT TOP 1 Password
 	FROM Users
 	WHERE email = <cfqueryparam value="#Form.email#" cfsqltype="cf_sql_varchar" />
 	AND Deleted = '0'
