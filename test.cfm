@@ -2,8 +2,8 @@
 pw = "testpass";
 
 jbClass = ArrayNew(1);
-jbClass[1] = expandPath("jBCrypt-0.3");
-javaloader = createObject('component','javaloader.javaloader');
+jbClass[1] = "#FileDir#lib/jBCrypt-0.3";
+javaloader = createObject('component','egdbooking.lib.javaloader.JavaLoader');
 javaloader.init(jbClass);
 
 bcrypt = javaloader.create("BCrypt");
@@ -28,3 +28,4 @@ match = bcrypt.checkpw(pw, hashed);
 writeoutput("checked pw match (#match#) in " & getTickCount()  - startts & " ms 
 ");
 </cfscript>
+<cfdump var="#jbClass#"></cfdump>

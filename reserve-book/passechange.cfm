@@ -27,8 +27,8 @@
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfscript>
 		jbClass = ArrayNew(1);
-		jbClass[1] = expandPath("jBCrypt-0.3");
-		javaloader = createObject('component','javaloader.javaloader');
+		jbClass[1] = "#FileDir#lib/jBCrypt-0.3";
+    javaloader = createObject('component','egdbooking.lib.javaloader.JavaLoader');
 		javaloader.init(jbClass);
 
 		bcrypt = javaloader.create("BCrypt");

@@ -2,11 +2,6 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
-<cfset slash = "\" />
-<cfif ServerType EQ 'Development'>
-  <cfset slash = "/" />
-</cfif>
-
 <cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,slash)>
 <cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,slash), slash)>
 <cfdirectory action="LIST" directory="#PageDir#" name="GetFile" filter="#PageFileName#">
