@@ -16,16 +16,26 @@
 	<cflocation url="editUser.cfm?lang=#lang#" addtoken="no">
 </cfif>
 
+<cfscript>
+	jbClass = ArrayNew(1);
+	jbClass[1] = expandPath("jBCrypt-0.3");
+	javaloader = createObject('component','javaloader.javaloader');
+	javaloader.init(jbClass);
+
+	bcrypt = javaloader.create("BCrypt");
+	hashed = bcrypt.hashpw(trim(form.password1), bcrypt.gensalt());
+</cfscript>
+
 <cfif isdefined('form.UID')>
 	<cfquery name="editPass" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Users
-		SET Password = <cfqueryparam value="#trim(form.password1)#" cfsqltype="cf_sql_varchar" />
+		SET Password = <cfqueryparam value="#hashed#" cfsqltype="cf_sql_varchar" />
 		WHERE UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cfif>
 
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT FirstName, LastName, email, password
+	SELECT FirstName, LastName, email
 	FROM Users
 	WHERE UID = <cfqueryparam value="#form.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
@@ -45,10 +55,10 @@
 		<cfoutput>
 			<cfmail to="#getUser.Email#" from="#Session.AdminEmail#" subject="Password Changed - Mot de passe chang&eacute;" type="html">
 				<p>#getUser.firstName# #getUser.lastName#,</p>
-				<p>Your password for the Esquimalt Graving Dock Online Booking System has been changed to <strong>#getUser.password#</strong>.</p>
+				<p>Your password for the Esquimalt Graving Dock Online Booking System has been changed to <strong>#trim(form.password1)#</strong>.</p>
 				<p>Esquimalt Graving Dock</p>
 				<br />
-				<p>Votre mot de passe pour le syst&egrave;me de r&eacute;servation en ligne de la cale s&egrave;che d'Esquimalt a &eacute;t&eacute; chang&eacute; et est maintenant <strong>#getUser.password#</strong>.</p>
+				<p>Votre mot de passe pour le syst&egrave;me de r&eacute;servation en ligne de la cale s&egrave;che d'Esquimalt a &eacute;t&eacute; chang&eacute; et est maintenant <strong>#trim(form.password1)#</strong>.</p>
 				<p>Cale s&egrave;che d'Esquimalt</p>
 			</cfmail>
 		</cfoutput>

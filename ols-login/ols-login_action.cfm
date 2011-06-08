@@ -17,12 +17,30 @@
 		WHERE	email = <cfqueryparam value="#Cookie.email#" cfsqltype="cf_sql_varchar" />
 	</cfquery>
 <cfelse>
+	<cfquery name="getPassHash" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+	SELECT Password
+	FROM Users
+	WHERE email = <cfqueryparam value="#Form.email#" cfsqltype="cf_sql_varchar" />
+	AND Deleted = '0'
+	</cfquery>
+	<cfif getPassHash.getRowCount() GT 0>
+		<cfscript>
+			jbClass = ArrayNew(1);
+			jbClass[1] = expandPath("jBCrypt-0.3");
+			javaloader = createObject('component','javaloader.javaloader');
+			javaloader.init(jbClass);
+
+			bcrypt = javaloader.create("BCrypt");
+			match = bcrypt.checkpw(form.password, getPassHash.Password);
+		</cfscript>
+	</cfif>
+
 	<!---Lookup the login in the database --->
 	<cfquery name="IsValidLogin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Count(*) AS Login_Match
 		FROM	Users
 		WHERE	email = <cfqueryparam value="#Form.email#" cfsqltype="cf_sql_varchar" />
-		AND		Password = <cfqueryparam value="#Form.Password#" cfsqltype="cf_sql_varchar" />
+		<!---AND		Password = <cfqueryparam value="#Form.Password#" cfsqltype="cf_sql_varchar" />--->
 		AND 	Deleted = '0'
 		AND	EXISTS (SELECT	*
 					FROM	UserCompanies
@@ -32,7 +50,7 @@
 	</cfquery>
 
 	<!---If it was an invalid login or the user is invalid, send them back to the login page --->
-	<cfif IsValidLogin.Login_Match IS "0">
+	<cfif IsValidLogin.Login_Match IS "0" OR match EQ "NO">
 		<cfset Variables.Errors = ArrayNew(1)>
 		
 		<!--- Check for errors --->
@@ -53,13 +71,13 @@
 							AND 	Approved = 1
 							AND		Deleted = 0)
 		</cfquery>
-		<cfquery name="wrongPassword" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+		<!---<cfquery name="wrongPassword" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	Count(*) AS NumFound
 			FROM	Users
 			WHERE	email = <cfqueryparam value="#Form.email#" cfsqltype="cf_sql_varchar" />
-			AND		Password != <cfqueryparam value="#Form.Password#" cfsqltype="cf_sql_varchar" />
+			<!---AND		Password != <cfqueryparam value="#hashed#" cfsqltype="cf_sql_varchar" />--->
 			AND 	Deleted = '0'
-		</cfquery>
+		</cfquery>--->
 		
 		<cfparam name="Variables.passError" default="false">
 		
@@ -71,7 +89,7 @@
 			<cfoutput>#ArrayAppend(Variables.Errors, "#language.incorrectPasswordError#")#</cfoutput>
 		<cfelseif notApproved.NumFound GT 0 AND checkEmail.NumFound GT 0>
 			<cfoutput>#ArrayAppend(Variables.Errors, "#language.unapprovedEmailError#")#</cfoutput>
-		<cfelseif wrongPassword.NumFound GT 0 AND checkEmail.NumFound GT 0>
+		<cfelseif match EQ "NO">
 			<cfoutput>#ArrayAppend(Variables.Errors, "#language.incorrectPasswordError#")#</cfoutput>
 			<cfset Variables.passError = "true">
 		</cfif>
@@ -87,7 +105,7 @@
 			SELECT	*
 			FROM	Users 
 			WHERE	email = <cfqueryparam value="#Form.email#" cfsqltype="cf_sql_varchar" />
-			AND		Password = <cfqueryparam value="#Form.Password#" cfsqltype="cf_sql_varchar" />
+			<!---AND		Password = <cfqueryparam value="#Form.password#" cfsqltype="cf_sql_varchar" />--->
 			AND     Deleted = 0 <!--- Joao Edit --->
 		</cfquery>
 	</cfif>

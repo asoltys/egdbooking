@@ -101,6 +101,16 @@
 </cfoutput>--->
 	
 <cfif getUser.recordcount EQ 0>
+	<cfscript>
+		jbClass = ArrayNew(1);
+		jbClass[1] = expandPath("jBCrypt-0.3");
+		javaloader = createObject('component','javaloader.javaloader');
+		javaloader.init(jbClass);
+
+		bcrypt = javaloader.create("BCrypt");
+		hashed = bcrypt.hashpw(trim(form.password1), bcrypt.gensalt());
+	</cfscript>
+
 	<cftransaction>
 		<cfquery name="insertNewUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			INSERT INTO Users
@@ -118,7 +128,7 @@
 				<!---'#trim(form.loginID)#',--->
 				<cfqueryparam value="#trim(form.firstname)#" cfsqltype="cf_sql_varchar" />,
 				<cfqueryparam value="#trim(form.lastname)#" cfsqltype="cf_sql_varchar" />,
-				<cfqueryparam value="#trim(form.password1)#" cfsqltype="cf_sql_varchar" />,
+				<cfqueryparam value="#hashed#" cfsqltype="cf_sql_varchar" />,
 				<cfqueryparam value="#trim(form.email)#" cfsqltype="cf_sql_varchar" />,
 				0
 			)

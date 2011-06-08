@@ -25,10 +25,19 @@
 
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
+	<cfscript>
+		jbClass = ArrayNew(1);
+		jbClass[1] = expandPath("jBCrypt-0.3");
+		javaloader = createObject('component','javaloader.javaloader');
+		javaloader.init(jbClass);
+
+		bcrypt = javaloader.create("BCrypt");
+		hashed = bcrypt.hashpw(trim(form.password1), bcrypt.gensalt());
+	</cfscript>
 
 	<cfquery name="editPass" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE Users
-		SET Password = <cfqueryparam value="#trim(form.password1)#" cfsqltype="cf_sql_varchar" />
+		SET Password = <cfqueryparam value="#hashed#" cfsqltype="cf_sql_varchar" />
 		WHERE UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 

@@ -18,6 +18,7 @@
 
 
 <cfif getPassword.recordCount EQ 0>
+	<cflocation url="passeenvoye-passsent.cfm?lang=#lang#" addtoken="no">
 	<cfset Variables.Errors = ArrayNew(1)>
 	
 	<cfoutput>#ArrayAppend(Variables.Errors, "#language.address#, #Form.Email#, #language.notReg#.")#</cfoutput>
@@ -27,9 +28,35 @@
 	<cflocation url="passeoubli-passforgot.cfm?lang=#lang#" addtoken="no">
 </cfif>
 
+<!--- Generate random password --->
+<cfset chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghiklmnopqrstuvwxyz" />
+<cfset strLength = 8 />
+<cfset randout = "" />
+<cfloop from="1" to="#strLength#" index="i">
+	<cfset rnum = ceiling(rand() * len(chars)) / >
+	<cfif rnum EQ 0 ><cfset rnum = 1 / ></cfif>
+	<cfset randout = randout & mid(chars, rnum, 1) / >
+</cfloop> 
+
+<cfscript>
+	jbClass = ArrayNew(1);
+	jbClass[1] = expandPath("jBCrypt-0.3");
+	javaloader = createObject('component','javaloader.javaloader');
+	javaloader.init(jbClass);
+
+	bcrypt = javaloader.create("BCrypt");
+	hashed = bcrypt.hashpw(randout, bcrypt.gensalt());
+</cfscript>
+
+<cfquery name="newPassword" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+	UPDATE	users
+	SET password = <cfqueryparam value="#hashed#" cfsqltype="cf_sql_varchar" />
+	WHERE	deleted = 0 AND email = <cfqueryparam value="#trim(form.email)#" cfsqltype="cf_sql_varchar" />
+</cfquery>
+
 <cfoutput>
 <cfmail to="#form.email#" from="#variables.adminEmail#" subject="#language.subject#" type="html">
-<p>#language.email# #getPassword.password#.</p>
+<p>#language.email# #randout#.</p>
 <p>#language.esqGravingDock#</p>
 </cfmail>
 	
