@@ -9,6 +9,7 @@
 		<cfargument name="targetPage" type="String" required="true" />
 
     <cfinclude template="../server_settings.cfm">
+    <cfset this.mappings["/egdbooking"] = FileDir />
 
     <cfif ServerType EQ "Production" AND cgi.server_port NEQ 443 AND cgi.request_method EQ "get">
       <cflocation url="https://#cgi.server_name##cgi.script_name#?#cgi.query_string#" />
