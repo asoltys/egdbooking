@@ -2,7 +2,7 @@
 <cfquery name="passConvert" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT *
 	FROM Users
-  WHERE password NOT LIKE "$2A$10%"
+  WHERE password NOT LIKE '$2A$10%'
 </cfquery>
 
 <cfscript>
