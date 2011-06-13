@@ -184,6 +184,9 @@ FROM       Bookings
 WHERE     (BRID = <cfqueryparam value="#form.BRID#" cfsqltype="cf_sql_integer" />)
 </cfquery>
 	<cfoutput>
+		<cfif ServerType EQ "Development">
+<cfset Variables.AdminEmail = DevEmail />
+</cfif>
 		<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Drydock Booking Request - Services and Facilities Requested" type="html">
 			<p>#getUser.userName# of <em>#getUser.companyName#</em> has filled out the on-line Tariff of Dock Charges form for their drydock booking of vessel <strong>#getDetails.VesselName#</strong> from #DateFormat(BookingDates.StartDate, 'mmm d, yyyy')# to #DateFormat(BookingDates.EndDate, 'mmm d, yyyy')#.</p>
 		</cfmail>

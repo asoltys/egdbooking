@@ -48,11 +48,17 @@
 </cfquery>
 
 
+<cfif ServerType EQ "Development">
+<cfset Variables.AdminEmail = DevEmail />
+</cfif>
 	<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Booking Tentative to Confirm Request" type="html">
 <p>#getUser.UserName# has requested to confirm the booking for #getBooking.VesselName# from #DateFormat(getBooking.StartDate, 'mmm d, yyyy')# to #DateFormat(getBooking.EndDate, 'mmm d, yyyy')#. This is for <CFIF #URL.jetty#>#northorsouth# Jetty<cfelse>the Drydock</CFIF>.</p>
 	</cfmail>
 	
 	
+	<cfif ServerType EQ "Development">
+<cfset getUser.email = DevEmail />
+</cfif>
 		<cfmail to="#getUser.email#" from="egd-cse@pwgsc-tpsgc.gc.ca" subject="Booking Confirmation Request - Demande d'annulation de r&eacute;servation: #getDetails.VesselName#" type="html">
 <p>Your confirmation request for the booking for #getBooking.VesselName# from #DateFormat(getBooking.StartDate, 'mmm d, yyyy')# to #DateFormat(getBooking.EndDate, 'mmm d, yyyy')# is now pending.  EGD administration has been notified of your request.  You will receive a follow-up email responding to your request shortly.  Until such time, your booking is considered to be going ahead as currently scheduled.</p>
 <p>&nbsp;</p>

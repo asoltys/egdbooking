@@ -39,10 +39,16 @@
 	WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
+	<cfif ServerType EQ "Development">
+<cfset Variables.AdminEmail = DevEmail />
+</cfif>
 	<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Booking Cancellation Request" type="html">
 <p>#getUser.UserName# has requested to cancel the booking for #getBooking.VesselName# from #DateFormat(getBooking.StartDate, 'mmm d, yyyy')# to #DateFormat(getBooking.EndDate, 'mmm d, yyyy')#.</p>
 	</cfmail>
 	
+	<cfif ServerType EQ "Development">
+<cfset getUser.email = DevEmail />
+</cfif>
 	<cfmail to="#getUser.email#" from="#Variables.AdminEmail#" subject="Booking Cancellation Request - Demande d'annulation de r&eacute;servation: #getBooking.VesselName#" type="html">
 <p>Your cancellation request for the booking for #getBooking.VesselName# from #DateFormat(getBooking.StartDate, 'mmm d, yyyy')# to #DateFormat(getBooking.EndDate, 'mmm d, yyyy')# is now pending.  EGD administration has been notified of your request.  You will receive a follow-up email responding to your request shortly.</p>
 <p>&nbsp;</p>

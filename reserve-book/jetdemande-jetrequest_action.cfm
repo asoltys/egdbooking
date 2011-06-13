@@ -73,6 +73,9 @@
 <cfif Form.jetty EQ "south"><cfset northorsouth = "South Jetty"></cfif>
 
 <cfoutput>
+<cfif ServerType EQ "Development">
+<cfset Variables.AdminEmail = DevEmail />
+</cfif>
 	<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Jetty Booking Requested" type="html">
 <p>#getUser.userName# of #getUser.companyName# has requested a <strong>#variables.status#</strong> #northorsouth# booking for #getDetails.VesselName# from #DateFormat(form.StartDate, 'mmm d, yyyy')# to #DateFormat(form.EndDate, 'mmm d, yyyy')#.</p>
 	</cfmail>

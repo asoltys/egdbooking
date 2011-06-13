@@ -61,6 +61,9 @@
 <cflock scope="session" throwontimeout="no" timeout="30" type="READONLY">
 	<cfif form.UID NEQ "#session.UID#">
 		<cfoutput>
+		<cfif ServerType EQ "Development">
+<cfset getUser.Email = DevEmail />
+</cfif>
 			<cfmail to="#getUser.Email#" from="#Session.AdminEmail#" subject="Company Added - Entreprise ajout&eacute;e" type="html">
 				<p>#getUser.firstName# #getUser.lastName#,</p>
 				<p>You have been given booking access for #getCompany.companyName# for the Esquimalt Graving Dock Online Booking System.</p>

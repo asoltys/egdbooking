@@ -28,6 +28,9 @@
 </cflock>
 
 <cfoutput>
+<cfif ServerType EQ "Development">
+<cfset getUser.Email = DevEmail />
+</cfif>
 	<cfmail to="#getUser.Email#" from="#Session.AdminEmail#" subject="Company Request Approved - Demande de l'entreprise approuv&eacute;e" type="html">
 <p>#getUser.UserName#,</p>
 	<p>Your request to be added to #getCompany.CompanyName#'s user list has been approved.</p>

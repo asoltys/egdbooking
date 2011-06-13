@@ -33,6 +33,9 @@
 	</cfquery>
 	
 	<cfoutput>
+	<cfif ServerType EQ "Development">
+<cfset getDetails.Email = DevEmail />
+</cfif>
 	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Confirmed - R&eacute;servation confirm&eacute;e: #getDetails.VesselName#" type="html">
 <p>Your requested jetty booking for #getDetails.VesselName# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# has been confirmed.</p>
 <p>Esquimalt Graving Dock</p>
@@ -55,6 +58,9 @@
 	
 	
 	<cfoutput>
+	<cfif ServerType EQ "Development">
+<cfset getDetails.Email = DevEmail />
+</cfif>
 	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Unconfirmed - R&eacute;servation confirm&eacute;e: #getDetails.VesselName#" type="html">
 <p>The confirmation on your jetty booking for #getDetails.VesselName# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# has been removed.  The booking status is now pending.</p>
 <p>Esquimalt Graving Dock</p>

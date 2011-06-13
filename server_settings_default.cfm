@@ -10,4 +10,4 @@
 <cfset ServerType = "Development">
 <cfset PacificNow = DateAdd('h',0,Now()) />
 <cfset slash = "\" />
-<cfset ServerType = "Dev" />
+<cfset DevEmail = "michael.rybacha@pwgsc.gc.ca" />

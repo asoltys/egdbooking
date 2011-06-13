@@ -137,6 +137,9 @@
 </cfquery>
 
 <cfoutput>
+<cfif ServerType EQ "Development">
+<cfset getDetails.Email = DevEmail />
+</cfif>
 <cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Confirmed - R&eacute;servation confirm&eacute;e: #getDetails.VesselName#" type="html">
 <p>Your requested dock booking for #getDetails.VesselName# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# has been confirmed.</p>
 <p>Esquimalt Graving Dock</p>

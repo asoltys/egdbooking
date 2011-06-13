@@ -151,6 +151,9 @@
 </cflock>
 	
 <cfoutput>
+<cfif ServerType EQ "Development">
+<cfset form.Email = DevEmail />
+</cfif>
 	<cfmail to="#form.Email#" from="#Session.AdminEmail#" subject="Account Created for EGD - Compte cr&eacute;e pour la CSE" type="html">
 <p>#form.firstname# #form.lastname#,</p>
 <p>An account has been created for you for the Esquimalt Graving Dock Online Booking System.</p>

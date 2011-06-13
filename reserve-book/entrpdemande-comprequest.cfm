@@ -60,9 +60,12 @@
 </cflock>
 
 <cfoutput>
+	<cfif ServerType EQ "Development">
+<cfset Variables.AdminEmail = DevEmail />
+</cfif>
 	<cfif userCompaniesApproved.RecordCount EQ 0>
 		<cfmail to="#Variables.AdminEmail#" from="#getUser.Email#" subject="New User" type="html">
-<p>A new user, #getUser.UserName#, has requested to create an account for #getCompany.CompanyName#.</p>
+<p>A new user, #getUsers.UserName#, has requested to create an account for #getCompany.CompanyName#.</p>
 		</cfmail>
 	<cfelse>
 		<cfmail to="#Variables.AdminEmail#" from="#getUser.Email#" subject="User Company Request" type="html">
