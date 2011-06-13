@@ -37,11 +37,13 @@
 	</cfquery>
 </cflock>
 
+<cfset queryvarchar = getUser.UserName & " requested to confirm at" />
+
 <cfoutput>
 <cfquery name="insertbooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	UPDATE  Bookings
 	SET		BookingTimeChange = <cfqueryparam value="#PacificNow#" cfsqltype="cf_sql_timestamp" />,
-			BookingTimeChangeStatus = <cfqueryparam value="#getUser.UserName#" cfsqltype="cf_sql_varchar" />
+			BookingTimeChangeStatus = <cfqueryparam value="#queryvarchar#" cfsqltype="cf_sql_varchar" />
 	WHERE	BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
