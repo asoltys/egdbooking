@@ -1,15 +1,15 @@
 <cfif lang EQ "eng">
 	<cfset language.unmatchedPasswordsError = "Passwords do not match, please retype.">
-	<cfset language.pass1ShortError = "Your password must be at least 6 characters.">
+	<cfset language.pass1ShortError = "Your password must be at least 8 characters.">
 <cfelse>
 	<cfset language.unmatchedPasswordsError = "Les mots de passe ne concordent pas, veuillez les retaper.">
-	<cfset language.pass1ShortError = "Votre mot de passe doit &ecirc;tre compos&eacute; d'au moins six caract&egrave;res.">
+	<cfset language.pass1ShortError = "Votre mot de passe doit &ecirc;tre compos&eacute; d'au moins huit caract&egrave;res.">
 </cfif>
 
 <cfset Variables.Errors = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
 
-<cfif Len(trim(Form.Password1)) LT 6>
+<cfif Len(trim(Form.Password1)) LT 8>
 	<cfoutput>#ArrayAppend(Variables.Errors, "#language.pass1ShortError#")#</cfoutput>
 	<cfset Proceed_OK = "No">
 <cfelseif Form.Password1 NEQ Form.Password2>

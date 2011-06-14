@@ -79,11 +79,11 @@
 						</tr>--->
 						<tr>
 							<td id="Passworda"><label for="password1">Password:</label></td>
-							<td headers="Passworda"><cfinput id="password1" type="password" name="password1" required="yes" size="25" maxlength="10" message="Please enter a password."><span class="smallFont" />(*6 - 10 characters)</span></td>
+							<td headers="Passworda"><cfinput id="password1" type="password" name="password1" required="yes" size="25" message="Please enter a password."><span class="smallFont" />(*minimum 8 characters)</span></td>
 						</tr>
 						<tr>
 							<td id="Passwordb"><label for="password2">Repeat Password:</label></td>
-							<td headers="Passwordb"><cfinput id="password2" type="password" name="password2" required="yes" size="25" maxlength="10" message="Please repeat the password for verification." /></td>
+							<td headers="Passwordb"><cfinput id="password2" type="password" name="password2" required="yes" size="25" message="Please repeat the password for verification." /></td>
 						</tr>
 						<tr>
 							<td id="mail"><label for="email">Email:</label></td>

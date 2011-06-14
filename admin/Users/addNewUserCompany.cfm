@@ -40,8 +40,8 @@
 		<cfset Proceed_OK = "No">
 	</CFIF>
 
-	<cfif Len(Form.Password1) LT 6>
-		<cfoutput>#ArrayAppend(Variables.Errors, "The password must be at least 6 characters.")#</cfoutput>
+	<cfif Len(Form.Password1) LT 8>
+		<cfoutput>#ArrayAppend(Variables.Errors, "The password must be at least 8 characters.")#</cfoutput>
 		<cfset Proceed_OK = "No">
 	<cfelseif Form.Password1 NEQ Form.Password2>
 		<cfoutput>#ArrayAppend(Variables.Errors, "Passwords do not match, please retype.")#</cfoutput>

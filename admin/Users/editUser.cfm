@@ -205,12 +205,12 @@ function EditSubmit ( selectedform )
 							<td colspan="2"><strong>Change Password:</strong></td>
 						</tr>
 						<tr>
-							<td id="Password"><label for="pass">Password <span class="smallFont">(*6 - 10 characters)</span>:</label></td>
-							<td headers="Password"><cfinput type="password" id="pass" name="password1" required="yes" size="25" maxlength="10" message="Please enter a password." /></td>
+							<td id="Password"><label for="pass">Password <span class="smallFont">(*minimum 8 characters)</span>:</label></td>
+							<td headers="Password"><cfinput type="password" id="pass" name="password1" required="yes" size="25" message="Please enter a password." /></td>
 						</tr>
 						<tr>
 							<td id="Repeat"><label for="repeatPass">Repeat Password:</label></td>
-							<td headers="Repeat"><cfinput type="password" id="repeatPass" name="password2" required="yes" size="25" maxlength="10" message="Please repeat the password for verification." /></td>
+							<td headers="Repeat"><cfinput type="password" id="repeatPass" name="password2" required="yes" size="25" message="Please repeat the password for verification." /></td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center">

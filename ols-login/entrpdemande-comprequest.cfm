@@ -54,12 +54,12 @@
 	<cfinclude template="#RootDir#includes/errorMessages.cfm">
 	<cfif lang EQ "eng">
 		<cfset language.unmatchedPasswordsError = "Passwords do not match, please retype.">
-		<cfset language.pass1ShortError = "Your password must be at least 6 characters.">
+		<cfset language.pass1ShortError = "Your password must be at least 8 characters.">
 		<cfset language.firstnameError = "Please enter your first name.">
 		<cfset language.lastnameError = "Please enter your last name.">
 	<cfelse>
 		<cfset language.unmatchedPasswordsError = "Les mots de passe ne concordent pas, veuillez les retaper.">
-		<cfset language.pass1ShortError = "Votre mot de passe doit &ecirc;tre compos&eacute; d'au moins six caract&egrave;res.">
+		<cfset language.pass1ShortError = "Votre mot de passe doit &ecirc;tre compos&eacute; d'au moins huit caract&egrave;res.">
 		<cfset language.firstnameError = "Veuillez entrer votre pr&eacute;nom.">
 		<cfset language.lastnameError = "Veuillez entrer votre nom de famille.">
 	</cfif>
@@ -78,7 +78,7 @@
 		<cfoutput>#ArrayAppend(Variables.Errors, "#language.emailExistsError#")#</cfoutput>
 		<cfset Proceed_OK = "No">
 	</cfif>
-	<cfif Len(trim(Form.Password1)) LT 6>
+	<cfif Len(trim(Form.Password1)) LT 8>
 		<cfoutput>#ArrayAppend(Variables.Errors, "#language.pass1ShortError# ")#</cfoutput>
 		<cfset Proceed_OK = "No">
 	<cfelseif Form.Password1 NEQ Form.Password2>

@@ -6,13 +6,13 @@
 	<cfset language.firstNameError = "Please enter your first name.">
 	<cfset language.lastNameError = "Please enter your last name.">
 	<cfset language.mismatchedPassError = "Your passwords do not match.">
-	<cfset language.pass1ShortError = "Your password must be at least 6 characters.">
+	<cfset language.pass1ShortError = "Your password must be at least 8 characters.">
 <cfelse>
 	<cfset language.noCompaniesError = "Vous devez choisir au moins une entreprise.">
 	<cfset language.firstNameError = "Veuillez entrer votre pr&eacute;nom.">
 	<cfset language.lastNameError = "Veuillez entrer votre nom de famille.">
 	<cfset language.mismatchedPassError = "Votre mot de passe ne correspond pas &agrave; votre adresse de courriel.">
-	<cfset language.pass1ShortError = "Votre mot de passe doit &ecirc;tre compos&eacute; d'au moins six caract&egrave;res.">
+	<cfset language.pass1ShortError = "Votre mot de passe doit &ecirc;tre compos&eacute; d'au moins huit caract&egrave;res.">
 </cfif>
 
 <cfif Len(form.companies) EQ 0>
