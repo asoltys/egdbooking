@@ -83,7 +83,7 @@ WHERE   Bookings.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_inte
 		<cfif ServerType EQ "Development">
 <cfset getBooking.Email = DevEmail />
 </cfif>
-		<cfmail to="#getBooking.Email#" from="#Session.AdminEmail#" subject="Booking Cancelled - R&eacute;servation annul&eacute;e: #getBooking.VesselName#" type="html">
+		<cfmail to="#getBooking.Email#" from="#AdministratorEmail#" subject="Booking Cancelled - R&eacute;servation annul&eacute;e: #getBooking.VesselName#" type="html">
 		<cfoutput>
 <p>Your jetty booking for #getBooking.VesselName# from #LSDateFormat(getBooking.startDate, 'mmm d, yyyy')# to #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')# has been #actionPast.eng#.</p>
 <p>Esquimalt Graving Dock</p>

@@ -79,7 +79,7 @@
 						</tr>--->
 						<tr>
 							<td id="Passworda"><label for="password1">Password:</label></td>
-							<td headers="Passworda"><cfinput id="password1" type="password" name="password1" required="yes" size="25" message="Please enter a password."><span class="smallFont" />(*minimum 8 characters)</span></td>
+							<td headers="Passworda"><cfinput id="password1" type="password" name="password1" required="yes" size="25" message="Please enter a password."><span class="smallFont" />(*min. 8 characters)</span></td>
 						</tr>
 						<tr>
 							<td id="Passwordb"><label for="password2">Repeat Password:</label></td>

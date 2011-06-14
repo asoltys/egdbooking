@@ -36,7 +36,7 @@
 		<cfif ServerType EQ "Development">
 		<cfset Email = DevEmail />
 		</cfif>
-		<cfmail to="#Email#" from="#Session.AdminEmail#" subject="Company Rejected - Entreprise rejet&eacute;e" type="html">
+		<cfmail to="#Email#" from="#AdministratorEmail#" subject="Company Rejected - Entreprise rejet&eacute;e" type="html">
 <p>Your requested company, #companyName.Name#, has been rejected.  Please contact the Esquimalt Graving Dock administration for details by replying to this email.</p>
 <p>Esquimalt Graving Dock</p>
 <br />

@@ -64,7 +64,7 @@
 		<cfif ServerType EQ "Development">
 <cfset getUser.Email = DevEmail />
 </cfif>
-			<cfmail to="#getUser.Email#" from="#Session.AdminEmail#" subject="Company Added - Entreprise ajout&eacute;e" type="html">
+			<cfmail to="#getUser.Email#" from="#AdministratorEmail#" subject="Company Added - Entreprise ajout&eacute;e" type="html">
 				<p>#getUser.firstName# #getUser.lastName#,</p>
 				<p>You have been given booking access for #getCompany.companyName# for the Esquimalt Graving Dock Online Booking System.</p>
 				<p>Esquimalt Graving Dock</p>

@@ -205,7 +205,7 @@ function EditSubmit ( selectedform )
 							<td colspan="2"><strong>Change Password:</strong></td>
 						</tr>
 						<tr>
-							<td id="Password"><label for="pass">Password <span class="smallFont">(*minimum 8 characters)</span>:</label></td>
+							<td id="Password"><label for="pass">Password <span class="smallFont">(*min. 8 characters)</span>:</label></td>
 							<td headers="Password"><cfinput type="password" id="pass" name="password1" required="yes" size="25" message="Please enter a password." /></td>
 						</tr>
 						<tr>

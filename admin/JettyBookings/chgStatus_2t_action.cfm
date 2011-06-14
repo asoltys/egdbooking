@@ -74,7 +74,7 @@
 <cfif ServerType EQ "Development">
 <cfset getDetails.Email = DevEmail />
 </cfif>
-<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Unconfirmed - R&eacute;servation non confirm&eacute;e: #getDetails.VesselName#" type="html">
+<cfmail to="#getDetails.Email#" from="#AdministratorEmail#" subject="Booking Unconfirmed - R&eacute;servation non confirm&eacute;e: #getDetails.VesselName#" type="html">
 <p>The confirmation on your jetty booking for #getDetails.VesselName# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# has been removed.  The booking status is now tentative.</p>
 <p>Esquimalt Graving Dock</p>
 <br />
@@ -95,7 +95,7 @@
 <cfif ServerType EQ "Development">
 <cfset getDetails.Email = DevEmail />
 </cfif>
-	<cfmail to="#getDetails.Email#" from="#Session.AdminEmail#" subject="Booking Approved - R&eacute;servation approuv&eacute;: #getDetails.VesselName#" type="html">
+	<cfmail to="#getDetails.Email#" from="#AdministratorEmail#" subject="Booking Approved - R&eacute;servation approuv&eacute;: #getDetails.VesselName#" type="html">
 <p>Your jetty booking for #getDetails.VesselName# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# has been approved.  The booking status is now tentative.  You will receive further notification on confirmation.</p>
 <p>Esquimalt Graving Dock</p>
 <br />
