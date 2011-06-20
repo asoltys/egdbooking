@@ -1,5 +1,5 @@
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-SELECT VNID
+SELECT TOP 1 VNID
 FROM Vessels
 WHERE CID = <cfqueryparam value="#newCID#" cfsqltype="cf_sql_integer" /> 
 AND Name = <cfqueryparam value="#vesselNameURL#" cfsqltype="cf_sql_varchar" />

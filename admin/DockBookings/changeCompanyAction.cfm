@@ -8,9 +8,10 @@
 </cfoutput>
 
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-SELECT VNID
+SELECT TOP 1 VNID
 FROM Vessels
-WHERE CID = <cfqueryparam value="#newCID#" cfsqltype="cf_sql_integer" /> AND Name = <cfqueryparam value="#vesselNameURL#" cfsqltype="cf_sql_varchar" />
+WHERE CID = <cfqueryparam value="#newCID#" cfsqltype="cf_sql_integer" /> 
+AND Name = <cfqueryparam value="#vesselNameURL#" cfsqltype="cf_sql_varchar" />
 </cfquery>
 
 <!---
@@ -26,8 +27,8 @@ WHERE CID = <cfqueryparam value="#newCID#" cfsqltype="cf_sql_integer" /> AND Nam
 <cfquery name="insertdata" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 UPDATE Bookings
 SET
-<cfoutput query="getVessel">	VNID = <cfqueryparam value="#Trim(VNID)#" cfsqltype="cf_sql_integer" />, </cfoutput>
-	UID = <cfqueryparam value="#Trim(newUserName)#" cfsqltype="cf_sql_integer" />
+VNID = <cfqueryparam value="#Trim(VNID)#" cfsqltype="cf_sql_integer" />,
+UID = <cfqueryparam value="#Trim(newUserName)#" cfsqltype="cf_sql_integer" />
 WHERE BRID = <cfqueryparam value="#BRIDURL#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
