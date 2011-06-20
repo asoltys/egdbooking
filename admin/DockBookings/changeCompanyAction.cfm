@@ -1,28 +1,9 @@
-<cfoutput>
-     <CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-      
-      <CFELSE>
-      
-    </CFIF>
-    
-</cfoutput>
-
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 SELECT TOP 1 VNID
 FROM Vessels
 WHERE CID = <cfqueryparam value="#newCID#" cfsqltype="cf_sql_integer" /> 
 AND Name = <cfqueryparam value="#vesselNameURL#" cfsqltype="cf_sql_varchar" />
 </cfquery>
-
-<!---
-<cfoutput query="getVessel">
-#BRIDURL#
-<br />
-#newUserName#
-<br />
-#VNID#
-</cfoutput>--->
-
 
 <cfquery name="insertdata" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 UPDATE Bookings
@@ -33,4 +14,3 @@ WHERE BRID = <cfqueryparam value="#BRIDURL#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cflocation url="#RootDir#admin/DockBookings/bookingManage.cfm">
-
