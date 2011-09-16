@@ -52,6 +52,13 @@
 
 <cfset Errors = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
+<cfif not isDate(form.startdate) or not isDate(form.enddate)>
+	<cfoutput>#ArrayAppend(Errors, language.invalidStartError)#</cfoutput>
+	<cfoutput>#ArrayAppend(Errors, language.invalidEndError)#</cfoutput>
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfset Proceed_OK = "Yes">
 <cfif DateCompare(Form.StartDate,Form.EndDate) EQ 1>
 	<cfoutput>#ArrayAppend(Errors, "#language.endBeforeStartError#")#</cfoutput>
 	<cfset Proceed_OK = "No">
