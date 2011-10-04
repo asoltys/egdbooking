@@ -157,7 +157,7 @@ function popUp(pageID) {
 				  R&eacute;server la cale s&egrave;che et les jet&eacute;es en ligne.</p>
 				<p><a href="#RootDir#utils/resume-summary_ch.cfm?lang=fra">R&eacute;sum&eacute; des r&eacute;servations</a> - Voir toutes les r&eacute;servations.</p>
 				<p><em>Les liens suivants vous m&egrave;neront &agrave; des sites externes:</em><br /></p>
-				(<img src="#RootDir#images/www1.gif" width="31" height="9" alt="emplacement de WWW" title="emplacement de WWW" />)  <p><a href="http://lois.justice.gc.ca/fr/P-38.2/DORS-89-332/index.html">R&egrave;glement CSE</a></p>
+				(<img src="#RootDir#images/www1.gif" width="31" height="9" alt="emplacement de WWW" title="emplacement de WWW" />)  <p><a href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-fra.html">R&egrave;glement CSE</a></p>
 			  </cfoutput>			</div>
 		<!-- FIN DU CONTENU | CONTENT ENDS -->
 		</div>
