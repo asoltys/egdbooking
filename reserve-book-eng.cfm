@@ -138,7 +138,6 @@
               <h2>What's New</h2>
 
               <ul>
-                <li><a title="EGD: Rates" href="#EGD_URL#/env/tarifs-rates-eng.html">Effective tariff of dock charges for the Esquimalt Graving Dock</a></li>
                 <li><a title="EGD: Capital Projects" href="#EGD_URL#/env/projects-projets-eng.html">Upcoming capital projects impacting operations for the Esquimalt Graving Dock</a></li>
                 <li><a title="EGD Regulations" href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-eng.html">Regulations amending the Esquimalt Graving Dock regulations.</a></li>
               </ul>
