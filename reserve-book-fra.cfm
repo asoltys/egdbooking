@@ -126,7 +126,6 @@ function popUp(pageID) {
 		<br />
 		<h2>Quoi de neuf...</h2>
 		<ul>
-			<li><a title="CSE: Grues de 30 Tonnes" href="#EGD_URL#/env/cranes-grues-fra.html">Grues de 30 Tonnes</a></li>
 			<li><a title="CSE: tarifs" href="#EGD_URL#/env/tarifs-rates-fra.html">Dernières étapes en vue de la modification des tarifs de la cale sèche d'Esquimalt.</a></li>
 			<li><a title="CSE: Capital Projects" href="#EGD_URL#/env/projects-projets-fra.html">Futurs projets d'investissement impact sur les opérations de la cale sèche d'Esquimalt.  </a></li>
 			<li><a title="CSE Reglement" href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-fra.html">Règlement modifiant le Règlement de 1989 sur la cale sèche d¿Esquimalt.</a></li>
