@@ -80,6 +80,10 @@
 					<cfset Proceed_OK = "No">
 				</cfif>
 
+        <cfif not isNumeric(form.booking_VNID)>
+          <cfset form.booking_VNID = 0 />
+        </cfif>
+
 				<cfset Variables.VNID = Form.booking_VNID>
 				<cfset Variables.CID = Form.booking_CID>
 				<cfset Variables.StartDate = CreateODBCDate(Form.StartDate)>
