@@ -41,7 +41,7 @@
 </CFIF>
 
 <cfif isDefined("url.date")>
-	<cfset variables.dateValue = "&date=#url.date#">
+	<cfset variables.dateValue = "&amp;date=#url.date#">
 <cfelse>
 	<cfset variables.dateValue = "">
 </cfif>
@@ -106,10 +106,10 @@
 						<cfloop list="#Variables.emailList#" index="email"><tr><td>&nbsp;</td><td><a href="mailto:#email#?subject=#emailSubject#">#email#</a></td></tr></cfloop>
 					</table>
 					</cfif>
-				</div>
+        </p>
 				<br />
 				<div style="text-align:center;">
-					<input type="button" onclick="self.location.href='#RootDir#comm/detail-res-book.cfm?lang=#lang#&BRID=#url.BRID#&referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#" />
+					<input type="button" onclick="self.location.href='#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#url.BRID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#" />
 				</div>
 
 				</cfoutput>

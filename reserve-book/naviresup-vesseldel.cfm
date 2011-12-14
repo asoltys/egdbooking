@@ -94,13 +94,13 @@
 				<cfif getVesselDockBookings.recordCount EQ 0 AND getVesselJettyBookings.recordCount EQ 0>
 						<cfoutput query="getVesselDetail">
 							<p>#language.areYouSure# <strong>#name#</strong>?</p>
-							<div style="text-align:center;">
 							<form id="DelVessel" action="#RootDir#reserve-book/naviresup-vesseldel_action.cfm?lang=#lang#&amp;CID=#CID#" method="post">
-								<input type="hidden" name="VNID" value="#VNID#" />
-								<input type="submit" value="#language.Delete#" class="textbutton" />
-								<input type="button" value="#language.Cancel#" onclick="history.go(-1);" class="textbutton" />
+                <div style="text-align:center;">
+                  <input type="hidden" name="VNID" value="#VNID#" />
+                  <input type="submit" value="#language.Delete#" class="textbutton" />
+                  <input type="button" value="#language.Cancel#" onclick="history.go(-1);" class="textbutton" />
+                </div>
 							</form>
-							</div>
 						</cfoutput>
 				<cfelse>
 						<p><cfoutput><strong>#getVesselDetail.name#</strong> #language.cannotDelete#</cfoutput></p>

@@ -66,7 +66,7 @@
 					<cfset Variables.BookingRequestString = "&CID=#URL.CID#">
 				</cfif>
 				<cfif IsDefined("URL.Date")>
-					<cfset Variables.BookingRequestString = "#Variables.BookingRequestString#&Date=#URL.Date#">
+					<cfset Variables.BookingRequestString = "#Variables.BookingRequestString#&amp;Date=#URL.Date#">
 				</cfif>
 
 				<p>#language.choose#</p>

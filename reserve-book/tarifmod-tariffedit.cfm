@@ -172,7 +172,7 @@
 						<td headers="checkHeader">
 							<cfif fee NEQ "">
 								<cfset Variables.Abbr = "getForm." & #abbreviation#>
-								<input name="#abbreviation#" id="#abbreviation#" type="checkbox"<cfif Evaluate(Variables.Abbr) EQ 1> checked="true"</cfif> />
+								<input name="#abbreviation#" type="checkbox"<cfif Evaluate(Variables.Abbr) EQ 1> checked="true"</cfif> />
 							</cfif>
 						</td>
 

@@ -126,7 +126,7 @@
 						<br />
 
 						<label for="LloydsID">#language.LloydsID#:</label>
-						<input id="LloydsID" name="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" >
+						<input id="LloydsID" name="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" />
 						<br />
 
 						<cfif getVesselDockBookings.recordCount GT 0 OR getVesselJettyBookings.recordCount GT 0>
