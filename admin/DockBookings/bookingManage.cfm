@@ -311,10 +311,6 @@ function EditSubmit ( selectedform )
 								<form method="post" action="editBooking.cfm?#urltoken#" name="editBooking#ID#">
 									<input type="hidden" name="BRID" value="#id#" />
 								</form>
-
-								<form method="post" action="feesForm_admin.cfm?#urltoken#" name="viewForm#ID#">
-									<input type="hidden" name="BRID" value="#id#" />
-								</form>
               </td>
             </tr>
 
@@ -452,7 +448,6 @@ function EditSubmit ( selectedform )
 
 											<tr class="containsbutton">
 												<td colspan="2" style="text-align:center;">
-												<a href="javascript:EditSubmit('viewForm#ID#');" class="textbutton">View / Edit Tariff Form</a>
 												<a href="javascript:EditSubmit('delete#ID#');" class="textbutton">#variables.actionCap#</a>
 												<a href="javascript:EditSubmit('deny#ID#');" class="textbutton">Deny Request</a>
 												</td>
