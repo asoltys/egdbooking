@@ -81,9 +81,9 @@ function EditSubmit ( selectedform )
 						<cfset variables.flexName = "variables." & #abbreviation# & "Flex">
 
 						<tr class="#rowClass#">
-							<td id="itemHeader" align="center" valign="top"><strong><label for="#abbreviation#">#item#</label></strong></td>
-							<td id="serviceHeader" align="left" valign="top"><label for="#abbreviation#">#service#</label></td>
-							<td id="feeHeader" align="right" valign="top">
+							<td align="center" valign="top"><strong><label for="#abbreviation#">#item#</label></strong></td>
+							<td align="left" valign="top"><label for="#abbreviation#">#service#</label></td>
+							<td align="right" valign="top">
 								<cfif fee NEQ "">
 									<cfif EVALUATE(variables.flexName) EQ 0>
 										<cfset variables.value = EVALUATE(variables.feeName)>

@@ -101,14 +101,14 @@ function EditSubmit ( selectedform )
 					<tr>
 						<th class="feesformheader" id="checkHeader"><label for="otherCheck">&nbsp;</label></th>
 						<th class="feesformheader" id="itemHeader"><strong>Item</strong></th>
-						<th id="serviceHeader" class="feesformheader"><strong>Services and Facilities</strong></th>
+						<th class="feesformheader" id="serviceHeader"><strong>Services and Facilities</strong></th>
 						<th class="feesformheader" id="feeHeader"><strong>Fees</strong></th>
 					</tr>
 
 					<tr>
-						<td id="checkHeader"><input name="other" id="otherCheck" type="checkbox" <cfif getForm.other EQ 1>checked="true"</cfif> onclick="if (this.checked) this.form.otherBox.focus();" />
-						<td id="itemHeader">&nbsp;</td>
-						<td id="serviceHeader">
+						<td><input name="other" id="otherCheck" type="checkbox" <cfif getForm.other EQ 1>checked="true"</cfif> onclick="if (this.checked) this.form.otherBox.focus();" />
+						<td>&nbsp;</td>
+						<td>
               <table>
 								<tr>
 									<td valign="top"><label for="otherBox">Misc:</label></td>
@@ -134,9 +134,9 @@ function EditSubmit ( selectedform )
 									<input name="#abbreviation#" id="#abbreviation#" type="checkbox" <cfif Evaluate(Variables.Abbr) EQ 1>checked="true"</cfif> />
 								</cfif>
 							</td>
-							<td id="itemHeader" align="center" valign="top"><strong><label for="#abbreviation#">#item#</label></strong></td>
-							<td id="serviceHeader" align="left" valign="top"><label for="#abbreviation#">#service#</label></td>
-							<td id="feeHeader" align="right" valign="top"><label for="#abbreviation#"><cfif fee NEQ ""><strong><cfif flex EQ 0>#LSCurrencyFormat(fee)#<cfelse>prices vary</cfif></strong></cfif></label></td>
+							<td align="center" valign="top"><strong><label for="#abbreviation#">#item#</label></strong></td>
+							<td align="left" valign="top"><label for="#abbreviation#">#service#</label></td>
+							<td align="right" valign="top"><label for="#abbreviation#"><cfif fee NEQ ""><strong><cfif flex EQ 0>#LSCurrencyFormat(fee)#<cfelse>prices vary</cfif></strong></cfif></label></td>
 						</tr>
 					</cfoutput>
 				</table>

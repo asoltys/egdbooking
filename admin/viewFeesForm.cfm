@@ -47,7 +47,7 @@
 				<tr>
 					<th class="feesformheader" id="checkHeader" style="width:5%;"><label for="other">&nbsp;</label></th>
 					<th class="feesformheader" id="itemHeader" style="width:4%;"><strong>Item</strong></th>
-					<th id="serviceHeader" class="feesformheader"><strong>Services and Facilities</strong></th>
+					<th class="feesformheader" id="serviceHeader"><strong>Services and Facilities</strong></th>
 					<th class="feesformheader" id="feeHeader" style="width:19%;"><strong>Fees</strong></th>
 				</tr>
 
