@@ -110,7 +110,7 @@
 						<cfif getVesselDockBookings.recordCount GT 0>
 							<cfoutput>
 							<table style="padding-left:20px; width:100%;" >
-								<tr><td><h2>#language.Drydock#</i></strong></h2>
+								<tr><td><h2>#language.Drydock#</strong></h2>
 								<tr>
 									<td style="width:25%;" id="start"><strong>#language.StartDate#</strong></td>
 									<td style="width:60%;" id="end"><strong>#language.EndDate#</strong></td>
@@ -122,9 +122,9 @@
 									<td headers="start">#LSdateformat(startDate, "mmm d, yyyy")#</td>
 									<td headers="end">#LSdateformat(endDate, "mmm d, yyyy")#</td>
 									<td headers="status">
-										<cfif status EQ "PT"><i>#language.pending#</i>
-										<cfelseif status EQ "T"><i>#language.tentative#</i>
-										<cfelseif status EQ "C"><i>#language.confirmed#</i></cfif>
+										<cfif status EQ "PT"><em>#language.pending#</em>
+										<cfelseif status EQ "T"><em>#language.tentative#</em>
+										<cfelseif status EQ "C"><em>#language.confirmed#</em></cfif>
 									</td>
 								</tr>
 							</cfoutput>
@@ -134,7 +134,7 @@
 						<cfif getVesselJettyBookings.recordCount GT 0>
 							<cfoutput>
 							<table style="padding-left:20px; width:100%;" >
-								<tr><td><h2>#language.Jetty#</i></strong></h2>
+								<tr><td><h2>#language.Jetty#</strong></h2>
 								<tr>
 									<td style="width:25%;" id="start"><strong>#language.StartDate#</strong></td>
 									<td style="width:25%;" id="end"><strong>#language.EndDate#</strong></td>
@@ -154,8 +154,8 @@
 										</cfif>
 									</td>
 									<td headers="status">
-										<cfif status EQ "PT"><i>#language.pending#</i>
-										<cfelseif status EQ "C"><i>#language.confirmed#</i></cfif>
+										<cfif status EQ "PT"><em>#language.pending#</em>
+										<cfelseif status EQ "C"><em>#language.confirmed#</em></cfif>
 									</td>
 								</tr>
 							</cfoutput>
