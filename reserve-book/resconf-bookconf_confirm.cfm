@@ -29,7 +29,7 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
 	<title>#language.ConfirmBooking# - #language.esqGravingDock# - #language.PWGSC#</title>
-	<link rel=""styleSHEET"" type=""text/css"" href=""#RootDir#css/booking.css"" />
+	<link rel=""stylesheet"" type=""text/css"" href=""#RootDir#css/booking.css"" />
 ">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
@@ -91,9 +91,11 @@
 				<p>#language.areYouSure# <strong>#getBooking.VesselName#</strong> #language.from# #LSDateFormat(getBooking.StartDate, 'mmm d, yyyy')# #language.to# #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')#?</p>
 				<div style="text-align:center;">
 					<CFFORM action="#RootDir#reserve-book/resconf-bookconf_action.cfm?lang=#lang#&amp;CID=#getBooking.CID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#&amp;jetty=#URL.jetty#" id="ConfirmBooking">
-						<input type="hidden" name="BRID" value="#url.BRID#" />
-						<input type="submit" value="#language.Continue#" class="textbutton" />
-						<input type="button" onclick="self.location.href='#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#url.BRID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#" />
+          <fieldset>
+              <input type="hidden" name="BRID" value="#url.BRID#" />
+              <input type="submit" value="#language.Continue#" class="textbutton" />
+              <input type="button" onclick="self.location.href='#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#url.BRID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#" />
+          </fieldset>
 					</CFFORM>
 				</div>
 				</cfoutput>
