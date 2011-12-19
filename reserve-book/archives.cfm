@@ -134,8 +134,7 @@
 										<cfelseif status EQ "T"><i>#language.tentative#</i></cfif>
 									</td>
 									<td>
-										<cfif status EQ "PT" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#" title="#language.editTariff#">#language.editTariff#</a></div>
-										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#" title="#language.viewTariff#">#language.viewTariff#</a></div></cfif>
+										<div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#" title="#language.viewTariff#">#language.viewTariff#</a></div>
 									</td>
 								</tr>
 								<tr class="#rowClass#"><td colspan="3">

@@ -293,7 +293,6 @@
 
 							<cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn>
 								<cfif not isJetty>
-									<a href="#RootDir#admin/DockBookings/feesForm_admin.cfm?#urltoken#&amp;BRID=#url.BRID#&amp;referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">#language.tariff#</a>
 									<a href="#RootDir#admin/DockBookings/editBooking.cfm?lang=#lang#&amp;BRID=#url.BRID#&amp;referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">
 								<cfelse>
 									<a href="#RootDir#admin/JettyBookings/editJettyBooking.cfm?lang=#lang#&amp;BRID=#url.BRID#&amp;CID=#CID#&amp;referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">

@@ -83,11 +83,6 @@
 					)
 	</cfquery>
 
-	<cfquery name="insertBlankForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		INSERT INTO TariffForms(BRID)
-		VALUES		(<cfqueryparam value="#getID.BRID#" cfsqltype="cf_sql_integer" />)
-	</cfquery>
-	
 	<cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Email, Vessels.Name AS VesselName, StartDate, EndDate
 		FROM	Bookings INNER JOIN Users ON Bookings.UID = Users.UID 

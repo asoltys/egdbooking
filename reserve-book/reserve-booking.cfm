@@ -238,7 +238,6 @@
 	<cfset language.addVessel = "Add Vessel">
 	<cfset language.requestBooking = "Request Booking">
 	<cfset language.bookingForms = "Booking Forms">
-	<cfset language.editTariff = "Edit Tariff Form">
 	<cfset language.viewTariff = "View Tariff Form">
 	<cfset language.agent = "Agent">
 	<cfset language.administrator = "Administrator">
@@ -257,7 +256,6 @@
 	<cfset language.addVessel = "Ajout d'un navire">
 	<cfset language.requestBooking = "Pr&eacute;sentater une r&eacute;servation">
 	<cfset language.bookingForms = "Formulaires de r&eacute;servation">
-	<cfset language.editTariff = "Modification du formulaire de tarif">
 	<cfset language.viewTariff = "Consulter le formulaire de tarif">
 	<cfset language.agent = "Agent">
 	<cfset language.administrator = "Administrateur">
@@ -368,8 +366,7 @@
 										</cfif>
 									</td>
 									<td style="width:25%;">
-										<cfif status EQ "PT" OR status eq "T"><div class="smallFont"><a href="#RootDir#reserve-book/tarifmod-tariffedit.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.editTariff# #Name# #BRID#">#language.editTariff#</a></div>
-										<cfelse><div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.viewTariff# #Name# #BRID#">#language.viewTariff#</a></div></cfif>
+										<div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.viewTariff# #Name# #BRID#">#language.viewTariff#</a></div>
 									</td>
 								</tr>
 								<tr class="#rowClass#"><td colspan="3">
