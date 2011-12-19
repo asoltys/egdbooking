@@ -97,10 +97,6 @@
 			INSERT INTO Docks (BRID, Status)
 			VALUES		(<cfqueryparam value="#getID.BRID#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#status#" cfsqltype="cf_sql_varchar" />)
 		</cfquery>
-		<cfquery name="insertBlankForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			INSERT INTO TariffForms(BRID)
-			VALUES		(<cfqueryparam value="#getID.BRID#" cfsqltype="cf_sql_integer" />)
-		</cfquery>
 	</cftransaction>
 
 	<cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">

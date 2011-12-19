@@ -35,12 +35,6 @@
 	<title>#language.ViewTariffHeading# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<cfquery name="getForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT	*
-	FROM	TariffForms
-	<cfif isDefined("url.BRID")>WHERE	BRID = <cfqueryparam value="#url.BRID#" cfsqltype="cf_sql_integer" /></cfif>
-</cfquery>
-
 <cfquery name="getDetails" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	Vessels.Name AS VesselName, Vessels.CID, Companies.Name AS CompanyName, StartDate, EndDate
 	FROM	Bookings INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID

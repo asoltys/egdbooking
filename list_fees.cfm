@@ -5,7 +5,7 @@
 
 <cfloop query="bookings">
   <cfquery name="fees" datasource="egdbooking" username="#dbuser#" password="#dbpassword#">
-    SELECT * FROM TariffForms 
+    SELECT * FROM TariffFees
     WHERE BRID = #bookings.BRID#
   </cfquery>
 
