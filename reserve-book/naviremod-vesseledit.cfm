@@ -133,12 +133,12 @@
 
 							<label for="length">#language.Length#:</label>
 							<p>#variables.length# m</p>
-							<input type="hidden" name="length" value="#variables.length#">
+							<input type="hidden" name="length" value="#variables.length#" />
 
 
 							<label for="width">#language.Width#:</label>
 							<p>#variables.width# m</p>
-							<input type="hidden" name="width" value="#variables.width#">
+							<input type="hidden" name="width" value="#variables.width#" />
 
 						<cfelse>
 
