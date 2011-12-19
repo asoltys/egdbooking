@@ -191,7 +191,7 @@
 				<cfset Variables.countQName = "userVessel" & #BRID# & ".recordCount">
 				<cfset Variables.count = EVALUATE(countQName)>
 
-				<table class="bookingDetails" <CFIF EVALUATE(Variables.count) GT 0> bgcolor="##E0E6CF"</CFIF>>
+				<table class="bookingDetails">
 					<tr>
 						<td colspan="2"><CFIF Status eq 'c'><strong></cfif><cfif #EndHighlight# GTE PacificNow>* </cfif>
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
