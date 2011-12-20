@@ -109,7 +109,148 @@
 					<h3>#LSDateFormat(getDetails.StartDate, 'mmm d, yyyy')# - #LSDateFormat(getDetails.EndDate, 'mmm d, yyyy')#</h3>
 				</cfif>
 
-				<table summary="#language.tablesummary#">
+				<table summary="#language.<cfquery name="submitTariffForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+	UPDATE TariffForms
+	SET		<cfif isDefined("Form.BookFee") AND Form.BookFee EQ "on">
+					BookFee = '1',
+				<cfelse>
+					BookFee = '0', 
+				</cfif>
+				<cfif isDefined("Form.FullDrain") AND Form.FullDrain EQ "on">
+					FullDrain = '1', 
+				<cfelse>
+					FullDrain = '0',
+				</cfif>
+				<cfif isDefined("Form.VesselDockage") AND Form.VesselDockage EQ "on">
+					VesselDockage = '1', 
+				<cfelse>
+					VesselDockage = '0', 
+				</cfif>
+				<cfif isDefined("Form.CargoDockage") AND Form.CargoDockage EQ "on">
+					CargoDockage = '1', 
+				<cfelse>
+					CargoDockage = '0', 
+				</cfif>
+				<cfif isDefined("Form.WorkVesselBerthNorth") AND Form.WorkVesselBerthNorth EQ "on">
+					WorkVesselBerthNorth = '1', 
+				<cfelse>
+					WorkVesselBerthNorth = '0',  
+				</cfif>
+				<cfif isDefined("Form.NonworkVesselBerthNorth") AND Form.NonworkVesselBerthNorth EQ "on">
+					NonworkVesselBerthNorth = '1', 
+				<cfelse>
+					NonworkVesselBerthNorth = '0', 
+				</cfif>
+				<cfif isDefined("Form.VesselBerthSouth") AND Form.VesselBerthSouth EQ "on">
+					VesselBerthSouth = '1', 
+				<cfelse>
+					VesselBerthSouth = '0', 
+				</cfif>
+				<cfif isDefined("Form.CargoStore") AND Form.CargoStore EQ "on">
+					CargoStore = '1', 
+				<cfelse>
+					CargoStore = '0', 
+				</cfif>
+				<cfif isDefined("Form.TopWharfage") AND Form.TopWharfage EQ "on">
+					TopWharfage = '1', 
+				<cfelse>
+					TopWharfage = '0', 
+				</cfif>
+				<cfif isDefined("Form.CraneLightHook") AND Form.CraneLightHook EQ "on">
+					CraneLightHook = '1', 
+				<cfelse>
+					CraneLightHook = '0', 
+				</cfif>
+				<cfif isDefined("Form.CraneMedHook") AND Form.CraneMedHook EQ "on">
+					CraneMedHook = '1', 
+				<cfelse>
+					CraneMedHook = '0', 
+				</cfif>
+				<cfif isDefined("Form.CraneBigHook") AND Form.CraneBigHook EQ "on">
+					CraneBigHook = '1', 
+				<cfelse>
+					CraneBigHook = '0', 
+				</cfif>
+				<cfif isDefined("Form.CraneHyster") AND Form.CraneHyster EQ "on">
+					CraneHyster = '1', 
+				<cfelse>
+					CraneHyster = '0', 
+				</cfif>
+				<cfif isDefined("Form.CraneGrove") AND Form.CraneGrove EQ "on">
+					CraneGrove = '1', 
+				<cfelse>
+					CraneGrove = '0', 
+				</cfif>
+				<cfif isDefined("Form.Forklift") AND Form.Forklift EQ "on">
+					Forklift = '1', 
+				<cfelse>
+					Forklift = '0', 
+				</cfif>
+				<cfif isDefined("Form.CompressPrimary") AND Form.CompressPrimary EQ "on">
+					CompressPrimary = '1', 
+				<cfelse>
+					CompressPrimary = '0', 
+				</cfif>
+				<cfif isDefined("Form.CompressSecondary") AND Form.CompressSecondary EQ "on">
+					CompressSecondary = '1', 
+				<cfelse>
+					CompressSecondary = '0', 
+				</cfif>
+				<cfif isDefined("Form.CompressPortable") AND Form.CompressPortable EQ "on">
+					CompressPortable = '1', 
+				<cfelse>
+					CompressPortable = '0', 
+				</cfif>
+				<cfif isDefined("Form.Tug") AND Form.Tug EQ "on">
+					Tug = '1', 
+				<cfelse>
+					Tug = '0', 
+				</cfif>
+				<cfif isDefined("Form.FreshH2O") AND Form.FreshH2O EQ "on">
+					FreshH2O = '1', 
+				<cfelse>
+					FreshH2O = '0', 
+				</cfif>
+				<cfif isDefined("Form.Electric") AND Form.Electric EQ "on">
+					Electric = '1', 
+				<cfelse>
+					Electric = '0',  
+				</cfif>
+				<cfif isDefined("Form.TieUp") AND Form.TieUp EQ "on">
+					TieUp = '1', 
+				<cfelse>
+					TieUp = '0', 
+				</cfif>
+				<cfif isDefined("Form.Commissionaire") AND Form.Commissionaire EQ "on">
+					Commissionaire = '1', 
+				<cfelse>
+					Commissionaire = '0',  
+				</cfif>
+				<cfif isDefined("Form.OvertimeLabour") AND Form.OvertimeLabour EQ "on">
+					OvertimeLabour = '1', 
+				<cfelse>
+					OvertimeLabour = '0', 
+				</cfif>
+				<cfif isDefined("Form.LightsStandard") AND Form.LightsStandard EQ "on">
+					LightsStandard = '1', 
+				<cfelse>
+					LightsStandard = '0', 
+				</cfif>
+				<cfif isDefined("Form.LightsCaisson") AND Form.LightsCaisson EQ "on">
+					LightsCaisson = '1',
+				<cfelse>
+					LightsCaisson = '0',
+				</cfif>
+				<cfif isDefined("Form.Other") AND Form.Other EQ "on" AND trIM(Form.otherText) NEQ "">
+					otherText = <cfqueryparam value="#Form.otherText#" cfsqltype="cf_sql_varchar" />,
+					Other = '1'
+				<cfelse>
+					otherText = '',
+					Other = '0'
+				</cfif>
+				WHERE BRID = <cfqueryparam value="#form.BRID#" cfsqltype="cf_sql_integer" />
+</cfquery>
+tablesummary#">
 					<tr>
 						<th>#language.Services#</th>
 						<th>#language.Fees#</th>
@@ -126,24 +267,165 @@
 					<tr class="#rowClass#">
 						<td headers="serviceHeader">
 							<cfif fee NEQ "">
-								<label for="#abbreviation#">#service#</label>
+								<span>#service#</span>
 							<cfelse>
 								#service#
 							</cfif>
 						</td>
 						<cfif fee NEQ "">
 							<cfif flex EQ 0>
-						<td headers="feeHeader"><label for="#abbreviation#"><strong>#LSCurrencyFormat(fee)#</strong></label></td>
+                <td headers="feeHeader"><strong>#LSCurrencyFormat(fee)#</strong></td>
 							<cfelse>
-						<td headers="feeHeader"><label for="#abbreviation#"><strong>#language.pricesVary#</strong></label></td>
+                <td headers="feeHeader"><strong>#language.pricesVary#</strong></td>
 							</cfif>
 						<cfelse>
-						<td headers="feeHeader">&nbsp;</td>
+              <td headers="feeHeader">&nbsp;</td>
 						</cfif>
 					</tr>
         </cfloop>
 				
-				</table>
+				</table><cfquery name="submitTariffForm" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+	UPDATE TariffForms
+	SET		<cfif isDefined("Form.BookFee") AND Form.BookFee EQ "on">
+					BookFee = '1',
+				<cfelse>
+					BookFee = '0', 
+				</cfif>
+				<cfif isDefined("Form.FullDrain") AND Form.FullDrain EQ "on">
+					FullDrain = '1', 
+				<cfelse>
+					FullDrain = '0',
+				</cfif>
+				<cfif isDefined("Form.VesselDockage") AND Form.VesselDockage EQ "on">
+					VesselDockage = '1', 
+				<cfelse>
+					VesselDockage = '0', 
+				</cfif>
+				<cfif isDefined("Form.CargoDockage") AND Form.CargoDockage EQ "on">
+					CargoDockage = '1', 
+				<cfelse>
+					CargoDockage = '0', 
+				</cfif>
+				<cfif isDefined("Form.WorkVesselBerthNorth") AND Form.WorkVesselBerthNorth EQ "on">
+					WorkVesselBerthNorth = '1', 
+				<cfelse>
+					WorkVesselBerthNorth = '0',  
+				</cfif>
+				<cfif isDefined("Form.NonworkVesselBerthNorth") AND Form.NonworkVesselBerthNorth EQ "on">
+					NonworkVesselBerthNorth = '1', 
+				<cfelse>
+					NonworkVesselBerthNorth = '0', 
+				</cfif>
+				<cfif isDefined("Form.VesselBerthSouth") AND Form.VesselBerthSouth EQ "on">
+					VesselBerthSouth = '1', 
+				<cfelse>
+					VesselBerthSouth = '0', 
+				</cfif>
+				<cfif isDefined("Form.CargoStore") AND Form.CargoStore EQ "on">
+					CargoStore = '1', 
+				<cfelse>
+					CargoStore = '0', 
+				</cfif>
+				<cfif isDefined("Form.TopWharfage") AND Form.TopWharfage EQ "on">
+					TopWharfage = '1', 
+				<cfelse>
+					TopWharfage = '0', 
+				</cfif>
+				<cfif isDefined("Form.CraneLightHook") AND Form.CraneLightHook EQ "on">
+					CraneLightHook = '1', 
+				<cfelse>
+					CraneLightHook = '0', 
+				</cfif>
+				<cfif isDefined("Form.CraneMedHook") AND Form.CraneMedHook EQ "on">
+					CraneMedHook = '1', 
+				<cfelse>
+					CraneMedHook = '0', 
+				</cfif>
+				<cfif isDefined("Form.CraneBigHook") AND Form.CraneBigHook EQ "on">
+					CraneBigHook = '1', 
+				<cfelse>
+					CraneBigHook = '0', 
+				</cfif>
+				<cfif isDefined("Form.CraneHyster") AND Form.CraneHyster EQ "on">
+					CraneHyster = '1', 
+				<cfelse>
+					CraneHyster = '0', 
+				</cfif>
+				<cfif isDefined("Form.CraneGrove") AND Form.CraneGrove EQ "on">
+					CraneGrove = '1', 
+				<cfelse>
+					CraneGrove = '0', 
+				</cfif>
+				<cfif isDefined("Form.Forklift") AND Form.Forklift EQ "on">
+					Forklift = '1', 
+				<cfelse>
+					Forklift = '0', 
+				</cfif>
+				<cfif isDefined("Form.CompressPrimary") AND Form.CompressPrimary EQ "on">
+					CompressPrimary = '1', 
+				<cfelse>
+					CompressPrimary = '0', 
+				</cfif>
+				<cfif isDefined("Form.CompressSecondary") AND Form.CompressSecondary EQ "on">
+					CompressSecondary = '1', 
+				<cfelse>
+					CompressSecondary = '0', 
+				</cfif>
+				<cfif isDefined("Form.CompressPortable") AND Form.CompressPortable EQ "on">
+					CompressPortable = '1', 
+				<cfelse>
+					CompressPortable = '0', 
+				</cfif>
+				<cfif isDefined("Form.Tug") AND Form.Tug EQ "on">
+					Tug = '1', 
+				<cfelse>
+					Tug = '0', 
+				</cfif>
+				<cfif isDefined("Form.FreshH2O") AND Form.FreshH2O EQ "on">
+					FreshH2O = '1', 
+				<cfelse>
+					FreshH2O = '0', 
+				</cfif>
+				<cfif isDefined("Form.Electric") AND Form.Electric EQ "on">
+					Electric = '1', 
+				<cfelse>
+					Electric = '0',  
+				</cfif>
+				<cfif isDefined("Form.TieUp") AND Form.TieUp EQ "on">
+					TieUp = '1', 
+				<cfelse>
+					TieUp = '0', 
+				</cfif>
+				<cfif isDefined("Form.Commissionaire") AND Form.Commissionaire EQ "on">
+					Commissionaire = '1', 
+				<cfelse>
+					Commissionaire = '0',  
+				</cfif>
+				<cfif isDefined("Form.OvertimeLabour") AND Form.OvertimeLabour EQ "on">
+					OvertimeLabour = '1', 
+				<cfelse>
+					OvertimeLabour = '0', 
+				</cfif>
+				<cfif isDefined("Form.LightsStandard") AND Form.LightsStandard EQ "on">
+					LightsStandard = '1', 
+				<cfelse>
+					LightsStandard = '0', 
+				</cfif>
+				<cfif isDefined("Form.LightsCaisson") AND Form.LightsCaisson EQ "on">
+					LightsCaisson = '1',
+				<cfelse>
+					LightsCaisson = '0',
+				</cfif>
+				<cfif isDefined("Form.Other") AND Form.Other EQ "on" AND trIM(Form.otherText) NEQ "">
+					otherText = <cfqueryparam value="#Form.otherText#" cfsqltype="cf_sql_varchar" />,
+					Other = '1'
+				<cfelse>
+					otherText = '',
+					Other = '0'
+				</cfif>
+				WHERE BRID = <cfqueryparam value="#form.BRID#" cfsqltype="cf_sql_integer" />
+</cfquery>
+
 				<div class="buttons">
 					<cfif isDefined("url.referrer") AND url.referrer eq "archive">
 						<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;CID=#url.CID#" class="textbutton">#language.Back#</a>
