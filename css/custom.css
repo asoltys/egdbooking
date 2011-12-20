@@ -227,9 +227,9 @@ table.bookingDetails td {
 }
 
 /* DOCK SECTIONS --------------------------------------- */
-.sec1 { background-color: #335544; color: #ddd; }
-.sec2 { background-color: #336699; color: #ddd; }
-.sec3 { background-color: #556677; color: #ddd; }
+.sec1 { background-color: #335544; color: #fff; }
+.sec2 { background-color: #336699; color: #fff; }
+.sec3 { background-color: #556677; color: #fff; }
 div.center .maintenance, div.center a.maintenance, div.center a.maintenance:visited, div.center maintenance:hover {
 	background-color: #eee;
 	color: #003399;
@@ -320,10 +320,6 @@ div.menu ul {
 div.menu li {
   display: inline;
   list-style: none;
-}
-
-div.menu h2 {
-  font-size: 12px;
 }
 
 input[type="button"],
