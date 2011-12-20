@@ -10,7 +10,6 @@
 			<li><a href="#EGD_URL#/entreprises-firms-eng.html" title="Ship Repair Firms">Ship Repair Firms</a></li>
 			<li><a href="#EGD_URL#/env/programme-program-eng.html" title="Environment">Environment</a></li>
 			<li><a href="#EGD_URL#/dimensions-eng.html" title="About the Dock">About the Dock</a></li>
-			<li><a href="#EGD_URL#/victoria-eng.html" title="Victoria">Victoria</a></li>
 			<li><a href="#EGD_URL#/historique-history-eng.html" title="History">History</a></li>
 			<li><a href="#RootDir#reserve-book-eng.cfm" title="Booking">Booking</a></li>
 			<li><a href="#EGD_URL#/rendement-performance-eng.html" title="Performance Standard">Performance Standard</a></li>

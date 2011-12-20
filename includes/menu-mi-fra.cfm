@@ -10,7 +10,6 @@
 			<li><a href="#EGD_URL#/entreprises-firms-fra.html" title="Entreprises de radoub">Entreprise de radoub</a></li>
 			<li><a href="#EGD_URL#/env/programme-program-fra.html" title="Environnement">Environnement</a></li>
 			<li><a href="#EGD_URL#/dimensions-fra.html" title="Renseignements g&eacute;n&eacute;raux">Renseignements g&eacute;n&eacute;raux</a></li>
-			<li><a href="#EGD_URL#/victoria-fra.html" title="Victoria">Victoria</a></li>
 			<li><a href="#EGD_URL#/historique-history-fra.html" title="Historique">Historique</a></li>
 			<li><a href="#RootDir#reserve-book-fra.cfm" title="R&eacute;servation">R&eacute;servation</a></li>
 			<li><a href="#EGD_URL#/rendement-performance-fra.html" title="Norme de rendement">Norme de rendement</a></li>
