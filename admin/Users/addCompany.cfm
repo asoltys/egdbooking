@@ -2,7 +2,6 @@
 <cfset language.createComp = "Create New Company">
 <cfset language.keywords = "Esquimalt Graving Dock, EGD, Booking Request, Add New Company">
 <cfset language.description = "Allows user to create a new company.">
-<cfset language.subjects = "Wharfs, Ships, Ferries, Pleasure Craft, Vessels, Repair, Maintenance, Management">
 
 <cfhtmlhead text="
 <meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Create New Company"">
