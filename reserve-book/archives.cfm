@@ -23,8 +23,7 @@
 	<cfset language.followingbooking = "Your bookings for #getcompany.companyName# are as follows:">
 	<cfset language.requestBooking = "Request New Booking">
 	<cfset language.bookingForms = "Booking Forms">
-	<cfset language.editTariff = "Edit Tariff Form">
-	<cfset language.viewTariff = "View Tariff Form">
+	<cfset language.viewTariff = "View Tariffs">
 	<cfset language.agent = "Agent">
 	<cfset language.administrator = "Administrator">
 	<cfset language.none = "None">
@@ -38,8 +37,7 @@
 	<cfset language.followingbooking = "Vos r&eacute;servations au nom de #getcompany.companyName# sont les suivantes :">
 	<cfset language.requestBooking = "Demande d'une nouvelle r&eacute;servation">
 	<cfset language.bookingForms = "Formulaires de r&eacute;servation">
-	<cfset language.editTariff = "Modification du formulaire de tarif">
-	<cfset language.viewTariff = "Consulter le formulaire de tarif">
+	<cfset language.viewTariff = "Consulter les tarifs">
 	<cfset language.agent = "Agent">
 	<cfset language.administrator = "Administrateur">
 	<cfset language.none = "Aucun">

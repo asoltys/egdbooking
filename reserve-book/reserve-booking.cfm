@@ -238,7 +238,7 @@
 	<cfset language.addVessel = "Add Vessel">
 	<cfset language.requestBooking = "Request Booking">
 	<cfset language.bookingForms = "Booking Forms">
-	<cfset language.viewTariff = "View Tariff Form">
+	<cfset language.viewTariff = "View Tariffs">
 	<cfset language.agent = "Agent">
 	<cfset language.administrator = "Administrator">
 	<cfset language.welcome = "Welcome">
@@ -256,7 +256,7 @@
 	<cfset language.addVessel = "Ajout d'un navire">
 	<cfset language.requestBooking = "Pr&eacute;sentater une r&eacute;servation">
 	<cfset language.bookingForms = "Formulaires de r&eacute;servation">
-	<cfset language.viewTariff = "Consulter le formulaire de tarif">
+	<cfset language.viewTariff = "Consulter les tarifs">
 	<cfset language.agent = "Agent">
 	<cfset language.administrator = "Administrateur">
 	<cfset language.welcome = "Bienvenue">
