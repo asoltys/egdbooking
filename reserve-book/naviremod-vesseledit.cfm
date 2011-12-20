@@ -143,7 +143,7 @@
 						<cfelse>
 
 							<label for="length">#language.Length#:</label>
-							<input id="length" id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" />#language.Max#: #Variables.MaxLength# m
+							<input id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" />#language.Max#: #Variables.MaxLength# m
 							<br />
 
 
