@@ -181,17 +181,17 @@
 						</CFIF>
 					</h2>
 
-					<table class="bookingDetails">
+					<table class="details">
 
 						<CFIF NOT Anonymous OR userVessel.recordCount GT 0 OR IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 							<tr>
-								<td>#language.Agent#:</td>
+								<th>#language.Agent#:</th>
 								<td>#LastName#, #FirstName#</td>
 							</tr>
 						</cfif>
 
 						<tr>
-							<td>#language.Status#:</td>
+							<th>#language.Status#:</th>
 							<td>
 								<CFIF (isDefined("DStatus") AND DStatus eq 'C') OR (isDefined("JStatus") AND JStatus eq 'C')>
 									<b>#language.Confirmed#</b>
@@ -205,23 +205,23 @@
 
 						<CFIF NOT Anonymous OR userVessel.recordCount GT 0 OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true) OR (not isJetty AND DStatus eq 'c') OR (NOT not isJetty AND JStatus eq 'c')>
 							<tr>
-								<td>#language.Company#:</td>
+								<th>#language.Company#:</th>
 								<td>#CompanyName#</td>
 							</tr>
 							<tr>
-								<td>#language.Length#:</td>
+								<th>#language.Length#:</th>
 								<td>#Length# m</td>
 							</tr>
 						</cfif>
 
 						<cfif NOT Anonymous OR userVessel.recordCount GT 0 OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
 							<tr>
-								<td>#language.Width#:</td>
+								<th>#language.Width#:</th>
 								<td>#Width# m</td>
 							</tr>
 
 							<tr>
-								<td>#language.Tonnage#:</td>
+								<th>#language.Tonnage#:</th>
 								<td>#Tonnage#</td>
 							</tr>
 						</cfif>
@@ -229,41 +229,41 @@
 						<tr>
 							<CFIF not isJetty>
 								<CFIF DStatus eq 'c'>
-									<td>#language.SectionsBooked#:</td>
+									<th>#language.SectionsBooked#:</th>
 									<td><CFIF Section1>#language.Drydock1#</CFIF><CFIF Section2><CFIF Section1> &amp; </CFIF>#language.Drydock2#</CFIF><CFIF Section3><CFIF Section1 OR Section2> &amp; </CFIF>#language.Drydock3#</CFIF></td>
 								<CFELSEIF DStatus eq 't'>
-									<td>#language.SectionRequested#:</td>
+									<th>#language.SectionRequested#:</th>
 									<td>#language.Drydock#</td>
 								<CFELSE>
-									<td>#language.SectionRequested#:</td>
+									<th>#language.SectionRequested#:</th>
 									<td>#language.Drydock#</td>
 								</CFIF>
 							<CFELSE>
 								<CFIF JStatus eq 'c'>
-									<td>#language.SectionsBooked#:</td>
+									<th>#language.SectionsBooked#:</th>
 									<td><CFIF NorthJetty>#language.NorthLandingWharf#</CFIF><CFIF SouthJetty><CFIF NorthJetty>, </CFIF>#language.SouthJetty#</CFIF></td>
 								<CFELSE>
-									<td>#language.SectionRequested#:</td>
+									<th>#language.SectionRequested#:</th>
 									<td><CFIF NorthJetty> #language.NorthLandingWharf#<CFELSE>#language.SouthJetty#</CFIF></td>
 								</CFIF>
 							</CFIF>
 						</tr>
 
 						<tr>
-							<td>#language.DockingDates#:</td>
+							<th>#language.DockingDates#:</th>
 							<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> to #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 						</tr>
 
 						<CFIF NOT Anonymous OR userVessel.recordCount GT 0 OR IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 							<tr>
-								<td>#language.Origin#:</td>
+								<th>#language.Origin#:</th>
 								<td>#City#, #Country#</td>
 							</tr>
 						</cfif>
 
 						<CFIF NOT Anonymous OR userVessel.recordCount GT 0 OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true) OR (not isJetty AND DStatus eq 'c') OR (NOT not isJetty AND JStatus eq 'c')>
 						<tr>
-							<td><cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>Time of Booking:<cfelse>#language.bookingDate#:</cfif></td>
+							<th><cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>Time of Booking:<cfelse>#language.bookingDate#:</cfif></th>
 							<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 							<td>#LSDateFormat(BookingTime, 'mmm d, yyyy')# @ #LSTimeFormat(BookingTime, 'HH:mm')#</td>
 							<cfelse>
