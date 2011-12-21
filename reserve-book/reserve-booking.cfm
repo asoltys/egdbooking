@@ -346,7 +346,6 @@
 						<table class="bookings">
               <thead>
                 <tr>
-                  <th>#language.vessel#</th>
                   <th>#language.booking#</th>
                   <th>#language.agent#</th>
                   <th>#language.status#</th>
@@ -355,9 +354,9 @@
               <tbody>
                 <cfloop query="getDockBookings">
                   <tr>
-                    <td><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VNID=#VNID#" title="#Name# #VNID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
                     <td>
-                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name# #BRID#">
+                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.booking# ###BRID#">
+                        <cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#
                         #lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - 
                         #lsdateformat(endDate, 'mmm d, yyyy')#
                       </a>
@@ -396,7 +395,6 @@
 						<table class="bookings">
               <thead>
                 <tr>
-                  <th>#language.vessel#</th>
                   <th>#language.booking#</th>
                   <th>#language.agent#</th>
                   <th>#language.status#</th>
@@ -405,7 +403,14 @@
               <tbody>
                 <cfloop query="getNorthJettyBookings">
                   <tr>
-                    <td><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VNID=#VNID#" title="#Name# #VNID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+                    <td>
+                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.booking# ###BRID#">
+                        <cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#
+                        #lsdateformat(startDate, 'mmm d, yyyy')# -
+                        #lsdateformat(endDate, 'mmm d, yyyy')#
+                      </a>
+                    </td>
+                    <td>#AgentName#</td>
                     <td>
                       <cfif status EQ "PT"><em class="pending">#language.pending#</em>
                       <cfelseif status EQ "C"><em class="confirmed">#language.confirmed#</em>
@@ -415,13 +420,6 @@
                       <cfelseif status EQ "X"><em class="cancelled">#language.cancelling#</em>
                       </cfif>
                     </td>
-                    <td>
-                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name# #BRID#">
-                          #lsdateformat(startDate, 'mmm d, yyyy')# -
-                          #lsdateformat(endDate, 'mmm d, yyyy')#
-                      </a>
-                    </td>
-                    <td>#AgentName#</td>
                   </tr>
                   <cfset counter = counter + 1>
                 </cfloop>
@@ -446,7 +444,6 @@
 						<table class="bookings">
               <thead>
                 <tr>
-                  <th>#language.vessel#</th>
                   <th>#language.booking#</th>
                   <th>#language.agent#</th>
                   <th>#language.status#</th>
@@ -455,9 +452,9 @@
               <tbody>
                 <cfloop query="getSouthJettyBookings">
                   <tr>
-                    <td><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VNID=#VNID#" title="#Name# #VNID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
                     <td>
-                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name# #BRID#">
+                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.booking# ###BRID#">
+                        <cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#
                         #lsdateformat(startDate, 'mmm d, yyyy')# -
                         #lsdateformat(endDate, 'mmm d, yyyy')#
                       </a>
