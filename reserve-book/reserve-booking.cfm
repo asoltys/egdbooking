@@ -345,10 +345,12 @@
 
 						<table class="bookings">
               <thead>
-                <th>#language.vessel#</th>
-                <th>#language.booking#</th>
-                <th>#language.agent#</th>
-                <th>#language.status#</th>
+                <tr>
+                  <th>#language.vessel#</th>
+                  <th>#language.booking#</th>
+                  <th>#language.agent#</th>
+                  <th>#language.status#</th>
+                </tr>
               </thead>
               <tbody>
                 <cfloop query="getDockBookings">
@@ -393,10 +395,12 @@
 					<cfif getNorthJettyBookings.recordCount GE 1>
 						<table class="bookings">
               <thead>
-                <th>#language.vessel#</th>
-                <th>#language.booking#</th>
-                <th>#language.agent#</th>
-                <th>#language.status#</th>
+                <tr>
+                  <th>#language.vessel#</th>
+                  <th>#language.booking#</th>
+                  <th>#language.agent#</th>
+                  <th>#language.status#</th>
+                </tr>
               </thead>
               <tbody>
                 <cfloop query="getNorthJettyBookings">
@@ -441,10 +445,12 @@
 					<cfif getSouthJettyBookings.recordCount GE 1>
 						<table class="bookings">
               <thead>
-                <th>#language.vessel#</th>
-                <th>#language.booking#</th>
-                <th>#language.agent#</th>
-                <th>#language.status#</th>
+                <tr>
+                  <th>#language.vessel#</th>
+                  <th>#language.booking#</th>
+                  <th>#language.agent#</th>
+                  <th>#language.status#</th>
+                </tr>
               </thead>
               <tbody>
                 <cfloop query="getSouthJettyBookings">
