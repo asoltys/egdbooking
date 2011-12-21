@@ -69,7 +69,8 @@ table tr {
 	background-color: #fff;
 }
 
-table.details th { text-align: left; }
+table.bookings { width: 100%; }
+table.details th, table.bookings th { text-align: left; }
 
 /* Make a chunk of text look like a button by drawing a
    border around it. Can be used with any class elements,

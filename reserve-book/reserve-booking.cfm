@@ -247,7 +247,6 @@
 	<cfset language.pending_cancelling = "pending cancelling">
 	<cfset language.cancelling = "cancelling">
 	<cfset language.confirming = "confirming">
-
 <cfelse>
 	<cfset language.currentCompany = "Vous regardez les renseignements portant sur :">
 	<cfset language.otherCompanies = "Autres entreprises">
@@ -344,7 +343,12 @@
 					<h3>#language.Drydock#</h3>
 					<cfif getDockBookings.recordCount GE 1>
 
-						<table style="padding-left:20px; width:100%;" cellspacing="0">
+						<table class="bookings">
+              <thead>
+                <th>#language.vessel#</th>
+                <th>#language.booking#</th>
+                <th>#language.agent#</th>
+                <th>#language.status#</th>
 
 
 							<cfloop query="getDockBookings">
@@ -355,8 +359,15 @@
 								</cfif>
 
 								<tr class="#rowClass#">
-									<td style="width:60%;"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name# #BRID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
-									<td style="width:15%;">
+									<td><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VNID=#VNID#" title="#Name# #VNID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+                  <td>
+                    <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name# #BRID#">
+                      #lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - 
+                      #lsdateformat(endDate, 'mmm d, yyyy')#
+                    </a>
+                  </td>
+                  <td>#AgentName#</td>
+									<td>
 										<cfif status EQ "PT"><i class="pending">#language.pending#</i>
 										<cfelseif status EQ "C"><i class="confirmed">#language.confirmed#</i>
 										<cfelseif status EQ "T"><i class="tentative">#language.tentative#</i>
@@ -365,20 +376,7 @@
 										<cfelseif status EQ "X"><i class="cancelled">#language.cancelling#</i>
 										</cfif>
 									</td>
-									<td style="width:25%;">
-										<div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.viewTariff# #Name# #BRID#">#language.viewTariff#</a></div>
-									</td>
-								</tr>
-								<tr class="#rowClass#"><td colspan="3">
-									<table>
-										<tr class="#rowClass#">
-											<td>&nbsp;</td>
-											<td style="width:50%;"><div class="smallFont">#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td style="width:10%;"><div class="smallFont">#language.Agent#: </div></td>
-											<td style="width:40%;"><div class="smallFont">#AgentName#</div></td>
-										</tr>
-									</table>
-								</td></tr>
+                </tr>
 							<cfset counter = counter + 1>
 							</cfloop>
 						</table>
