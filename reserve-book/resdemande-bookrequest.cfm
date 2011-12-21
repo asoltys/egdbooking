@@ -6,7 +6,7 @@
 	<cfset language.requestBooking = "Request New Booking">
 	<cfset language.keywords = language.masterKeywords & ", Booking Request">
 	<cfset language.description = "User must choose between the two types of booking request to be made.">
-	<cfset language.subjects = language.masterSubjects & "">
+	<cfset language.subjects = language.masterSubjects>
 	<cfset language.choose = "Please choose the part of the dock for which you wish to request a booking:">
 	<cfset language.drydockBooking = "Drydock">
 	<cfset language.jettyBooking = "South Jetty / North Landing Wharf">
@@ -15,7 +15,7 @@
 	<cfset language.requestBooking = "Pr&eacute;sentation d'une nouvelle r&eacute;servation">
 	<cfset language.keywords = language.masterKeywords & ", Pr&eacute;sentation de r&eacute;servation">
 	<cfset language.description = "L'utilisateur doit choisir un des deux types de demande de r&eacute;servation.">
-	<cfset language.subjects = language.masterSubjects & "">
+	<cfset language.subjects = language.masterSubjects>
 	<cfset language.choose = "Veuillez choisir la partie de la cale s&egrave;che que vous voulez r&eacute;server :">
 	<cfset language.drydockBooking = "de la cale s&egrave;che">
 	<cfset language.jettyBooking = "de la jet&eacute;e sud ou du quai de d&eacute;barquement nord">
