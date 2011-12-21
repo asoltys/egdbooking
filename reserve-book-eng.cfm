@@ -38,7 +38,7 @@
 <meta name="dc.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Booking Space at the Esquimalt Graving Dock" />
 <meta name="keywords" content="Booking Space at the Esquimalt Graving Dock" />
 <meta name="description" content="Introduction page for the booking application." />
-<meta name="dc.subject" scheme="gccore" content="#language.masterSubjects#" />
+<meta name="dc.subject" scheme="gccore" content="<cfoutput>#language.masterSubjects#</cfoutput>" />
 <title>PWGSC - ESQUIMALT GRAVING DOCK - Booking Space at the Esquimalt Graving Dock</title>
 <!-- METADATA ENDS | FIN DES METADONNEES -->
 
