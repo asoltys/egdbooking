@@ -116,37 +116,33 @@
 					<cfset counter = 0>
 					<h2>#language.Drydock#</h2>
 					<cfif "getDockBookings.recordCount" GE 1>
-						<table cellspacing="0" >
-
-							<cfloop query="getDockBookings">
-								<CFIF counter mod 2 eq 1>
-									<CFSET rowClass = "highlight">
-								<CFELSE>
-									<CFSET rowClass = "">
-								</CFIF>
-								<tr class="#rowClass#">
-									<td><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">#Name#</a></td>
-									<td>
-										<cfif status EQ "PT"><i>#language.pending#</i>
-										<cfelseif status EQ "C"><i>#language.confirmed#</i>
-										<cfelseif status EQ "T"><i>#language.tentative#</i></cfif>
-									</td>
-									<td>
-										<div class="smallFont"><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#" title="#language.viewTariff#">#language.viewTariff#</a></div>
-									</td>
-								</tr>
-								<tr class="#rowClass#"><td colspan="3">
-									<table>
-										<tr class="#rowClass#">
-											<td>&nbsp;</td>
-											<td><div class="smallFont">#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td><div class="smallFont">#language.Agent#: </div></td>
-											<td><div class="smallFont">#AgentName#</div></td>
-										</tr>
-									</table>
-								</td></tr>
-							<cfset counter = counter + 1>
-							</cfloop>
+            <table class="bookings">
+              <thead>
+                <th>#language.vessel#</th>
+                <th>#language.booking#</th>
+                <th>#language.agent#</th>
+                <th>#language.status#</th>
+              </thead>
+              <tbody>
+                <cfloop query="getDockBookings">
+                  <tr>
+                    <td>#Name#</td>
+                    <td>
+                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">
+                        #lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - 
+                        #lsdateformat(endDate, 'mmm d, yyyy')#
+                      </a>
+                    </td>
+                    <td>#AgentName#</td>
+                    <td>
+                      <cfif status EQ "PT">#language.pending#
+                      <cfelseif status EQ "C">#language.confirmed#
+                      <cfelseif status EQ "T">#language.tentative#</cfif>
+                    </td>
+                  </tr>
+                <cfset counter = counter + 1>
+                </cfloop>
+              </tbody>
 						</table>
 					<cfelse>
 						<p>#language.None#.</p>
@@ -155,34 +151,67 @@
 					<cfset counter = 0>
 					<h2>#language.NorthLandingWharf#</h2>
 					<cfif getNorthJettyBookings.recordCount GE 1>
-						<table cellspacing="0" >
-							<cfloop query="getNorthJettyBookings">
-								<CFIF counter mod 2 eq 1>
-									<CFSET rowClass = "highlight">
-								<CFELSE>
-									<CFSET rowClass = "">
-								</CFIF>
-								<tr class="#rowClass#">
-									<td colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID#url.CID#">#Name#</a></td>
-									<td>
-										<cfif NOT status eq 'c'><i>#language.pending#</i>
-										<cfelse><i>#language.confirmed#</i></cfif>
-									</td>
-								</tr>
+						<table class="bookings">
+              <thead>
+                <th>#language.vessel#</th>
+                <th>#language.booking#</th>
+                <th>#language.agent#</th>
+                <th>#language.status#</th>
+              </thead>
+              <tbody>
+                <cfloop query="getDockBookings">
+                  <tr>
+                    <td>#Name#</td>
+                    <td>
+                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">
+                        #lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - 
+                        #lsdateformat(endDate, 'mmm d, yyyy')#
+                      </a>
+                    </td>
+                    <td>#AgentName#</td>
+                    <td>
+                      <cfif status EQ "PT">#language.pending#
+                      <cfelseif status EQ "C">#language.confirmed#
+                      <cfelseif status EQ "T">#language.tentative#</cfif>
+                    </td>
+                  </tr>
+                <cfset counter = counter + 1>
+                </cfloop>
+              </tbody>
+						</table>
+					<cfelse>
+						<p>#language.None#.</p>
+					</cfif>
 
-								<tr class="#rowClass#"><td colspan="3">
-									<table>
-										<tr class="#rowClass#">
-											<td>&nbsp;</td>
-											<td><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td><div class="smallFont">#language.Agent#: </div></td>
-											<td><div class="smallFont">#AgentName#</div></td>
-
-										</tr>
-									</table>
-								</td></tr>
-							<cfset counter = counter + 1>
-							</cfloop>
+					<cfset counter = 0>
+					<h2>#language.NorthLandingWharf#</h2>
+					<cfif getNorthJettyBookings.recordCount GE 1>
+						<table class="bookings">
+              <thead>
+                <th>#language.vessel#</th>
+                <th>#language.booking#</th>
+                <th>#language.agent#</th>
+                <th>#language.status#</th>
+              </thead>
+              <tbody>
+                <cfloop query="getNorthJettyBookings">
+                  <tr>
+                    <td>#Name#</a></td>
+                    <td>
+                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID#url.CID#">
+                        #lsdateformat(startDate, 'mmm d, yyyy')# - 
+                        #lsdateformat(endDate, 'mmm d, yyyy')#
+                      </a>
+                    </td>
+                    <td>#AgentName#</td>
+                    <td>
+                      <cfif NOT status eq 'c'>#language.pending#
+                      <cfelse>#language.confirmed#</cfif>
+                    </td>
+                  </tr>
+                <cfset counter = counter + 1>
+                </cfloop>
+              </tbody>
 						</table>
 					<cfelse>
 						<p>#language.None#.</p>
@@ -191,32 +220,32 @@
 				<cfset counter = 0>
 					<h2>#language.SouthJetty#</h2>
 					<cfif getSouthJettyBookings.recordCount GE 1>
-						<table cellspacing="0" >
-							<cfloop query="getSouthJettyBookings">
-								<CFIF counter mod 2 eq 1>
-									<CFSET rowClass = "highlight">
-								<CFELSE>
-									<CFSET rowClass = "">
-								</CFIF>
-								<tr class="#rowClass#">
-									<td colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID#url.CID#">#Name#</a></td>
-									<td>
-										<cfif NOT status eq 'c'><i>#language.pending#</i>
-										<cfelse><i>#language.confirmed#</i></cfif>
-									</td>
-								</tr>
-								<tr class="#rowClass#"><td colspan="3">
-									<table>
-										<tr class="#rowClass#">
-											<td>&nbsp;</td>
-											<td><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td><div class="smallFont">#language.Agent#: </div></td>
-											<td><div class="smallFont">#AgentName#</div></td>
-										</tr>
-									</table>
-								</td></tr>
-							<cfset counter = counter + 1>
-							</cfloop>
+						<table class="bookings">
+              <thead>
+                <th>#language.vessel#</th>
+                <th>#language.booking#</th>
+                <th>#language.agent#</th>
+                <th>#language.status#</th>
+              </thead>
+              <tbody>
+                <cfloop query="getSouthJettyBookings">
+                  <tr>
+                    <td>#Name#</td>
+                    <td>
+                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID#url.CID#">
+                        #lsdateformat(startDate, 'mmm d, yyyy')# - 
+                        #lsdateformat(endDate, 'mmm d, yyyy')#
+                      </a>
+                    </td>
+                    <td>#AgentName#</td>
+                    <td>
+                      <cfif NOT status eq 'c'>#language.pending#
+                      <cfelse>#language.confirmed#</cfif>
+                    </td>
+                  </tr>
+                <cfset counter = counter + 1>
+                </cfloop>
+              </tbody>
 						</table>
 					<cfelse>
 						<p>#language.None#.</p>
