@@ -100,9 +100,7 @@
             <cfset structDelete(session, 'vessel_edit_success')>
           </cfif>
 
-          <style>table th { text-align: left }</style>
-
-					<table>
+					<table class="details">
 						<tr>
 							<th id="vessel">#language.vessel#:</th>
 							<td headers="vessel">#name#</td>
