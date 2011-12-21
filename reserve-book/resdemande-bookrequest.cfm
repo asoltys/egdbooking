@@ -10,7 +10,6 @@
 	<cfset language.choose = "Please choose the part of the dock for which you wish to request a booking:">
 	<cfset language.drydockBooking = "Drydock">
 	<cfset language.jettyBooking = "South Jetty / North Landing Wharf">
-	<cfset language.mainPage = "return to Booking Home">
 <cfelse>
 	<cfset language.requestBooking = "Pr&eacute;sentation d'une nouvelle r&eacute;servation">
 	<cfset language.keywords = language.masterKeywords & ", Pr&eacute;sentation de r&eacute;servation">
@@ -19,8 +18,6 @@
 	<cfset language.choose = "Veuillez choisir la partie de la cale s&egrave;che que vous voulez r&eacute;server :">
 	<cfset language.drydockBooking = "de la cale s&egrave;che">
 	<cfset language.jettyBooking = "de la jet&eacute;e sud ou du quai de d&eacute;barquement nord">
-	<cfset language.mainPage = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
-
 </cfif>
 
 <cfhtmlhead text="
@@ -69,7 +66,7 @@
 					<li><a href="#RootDir#reserve-book/jetdemande-jetrequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.jettyBooking#</a></li>
 				</ul>
 
-				<div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=<cfoutput>#lang#</cfoutput>" class="textbutton">#language.mainPage#</a></div>
+				<div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=<cfoutput>#lang#</cfoutput>" class="textbutton">#language.welcomePage#</a></div>
 
 				</cfoutput>
 
