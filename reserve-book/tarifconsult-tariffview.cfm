@@ -111,8 +111,8 @@
 
 				<table summary="#language.tablesummary#">
 					<tr>
-						<th>#language.Services#</th>
-						<th>#language.Fees#</th>
+						<th id="serviceHeader">#language.Services#</th>
+						<th id="feeHeader">#language.Fees#</th>
 					</tr>
 
 				<cfloop query="getFees">
