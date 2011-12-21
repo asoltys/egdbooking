@@ -24,7 +24,7 @@
 <cfparam name="Attributes.FormName" default="forms[0]">
 <cfparam name="Attributes.htmlBetween" default="">
 <cfparam name="Attributes.OnChange" default="">
-<cfparam name="Attributes.ExtraOptions2" default="#IIF((Attributes.EmptyText1 EQ "") AND (Attributes.Size2 EQ 1), 0, 5)#">
+<cfparam name="Attributes.ExtraOptions2" default="0">
 <cfparam name="Attributes.AutoSelectFirst" default="yes">
 
 
@@ -153,7 +153,7 @@
 
   <cfif Val(Attributes.ExtraOptions2) GT 0>
     <cfloop FROM="1" TO="#Val(Attributes.ExtraOptions2)#" INDEX="i">
-      <cfoutput><option value=""/></cfoutput>
+      <cfoutput><option value="" /></cfoutput>
     </cfloop>
   </cfif>
 

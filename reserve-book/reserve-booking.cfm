@@ -343,13 +343,13 @@
 					<h3>#language.Drydock#</h3>
 					<cfif getDockBookings.recordCount GE 1>
 
-						<table class="bookings">
+						<table class="basic">
               <thead>
-                <tr>
-                  <th>#language.booking#</th>
-                  <th>#language.agent#</th>
-                  <th>#language.status#</th>
-                </tr>
+								<tr>
+									<th scope="col">#language.booking#</th>
+									<th scope="col">#language.agent#</th>
+									<th scope="col">#language.status#</th>
+								</tr>
               </thead>
               <tbody>
                 <cfloop query="getDockBookings">
@@ -392,13 +392,13 @@
 					<cfset counter = 0>
 					<h3>#language.NorthLandingWharf#</h3>
 					<cfif getNorthJettyBookings.recordCount GE 1>
-						<table class="bookings">
+						<table class="basic">
               <thead>
-                <tr>
-                  <th>#language.booking#</th>
-                  <th>#language.agent#</th>
-                  <th>#language.status#</th>
-                </tr>
+								<tr>
+									<th scope="col">#language.booking#</th>
+									<th scope="col">#language.agent#</th>
+									<th scope="col">#language.status#</th>
+								</tr>
               </thead>
               <tbody>
                 <cfloop query="getNorthJettyBookings">
@@ -441,13 +441,13 @@
 				<cfset counter = 0>
 					<h3>#language.SouthJetty#</h3>
 					<cfif getSouthJettyBookings.recordCount GE 1>
-						<table class="bookings">
+						<table class="basic">
               <thead>
-                <tr>
-                  <th>#language.booking#</th>
-                  <th>#language.agent#</th>
-                  <th>#language.status#</th>
-                </tr>
+								<tr>
+									<th scope="col">#language.booking#</th>
+									<th scope="col">#language.agent#</th>
+									<th scope="col">#language.status#</th>
+								</tr>
               </thead>
               <tbody>
                 <cfloop query="getSouthJettyBookings">

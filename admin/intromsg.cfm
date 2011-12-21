@@ -5,8 +5,7 @@
 <meta name=""dc.date.published"" content=""2005-07-25"" />
 <meta name=""dc.date.published"" content=""2005-07-25"" />
 <meta name=""dc.date.reviewed"" content=""2005-07-25"" />
-<meta name=""dc.date.modified"" content=""2005-07-25"" />
-<meta name=""dc.date.created"" content=""2005-07-25"" />
+
 <title>PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 

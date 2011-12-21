@@ -170,8 +170,8 @@
 
 						<label for="jetty">#language.RequestedJetty#:</label>
 						<select name="jetty" id="jetty">
-							<option value="north" <cfif Variables.Jetty EQ "north">selected="selected"</cfif>>#language.NorthLandingWharf#</option>
-							<option value="south" <cfif Variables.Jetty EQ "south">selected="selected"</cfif>>#language.SouthJetty#</option>
+							<option value="north"<cfif Variables.Jetty EQ "north"> selected="selected"</cfif>>#language.NorthLandingWharf#</option>
+							<option value="south"<cfif Variables.Jetty EQ "south"> selected="selected"</cfif>>#language.SouthJetty#</option>
 						</select>
 					</fieldset>
 

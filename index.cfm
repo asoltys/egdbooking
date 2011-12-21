@@ -1,11 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 <head>
 	<!-- VERSION 1.04 DU GABARIT NSI 2.0 | CLF 2.0 TEMPLATE VERSION 1.04 -->
 	<!-- VERSION 1.0 DU GABARIT TPSGC | PWGSC TEMPLATE VERSION 1.0 -->
 	<!-- DEBUT DE L'EN-TETE | HEADER BEGINS -->
 	<!-- DEBUT DU TITRE FRANCAIS / ANGLAIS | FRENCH / ENGLISH title BEGINS -->
-	<title>Esquimalt Graving Dock | Cale s&egrave;che e'Esquimalt</title>
+	<title>Cale s&egrave;che e'Esquimalt | Esquimalt Graving Dock</title>
 	<!-- FIN DU TITRE FRANCAIS / ANGLAIS | FRENCH / ENGLISH title ENDS   -->
 
 	<!-- DEBUT DES METADONNEES BILINGUES | BILINGUAL METADATA BEGINS -->
@@ -53,42 +53,42 @@
 <body>
 <div class="mcontainter"><div class="core">
 	<!-- DEBUT DE L'EN-TETE PCIM | FIP HEADER BEGINS -->
-	<div class="fip"><img src="<cfoutput>#CLF_URL#</cfoutput>/clf20/images/sig-fra.gif" width="364" height="33" alt="Public Works and Government Services Canada | Travaux publics et Services gouvernementaux Canada" /></div>
+	<div class="fip"><img src="<cfoutput>#CLF_URL#</cfoutput>/clf20/images/sig-fra.gif" width="364" height="33" alt="Travaux publics et Services gouvernementaux Canada | Public Works and Government Services Canada" /></div>
 	<!-- FIN DE L'EN-TETE PCIM | FIP HEADER ENDS -->
 
 	<!-- DEBUT DU CONTENU | CONTENT BEGINS --> 
 	<!-- DEBUT DE L'ESPACE DE MESSAGE | MESSAGE SPACE BEGINS -->
 	<div class="msgarea">
-		<h1><span lang="fr" xml:lang="fr">Bienvenue</span> | Welcome</h1>
+		<h1>Bienvenue | <span lang="en" xml:lang="en">Welcome</span></h1>
 	</div>
 	<div class="headcontainer">
 		<!-- DEBUT DU NOM DE L'INSTITUTION FRANCAIS | FRENCH INSTITUTION NAMEE BEGINS -->
-		<div class="headtitleLft" lang="fr" xml:lang="fr">Cale s&egrave;che d'Esquimalt</div>
+		<div class="headtitleLft">Cale s&egrave;che d'Esquimalt</div>
 		<!-- DEBUT DU NOM DE L'INSTITUTION FRANCAIS | FRENCH INSTITUTION NAME ENDS -->
 		
 		<!-- DEBUT DU NOM DE L'INSTITUTION ANGLAIS | ENGLISH INSTITUTION NAME BEGINS -->
-		<div class="headtitleRgt">Esquimalt Graving Dock</div>
+		<div class="headtitleRgt" lang="en" xml:lang="en">Esquimalt Graving Dock</div>
 		<!-- DEBUT DU NOM DE L'INSTITUTION ANGLAIS | ENGLISH INSTITUTION NAME ENDS -->
 	</div>
 	<!-- FIN DE L'ESPACE DE MESSAGE | MESSAGE SPACE ENDS -->
 
 	<div class="buttons">
 		<!-- DEBUT DU LIEN FRANCAIS | FRENCH link BEGINS -->
-		<div class="lb"><div class="langbtn"><a href="reserve-book-fra.cfm" lang="fr" xml:lang="fr">Fran&ccedil;ais</a></div></div>
+		<div class="lb"><div class="langbtn"><a href="reserve-book-fra.cfm">Fran&ccedil;ais</a></div></div>
 		<!-- FIN DU LIEN FRANCAIS | FRENCH link ENDS -->
 		
 		<!-- DEBUT DU LIEN ANGLAIS | ENGLISH link BEGINS -->
-		<div class="lb"><div class="langbtn"><a href="reserve-book-eng.cfm">English</a></div></div>
+		<div class="lb"><div class="langbtn"><a href="reserve-book-eng.cfm" lang="en" xml:lang="en">English</a></div></div>
 		<!-- FIN DU LIEN ANGLAIS | ENGLISH link ENDS -->
 	</div>
-	<div class="wm"><img src="<cfoutput>#CLF_URL#</cfoutput>/clf20/images/wmms.gif" alt="Symbol of the Government of Canada | Symbole du gouvernement du Canada" width="83" height="20" /></div>
+	<div class="wm"><img src="<cfoutput>#CLF_URL#</cfoutput>/clf20/images/wmms.gif" alt="Symbole du gouvernement du Canada | Symbol of the Government of Canada" width="83" height="20" /></div>
 	<!-- FIN DU CONTENU | CONTENT ENDS -->
 
 	<!-- DEBUT DU PIED DE LA PAGE | FOOTER BEGINS --> 
 	<div class="imptext">
 		<div>
-			<div id="inlft"><a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-fra.html" lang="fr" xml:lang="fr">Avis importants</a></div>
-			<div id="inrgt"><a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html">Important Notices</a></div>
+			<div id="inlft"><a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-fra.html">Avis importants</a></div>
+			<div id="inrgt"><a href="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html" lang="en" xml:lang="en">Important Notices</a></div>
 		</div>
 	</div>
 	<!-- FIN DU PIED DE LA PAGE | FOOTER ENDS -->
