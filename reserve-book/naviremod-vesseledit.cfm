@@ -117,6 +117,7 @@
 					<div id="actionErrors">#language.notEditVesselDimensions#</div>
 					</cfif>
 					<fieldset>
+            <legend>#language.vessel#</legend>
 						#language.CompanyName#:
 						
 						<p>#getVesselDetail.CompanyName#</p>
