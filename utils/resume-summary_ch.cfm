@@ -89,14 +89,14 @@
 				<form action="resume-summary.cfm?lang=#lang#" method="post" id="bookSum">
 					<table style="width:100%;">
 						<tr>
-							<td id="startCell"><label for="start">&nbsp; #language.fromDate#</label></td>
+							<th id="startCell"><label for="start">&nbsp; #language.fromDate#</label></th>
 							<td headers="startCell">
 								<input type="text" name="startDate" class="startDate" id="start" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 								<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
 							</td>
 						</tr>
 						<tr>
-						<td id="endCell"><label for="end">&nbsp; #language.toDate#</label></td>
+						<th id="endCell"><label for="end">&nbsp; #language.toDate#</label></th>
 							<td headers="endCell">
 								<input type="text" name="endDate" class="endDate" id="end" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 								<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
