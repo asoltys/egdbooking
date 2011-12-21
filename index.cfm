@@ -14,25 +14,25 @@
 	<link rel="schema.dc" href="http://purl.org/dc/terms/ " />
 
 	<meta name="dc.title" content="PWGSC - Esquimalt Graving Dock" />
-	<meta name="dc.title" content="TPSGC - Cale s&egrave;che d'Esquimalt" />
+	<meta name="dc.title" lang="fr" content="TPSGC - Cale s&egrave;che d'Esquimalt" />
 	<meta name="dc.subject" scheme="gccore" content="Ship; Wharf" />
-	<meta name="dc.subject" scheme="gccore" content="Navire; Quai" />
+	<meta name="dc.subject" lang="fr" scheme="gccore" content="Navire; Quai" />
 
 	<meta name="dc.language" scheme="ISO639-2/T" content="eng" />
-	<meta name="dc.language" scheme="ISO639-2/T" content="fra" />
+	<meta name="dc.language" lang="fr" scheme="ISO639-2/T" content="fra" />
 
 	<meta name="dc.creator" content="Government of Canada, Public Works and Government Services Canada" />
-	<meta name="dc.creator" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada" />
+	<meta name="dc.creator" lang="fr" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada" />
 	<meta name="dc.publisher" content="Government of Canada, Public Works and Government Services Canada" />
-	<meta name="dc.publisher" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada" />
+	<meta name="dc.publisher" lang="fr" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada" />
 
 	<meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
-	<meta name="dcterms.modified" scheme="W3CDTF" content="2011-12-14" />
+	<meta name="dcterms.modified" lang="fr" scheme="W3CDTF" content="2011-12-14" />
 
-	<meta name="description" content=" " />
-	<meta name="description" content=" " />
-	<meta name="keywords" content=" " />
-	<meta name="keywords" content=" " />
+	<meta name="description" content="The Esquimalt Graving Dock, or EGD, is proud to be federally owned, operated, and maintained. EGD is the largest solid-bottom commercial drydock on the West Coast of the Americas. We are located in an ice free harbour on Vancouver Island near gateways to Alaska and the Pacific Rim." />
+	<meta name="description" lang="fr" content="La Cale s&egrave;che d'Esquimalt (CSE) est la plus importante forme de radoub commerciale de la c&ocirc;te Ouest des Ameriques. Nous sommes situes dans un port ouvert a l'ann&egrave;e longue, sur l'&icirc;le de Vancouver, a proximite des voies d'acces a l'Alaska et aux pays riverains du Pacifique." />
+	<meta name="keywords" content="Esquimalt Graving Dock, EGD, Booking Request" />
+	<meta name="keywords" lang="fr" content="Cale s&egrave;che d'Esquimalt, CSE, Demande de r&eacute;servation" />
 
 	<meta name="pwgsc.contact.email" content="egd-cse@pwgsc-tpsgc.gc.ca" />
 	<meta name="pwgsc.contact.email" content="egd-cse@pwgsc-tpsgc.gc.ca" />
