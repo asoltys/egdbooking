@@ -1,6 +1,6 @@
 <cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
 	<cfset language.vesselName = "Name">
-	<cfset language.lloydsID = "International Maritime Organization (I.M.O.) Number">
+  <cfset language.lloydsID = "<abbr title='International Maritime Organization'>IMO</abbr> Number">
 	<cfset language.length = "Length (m)">
 	<cfset language.width = "Width (m)">
 	<cfset language.blockSetup = "Block Setup Time">

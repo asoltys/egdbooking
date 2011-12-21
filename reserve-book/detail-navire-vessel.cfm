@@ -100,41 +100,43 @@
             <cfset structDelete(session, 'vessel_edit_success')>
           </cfif>
 
+          <style>table th { text-align: left }</style>
+
 					<table>
 						<tr>
-							<td id="vessel">#language.vessel#:</td>
+							<th id="vessel">#language.vessel#:</th>
 							<td headers="vessel">#name#</td>
 						</tr>
 						<tr>
-							<td id="Company">#language.Company#:</td>
+							<th id="Company">#language.Company#:</th>
 							<td headers="Company">#companyname#</td>
 						</tr>
 						<tr>
-							<td id="Length">#language.Length#:</td>
+							<th id="Length">#language.Length#:</th>
 							<td headers="Length">#length# m</td>
 						</tr>
 						<tr>
-							<td id="Width">#language.Width#:</td>
+							<th id="Width">#language.Width#:</th>
 							<td headers="Width">#width# m</td>
 						</tr>
 						<tr>
-							<td id="BlockSetup">#language.BlockSetup#:</td>
+							<th id="BlockSetup">#language.BlockSetup#:</th>
 							<td headers="BlockSetup">#blocksetuptime# #language.days#</td>
 						</tr>
 						<tr>
-							<td id="BlockTeardown">#language.BlockTeardown#:</td>
+							<th id="BlockTeardown">#language.BlockTeardown#:</th>
 							<td headers="BlockTeardown">#blockteardowntime# #language.days#</td>
 						</tr>
 						<tr>
-							<td id="LloydsID">#language.LloydsID#:</td>
+							<th id="LloydsID">#language.LloydsID#:</th>
 							<td headers="LloydsID">#lloydsid#</td>
 						</tr>
 						<tr>
-							<td id="Tonnage">#language.Tonnage#:</td>
+							<th id="Tonnage">#language.Tonnage#:</th>
 							<td headers="Tonnage">#tonnage# #language.tonnes#</td>
 						</tr>
 						<tr>
-							<td id="anon">#language.anon#:</td>
+							<th id="anon">#language.anon#:</th>
 							<td headers="anon"><cfif anonymous>#language.yes#<cfelse>#language.no#</cfif></td>
 						</tr>
 					</table>
