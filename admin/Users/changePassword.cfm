@@ -1,7 +1,6 @@
 <cfset Variables.Errors = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
 
-
 <cfif Len(trim(Form.Password1)) LT 8>
 	<cfoutput>#ArrayAppend(Variables.Errors, "The password must be at least 8 characters.")#</cfoutput>
 	<cfset Proceed_OK = "No">
@@ -19,7 +18,7 @@
 <cfscript>
 	jbClass = ArrayNew(1);
 	jbClass[1] = "#FileDir#lib/jBCrypt-0.3";
-	javaloader = createObject('component','egdbooking.lib.javaloader.JavaLoader');
+	javaloader = createObject('component', 'javaloader.JavaLoader');
 	javaloader.init(jbClass);
 
 	bcrypt = javaloader.create("BCrypt");
