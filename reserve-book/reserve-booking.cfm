@@ -352,13 +352,7 @@
               </thead>
               <tbody>
                 <cfloop query="getDockBookings">
-                  <cfif counter mod 2 eq 0>
-                    <cfset rowClass = "highlight">
-                  <cfelse>
-                    <cfset rowClass = "">
-                  </cfif>
-
-                  <tr class="#rowClass#">
+                  <tr>
                     <td><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VNID=#VNID#" title="#Name# #VNID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name# #BRID#">
@@ -381,12 +375,12 @@
                 </cfloop>
               </tbody>
 						</table>
-						<p>
-							<b>Total:&nbsp;&nbsp;</b>
+						<p class="total">
+							Total:&nbsp;&nbsp;
 							<cfoutput>
-								<em class="pending">#language.pending# - #countPending.numPend#</em>&nbsp;&nbsp;
-								<em class="tentative">#language.tentative# - #countTentative.numTent#</em>&nbsp;&nbsp;
-								<em class="confirmed">#language.confirmed# - #countConfirmed.numConf#</em>&nbsp;&nbsp;
+								<em class="pending">#language.pending# - #countPending.numPend#</em>
+								<em class="tentative">#language.tentative# - #countTentative.numTent#</em>
+								<em class="confirmed">#language.confirmed# - #countConfirmed.numConf#</em>
 								<em class="cancelled">#language.cancelling# - #countCancelled.numCanc#</em>
 							</cfoutput>
 						</p>
@@ -397,54 +391,47 @@
 					<cfset counter = 0>
 					<h3>#language.NorthLandingWharf#</h3>
 					<cfif getNorthJettyBookings.recordCount GE 1>
-						<table style="padding-left:20px; width:100%;" cellspacing="0" >
-
-							<cfloop query="getNorthJettyBookings">
-								<cfif counter mod 2 eq 0>
-									<cfset rowClass = "highlight">
-								<cfelse>
-									<cfset rowClass = "">
-								</cfif>
-								<tr class="#rowClass#">
-									<td style="width:60%;" colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name# #BRID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
-									<td style="width:40%;">
-
-										<cfif status EQ "PT"><em class="pending">#language.pending#</em>
-										<cfelseif status EQ "C"><em class="confirmed">#language.confirmed#</em>
-										<cfelseif status EQ "T"><em class="tentative">#language.tentative#</em>
-										<cfelseif status EQ "PC"><em class="pending">#language.confirming#</em>
-										<cfelseif status EQ "PX"><em class="pending">#language.pending_cancelling#</em>
-										<cfelseif status EQ "X"><em class="cancelled">#language.cancelling#</em>
-										</cfif>
-									</td>
-								</tr>
-
-
-								<tr class="#rowClass#"><td colspan="3">
-									<table>
-										<tr class="#rowClass#">
-											<td>&nbsp;</td>
-											<td style="width:50%;"><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td style="width:10%;"><div class="smallFont">#language.Agent#: </div></td>
-											<td style="width:40%;"><div class="smallFont">#AgentName#</div></td>
-										</tr>
-									</table>
-								</td></tr>
-							<cfset counter = counter + 1>
-							</cfloop>
+						<table class="bookings">
+              <thead>
+                <th>#language.vessel#</th>
+                <th>#language.booking#</th>
+                <th>#language.agent#</th>
+                <th>#language.status#</th>
+              </thead>
+              <tbody>
+                <cfloop query="getNorthJettyBookings">
+                  <tr>
+                    <td><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VNID=#VNID#" title="#Name# #VNID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+                    <td>
+                      <cfif status EQ "PT"><em class="pending">#language.pending#</em>
+                      <cfelseif status EQ "C"><em class="confirmed">#language.confirmed#</em>
+                      <cfelseif status EQ "T"><em class="tentative">#language.tentative#</em>
+                      <cfelseif status EQ "PC"><em class="pending">#language.confirming#</em>
+                      <cfelseif status EQ "PX"><em class="pending">#language.pending_cancelling#</em>
+                      <cfelseif status EQ "X"><em class="cancelled">#language.cancelling#</em>
+                      </cfif>
+                    </td>
+                    <td>
+                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name# #BRID#">
+                          #lsdateformat(startDate, 'mmm d, yyyy')# -
+                          #lsdateformat(endDate, 'mmm d, yyyy')#
+                      </a>
+                    </td>
+                    <td>#AgentName#</td>
+                  </tr>
+                  <cfset counter = counter + 1>
+                </cfloop>
+              </tbody>
 						</table>
-						<table style="width:100%;" cellspacing="0">
-							<tr>
-								<td><b>Total:&nbsp;&nbsp;</b>
-								<cfoutput>
-								<em class="pending">#language.pending# - #countPendingNJ.numPendNJ#</em>&nbsp;&nbsp;
-								<em class="tentative">#language.tentative# - #countTentativeNJ.numTentNJ#</em>&nbsp;&nbsp;
-								<em class="confirmed">#language.confirmed# - #countConfirmedNJ.numConfNJ#</em>&nbsp;&nbsp;
-								<em class="cancelled">#language.cancelling# - #countCancelledNJ.numCancNJ#</em>
-								</cfoutput>
-								</td>
-							</tr>
-						</table>
+            <p class="total">
+              Total:&nbsp;&nbsp;
+              <cfoutput>
+                <em class="pending">#language.pending# - #countPendingNJ.numPendNJ#</em>
+                <em class="tentative">#language.tentative# - #countTentativeNJ.numTentNJ#</em>
+                <em class="confirmed">#language.confirmed# - #countConfirmedNJ.numConfNJ#</em>
+                <em class="cancelled">#language.cancelling# - #countCancelledNJ.numCancNJ#</em>
+              </cfoutput>
+            </p>
 					<cfelse>
 						<p>#language.None#.</p>
 					</cfif>
@@ -452,52 +439,47 @@
 				<cfset counter = 0>
 					<h3>#language.SouthJetty#</h3>
 					<cfif getSouthJettyBookings.recordCount GE 1>
-						<table style="padding-left:20px; width:100%;" cellspacing="0">
-							<cfloop query="getSouthJettyBookings">
-								<cfif counter mod 2 eq 0>
-									<cfset rowClass = "highlight">
-								<cfelse>
-									<cfset rowClass = "">
-								</cfif>
-								<tr class="#rowClass#">
-									<td colspan="2"><a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name# #BRID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
-									<td style="width:40%;">
-										<cfif status EQ "PT"><em class="pending">#language.pending#</em>
-										<cfelseif status EQ "C"><em class="confirmed">#language.confirmed#</em>
-										<cfelseif status EQ "T"><em class="tentative">#language.tentative#</em>
-										<cfelseif status EQ "PC"><em class="pending">#language.confirming#</em>
-										<cfelseif status EQ "PX"><em class="pending">#language.pending_cancelling#</em>
-										<cfelseif status EQ "X"><em class="cancelled">#language.cancelling#</em>
-										</cfif>
-									</td>
-								</tr>
-
-								<tr class="#rowClass#"><td colspan="3">
-									<table>
-										<tr class="#rowClass#">
-											<td>&nbsp;</td>
-											<td style="width:50%;"><div class="smallFont">#lsdateformat(startDate, 'mmm d, yyyy')# - #lsdateformat(endDate, 'mmm d, yyyy')#</div></td>
-											<td style="width:10%;"><div class="smallFont">#language.Agent#: </div></td>
-											<td style="width:40%;"><div class="smallFont">#AgentName#</div></td>
-										</tr>
-									</table>
-								</td></tr>
-							<cfset counter = counter + 1>
-							</cfloop>
+						<table class="bookings">
+              <thead>
+                <th>#language.vessel#</th>
+                <th>#language.booking#</th>
+                <th>#language.agent#</th>
+                <th>#language.status#</th>
+              </thead>
+              <tbody>
+                <cfloop query="getSouthJettyBookings">
+                  <tr>
+                    <td><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VNID=#VNID#" title="#Name# #VNID#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#Name#</a></td>
+                    <td>
+                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#Name# #BRID#">
+                        #lsdateformat(startDate, 'mmm d, yyyy')# -
+                        #lsdateformat(endDate, 'mmm d, yyyy')#
+                      </a>
+                    </td>
+                    <td>#AgentName#</td>
+                    <td>
+                      <cfif status EQ "PT"><em class="pending">#language.pending#</em>
+                      <cfelseif status EQ "C"><em class="confirmed">#language.confirmed#</em>
+                      <cfelseif status EQ "T"><em class="tentative">#language.tentative#</em>
+                      <cfelseif status EQ "PC"><em class="pending">#language.confirming#</em>
+                      <cfelseif status EQ "PX"><em class="pending">#language.pending_cancelling#</em>
+                      <cfelseif status EQ "X"><em class="cancelled">#language.cancelling#</em>
+                      </cfif>
+                    </td>
+                  </tr>
+                <cfset counter = counter + 1>
+                </cfloop>
+            </tbody>
 						</table>
-						<table style="width:100%;" cellspacing="0">
-							<tr>
-								<td>
-                  <b>Total:&nbsp;&nbsp;</b>
-                  <cfoutput>
-                  <em class="pending">#language.pending# - #countPendingSJ.numPendSJ#</em>&nbsp;&nbsp;
-                  <em class="tentative">#language.tentative# - #countTentativeSJ.numTentSJ#</em>&nbsp;&nbsp;
-                  <em class="confirmed">#language.confirmed# - #countConfirmedSJ.numConfSJ#</em>&nbsp;&nbsp;
-                  <em class="cancelled">#language.cancelling# - #countCancelledSJ.numCancSJ#</em>
-                  </cfoutput>
-                </td>
-							</tr>
-						</table>
+            <p class="total">
+              Total:&nbsp;&nbsp;
+              <cfoutput>
+                <em class="pending">#language.pending# - #countPendingSJ.numPendSJ#</em>
+                <em class="tentative">#language.tentative# - #countTentativeSJ.numTentSJ#</em>
+                <em class="confirmed">#language.confirmed# - #countConfirmedSJ.numConfSJ#</em>
+                <em class="cancelled">#language.cancelling# - #countCancelledSJ.numCancSJ#</em>
+              </cfoutput>
+            </p>
 					<cfelse>
 						<p>#language.None#.</p>
 					</cfif>
