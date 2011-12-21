@@ -109,12 +109,12 @@
 
 						<cfif getVesselDockBookings.recordCount GT 0>
 							<cfoutput>
-							<table style="padding-left:20px; width:100%;" >
-                <tr><td><h2>#language.Drydock#</h2></td></tr>
+              <h2>#language.Drydock#</h2>
+							<table class="bookings">
 								<tr>
-									<td style="width:25%;" id="start"><strong>#language.StartDate#</strong></td>
-									<td style="width:60%;" id="end"><strong>#language.EndDate#</strong></td>
-									<td style="width:15%;" id="status"><strong>#language.Status#</strong></td>
+									<th id="start">#language.Startdate#</th>
+									<th id="end">#language.EndDate#</th>
+									<th id="status">#language.Status#</th>
 								</tr>
 							</cfoutput>
 							<cfoutput query="getVesselDockBookings">
@@ -133,13 +133,13 @@
 
 						<cfif getVesselJettyBookings.recordCount GT 0>
 							<cfoutput>
-							<table style="padding-left:20px; width:100%;" >
-                <tr><td><h2>#language.Jetty#</h2></td></tr>
+              <h2>#language.Jetty#</h2>
+							<table class="bookings">
 								<tr>
-									<td style="width:25%;" id="start"><strong>#language.StartDate#</strong></td>
-									<td style="width:25%;" id="end"><strong>#language.EndDate#</strong></td>
-									<td style="width:35%;" id="jetty"><strong>#language.Jetty#</strong></td>
-									<td style="width:15%;" id="status"><strong>#language.Status#</strong></td>
+									<td id="start">#language.StartDate#</td>
+									<td id="end">#language.EndDate#</td>
+									<td id="jetty">#language.Jetty#</td>
+									<td id="status">#language.Status#</td>
 								</tr>
 							</cfoutput>
 							<cfoutput query="getVesselJettyBookings">
