@@ -3,7 +3,7 @@
 	<cfset language.deleteVessel = "Delete Vessel">
 	<cfset language.keywords = language.masterKeywords & ", Delete Vessel">
 	<cfset language.description = "Allows user to delete a vessel.">
-	<cfset language.subjects = language.masterSubjects & "">
+	<cfset language.subjects = language.masterSubjects>
 	<cfset language.areYouSure = "Are you sure you want to delete">
 	<cfset language.delete = "Delete">
 	<cfset language.cannotDelete = "cannot be deleted as it is booked for the following dates.  Please cancel all bookings before deleting the vessel.">
@@ -13,7 +13,7 @@
 	<cfset language.deleteVessel = "Suppression de navire">
 	<cfset language.keywords = language.masterKeywords & ", Suppression de navire">
 	<cfset language.description = "Permet &agrave; l'utilisateur de supprimer un navire.">
-	<cfset language.subjects = language.masterSubjects & "">
+	<cfset language.subjects = language.masterSubjects>
 	<cfset language.areYouSure = "&Ecirc;tes-vous certain de vouloir supprimer ">
 	<cfset language.delete = "Supprimer">
 	<cfset language.cannotDelete = "ne peut pas &ecirc;tre supprim&eacute; puisqu'il fait l'objet d'une r&eacute;servation pour les dates suivantes. Veuillez annuler toutes les r&eacute;servations avant de supprimer le navire.">
@@ -25,7 +25,7 @@
 	<meta name=""dc.title"" content=""#language.DeleteVessel# - #language.esqGravingDock# - #language.PWGSC#"" />
 	<meta name=""keywords"" content=""#language.DeleteVessel#"" />
 	<meta name=""description"" content=""#language.description#"" />
-	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
+	<meta name=""dc.subject"" scheme=""gccore"" content="#language.subjects#" />
 	<title>#language.DeleteVessel# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
