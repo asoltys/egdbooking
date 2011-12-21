@@ -26,7 +26,9 @@
 	<cfset language.login = "Login">
 	<cfset language.masterKeywords = "Esquimalt Graving Dock, EGD, Booking Request">
 	<cfset language.masterSubjects = "Wharfs; Water Transport; Ships; Ferries; Pleasure Craft; Vessels; Maintenance; Management">
-
+  <cfset language.dateSelect = "Date Selection" />
+  <cfset language.year = "Year" />
+  <cfset language.month = "Month" />
 <cfelse>
 	<cfset language.PWGSC = "TPSGC">
 	<cfset language.pacificRegion = "R&eacute;gion du Pacifique">
@@ -55,6 +57,8 @@
 	<cfset language.login = "Ouvrir la session">
 	<cfset language.masterKeywords = "Cale s&egrave;che d'Esquimalt, CSE, Demande de r&eacute;servation">
 	<cfset language.masterSubjects = "Quai; Transport maritime; Navire; Traversier; Bateau de plaisance; Embarcation; Entretien; Gestion">
-
+  <cfset language.dateSelect = "Choix de la date" />
+  <cfset language.year = "Ann&eacute;e" />
+  <cfset language.month = "Mois" />
 </cfif>
 
