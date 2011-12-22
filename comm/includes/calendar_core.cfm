@@ -191,9 +191,9 @@ summary="<cfoutput>#language.calendar#</cfoutput>">
               <CFSET vessel_name = Evaluate(sec).name />
 
 							<CFIF Evaluate(sec).maint eq true>
-								<div class="maintenance"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="maintenance" title="#DateFormat(taday, 'dddd')# #taday# #language.maintenance#">#language.maintenance#</a></div>
+								<div class="maintenance"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="maintenance" title="#DateFormat(taday, 'dddd')# #taday# #language.maintenance#"><span style="display: none">#taday#</span> #language.maintenance#</a></div>
 							<CFELSEIF Evaluate(sec).name neq "">
-								<div class="vessel #sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="confirmed" title="#DateFormat(taday, 'dddd')# #taday# #Evaluate(sec).name#">#vessel_name#</a><a class="legend" href="###sec#"><sup>L#bloop#</sup></a></div>
+              <div class="vessel #sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="confirmed" title="#DateFormat(taday, 'dddd')# #taday# #Evaluate(sec).name#"><span style="display: none">#taday#</span> #vessel_name#</a><a class="legend" href="###sec#"><sup>L#bloop#</sup></a></div>
 							</CFIF>
 						</CFLOOP>
 						<cfif tent.num neq 0>
