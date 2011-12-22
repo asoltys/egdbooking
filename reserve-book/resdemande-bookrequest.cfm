@@ -63,7 +63,7 @@
           <li><a href="#RootDir#reserve-book/jetdemande-jetrequest.cfm?lang=#lang##Variables.BookingRequestString#">#language.jettyBooking#</a></li>
         </ul>
 
-        <div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton" title="#language.requestBooking#">#language.requestBooking#</a></div>
+        <div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton" title="#language.BookingHomeButton#">#language.BookingHomeButton#</a></div>
 
 
 
