@@ -9,7 +9,7 @@
 	<cfset language.indemnification = "Indemnification Clause">
 	<cfset language.changeForm = "Tentative Vessel and Change Booking Form">
 	<cfset language.dockcharges = "Tariff of Dock Charges">
-  <cfset language.formExplanation = "The following forms are used in booking the drydock.<br /><br /><i>Schedule 1</i> and the <i>Indemnification Clause</i> are required to confirm a booking.  The <i>Schedule 1 - Drydock Application Form</i> provides <abbr title=""Esquimalt Graving Dock"">EGD</abbr> with vessel details and acts as a formal booking agreement between you and the Esquimalt Graving Dock.  The <i>Indemnification Clause</i> is a legal disclaimer that indemnifies the Crown against liability for injuries or damages.<br /><br />The <i>Tentative Vessel and Change Booking Form</i> is required if you wish to make any changes after submitting a request for booking.">
+  <cfset language.formExplanation = "The following forms are used in booking the drydock.<br /><br /><em>Schedule 1</em> and the <em>Indemnification Clause</em> are required to confirm a booking.  The <em>Schedule 1 - Drydock Application Form</em> provides <abbr title=""Esquimalt Graving Dock"">EGD</abbr> with vessel details and acts as a formal booking agreement between you and the Esquimalt Graving Dock.  The <em>Indemnification Clause</em> is a legal disclaimer that indemnifies the Crown against liability for injuries or damages.<br /><br />The <em>Tentative Vessel and Change Booking Form</em> is required if you wish to make any changes after submitting a request for booking.">
 <cfelse>
 	<cfset language.bookingForms = "Formulaires de r&eacute;servation">
 	<cfset language.keywords = language.masterKeywords & ",  Formulaire de r&eacute;servation">
