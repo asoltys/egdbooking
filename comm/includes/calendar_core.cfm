@@ -19,7 +19,6 @@
         </CFLOOP>
       </select>
       <br />
-      <label>&nbsp;</label>
       <input type="submit" value="Go" />
     </fieldset>
   </form>
