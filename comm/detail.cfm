@@ -186,7 +186,7 @@
 				<cfset Variables.count = EVALUATE(countQName)>
 
 				<table class="details">
-					<tr id="#BRID#">
+					<tr id="booking-#BRID#">
 						<th colspan="2"><CFIF Status eq 'c'><strong></cfif><cfif #EndHighlight# GTE PacificNow>* </cfif>
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
 								#language.Deepsea#
@@ -267,7 +267,7 @@
 				<cfset "#Variables.count#" = EVALUATE(count)>
 
 				<table class="details">
-					<tr id="#BRID#">
+					<tr id="booking-#BRID#">
 						<th colspan="2">
 						<CFIF Status eq 'c'><strong></cfif>
 							<cfif #EndHighlight# GTE PacificNow>* </cfif>

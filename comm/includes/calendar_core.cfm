@@ -198,7 +198,7 @@ summary="<cfoutput>#language.calendar#</cfoutput>">
 							<CFIF Evaluate(sec).maint eq true>
 								<div class="maintenance"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="maintenance" title="#DateFormat(taday, 'dddd')# #taday# #language.maintenance#"><span style="display: none">#taday#</span> #language.maintenance#</a></div>
 							<CFELSEIF vessel_name neq "">
-              <div class="vessel #sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday####BRID#" class="confirmed" title="#DateFormat(taday, 'dddd')# #taday# #vessel_name#"><span style="display: none">#taday#</span> #vessel_name#</a><a class="legend" href="###sec#"><sup>L#bloop#</sup></a></div>
+              <div class="vessel #sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday###booking-#BRID#" class="confirmed" title="#DateFormat(taday, 'dddd')# #taday# #vessel_name#"><span style="display: none">#taday#</span> #vessel_name#</a><a class="legend" href="###sec#"><sup>L#bloop#</sup></a></div>
 							</CFIF>
 						</CFLOOP>
 						<cfif tent.num neq 0>
