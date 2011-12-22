@@ -124,13 +124,11 @@
 
 				<form action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#&amp;CID=#variables.CID#" method="post" id="bookingreq">
 					<fieldset>
-						#language.Agent#:
-						<p>
-							<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
-								#session.lastName#, #session.firstName#
-							</cflock>
-						</p>
+            <legend>#language.booking#</legend>
 
+            <label for="agent">#language.Agent#:</label>
+            <input type="text" readonly="readonly" value="#session.lastName#, #session.firstName#" />
+						<br class="clear" />
 
 						<label for="CID">#language.Company#:</label>
 						<CF_TwoSelectsRelated
