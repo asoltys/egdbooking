@@ -175,18 +175,12 @@ function EditSubmit ( selectedform )
 					</cfoutput>
 				</h2>
 				<cfoutput query="getUserCompanies">
-					<form method="post" action="#RootDir#reserve-book/entrpsup-comprem_confirm.cfm?lang=#lang#" id="remCompany#CID#" class="noBorder">
-						<fieldset>
-						<legend>#language.yourCompany#</legend>
-							<p>#name#</p>
-							<cfif approved EQ 0><em class="smallFont">#language.awaitingApproval#</em><cfelse>&nbsp;</cfif>
-							<input type="hidden" name="CID" value="#CID#" />
-							<cfif getUserCompanies.recordCount GT 1>
-								<input type="submit" value="#language.Remove#" />
-							</cfif>
-
-						</fieldset>
-					</form>
+          <p>#name#</p>
+          <cfif approved EQ 0>
+            <em class="smallFont">#language.awaitingApproval#</em>
+          <cfelse>
+            &nbsp;
+          </cfif>
 				</cfoutput>
 
 				<cfoutput>
