@@ -6,31 +6,6 @@
 	<cfset language.subjects = language.masterSubjects & "">
 	<cfset language.changeForm = "Tentative Vessel and Change Booking Form">
 	<cfset language.explanation = "Bookings cannot be edited online.  If you wish to edit your booking request details, please inform the Esquimalt Graving Dock via phone, fax or email, and fax a hard copy of the Tentative Vessel and Booking Change Form.">
-	<cfset language.phone = "Phone">
-	<cfset language.fax = "Fax">
-	<cfset language.emailAddress = "Email">
-	<cfset language.or = "or">
-	<cfset language.acrobatrequired = '<p>If you have a <acronym title="Portable Document Format">PDF</acronym> software reader, you will be able to view, print, or download these documents. </p>
-
-	<p>If you do not have a <acronym title="Portable Document Format">PDF</acronym> software reader, you can download and install any one of these free <acronym title="Portable Document Format">PDF</acronym> software programs below:</p>
-
-    <ul>
-
-		<li><a href="http://www.adobe.com/products/reader.html">Adobe Reader</a></li>
-
-		<li><a href="http://www.foxitsoftware.com/Secure_PDF_Reader/">Foxit Reader</a></li>
-
-		<li><a href="http://www.foolabs.com/xpdf/">xPDF Reader</a></li>
-
-		<li><a href="http://www.visagesoft.com/products/pdfreader/">xPERT PDF Reader</a></li>
-
-	</ul>
-
-	<p>If you prefer to convert <acronym title="Portable Document Format">PDF</acronym> documents to <acronym title="HyperText Markup Language">HTML</acronym>, Adobe offers <a href="http://www.adobe.com/designcenter/tutorials/acr7at_savepdfas/">conversion tools</a>.</p>
-
-	<p>If the <acronym title="Portable Document Format">PDF</acronym> document is not accessible to you, or if you have difficulty downloading forms on this Web site, please <a href="http://www.tpsgc-pwgsc.gc.ca/pac/cse-egd/cn-cu-eng.html">contact <acronym title="Esquimalt Graving Dock">EGD</acronym></a> for assistance.</p>'>
-	<cfset language.pdf = "Portable Document Format">
-	<cfset language.kb = "<acronym title=""Kilo Bytes"">KB</acronym>">
 <cfelse>
 	<cfset language.title = "Modification de r&eacute;servation">
 	<cfset language.keywords = language.masterKeywords & ", Modification de r&eacute;servation">
@@ -38,31 +13,6 @@
 	<cfset language.subjects = language.masterSubjects & "">
 	<cfset language.changeForm = "Formulaire de r&eacute;servation provisoire pour les navires et les modifications">
 	<cfset language.explanation = "Les r&eacute;servations ne peuvent &ecirc;tre modifi&eacute;es en ligne. Si vous voulez modifier les renseignements de votre demande de r&eacute;servation, veuillez en aviser la Cale s&egrave;che d'Esquimalt par t&eacute;l&eacute;phone, fax ou courriel, puis faites parvenir par fax une copie papier du formulaire de modification d'une r&eacute;servation.">
-	<cfset language.phone = "T&eacute;l&eacute;phone">
-	<cfset language.fax = "Fac-simil&eacute;">
-	<cfset language.emailAddress = "Adresse de courriel">
-	<cfset language.or = "ou">
-	<cfset language.acrobatrequired = '<p>Si vous disposez d''un lecteur <acronym title="Format de document portable">PDF</acronym>, vous pourrez visionner, imprimer et t&eacute;l&eacute;charger les formulaires. </p>
-
-	<p>Si vous ne disposez pas d''un lecteur <acronym title="Format de document portable">PDF</acronym>, vous pouvez t&eacute;l&eacute;charger et installer un des lecteurs ci-apr&egrave;s. </p>
-
-	<ul>
-
-		<li><a href="http://www.adobe.com/fr/products/acrobat.html?promoid=BPBLJ"><span xml:lang="en" lang="en">Adobe Reader</span></a></li>        
-
-		<li><a href="http://www.foxitsoftware.com/Secure_PDF_Reader/"><span xml:lang="en" lang="en">Foxit Reader</span></a> <em>(disponible en anglais seulement)</em></li>        
-
-		<li><a href="http://www.foolabs.com/xpdf/"><span xml:lang="en" lang="en">xPDF Reader</span></a> <em>(disponible en anglais seulement)</em></li>        
-
-		<li><a href="http://www.visagesoft.com/products/pdfreader/"><span xml:lang="en" lang="en">xPERT PDF Reader</span></a> <em>(disponible en anglais seulement)</em></li>        
-
-	</ul>
-
-	<p>Si vous pr&eacute;f&eacute;rez convertir des documents <acronym title="Format de document portable">PDF</acronym> en format <acronym title="HyperText Markup Language">HTML</acronym>, diff&eacute;rents <a href="http://www.adobe.com/designcenter/tutorials/acr7at_savepdfas/">outils de conversion</a> (<em>disponible en anglais seulement</em>) Adobe existent.</p>
-
-	<p>Si vous ne pouvez acc&eacute;der aux formulaires ou si vous avez de la difficult&eacute; &agrave; t&eacute;l&eacute;charger des formulaires du site, veuillez <a href="http://www.tpsgc-pwgsc.gc.ca/pac/cse-egd/cn-cu-fra.html">contactez <acronym title="Cale s&egrave;che d''Esquimalt">CSE</acronym></a> pour obtenir de l''aide.</p>'>
-	<cfset language.pdf = "format de document portable">
-	<cfset language.kb = "<acronym title=""kilooctets"">Ko</acronym>">
 </cfif>
 
 <cfhtmlhead text="
