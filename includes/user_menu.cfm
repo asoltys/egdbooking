@@ -8,25 +8,6 @@
 	<cfoutput query="readonlycheck">
 		<cfset Session.ReadOnly = #ReadOnly#>
 	</cfoutput>
-	<cfif lang EQ 'eng'>
-		<cfset language.bookingHomeButton = "Booking Home">
-		<cfset language.drydockCalButton = "Drydock Calendar">
-		<cfset language.jettyCalButton = "Jetties Calendar">
-		<cfset language.requestBookingButton = "Request Booking">
-		<cfset language.editProfileButton = "Edit Profile">
-		<cfset language.help = "Help">
-    <cfset language.bookingsSummary = "Bookings Summary">
-		<cfset language.logoutButton = "Logout">
-	<cfelse>
-		<cfset language.bookingHomeButton = "Accueil - R&eacute;servation">
-		<cfset language.drydockCalButton = "Calendrier de la cale s&egrave;che">
-		<cfset language.jettyCalButton = "Calendrier des jet&eacute;es">
-		<cfset language.requestBookingButton = "Pr&eacute;senter une r&eacute;servation">
-		<cfset language.editProfileButton = "Modifier le profil">
-		<cfset language.help = "Aide">
-    <cfset language.bookingsSummary = "R&eacute;sum&eacute; des R&eacute;servations">
-		<cfset language.logoutButton = "Fermer la session">
-	</cfif>
 
 	<cfset Variables.BookingRequestString = "">
 	<cfif IsDefined("URL.VNID")>

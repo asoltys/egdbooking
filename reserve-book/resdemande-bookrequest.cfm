@@ -28,13 +28,12 @@
 	<title>#language.RequestBooking# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
+<cfoutput>
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
-			<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
-			#language.RequestBooking#
-			</cfoutput>
+      <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.bookingHomeButton#</a> &gt;
+      #language.RequestBooking#
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -43,35 +42,36 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#language.RequestBooking#</cfoutput>
+					#language.RequestBooking#
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-				<cfoutput>
 
-				<cfset Variables.BookingRequestString = "">
-				<cfif IsDefined("URL.VNID")>
-					<cfset Variables.BookingRequestString = "&amp;VNID=#URL.VNID#">
-				<cfelseif IsDefined("URL.CID")>
-					<cfset Variables.BookingRequestString = "&amp;CID=#URL.CID#">
-				</cfif>
-				<cfif IsDefined("URL.Date")>
-					<cfset Variables.BookingRequestString = "#Variables.BookingRequestString#&amp;Date=#URL.Date#">
-				</cfif>
 
-				<p>#language.choose#</p>
-				<ul>
-					<li><a href="#RootDir#reserve-book/caledemande-dockrequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.drydockBooking#</a></li>
-					<li><a href="#RootDir#reserve-book/jetdemande-jetrequest.cfm?lang=<cfoutput>#lang##Variables.BookingRequestString#</cfoutput>">#language.jettyBooking#</a></li>
-				</ul>
+        <cfset Variables.BookingRequestString = "">
+        <cfif IsDefined("URL.VNID")>
+        <cfset Variables.BookingRequestString = "&amp;VNID=#URL.VNID#">
+        <cfelseif IsDefined("URL.CID")>
+        <cfset Variables.BookingRequestString = "&amp;CID=#URL.CID#">
+        </cfif>
+        <cfif IsDefined("URL.Date")>
+        <cfset Variables.BookingRequestString = "#Variables.BookingRequestString#&amp;Date=#URL.Date#">
+        </cfif>
 
-				<div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=<cfoutput>#lang#</cfoutput>" class="textbutton">#language.welcomePage#</a></div>
+        <p>#language.choose#</p>
+        <ul>
+          <li><a href="#RootDir#reserve-book/caledemande-dockrequest.cfm?lang=#lang##Variables.BookingRequestString#">#language.drydockBooking#</a></li>
+          <li><a href="#RootDir#reserve-book/jetdemande-jetrequest.cfm?lang=#lang##Variables.BookingRequestString#">#language.jettyBooking#</a></li>
+        </ul>
 
-				</cfoutput>
+        <div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton">#language.bookingHomeButton#</a></div>
+
+
 
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
+</cfoutput>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 
