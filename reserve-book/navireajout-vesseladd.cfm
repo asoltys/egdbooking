@@ -87,7 +87,7 @@
 
 				<form action="#RootDir#reserve-book/navireajout-vesseladd_confirm.cfm?lang=#lang#&amp;CID=#CID#" method="post" id="addVessel">
 					<fieldset>
-						
+						<legend>#language.addVessel#</legend>
 						<cfif getCompanies.recordCount GT 1>
 							<label for="CID">#language.CompanyName#:</label>
 							<select name="CID" id="CID" query="getCompanies" display="Name" value="CID" selected="#variables.CID#" />

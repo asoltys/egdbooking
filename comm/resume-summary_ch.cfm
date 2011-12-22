@@ -93,7 +93,7 @@
 				#Language.ScreenMessage#
 
 				<cfform action="resume-summary.cfm?lang=#lang#" method="post" id="bookSum" preservedata="Yes">
-					<fieldset>
+					<fieldset><legend>#language.bookingsSummary#</legend>
 						<label for="start">&nbsp; #language.fromDate#<br /><small>#language.dateform#</small></label>
 						<cfinput id="start" type="text" name="startDate" class="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" validate="date" message="#language.invalidfromDate#" />
 						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />

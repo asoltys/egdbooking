@@ -116,13 +116,13 @@
 					<cfset counter = 0>
 					<h2>#language.Drydock#</h2>
 					<cfif "getDockBookings.recordCount" GE 1>
-            <table class="bookings">
+            <table class="basic">
               <thead>
                 <tr>
-                  <th>#language.vessel#</th>
-                  <th>#language.booking#</th>
-                  <th>#language.agent#</th>
-                  <th>#language.status#</th>
+                  <th scope="col">#language.vessel#</th>
+                  <th scope="col">#language.booking#</th>
+                  <th scope="col">#language.agent#</th>
+                  <th scope="col">#language.status#</th>
                 </tr>
               </thead>
               <tbody>
@@ -153,13 +153,13 @@
 					<cfset counter = 0>
 					<h2>#language.NorthLandingWharf#</h2>
 					<cfif getNorthJettyBookings.recordCount GE 1>
-						<table class="bookings">
+						<table class="basic">
               <thead>
                 <tr>
-                  <th>#language.vessel#</th>
-                  <th>#language.booking#</th>
-                  <th>#language.agent#</th>
-                  <th>#language.status#</th>
+                  <th scope="col">#language.vessel#</th>
+                  <th scope="col">#language.booking#</th>
+                  <th scope="col">#language.agent#</th>
+                  <th scope="col">#language.status#</th>
                 </tr>
               </thead>
               <tbody>
@@ -190,19 +190,19 @@
 					<cfset counter = 0>
 					<h2>#language.NorthLandingWharf#</h2>
 					<cfif getNorthJettyBookings.recordCount GE 1>
-						<table class="bookings">
+						<table class="basic">
               <thead>
                 <tr>
-                  <th>#language.vessel#</th>
-                  <th>#language.booking#</th>
-                  <th>#language.agent#</th>
-                  <th>#language.status#</th>
+                  <th scope="col">#language.vessel#</th>
+                  <th scope="col">#language.booking#</th>
+                  <th scope="col">#language.agent#</th>
+                  <th scope="col">#language.status#</th>
                 </tr>
               </thead>
               <tbody>
                 <cfloop query="getNorthJettyBookings">
                   <tr>
-                    <td>#Name#</a></td>
+                    <td>#Name#</td>
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID#url.CID#">
                         #lsdateformat(startDate, 'mmm d, yyyy')# - 
@@ -226,13 +226,13 @@
 				<cfset counter = 0>
 					<h2>#language.SouthJetty#</h2>
 					<cfif getSouthJettyBookings.recordCount GE 1>
-						<table class="bookings">
+						<table class="basic">
               <thead>
                 <tr>
-                  <th>#language.vessel#</th>
-                  <th>#language.booking#</th>
-                  <th>#language.agent#</th>
-                  <th>#language.status#</th>
+                  <th scope="col">#language.vessel#</th>
+                  <th scope="col">#language.booking#</th>
+                  <th scope="col">#language.agent#</th>
+                  <th scope="col">#language.status#</th>
                 </tr>
               </thead>
               <tbody>

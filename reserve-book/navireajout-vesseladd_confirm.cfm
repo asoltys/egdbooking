@@ -138,6 +138,7 @@
 
 				<cfform id="addVessel" action="#RootDir#reserve-book/navireajout-vesseladd_action.cfm?lang=#lang#&amp;CID=#url.CID#" method="post">
 					<fieldset>
+					<legend>#language.addVessel#</legend>
 						<label for="CID">#language.CompanyName#:</label>
 						<input type="hidden" id="CID" name="CID" value="#Variables.CID#" />
 						<p>#variables.CompanyName#</p>

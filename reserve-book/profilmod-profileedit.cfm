@@ -145,6 +145,7 @@ function EditSubmit ( selectedform )
 					<h2>#language.EditProfile#:</h2>
 					<form action="#RootDir#reserve-book/profilmod-profileedit_action.cfm?lang=#lang#" id="editUserForm" method="post">
 						<fieldset>
+						<legend>#language.EditProfile#</legend>
 							<label for="firstname">#language.FirstName#:</label>
 							<input name="firstname" id="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40"  />
 
@@ -176,6 +177,7 @@ function EditSubmit ( selectedform )
 				<cfoutput query="getUserCompanies">
 					<form method="post" action="#RootDir#reserve-book/entrpsup-comprem_confirm.cfm?lang=#lang#" id="remCompany#CID#" class="noBorder">
 						<fieldset>
+						<legend>#language.yourCompany#</legend>
 							<p>#name#</p>
 							<cfif approved EQ 0><em class="smallFont">#language.awaitingApproval#</em><cfelse>&nbsp;</cfif>
 							<input type="hidden" name="CID" value="#CID#" />
@@ -191,6 +193,7 @@ function EditSubmit ( selectedform )
 					<h2>#language.ChangePassword#:</h2>
 					<form action="#RootDir#reserve-book/passechange.cfm?lang=eng" method="post" id="changePassForm">
 						<fieldset>
+						<legend>#language.ChangePassword#</legend>
 							<label for="password">#language.Password# <span class="smallFont">(*min. 8 #language.characters#)</span>:</label>
 							<input type="password" id="password" name="password1"  />
 							<br />
