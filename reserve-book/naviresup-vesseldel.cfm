@@ -21,12 +21,17 @@
 
 </cfif>
 
-	<cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.DeleteVessel# - #language.esqGravingDock# - #language.PWGSC#"" />
-	<meta name=""keywords"" content=""#language.DeleteVessel#"" />
-	<meta name=""description"" content=""#language.description#"" />
-	<meta name=""dc.subject"" scheme=""gccore"" content="#language.subjects#" />
+<cfoutput>
+
+<cfsavecontent variable="head">
+	<meta name="dc.title" content="#language.DeleteVessel# - #language.esqGravingDock# - #language.PWGSC#" />
+	<meta name="keywords" content="#language.DeleteVessel#" />
+	<meta name="description" content="#language.description#" />
+	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
 	<title>#language.DeleteVessel# - #language.esqGravingDock# - #language.PWGSC#</title>">
+</cfsavecontent>
+<cfhtmlhead text="#head#" />
+
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <script type="text/javascript">
@@ -65,8 +70,6 @@
 <cfif getVesselDetail.recordCount EQ 0>
 	<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 </cfif>
-
-<cfoutput>
 
 <!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 <p class="breadcrumb">
