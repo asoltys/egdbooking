@@ -119,23 +119,21 @@
             <table class="basic">
               <thead>
                 <tr>
-                  <th scope="col">#language.vessel#</th>
                   <th scope="col">#language.booking#</th>
-                  <th scope="col">#language.agent#</th>
                   <th scope="col">#language.status#</th>
                 </tr>
               </thead>
               <tbody>
                 <cfloop query="getDockBookings">
                   <tr>
-                    <td>#Name#</td>
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">
+                        ###BRID#:
+                        #Name# &mdash;
                         #lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - 
                         #lsdateformat(endDate, 'mmm d, yyyy')#
                       </a>
                     </td>
-                    <td>#AgentName#</td>
                     <td>
                       <cfif status EQ "PT">#language.pending#
                       <cfelseif status EQ "C">#language.confirmed#
@@ -156,23 +154,21 @@
 						<table class="basic">
               <thead>
                 <tr>
-                  <th scope="col">#language.vessel#</th>
                   <th scope="col">#language.booking#</th>
-                  <th scope="col">#language.agent#</th>
                   <th scope="col">#language.status#</th>
                 </tr>
               </thead>
               <tbody>
                 <cfloop query="getDockBookings">
                   <tr>
-                    <td>#Name#</td>
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">
+                        ###BRID#:
+                        #Name# &mdash;
                         #lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - 
                         #lsdateformat(endDate, 'mmm d, yyyy')#
                       </a>
                     </td>
-                    <td>#AgentName#</td>
                     <td>
                       <cfif status EQ "PT">#language.pending#
                       <cfelseif status EQ "C">#language.confirmed#
@@ -193,23 +189,21 @@
 						<table class="basic">
               <thead>
                 <tr>
-                  <th scope="col">#language.vessel#</th>
                   <th scope="col">#language.booking#</th>
-                  <th scope="col">#language.agent#</th>
                   <th scope="col">#language.status#</th>
                 </tr>
               </thead>
               <tbody>
                 <cfloop query="getNorthJettyBookings">
                   <tr>
-                    <td>#Name#</td>
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">
+                        ###BRID#:
+                        #Name# &mdash;
                         #lsdateformat(startDate, 'mmm d, yyyy')# - 
                         #lsdateformat(endDate, 'mmm d, yyyy')#
                       </a>
                     </td>
-                    <td>#AgentName#</td>
                     <td>
                       <cfif NOT status eq 'c'>#language.pending#
                       <cfelse>#language.confirmed#</cfif>
@@ -229,23 +223,21 @@
 						<table class="basic">
               <thead>
                 <tr>
-                  <th scope="col">#language.vessel#</th>
                   <th scope="col">#language.booking#</th>
-                  <th scope="col">#language.agent#</th>
                   <th scope="col">#language.status#</th>
                 </tr>
               </thead>
               <tbody>
                 <cfloop query="getSouthJettyBookings">
                   <tr>
-                    <td>#Name#</td>
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">
+                        ###BRID#:
+                        #Name# &mdash;
                         #lsdateformat(startDate, 'mmm d, yyyy')# - 
                         #lsdateformat(endDate, 'mmm d, yyyy')#
                       </a>
                     </td>
-                    <td>#AgentName#</td>
                     <td>
                       <cfif NOT status eq 'c'>#language.pending#
                       <cfelse>#language.confirmed#</cfif>
