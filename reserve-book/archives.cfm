@@ -204,7 +204,7 @@
                   <tr>
                     <td>#Name#</td>
                     <td>
-                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID#url.CID#">
+                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">
                         #lsdateformat(startDate, 'mmm d, yyyy')# - 
                         #lsdateformat(endDate, 'mmm d, yyyy')#
                       </a>
@@ -240,7 +240,7 @@
                   <tr>
                     <td>#Name#</td>
                     <td>
-                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID#url.CID#">
+                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">
                         #lsdateformat(startDate, 'mmm d, yyyy')# - 
                         #lsdateformat(endDate, 'mmm d, yyyy')#
                       </a>
@@ -259,7 +259,7 @@
 						<p>#language.None#.</p>
 					</cfif>
 				<br />
-				<div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID#url.CID#" class="textbutton">#language.returnTo#</a></div>
+				<div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#url.CID#" class="textbutton">#language.returnTo#</a></div>
 
 				</cfoutput>
 			</div>
