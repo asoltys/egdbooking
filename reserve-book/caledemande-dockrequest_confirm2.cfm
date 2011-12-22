@@ -211,12 +211,6 @@
 				<cfoutput>
 				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action2.cfm?lang=#lang#" method="post" id="bookingreq" preservedata="Yes">
 					<p>#language.bookingFound# #LSDateFormat(Variables.FoundStartDate, 'mmm d, yyyy')# - #LSDateFormat(Variables.FoundEndDate, 'mmm d, yyyy')#.</p>
-					#language.Agent#:
-					<p>
-						<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
-							#session.lastName#, #session.firstName#
-						</cflock>
-					</p>
 
 					<label for="VNID">#language.vessel#:</label>
 					<input type="hidden" id="VNID"  name="VNID" value="#Form.bookingByRange_VNID#" />

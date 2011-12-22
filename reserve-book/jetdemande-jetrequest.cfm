@@ -126,10 +126,6 @@
 					<fieldset>
             <legend>#language.booking#</legend>
 
-            <label for="agent">#language.Agent#:</label>
-            <input type="text" readonly="readonly" value="#session.lastName#, #session.firstName#" />
-						<br class="clear" />
-
 						<label for="CID">#language.Company#:</label>
 						<CF_TwoSelectsRelated
 							query="companyVessels"

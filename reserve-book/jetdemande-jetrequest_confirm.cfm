@@ -208,9 +208,7 @@
 
 				<cfform action="#RootDir#reserve-book/jetdemande-jetrequest_action.cfm?lang=#lang#" method="post" id="bookingreq" preservedata="Yes">
 					<fieldset>
-            <label for="agent">#language.Agent#:</label>
-						<input type="hidden" id="agent" name="agent" value="#session.lastName#, #session.firstName#" />
-            <p>#session.lastName#, #session.firstName#</p>
+            <legend>#language.booking#</legend>
 
 						<label for="CID">#language.Company#:</label>
 						<input type="hidden" id="CID" name="CID" value="#getInfo.CID#" />

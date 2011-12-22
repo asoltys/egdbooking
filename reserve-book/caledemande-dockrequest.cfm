@@ -122,10 +122,7 @@
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 				<form action="#RootDir#reserve-book/caledemande-dockrequest_confirm.cfm?lang=#lang#" method="post" id="booking">
 					<fieldset>
-						#language.Agent#:
-						<cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
-							<p>#session.lastName#, #session.firstName#</p>
-						</cflock>
+            <legend>#language.booking#</fieldset>
 
 						<label for="booking_CID">#language.Company#:</label>
 						<CF_TwoSelectsRelated
@@ -177,6 +174,8 @@
 				<p>#language.daysToBook#  #language.dateInclusive#</p>
 				<form action="#RootDir#reserve-book/caledemande-dockrequest_confirm2.cfm?lang=#lang#" method="post" id="bookingByRange">
 					<fieldset>
+            <legend>#language.booking#</fieldset>
+
 						<label for="bookingByRange_CID">#language.Company#:</label>
 						<CF_TwoSelectsRelated
 							QUERY="companyVessels"

@@ -203,6 +203,8 @@
 				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action.cfm?lang=#lang#" method="post" id="bookingreq" preservedata="Yes">
 				<h2>#language.new#:</h2>
 					<fieldset>
+            <legend>#language.booking#</legend>
+
 						<label for="VNID">#language.vessel#:</label>
 						<p>#getVessel.VesselName#</p>
 						<input type="hidden" id="VNID" name="VNID" value="#Variables.VNID#" />
