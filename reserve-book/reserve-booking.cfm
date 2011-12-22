@@ -236,7 +236,6 @@
 	<cfset language.awaitingApproval = "Awaiting approval:">
 	<cfset language.followingbooking = "Your current bookings for <strong>#getCompany.companyName#</strong> are as follows:">
 	<cfset language.addVessel = "Add Vessel">
-	<cfset language.requestBooking = "Request Booking">
 	<cfset language.bookingForms = "Booking Forms">
 	<cfset language.viewTariff = "View Tariffs">
 	<cfset language.agent = "Agent">
@@ -253,7 +252,6 @@
 	<cfset language.awaitingApproval = "En attente d'approbation&nbsp;:">
 	<cfset language.followingbooking = "Vos rservations actuelles sont les suivantes : <strong>#getCompany.companyName#</strong>">
 	<cfset language.addVessel = "Ajout d'un navire">
-	<cfset language.requestBooking = "Pr&eacute;senter une r&eacute;servation">
 	<cfset language.bookingForms = "Formulaires de r&eacute;servation">
 	<cfset language.viewTariff = "Consulter les tarifs">
 	<cfset language.agent = "Agent">

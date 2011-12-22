@@ -3,7 +3,6 @@
 </cfif>
 
 <cfif lang EQ "eng">
-	<cfset language.requestBooking = "Request New Booking">
 	<cfset language.keywords = language.masterKeywords & ", Booking Request">
 	<cfset language.description = "User must choose between the two types of booking request to be made.">
 	<cfset language.subjects = language.masterSubjects>
@@ -11,7 +10,6 @@
 	<cfset language.drydockBooking = "Drydock">
 	<cfset language.jettyBooking = "South Jetty / North Landing Wharf">
 <cfelse>
-	<cfset language.requestBooking = "Pr&eacute;sentation d'une nouvelle r&eacute;servation">
 	<cfset language.keywords = language.masterKeywords & ", Pr&eacute;sentation de r&eacute;servation">
 	<cfset language.description = "L'utilisateur doit choisir un des deux types de demande de r&eacute;servation.">
 	<cfset language.subjects = language.masterSubjects>
@@ -65,7 +63,7 @@
           <li><a href="#RootDir#reserve-book/jetdemande-jetrequest.cfm?lang=#lang##Variables.BookingRequestString#">#language.jettyBooking#</a></li>
         </ul>
 
-        <div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton">#language.bookingHomeButton#</a></div>
+        <div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton" title="#language.requestBooking#">#language.requestBooking#</a></div>
 
 
 

@@ -46,7 +46,7 @@
 		<div>&nbsp;</div>
 
 		<cfif #Session.ReadOnly# EQ "1"><cfelse>
-		<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang##Variables.BookingRequestString#" class="textbutton">#language.RequestBookingButton#</a>
+		<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang##Variables.BookingRequestString#" class="textbutton" title="#language.requestBooking#">#language.requestBooking#</a>
 		</cfif>
 
 		<a href="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#" class="textbutton">#language.EditProfileButton#</a>
