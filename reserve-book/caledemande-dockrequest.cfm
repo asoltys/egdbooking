@@ -174,7 +174,7 @@
 				<p>#language.daysToBook#  #language.dateInclusive#</p>
 				<form action="#RootDir#reserve-book/caledemande-dockrequest_confirm2.cfm?lang=#lang#" method="post" id="bookingByRange">
 					<fieldset>
-            <legend>#language.booking#</legend></fieldset>
+            <legend>#language.booking#</legend>
 
 						<label for="bookingByRange_CID">#language.Company#:</label>
 						<CF_TwoSelectsRelated
