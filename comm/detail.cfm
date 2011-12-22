@@ -228,8 +228,6 @@
 				</cfoutput>
 				<cfoutput>
 				<CFIF getDockDetail.RecordCount eq 0 AND getDockMaintenanceDetail.RecordCount eq 0>#language.noBookings#<br /><br /></CFIF>
-				<div class="buttons"><a href="calend-cale-dock.cfm?lang=#lang#&amp;m-m=#Month(URL.date)#&amp;a-y=#Year(URL.date)#" class="textbutton">#language.drydockCalendar#</a></div>
-
 
 				<h2>#language.JettyBookings#</h2>
 				</cfoutput>
@@ -314,7 +312,6 @@
 				<cfoutput>
 				<CFIF getJettyDetail.RecordCount eq 0 AND getJettyMaintenanceDetail.RecordCount eq 0>#language.noBookings#</CFIF>
 
-				<div class="buttons"><a href="calend-jet.cfm?lang=#lang#&amp;m-m=#Month(URL.date)#&amp;a-y=#Year(URL.date)#" class="textbutton">#language.jettyCalendar#</a></div>
 				</cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
