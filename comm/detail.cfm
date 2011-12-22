@@ -208,9 +208,9 @@
 							<CFIF Status eq 'c'>
 								#language.Confirmed#
 							<CFELSEIF Status eq 't'>
-								<i>#language.Tentative#</i>
+								<em>#language.Tentative#</em>
 							<CFELSE>
-								<i>#language.Pending#</i>
+								<em>#language.Pending#</em>
 							</CFIF>
 						</td>
 					</tr>
@@ -291,9 +291,9 @@
 							<CFIF Status eq 'c'>
 								#language.Confirmed#
 							<CFELSEIF Status eq 't'>
-								<i>#language.Tentative#</i>
+								<em>#language.Tentative#</em>
 							<CFELSE>
-								<i>#language.Pending#</i>
+								<em>#language.Pending#</em>
 							</CFIF>
 						</td>
 					</tr>
