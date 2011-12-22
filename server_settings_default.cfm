@@ -11,4 +11,4 @@
 <cfset PacificNow = DateAdd('h',0,Now()) />
 <cfset slash = "\" />
 <cfset DevEmail = "michael.rybacha@pwgsc.gc.ca" />
-<cfset AdministratorEmail = "egd-cse@pwgsc-tpsgc.gc.ca">
+<cfset AdministratorEmail = "adam.soltys@pwgsc.gc.ca">
