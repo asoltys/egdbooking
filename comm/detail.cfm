@@ -8,7 +8,6 @@
 	<cfset language.dates = "Dates">
 	<cfset language.MaintenanceBlock = "Maintenance Block">
 	<cfset language.closedForMaint = "The following docks are closed for maintenance and are not available for booking.">
-	<cfset language.moreInfo = "more information">
 	<cfset language.JettyBookings = "Jetty Bookings">
 	<cfset language.noBookings = "There are no bookings for this date range.">
 	<cfset language.sectionsBooked = "Sections Booked">
@@ -27,7 +26,6 @@
 	<cfset language.dates = "Dates">
 	<cfset language.MaintenanceBlock = "P&eacute;riode de maintenance">
 	<cfset language.closedForMaint = "Les &eacute;l&eacute;ments suivants sont ferm&eacute;s aux fins de maintenance et ne peuvent pas &ecirc;tre r&eacute;serv&eacute;s.">
-	<cfset language.moreInfo = "renseignements suppl&eacute;mentaires">
 	<cfset language.JettyBookings = "R&eacute;servations de jet&eacute;e">
 	<cfset language.noBookings = "Il n'existe aucune r&eacute;servation pour cette p&eacute;riode.">
 	<cfset language.sectionsBooked = "Sections r&eacute;serv&eacute;es">
@@ -193,7 +191,7 @@
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
 								#language.Deepsea#
 							<CFELSE>
-								#VesselName# (<a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=Details For" title="#VesselName# #BRID# #language.moreInfo#">#language.moreInfo#</a>)
+							<a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=Details For" title="#language.booking# ###BRID# #VesselName#">#VesselName#</a>
 							</CFIF>
 							<CFIF Status eq 'c'></strong></cfif>
 						</td>
@@ -276,7 +274,7 @@
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND NOT IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
 								#language.Deepsea#
 							<CFELSE>
-								#VesselName# (<a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=Details For" title="#VesselName# #BRID# #language.moreInfo#">#language.moreInfo#</a>)
+								 <a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=Details For" title="#language.booking# ###BRID# #VesselName#">#VesselName#</a>
 							</CFIF>
 							<CFIF Status eq 'c'></strong></cfif>
 						</td>
