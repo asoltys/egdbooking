@@ -152,19 +152,19 @@
 				<cfoutput><h2>#language.DrydockBookings#</h2></cfoutput>
 
 				<cfoutput query="getDockMaintenanceDetail">
-				<table class="bookingDetails">
+				<table class="details">
 					<tr>
-						<td colspan="2"><strong>#language.MaintenanceBlock#</strong></td>
+						<th colspan="2"><strong>#language.MaintenanceBlock#</strong></th>
 					</tr>
 					<tr>
-						<td colspan="2">#language.closedForMaint#</td>
+						<th colspan="2">#language.closedForMaint#</th>
 					</tr>
 					<tr>
-						<td id="SectionsBooked">#language.SectionsBooked#:</td>
+						<th id="SectionsBooked">#language.SectionsBooked#:</th>
 						<td><CFIF Section1>#language.Drydock1#</CFIF><CFIF Section2><CFIF Section1> &amp; </CFIF>#language.Drydock2#</CFIF><CFIF Section3><CFIF Section1 OR Section2> &amp; </CFIF>#language.Drydock3#</CFIF></td>
 					</tr>
 					<tr>
-						<td id="Dates">#language.Dates#:</td>
+						<th id="Dates">#language.Dates#:</th>
 						<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 					</tr>
 				</table>
@@ -185,25 +185,25 @@
 				<cfset Variables.countQName = "userVessel" & #BRID# & ".recordCount">
 				<cfset Variables.count = EVALUATE(countQName)>
 
-				<table class="bookingDetails">
+				<table class="details">
 					<tr id="#BRID#">
-						<td colspan="2"><CFIF Status eq 'c'><strong></cfif><cfif #EndHighlight# GTE PacificNow>* </cfif>
+						<th colspan="2"><CFIF Status eq 'c'><strong></cfif><cfif #EndHighlight# GTE PacificNow>* </cfif>
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
 								#language.Deepsea#
 							<CFELSE>
 							<a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=Details For" title="#language.booking# ###BRID# #VesselName#">#VesselName#</a>
 							</CFIF>
 							<CFIF Status eq 'c'></strong></cfif>
-						</td>
+						</th>
 					</tr>
 					<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR IsDefined('session.AdminLoggedIn')>
 					<tr>
-						<td>#language.Agent#:</td>
+						<th>#language.Agent#:</th>
 						<td>#LastName#, #FirstName#</td>
 					</tr>
 					</cfif>
 					<tr>
-						<td>#language.Status#:</td>
+						<th>#language.Status#:</th>
 						<td>
 							<CFIF Status eq 'c'>
 								#language.Confirmed#
@@ -216,12 +216,12 @@
 					</tr>
 					<CFIF Status eq 'c'>
 						<tr>
-							<td>#language.SectionsBooked#:</td>
+							<th>#language.SectionsBooked#:</th>
 							<td><CFIF Section1>#language.Drydock1#</CFIF><CFIF Section2><CFIF Section1> &amp; </CFIF>#language.Drydock2#</CFIF><CFIF Section3><CFIF Section1 OR Section2> &amp; </CFIF>#language.Drydock3#</CFIF></td>
 						</tr>
 					</CFIF>
 					<tr>
-						<td>#language.DockingDates#:</td>
+						<th>#language.DockingDates#:</th>
 						<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 					</tr>
 				</table>
@@ -234,19 +234,19 @@
 				<h2>#language.JettyBookings#</h2>
 				</cfoutput>
 				<cfoutput query="getJettyMaintenanceDetail">
-				<table class="bookingDetails">
+				<table class="details">
 					<tr>
-						<td colspan="2"><strong>#language.MaintenanceBlock#</strong></td>
+						<th colspan="2"><strong>#language.MaintenanceBlock#</strong></th>
 					</tr>
 					<tr>
-						<td colspan="2">#language.closedForMaint#</td>
+						<th colspan="2">#language.closedForMaint#</th>
 					</tr>
 					<tr>
-						<td>#language.SectionsBooked#:</td>
+						<th>#language.SectionsBooked#:</th>
 						<td><CFIF NorthJetty>#language.NorthLandingWharf#</CFIF><CFIF SouthJetty><CFIF NorthJetty> &amp; </CFIF>#language.SouthJetty#</CFIF></td>
 					</tr>
 					<tr>
-						<td>#language.Dates#:</td>
+						<th>#language.Dates#:</th>
 						<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 					</tr>
 				</table>
@@ -266,9 +266,9 @@
 				<cfset Variables.count = "jUserVessel" & #BRID# & ".recordCount">
 				<cfset "#Variables.count#" = EVALUATE(count)>
 
-				<table class="bookingDetails">
+				<table class="details">
 					<tr id="#BRID#">
-						<td colspan="2">
+						<th colspan="2">
 						<CFIF Status eq 'c'><strong></cfif>
 							<cfif #EndHighlight# GTE PacificNow>* </cfif>
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND NOT IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
@@ -277,16 +277,16 @@
 								 <a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=Details For" title="#language.booking# ###BRID# #VesselName#">#VesselName#</a>
 							</CFIF>
 							<CFIF Status eq 'c'></strong></cfif>
-						</td>
+						</th>
 					</tr>
 					<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR IsDefined('session.AdminLoggedIn')>
 					<tr>
-						<td>#language.Agent#:</td>
+						<th>#language.Agent#:</th>
 						<td>#LastName#, #FirstName#</td>
 					</tr>
 					</cfif>
 					<tr>
-						<td>#language.Status#:</td>
+						<th>#language.Status#:</th>
 						<td>
 							<CFIF Status eq 'c'>
 								#language.Confirmed#
@@ -299,12 +299,12 @@
 					</tr>
 					<CFIF Status eq 'c'>
 						<tr>
-							<td>#language.SectionsBooked#:</td>
+							<th>#language.SectionsBooked#:</th>
 							<td><CFIF NorthJetty>#language.NorthLandingWharf#</CFIF><CFIF SouthJetty><CFIF NorthJetty>, </CFIF>#language.SouthJetty#</CFIF></td>
 						</tr>
 					</CFIF>
 					<tr>
-						<td>#language.DockingDates#:</td>
+						<th>#language.DockingDates#:</th>
 						<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 					</tr>
 				</table>
