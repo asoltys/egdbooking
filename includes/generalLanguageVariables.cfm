@@ -64,8 +64,8 @@
 
 <cfif lang EQ 'eng'>
   <cfset language.bookingHomeButton = "Booking Home">
-  <cfset language.drydockCalButton = "Drydock Calendar">
-  <cfset language.jettyCalButton = "Jetties Calendar">
+  <cfset language.drydockCalendar = "Drydock Calendar">
+  <cfset language.jettyCalendar = "Jetties Calendar">
   <cfset language.requestBooking = "Request Booking">
   <cfset language.editProfileButton = "Edit Profile">
   <cfset language.help = "Help">
@@ -73,8 +73,8 @@
   <cfset language.logoutButton = "Logout">
 <cfelse>
   <cfset language.bookingHomeButton = "Accueil - R&eacute;servation">
-  <cfset language.drydockCalButton = "Calendrier de la cale s&egrave;che">
-  <cfset language.jettyCalButton = "Calendrier des jet&eacute;es">
+  <cfset language.drydockCalendar = "Calendrier de la cale s&egrave;che">
+  <cfset language.jettyCalendar = "Calendrier des jet&eacute;es">
   <cfset language.requestBooking = "Pr&eacute;senter une r&eacute;servation">
   <cfset language.editProfileButton = "Modifier le profil">
   <cfset language.help = "Aide">

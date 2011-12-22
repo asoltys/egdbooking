@@ -8,7 +8,6 @@
 	<cfset url['a-y'] = form['a-y'] />
 </cfif>
 <cfif lang EQ "eng">
-	<cfset language.drydockCalendar = "Drydock Calendar">
 	<cfset language.description = "Allows user to view all bookings in the drydock in a given month.">
 	<cfset language.keywords = "calendar, 1 month view, one month view, drydock side">
 	<cfset language.go = "Go">
@@ -25,7 +24,6 @@
 	<cfset language.prev = "previous">
 	<cfset language.next = "next">
 <cfelse>
-	<cfset language.drydockCalendar = "Calendrier de la cale s&egrave;che">
 	<cfset language.description = "Permet &agrave; l'utilisateur de voir toutes les r&eacute;servations concernant la cale s&egrave;che pour un mois donn&eacute;.">
 	<cfset language.keywords = "Calendrier, visualisation d'un mois, visualisation de 1 mois, secteur de la cale s&egrave;che">
 	<cfset language.go = "Afficher">
@@ -99,7 +97,7 @@
 
 					UNION
 
-					SELECT	Status,
+					SELECT Bookings.BRID, Status,
 						StartDate, EndDate,
 						Section1, Section2, Section3,
 						'o' AS dummy1, '0' AS dummy2,

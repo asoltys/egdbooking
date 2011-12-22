@@ -18,8 +18,6 @@
 	<cfset language.drydock2 = "Section 2">
 	<cfset language.drydock3 = "Section 3">
 	<cfset language.deepsea = "Deepsea Vessel">
-	<cfset language.drydockCalButton = "Drydock Calendar">
-	<cfset language.jettyCalButton = "Jetties Calendar">
 	<cfset language.yourbookings = "Shaded bookings below belong to your company.">
 <cfelse>
 	<cfset language.bookingDetail = "D&eacute;tails&nbsp;- R&eacute;servation">
@@ -40,8 +38,6 @@
 	<cfset language.drydock2 = "Section 2">
 	<cfset language.drydock3 = "Section 3">
 	<cfset language.deepsea = "Navire oc&eacute;anique">
-	<cfset language.drydockCalButton = "Calendrier de la cale s&egrave;che">
-	<cfset language.jettyCalButton = "Calendrier des jet&eacute;es">
 	<cfset language.yourbookings = "Les r&eacute;servations ombrag&eacute;es ci-dessous appartiennent &agrave; votre entreprise.">
 </cfif>
 
@@ -234,7 +230,7 @@
 				</cfoutput>
 				<cfoutput>
 				<CFIF getDockDetail.RecordCount eq 0 AND getDockMaintenanceDetail.RecordCount eq 0>#language.noBookings#<br /><br /></CFIF>
-				<div class="buttons"><a href="calend-cale-dock.cfm?lang=#lang#&amp;m-m=#Month(URL.date)#&amp;a-y=#Year(URL.date)#" class="textbutton">#language.drydockCalButton#</a></div>
+				<div class="buttons"><a href="calend-cale-dock.cfm?lang=#lang#&amp;m-m=#Month(URL.date)#&amp;a-y=#Year(URL.date)#" class="textbutton">#language.drydockCalendar#</a></div>
 
 
 				<h2>#language.JettyBookings#</h2>
@@ -320,7 +316,7 @@
 				<cfoutput>
 				<CFIF getJettyDetail.RecordCount eq 0 AND getJettyMaintenanceDetail.RecordCount eq 0>#language.noBookings#</CFIF>
 
-				<div class="buttons"><a href="calend-jet.cfm?lang=#lang#&amp;m-m=#Month(URL.date)#&amp;a-y=#Year(URL.date)#" class="textbutton">#language.jettyCalButton#</a></div>
+				<div class="buttons"><a href="calend-jet.cfm?lang=#lang#&amp;m-m=#Month(URL.date)#&amp;a-y=#Year(URL.date)#" class="textbutton">#language.jettyCalendar#</a></div>
 				</cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
