@@ -28,7 +28,7 @@
 	<meta name="keywords" content="#language.DeleteVessel#" />
 	<meta name="description" content="#language.description#" />
 	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
-	<title>#language.DeleteVessel# - #language.esqGravingDock# - #language.PWGSC#</title>">
+	<title>#language.DeleteVessel# - #language.esqGravingDock# - #language.PWGSC#</title>
 </cfsavecontent>
 <cfhtmlhead text="#head#" />
 
