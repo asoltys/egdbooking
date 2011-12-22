@@ -57,7 +57,7 @@
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				<cfoutput>
 				<p>#language.formExplanation#</p>
-				<p>#language.acrobatrequired#</>
+				<p>#language.acrobatrequired#</p>
 
 				<ul>
 					<li>
