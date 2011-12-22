@@ -10,7 +10,27 @@
 	<cfset language.fax = "Fax">
 	<cfset language.emailAddress = "Email">
 	<cfset language.or = "or">
-	<cfset language.acrobatrequired = 'The following file requires <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" rel="external">Adobe Acrobat Reader</a> to be installed.  The links will open in a new window.'>
+	<cfset language.acrobatrequired = '<p>If you have a <acronym title="Portable Document Format">PDF</acronym> software reader, you will be able to view, print, or download these documents. </p>
+
+	<p>If you do not have a <acronym title="Portable Document Format">PDF</acronym> software reader, you can download and install any one of these free <acronym title="Portable Document Format">PDF</acronym> software programs below:</p>
+
+    <ul>
+
+		<li><a href="http://www.adobe.com/products/reader.html">Adobe Reader</a></li>
+
+		<li><a href="http://www.foxitsoftware.com/Secure_PDF_Reader/">Foxit Reader</a></li>
+
+		<li><a href="http://www.foolabs.com/xpdf/">xPDF Reader</a></li>
+
+		<li><a href="http://www.visagesoft.com/products/pdfreader/">xPERT PDF Reader</a></li>
+
+	</ul>
+
+	<p>If you prefer to convert <acronym title="Portable Document Format">PDF</acronym> documents to <acronym title="HyperText Markup Language">HTML</acronym>, Adobe offers <a href="http://www.adobe.com/designcenter/tutorials/acr7at_savepdfas/">conversion tools</a>.</p>
+
+	<p>If the <acronym title="Portable Document Format">PDF</acronym> document is not accessible to you, or if you have difficulty downloading forms on this Web site, please <a href="http://www.tpsgc-pwgsc.gc.ca/pac/cse-egd/cn-cu-eng.html">contact <acronym title="Esquimalt Graving Dock">EGD</acronym></a> for assistance.</p>'>
+	<cfset language.pdf = "Portable Document Format">
+	<cfset language.kb = "<acronym title=""Kilo Bytes"">KB</acronym>">
 <cfelse>
 	<cfset language.title = "Modification de r&eacute;servation">
 	<cfset language.keywords = language.masterKeywords & ", Modification de r&eacute;servation">
@@ -22,7 +42,27 @@
 	<cfset language.fax = "Fac-simil&eacute;">
 	<cfset language.emailAddress = "Adresse de courriel">
 	<cfset language.or = "ou">
-	<cfset language.acrobatrequired = 'Il faut le logiciel <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" rel="external">Adobe Acrobat Reader</a> pour le fichier suivant. Le lien ouvrira une nouvelle fen&ecirc;tre.'>
+	<cfset language.acrobatrequired = '<p>Si vous disposez d''un lecteur <acronym title="Format de document portable">PDF</acronym>, vous pourrez visionner, imprimer et t&eacute;l&eacute;charger les formulaires. </p>
+
+	<p>Si vous ne disposez pas d''un lecteur <acronym title="Format de document portable">PDF</acronym>, vous pouvez t&eacute;l&eacute;charger et installer un des lecteurs ci-apr&egrave;s. </p>
+
+	<ul>
+
+		<li><a href="http://www.adobe.com/fr/products/acrobat.html?promoid=BPBLJ"><span xml:lang="en" lang="en">Adobe Reader</span></a></li>        
+
+		<li><a href="http://www.foxitsoftware.com/Secure_PDF_Reader/"><span xml:lang="en" lang="en">Foxit Reader</span></a> <em>(disponible en anglais seulement)</em></li>        
+
+		<li><a href="http://www.foolabs.com/xpdf/"><span xml:lang="en" lang="en">xPDF Reader</span></a> <em>(disponible en anglais seulement)</em></li>        
+
+		<li><a href="http://www.visagesoft.com/products/pdfreader/"><span xml:lang="en" lang="en">xPERT PDF Reader</span></a> <em>(disponible en anglais seulement)</em></li>        
+
+	</ul>
+
+	<p>Si vous pr&eacute;f&eacute;rez convertir des documents <acronym title="Format de document portable">PDF</acronym> en format <acronym title="HyperText Markup Language">HTML</acronym>, diff&eacute;rents <a href="http://www.adobe.com/designcenter/tutorials/acr7at_savepdfas/">outils de conversion</a> (<em>disponible en anglais seulement</em>) Adobe existent.</p>
+
+	<p>Si vous ne pouvez acc&eacute;der aux formulaires ou si vous avez de la difficult&eacute; &agrave; t&eacute;l&eacute;charger des formulaires du site, veuillez <a href="http://www.tpsgc-pwgsc.gc.ca/pac/cse-egd/cn-cu-fra.html">contactez <acronym title="Cale s&egrave;che d''Esquimalt">CSE</acronym></a> pour obtenir de l''aide.</p>'>
+	<cfset language.pdf = "format de document portable">
+	<cfset language.kb = "<acronym title=""kilooctets"">Ko</acronym>">
 </cfif>
 
 <cfhtmlhead text="
@@ -92,7 +132,7 @@
 				<p>#language.explanation#</p>
 				<p>#language.acrobatRequired#</p>
 				<ul>
-					<li><a href="../formes-forms/Tentative_ChangeForm.pdf" title="#language.changeForm#" rel="external">#language.changeForm# [PDF 5.51 KB]</a></li>
+					<li><a href="../formes-forms/changement-change-eng.pdf" title="#language.changeForm#" rel="external">#language.changeForm#</a> <span class="smallFont">(<acronym title="#language.pdf#">PDF</acronym>,&nbsp;<cfscript>WriteOutput(NumberFormat(GetFileInfo("#FileDir#formes-forms/changement-change-eng.pdf").size / 1024));</cfscript>#language.kb#)</span> <cfif lang NEQ "eng"><em>(disponible en anglais seulement)</em></cfif></li>
 				</ul>
 				<cfset emailSubject = "#getbooking.CompanyName# editing booking for #trim(getbooking.VesselName)# from #LSDateFormat(getbooking.StartDate, 'mmm d, yyyy')# to #LSDateFormat(getbooking.EndDate, 'mmm d, yyyy')#">
 				<p>
