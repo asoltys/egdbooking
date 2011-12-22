@@ -132,7 +132,8 @@
 				<p>#language.explanation#</p>
 				<p>#language.acrobatRequired#</p>
 				<ul>
-					<li><a href="../formes-forms/changement-change-eng.pdf" title="#language.changeForm#" rel="external">#language.changeForm#</a> <span class="smallFont">(<acronym title="#language.pdf#">PDF</acronym>,&nbsp;<cfscript>WriteOutput(NumberFormat(GetFileInfo("#FileDir#formes-forms/changement-change-eng.pdf").size / 1024));</cfscript>#language.kb#)</span> <cfif lang NEQ "eng"><em>(disponible en anglais seulement)</em></cfif></li>
+          <cfdirectory action="list" directory="#FileDir#formes-forms/" filter="changement-change-eng.pdf" name="fileCheck"/>
+					<li><a href="../formes-forms/changement-change-eng.pdf" title="#language.changeForm#" rel="external">#language.changeForm#</a> <span class="smallFont">(<acronym title="#language.pdf#">PDF</acronym>,&nbsp;#NumberFormat(fileCheck.size / 1024)##language.kb#)</span> <cfif lang NEQ "eng"><em>(disponible en anglais seulement)</em></cfif></li>
 				</ul>
 				<cfset emailSubject = "#getbooking.CompanyName# editing booking for #trim(getbooking.VesselName)# from #LSDateFormat(getbooking.StartDate, 'mmm d, yyyy')# to #LSDateFormat(getbooking.EndDate, 'mmm d, yyyy')#">
 				<p>
