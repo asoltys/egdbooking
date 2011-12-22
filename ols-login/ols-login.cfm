@@ -6,7 +6,7 @@
 	<cfset language.criteria = '<li><a href="http://www.microsoft.com/windows/ie/downloads/critical/ie6sp1/default.mspx" rel="extenal">Internet Explorer 6+</a>, or <a href="http://www.mozilla.com/en-US/firefox/" rel="external">Mozilla Firefox</a></li>'
 		& '<li>JavaScript enabled</li>'
 		& '<li>Cookies enabled</li>'
-		& '<li><a href="http://get.adobe.com/reader/otherversions/" rel="external">Adobe Acrobat Reader</a> installed</li>'>
+		& '<li><a href="http://get.adobe.com/reader/" rel="external">Adobe Acrobat Reader</a> installed</li>'>
 	<cfset language.displayproblem = "The application may not function properly without these components.">
 	<cfset language.jserror = "You do not have JavaScript enabled.  Parts of this application will not function properly.">
 	<cfset language.forgot = "Forgot password">

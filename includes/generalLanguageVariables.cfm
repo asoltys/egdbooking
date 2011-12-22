@@ -93,7 +93,7 @@
 
     <ul>
 
-		<li><a href="http://www.adobe.com/products/reader.html">Adobe Reader</a></li>
+		<li><a href="http://get.adobe.com/reader/">Adobe Reader</a></li>
 
 		<li><a href="http://www.foxitsoftware.com/Secure_PDF_Reader/">Foxit Reader</a></li>
 
@@ -119,7 +119,7 @@
 
 	<ul>
 
-		<li><a href="http://www.adobe.com/fr/products/acrobat.html?promoid=BPBLJ"><span xml:lang="en" lang="en">Adobe Reader</span></a></li>        
+		<li><a href="http://get.adobe.com/fr/reader/"><span xml:lang="en" lang="en">Adobe Reader</span></a></li>        
 
 		<li><a href="http://www.foxitsoftware.com/Secure_PDF_Reader/"><span xml:lang="en" lang="en">Foxit Reader</span></a> <em>(disponible en anglais seulement)</em></li>        
 
