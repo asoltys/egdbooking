@@ -63,19 +63,22 @@
 
 				<ul>
 					<li>
-            <a href="#RootDir#formes-forms/DockBookingApplication.pdf">
-            #language.schedule# (#LSDateFormat(CreateDate(2004, 7, 14), 'long')#) [PDF]
-            </a>
+            <cfdirectory action="list" directory="#FileDir#formes-forms/" filter="tableau-schedule-1-eng.pdf" name="fileCheck"/>
+            <a href="#RootDir#formes-forms/tableau-schedule-1-eng.pdf">
+            #language.schedule# (2004-07-14)</a>
+						<span class="smallFont">(<acronym title="#language.pdf#">PDF</acronym>,&nbsp;<cfscript>WriteOutput(NumberFormat(fileCheck.size/1024));</cfscript>#language.kb#)</span> <cfif lang NEQ "eng"><em>(disponible en anglais seulement)</em></cfif>
 					</li>
 					<li>
-            <a href="#RootDir#formes-forms/indemnificationClause.pdf" title="#language.Indemnification#" rel="external">
-            #language.Indemnification# (#LSDateFormat(CreateDate(2002, 6, 18), 'long')#) [PDF]
-            </a>
+            <cfdirectory action="list" directory="#FileDir#formes-forms/" filter="indem-eng.pdf" name="fileCheck"/>
+            <a href="#RootDir#formes-forms/indem-eng.pdf" title="#language.Indemnification#" rel="external">
+            #language.Indemnification# (2002-06-18)</a>
+						<span class="smallFont">(<acronym title="#language.pdf#">PDF</acronym>,&nbsp;<cfscript>WriteOutput(NumberFormat(fileCheck.size / 1024));</cfscript>#language.kb#)</span> <cfif lang NEQ "eng"><em>(disponible en anglais seulement)</em></cfif>
           </li>
 					<li>
-            <a href="#RootDir#formes-forms/Tentative_ChangeForm.pdf" title="#language.changeForm#" rel="external">
-            #language.changeForm# [PDF]
-            </a>
+            <cfdirectory action="list" directory="#FileDir#formes-forms/" filter="changement-change-eng.pdf" name="fileCheck"/>
+            <a href="#RootDir#formes-forms/changement-change-eng.pdf" title="#language.changeForm#" rel="external">
+            #language.changeForm#</a>
+						<span class="smallFont">(<acronym title="#language.pdf#">PDF</acronym>,&nbsp;<cfscript>WriteOutput(NumberFormat(fileCheck.size / 1024));</cfscript>#language.kb#)</span> <cfif lang NEQ "eng"><em>(disponible en anglais seulement)</em></cfif>
           </li>
 					<li>
           <a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#" title="Tariff of Dock Charges">
