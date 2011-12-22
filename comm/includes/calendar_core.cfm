@@ -92,7 +92,7 @@ summary="<cfoutput>#language.calendar#</cfoutput>">
 					<cfoutput><a href="detail.cfm?lang=#lang#&amp;date=#taday#" title="#DateFormat(taday, 'dddd')# #taday# #language.details#"><strong>#DaysofMonth[DateCounter]#</strong></a></cfoutput>
 
 					<cfquery name="GetEventsonDay" dbtype="query">
-						SELECT 	VesselName, VNID,
+						SELECT 	BRID, VesselName, VNID,
 								Anonymous,
 								Section1, Section2, Section3,
 								Status
@@ -115,6 +115,9 @@ summary="<cfoutput>#language.calendar#</cfoutput>">
 					<CFSET sec1.name = "">
 					<CFSET sec2.name = "">
 					<CFSET sec3.name = "">
+					<CFSET sec1.BRID = "">
+					<CFSET sec2.BRID = "">
+					<CFSET sec3.BRID = "">
 					<CFSET tent.name = "">
 					<CFSET pend.name = "">
 
@@ -154,6 +157,7 @@ summary="<cfoutput>#language.calendar#</cfoutput>">
 									Evaluate(buzzard).num = Evaluate(buzzard).num + 1;
 									if (Evaluate(buzzard).num eq 1) {
 										Evaluate(buzzard).name = VesselName;
+										Evaluate(buzzard).BRID = BRID;
 									} else {
 										Evaluate(buzzard).name = Evaluate(buzzard).num & " #language.bookings#";
 									}
@@ -189,11 +193,12 @@ summary="<cfoutput>#language.calendar#</cfoutput>">
 
 							<CFSET sec = "sec" & #bloop#>
               <CFSET vessel_name = Evaluate(sec).name />
+              <CFSET BRID = Evaluate(sec).BRID />
 
 							<CFIF Evaluate(sec).maint eq true>
 								<div class="maintenance"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="maintenance" title="#DateFormat(taday, 'dddd')# #taday# #language.maintenance#"><span style="display: none">#taday#</span> #language.maintenance#</a></div>
-							<CFELSEIF Evaluate(sec).name neq "">
-              <div class="vessel #sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="confirmed" title="#DateFormat(taday, 'dddd')# #taday# #Evaluate(sec).name#"><span style="display: none">#taday#</span> #vessel_name#</a><a class="legend" href="###sec#"><sup>L#bloop#</sup></a></div>
+							<CFELSEIF vessel_name neq "">
+              <div class="vessel #sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday####BRID#" class="confirmed" title="#DateFormat(taday, 'dddd')# #taday# #vessel_name#"><span style="display: none">#taday#</span> #vessel_name#</a><a class="legend" href="###sec#"><sup>L#bloop#</sup></a></div>
 							</CFIF>
 						</CFLOOP>
 						<cfif tent.num neq 0>

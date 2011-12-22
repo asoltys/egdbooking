@@ -80,7 +80,7 @@
 				<cfset firstdayofbunch = CreateDate(url['a-y'], url['m-m'], 1)>
 				<cfset lastdayofbunch = CreateDate(url['a-y'], url['m-m'], DaysInMonth(firstdayofbunch))>
 				<cfquery name="GetEvents" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-					SELECT 	Status,
+					SELECT 	Bookings.BRID, Status,
 						StartDate, EndDate,
 						NorthJetty AS Section1, SouthJetty AS Section2, '0' AS Section3,
 						Vessels.Name AS VesselName, Vessels.VNID,
@@ -95,7 +95,7 @@
 
 					UNION
 
-					SELECT	Status,
+					SELECT	Bookings.BRID, Status,
 						StartDate, EndDate,
 						NorthJetty AS Section1, SouthJetty AS Section2, '0' AS Section3,
 						'o' AS dummy1, '0' AS dummy2,
