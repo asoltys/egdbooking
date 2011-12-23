@@ -202,10 +202,10 @@ summary="<cfoutput>#language.calendar#</cfoutput>">
 							</CFIF>
 						</CFLOOP>
 						<cfif tent.num neq 0>
-							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday###booking-#BRID#" class="tentative" title="#DateFormat(taday, 'dddd')# #taday# #tent.name#" rel="nofollow">#tent.name#</a><a href="##tentative" class="legend tentative"><sup>L4</sup></a></div>
+							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="tentative" title="#DateFormat(taday, 'dddd')# #taday# #tent.name#" rel="nofollow"><span style="display: none">#taday#</span> #tent.name#</a><a href="##tentative" class="legend tentative"><sup>L4</sup></a></div>
 						</cfif>
 						<cfif pend.num neq 0>
-							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday###booking-#BRID#" class="pending" title="#DateFormat(taday, 'dddd')# #taday# #pend.name#" rel="nofollow">#pend.name#</a><a href="##pending" class="legend pending"><sup><cfif sec3.name NEQ "">L5<cfelse>L3</cfif></sup></a></div>
+							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#DateFormat(taday, 'dddd')# #taday# #pend.name#" rel="nofollow"><span style="display: none">#taday#</span> #pend.name#</a><a href="##pending" class="legend pending"><sup><cfif sec3.name NEQ "">L5<cfelse>L3</cfif></sup></a></div>
 						</cfif>
 					</cfoutput>
 				</cfif>
