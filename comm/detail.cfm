@@ -39,12 +39,16 @@
 	<cfset language.yourbookings = "Les r&eacute;servations ombrag&eacute;es ci-dessous appartiennent &agrave; votre entreprise.">
 </cfif>
 
-<cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#"" />
-	<meta name=""keywords"" content=""#Language.masterKeywords#, #language.bookingDetail#"" />
-	<meta name=""description"" content=""#language.description#"" />
-	<meta name=""dc.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
-	<title>#language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#</title>">
+<cfoutput>
+
+<cfsavecontent variable="head">
+	<meta name="dc.title" content="#language.detailsFor# #LSDateFormat(URL.date, "mmmm dd, yyyy")# - #language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#" />
+	<meta name="keywords" content="#Language.masterKeywords#, #language.bookingDetail#" />
+	<meta name="description" content="#language.description#" />
+	<meta name="dc.subject" scheme="gccore" content="#Language.masterSubjects#" />
+	<title>#language.detailsFor# #LSDateFormat(URL.date, "mmmm dd, yyyy")# - #language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#</title>
+</cfsavecontent>
+<cfhtmlhead text="#head#">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <CFPARAM name="url.referrer" default="Booking Home">
@@ -60,13 +64,12 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
-			#language.bookingDetail#</cfoutput>
+			#language.bookingDetail#
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -75,7 +78,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#language.DetailsFor# #LSDateFormat(URL.date, "mmmm dd, yyyy")#</cfoutput>
+					#language.DetailsFor# #LSDateFormat(URL.date, "mmmm dd, yyyy")#
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -85,7 +88,7 @@
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				</CFIF>
 
-				<p><cfoutput>#language.yourbookings#</cfoutput></p>
+				<p>#language.yourbookings#</p>
 
 				<cfquery name="getDockDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	Bookings.BRID, Bookings.EndHighlight,
@@ -149,9 +152,9 @@
 
 				</cfquery>
 
-				<cfoutput><h2>#language.DrydockBookings#</h2></cfoutput>
+				<h2>#language.DrydockBookings#</h2>
 
-				<cfoutput query="getDockMaintenanceDetail">
+				<cfloop query="getDockMaintenanceDetail">
 				<table class="details">
 					<tr>
 						<th colspan="2"><strong>#language.MaintenanceBlock#</strong></th>
@@ -168,9 +171,9 @@
 						<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 					</tr>
 				</table>
-				</cfoutput>
+				</cfloop>
 
-				<cfoutput query="getDockDetail">
+				<cfloop query="getDockDetail">
 				<!---check if ship belongs to user's company--->
 				<cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
 					<cfquery name="userVessel#BRID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -225,13 +228,11 @@
 						<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 					</tr>
 				</table>
-				</cfoutput>
-				<cfoutput>
+				</cfloop>
 				<CFIF getDockDetail.RecordCount eq 0 AND getDockMaintenanceDetail.RecordCount eq 0>#language.noBookings#<br /><br /></CFIF>
 
 				<h2>#language.JettyBookings#</h2>
-				</cfoutput>
-				<cfoutput query="getJettyMaintenanceDetail">
+				<cfloop query="getJettyMaintenanceDetail">
 				<table class="details">
 					<tr>
 						<th colspan="2"><strong>#language.MaintenanceBlock#</strong></th>
@@ -249,8 +250,8 @@
 					</tr>
 				</table>
 
-				</cfoutput>
-				<cfoutput query="getJettyDetail">
+				</cfloop>
+				<cfloop query="getJettyDetail">
 				<cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
 					<cfquery name="jUserVessel#BRID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 						SELECT	Vessels.VNID
@@ -308,12 +309,11 @@
 				</table>
 
 
-				</cfoutput>
-				<cfoutput>
+				</cfloop>
 				<CFIF getJettyDetail.RecordCount eq 0 AND getJettyMaintenanceDetail.RecordCount eq 0>#language.noBookings#</CFIF>
 
-				</cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+</cfoutput>
