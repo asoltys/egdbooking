@@ -80,7 +80,7 @@
 				<!------------------------------------------------------------------------------------------------------------>
 				<cfoutput>
 				<p>#language.explanation#</p>
-				<p>#language.acrobatRequired#</p>
+				#language.acrobatRequired#
 				<ul>
           <cfdirectory action="list" directory="#FileDir#formes-forms/" filter="changement-change-eng.pdf" name="fileCheck"/>
 					<li><a href="../formes-forms/changement-change-eng.pdf" title="#language.changeForm#" rel="external">#language.changeForm#</a> <span class="smallFont">(<acronym title="#language.pdf#">PDF</acronym>,&nbsp;#NumberFormat(fileCheck.size / 1024)##language.kb#)</span> <cfif lang NEQ "eng"><em>(disponible en anglais seulement)</em></cfif></li>
