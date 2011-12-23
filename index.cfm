@@ -13,8 +13,8 @@
 	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1/"  />
 	<link rel="schema.dc" href="http://purl.org/dc/terms/ " />
 
-	<meta name="dc.title" content="PWGSC - Esquimalt Graving Dock" />
-	<meta name="dc.title" lang="fr" content="TPSGC - Cale s&egrave;che d'Esquimalt" />
+	<meta name="dc.title" content="Cale s&egrave;che e'Esquimalt | Esquimalt Graving Dock" />
+
 	<meta name="dc.subject" scheme="gccore" content="Ship; Wharf" />
 	<meta name="dc.subject" lang="fr" xml:lang="fr" scheme="gccore" content="Navire; Quai" />
 
