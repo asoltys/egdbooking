@@ -29,20 +29,17 @@
 	<cfset language.no = "Non">
 </cfif>
 
+<cfoutput>
+
 <cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT ReadOnly
 	FROM Users
 	WHERE UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
-<cfoutput query="readonlycheck">
-	<cfset Session.ReadOnly = #ReadOnly#>
-</cfoutput>
-<cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.vesselDetail# - #language.esqGravingDock# - #language.PWGSC#"" />
-	<meta name=""keywords"" content=""#language.keywords#"" />
-	<meta name=""description"" content=""#language.description#"" />
-	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
-	<title>#language.vesselDetail# - #language.esqGravingDock# - #language.PWGSC#</title>">
+
+<cfloop query="readonlycheck">
+	<cfset Session.ReadOnly = ReadOnly />
+</cfloop>
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfif isDefined("form.VNID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
@@ -63,6 +60,16 @@
 	AND Vessels.deleted = 0
 </cfquery>
 
+<cfsavecontent variable="head">
+	<meta name="dc.title" content="#language.vesselDetail# - #getVesselDetail.Name# - #language.esqGravingDock# - #language.PWGSC#" />
+	<meta name="keywords" content="#language.keywords#" />
+	<meta name="description" content="#language.description#" />
+	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
+  <title>#language.vesselDetail# - #getVesselDetail.Name# - #language.esqGravingDock# - #language.PWGSC#</title>
+</cfsavecontent>
+
+<cfhtmlhead text="#head#" />
+
 <cfif getVesselDetail.recordCount EQ 0>
 	<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 </cfif>
@@ -70,24 +77,21 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			<CFELSE>
 				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			#language.vesselDetail#
-			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
 		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
 			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
 			<div class="center">
-				<cfoutput query="getVesselDetail">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#language.detailsFor# #Name#</cfoutput>
+					#language.detailsFor# #getVesselDetail.Name#
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -103,39 +107,39 @@
 					<table class="details">
 						<tr>
 							<th id="vessel">#language.vessel#:</th>
-							<td headers="vessel">#name#</td>
+							<td headers="vessel">#getVesselDetail.name#</td>
 						</tr>
 						<tr>
 							<th id="Company">#language.Company#:</th>
-							<td headers="Company">#companyname#</td>
+							<td headers="Company">#getVesselDetail.companyname#</td>
 						</tr>
 						<tr>
 							<th id="Length">#language.Length#:</th>
-							<td headers="Length">#length# m</td>
+							<td headers="Length">#getVesselDetail.length# m</td>
 						</tr>
 						<tr>
 							<th id="Width">#language.Width#:</th>
-							<td headers="Width">#width# m</td>
+							<td headers="Width">#getVesselDetail.width# m</td>
 						</tr>
 						<tr>
 							<th id="BlockSetup">#language.BlockSetup#:</th>
-							<td headers="BlockSetup">#blocksetuptime# #language.days#</td>
+							<td headers="BlockSetup">#getVesselDetail.blocksetuptime# #language.days#</td>
 						</tr>
 						<tr>
 							<th id="BlockTeardown">#language.BlockTeardown#:</th>
-							<td headers="BlockTeardown">#blockteardowntime# #language.days#</td>
+							<td headers="BlockTeardown">#getVesselDetail.blockteardowntime# #language.days#</td>
 						</tr>
 						<tr>
 							<th id="LloydsID">#language.LloydsID#:</th>
-							<td headers="LloydsID">#lloydsid#</td>
+							<td headers="LloydsID">#getVesselDetail.lloydsid#</td>
 						</tr>
 						<tr>
 							<th id="Tonnage">#language.Tonnage#:</th>
-							<td headers="Tonnage">#tonnage# #language.tonnes#</td>
+							<td headers="Tonnage">#getVesselDetail.tonnage# #language.tonnes#</td>
 						</tr>
 						<tr>
 							<th id="anon">#language.anon#:</th>
-							<td headers="anon"><cfif anonymous>#language.yes#<cfelse>#language.no#</cfif></td>
+							<td headers="anon"><cfif getVesselDetail.anonymous>#language.yes#<cfelse>#language.no#</cfif></td>
 						</tr>
 					</table>
 
@@ -145,10 +149,11 @@
 						<a href="#RootDir#reserve-book/naviresup-vesseldel.cfm?lang=#lang#&amp;VNID=#url.VNID#" class="textbutton">#language.DeleteVessel#</a>
 						</cfif>
 					</div>
-				</cfoutput>
 
 			</div>
 
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+
+</cfoutput>
