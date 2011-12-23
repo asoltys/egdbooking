@@ -137,13 +137,13 @@ function popUp(pageID) {
 				<h2>#language.Drydock#</h2>
 				<!-- Begin Dry Docks table -->
 				<table class="basic mediumFont">
-          <tr>
-            <thead>
+          <thead>
+            <tr>
               <th id="section" style="width: 20%;">#language.SECTIONCaps#</th>
               <th id="docking" style="width: 40%;">#language.DOCKINGCaps#</th>
               <th id="booking" style="width: 30%;">#language.BOOKINGDATECaps#</th>
-            </thead>
-          </tr>
+            </tr>
+          </thead>
 					<CFIF getDockBookings.RecordCount neq 0>
           <tbody>
 						<cfloop query="getDockBookings">
@@ -173,13 +173,13 @@ function popUp(pageID) {
 				<h2>#language.northLandingWharf#</h2>
 				<!-- Begin North Jetty table -->
 				<table class="basic mediumFont">
-          <tr>
-            <thead>
+          <thead>
+            <tr>
               <th id="section2" style="width: 20%;">#language.SECTIONCaps#</th>
               <th id="docking2" style="width: 40%;">#language.DOCKINGCaps#</th>
               <th id="booking2" style="width: 30%;">#language.BOOKINGDATECaps#</th>
-            </thead>
-          </tr>
+            </tr>
+          </thead>
 					<CFIF getNJBookings.RecordCount neq 0>
           <tbody>
 						<cfloop query="getNJBookings">
@@ -202,13 +202,13 @@ function popUp(pageID) {
 				<h2>#language.southJetty#</h2>
 				<!-- Begin South Jetty table -->
 				<table class="basic mediumFont">
-          <tr>
-            <thead>
+          <thead>
+            <tr>
               <th id="section3" style="width: 20%;">#language.SECTIONCaps#</th>
               <th id="docking3" style="width: 40%;">#language.DOCKINGCaps#</th>
               <th id="booking3" style="width: 30%;">#language.BOOKINGDATECaps#</th>
-            </thead>
-          </tr>
+            </tr>
+          </thead>
 					<CFIF getSJBookings.RecordCount neq 0>
 						<cfloop query="getSJBookings">
 						<tr <CFIF Status eq 'c'>class="confirmed"</CFIF>>
