@@ -4,7 +4,7 @@
 <CFINCLUDE template="#RootDir#includes/generalLanguageVariables.cfm">
 <cfif lang EQ "eng">
 	<CFSET langVar = "eng">
-	<cfset language.bookingsSummary = "Bookings Summary">
+	<cfset language.bookingsSummary = "Public Bookings Summary">
 	<cfset language.description = "Allows user to view a summary of all bookings from present onward.">
 	<cfset language.vesselCaps = "VESSEL">
 	<cfset language.dockingCaps = "DOCKING DATES">
@@ -16,7 +16,7 @@
 	<cfset language.printable = "VIEW PRINtable VERSION">
 <cfelse>
 	<CFSET langVar = "fre">
-	<cfset language.bookingsSummary = "R&eacute;sum&eacute; des r&eacute;servations">
+	<cfset language.bookingsSummary = "R&eacute;sum&eacute; des r&eacute;servations Publique">
 	<cfset language.description = "Permet &agrave; l'utilisateur de voir un sommaire de toutes les r&eacute;servations &agrave; partir de maintenant.">
 	<cfset language.vesselCaps = "NAVIRE">
 	<cfset language.dockingCaps = "DATES D'AMARRAGE">
@@ -121,7 +121,6 @@ function popUp(pageID) {
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-      <a href="#RootDir#reserve-book-#lang#.cfm">#language.booking#</a> &gt;
       #language.bookingsSummary#
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
