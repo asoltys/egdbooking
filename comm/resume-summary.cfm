@@ -234,7 +234,7 @@ WHERE	SouthJetty = 1
 							<cfset Variables.count = EVALUATE(countQName)>
 
 						<tr <cfif getNJBookings.Status EQ 'c'>class="confirmed"</cfif>>
-							<td headers="vessel2"><cfif #EndHighlight# GTE PacificNow>* </cfif><aBBR title="#CompanyName#">#Abbreviation#</aBBR> #VesselLength#M
+							<td headers="vessel2"><cfif #EndHighlight# GTE PacificNow>* </cfif><abbr title="#CompanyName#">#Abbreviation#</abbr> #VesselLength#M
 								<CFIF Anonymous
 									AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn)
 									AND Variables.count eq 0
@@ -284,7 +284,7 @@ WHERE	SouthJetty = 1
 							<cfset Variables.count = EVALUATE(countQName)>
 
 						<tr <cfif getSJBookings.Status EQ 'c'>class="confirmed"</cfif>>
-							<td headers="vessel3"><cfif #EndHighlight# GTE PacificNow>* </cfif><aBBR title="#CompanyName#">#Abbreviation#</aBBR> #VesselLength#M
+							<td headers="vessel3"><cfif #EndHighlight# GTE PacificNow>* </cfif><abbr title="#CompanyName#">#Abbreviation#</abbr> #VesselLength#M
 								<CFIF Anonymous
 									AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn)
 									AND Variables.count eq 0
