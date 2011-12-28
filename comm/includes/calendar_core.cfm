@@ -35,8 +35,8 @@
 
 <cfoutput>
 <div class="selector">
-  <a href="#cgi.script_name#?lang=#lang#&amp;m-m=#prevmonth#&amp;a-y=#prevyear#" class="previousLink">#language.prev#</a>
-  <a href="#cgi.script_name#?lang=#lang#&amp;m-m=#nextmonth#&amp;a-y=#nextyear#" class="nextLink">#language.next#</a>
+  <!---<a href="#cgi.script_name#?lang=#lang#&amp;m-m=#prevmonth#&amp;a-y=#prevyear#" class="previousLink">#language.prev#</a>--->
+  <!---<a href="#cgi.script_name#?lang=#lang#&amp;m-m=#nextmonth#&amp;a-y=#nextyear#" class="nextLink">#language.next#</a>--->
 </div>
 </cfoutput>
 

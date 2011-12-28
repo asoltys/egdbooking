@@ -23,8 +23,7 @@
 <meta name="dc.audience" content=" " />
 <meta name="dc.contributor" content=" " />
 <meta name="dc.coverage" content=" " />
-<meta name="dc.date.created" content="2008-06-13" />
-<meta name="dc.date.modified" content="2008-11-12" />
+
 <meta name="dc.format" content=" " />
 <meta name="dc.identifier" content=" " />
 <meta name="dc.type" content="" />

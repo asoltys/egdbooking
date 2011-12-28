@@ -31,17 +31,24 @@
 						</a></h1>
 
 				<cfform action="intromsgaction.cfm" method="post">
-				  <cffile action="read" file="#FileDir#intromsg.txt" variable="intromsg">
+				  <cffile action="read" file="#FileDir#intro-eng.txt" variable="intromsg">
+					<cffile action="read" file="#FileDir#intro-fra.txt" variable="intromsgfr">
 				  <cfif #Trim(intromsg)# EQ "">
 					Please enter a message for users when they first log in. To disable this block on log in, keep the text field blank and click 'Update'
 					<cfelse>
 					Please update the message for users when they first log in. To disable this block on log in, keep the text field blank and click 'Update'
 				  </cfif>
 				  <br />
-				  <br />
+					<br />
+				  <strong>English:</strong><br />
 				  <TEXTAREA name="datatowrite" cols="40" rows="5"><cfif #intromsg# is not ""><cfoutput>#intromsg#</cfoutput></cfif>
 				</TEXTAREA>
 				  <br />
+					<strong>French:</strong>
+					<br />
+					<TEXTAREA name="datatowritefr" cols="40" rows="5"><cfif #intromsgfr# is not ""><cfoutput>#intromsgfr#</cfoutput></cfif>
+				</TEXTAREA>
+				<br />
 				  <input id="submit" type="submit" value="Update" />
 				</cfform>
 			</div>	

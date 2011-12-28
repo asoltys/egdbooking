@@ -47,7 +47,7 @@
 
 				<cfoutput>
 				
-				<cffile action="read" file="#FileDir#intromsg.txt" variable="intromsg">
+				<cffile action="read" file="#FileDir#intro-eng.txt" variable="intromsg">
 				<cfif #Trim(intromsg)# EQ "">
 				<cfelse>
 					<cfinclude template="#RootDir#includes/helperFunctions.cfm" />

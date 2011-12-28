@@ -21,7 +21,7 @@
 	<cfset language.item = "Article">
 	<cfset language.services = "Services et installations">
 	<cfset language.fees = "frais">
-	<cfset language.tableSummary = "">
+	<cfset language.tableSummary = "Ce tableau affiche les services sélectionnés pour la réservation">
 	<cfset language.misc = "Divers&nbsp;">
 	<cfset language.miscText = "Veuillez inclure l'&eacute;tendue des travaux et les services qui seront peut-&ecirc;tre requis.">
 	<cfset language.pricesVary = "les prix varient">

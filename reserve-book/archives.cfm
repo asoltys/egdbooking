@@ -157,41 +157,6 @@
                 </tr>
               </thead>
               <tbody>
-                <cfloop query="getDockBookings">
-                  <tr>
-                    <td>
-                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">
-                        ###BRID#:
-                        #Name# &mdash;
-                        #lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - 
-                        #lsdateformat(endDate, 'mmm d, yyyy')#
-                      </a>
-                    </td>
-                    <td>
-                      <cfif status EQ "PT">#language.pending#
-                      <cfelseif status EQ "C">#language.confirmed#
-                      <cfelseif status EQ "T">#language.tentative#</cfif>
-                    </td>
-                  </tr>
-                <cfset counter = counter + 1>
-                </cfloop>
-              </tbody>
-						</table>
-					<cfelse>
-						<p>#language.None#.</p>
-					</cfif>
-
-					<cfset counter = 0>
-					<h2>#language.NorthLandingWharf#</h2>
-					<cfif getNorthJettyBookings.recordCount GE 1>
-						<table class="basic">
-              <thead>
-                <tr>
-                  <th scope="col">#language.booking#</th>
-                  <th scope="col">#language.status#</th>
-                </tr>
-              </thead>
-              <tbody>
                 <cfloop query="getNorthJettyBookings">
                   <tr>
                     <td>

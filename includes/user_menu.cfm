@@ -27,8 +27,8 @@
 		<CFSET variables.datetoken = variables.datetoken & "&amp;a-y=#url['a-y']#">
 	</CFIF>
 
-
-	<cffile action="read" file="#FileDir#intromsg.txt" variable="intromsg">
+	<cfif lang EQ "eng">
+	<cffile action="read" file="#FileDir#intro-eng.txt" variable="intromsg">
 	<cfif #Trim(intromsg)# EQ "">
 	<cfelse>
 		<cfinclude template="#RootDir#includes/helperFunctions.cfm" />
@@ -36,6 +36,17 @@
 		<h2>Notice</h2>
 		<cfoutput>#FormatParagraph(intromsg)#</cfoutput>
 		</div>
+	</cfif>
+	<cfelse>
+	<cffile action="read" file="#FileDir#intro-fra.txt" variable="intromsg">
+	<cfif #Trim(intromsg)# EQ "">
+	<cfelse>
+		<cfinclude template="#RootDir#includes/helperFunctions.cfm" />
+		<div class="notice">
+		<h2>Avis</h2>
+		<cfoutput>#FormatParagraph(intromsg)#</cfoutput>
+		</div>
+	</cfif>
 	</cfif>
 
 	<div>
