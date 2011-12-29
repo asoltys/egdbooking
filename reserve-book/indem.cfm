@@ -9,6 +9,10 @@
 	<cfset language.indemnification = "Indemnification Clause">
 	<cfset language.changeForm = "Tentative Vessel and Change Booking Form">
 	<cfset language.dockcharges = "Tariff of Dock Charges">
+	<cfset language.helpformats = "<a class=""help"" href=""http://www.tpsgc-pwgsc.gc.ca/comm/aformats-eng.html"">Help on File Formats</a>">
+	<cfset language.pdfformat = "Other Format - PDF">
+	<cfset language.pdfversion = "PDF Version">
+	<cfset language.bytes = "B">
   <cfset language.formExplanation = "The following forms are used in booking the drydock.<br /><br /><em>Schedule 1</em> and the <em>Indemnification Clause</em> are required to confirm a booking.  The <em>Schedule 1 - Drydock Application Form</em> provides <abbr title=""Esquimalt Graving Dock"">EGD</abbr> with vessel details and acts as a formal booking agreement between you and the Esquimalt Graving Dock.  The <em>Indemnification Clause</em> is a legal disclaimer that indemnifies the Crown against liability for injuries or damages.<br /><br />The <em>Tentative Vessel and Change Booking Form</em> is required if you wish to make any changes after submitting a request for booking.">
 <cfelse>
 	<cfset language.bookingForms = "Formulaires de r&eacute;servation">
@@ -20,6 +24,10 @@
 	<cfset language.indemnification = "Clause d'indemnit&eacute;">
 	<cfset language.changeForm = "Formulaire de r&eacute;servation provisoire pour les navires et les modifications">
 	<cfset language.dockcharges = "Formulaire de tarif des droits de la cale s&egrave;che">
+	<cfset language.helpformats = "<a class=""help"" href=""http://www.tpsgc-pwgsc.gc.ca/comm/aformats-fra.html"">Aide sur les formats de fichier</a>">
+	<cfset language.pdfformat = "Version - PDF">
+	<cfset language.pdfversion = "Version PDF">
+	<cfset language.bytes = "o">
   <cfset language.formExplanation = "Les formulaires suivants servent aux r&eacute;servations de la cale s&egrave;che. <br /><br />Le <em>Tableau 1</em> et la <em>Clause d'indemnisation</em> doivent &ecirc;tre soumis pour que la r&eacute;servation puisse &ecirc;tre confirm&eacute;e. Le <em>Tableau 1 - Formulaire de demande de r&eacute;servation</em> donne &agrave; la <abbr title=""Cale S&egrave;che d'Esquimalt"">CSE</abbr> les renseignements n&eacute;cessaires sur le navire et sert d'entente de r&eacute;servation formelle entre vous et la <abbr title=""Cale S&egrave;che d'Esquimalt"">CSE</abbr>. La <em>Clause d'indemnisation</em> est un document juridique qui d&eacute;gage la Couronne de toute responsabilit&eacute; en cas de blessures ou de dommages.<br /><br />Vous aurez besoin du formulaire de modification d'une r&eacute;servation si vous voulez apporte un changement apr&egrave;s avoir soumis une demande de r&eacute;servation.">
 </cfif>
 
@@ -56,8 +64,8 @@
 					</a></h1>
 					<cfoutput>
 					<div class="alternate-format">
-		<a href="#RootDir#formes-forms/indem-eng.pdf" title="Other Format - PDF">PDF Version (6KB)</a><br />
-		<a class="help" href="http://www.tpsgc-pwgsc.gc.ca/comm/aformats-eng.html">Help on File Formats</a></div>
+		<a href="#RootDir#formes-forms/indem-#lang#.pdf" title="#language.pdfformat#">#language.pdfversion# (6K#language.bytes#)</a><br />
+		#language.helpformats#</div>
 
 				<p>I (We), the undersigned, hereby indemnify Canada for the vessel described below, located at ___________________________ within the Esquimalt Graving Dock, for the purpose and time stated, for the period of _________________________________, 20___.</p>
 				
