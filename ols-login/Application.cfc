@@ -12,18 +12,6 @@
 	<cffunction name="onRequest" access="public" returntype="void">
 		<cfargument name="targetPage" type="String" required="true" />
 
-    <!--- Set the session variables for the session --->
-    <cflock timeout="60" throwontimeout="No" type="EXCLUSIVE" scope="SESSION">
-      <CFSCRIPT>
-      Session.UID = 41;
-      Session.FirstName = 'Demo';
-      Session.LastName = 'Account';
-      Session.EMail = 'adam.soltys@pwgsc.gc.ca';
-      Session.LoggedIn = 1;
-      </CFSCRIPT>
-    </cflock>
-    <cflocation url="/egdbooking/reserve-book/reserve-booking.cfm" addtoken="no" />
-
 		<cfinclude template="../server_settings.cfm" />
     <cfset this.mappings["/egdbooking"] = FileDir>
 
