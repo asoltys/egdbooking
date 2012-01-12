@@ -17,11 +17,13 @@
 
     <cfset SetLocale("English (Canadian)")>
 
-    <cfparam name="url.lang" default="eng">
-    <cfif findnocase("-e",CGI.PATH_INFO) or findnocase("-eng",CGI.PATH_INFO)>
-      <cfset url.lang = "eng">
-    <cfelseif findnocase("-f",CGI.PATH_INFO) or findnocase("-fra",CGI.PATH_INFO)>
-      <cfset url.lang = "fra">
+    <cfif not structKeyExists(url, 'lang')>
+      <cfparam name="url.lang" default="eng">
+      <cfif findnocase("-e",CGI.PATH_INFO) or findnocase("-eng",CGI.PATH_INFO)>
+        <cfset url.lang = "eng">
+      <cfelseif findnocase("-f",CGI.PATH_INFO) or findnocase("-fra",CGI.PATH_INFO)>
+        <cfset url.lang = "fra">
+      </cfif>
     </cfif>
 
     <cfset SetLocale("English (Canadian)")>
