@@ -47,6 +47,7 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 
+
 <cfif IsDefined("Session.Return_Structure")>
 	<cfoutput>#StructDelete(Session, "Return_Structure")#</cfoutput>
 </cfif>
@@ -55,8 +56,23 @@
 <cfset Success = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
 
-<cfif not isDate(Form.StartDate)>
-	<cfoutput>#ArrayAppend(Errors, "#language.invalidStartError#")#</cfoutput>
+
+<cfset Variables.StartDate = CreateODBCDate(Form.StartDate)>
+<cfset Variables.EndDate = CreateODBCDate(Form.EndDate)>
+<cfset Variables.VNID = Form.VNID>
+<cfset Variables.CID = Form.CID>
+
+<cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+	SELECT 	VNID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
+	FROM 	Vessels, Companies
+	WHERE 	VNID = <cfqueryparam value="#Form.VNID#" cfsqltype="cf_sql_integer" />
+	AND		Companies.CID = Vessels.CID
+	AND 	Vessels.Deleted = 0
+	AND		Companies.Deleted = 0
+</cfquery>
+
+<cfif getVessel.RecordCount EQ 0>
+	<cfoutput>#ArrayAppend(Errors, "#language.noVesselError#")#</cfoutput>
 	<cfset Proceed_OK = "No">
 <cfelseif not isDate(Form.StartDate)>
 	<cfoutput>#ArrayAppend(Errors, "#language.invalidEndError#")#</cfoutput>
