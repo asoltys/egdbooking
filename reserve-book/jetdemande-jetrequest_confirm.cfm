@@ -1,4 +1,8 @@
-<cfif isDefined("form.startDate")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
+<cfif not StructKeyExists(Form, 'StartDate')>
+  <cflocation url="#RootDir#reserve-book/jetdemande-jetrequest.cfm" addtoken="no" />
+</cfif>
+
+<cfinclude template="#RootDir#includes/build_form_struct.cfm">
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfinclude template="#RootDir#includes/errorMessages.cfm">
@@ -43,6 +47,7 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 
+
 <cfif IsDefined("Session.Return_Structure")>
 	<cfoutput>#StructDelete(Session, "Return_Structure")#</cfoutput>
 </cfif>
@@ -50,6 +55,8 @@
 <cfset Errors = ArrayNew(1)>
 <cfset Success = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
+
+
 
 <cfset Variables.StartDate = CreateODBCDate(Form.StartDate)>
 <cfset Variables.EndDate = CreateODBCDate(Form.EndDate)>
