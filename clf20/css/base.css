@@ -1,11 +1,7 @@
 /* CLF 2.0 TEMPLATE VERSION 1.04 | VERSION 1.04 DU GABARIT NSI 2.0 */
-<<<<<<< HEAD
-/* PWGSC TEMPLATE V1.0 | V1.0 DU GABARIT TPSGC */
-=======
 /* PWGSC TEMPLATE V1.2 | V1.2 DU GABARIT TPSGC */
 /* DT JULY 2011 updated classes .red and .redBG from:#FF0000 to #CC0000 
 to address contrast issues in the content area. */
->>>>>>> 4c61269... Update PWGSC clf20 template to latest version from webdev02
 /* GENERAL CSS BEGINS | DEBUT DU CSS GENERAL */
 body {
 	margin: 0;
@@ -242,13 +238,13 @@ div.banner-eng p.main, div.banner-eng p.siteuri, div.banner-fra p.main, div.bann
 
 /* SKIP NAVIGATION CSS BEGINS | DEBUT DU CSS DU SAUT DE NAVIGATION */
 div.navaid, p.navaid, h1.navaid, h2.navaid, .navaid {
-	height: 0; 
-	width: 0; 
+	height: 1px; 
+	width: 1px; 
 	overflow: hidden;
 	float: right;
 	font-size: 0;
 	position: absolute;
-	top: -100px;
+	left: -100px;
 }
 div.navaid a, p.navaid a, h1.navaid a, h2.navaid a, .navaid a {
 	color: #FFFFFF;
@@ -263,6 +259,7 @@ div.page div.core div.navaid {
 	margin-left: 210px;
 	margin-right: 200px;
 	color: #FFF;
+	left: auto;
 }
 * html div.page div.core div.navaid {
 	font-size: 90%;
@@ -522,6 +519,12 @@ span.date {
 /* FOOTER CSS ENDS | FIN DU CSS DU PIED DE LA PAGE */
 
 /* GENERIC UTILITY CSS BEGINS | DEBUT DU CSS D'UTILITE GENERIQUE */
+
+
+q:before, q:after { /* OCT 2009 added q */
+content: "";
+}
+
 .widthFull {
 	width: 98.5%;
 }
@@ -585,12 +588,17 @@ span.date {
 abbr, acronym, span.abbr {
 	cursor: help;
 }
-blockquote {
+
+/* -------------
+blockquote class removed oct 2009 
+--------------- */
+/* blockquote {
 	background-color: #CC9;
 	color: #000;
 	border: 1px solid #000;
 	font-style: italic;
-}
+} */
+
 div.gcinits {
 	float: left;
 	padding-bottom: 5px;

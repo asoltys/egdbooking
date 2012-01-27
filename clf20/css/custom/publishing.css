@@ -1,0 +1,114 @@
+/************************************************************************************************
+
+	Site Specific Style-sheet for Web Publishing CoE
+
+	Date Created: 	2008-05-20
+	Date Modified:	2008-11-27
+	Creator:	webpublishingcoe@tpsgc-pwgsc.gc.ca
+
+	This style sheet is maintained by Web Publishing CoE
+	of AMI&TOS for websites managed by Web Publishing CoE.
+	Updates to this style-sheet will be at the discretion
+	of Web Publishing CoE.
+
+	To browse by category, do a search for "Category: ".
+	To browse by style, do a search for "Style: ".
+
+************************************************************************************************/
+
+/*
+=====================================================================
+	Category: Inline Styles
+=====================================================================
+*/
+
+/*	Style: Note
+	=====================================================================
+	Demonstrates a small note, footnote or source in the document. 
+	The text is apart of the main content, but clearly denotes it is 
+	an "aside" piece of information.
+*/
+.note {
+	font-size: 90%;
+	font-style: italic;
+}
+
+
+
+/*
+=====================================================================
+	Category: Components
+=====================================================================
+*/
+
+/*	Style: Figures
+	=====================================================================
+	Images that which might have accompanying text.
+*/
+div.figure {
+	text-align: center;
+	margin: 2em 0 2em 0;
+	font-size: 90%;
+}
+
+	div.figure p {
+		width: 80%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+
+/*	Style: Navigation Button
+	=====================================================================
+	A hyperlink that resembles a button to be used in the main content area of a page.
+*/
+
+div.center a.button, div.center a.button:visited { /* I include :visited because IE won't recognize otherwise */
+	display: block;
+	text-align: center;
+	color: #fff;	
+	font-weight: bold;
+	padding: 0.6em 1em;
+	background: #369;
+	border-left: 2px solid #69C;
+	border-top: 2px solid #69C;
+	border-right: 2px solid #036;
+	border-bottom: 2px solid #036;	
+	text-decoration: none;
+}
+
+div.center a.button:hover {
+	background: #58B;
+	border-left: 2px solid #369;
+	border-top: 2px solid #369;
+	border-right: 2px solid #69C;
+	border-bottom: 2px solid #69C;
+}
+
+
+/*	Style: Section
+	=====================================================================
+	Denotes a major section to a site by providing special styling for 
+	an h2, and floating image.
+*/
+
+/* Push all the content towards the right */
+div.section {
+	margin-left: 150px;
+}
+
+/* But for the h2 and floating image, we want to align them to the left by ignoring the margin */
+div.section h2, div.section img.floatLeft {
+	margin-left: -150px;
+}
+
+div.section h2 {
+	color: #fff;
+	background: #369;
+	border-bottom: 1px solid #556677;
+	padding: 3px;
+	font-size: 120%;	
+}
+
+
+

@@ -1,0 +1,60 @@
+/************************************************************************************************
+
+	Site Specific Style-sheet for Web Publishing CoE
+
+	Date Created: 	2008-05-20
+	Creator:	webpublishingcoe@tpsgc-pwgsc.gc.ca
+
+	This style sheet is maintained by Web Publishing CoE
+	of AMI&TOS for websites managed by Web Publishing CoE.
+	Updates to this style-sheet will be at the discretion
+	of Web Publishing CoE.
+
+	To browse by category, do a search for "Category: ".
+	To browse by style, do a search for "Style: ".
+
+************************************************************************************************/
+
+/*
+=====================================================================
+	Category: Inline Styles
+=====================================================================
+*/
+
+/*	Style: Note
+	=====================================================================
+	Demonstrates a small note, footnote or source in the document. 
+	The text is apart of the main content, but clearly denotes it is 
+	an "aside" piece of information.
+*/
+.note {
+	font-size: 90%;
+	font-style: italic;
+}
+
+
+
+/*
+=====================================================================
+	Category: Components
+=====================================================================
+*/
+
+/*	Style: Figures
+	=====================================================================
+	Images that which might have accompanying text.
+*/
+div.figure {
+	text-align: center;
+	margin: 2em 0 2em 0;
+	font-size: 90%;
+}
+
+	div.figure p {
+		width: 80%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+
+

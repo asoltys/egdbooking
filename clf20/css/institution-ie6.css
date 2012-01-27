@@ -1,0 +1,35 @@
+/* CLF 2.0 TEMPLATE VERSION 1.04 | VERSION 1.04 DU GABARIT NSI 2.0 */
+/* PWGSC TEMPLATE V1.1 | V1.1 DU GABARIT TPSGC */
+
+/* ------------------ release history
+PWGSC/TPSGC v1.0 initial release september 2007
+PWGSC/TPSGC v1.0a released november 2008 with minor changes
+PWGSC/TPSGC v1.0b released september 2008 with added features 
+PWGSC/TPSGC v1.0c released december 2008 to remove Left Hand image background
+PWGSC/TPSGC v1.1 released october 2009 see details on PWGSC CLF 2 template guidelines
+------------------------------------ */
+
+
+/* Option2 & Option3 modified Sept 2010.
+instituion-ie6.css was created to accommodate for the 
+padding which caused the text to wrap under the left hand navigation
+
+use with the following string in your html page to access 
+this css in webdev02 and www.pwgsc.gc.ca environment. 
+adjust your href if your path is different on your server.
+<!--[if lte IE 6]><link href="/clf20/css/institution-ie6.css" media="screen, print" rel="stylesheet" type="text/css" /><![endif]>-->
+----------------------------------------------- */
+	.option2,
+	.option3 {
+		margin: 0 0 8px;
+		padding-left: 8px;
+		padding-right: 30px;
+		border: 1px solid #FF0 /*DT modified sept 7 #264*/;
+		}
+		
+/* F00 was used for testing purposes, change back to #369 as actual colour */ 
+
+	.italicFix {
+	  	width: 100%; 
+	  	overflow: hidden;
+		}

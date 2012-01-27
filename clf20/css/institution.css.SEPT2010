@@ -1,5 +1,5 @@
 /* CLF 2.0 TEMPLATE VERSION 1.04 | VERSION 1.04 DU GABARIT NSI 2.0 */
-/* PWGSC TEMPLATE V1.1a | V1.1a DU GABARIT TPSGC */
+/* PWGSC TEMPLATE V1.1 | V1.1 DU GABARIT TPSGC */
 
 /* ------------------ release history
 PWGSC/TPSGC v1.0 initial release september 2007
@@ -7,7 +7,6 @@ PWGSC/TPSGC v1.0a released november 2008 with minor changes
 PWGSC/TPSGC v1.0b released september 2008 with added features 
 PWGSC/TPSGC v1.0c released december 2008 to remove Left Hand image background
 PWGSC/TPSGC v1.1 released october 2009 see details on PWGSC CLF 2 template guidelines
-Released v1.1a of instituion.css September 2010 with italicFix class
 ------------------------------------ */
 
 /* ---------------------------
@@ -692,19 +691,3 @@ ref: http://recherche-search.gc.ca/css/search.css
   margin-bottom: 0px;
 }
 /* recherche-search css fin - ends */
-
-/* italicFix class added to address the overflow issue in IE6 when using em. */
-
-.italicFix {
-  width: 100%; 
-  overflow: hidden;
-}
-
-
-/* ---------- paragraph style for left navigation ------------- */
-.leftNav p{
-	background-color:#DDDDBB;
-	margin:0 0 0 0;
-	padding:0 1px 1px;
-	padding-left: 6px;
-}

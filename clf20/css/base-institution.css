@@ -1,5 +1,5 @@
 /* CLF 2.0 TEMPLATE VERSION 1.04 | VERSION 1.04 DU GABARIT NSI 2.0 */
-/* PWGSC TEMPLATE V1.0 | V1.0 DU GABARIT TPSGC */
+/* PWGSC TEMPLATE V1.1 | V1.1 DU GABARIT TPSGC */
 /* GENERAL CSS BEGINS | DEBUT DU CSS GENERAL */
 body {
 	background-color: #DDDDBB;
@@ -12,7 +12,7 @@ div.colLayout {
 
 /* FIP HEADER CSS BEGINS | DEBUT DU CSS DE L'EN-TETE PCIM */
 div.fip, div.cwm {
-	height: 33px;
+	height: 30px; /* OCT 2009 changed from 33px to 30px */
 }
 div.cwm img {
 	padding-top: 0px;
