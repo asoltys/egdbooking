@@ -1,6 +1,6 @@
 <cfinclude template="#RootDir#includes/companyInfoVariables.cfm">
 <cfif lang EQ "eng">
-	<cfset language.createUser = "Create New User">
+	<cfset language.createUser = "Account Registration">
 	<cfset language.keywords = "#language.masterKeywords#" & ", Add New User Account">
 	<cfset language.description = "Allows user to create a new user account.">
 	<cfset language.password = "Password">
@@ -16,7 +16,7 @@
 	<cfset language.characters = "characters">
 	<cfset language.continue = "Continue">
 <cfelse>
-	<cfset language.createUser = "Cr&eacute;er un nouvel utilisateur">
+	<cfset language.createUser = "Inscription pour les comptes">
 	<cfset language.keywords = "#language.masterKeywords#" & ", Ajout d'un nouveau compte d'utilisateur">
 	<cfset language.description = "Permet &agrave; l'utilisateur de cr&eacute;er un nouveau compte d'utilisateur.">
 	<cfset language.password = "Mot de passe">

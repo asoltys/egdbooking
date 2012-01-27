@@ -10,7 +10,7 @@
 	<cfset language.displayproblem = "The application may not function properly without these components.">
 	<cfset language.jserror = "You do not have JavaScript enabled.  Parts of this application will not function properly.">
 	<cfset language.forgot = "Forgot password">
-	<cfset language.addUser = "Add new user account">
+	<cfset language.addUser = "Register an account">
 	<cfset language.email = "Email">
 	<cfset language.password = "Password">
 	<cfset language.Remember = "Remember Me">
@@ -26,7 +26,7 @@
 	<cfset language.displayproblem = "L'application ne fonctionnera peut-&ecirc;tre pas correctement sans ces composantes.">
 	<cfset language.jserror = "La fonction JavaScript n'est pas activ&eacute;e. Des parties de l'application ne fonctionnent pas correctement.">
 	<cfset language.forgot = "Oubli du mot de passe">
-	<cfset language.addUser = "Ajout d'un nouveau compte d'utilisateur">
+	<cfset language.addUser = "Cr&eacute;er un compte">
 	<cfset language.email = "Courriel">
 	<cfset language.password = "Mot de passe">
 	<cfset language.Remember = "Rappelez-vous moi">
@@ -83,11 +83,6 @@
 						<cfinclude template="#RootDir#includes/getStructure.cfm">
 						<br />
 					</cfif>
-					<p>#language.browser#</p>
-					<ul>
-						#language.criteria#
-					</ul>
-					<p>#language.displayproblem#</p>
 
 					<!-- Display the login form and pass contents to login_action.cfm -->
 					<form action="ols-login_action.cfm?lang=#lang#" method="post" id="login_form">

@@ -1,5 +1,5 @@
 <cfif lang EQ "eng">
-	<cfset language.createUser = "Create New User">
+	<cfset language.createUser = "Account Registration">
 	<cfset language.keywords = "Add New User Account">
 	<cfset language.description = "Allows user to create a new user account.">
 	<cfset language.company = "Company">
@@ -16,7 +16,7 @@
 	<cfset language.submitUserRequest = "Submit New User Request">
 	<cfset language.selectCompany = "Please select a company.">
 <cfelse>
-	<cfset language.createUser = "Cr&eacute;er un nouvel utilisateur">
+	<cfset language.createUser = "Inscription pour les comptes">
 	<cfset language.keywords = "#language.masterKeywords#" & ", Ajout d'un nouveau compte d'utilisateur">
 	<cfset language.description = "Permet &agrave; l'utilisateur de cr&eacute;er un nouveau compte d'utilisateur.">
 	<cfset language.company = "Entreprise">
