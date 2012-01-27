@@ -97,7 +97,7 @@
 		
 		<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 		<cfset Session.Return_Structure.Errors = Variables.Errors>
-		<cflocation url="ols-login.cfm?lang=#lang#&pass=#Variables.passError#" addtoken="no">
+		<cflocation url="ols-login.cfm?lang=#lang#&reussir-pass=#Variables.passError#" addtoken="no">
 		
 	<!---Otherwise send them to the home page of the application --->
 	<cfelse>
