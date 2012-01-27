@@ -97,30 +97,29 @@ function EditSubmit ( selectedform )
 						<cfset Variables.action = "entrpdemande-comprequest.cfm?lang=#lang#">
 					</cfif>
 					<form action="#Variables.action#" id="addUserForm" method="post">
-            <label for="firstname">#language.FirstName#:</label>
-            <input name="firstname" type="text" value="#variables.firstName#" size="23" maxlength="40" id="firstname" />
-            <br />
-
-            <label for="lastname">#language.LastName#:</label>
-            <input name="lastname" type="text" value="#variables.lastName#" size="23" maxlength="40" id="lastname" />
-            <br />
-
-            <label for="password1">#language.Password#:</label>
-            <input type="password" name="password1" id="password1" size="23" />
-              <span class="smallFont">(*min. 8 #language.characters#)</span>
-            <br />
-
-            <label for="password2">#language.RepeatPassword#:</label>
-            <input type="password" name="password2" id="password2"  size="23" />
-            <br />
-
-            <label for="email">#language.Email#:</label>
-            <input name="email" type="text" value="#variables.email#" size="40" maxlength="100" id="email" />
-            <br />
-
             <fieldset>
-                <!---a href="javascript:EditSubmit('addUserForm');" class="textbutton">Submit</a>
-                <a href="ols-login.cfm?<cfoutput>lang=#lang#</cfoutput>" class="textbutton">Cancel</a--->
+              <legend>#language.CreateUser#</legend>
+              <label for="firstname">#language.FirstName#:</label>
+              <input name="firstname" type="text" value="#variables.firstName#" size="23" maxlength="40" id="firstname" />
+              <br />
+
+              <label for="lastname">#language.LastName#:</label>
+              <input name="lastname" type="text" value="#variables.lastName#" size="23" maxlength="40" id="lastname" />
+              <br />
+
+              <label for="password1">#language.Password#:</label>
+              <input type="password" name="password1" id="password1" size="23" />
+                <span class="smallFont">(*min. 8 #language.characters#)</span>
+              <br />
+
+              <label for="password2">#language.RepeatPassword#:</label>
+              <input type="password" name="password2" id="password2"  size="23" />
+              <br />
+
+              <label for="email">#language.Email#:</label>
+              <input name="email" type="text" value="#variables.email#" size="40" maxlength="100" id="email" />
+              <br />
+
               <input type="submit" value="#language.continue#" class="textbutton" />
               <a href="ols-login.cfm?<cfoutput>lang=#lang#</cfoutput>" class="textbutton">#language.Cancel#</a>								
             </fieldset>
