@@ -1,4 +1,10 @@
 /* CLF 2.0 TEMPLATE VERSION 1.04 | VERSION 1.04 DU GABARIT NSI 2.0 */
+<<<<<<< HEAD
+=======
+/* TPSGC-PWGSC v1.2 */
+/* July 2011 Button colours updated
+TOP and LEFT Changed to #CCC RIGHT and BOTTOM changed to #666 BACKGROUND changed to #000 */
+>>>>>>> 4c61269... Update PWGSC clf20 template to latest version from webdev02
 /* GENERAL CSS BEGINS | DEBUT DU CSS GENERAL */
 body  {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -86,18 +92,28 @@ div.buttons {
 div.mlbuttons {
 	clear: left;
 	width: 85%;
-}
+} 
+
+/* LANGUAGE BUTTON CHANGE JULY 2011*/
+
+/* July 2011 ----------
+TOP and LEFT Changed from #F66 to #CCC 
+RIGHT and BOTTOM changed from #C33 to #666 
+BACKGROUND changed from #F00 to #000 
+----------- */
+
 div.langbtn, div.mllangbtn {
-	border-top: #F66 2px solid;
-	border-left: #F66 2px solid;
-	border-bottom: #C33 2px solid;
-	border-right: #C33 2px solid;
-	height: 1.14em;
+	border-top: #CCC 2px solid; /* ORIGINAL  #F66 */
+	border-left: #CCC 2px solid; /* ORIGINAL  #F66 */
+	border-bottom: #666 2px solid; /* ORIGINAL  #C33 */
+	border-right: #666 2px solid; /* ORIGINAL  #C33 */
+	height: 100%; /* ORIGINAL height: 1.14em; */
+	line-height: 1.6em; /* NEW */
 	text-align: center;
-	padding: 0.19em;
+	/* ORIGINAL padding: 0.19em; */
 	font-weight: bold;
 	color: #FFF;
-	background-color: #F00;
+	background-color: #000; /* OLD #F00 */
 }
 div.mllangbtn {
 	color: #F00;
@@ -106,7 +122,7 @@ div.mllangbtn {
 div.lb, div.mlb {
 	float: left;
 	width: 7.5em;
-	height: 1.88em;
+	height: 1.6em; /* ORIGINAL height: 1.88em; */
 	margin-right: 1.88em;
 	margin-top: 20px;
 }
@@ -115,10 +131,19 @@ div.lb a, div.mlb a {
 	width:100%;
 	float: left;
 }
-div.lb a {
+div.lb a:link, div.lb a:visited { /* NEW added :link and :visited */
 	color: #FFF;
-	background-color: #F00;
+	background-color: #000; /* ORIGINAL  #F00 */
 }
+
+/* START NEW CSS FOR HOVER EFFECT ON BUTTONS */
+div.lb a:hover, div.lb a:focus, div.lb a:active { /* NEW added :hover, :focus, :active */
+	background-color: #FFF; 
+	text-decoration: none; 
+	color: #000;
+	}
+/* END NEW CSS FOR HOVER EFFECT ON BUTTONS */
+
 div.mlb a {
 	color: #F00;
 	background-color: #FFF;

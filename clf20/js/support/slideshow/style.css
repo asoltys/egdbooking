@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+Terms and conditions of use: http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Terms
+Conditions régissant l'utilisation : http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Conditions
+*/
+
+/** Slideshow main container class **/
+/** TODO: There is an inheritance issue with the new template - Work towards a CSS solution that requires the use of !important **/
+#slideshow li a {
+	padding: 3px 5px 3px 10px;
+}
+#slideshow-container {
+	margin: 0 !important;
+	padding: 0 !important;
+	border: 0 !important;
+}
+#slideshow-container a {
+	display: inline !important;
+	padding: 0 !important;
+}
+#slideshow-container a:hover, #slideshow-container a:active {
+	color: inherit !important; 
+	background-color: transparent !important;
+	outline: inherit !important;
+}
+/** End of slideshow container **/
+#slidescontainer {
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
+
+#slideshowplaybutton,#slideshownextbutton,#slideshowbackbutton {
+	height: 19px;
+	margin: 0;
+	padding: 0;
+}
+
+#slidecontainer div.slideshowbanner {
+	height: 70px;
+	display: block;
+}
+
+#slideinterface {
+	display: block;
+	height: 19px;
+	text-align: right;
+	border-left: 0px solid #000;
+	border-right: 0px solid #000; /* e1dcc9 */
+	margin: 0;
+	padding: 0;
+}

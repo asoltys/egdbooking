@@ -17,9 +17,9 @@ function loadMedia  (  containerId, mediafile, captionsFile, thumbnailImage, pLa
 
 		var mediaplayerUrl = "/clf20/swf/mp-jm.swf" ; 
 		var pLang = ( pLanguage ) ?  pLanguage : "eng" ;
-        	var logo = "/clf20/images/wmms.png" ;
+        var logo = "/clf20/images/wmms.png" ;
 		
-      		/*---------------------------------------------------*/
+      	/*---------------------------------------------------*/
 
 		
 		var playerId = ( playId ) ? playId : "mediaplayer";
@@ -32,6 +32,7 @@ function loadMedia  (  containerId, mediafile, captionsFile, thumbnailImage, pLa
 		so.addParam("allowfullscreen","false");
 		so.addParam("allowscriptaccess", "always");
 		so.addParam("id",playerId);
+		
 		so.addVariable("file",mediafile);
 		so.addVariable("lang", pLang);
 		so.addVariable("image", thumbnailImage);
@@ -39,6 +40,8 @@ function loadMedia  (  containerId, mediafile, captionsFile, thumbnailImage, pLa
 		so.addVariable("enablejs","true");
 		so.addVariable("javascriptid", playerId );
 		so.addVariable('usefullscreen','false');
+		/* so.addVariable("captions.state", 'false');   DT TESTING Nov2009: does not work with current v3.x player from 1.04 template */
+		
 		if (!isMovie(mediafile))
 		{
 			so.addVariable("showeq", "true");

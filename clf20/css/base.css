@@ -1,5 +1,11 @@
 /* CLF 2.0 TEMPLATE VERSION 1.04 | VERSION 1.04 DU GABARIT NSI 2.0 */
+<<<<<<< HEAD
 /* PWGSC TEMPLATE V1.0 | V1.0 DU GABARIT TPSGC */
+=======
+/* PWGSC TEMPLATE V1.2 | V1.2 DU GABARIT TPSGC */
+/* DT JULY 2011 updated classes .red and .redBG from:#FF0000 to #CC0000 
+to address contrast issues in the content area. */
+>>>>>>> 4c61269... Update PWGSC clf20 template to latest version from webdev02
 /* GENERAL CSS BEGINS | DEBUT DU CSS GENERAL */
 body {
 	margin: 0;
@@ -736,7 +742,7 @@ ol.upper-roman {
 	background-color: transparent;
 }
 .red {
-	color: #FF0000;
+	color: #CC0000; /* July 2011, DT updated from #FF0000; */
 	background-color: transparent;
 }
 .blue {
@@ -762,7 +768,7 @@ ol.upper-roman {
 	background-color: #FFFFFF;
 }
 .redBG {
-	background-color: #FF0000;
+	background-color: #CC0000; /* July 2011, DT updated july 2011 from #FF0000; */
 }
 .blueBG {
 	background-color: #0000FF;

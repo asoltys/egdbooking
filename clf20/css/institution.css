@@ -569,3 +569,126 @@ h5 {
 h6 {
 	font-size: 100%;
 }
+<<<<<<< HEAD
+=======
+
+/* -------------------------
+OCT 2009 Added search specific css for 
+the search and search results page.
+ref: http://recherche-search.gc.ca/css/search.css
+------------------------------ */
+
+/* recherche-search css debut - begins */ 
+#searchform select,
+#searchform input,
+#searchform .searchlabel,
+#searchform .searchswitchtext,
+#searchresults ul,
+#searchresults ol,
+#searchresults h2,
+#seaarchresults .resultdata {
+  font-size: 100%; }
+ 
+#searchform .smallfont {
+  font-size: 80%; }
+ 
+#searchresults ol {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0; }
+ 
+#searchresults ul {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0; }
+#searchresults li {
+  list-style-type: none; }
+ 
+#searchresults .resultdata {
+  padding:0 0 0 10px;
+  margin:0 0 0 8px; }
+ 
+#searchresults h2 {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0; }
+ 
+#searchresults .metadata dt,
+#searchresults .metadata dl,
+#searchresults .metadata dd {
+  display:inline;
+  margin:0;
+  padding:0; }
+ 
+#searchresults .url_text {
+  color:green; }
+ 
+#searchform em,
+#searchform em {
+  color:red;
+  font-style: normal; }
+ 
+#searchresults .url_title,
+#searchresults .modified_title,
+#searchresults .size_title,
+#searchresults .language_title {
+  font-weight: bold; }
+ 
+#searchresults h2 {
+  font-size: 110%; }
+ 
+#searchresults h3 {
+  font-size: 100%;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0; }
+ 
+#searchresults .pagination {
+  font-size: 90%;
+  display: inline;}
+ 
+#searchresults .selectedpage {
+  font-weight: bold;}
+ 
+#searchresults li.pagination,
+#searchresults h2.pagination,
+#searchresults ul.pagination
+{display: inline;}
+
+#searchresults .border {
+  border-bottom: thin solid #000;
+  width:99%;
+  font-weight: bold; }
+ 
+#searchform .label {
+  width: 120px;
+  float: left;
+  text-align: right;
+  margin-right: 5px;
+  display: block;
+}
+ 
+#searchform .nomargin {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+ 
+#searchform .alignform {
+  margin-left: 125px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+/* recherche-search css fin - ends */
+
+/* italicFix class added to address the overflow issue in IE6 when using em. */
+
+.italicFix {
+  width: 100%; 
+  overflow: hidden;
+}
+
+
+/* ---------- paragraph style for left navigation ------------- */
+.leftNav p{
+	background-color:#DDDDBB;
+	margin:0 0 0 0;
+	padding:0 1px 1px;
+	padding-left: 6px;
+}
+>>>>>>> 4c61269... Update PWGSC clf20 template to latest version from webdev02
