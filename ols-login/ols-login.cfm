@@ -89,18 +89,20 @@
 					</ul>
 					<p>#language.displayproblem#</p>
 
-					<h2>#language.login#</h2>
 					<!-- Display the login form and pass contents to login_action.cfm -->
 					<form action="ols-login_action.cfm?lang=#lang#" method="post" id="login_form">
-            <label for="email">#language.Email#:</label>
-            <input type="text" name="email" id="email" size="40" maxlength="100" value="#email#" />
-            <label for="password">#language.Password#:</label>
-            <input type="password" name="Password" id="password" size="25" maxlength="40" />
-            <input type="submit" name="submitForm" value="#language.Login#" class="textbutton" />
-            <div>
-              <label for="remember">#language.Remember#</label>
-              <input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked="checked"</CFIF> />
-						</div>
+            <fieldset>
+              <legend>#language.login#</legend>
+              <label for="email">#language.Email#:</label>
+              <input type="text" name="email" id="email" size="40" maxlength="100" value="#email#" />
+              <label for="password">#language.Password#:</label>
+              <input type="password" name="Password" id="password" size="25" maxlength="40" />
+              <input type="submit" name="submitForm" value="#language.Login#" class="textbutton" />
+              <div>
+                <label for="remember">#language.Remember#</label>
+                <input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked="checked"</CFIF> />
+              </div>
+            </fieldset>
 					</form>
 					<div><a href="utilisateurajout-useradd.cfm?lang=#lang#">#language.addUser#</a></div>
 					<div><a href="passeoubli-passforgot.cfm?lang=#lang#">#language.Forgot#</a></div>
