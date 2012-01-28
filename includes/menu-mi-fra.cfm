@@ -47,7 +47,7 @@
       <li><a href="#RootDir#comm/resume-summary_ch.cfm?lang=#lang#">#language.bookingsSummary#</a></li>
       <li><a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#">#language.LogoutButton#</a></li>
     <cfelse>
-      <li><a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#">#language.Login#</a></li>
+      <li><a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.Login#</a></li>
     </cfif>
   </ul>
 	<h2>Ressources <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym></h2>

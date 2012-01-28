@@ -22,9 +22,9 @@
     <cfset SetLocale("English (Canadian)")>
 
     <cfparam name="url.lang" default="eng">
-    <cfif findnocase("-e",CGI.PATH_INFO) or findnocase("-eng",CGI.PATH_INFO)>
+    <cfif findnocase("-e",CGI.script_name) or findnocase("-eng",CGI.script_name)>
       <cfset url.lang = "eng">
-    <cfelseif findnocase("-f",CGI.PATH_INFO) or findnocase("-fra",CGI.PATH_INFO)>
+    <cfelseif findnocase("-f",CGI.script_name) or findnocase("-fra",CGI.script_name)>
       <cfset url.lang = "fra">
     </cfif>
 
