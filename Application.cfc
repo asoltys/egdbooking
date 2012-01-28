@@ -34,6 +34,8 @@
     <cfset Variables.MaxWidth = 45.40>
 
     <cfinclude template="#RootDir#includes/generalLanguageVariables.cfm">
+
+
     <cfinclude template="#arguments.targetPage#" />
   </cffunction>
 

@@ -21,28 +21,12 @@
 	<cfset language.description = "Allows users to view all bookings for a company.">
 	<cfset language.subjects = language.masterSubjects & "">
 	<cfset language.followingbooking = "Your bookings for #getcompany.companyName# are as follows:">
-	<cfset language.bookingForms = "Booking Forms">
-	<cfset language.viewTariff = "View Tariffs">
-	<cfset language.agent = "Agent">
-	<cfset language.administrator = "Administrator">
-	<cfset language.none = "None">
-	<cfset language.archivedBookings = "Booking Archive">
-	<cfset language.returnTo = "Back to Booking Home">
-
 <cfelse>
 	<cfset language.keywords = language.masterKeywords & "">
 	<cfset language.description = "Permet aux utilisateurs de voir toutes les r&eacute;servations pour une entreprise.">
 	<cfset language.subjects = language.masterSubjects & "">
 	<cfset language.followingbooking = "Vos r&eacute;servations au nom de #getcompany.companyName# sont les suivantes :">
-	<cfset language.bookingForms = "Formulaires de r&eacute;servation">
-	<cfset language.viewTariff = "Consulter les tarifs">
-	<cfset language.agent = "Agent">
-	<cfset language.administrator = "Administrateur">
-	<cfset language.none = "Aucun">
-	<cfset language.archivedBookings = "Archives des r&eacute;servations">
-	<cfset language.returnTo = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
 </cfif>
-
 
 <cfhtmlhead text="
 	<meta name=""dc.title"" content=""#language.archivedBookings# - #language.esqGravingDock# - #language.PWGSC#"" />

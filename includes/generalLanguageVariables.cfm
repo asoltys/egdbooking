@@ -135,3 +135,49 @@
 	<cfset language.pdf = "Format de Document Portable">
 	<cfset language.kb = "<acronym title=""kilooctets"">Ko</acronym>">
 </cfif>
+
+<cfif lang EQ 'eng'>
+	<cfset language.currentCompany = "You are currently looking at details for: ">
+	<cfset language.otherCompanies = "Other companies:">
+	<cfset language.awaitingApproval = "Awaiting approval:">
+	<cfset language.addVessel = "Add Vessel">
+	<cfset language.bookingForms = "Booking Forms">
+	<cfset language.viewTariff = "View Tariffs">
+	<cfset language.agent = "Agent">
+	<cfset language.administrator = "Administrator">
+	<cfset language.welcome = "Welcome">
+	<cfset language.none = "None">
+	<cfset language.allBookings = "All Bookings">
+	<cfset language.pending_cancelling = "pending cancelling">
+	<cfset language.cancelling = "cancelling">
+  <cfset language.confirming = "confirming">
+  <cfset language.bookingForms = "Booking Forms">
+	<cfset language.viewTariff = "View Tariffs">
+	<cfset language.agent = "Agent">
+	<cfset language.administrator = "Administrator">
+	<cfset language.none = "None">
+	<cfset language.archivedBookings = "Booking Archive">
+	<cfset language.returnTo = "Back to Booking Home">
+<cfelse>
+	<cfset language.currentCompany = "Vous regardez les renseignements portant sur :">
+	<cfset language.otherCompanies = "Autres entreprises">
+	<cfset language.awaitingApproval = "En attente d'approbation&nbsp;:">
+	<cfset language.addVessel = "Ajout d'un navire">
+	<cfset language.bookingForms = "Formulaires de r&eacute;servation">
+	<cfset language.viewTariff = "Consulter les tarifs">
+	<cfset language.agent = "Agent">
+	<cfset language.administrator = "Administrateur">
+	<cfset language.welcome = "Bienvenue">
+	<cfset language.none = "Aucun">
+	<cfset language.allBookings = "Toutes les r servations">
+	<cfset language.pending_cancelling = "en attendant l'annulation">	
+	<cfset language.cancelling = "annulation">
+	<cfset language.confirming = "confirmation ">
+	<cfset language.bookingForms = "Formulaires de r&eacute;servation">
+	<cfset language.viewTariff = "Consulter les tarifs">
+	<cfset language.agent = "Agent">
+	<cfset language.administrator = "Administrateur">
+	<cfset language.none = "Aucun">
+	<cfset language.archivedBookings = "Archives des r&eacute;servations">
+	<cfset language.returnTo = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
+</cfif>

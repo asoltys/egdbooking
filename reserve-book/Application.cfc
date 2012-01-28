@@ -51,6 +51,8 @@
     </cflock>
 
     <cfinclude template="#RootDir#includes/generalLanguageVariables.cfm">
+
+
     <cfinclude template="#arguments.targetPage#" />
   </cffunction>
 

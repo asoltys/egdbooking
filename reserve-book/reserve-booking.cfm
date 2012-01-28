@@ -230,40 +230,12 @@
 <cfoutput query="readonlycheck">
 	<cfset Session.ReadOnly = #ReadOnly#>
 </cfoutput>
-<cfif lang EQ 'eng'>
-	<cfset language.currentCompany = "You are currently looking at details for: ">
-	<cfset language.otherCompanies = "Other companies:">
-	<cfset language.awaitingApproval = "Awaiting approval:">
-	<cfset language.followingbooking = "Your current bookings for <strong>#getCompany.companyName#</strong> are as follows:">
-	<cfset language.addVessel = "Add Vessel">
-	<cfset language.bookingForms = "Booking Forms">
-	<cfset language.viewTariff = "View Tariffs">
-	<cfset language.agent = "Agent">
-	<cfset language.administrator = "Administrator">
-	<cfset language.welcome = "Welcome">
-	<cfset language.none = "None">
-	<cfset language.allBookings = "All Bookings">
-	<cfset language.pending_cancelling = "pending cancelling">
-	<cfset language.cancelling = "cancelling">
-	<cfset language.confirming = "confirming">
-<cfelse>
-	<cfset language.currentCompany = "Vous regardez les renseignements portant sur :">
-	<cfset language.otherCompanies = "Autres entreprises">
-	<cfset language.awaitingApproval = "En attente d'approbation&nbsp;:">
-	<cfset language.followingbooking = "Vos rservations actuelles sont les suivantes : <strong>#getCompany.companyName#</strong>">
-	<cfset language.addVessel = "Ajout d'un navire">
-	<cfset language.bookingForms = "Formulaires de r&eacute;servation">
-	<cfset language.viewTariff = "Consulter les tarifs">
-	<cfset language.agent = "Agent">
-	<cfset language.administrator = "Administrateur">
-	<cfset language.welcome = "Bienvenue">
-	<cfset language.none = "Aucun">
-	<cfset language.allBookings = "Toutes les r servations">
-	<cfset language.pending_cancelling = "en attendant l'annulation">	
-	<cfset language.cancelling = "annulation">
-	<cfset language.confirming = "confirmation ">
-</cfif>
 
+<cfif lang EQ 'eng'>
+	<cfset language.followingbooking = "Your current bookings for <strong>#getCompany.companyName#</strong> are as follows:">
+<cfelse>
+	<cfset language.followingbooking = "Vos rservations actuelles sont les suivantes : <strong>#getCompany.companyName#</strong>">
+</cfif>
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
@@ -328,13 +300,6 @@
 					<h2>#language.bookings#</h2>
 
 					<p>#language.followingbooking#</p>
-					<div class="buttons">
-						<cfif #Session.ReadOnly# EQ "1"><cfelse>
-						<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&amp;CID=#variables.CID#" class="textbutton" title="#language.requestBooking#">#language.requestBooking#</a>&nbsp;
-						</cfif>
-						<a href="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a>&nbsp;
-						<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;CID=#variables.CID#" class="textbutton">#language.allBookings#</a><br /><br />
-					</div>
 
 					<cfset counter = 0>
 					<h3>#language.Drydock#</h3>
@@ -481,13 +446,6 @@
 						<p>#language.None#.</p>
 					</cfif>
 
-					<div class="buttons">
-						<cfif #Session.ReadOnly# EQ "1"><cfelse>
-						<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&amp;CID=#variables.CID#" class="textbutton" title="#language.requestBooking#">#language.requestBooking#</a>&nbsp;
-						</cfif>
-						<a href="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#" class="textbutton">#language.BookingForms#</a>&nbsp;
-						<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;CID=#variables.CID#" class="textbutton">#language.allBookings#</a>
-					</div>
 
 					</div>
 				</cfoutput>
