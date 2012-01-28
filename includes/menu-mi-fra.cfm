@@ -85,6 +85,7 @@
       <li><a href="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#">#language.EditProfileButton#</a></li>
       <cfif structKeyExists(session, 'readonly') and Session.ReadOnly EQ 1>
         <li><a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#&amp;CID=#variables.CID#" class="textbutton" title="#language.requestBooking#">#language.requestBooking#</a></li>
+        <li><a href="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&amp;CID=#CID#" class="textbutton">#Language.addVessel#</a></li>
       </cfif>
       <li><a href="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#">#language.BookingForms#</a></li>
       <li><a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;CID=#variables.CID#">#language.archivedBookings#</a></li>

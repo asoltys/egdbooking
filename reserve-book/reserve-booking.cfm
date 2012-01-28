@@ -292,9 +292,6 @@
                 </cfloop>
               </ul>
 						</cfif>
-					<cfif #Session.ReadOnly# EQ "1"><cfelse>
-						<p><a href="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&amp;CID=#CID#" class="textbutton">#Language.addVessel#</a></p>
-					</cfif>
 
 
 					<h2>#language.bookings#</h2>
