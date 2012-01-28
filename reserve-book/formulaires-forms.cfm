@@ -57,31 +57,12 @@
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				<cfoutput>
 				<p>#language.formExplanation#</p>
-				#language.acrobatrequired#
 
 				<ul>
-					<li>
-            <cfdirectory action="list" directory="#FileDir#formes-forms/" filter="tableau-schedule-1-eng.pdf" name="fileCheck"/>
-            <a href="#RootDir#formes-forms/tableau-schedule-1-eng.pdf">
-            #language.schedule# (2004-07-14)</a>
-						<span class="smallFont">(<acronym title="#language.pdf#">PDF</acronym>,&nbsp;#NumberFormat(fileCheck.size/1024)##language.kb#)</span> <cfif lang NEQ "eng"><em>(disponible en anglais seulement)</em></cfif>
-					</li>
-					<li>
-            <cfdirectory action="list" directory="#FileDir#formes-forms/" filter="indem-eng.pdf" name="fileCheck"/>
-            <a href="#RootDir#formes-forms/indem-eng.pdf" title="#language.Indemnification#" rel="external">
-            #language.Indemnification# (2002-06-18)</a>
-						<span class="smallFont">(<acronym title="#language.pdf#">PDF</acronym>,&nbsp;#NumberFormat(fileCheck.size / 1024)##language.kb#)</span> <cfif lang NEQ "eng"><em>(disponible en anglais seulement)</em></cfif>
-          </li>
-					<li>
-            <cfdirectory action="list" directory="#FileDir#formes-forms/" filter="changement-change-eng.pdf" name="fileCheck"/>
-            <a href="#RootDir#formes-forms/changement-change-eng.pdf" title="#language.changeForm#" rel="external">
-            #language.changeForm#</a>
-						<span class="smallFont">(<acronym title="#language.pdf#">PDF</acronym>,&nbsp;#NumberFormat(fileCheck.size / 1024)##language.kb#)</span> <cfif lang NEQ "eng"><em>(disponible en anglais seulement)</em></cfif>
-          </li>
-					<li>
-          <a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#" title="Tariff of Dock Charges">
-          #language.dockcharges#</a>
-          </li>
+					<li><a href="#RootDir#reserve-book/tableau-schedule-1.cfm">#language.schedule#</a></li>
+					<li><a href="#RootDir#reserve-book/indem.cfm">#language.Indemnification#</a></li>
+					<li><a href="#RootDir#reserve-book/changement-change.cfm" title="#language.changeForm#" rel="external">#language.changeForm#</a></li>
+					<li><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#" title="Tariff of Dock Charges">#language.dockcharges#</a></li>
 				</ul>
 				</cfoutput>
 			</div>
