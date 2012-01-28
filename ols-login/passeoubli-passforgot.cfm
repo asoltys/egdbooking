@@ -55,20 +55,14 @@
 				<cfoutput>
 					<cfif IsDefined("Session.Return_Structure")>
 						<cfinclude template="#RootDir#includes/getStructure.cfm">
-						<br />
 					</cfif>
 
-					<div>#language.enterEmail#<br />#language.getPassword#</div><br />
-
 					<form action="passeoubli-passforgot_action.cfm?lang=#lang#" id="forgotForm" method="post">
-						<table>
-							<tr>
-								<td><label for="email">#language.Email#:</label>&nbsp;&nbsp;<input type="text" name="email" id="email" size="30" /></td>
-							</tr>
-							<tr>
-								<td align="right"><input type="submit" value="#language.Submit#" class="textbutton" /></td>
-							</tr>
-						</table>
+            <fieldset>
+              <legend>#language.getPassword#</legend>
+              <label for="email">#language.Email#:</label>&nbsp;&nbsp;<input type="text" name="email" id="email" size="30" />
+              <input type="submit" value="#language.Submit#" class="textbutton" />
+            </fieldset>
 					</form>
 
 					<div><a href="ols-login.cfm?lang=#lang#">#language.returnlogin#</a></div>

@@ -91,7 +91,6 @@
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
 			<cfoutput>
-			<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#url.CID#">#language.welcomePage#</a> &gt;
 			#language.archivedBookings#
 			</cfoutput>
 		</p>

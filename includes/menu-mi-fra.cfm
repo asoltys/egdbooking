@@ -1,11 +1,13 @@
-<cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-  SELECT ReadOnly
-  FROM Users
-  WHERE UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />
-</cfquery>
-<cfoutput query="readonlycheck">
-  <cfset Session.ReadOnly = #ReadOnly#>
-</cfoutput>
+<cfif structKeyExists(session, 'uid')>
+  <cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+    SELECT ReadOnly
+    FROM Users
+    WHERE UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />
+  </cfquery>
+  <cfoutput query="readonlycheck">
+    <cfset Session.ReadOnly = #ReadOnly#>
+  </cfoutput>
+</cfif>
 
 <cfset Variables.BookingRequestString = "">
 <cfif IsDefined("URL.VNID")>
@@ -24,6 +26,7 @@
 <CFIF structKeyExists(form, 'a-y')>
   <CFSET variables.datetoken = variables.datetoken & "&amp;a-y=#url['a-y']#">
 </CFIF>
+
 <!-- ====== /includes/MENU-MI-FRA.html ====== -->
 <cfoutput>
 <ul class="leftNav">
@@ -31,17 +34,21 @@
 	<h2><a href="#EGD_URL#/index-fra.html"><acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym></a></h2>
 	<h2><a href="#RootDir#reserve-book-#lang#.cfm">#language.booking#</a></h2>
   <ul>
-    <li><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" title="#language.BookingHomeButton#">#language.BookingHomeButton#</a></li>
-    <li><a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang##datetoken#">#language.drydockCalendar#</a></li>
-    <li><a href="#RootDir#comm/calend-jet.cfm?lang=#lang##datetoken#">#language.JettyCalendar#</a></li>
+    <cfif structKeyExists(session, 'loggedin')>
+      <li><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" title="#language.BookingHomeButton#">#language.BookingHomeButton#</a></li>
+      <li><a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang##datetoken#">#language.drydockCalendar#</a></li>
+      <li><a href="#RootDir#comm/calend-jet.cfm?lang=#lang##datetoken#">#language.JettyCalendar#</a></li>
 
-    <cfif #Session.ReadOnly# NEQ "1">
-    <li><a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang##Variables.BookingRequestString#" title="#language.requestBooking#">#language.requestBooking#</a></li>
+      <cfif structKeyExists(session, 'readonly') and Session.ReadOnly NEQ 1>
+      <li><a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang##Variables.BookingRequestString#" title="#language.requestBooking#">#language.requestBooking#</a></li>
+      </cfif>
+
+      <li><a href="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#">#language.EditProfileButton#</a></li>
+      <li><a href="#RootDir#comm/resume-summary_ch.cfm?lang=#lang#">#language.bookingsSummary#</a></li>
+      <li><a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#">#language.LogoutButton#</a></li>
+    <cfelse>
+      <li><a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#">#language.Login#</a></li>
     </cfif>
-
-    <li><a href="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#">#language.EditProfileButton#</a></li>
-    <li><a href="#RootDir#comm/resume-summary_ch.cfm?lang=#lang#">#language.bookingsSummary#</a></li>
-    <li><a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#">#language.LogoutButton#</a></li>
   </ul>
 	<h2>Ressources <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym></h2>
 			<ul>

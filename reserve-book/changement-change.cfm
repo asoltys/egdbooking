@@ -45,8 +45,6 @@
 			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
-			<CFELSE>
-				<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.welcomePage#</a> &gt;
 			</CFIF>
 			<a href="#RootDir#reserve-book/formulaires-forms.cfm.cfm?lang=#lang#">#language.bookingForms#</a> &gt;
 			#language.changeForm#
