@@ -1,32 +1,4 @@
 <div id="menu1">
-
-	<cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-		SELECT ReadOnly
-		FROM Users
-		WHERE UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />
-	</cfquery>
-	<cfoutput query="readonlycheck">
-		<cfset Session.ReadOnly = #ReadOnly#>
-	</cfoutput>
-
-	<cfset Variables.BookingRequestString = "">
-	<cfif IsDefined("URL.VNID")>
-		<cfset Variables.BookingRequestString = "&amp;VNID=#URL.VNID#">
-	<cfelseif IsDefined("URL.CID")>
-		<cfset Variables.BookingRequestString = "&amp;CID=#URL.CID#">
-	</cfif>
-	<cfif IsDefined("URL.Date") AND DateCompare(#url.date#, #PacificNow#, 'd') EQ 1>
-		<cfset Variables.BookingRequestString = "#Variables.BookingRequestString#&amp;Date=#URL.Date#">
-	</cfif>
-
-	<CFSET variables.datetoken = "">
-	<CFIF structKeyExists(url, 'm-m')>
-		<CFSET variables.datetoken = variables.datetoken & "&amp;m-m=#url['m-m']#">
-	</CFIF>
-	<CFIF structKeyExists(form, 'a-y')>
-		<CFSET variables.datetoken = variables.datetoken & "&amp;a-y=#url['a-y']#">
-	</CFIF>
-
 	<cfif lang EQ "eng">
 	<cffile action="read" file="#FileDir#intro-eng.txt" variable="intromsg">
 	<cfif #Trim(intromsg)# EQ "">
@@ -48,24 +20,6 @@
 		</div>
 	</cfif>
 	</cfif>
-
-	<div>
-		<cfoutput>
-		<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton" title="#language.BookingHomeButton#">#language.BookingHomeButton#</a>
-		<a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang##datetoken#" class="textbutton">#language.drydockCalendar#</a>
-		<a href="#RootDir#comm/calend-jet.cfm?lang=#lang##datetoken#" class="textbutton">#language.JettyCalendar#</a>
-		<div>&nbsp;</div>
-
-		<cfif #Session.ReadOnly# EQ "1"><cfelse>
-		<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang##Variables.BookingRequestString#" class="textbutton" title="#language.requestBooking#">#language.requestBooking#</a>
-		</cfif>
-
-		<a href="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#" class="textbutton">#language.EditProfileButton#</a>
-    <a href="#RootDir#comm/resume-summary_ch.cfm?lang=#lang#" class="textbutton">#language.bookingsSummary#</a>
-		<a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#" class="textbutton">#language.LogoutButton#</a>
-		</cfoutput>
-
-	</div>
 
 	<CFSET variables.urltoken = "lang=#lang#">
 	<CFIF IsDefined('variables.startDate')>
