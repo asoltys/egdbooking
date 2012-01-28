@@ -119,14 +119,14 @@ function popUp(pageID) {
 	<li>
 		<h2>Saviez-vous?</h2>
 		<ul>
-			<li>La <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym> est une des rares installations de réparation de grands bâtiments au monde à avoir adopté la norme <acronym title="Organisation internationale de normailisation">ISO</acronym> 14001.  <a title="EGD: Leading the Way with ISO 14001" href="#EGD_URL#/env/voie-way-fra.html">Détails &gt; </a></li>
+			<li>La <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym> est une des rares installations de r&##233;paration de grands b&##226;timents au monde &##224; avoir adopt&##233; la norme <acronym title="Organisation internationale de normailisation">ISO</acronym> 14001.  <a title="EGD: Leading the Way with ISO 14001" href="#EGD_URL#/env/voie-way-fra.html">D&eacute;tails &gt; </a></li>
 
 		</ul>
 		<br />
 		<h2>Quoi de neuf...</h2>
 		<ul>
-			<li><a title="CSE: Capital Projects" href="#EGD_URL#/env/projects-projets-fra.html">Futurs projets d'investissement impact sur les opérations de la cale sèche d'Esquimalt.  </a></li>
-			<li><a title="CSE Reglement" href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-fra.html">Règlement modifiant le Règlement de 1989 sur la cale sèche d¿Esquimalt.</a></li>
+			<li><a title="CSE: Capital Projects" href="#EGD_URL#/env/projects-projets-fra.html">Futurs projets d&##39;investissement impact sur les op&##233;rations de la cale s&##232;che d&##39;Esquimalt.</a></li>
+			<li><a title="CSE Reglement" href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-fra.html">R&##232;glement modifiant le R&##232;glement de 1989 sur la cale s&##232;che d'Esquimalt.</a></li>
 
 		</ul>
 	</li>
