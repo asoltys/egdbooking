@@ -331,12 +331,7 @@
 									</cfif>
 								</CFIF>
 
-								<cfif url.referrer eq "Archive">
-									<a href="#returnTo#?lang=#lang#&amp;date=#url.date#&amp;CID=#url.CID#" class="textbutton">#language.Back#</a>
-								<cfelse>
-									<a href="#returnTo#?lang=#lang#&amp;date=#url.date#" class="textbutton">#language.Back#</a>
-								</cfif>
-
+                <a href="#returnTo#?lang=#lang#&amp;date=#url.date#" class="textbutton">#language.Back#</a>
 							</cfif>
 						</cfif>
 					</div>

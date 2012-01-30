@@ -348,7 +348,7 @@ WHERE	SouthJetty = 1
 
   <!--- Legend of company abbreviations --->
   <table>
-  <CAPTION><cfoutput><strong>#language.legend#:</strong></cfoutput></CAPTION>
+    <caption><cfoutput><strong>#language.legend#:</strong></cfoutput></caption>
     <tr>
   <cfoutput query="getCompanies">
       <td>#Abbreviation# - #CompanyName#</td>

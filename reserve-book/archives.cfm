@@ -1,31 +1,25 @@
-<!---clear form structure--->
 <cfif IsDefined("Session.Form_Structure")>
 	<cfset StructDelete(Session, "Form_Structure")>
 </cfif>
 
-
-<cfquery name="getCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+<cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT	C.Name AS CompanyName
 	FROM	Companies C INNER JOIN UserCompanies UC ON C.CID = UC.CID
-	WHERE	(C.CID = <cfqueryparam value="#url.CID#" cfsqltype="cf_sql_integer" />)
-		AND	(UC.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />)
+	WHERE	
+		UC.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />
 		AND	UC.Deleted = '0'
 </cfquery>
-
-<CFIF getCompany.RecordCount EQ 0>
-	<CFLOCATION addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?CID=#url.CID#">
-</CFIF>
 
 <cfif lang EQ 'eng'>
 	<cfset language.keywords = language.masterKeywords & ", Booking Archives">
 	<cfset language.description = "Allows users to view all bookings for a company.">
 	<cfset language.subjects = language.masterSubjects & "">
-	<cfset language.followingbooking = "Your bookings for #getcompany.companyName# are as follows:">
+	<cfset language.followingbooking = "Your bookings are as follows:">
 <cfelse>
 	<cfset language.keywords = language.masterKeywords & "">
 	<cfset language.description = "Permet aux utilisateurs de voir toutes les r&eacute;servations pour une entreprise.">
 	<cfset language.subjects = language.masterSubjects & "">
-	<cfset language.followingbooking = "Vos r&eacute;servations au nom de #getcompany.companyName# sont les suivantes :">
+	<cfset language.followingbooking = "Vos r&eacute;servations sont les suivantes :">
 </cfif>
 
 <cfhtmlhead text="
@@ -44,7 +38,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = <cfqueryparam value="#url.CID#" cfsqltype="cf_sql_integer" /> AND Bookings.Deleted = '0' AND Vessels.Deleted = 0
+	WHERE Bookings.Deleted = '0' AND Vessels.Deleted = 0
 	ORDER BY startDate, enddate
 </cfquery>
 
@@ -55,7 +49,7 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = <cfqueryparam value="#url.CID#" cfsqltype="cf_sql_integer" /> AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0
+	WHERE Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0
 	ORDER BY startDate, enddate
 </cfquery>
 
@@ -66,7 +60,6 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0
-	WHERE Companies.CID = <cfqueryparam value="#url.CID#" cfsqltype="cf_sql_integer" />
 	ORDER BY startDate, enddate
 </cfquery>
 
@@ -85,7 +78,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#getCompany.CompanyName# #language.archivedBookings#</cfoutput>
+					<cfoutput>#language.archivedBookings#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -108,7 +101,7 @@
                 <cfloop query="getDockBookings">
                   <tr>
                     <td>
-                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">
+                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#">
                         ###BRID#:
                         #Name# &mdash;
                         #lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - 
@@ -143,7 +136,7 @@
                 <cfloop query="getNorthJettyBookings">
                   <tr>
                     <td>
-                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">
+                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#">
                         ###BRID#:
                         #Name# &mdash;
                         #lsdateformat(startDate, 'mmm d, yyyy')# - 
@@ -177,7 +170,7 @@
                 <cfloop query="getSouthJettyBookings">
                   <tr>
                     <td>
-                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#&amp;CID=#url.CID#">
+                      <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#">
                         ###BRID#:
                         #Name# &mdash;
                         #lsdateformat(startDate, 'mmm d, yyyy')# - 
@@ -197,7 +190,7 @@
 						<p>#language.None#.</p>
 					</cfif>
 				<br />
-				<div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#url.CID#" class="textbutton">#language.returnTo#</a></div>
+				<div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton">#language.returnTo#</a></div>
 
 				</cfoutput>
 			</div>
