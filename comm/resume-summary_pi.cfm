@@ -7,10 +7,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 </cfif>
 
-<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
-<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,"\"), "\")>
+<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,slash)>
+<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,slash), slash)>
 <cfdirectory action="LIST" directory="#PageDir#" name="GetFile" filter="#PageFileName#">
-<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,"\")>
+<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,slash)>
 
 <cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
 	<cfset language.bookingsSummary = "Bookings Summary">
