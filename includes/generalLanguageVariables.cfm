@@ -29,6 +29,9 @@
   <cfset language.dateSelect = "Date Selection" />
   <cfset language.year = "Year" />
   <cfset language.month = "Month" />
+  <cfset language.acknowledged = "I have read and acknowledged this notice" />
+  <cfset language.acknowledgement_received = "Acknowledgement received.  You can view the notice at any time by visiting the <a href='#RootDir#reserve-book/avis-notices.cfm'>Notices</a> page" />
+  <cfset language.notices = "Notices" />
 <cfelse>
 	<cfset language.PWGSC = "TPSGC">
 	<cfset language.pacificRegion = "R&eacute;gion du Pacifique">
@@ -60,6 +63,9 @@
   <cfset language.dateSelect = "Choix de la date" />
   <cfset language.year = "Ann&eacute;e" />
   <cfset language.month = "Mois" />
+  <cfset language.acknowledged = "J'ai lu et reconnu cet avis" />
+  <cfset language.acknowledgement_received = "Remerciements reçus. Vous pouvez consulter l'avis en tout temps en visitant <a href='#RootDir#reserve-book/avis-notices.cfm'>la page des avis.</a>" />
+  <cfset language.notices = "Avis" />
 </cfif>
 
 <cfif lang EQ 'eng'>
