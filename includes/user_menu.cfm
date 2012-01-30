@@ -1,25 +1,13 @@
 <div id="menu1">
-	<cfif lang EQ "eng">
-	<cffile action="read" file="#FileDir#intro-eng.txt" variable="intromsg">
-	<cfif #Trim(intromsg)# EQ "">
-	<cfelse>
-		<cfinclude template="#RootDir#includes/helperFunctions.cfm" />
-		<div class="notice">
-		<h2>Notice</h2>
-		<cfoutput>#FormatParagraph(intromsg)#</cfoutput>
-		</div>
-	</cfif>
-	<cfelse>
-	<cffile action="read" file="#FileDir#intro-fra.txt" variable="intromsg">
-	<cfif #Trim(intromsg)# EQ "">
-	<cfelse>
-		<cfinclude template="#RootDir#includes/helperFunctions.cfm" />
-		<div class="notice">
-		<h2>Avis</h2>
-		<cfoutput>#FormatParagraph(intromsg)#</cfoutput>
-		</div>
-	</cfif>
-	</cfif>
+  <cffile action="read" file="#FileDir#intro-#lang#.txt" variable="intromsg">
+  <cfif #Trim(intromsg)# EQ "">
+  <cfelse>
+    <cfinclude template="#RootDir#includes/helperFunctions.cfm" />
+    <div class="notice">
+    <h2>Notice</h2>
+    <cfoutput>#FormatParagraph(intromsg)#</cfoutput>
+    </div>
+  </cfif>
 
 	<CFSET variables.urltoken = "lang=#lang#">
 	<CFIF IsDefined('variables.startDate')>
