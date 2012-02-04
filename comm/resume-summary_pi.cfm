@@ -71,10 +71,10 @@
 	<meta name="dc.identifier" content=" " />
 	<meta name="dc.type" content="" />
 		
-	<meta name="dc.title" content="#language.title# - #language.esqGravingDock# - #language.PWGSC#" />
-	<meta name="keywords" content="#language.masterKeywords# #language.title#" />
-	<meta name="description" content="#language.title#" />
-	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
+	<meta name="dc.title" content="#language.bookingsSummary# - #language.esqGravingDock# - #language.PWGSC#" />
+	<meta name="keywords" content="#language.masterKeywords# #language.bookingsSummary#" />
+	<meta name="description" content="#language.bookingsSummary#" />
+	<meta name="dc.subject" scheme="gccore" content="#language.masterSubjects#" />
 
 	<meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
 	<meta name="dcterms.modified" scheme="W3CDTF" content="#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#" />
@@ -282,15 +282,16 @@ WHERE	SouthJetty = 1
   <h2>#language.SouthJetty#</h2>
   <!-- Begin South Jetty table -->
   <CFIF getSJBookings.RecordCount neq 0>
-  <table>
-    <thead>
-      <tr>
-        <th id="vessel3">#language.VESSELCaps#</th>
-        <th id="section3">#language.SECTIONCaps#</th>
-        <th id="docking3">#language.DOCKINGCaps#</th>
-        <th id="booking3">#language.BOOKINGDATECaps#</th>
-      </tr>
-    </thead>	
+    <table>
+      <thead>
+        <tr>
+          <th id="vessel3">#language.VESSELCaps#</th>
+          <th id="section3">#language.SECTIONCaps#</th>
+          <th id="docking3">#language.DOCKINGCaps#</th>
+          <th id="booking3">#language.BOOKINGDATECaps#</th>
+        </tr>
+      </thead>	
+      <tbody>
         <cfloop query="getSJBookings">
           <!---check if ship belongs to user's company--->
           <cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
@@ -308,23 +309,24 @@ WHERE	SouthJetty = 1
           <cfset Variables.countQName = "userVessel" & #VNID# & ".recordCount">
           <cfset Variables.count = EVALUATE(countQName)>
 
-        <tr <cfif getSJBookings.Status EQ 'c'>class="confirmed"</cfif>>
-          <td headers="vessel3"><abbr title="#CompanyName#">#Abbreviation#</abbr> #VesselLength#M 
-            <CFIF Anonymous 
-              AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
-              AND Variables.count eq 0 
-              AND Status neq 'c'>#language.deepsea#<CFELSE>#VesselName#</CFIF></td>
-          <td headers="section3"><div><CFIF Status eq 'c'>#language.Booked#
-                        <CFELSEIF Status eq 't'>#language.tentative#
-                        <CFELSE>#language.Pending#
-                        </CFIF></div></td>
-          <td headers="docking3">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)></CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
-          <td headers="booking3">#LSDateFormat(BookingTime, 'mmm d, yyyy')#@#LSTimeFormat(BookingTime, 'HH:mm')#</td>
-        </tr>
-      </table>
-    </cfloop>
+          <tr <cfif getSJBookings.Status EQ 'c'>class="confirmed"</cfif>>
+            <td headers="vessel3"><abbr title="#CompanyName#">#Abbreviation#</abbr> #VesselLength#M 
+              <CFIF Anonymous 
+                AND (NOT IsDefined('Session.AdminLoggedIn') OR NOT Session.AdminLoggedIn) 
+                AND Variables.count eq 0 
+                AND Status neq 'c'>#language.deepsea#<CFELSE>#VesselName#</CFIF></td>
+            <td headers="section3"><div><CFIF Status eq 'c'>#language.Booked#
+                          <CFELSEIF Status eq 't'>#language.tentative#
+                          <CFELSE>#language.Pending#
+                          </CFIF></div></td>
+            <td headers="docking3">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)></CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
+            <td headers="booking3">#LSDateFormat(BookingTime, 'mmm d, yyyy')#@#LSTimeFormat(BookingTime, 'HH:mm')#</td>
+          </tr>
+        </cfloop>
+      </tbody>
+    </table>
   <CFELSE>
-  <p>#language.noBookings#</p>
+    <p>#language.noBookings#</p>
   </CFIF>
 </div>
 
