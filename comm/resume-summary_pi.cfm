@@ -1,3 +1,4 @@
+<cfoutput>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -76,14 +77,10 @@
 	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
 
 	<meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
-	<meta name="dcterms.modified" scheme="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
+	<meta name="dcterms.modified" scheme="W3CDTF" content="#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#" />
 	
-	<!-- METADATA ENDS | FIN DES METADONNEES -->
-	
-  <cfoutput>
-	<title>#language.BookingsSummary# - #language.esqGravingDock# - #language.PWGSC#</title>
+  <title>#language.BookingsSummary# - #language.esqGravingDock# - #language.PWGSC#</title>
   <link href="#RootDir#css/custom.css" media="print, screen" rel="stylesheet" type="text/css" />
-  </cfoutput>
 </head>
 <body>
 
@@ -170,29 +167,23 @@ WHERE	SouthJetty = 1
 	ORDER BY CompanyName
 </cfquery>
 
-<cfoutput>
-
 
 <h1>#language.EsqGravingDock# #language.BookingsSummary#</h1>
-
 <h2>#language.Drydock#</h2>
-</cfoutput>
 
 <div id="print_summary">
   <!--- Begin Dry Dock table --->
   <CFIF getDockBookings.RecordCount neq 0>
   <table>
-    <cfoutput>
     <thead>
-    <tr>
-      <th id="vessel">#language.VESSELCaps#</th>
-      <th id="section">#language.SECTIONCaps#</th>
-      <th id="docking">#language.DOCKINGCaps#</th>
-      <th id="booking">#language.BOOKINGDATECaps#</th>
-    </tr>
+      <tr>
+        <th id="vessel">#language.VESSELCaps#</th>
+        <th id="section">#language.SECTIONCaps#</th>
+        <th id="docking">#language.DOCKINGCaps#</th>
+        <th id="booking">#language.BOOKINGDATECaps#</th>
+      </tr>
     </thead>
-    </cfoutput>
-      <cfoutput query="getDockBookings">
+      <cfloop query="getDockBookings">
         <!---check if ship belongs to user's company--->
         <cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
           <cfquery name="userVessel#VNID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -233,28 +224,26 @@ WHERE	SouthJetty = 1
         <td headers="docking">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)></CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
         <td headers="booking">#LSDateFormat(BookingTime, 'mmm d, yyyy')#@#LSTimeFormat(BookingTime, 'HH:mm')#</td>
       </tr>
-      </cfoutput>
+      </cfloop>
   </table>
   <CFELSE>
-  <cfoutput><p>#language.noBookings#</p></cfoutput>
+  <p>#language.noBookings#</p>
   </CFIF>
 
-  <h2><cfoutput>#language.NorthLandingWharf#</cfoutput></h2>
+  <h2>#language.NorthLandingWharf#</h2>
 
   <CFIF getNJBookings.RecordCount neq 0>
   <!-- Begin North Jetty table -->
   <table>
-    <cfoutput>
     <thead>
-    <tr>
-      <th id="vessel2">#language.VESSELCaps#</th>
-      <th id="section2">#language.SECTIONCaps#</th>
-      <th id="docking2">#language.DOCKINGCaps#</th>
-      <th id="booking2">#language.BOOKINGDATECaps#</th>
-    </tr>
+      <tr>
+        <th id="vessel2">#language.VESSELCaps#</th>
+        <th id="section2">#language.SECTIONCaps#</th>
+        <th id="docking2">#language.DOCKINGCaps#</th>
+        <th id="booking2">#language.BOOKINGDATECaps#</th>
+      </tr>
     </thead>
-    </cfoutput>
-      <cfoutput query="getNJBookings">
+      <cfloop query="getNJBookings">
         <!---check if ship belongs to user's company--->
         <cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
           <cfquery name="userVessel#VNID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -284,27 +273,25 @@ WHERE	SouthJetty = 1
         <td headers="docking2">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)></CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
         <td headers="booking2">#LSDateFormat(BookingTime, 'mmm d, yyyy')#@#LSTimeFormat(BookingTime, 'HH:mm')#</td>
       </tr>
-      </cfoutput>
+      </cfloop >
     </table>
   <CFELSE>
-  <cfoutput><p>#language.noBookings#</p></cfoutput>
+  <p>#language.noBookings#</p>
   </CFIF>
 
-  <h2><cfoutput>#language.SouthJetty#</cfoutput></h2>
+  <h2>#language.SouthJetty#</h2>
   <!-- Begin South Jetty table -->
   <CFIF getSJBookings.RecordCount neq 0>
-    <cfoutput>
-      <table>
-        <thead>
-        <tr>
-          <th id="vessel3">#language.VESSELCaps#</th>
-          <th id="section3">#language.SECTIONCaps#</th>
-          <th id="docking3">#language.DOCKINGCaps#</th>
-          <th id="booking3">#language.BOOKINGDATECaps#</th>
-        </tr>
-        </thead>	
-        </cfoutput>
-        <cfoutput query="getSJBookings">
+  <table>
+    <thead>
+      <tr>
+        <th id="vessel3">#language.VESSELCaps#</th>
+        <th id="section3">#language.SECTIONCaps#</th>
+        <th id="docking3">#language.DOCKINGCaps#</th>
+        <th id="booking3">#language.BOOKINGDATECaps#</th>
+      </tr>
+    </thead>	
+        <cfloop query="getSJBookings">
           <!---check if ship belongs to user's company--->
           <cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
             <cfquery name="userVessel#VNID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -335,25 +322,20 @@ WHERE	SouthJetty = 1
           <td headers="booking3">#LSDateFormat(BookingTime, 'mmm d, yyyy')#@#LSTimeFormat(BookingTime, 'HH:mm')#</td>
         </tr>
       </table>
-    </cfoutput>
+    </cfloop>
   <CFELSE>
-  <cfoutput><p>#language.noBookings#</p></cfoutput>
+  <p>#language.noBookings#</p>
   </CFIF>
 
-  <br /><br />
-
-  <cfif getCompanies.recordCount gt 0>
-    <!--- Legend of company abbreviations --->
-    <table>
-      <caption><cfoutput><strong>#language.legend#:</strong></cfoutput></caption>
-      <cfoutput query="getCompanies">
-        <tr>
-          <td>#Abbreviation# - #CompanyName#</td>
-        <tr>
-      </cfoutput>
-    </table>
-  </cfif>
+  <h2>#language.legend#:</h2>
+  <dl class="legend">
+    <cfloop query="getCompanies">
+      <dt>#Abbreviation#</dt>
+      <dd>#CompanyName#</dd>
+    </cfloop>
+  </dl>
 </div>
 
 </body>
 </html>
+</cfoutput>
