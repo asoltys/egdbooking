@@ -326,14 +326,6 @@ WHERE	SouthJetty = 1
   <CFELSE>
   <p>#language.noBookings#</p>
   </CFIF>
-
-  <h2>#language.legend#:</h2>
-  <dl class="legend">
-    <cfloop query="getCompanies">
-      <dt>#Abbreviation#</dt>
-      <dd>#CompanyName#</dd>
-    </cfloop>
-  </dl>
 </div>
 
 </body>

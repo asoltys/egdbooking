@@ -356,24 +356,3 @@ div#print_summary td, div#print_summary th {
   border: 1px solid #ccc;
   padding: 3px;
 }
-
-/* LEGEND ----------------------------------------------- */
-
-dl.legend {
-  padding: 0.5em;
-}
-
-dl.legend dt {
-  float: left;
-  clear: left;
-  font-weight: bold;
-  padding-right: 10px;
-}
-
-dl.legend dt:after {
-  content: ":";
-}
-
-dl.legend dd {
-  padding: 0 0 0.5em 0;
-}
