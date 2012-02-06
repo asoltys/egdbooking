@@ -56,7 +56,6 @@
 <cfset Success = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
 
-
 <cfset Variables.StartDate = CreateODBCDate(Form.StartDate)>
 <cfset Variables.EndDate = CreateODBCDate(Form.EndDate)>
 <cfset Variables.VNID = Form.VNID>
