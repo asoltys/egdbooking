@@ -154,12 +154,10 @@ function EditSubmit ( selectedform )
 							<label for="email">#language.Email#:</label>
 							<input name="email" id="email" type="text" value="#variables.email#" size="25" maxlength="40"  />
 							
-
+              <div>
+                <input type="submit" name="submitForm" value="#language.saveName#" />
+              </div>
 						</fieldset>
-						<div class="buttons">
-							<input type="submit" name="submitForm" value="#language.saveName#" class="textbutton" />
-						</div>
-
 					</form>
 				</cfoutput>
 
@@ -188,14 +186,14 @@ function EditSubmit ( selectedform )
 						<legend>#language.ChangePassword#</legend>
 							<label for="password">#language.Password# <span class="smallFont">(*min. 8 #language.characters#)</span>:</label>
 							<input type="password" id="password" name="password1"  />
-							<br />
 
 							<label for="password2">#language.RepeatPassword#:</label>
 							<input type="password" id="password2" name="password2"  />
+
+              <div>
+                <input type="submit" name="submitForm" value="#language.ChangePassword#" />
+              </div>
 						</fieldset>
-						<div class="buttons">
-							<input type="submit" name="submitForm" value="#language.ChangePassword#" class="textbutton" />
-						</div>
 					</form>
 				</cfoutput>
 
