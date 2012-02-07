@@ -30,31 +30,30 @@
 <!-- ====== /includes/MENU-MI-ENG.html ====== -->
 <cfoutput>
 <ul class="leftNav">
-	<li>
-	<h2><a href="#EGD_URL#/index-eng.html"><acronym title="Esquimalt Graving Dock">EGD</acronym></a></h2>
-	<h2><a href="#RootDir#reserve-book-#lang#.cfm">#language.booking#</a></h2>
-  <ul>
-    <cfif structKeyExists(session, 'loggedin')>
-      <li><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" title="#language.BookingHomeButton#">#language.BookingHomeButton#</a></li>
-      <li><a href="#RootDir#comm/resume-summary_ch.cfm?lang=#lang#">#language.bookingsSummary#</a></li>
-      <li><a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang##datetoken#">#language.drydockCalendar#</a></li>
-      <li><a href="#RootDir#comm/calend-jet.cfm?lang=#lang##datetoken#">#language.JettyCalendar#</a></li>
+  <li><h2><a href="#EGD_URL#/index-eng.html"><acronym title="Esquimalt Graving Dock">EGD</acronym></a></h2></li>
+	<li><h2><a href="#RootDir#reserve-book-#lang#.cfm">#language.booking#</a></h2>
+    <ul>
+      <cfif structKeyExists(session, 'loggedin')>
+        <li><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" title="#language.BookingHomeButton#">#language.BookingHomeButton#</a></li>
+        <li><a href="#RootDir#comm/resume-summary_ch.cfm?lang=#lang#">#language.bookingsSummary#</a></li>
+        <li><a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang##datetoken#">#language.drydockCalendar#</a></li>
+        <li><a href="#RootDir#comm/calend-jet.cfm?lang=#lang##datetoken#">#language.JettyCalendar#</a></li>
 
-      <cfif structKeyExists(session, 'readonly') and Session.ReadOnly NEQ 1>
-      <li><a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang##Variables.BookingRequestString#" title="#language.requestBooking#">#language.requestBooking#</a></li>
-      <li><a href="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#">#Language.addVessel#</a></li>
+        <cfif structKeyExists(session, 'readonly') and Session.ReadOnly NEQ 1>
+        <li><a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang##Variables.BookingRequestString#" title="#language.requestBooking#">#language.requestBooking#</a></li>
+        <li><a href="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#">#Language.addVessel#</a></li>
+        </cfif>
+        <li><a href="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#">#language.BookingForms#</a></li>
+        <li><a href="#RootDir#reserve-book/archives.cfm?lang=#lang#">#language.archivedBookings#</a></li>
+        <li><a href="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#">#language.EditProfileButton#</a></li>
+        <li><a href="#RootDir#reserve-book/avis-notices.cfm?lang=#lang#">#language.notices#</a></li>
+        <li><a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#">#language.LogoutButton#</a></li>
+      <cfelse>
+        <li><a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.Login#</a></li>
       </cfif>
-      <li><a href="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#">#language.BookingForms#</a></li>
-      <li><a href="#RootDir#reserve-book/archives.cfm?lang=#lang#">#language.archivedBookings#</a></li>
-      <li><a href="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#">#language.EditProfileButton#</a></li>
-      <li><a href="#RootDir#reserve-book/avis-notices.cfm?lang=#lang#">#language.notices#</a></li>
-      <li><a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#">#language.LogoutButton#</a></li>
-    <cfelse>
-      <li><a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.Login#</a></li>
-    </cfif>
-  </ul>
-	<h2><acronym title="Esquimalt Graving Dock">EGD</acronym> Resources</h2>
-			<ul>
+    </ul>
+  <li><h2><acronym title="Esquimalt Graving Dock">EGD</acronym> Resources</h2>
+    <ul>
 			<li><a href="#EGD_URL#/site-eng.html" title="Site Map">Site Map</a></li>
 			<li><a href="#EGD_URL#/cn-cu-eng.html" title="Contact EGD">Contact EGD</a></li>
 		</ul>
