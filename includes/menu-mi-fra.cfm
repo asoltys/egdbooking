@@ -52,6 +52,7 @@
         <li><a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.Login#</a></li>
       </cfif>
     </ul>
+  </li>
 	<li><h2>Ressources <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym></h2>
     <ul>
 			<li><a href="#EGD_URL#/site-fra.html" title="Plan du site">Plan du site</a></li>

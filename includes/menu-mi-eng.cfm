@@ -26,7 +26,6 @@
 <CFIF structKeyExists(form, 'a-y')>
   <CFSET variables.datetoken = variables.datetoken & "&amp;a-y=#url['a-y']#">
 </CFIF>
-
 <!-- ====== /includes/MENU-MI-ENG.html ====== -->
 <cfoutput>
 <ul class="leftNav">
@@ -52,6 +51,7 @@
         <li><a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.Login#</a></li>
       </cfif>
     </ul>
+  </li>
   <li><h2><acronym title="Esquimalt Graving Dock">EGD</acronym> Resources</h2>
     <ul>
 			<li><a href="#EGD_URL#/site-eng.html" title="Site Map">Site Map</a></li>
