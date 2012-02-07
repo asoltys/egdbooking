@@ -92,11 +92,11 @@
               <input type="text" name="email" id="email" size="40" maxlength="100" value="#email#" />
               <label for="password">#language.Password#:</label>
               <input type="password" name="Password" id="password" size="25" maxlength="40" />
-              <input type="submit" name="submitForm" value="#language.Login#" class="textbutton" />
               <div>
                 <label for="remember">#language.Remember#</label>
                 <input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked="checked"</CFIF> />
               </div>
+              <input type="submit" name="submitForm" value="#language.Login#" class="textbutton" />
             </fieldset>
 					</form>
 					<div><a href="utilisateurajout-useradd.cfm?lang=#lang#">#language.addUser#</a></div>
