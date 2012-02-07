@@ -187,6 +187,8 @@ function EditSubmit ( selectedform )
 							<label for="password">#language.Password# <span class="smallFont">(*min. 8 #language.characters#)</span>:</label>
 							<input type="password" id="password" name="password1"  />
 
+              <br />
+
 							<label for="password2">#language.RepeatPassword#:</label>
 							<input type="password" id="password2" name="password2"  />
 
