@@ -143,13 +143,13 @@
 							FORMNAME="bookingreq">
 						<br />
 
-						<label for="StartDate">#language.StartDate#<br /><small>#language.dateform#</small>:</label>
+            <label for="StartDate">#language.StartDate#<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>:</label>
 						<input id="StartDate" name="startDate" type="text" class="startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> 
 						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
 						<br class="clear" />
 
 
-						<label for="EndDate">#language.EndDate#:<br /><small>#language.dateform#</small></label>
+						<label for="EndDate">#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
 						<input id="EndDate" name="endDate" type="text" class="endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> 
 						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
 						<br class="clear" />

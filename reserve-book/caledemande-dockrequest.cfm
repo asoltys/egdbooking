@@ -141,12 +141,12 @@
 							FORMNAME="bookingreq">
 						<br />
 
-						<label for="startDateA">#language.StartDate#<br /><small>#language.dateform#</small>:</label>
+						<label for="startDateA">#language.StartDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
 						<input id="startDateA" name="startDate" class="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> 
 						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
 						<br class="clear" />
 
-						<label for="endDateA">#language.EndDate#:<br /><small>#language.dateform#</small></label>
+						<label for="endDateA">#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
 						<input id="endDateA" name="endDate" class="endDate" type="text" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#"  />
 						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
 						<br class="clear" />
@@ -196,12 +196,12 @@
 						<fieldset>
 							<legend>#language.DateRange#</legend>
 
-							<label for="StartDateB">#language.StartDate#<br /><small>#language.dateForm#</small>:</label>
+							<label for="StartDateB">#language.StartDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
 							<input id="StartDateB" name="startDate" type="text" class="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
 							<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
 							<br class="clear" />
 
-							<label for="EndDateB">#language.EndDate#:<br /><small>#language.dateForm#</small></label>
+							<label for="EndDateB">#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
 							<input id="EndDateB" name="endDate" type="text" class="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
 							<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
 							<br class="clear" />

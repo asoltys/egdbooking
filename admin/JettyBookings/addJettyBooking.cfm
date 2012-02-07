@@ -189,7 +189,7 @@ function EditSubmit ( selectedform )
 								<td id="bookingDT">Booking Date:</td>
 								<td headers="bookingDT">
 									<cfoutput>
-										<cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" /> (MM/DD/YYYY)
+                  <cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" /> <abbr title="#language.dateformatexplanation#">(MM/DD/YYYY)</abbr>
                     <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
                   </cfoutput>
                 </td>

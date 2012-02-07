@@ -22,6 +22,7 @@
 	<cfset language.calendar = "This calendar provides a day by day availability summary for the Esquimalt Graving Dock">
 	<cfset language.calendars = "calendars">
 	<cfset language.dateform = "(MM/DD/YYYY)">
+	<cfset language.dateformexplanation = "Month, Day, Year">
 	<cfset language.welcomePage = "Welcome Page">
 	<cfset language.login = "Login">
 	<cfset language.masterKeywords = "Esquimalt Graving Dock, EGD, Booking Request">
@@ -56,6 +57,7 @@
 	<cfset language.calendar = "Ce calendrier offre un r&eacute;sum&eacute; au jour le jour de disponibilit&eacute; pour le Cale s&egrave;che d'Esquimalt">
 	<cfset language.calendars = "calendriers">
 	<cfset language.dateform = "(MM/JJ/AAAA)">
+	<cfset language.dateformexplanation = "Mois, Jour, Ann&eacute;e">
 	<cfset language.welcomePage = "Page de bienvenue">
 	<cfset language.login = "Ouvrir la session">
 	<cfset language.masterKeywords = "Cale s&egrave;che d'Esquimalt, CSE, Demande de r&eacute;servation">
