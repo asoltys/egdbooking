@@ -51,7 +51,7 @@
 				<cfif #Trim(intromsg)# EQ "">
 				<cfelse>
 					<cfinclude template="#RootDir#includes/helperFunctions.cfm" />
-					<div class="notice">
+					<div class="option4">
 					<h2>Notice</h2>
 					<cfoutput>#FormatParagraph(intromsg)#</cfoutput>
 					</div>

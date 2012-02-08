@@ -164,6 +164,7 @@
 	<cfset language.none = "None">
 	<cfset language.archivedBookings = "Booking Archive">
 	<cfset language.returnTo = "Back to Booking Home">
+  <cfset language.mandatoryForms = "Mandatory Forms" />
 <cfelse>
 	<cfset language.currentCompany = "Vous regardez les renseignements portant sur :">
 	<cfset language.otherCompanies = "Autres entreprises">
@@ -186,4 +187,35 @@
 	<cfset language.none = "Aucun">
 	<cfset language.archivedBookings = "Archives des r&eacute;servations">
 	<cfset language.returnTo = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
+  <cfset language.mandatoryForms = "Formulaires obligatoires" />
+</cfif>
+
+<cfif lang EQ "eng">
+	<cfset language.newBooking = "Submit Drydock Booking Information">
+	<cfset language.keywords = language.masterKeywords & ", Drydock Booking Information">
+	<cfset language.description = "Allows user to submit a new booking request, drydock section.">
+	<cfset language.subjects = language.masterSubjects & "">
+	<cfset language.dblBookingError = "has already been booked from">
+	<cfset language.to = "to">
+	<cfset language.theVessel = "The vessel">
+	<cfset language.tooLarge = "is too large for the dry dock">
+	<cfset language.bookingConflicts = "The submitted booking request conflicts with other bookings.  The booking will be placed on a wait list if you choose to continue. Please confirm the following information.">
+	<cfset language.bookingAvailable = "The requested time is available.  Please confirm the following information.">
+	<cfset language.new = "New Booking">
+	<cfset language.requestedStatus = "Requested Status">
+	<cfset language.tplbookingError = "already has a booking for">
+<cfelse>
+	<cfset language.newBooking = "Pr&eacute;sentation des renseignements pour la r&eacute;servation de la cale s&egrave;che">
+	<cfset language.keywords = language.masterKeywords & ", renseignements pour la r&eacute;servation de la cale s&egrave;che">
+	<cfset language.description = "Permet &agrave; l'utilisateur de pr&eacute;senter une nouvelle demande de r&eacute;servation sur le site Web de la cale s&egrave;che d'Esquimalt - section de la cale s&egrave;che.">
+	<cfset language.subjects = language.masterSubjects & "">
+	<cfset language.dblBookingError = "fait d&eacute;j&agrave; l'objet d'une r&eacute;servation du">
+	<cfset language.to = "au">
+	<cfset language.theVessel = "Les dimensions du navire">
+	<cfset language.tooLarge = "sont sup&eacute;rieures &agrave; celles de la cale s&egrave;che.">
+	<cfset language.bookingConflicts = "La demande de r&eacute;servation pr&eacute;sent&eacute;e entre en conflit avec d'autres r&eacute;servations. La demande sera inscrite sur une liste d'attente si vous d&eacute;cidez de continuer. Veuillez confirmer les renseignements suivants.">
+	<cfset language.bookingAvailable = "La p&eacute;riode demand&eacute;e est libre. Veuillez confirmer les renseignements suivants.">
+	<cfset language.new = "Nouvelle r&eacute;servation">
+	<cfset language.requestedStatus = "&Eacute;tat demand&eacute;">
+	<cfset language.tplbookingError = "a d&eacute;j&agrave; une r&eacute;servation pour :">
 </cfif>

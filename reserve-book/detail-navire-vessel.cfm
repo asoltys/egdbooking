@@ -96,7 +96,7 @@
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 
           <cfif structKeyExists(session, 'vessel_edit_success')>
-            <div class="notice">
+            <div class="option4">
               <strong>The vessel has been edited successfully!</strong>
             </div>
             <cfset structDelete(session, 'vessel_edit_success')>
