@@ -306,6 +306,8 @@
               <thead>
 								<tr>
 									<th scope="col">#language.booking#</th>
+									<th scope="col">#language.startdate#</th>
+									<th scope="col">#language.enddate#</th>
 									<th scope="col">#language.status#</th>
 								</tr>
               </thead>
@@ -315,11 +317,12 @@
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.booking# ###BRID#">
                         ###BRID#:
-                        <cfif #EndHighlight# GTE PacificNow>* </cfif>#Name# &mdash;
-                        #lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - 
-                        #lsdateformat(endDate, 'mmm d, yyyy')#
+                        <cfif #EndHighlight# GTE PacificNow>*</cfif>
+                        #Name#
                       </a>
                     </td>
+                    <td>#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')#</td>
+                    <td>#lsdateformat(endDate, 'mmm d, yyyy')#</td>
                     <td>
                       <cfif status EQ "PT"><em class="pending">#language.pending#</em>
                       <cfelseif status EQ "C"><em class="confirmed">#language.confirmed#</em>
@@ -354,6 +357,8 @@
               <thead>
 								<tr>
 									<th scope="col">#language.booking#</th>
+									<th scope="col">#language.startdate#</th>
+									<th scope="col">#language.enddate#</th>
 									<th scope="col">#language.status#</th>
 								</tr>
               </thead>
@@ -363,11 +368,12 @@
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.booking# ###BRID#">
                         ###BRID#:
-                        <cfif #EndHighlight# GTE PacificNow>* </cfif>#Name# &mdash;
-                        #lsdateformat(startDate, 'mmm d, yyyy')# -
-                        #lsdateformat(endDate, 'mmm d, yyyy')#
+                        <cfif #EndHighlight# GTE PacificNow>*</cfif>
+                        #Name#
                       </a>
                     </td>
+                    <td>#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')#</td>
+                    <td>#lsdateformat(endDate, 'mmm d, yyyy')#</td>
                     <td>
                       <cfif status EQ "PT"><em class="pending">#language.pending#</em>
                       <cfelseif status EQ "C"><em class="confirmed">#language.confirmed#</em>
@@ -402,6 +408,8 @@
               <thead>
 								<tr>
 									<th scope="col">#language.booking#</th>
+									<th scope="col">#language.startdate#</th>
+									<th scope="col">#language.enddate#</th>
 									<th scope="col">#language.status#</th>
 								</tr>
               </thead>
@@ -411,11 +419,12 @@
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.booking# ###BRID#">
                         ###BRID#:
-                        <cfif #EndHighlight# GTE PacificNow>* </cfif>#Name# &mdash;
-                        #lsdateformat(startDate, 'mmm d, yyyy')# -
-                        #lsdateformat(endDate, 'mmm d, yyyy')#
+                        <cfif #EndHighlight# GTE PacificNow>*</cfif>
+                        #Name#
                       </a>
                     </td>
+                    <td>#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')#</td>
+                    <td>#lsdateformat(endDate, 'mmm d, yyyy')#</td>
                     <td>
                       <cfif status EQ "PT"><em class="pending">#language.pending#</em>
                       <cfelseif status EQ "C"><em class="confirmed">#language.confirmed#</em>
