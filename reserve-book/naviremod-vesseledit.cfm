@@ -116,67 +116,74 @@
 					</cfif>
 					<fieldset>
             <legend>#language.vessel#</legend>
-						#language.CompanyName#:
-						
-						<p>#getVesselDetail.CompanyName#</p>
 
-						<label for="name">#language.vessel#:</label>
-						<input id="name" name="name" type="text" value="#variables.Name#" size="37" maxlength="100" />
-						<br />
+            <div>
+              <label for="CID">#language.CompanyName#:</label>
+              <input type="text" disabled="disabled" readonly="readonly" id="CID" name="CID" value="#getVesselDetail.CompanyName#" />
+            </div>
 
-						<label for="LloydsID">#language.LloydsID#:</label>
-						<input id="LloydsID" name="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" />
-						<br />
+						<div>
+              <label for="name">#language.vessel#:</label>
+              <input id="name" name="name" type="text" value="#variables.Name#" size="37" maxlength="100" />
+						</div>
+
+						<div>
+              <label for="LloydsID">#language.LloydsID#:</label>
+              <input id="LloydsID" name="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" />
+						</div>
 
 						<cfif getVesselDockBookings.recordCount GT 0 OR getVesselJettyBookings.recordCount GT 0>
+							<div>
+                <label for="length">#language.Length#:</label>
+                <p>#variables.length# m</p>
+                <input type="hidden" id="length" name="length" value="#variables.length#" />
+							</div>
 
-							<label for="length">#language.Length#:</label>
-							<p>#variables.length# m</p>
-							<input type="hidden" id="length" name="length" value="#variables.length#" />
-
-
-							<label for="width">#language.Width#:</label>
-							<p>#variables.width# m</p>
-							<input type="hidden" id="width" name="width" value="#variables.width#" />
-
+							<div>
+                <label for="width">#language.Width#:</label>
+                <p>#variables.width# m</p>
+                <input type="hidden" id="width" name="width" value="#variables.width#" />
+							</div>
 						<cfelse>
+							<div>
+                <label for="length">#language.Length#:</label>
+                <input id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" />#language.Max#: #Variables.MaxLength# m
+							</div>
 
-							<label for="length">#language.Length#:</label>
-							<input id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" />#language.Max#: #Variables.MaxLength# m
-							<br />
-
-
-							<label for="width">#language.Width#:</label>
-							<input id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" />#language.Max#: #Variables.MaxWidth# m
-							<br />
-
+							<div>
+                <label for="width">#language.Width#:</label>
+                <input id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" />#language.Max#: #Variables.MaxWidth# m
+							</div>
 						</cfif>
 
-						<label for="blocksetuptime">#language.BlockSetup# #language.days#:</label>
-						<input id="blocksetuptime" name="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" />
-						<br />
+						<div>
+              <label for="blocksetuptime">#language.BlockSetup# #language.days#:</label>
+              <input id="blocksetuptime" name="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" />
+						</div>
 
+						<div>
+              <label for="blockteardowntime">#language.BlockTeardown# #language.days#:</label>
+              <input id="blockteardowntime" name="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" />
+						</div>
 
-						<label for="blockteardowntime">#language.BlockTeardown# #language.days#:</label>
-						<input id="blockteardowntime" name="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" />
-						<br />
+						<div>
+              <label for="tonnage">#language.Tonnage#:</label>
+              <input id="tonnage" name="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" />
+						</div>
 
+            <div>
+              <label for="anonymous">#language.anonymous#<sup>&dagger;</sup>:</label>
+              <input id="anonymous" type="checkbox" name="Anonymous" <cfif variables.Anonymous EQ 1>checked="true" </cfif>value="Yes" />
+            </div>
 
-						<label for="tonnage">#language.Tonnage#:</label>
-						<input id="tonnage" name="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" />
-						<br />
-
-						<label for="anonymous">#language.anonymous#:</label>
-						<input id="anonymous" type="checkbox" name="Anonymous" <cfif variables.Anonymous EQ 1>checked="true" </cfif>value="Yes" />
+            <div>
+              <input type="hidden" name="VNID" value="<cfoutput>#url.VNID#</cfoutput>" />
+              <input type="submit" value="#language.Submit#" name="submitForm" class="textbutton" />
+            </div>
 					</fieldset>
-
-					<p class="smallFont">*#language.anonymousWarning#</p>
-
-					<div class="buttons">
-						<input type="hidden" name="VNID" value="<cfoutput>#url.VNID#</cfoutput>" />
-						<input type="submit" value="#language.Submit#" name="submitForm" class="textbutton" />
-					</div>
 				</form>
+
+        <p>&dagger;#language.anonymousWarning#</p>
 				</cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

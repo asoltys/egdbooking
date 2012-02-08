@@ -58,14 +58,13 @@
 							*** Confirmation of Booking requires the submittal of the Schedule 1 and Indemnification Clause forms available through the "Mandatory Forms" button below. Payment of the necessary deposit is also required - please contact the Esquimalt Graving Dock for details.
 						</cfif>
 						</p>
-						<div class="buttons">
 
 						<cfif IsDefined('Session.Success.paperFormLink')>
 							<a href="#Session.Success.paperFormLink#" class="textbutton">Mandatory Forms</a>&nbsp;
 						</cfif>
 
 						<a href="#Variables.Success.Link#" class="textbutton">#Variables.Success.Back#</a>
-						</div>
+						
 					</cfoutput>
 
 				</div>

@@ -13,7 +13,7 @@
 	<cfset language.deepsea = "Deepsea Vessel">
 	<cfset language.noBookings = "There are no bookings to view.">
 	<cfset language.booked = "Booked">
-	<cfset language.printable = "VIEW PRINtable VERSION">
+	<cfset language.printable = "VIEW PRINTABLE VERSION">
 <cfelse>
 	<cfset language.bookingsSummary = "R&eacute;sum&eacute; des r&eacute;servations">
 	<cfset language.description = "Permet &agrave; l'utilisateur de voir un r&eacute;sum&eacute; de toutes les r&eacute;servations, depuis le moment pr&eacute;sent.">

@@ -124,16 +124,16 @@
 						<input name="tonnage" id="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" />
 						<br />
 
-						<label for="Anonymous">#language.anonymous#:</label>
+            <label for="Anonymous">#language.anonymous#<sup>&dagger;</sup>:</label>
 						<input type="checkbox" id="Anonymous" name="Anonymous" value="Yes" />
+
+            <div>
+              <input type="submit" name="submitForm" value="#language.Submit#" />
+            </div>
 					</fieldset>
-
-					<p class="smallFont">*#language.anonymousWarning#</p>
-
-					<div class="buttons">
-						<input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
-					</div>
 				</form>
+
+        <p>&dagger;#language.anonymousWarning#</p>
 				</cfoutput>
 
 			</div>

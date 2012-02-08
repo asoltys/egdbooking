@@ -144,15 +144,21 @@ function EditSubmit ( selectedform )
 					<form action="#RootDir#reserve-book/profilmod-profileedit_action.cfm?lang=#lang#" id="editUserForm" method="post">
 						<fieldset>
 						<legend>#language.EditProfile#</legend>
-							<label for="firstname">#language.FirstName#:</label>
-							<input name="firstname" id="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40"  />
+							<div>
+                <label for="firstname">#language.FirstName#:</label>
+                <input name="firstname" id="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40"  />
+							</div>
 
-							<label for="lastname">#language.LastName#:</label>
-							<input name="lastname" id="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40"  />
+							<div>
+                <label for="lastname">#language.LastName#:</label>
+                <input name="lastname" id="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40"  />
+							</div>
 
 
-							<label for="email">#language.Email#:</label>
-							<input name="email" id="email" type="text" value="#variables.email#" size="25" maxlength="40"  />
+							<div>
+                <label for="email">#language.Email#:</label>
+                <input name="email" id="email" type="text" value="#variables.email#" size="25" maxlength="40"  />
+							</div>
 							
               <div>
                 <input type="submit" name="submitForm" value="#language.saveName#" />
@@ -183,14 +189,17 @@ function EditSubmit ( selectedform )
 					<h2>#language.ChangePassword#:</h2>
 					<form action="#RootDir#reserve-book/passechange.cfm?lang=eng" method="post" id="changePassForm">
 						<fieldset>
-						<legend>#language.ChangePassword#</legend>
-							<label for="password">#language.Password# <span class="smallFont">(*min. 8 #language.characters#)</span>:</label>
-							<input type="password" id="password" name="password1"  />
+              <legend>#language.ChangePassword#</legend>
 
-              <br />
+							<div>
+                <label for="password">#language.Password# <span class="smallFont">(min. 8 #language.characters#)</span>:</label>
+                <input type="password" id="password" name="password1" />
+							</div>
 
-							<label for="password2">#language.RepeatPassword#:</label>
-							<input type="password" id="password2" name="password2"  />
+							<div>
+                <label for="password2">#language.RepeatPassword#:</label>
+                <input type="password" id="password2" name="password2" />
+							</div>
 
               <div>
                 <input type="submit" name="submitForm" value="#language.ChangePassword#" />

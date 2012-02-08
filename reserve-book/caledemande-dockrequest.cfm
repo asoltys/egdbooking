@@ -123,46 +123,49 @@
 					<fieldset>
             <legend>#language.booking#</legend>
 
-						<label for="booking_CID">#language.Company#:</label>
-						<CF_TwoSelectsRelated
-							query="companyVessels"
-							id1="booking_CID"
-							id2="booking_VNID"
-							DISPLAY1="CompanyName"
-							DISPLAY2="VesselName"
-							VALUE1="CID"
-							VALUE2="VNID"
-							DEFAULT1="#Variables.CID#"
-							DEFAULT2="#Variables.VNID#"
-							htmlBETWEEN="<br /><label for=""booking_VNID"">#language.vessel#:</label>"
-							AUTOSELECTFIRST="Yes"
-							EMPTYTEXT1="(#language.chooseCompany#)"
-							EMPTYTEXT2="(#language.chooseVessel#)"
-							FORMNAME="bookingreq">
-						<br />
+            <div>
+              <label for="booking_CID">#language.Company#:</label>
+              <CF_TwoSelectsRelated
+                query="companyVessels"
+                id1="booking_CID"
+                id2="booking_VNID"
+                DISPLAY1="CompanyName"
+                DISPLAY2="VesselName"
+                VALUE1="CID"
+                VALUE2="VNID"
+                DEFAULT1="#Variables.CID#"
+                DEFAULT2="#Variables.VNID#"
+                htmlBETWEEN="</div><div><label for=""booking_VNID"">#language.vessel#:</label>"
+                AUTOSELECTFIRST="Yes"
+                EMPTYTEXT1="(#language.chooseCompany#)"
+                EMPTYTEXT2="(#language.chooseVessel#)"
+                FORMNAME="bookingreq">
+            </div>
 
-						<label for="startDateA">#language.StartDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
-						<input id="startDateA" name="startDate" class="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> 
-						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
-						<br class="clear" />
+						<div>
+              <label for="startDateA">#language.StartDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+              <input id="startDateA" name="startDate" class="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> 
+              <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+						</div>
 
-						<label for="endDateA">#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
-						<input id="endDateA" name="endDate" class="endDate" type="text" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#"  />
-						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
-						<br class="clear" />
+						<div>
+              <label for="endDateA">#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+              <input id="endDateA" name="endDate" class="endDate" type="text" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#"  />
+              <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+						</div>
 
-						<label for="status">#language.requestedStatus#:</label>
-						<select id="status" name="status" >
-							<option value="tentative" <cfif isDefined("form.status") AND form.status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
-							<option value="confirmed" <cfif isDefined("form.status") AND form.status EQ "confirmed">selected="selected"</cfif>>#language.confirmed#</option>
-						</select>
+						<div>
+              <label for="status">#language.requestedStatus#:</label>
+              <select id="status" name="status" >
+                <option value="tentative" <cfif isDefined("form.status") AND form.status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
+                <option value="confirmed" <cfif isDefined("form.status") AND form.status EQ "confirmed">selected="selected"</cfif>>#language.confirmed#</option>
+              </select>
+						</div>
+
+            <div>
+              <input type="submit" value="#language.Submit#" class="textbutton" />
+            </div>
 					</fieldset>
-
-					<div class="buttons">
-						<input type="submit" value="#language.Submit#" class="textbutton" />
-					</div>
-
-				</form>
 				</cfoutput>
 
 				<p><cfoutput>#language.or#</cfoutput></p>
@@ -173,52 +176,53 @@
 					<fieldset>
             <legend>#language.booking#</legend>
 
-						<label for="bookingByRange_CID">#language.Company#:</label>
-						<CF_TwoSelectsRelated
-							QUERY="companyVessels"
-							id1="bookingByRange_CID"
-							id2="bookingByRange_VNID"
-							DISPLAY1="CompanyName"
-							DISPLAY2="VesselName"
-							VALUE1="CID"
-							VALUE2="VNID"
-							DEFAULT1="#Variables.CID#"
-							DEFAULT2="#Variables.VNID#"
-							htmlBETWEEN="<br /><label for=""bookingByRange_VNID"">#language.vessel#:</label>"
-							AUTOSELECTFIRST="Yes"
-							EMPTYTEXT1="(#language.chooseCompany#)"
-							EMPTYTEXT2="(#language.chooseVessel#)"
-							FORMNAME="bookingreqB">
-						<br />
+            <div>
+              <label for="bookingByRange_CID">#language.Company#:</label>
+              <CF_TwoSelectsRelated
+                QUERY="companyVessels"
+                id1="bookingByRange_CID"
+                id2="bookingByRange_VNID"
+                DISPLAY1="CompanyName"
+                DISPLAY2="VesselName"
+                VALUE1="CID"
+                VALUE2="VNID"
+                DEFAULT1="#Variables.CID#"
+                DEFAULT2="#Variables.VNID#"
+                htmlBETWEEN="</div><div><label for=""bookingByRange_VNID"">#language.vessel#:</label>"
+                AUTOSELECTFIRST="Yes"
+                EMPTYTEXT1="(#language.chooseCompany#)"
+                EMPTYTEXT2="(#language.chooseVessel#)"
+                FORMNAME="bookingreqB">
+              <br />
+            </div>
 
-						<fieldset>
-							<legend>#language.DateRange#</legend>
-
+            <div>
 							<label for="StartDateB">#language.StartDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
 							<input id="StartDateB" name="startDate" type="text" class="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
 							<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
-							<br class="clear" />
+            </div>
 
-							<label for="EndDateB">#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
-							<input id="EndDateB" name="endDate" type="text" class="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
-							<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
-							<br class="clear" />
+            <div>
+              <label for="EndDateB">#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+              <input id="EndDateB" name="endDate" type="text" class="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
+              <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+            </div>
 
-							<label for="NumDays">#language.NumDays#:</label>
-							<input id="NumDays" type="text" name="numDays" value="#Variables.numDays#"  />
+            <div>
+              <label for="NumDays">#language.NumDays#:</label>
+              <input id="NumDays" type="text" name="numDays" value="#Variables.numDays#"  />
+            </div>
 
-						</fieldset>
+						<div>
+              <label for="statusB">#language.requestedStatus#:</label>
+              <select id="statusB" name="status" >
+                <option value="tentative" <cfif isDefined("form.status") AND form.status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
+                <option value="confirmed" <cfif isDefined("form.status") AND form.status EQ "confirmed">selected="selected"</cfif>>#language.confirmed#</option>
+              </select>
+						</div>
 
-						<label for="statusB">#language.requestedStatus#:</label>
-						<select id="statusB" name="status" >
-							<option value="tentative" <cfif isDefined("form.status") AND form.status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
-							<option value="confirmed" <cfif isDefined("form.status") AND form.status EQ "confirmed">selected="selected"</cfif>>#language.confirmed#</option>
-						</select>
+            <input type="submit" value="#language.Submit#" />
 					</fieldset>
-
-					<div class="buttons">
-						<input type="submit" value="#language.Submit#" class="textbutton" />
-					</div>
 				</form>
 				</cfoutput>
 			</div>

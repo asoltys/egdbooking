@@ -61,11 +61,6 @@
           <li><a href="#RootDir#reserve-book/caledemande-dockrequest.cfm?lang=#lang##Variables.BookingRequestString#">#language.drydockBooking#</a></li>
           <li><a href="#RootDir#reserve-book/jetdemande-jetrequest.cfm?lang=#lang##Variables.BookingRequestString#">#language.jettyBooking#</a></li>
         </ul>
-
-        <div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton" title="#language.BookingHomeButton#">#language.BookingHomeButton#</a></div>
-
-
-
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

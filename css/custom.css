@@ -240,6 +240,7 @@ form {
 	border: 1px solid #336699;
 	background-color: #ccddee;
 	padding: 1em;
+  overflow: hidden;
 }
 
 form.noBorder {
@@ -272,9 +273,16 @@ form input, form select {
 	margin: 0 0 0.5em 0;
 }
 
+form div {
+  clear: left;
+}
+
 div.buttons {
-	text-align: center;
-	padding: 1em;
+	padding: 1em 0;
+}
+
+form input[type="submit"] {
+  float: right;
 }
 
 form input#LloydsID, form p#lloyds_id {

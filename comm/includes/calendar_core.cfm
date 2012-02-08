@@ -4,21 +4,23 @@
   <form id="dateSelect" action="#CGI.script_name#?lang=#lang#" method="post">
     <fieldset>
       <legend>#language.dateSelect#</legend>
-      <label for="month">#language.month#</label>
-      <select name="m-m" id="month">
-        <CFLOOP index="i" from="1" to="12">
-          <option value="#i#" <cfif i eq url['m-m']>selected="selected"</cfif>>#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
-        </CFLOOP>
-      </select>
-      <br />
-      <label for="year">#language.year#</label>
-      <select name="a-y" id="year">
-        <CFLOOP index="i" from="-5" to="25">
-          <cfset year = #DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
-          <option <cfif year eq url['a-y']>selected="selected"</cfif>>#year#</option>
-        </CFLOOP>
-      </select>
-      <br />
+      <div>
+        <label for="month">#language.month#</label>
+        <select name="m-m" id="month">
+          <CFLOOP index="i" from="1" to="12">
+            <option value="#i#" <cfif i eq url['m-m']>selected="selected"</cfif>>#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
+          </CFLOOP>
+        </select>
+      </div>
+      <div>
+        <label for="year">#language.year#</label>
+        <select name="a-y" id="year">
+          <CFLOOP index="i" from="-5" to="25">
+            <cfset year = #DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
+            <option <cfif year eq url['a-y']>selected="selected"</cfif>>#year#</option>
+          </CFLOOP>
+        </select>
+      </div>
       <input type="submit" value="Go" />
     </fieldset>
   </form>

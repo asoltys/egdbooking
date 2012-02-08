@@ -12,7 +12,7 @@
 	<cfset language.deepsea = "Deepsea Vessel">
 	<cfset language.noBookings = "There are no bookings to view.">
 	<cfset language.booked = "Booked">
-	<cfset language.printable = "VIEW PRINtable VERSION">
+	<cfset language.printable = "VIEW PRINTABLE VERSION">
 	<cfset language.fromDate = "From Date:">
 	<cfset language.toDate = "To Date:">
 	<cfset language.InvalidFromDate = "Please enter a valid From Date.">

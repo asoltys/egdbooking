@@ -89,10 +89,8 @@
 				<cfoutput>
 				<CFFORM action="#RootDir#reserve-book/resannul-bookcancel_action.cfm?lang=#lang#&amp;CID=#getBooking.CID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#&amp;jetty=#url.jetty#" id="cancelBooking">
 					<p>#language.areYouSure# <strong>#getBooking.VesselName#</strong> #language.from# #LSDateFormat(getBooking.StartDate, 'mmm d, yyyy')# #language.to# #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')#?</p>
-					<div class="buttons">
-						<input type="hidden" name="BRID" value="#url.BRID#" />
-						<input type="submit" value="#language.Confirm#" class="textbutton" />
-					</div>
+          <input type="hidden" name="BRID" value="#url.BRID#" />
+          <input type="submit" value="#language.Confirm#" class="textbutton" />
 				</CFFORM>
 
 				</cfoutput>
