@@ -5,7 +5,7 @@
 	<cfset language.keywords = language.masterKeywords & ", Drydock Booking Request">
 	<cfset language.description = "Allows user to submit a new booking request, drydock section.">
 	<cfset language.subjects = language.masterSubjects & "">
-	<cfset language.daysToBook = "Please enter in the number of days the vessel needs to be booked for.  The system will locate the first available date period.">
+	<cfset language.daysToBook = "Enter the number of days the vessel needs to be booked for.  The system will locate the first available date period.">
 	<cfset language.numDays = "Number of days">
 	<cfset language.reset = "reset">
 	<cfset language.or = "or">
@@ -27,8 +27,9 @@
 	<cfset language.requestedStatus = "&Eacute;tat demand&eacute;">
 </cfif>
 
+<cfoutput>
+
 <cfsavecontent variable="js">
-	<cfoutput>
 	<meta name="dc.title" content="#language.drydockRequest# - #language.esqGravingDock# - #language.PWGSC#" />
 	<meta name="keywords" content="#language.keywords#" />
 	<meta name="description" content="#language.description#" />
@@ -40,7 +41,6 @@
 		/* ]]> */
 	</script>
 	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
-	</cfoutput>
 </cfsavecontent>
 <cfhtmlhead text="#js#">
 
@@ -91,10 +91,8 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
 			<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#">#language.bookingRequest#</a> &gt;
 			#language.drydockRequest#
-			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -103,7 +101,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#language.drydockRequest#</cfoutput>
+					#language.drydockRequest#
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -112,12 +110,13 @@
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfinclude template="#RootDir#includes/restore_params.cfm">
 				<cfif isDefined("session.form_structure")>
-					<cfset Variables.startDate = #form.startDate#>
-					<cfset Variables.endDate = #form.endDate#>
-					<cfset Variables.status = #form.status#>
+          <cfif isDate(form.startDate) and isDate(form.endDate)>
+            <cfset Variables.startDate = form.startDate>
+            <cfset Variables.endDate = form.endDate>
+          </cfif>
+					<cfset Variables.status = form.status>
 				</cfif>
 
-				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 				<form action="#RootDir#reserve-book/caledemande-dockrequest_confirm.cfm?lang=#lang#" method="post" id="booking">
 					<fieldset>
@@ -166,12 +165,11 @@
               <input type="submit" value="#language.Submit#" class="textbutton" />
             </div>
 					</fieldset>
-				</cfoutput>
+        </form>
 
-				<p><cfoutput>#language.or#</cfoutput></p>
-
-				<cfoutput>
+				<p style="text-align: center"><strong>#language.or#</strong></p>
 				<p>#language.daysToBook#  #language.dateInclusive#</p>
+
 				<form action="#RootDir#reserve-book/caledemande-dockrequest_confirm2.cfm?lang=#lang#" method="post" id="bookingByRange">
 					<fieldset>
             <legend>#language.booking#</legend>
@@ -224,9 +222,10 @@
             <input type="submit" value="#language.Submit#" />
 					</fieldset>
 				</form>
-				</cfoutput>
 			</div>
 
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
+</cfoutput>
+
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
