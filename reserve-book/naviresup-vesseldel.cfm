@@ -6,7 +6,6 @@
 	<cfset language.areYouSure = "Are you sure you want to delete">
 	<cfset language.delete = "Delete">
 	<cfset language.cannotDelete = "cannot be deleted as it is booked for the following dates.  Please cancel all bookings before deleting the vessel.">
-	<cfset language.ok = "OK">
 
 <cfelse>
 	<cfset language.deleteVessel = "Suppression de navire">
@@ -16,7 +15,6 @@
 	<cfset language.areYouSure = "&Ecirc;tes-vous certain de vouloir supprimer ">
 	<cfset language.delete = "Supprimer">
 	<cfset language.cannotDelete = "ne peut pas &ecirc;tre supprim&eacute; puisqu'il fait l'objet d'une r&eacute;servation pour les dates suivantes. Veuillez annuler toutes les r&eacute;servations avant de supprimer le navire.">
-	<cfset language.ok = "OK">
 
 </cfif>
 
@@ -164,8 +162,7 @@
           </cfloop>
           </table>
         </cfif>
-        <br />
-        <div style="text-align:center;"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#getVesselDetail.CID#" class="textbutton">#language.OK#</a></div>
+        <p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#getVesselDetail.CID#" class="textbutton">#language.returnTo#</a></p>
     </cfif>
   </div>
 </cfoutput>
