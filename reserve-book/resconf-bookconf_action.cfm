@@ -66,7 +66,7 @@
 	</cfmail>
 </cfoutput>
 
-<CFPARAM name="url.referrer" default="Booking Home">
+<CFPARAM name="url.referrer" default="#language.bookingHome#">
 <CFIF url.referrer eq "Details For">
 	<CFSET returnTo = "#RootDir#comm/detail.cfm">
 <CFELSE>
@@ -108,7 +108,7 @@
 	<cfset Session.Success.Breadcrumb = "Demande d'annulation de r&eacute;servation">
 	<cfset Session.Success.Title = "Demande de confirmation de r&eacute;servation">
 	<cfset Session.Success.Message = "<div align='left'>Votre demande de confirmation de la r&eacute;servation pour le <b>#getBooking.vesselName#</b> du #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')#  est en cours de traitement. L'administration de la CSE a &eacute;t&eacute; avis&eacute;e de votre demande. Vous recevrez sous peu un courriel de suivi en r&eacute;ponse &agrave; votre demande.</div>">
-	<cfset Session.Success.Back = "Retour &agrave;">
+	<cfset Session.Success.Back = "Retour &agrave; #url.referrer#">
 </cfif>
 <cfset Session.Success.paperFormLink = "#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#" >
 <cfset Session.Success.Link = "#returnTo#?#urltoken#&CID=#url.CID##variables.dateValue#">

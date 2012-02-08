@@ -68,7 +68,7 @@
 	</CFIF>
 </cfif>
 
-<CFPARAM name="url.referrer" default="Booking Home">
+<CFPARAM name="url.referrer" default="#language.bookingHome#">
 <CFIF url.referrer eq "Details For">
 	<CFSET returnTo = "#RootDir#comm/detail.cfm">
 <CFELSEIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>

@@ -1,10 +1,18 @@
 <cfif isDefined("form.startDate")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
-<cfinclude template="#RootDir#includes/restore_params.cfm">
+<cfinclude template="#RootDir#includes/restore_params.cfm" />
+<cfinclude template="#RootDir#includes/errorMessages.cfm" />
 
-<cfinclude template="#RootDir#includes/errorMessages.cfm">
+<cfif lang EQ "eng">
+	<cfset language.keywords = language.masterKeywords & ", Drydock Booking Information" />
+	<cfset language.description = "Allows user to submit a new booking request, drydock section." />
+	<cfset language.subjects = language.masterSubjects & "" />
+<cfelse>
+	<cfset language.keywords = language.masterKeywords & ", renseignements pour la r&eacute;servation de la cale s&egrave;che" />
+	<cfset language.description = "Permet &agrave; l'utilisateur de pr&eacute;senter une nouvelle demande de r&eacute;servation sur le site Web de la cale s&egrave;che d'Esquimalt - section de la cale s&egrave;che." />
+	<cfset language.subjects = language.masterSubjects & "" />
+</cfif>
 
 <cfoutput>
-
 
 <cfhtmlhead text="
 	<meta name=""dc.title"" content=""#language.NewBooking# - #language.esqGravingDock# - #language.PWGSC#"" />

@@ -69,7 +69,7 @@
 </cfif>
 
 <cfif lang EQ 'eng'>
-  <cfset language.bookingHomeButton = "Booking Home">
+  <cfset language.bookingHome = "Booking Home">
   <cfset language.drydockCalendar = "Drydock Calendar">
   <cfset language.jettyCalendar = "Jetties Calendar">
   <cfset language.requestBooking = "Request Booking">
@@ -78,7 +78,7 @@
   <cfset language.bookingsSummary = "Bookings Summary">
   <cfset language.logoutButton = "Logout">
 <cfelse>
-  <cfset language.bookingHomeButton = "Accueil - R&eacute;servation">
+  <cfset language.bookingHome = "Accueil - R&eacute;servation">
   <cfset language.drydockCalendar = "Calendrier de la cale s&egrave;che">
   <cfset language.jettyCalendar = "Calendrier des jet&eacute;es">
   <cfset language.requestBooking = "Pr&eacute;senter une r&eacute;servation">
@@ -192,9 +192,6 @@
 
 <cfif lang EQ "eng">
 	<cfset language.newBooking = "Submit Drydock Booking Information">
-	<cfset language.keywords = language.masterKeywords & ", Drydock Booking Information">
-	<cfset language.description = "Allows user to submit a new booking request, drydock section.">
-	<cfset language.subjects = language.masterSubjects & "">
 	<cfset language.dblBookingError = "has already been booked from">
 	<cfset language.to = "to">
 	<cfset language.theVessel = "The vessel">
@@ -206,9 +203,6 @@
 	<cfset language.tplbookingError = "already has a booking for">
 <cfelse>
 	<cfset language.newBooking = "Pr&eacute;sentation des renseignements pour la r&eacute;servation de la cale s&egrave;che">
-	<cfset language.keywords = language.masterKeywords & ", renseignements pour la r&eacute;servation de la cale s&egrave;che">
-	<cfset language.description = "Permet &agrave; l'utilisateur de pr&eacute;senter une nouvelle demande de r&eacute;servation sur le site Web de la cale s&egrave;che d'Esquimalt - section de la cale s&egrave;che.">
-	<cfset language.subjects = language.masterSubjects & "">
 	<cfset language.dblBookingError = "fait d&eacute;j&agrave; l'objet d'une r&eacute;servation du">
 	<cfset language.to = "au">
 	<cfset language.theVessel = "Les dimensions du navire">

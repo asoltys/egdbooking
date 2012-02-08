@@ -33,7 +33,7 @@
 ">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<CFPARAM name="url.referrer" default="Booking Home">
+<CFPARAM name="url.referrer" default="#language.bookingHome#">
 <CFIF url.referrer eq "Details For">
 	<CFSET returnTo = "#RootDir#comm/detail.cfm">
 <CFELSE>
