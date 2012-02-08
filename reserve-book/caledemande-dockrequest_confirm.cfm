@@ -1,7 +1,6 @@
 <cfif isDefined("form.startDate")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
-<cfinclude template="#RootDir#includes/bookingInfoVariables.cfm">
 <cfinclude template="#RootDir#includes/errorMessages.cfm">
 
 <cfoutput>

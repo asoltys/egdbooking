@@ -5,7 +5,6 @@
 <cfinclude template="#RootDir#includes/build_form_struct.cfm">
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 <cfinclude template="#RootDir#includes/errorMessages.cfm">
-<cfinclude template="#RootDir#includes/bookingInfoVariables.cfm">
 <cfif lang EQ "eng">
 	<cfset language.submitJettyBooking = "Submit Jetty Booking Information">
 	<cfset language.keywords = language.masterKeywords & ", Jetty Booking Information">

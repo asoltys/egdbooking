@@ -1,4 +1,3 @@
-<cfinclude template="#RootDir#includes/bookingInfoVariables.cfm">
 <cfinclude template="#RootDir#includes/errorMessages.cfm">
 <cfif lang EQ "eng">
 	<cfset language.drydockRequest = "Submit Drydock Booking Request">

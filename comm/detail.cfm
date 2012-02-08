@@ -1,4 +1,3 @@
-<cfinclude template="#RootDir#includes/bookingInfoVariables.cfm">
 <cfinclude template="#RootDir#includes/vesselInfoVariables.cfm">
 <cfif lang EQ "eng">
 	<cfset language.bookingDetail = "Booking Details">

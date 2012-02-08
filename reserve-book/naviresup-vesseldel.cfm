@@ -1,4 +1,3 @@
-<cfinclude template="#RootDir#includes/bookingInfoVariables.cfm">
 <cfif lang EQ "eng">
 	<cfset language.deleteVessel = "Delete Vessel">
 	<cfset language.keywords = language.masterKeywords & ", Delete Vessel">

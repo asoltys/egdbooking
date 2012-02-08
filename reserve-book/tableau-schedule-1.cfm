@@ -1,4 +1,3 @@
-<cfinclude template="#RootDir#includes/bookingInfoVariables.cfm">
 <cfif lang EQ "eng">
 	<cfset language.bookingForms = "Booking Forms">
 	<cfset language.keywords = language.masterKeywords & ", Booking Forms">
