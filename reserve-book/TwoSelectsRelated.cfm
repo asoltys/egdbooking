@@ -145,9 +145,7 @@
 	<!--- WE ONLY NEED TO OUTPUT THE CHOICES FOR THE FIRST GROUP --->
 	<cfif Attributes.EmptyText1 NEQ ""> <!--- Changed this line from IS to NEQ -- Elton --->
 		<cfloop QUERY="MyQuery">
-			<cfif MyQuery[Attributes.Value1][MyQuery.CurrentRow] is Attributes.Default1>
 				<cfoutput><option value="#MyQuery[Attributes.Value2][MyQuery.CurrentRow]#" <cfif (MyQuery[Attributes.Value1][MyQuery.CurrentRow] is Attributes.Default1) AND (MyQuery[Attributes.Value2][MyQuery.CurrentRow] is Attributes.Default2)>selected="selected"</cfif>>#MyQuery[Attributes.Display2][MyQuery.CurrentRow]#</option></cfoutput>
-			</cfif>
 		</cfloop>
 	</cfif>
 
