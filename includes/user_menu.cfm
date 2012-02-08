@@ -18,13 +18,12 @@
 
   <cfif display_notice.notice_acknowledged EQ 0>
     <cffile action="read" file="#FileDir#intro-#lang#.txt" variable="intromsg" />
-    <cfinclude template="#RootDir#includes/helperFunctions.cfm" />
-    <div class="notice">
+    <div class="option4">
       <h2>Notice</h2>
-      #FormatParagraph(intromsg)#
+      #intromsg#
       <a id="dismiss">#language.acknowledged#</a>
     </div>
-    <div id="acknowledged" class="notice" style="display: none">#language.acknowledgement_received#</div>
+    <div id="acknowledged" class="option4" style="display: none">#language.acknowledgement_received#</div>
   </cfif>
 
 	<CFSET variables.urltoken = "lang=#lang#">
