@@ -28,7 +28,7 @@
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			</CFIF>
-			<a href="#RootDir#reserve-book/formulaires-forms.cfm.cfm?lang=#lang#">#language.bookingForms#</a> &gt;
+			<a href="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#">#language.bookingForms#</a> &gt;
 			#language.notices#
 			</cfoutput>
 		</p>
@@ -46,7 +46,7 @@
         <cfoutput>
           <cffile action="read" file="#FileDir#intro-#lang#.txt" variable="intromsg">
           <cfinclude template="#RootDir#includes/helperFunctions.cfm" />
-          <div class="notice">
+          <div class="option4">
             <h2>Notice</h2>
             #FormatParagraph(intromsg)#
           </div>
