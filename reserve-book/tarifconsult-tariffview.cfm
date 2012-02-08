@@ -140,14 +140,6 @@
 					</tr>
         </cfloop>
 				</table>
-				<div class="buttons">
-					<cfif isDefined("url.referrer") AND url.referrer eq "archive">
-						<a href="#RootDir#reserve-book/archives.cfm?lang=#lang#&amp;CID=#url.CID#" class="textbutton">#language.Back#</a>
-					<cfelse>
-						<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#getDetails.CID#" class="textbutton">#language.Back#</a>
-					</cfif>
-				</div>
-
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>

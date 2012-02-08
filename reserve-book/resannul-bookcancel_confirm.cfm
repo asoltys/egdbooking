@@ -91,8 +91,7 @@
 					<p>#language.areYouSure# <strong>#getBooking.VesselName#</strong> #language.from# #LSDateFormat(getBooking.StartDate, 'mmm d, yyyy')# #language.to# #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')#?</p>
 					<div class="buttons">
 						<input type="hidden" name="BRID" value="#url.BRID#" />
-						<input type="submit" value="#language.Continue#" class="textbutton" />
-						<input type="button" onclick="self.location.href='#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#url.BRID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#';" class="textbutton" value="#language.Back#" />
+						<input type="submit" value="#language.Confirm#" class="textbutton" />
 					</div>
 				</CFFORM>
 

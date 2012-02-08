@@ -234,8 +234,6 @@
 
 					<div class="buttons">
 						<input type="submit" value="#language.requestBooking#" class="textbutton" />
-						<input type="button" value="#language.Back#" class="textbutton" onclick="history.go(-1);" />
-						<input type="button" value="#language.Cancel#" class="textbutton" onclick="self.location.href='reserve-booking.cfm?lang=<cfoutput>#lang#</cfoutput>';" />
 					</div>
 
 				</cfform>

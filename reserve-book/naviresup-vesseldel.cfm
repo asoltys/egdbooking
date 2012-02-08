@@ -101,7 +101,6 @@
             <div style="text-align:center;">
               <input type="hidden" name="VNID" value="#VNID#" />
               <input type="submit" value="#language.Delete#" class="textbutton" />
-              <input type="button" value="#language.Cancel#" onclick="history.go(-1);" class="textbutton" />
             </div>
             </fieldset>
           </form>

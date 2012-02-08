@@ -85,7 +85,6 @@
 				<CFELSE>
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				</CFIF>
-
 				<cfoutput>
 
 				#Language.ScreenMessage#
@@ -102,6 +101,7 @@
 						<cfinput type="text" name="endDate" message="#language.invalidtoDate#" validate="date" class="endDate" id="end" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
 						<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
 
+            oh yeah baby
 						<div class="buttons">
 							<input type="submit" value="#language.submit#" class="textbutton" />
 							<input type="reset" value="#language.reset#" class="textbutton" />

@@ -3,7 +3,7 @@
 	<cfset language.pacificRegion = "Pacific Region">
 	<cfset language.esqGravingDock = "Esquimalt Graving Dock">
 	<cfset language.esqGravingDockCaps = "ESQUIMALT GRAVING DOCK">
-	<cfset language.submit = "submit">
+	<cfset language.submit = "Submit">
 	<cfset language.cancel = "Cancel">
 	<cfset language.admin = "Admin">
 	<cfset language.confirm = "Confirm">
@@ -11,7 +11,6 @@
 	<cfset language.jetty = "Jetty">
 	<cfset language.northLandingWharf = "North Landing Wharf">
 	<cfset language.southJetty = "South Jetty">
-	<cfset language.back = "Back">
 	<cfset language.vessel = "Vessel">
 	<cfset language.status = "Status">
 	<cfset language.tentative = "tentative">
@@ -46,7 +45,6 @@
 	<cfset language.jetty = "Jet&eacute;e">
 	<cfset language.northLandingWharf = "Quai de d&eacute;barquement nord">
 	<cfset language.southJetty = "Jet&eacute;e sud">
-	<cfset language.back = "Retour">
 	<cfset language.vessel = "Navire">
 	<cfset language.status = "&Eacute;tat">
 	<cfset language.tentative = "provisoire">

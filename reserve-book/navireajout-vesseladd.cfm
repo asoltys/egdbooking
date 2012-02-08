@@ -73,7 +73,7 @@
 
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfinclude template="#RootDir#includes/restore_params.cfm">
-				<cfif isDefined("session.form_structure")>
+				<cfif structKeyExists(session, 'form_structure') and structKeyExists(form, 'name')>
 					<cfset variables.name = form.name>
 					<cfset variables.length = form.length>
 					<cfset variables.width = form.width>
@@ -132,7 +132,6 @@
 
 					<div class="buttons">
 						<input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
-						<cfoutput><a href="reserve-booking.cfm?lang=#lang#&amp;CID=#CID#" class="textbutton">#language.Cancel#</a></cfoutput>
 					</div>
 				</form>
 				</cfoutput>

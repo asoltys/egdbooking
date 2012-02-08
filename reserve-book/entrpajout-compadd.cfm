@@ -122,7 +122,6 @@
 						<tr>
 							<td colspan="2">
 								<input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
-								<a href="editUser.cfm?lang=#lang#" class="textbutton">#language.Cancel#</a>
 							</td>
 						</tr>
 					</table>

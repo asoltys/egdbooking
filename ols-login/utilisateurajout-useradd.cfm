@@ -121,7 +121,6 @@ function EditSubmit ( selectedform )
               <br />
 
               <input type="submit" value="#language.continue#" class="textbutton" />
-              <a href="ols-login.cfm?<cfoutput>lang=#lang#</cfoutput>" class="textbutton">#language.Cancel#</a>								
             </fieldset>
 					</form>
 				</cfoutput>

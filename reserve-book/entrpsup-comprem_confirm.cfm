@@ -75,7 +75,6 @@
 						<!--a href="javascript:document.remCompanyConfirmForm.submit();" class="textbutton">Submit</a>
 						<a href="profilmod-profileedit.cfm" class="textbutton">Cancel</a-->
 					<input type="submit" value="#language.Remove#" class="textbutton" />
-					<input type="button" value="#language.Cancel#" onclick="javascript:location.href='editUser.cfm?lang=#lang#&clrfs=true'" class="textbutton" />
 					</div></p>
 
 					<cfoutput><input type="hidden" name="CID" value="#form.CID#" />

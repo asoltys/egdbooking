@@ -166,14 +166,11 @@
 							<option value="north"<cfif Variables.Jetty EQ "north"> selected="selected"</cfif>>#language.NorthLandingWharf#</option>
 							<option value="south"<cfif Variables.Jetty EQ "south"> selected="selected"</cfif>>#language.SouthJetty#</option>
 						</select>
+
+            <div class="buttons">
+              <input type="submit" value="#language.Submit#" class="textbutton" />
+            </div>
 					</fieldset>
-
-					<div class="buttons">
-						<input type="submit" value="#language.Submit#" class="textbutton" />
-						<input type="reset" value="#language.Reset#" class="textbutton" />
-						<input type="button" value="#language.Cancel#" class="textbutton" onclick="javascript:self.location.href='reserve-booking.cfm?lang=#lang#';" />
-					</div>
-
 				</form>
 				<p>#language.warning#</p>
 				</cfoutput>

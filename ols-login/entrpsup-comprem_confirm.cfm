@@ -75,12 +75,7 @@ function EditSubmit ( selectedform )
 
 				<cfform action="entrpsup-comprem_action.cfm?lang=#lang#&companies=#companies#&info=#url.info#" method="post" id="remCompanyConfirmForm">
 					<div>#language.areYouSure# <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
-
-					<p><div>
-						<!---a href="javascript:EditSubmit('remCompanyConfirmForm');" class="textbutton">#language.Remove#</a>
-						<a href="entrpdemande-comprequest.cfm?lang=#lang#&companies=#companies#&info=#url.info#" class="textbutton">#language.Cancel#</a--->
 						<input type="submit" value="#language.Remove#" class="textbutton" />
-						<input type="button" value="#language.Cancel#" onclick="javascript:self.location.href='addUserCompanies.cfm?lang=#lang#&companies=#companies#&info=#url.info#'" class="textbutton" />
 					</div></p>
 
 					<input type="hidden" name="CID" value="#form.CID#" />

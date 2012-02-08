@@ -70,44 +70,43 @@
 
 					<form name="addCompanyForm" action="entrpajout-compadd_action.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#" id="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
 	}">
-            <label for="name">#language.companyName#:</label>
-            <input name="name" id="name" type="text" size="40" maxlength="75" value="#Variables.name#" />
-            <br />
-          
-            <label for="address1">#language.Address# 1:</label>
-            <input name="address1" id="address1" type="text" size="40" maxlength="75" value="#Variables.address1#" />
-            <br />
-          
-            <label for="address2">#language.Address# 2 #language.optional#:</label>
-            <input name="address2" id="address2" type="text" size="40" maxlength="75" value="#Variables.address2#" />
-            <br />
-          
-            <label for="city">#language.City#:</label>
-            <input name="city" id="city" type="text" size="25" maxlength="40" value="#Variables.city#" />
-            <br />
-          
-            <label for="province">#language.Province#:</label>
-            <input name="province" id="province" type="text" size="25" maxlength="40" value="#Variables.province#" />
-            <br />
-          
-            <label for="country">#language.Country#:</label>
-            <input name="country" id="country" type="text" size="25" maxlength="40" value="#Variables.country#" />
-            <br />
-          
-            <label for="zip">#language.zip#:</label>
-            <input name="zip" id="zip" type="text" size="12" maxlength="10" value="#Variables.zip#" />
-            <br />
-          
-            <label for="phone">#language.Phone#:</label>
-            <input name="phone" id="phone" type="text" size="25" maxlength="32" value="#Variables.phone#" />
-            <br />
-          
-            <label for="fax">#language.Fax# #language.optional#:</label>
-            <input id="fax" name="fax" type="text" size="10" maxlength="32" />
-          
             <fieldset>	
+              <label for="name">#language.companyName#:</label>
+              <input name="name" id="name" type="text" size="40" maxlength="75" value="#Variables.name#" />
+              <br />
+            
+              <label for="address1">#language.Address# 1:</label>
+              <input name="address1" id="address1" type="text" size="40" maxlength="75" value="#Variables.address1#" />
+              <br />
+            
+              <label for="address2">#language.Address# 2 #language.optional#:</label>
+              <input name="address2" id="address2" type="text" size="40" maxlength="75" value="#Variables.address2#" />
+              <br />
+            
+              <label for="city">#language.City#:</label>
+              <input name="city" id="city" type="text" size="25" maxlength="40" value="#Variables.city#" />
+              <br />
+            
+              <label for="province">#language.Province#:</label>
+              <input name="province" id="province" type="text" size="25" maxlength="40" value="#Variables.province#" />
+              <br />
+            
+              <label for="country">#language.Country#:</label>
+              <input name="country" id="country" type="text" size="25" maxlength="40" value="#Variables.country#" />
+              <br />
+            
+              <label for="zip">#language.zip#:</label>
+              <input name="zip" id="zip" type="text" size="12" maxlength="10" value="#Variables.zip#" />
+              <br />
+            
+              <label for="phone">#language.Phone#:</label>
+              <input name="phone" id="phone" type="text" size="25" maxlength="32" value="#Variables.phone#" />
+              <br />
+            
+              <label for="fax">#language.Fax# #language.optional#:</label>
+              <input id="fax" name="fax" type="text" size="10" maxlength="32" />
+            
               <input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
-              <a href="entrpdemande-comprequest.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#" class="textbutton">#language.Cancel#</a>							
             </fieldset>
 					</form>
 				</cfoutput>

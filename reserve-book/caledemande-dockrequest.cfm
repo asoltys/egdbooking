@@ -160,8 +160,6 @@
 
 					<div class="buttons">
 						<input type="submit" value="#language.Submit#" class="textbutton" />
-						<input type="reset" value="#language.Reset#" class="textbutton" />
-						<input type="button" value="#language.Cancel#" class="textbutton" onclick="javascript:self.location.href='reserve-booking.cfm?lang=#lang#';" />
 					</div>
 
 				</form>
@@ -220,8 +218,6 @@
 
 					<div class="buttons">
 						<input type="submit" value="#language.Submit#" class="textbutton" />
-						<input type="reset" value="#language.Reset#" class="textbutton" />
-						<input type="button" value="#language.Cancel#" class="textbutton" onclick="javascript:self.location.href='reserve-booking.cfm?lang=#lang#';" />
 					</div>
 				</form>
 				</cfoutput>

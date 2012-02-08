@@ -227,11 +227,7 @@
 
 					<div class="buttons">
 						<input type="submit" value="#language.Submit#" class="textbutton" />
-						<a href="caledemande-dockrequest.cfm?lang=#lang#" class="textbutton">#language.Back#</a>
-						<input type="button" value="#language.Cancel#" class="textbutton" onclick="self.location.href='reserve-booking.cfm?lang=<cfoutput>#lang#</cfoutput>';" />
 					</div>
-
-
 				</cfform>
 				</cfoutput>
 
