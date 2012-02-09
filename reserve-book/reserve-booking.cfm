@@ -5,21 +5,26 @@
 
 <!--- these language variables have to come before the CFhtmlhead tag --->
 <cfif lang EQ 'eng'>
-	<cfset language.keywords = language.masterKeywords & ", Booking Request">
-	<cfset language.description = "The Esquimalt Graving Dock booking application homepage.">
-	<cfset language.subjects = language.masterSubjects & "">
+	<cfset language.keywords = language.masterKeywords & ", Booking Request" />
+	<cfset language.description = "The Esquimalt Graving Dock booking application homepage." />
+	<cfset language.subjects = language.masterSubjects />
 <cfelse>
-	<cfset language.keywords = language.masterKeywords & ", Demande de r&eacute;servation">
-	<cfset language.description = "Page d'accueil de l'application des r&eacute;servations de la Cale s&eacute;che d'Esquimalt.">
-	<cfset language.subjects = language.masterSubjects & "">
+	<cfset language.keywords = language.masterKeywords & ", Demande de r&eacute;servation" />
+	<cfset language.description = "Page d'accueil de l'application des r&eacute;servations de la Cale s&eacute;che d'Esquimalt." />
+	<cfset language.subjects = language.masterSubjects />
 </cfif>
 
-<cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.Booking# - #language.esqGravingDock# - #language.PWGSC#"" />
-	<meta name=""keywords"" content=""#language.keywords#"" />
-	<meta name=""description"" content=""#language.description#"" />
-	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
-	<title>#language.Booking# - #language.esqGravingDock# - #language.PWGSC#</title>">
+<cfoutput>
+
+<cfsavecontent variable="head">
+	<meta name="dc.title" content="#language.Booking# - #language.esqGravingDock# - #language.PWGSC#" />
+	<meta name="keywords" content="#language.keywords#" />
+	<meta name="description" content="#language.description#" />
+	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
+	<title>#language.Booking# - #language.esqGravingDock# - #language.PWGSC#</title>
+</cfsavecontent>
+<cfhtmlhead text="#head#" />
+
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cflock scope="session" throwontimeout="no" timeout="60" type="readonly">
@@ -36,9 +41,9 @@
 
 <cflock timeout="60" throwontimeout="No" type="exclusive" scope="session">
 	<cfif isDefined("URL.CID")>
-		<cfoutput query="getCompanies">
+		<cfloop query="getCompanies">
 			<cfif URL.CID eq CID><cfset Variables.CID = #URL.CID#></cfif>
-		</cfoutput>
+		</cfloop>
 	<cfelseif IsDefined("Session.LastChoice.CID")>
 		<cflocation url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&CID=#Session.LastChoice.CID#" addtoken="no">
 	<cfelse>
@@ -227,9 +232,9 @@
 	FROM Users
 	WHERE UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
-<cfoutput query="readonlycheck">
+<cfloop query="readonlycheck">
 	<cfset Session.ReadOnly = #ReadOnly#>
-</cfoutput>
+</cfloop>
 
 <cfif lang EQ 'eng'>
 	<cfset language.followingbooking = "Your current bookings for <strong>#getCompany.companyName#</strong> are as follows:">
@@ -239,7 +244,7 @@
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
-			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
+			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm"> &gt; #language.bookingHome#
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -248,39 +253,33 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#getCompany.CompanyName# #language.Booking#</cfoutput>
+					#getCompany.CompanyName# #language.Booking#
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
 				<div class="content">
-				<cfoutput>
 					<p>#language.Welcome#, #Session.Firstname# #Session.LastName#!</p>
-				</cfoutput>
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 
 				<cfif getCompanies.recordCount GT 1>
 					<div style="text-align:center;">
-						<cfoutput>
 							<p>#language.currentcompany#<br />
 							<b class="h1Size">#currentCompany.companyName#</b></p>
 							<p>#language.otherCompanies#<br />
-						</cfoutput>
-						<cfoutput query="getCompanies">
+						<cfloop query="getCompanies">
 							<cfif getCompanies.CID NEQ #variables.CID# AND approved eq 1><span style="white-space: nowrap; "><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#CID#">#CompanyName#</a></span>&nbsp;&nbsp;</cfif>
-						</cfoutput>
+						</cfloop>
 						</p>
 
 						<cfif unapprovedCompany.RecordCount GTE 1>
-							<cfoutput><p>#language.awaitingApproval#<br /></cfoutput>
-							<cfoutput query="unapprovedCompany">
+							<p>#language.awaitingApproval#<br />
+							<cfloop query="unapprovedCompany">
 								<span style="white-space: nowrap;">#CompanyName#</span>&nbsp;&nbsp;
-							</cfoutput>
+							</cfloop>
 							</p>
 						</cfif>
 					</div>
 				</cfif>
-
-				<cfoutput>
 
 					<h2>#language.Vessel#(s)</h2>
 						<cfif getVessels.recordCount EQ 0>
@@ -339,12 +338,10 @@
 						</table>
 						<p class="total">
 							Total:&nbsp;&nbsp;
-							<cfoutput>
-								<em class="pending">#language.pending# - #countPending.numPend#</em>
-								<em class="tentative">#language.tentative# - #countTentative.numTent#</em>
-								<em class="confirmed">#language.confirmed# - #countConfirmed.numConf#</em>
-								<em class="cancelled">#language.cancelling# - #countCancelled.numCanc#</em>
-							</cfoutput>
+              <em class="pending">#language.pending# - #countPending.numPend#</em>
+              <em class="tentative">#language.tentative# - #countTentative.numTent#</em>
+              <em class="confirmed">#language.confirmed# - #countConfirmed.numConf#</em>
+              <em class="cancelled">#language.cancelling# - #countCancelled.numCanc#</em>
 						</p>
 					<cfelse>
 						#language.None#.
@@ -390,18 +387,15 @@
 						</table>
             <p class="total">
               Total:&nbsp;&nbsp;
-              <cfoutput>
-                <em class="pending">#language.pending# - #countPendingNJ.numPendNJ#</em>
-                <em class="tentative">#language.tentative# - #countTentativeNJ.numTentNJ#</em>
-                <em class="confirmed">#language.confirmed# - #countConfirmedNJ.numConfNJ#</em>
-                <em class="cancelled">#language.cancelling# - #countCancelledNJ.numCancNJ#</em>
-              </cfoutput>
+              <em class="pending">#language.pending# - #countPendingNJ.numPendNJ#</em>
+              <em class="tentative">#language.tentative# - #countTentativeNJ.numTentNJ#</em>
+              <em class="confirmed">#language.confirmed# - #countConfirmedNJ.numConfNJ#</em>
+              <em class="cancelled">#language.cancelling# - #countCancelledNJ.numCancNJ#</em>
             </p>
 					<cfelse>
 						<p>#language.None#.</p>
 					</cfif>
 
-				<cfset counter = 0>
 					<h3>#language.SouthJetty#</h3>
 					<cfif getSouthJettyBookings.recordCount GE 1>
 						<table class="basic">
@@ -414,6 +408,7 @@
 								</tr>
               </thead>
               <tbody>
+                <cfset counter = 0>
                 <cfloop query="getSouthJettyBookings">
                   <tr>
                     <td>
@@ -435,28 +430,25 @@
                       </cfif>
                     </td>
                   </tr>
-                <cfset counter = counter + 1>
+                  <cfset counter = counter + 1>
                 </cfloop>
             </tbody>
 						</table>
             <p class="total">
               Total:&nbsp;&nbsp;
-              <cfoutput>
-                <em class="pending">#language.pending# - #countPendingSJ.numPendSJ#</em>
-                <em class="tentative">#language.tentative# - #countTentativeSJ.numTentSJ#</em>
-                <em class="confirmed">#language.confirmed# - #countConfirmedSJ.numConfSJ#</em>
-                <em class="cancelled">#language.cancelling# - #countCancelledSJ.numCancSJ#</em>
-              </cfoutput>
+              <em class="pending">#language.pending# - #countPendingSJ.numPendSJ#</em>
+              <em class="tentative">#language.tentative# - #countTentativeSJ.numTentSJ#</em>
+              <em class="confirmed">#language.confirmed# - #countConfirmedSJ.numConfSJ#</em>
+              <em class="cancelled">#language.cancelling# - #countCancelledSJ.numCancSJ#</em>
             </p>
 					<cfelse>
 						<p>#language.None#.</p>
 					</cfif>
-
-
 					</div>
-				</cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
+
+</cfoutput>
 
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
