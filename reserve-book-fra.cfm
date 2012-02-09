@@ -53,6 +53,7 @@
 <!-- PROGRESSIVE ENHANCEMENT BEGINS | DEBUT DE L'AMELIORATION PROGRESSIVE -->
 <cfoutput>
 <script src="#CLF_URL#/clf20/scripts/pe-ap.js" type="text/javascript"></script>
+<script src="#Rootdir#scripts/external.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 	/* <![CDATA[ */
