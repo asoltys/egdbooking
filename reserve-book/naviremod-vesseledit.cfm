@@ -183,7 +183,7 @@
 					</fieldset>
 				</form>
 
-        <p>&dagger;#language.anonymousWarning#</p>
+        <p>&dagger; #language.anonymousWarning#</p>
 				</cfoutput>
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

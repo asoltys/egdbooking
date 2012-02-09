@@ -4,9 +4,6 @@
   <style>
     a##dismiss { color: ##369; cursor: pointer; text-decoration: underline; }
   </style>
-
-  <script type="text/javascript" src="#RootDir#scripts/jquery-1.7.1.min.js"></script>
-  <script type="text/javascript" src="#RootDir#scripts/application.js"></script>
 </cfsavecontent>
 <cfhtmlhead text="#head#">
 

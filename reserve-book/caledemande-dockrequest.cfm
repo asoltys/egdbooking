@@ -34,12 +34,6 @@
 	<meta name="description" content="#language.description#" />
 	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
 	<title>#language.drydockRequest# - #language.esqGravingDock# - #language.PWGSC#</title>
-	<script type="text/javascript">
-		/* <![CDATA[ */
-		var bookingLength = 2;
-		/* ]]> */
-	</script>
-	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
 </cfsavecontent>
 <cfhtmlhead text="#js#">
 
