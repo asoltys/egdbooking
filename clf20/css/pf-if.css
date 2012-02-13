@@ -12,7 +12,7 @@
 		padding: 0;
 		background-color: #FFF;
 	}
-	div.banner, div.banner-eng, div.banner-fra, div.banner-lfcoa-eng, div.banner-lfcoa-fra, div.fp, div.left, div.right, div.footer div.foot2 a, div.footer div.foot3 a, div.footer div.footerline, div.navaid, div.topPage, p.topPage {
+	p.breadcrumb, div.banner, div.banner-eng, div.banner-fra, div.banner-lfcoa-eng, div.banner-lfcoa-fra, div.fp, div.left, div.right, div.footer, div.footer div.foot2 a, div.footer div.foot3 a, div.footer div.footerline, div.navaid, div.topPage, p.topPage, div.alternate-format {
 		display: none;
 	}
 	div.fip, div.cwm {
