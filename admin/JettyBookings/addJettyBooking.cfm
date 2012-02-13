@@ -173,24 +173,21 @@ function EditSubmit ( selectedform )
 								<td id="Startdate"><label for="start">Start Date:</label></td>
 								<td headers="Startdate">
 									<cfoutput>
-									<cfinput type="text" name="startDate" message="Please enter a start date." validate="date" required="yes" class="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
-									<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+									<cfinput type="text" name="startDate" message="Please enter a start date." validate="date" required="yes" class="datepicker startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
 								</td>
 							</tr>
 							<tr>
 								<td id="Enddate"><label for="end">End Date:</label></td>
 								<td headers="Enddate">
 									<cfoutput>
-									<cfinput type="text" name="endDate" message="Please enter an end date." validate="date" required="yes" class="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
-									<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+									<cfinput type="text" name="endDate" message="Please enter an end date." validate="date" required="yes" class="datepicker endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
 								</td>
 							</tr>
 							<tr>
 								<td id="bookingDT">Booking Date:</td>
 								<td headers="bookingDT">
 									<cfoutput>
-                  <cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" /> <abbr title="#language.dateformatexplanation#">(MM/DD/YYYY)</abbr>
-                    <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+                  <cfinput name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" class="datepicker" /> <abbr title="#language.dateformatexplanation#">(MM/DD/YYYY)</abbr>
                   </cfoutput>
                 </td>
               </tr>

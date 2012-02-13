@@ -34,12 +34,6 @@
 	<meta name="description" content="#language.description#" />
 	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
 	<title>#language.drydockRequest# - #language.esqGravingDock# - #language.PWGSC#</title>
-	<script type="text/javascript">
-		/* <![CDATA[ */
-		var bookingLength = 2;
-		/* ]]> */
-	</script>
-	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
 </cfsavecontent>
 <cfhtmlhead text="#js#">
 
@@ -141,15 +135,15 @@
             </div>
 
 						<div>
-              <label for="startDateA">#language.StartDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
-              <input id="startDateA" name="startDate" class="startDate" type="text" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> 
-              <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+              <label for="startDateA">
+                #language.StartDate#:<br />
+                <small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+              <input id="startDateA" name="startDate" class="datepicker startDate" type="text" size="15" maxlength="10"  /> 
 						</div>
 
 						<div>
-              <label for="endDateA">#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
-              <input id="endDateA" name="endDate" class="endDate" type="text" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#"  />
-              <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+             <label for="endDateA">#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+              <input id="endDateA" name="endDate" class="datepicker endDate" type="text" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#"  />
 						</div>
 
 						<div>
@@ -195,14 +189,12 @@
 
             <div>
 							<label for="StartDateB">#language.StartDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
-							<input id="StartDateB" name="startDate" type="text" class="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
-							<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+							<input id="StartDateB" name="startDate" type="text" class="datepicker startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
             </div>
 
             <div>
               <label for="EndDateB">#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
-              <input id="EndDateB" name="endDate" type="text" class="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
-              <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+              <input id="EndDateB" name="endDate" type="text" class="datepicker endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
             </div>
 
             <div>

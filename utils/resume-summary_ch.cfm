@@ -90,15 +90,13 @@
 						<tr>
 							<th id="startCell"><label for="start">&nbsp; #language.fromDate#</label></th>
 							<td headers="startCell">
-								<input type="text" name="startDate" class="startDate" id="start" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
-								<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+								<input type="text" name="startDate" class="datepicker startDate" id="start" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 							</td>
 						</tr>
 						<tr>
 						<th id="endCell"><label for="end">&nbsp; #language.toDate#</label></th>
 							<td headers="endCell">
-								<input type="text" name="endDate" class="endDate" id="end" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
-								<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+								<input type="text" name="endDate" class="datepicker endDate" id="end" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
 							</td>
 						</tr>
 						<tr><td colspan="2">&nbsp;</td></tr>

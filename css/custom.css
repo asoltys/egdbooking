@@ -37,6 +37,8 @@ img {
 	border: none;
 }
 
+a#dismiss { color: ##369; cursor: pointer; text-decoration: underline; }
+
 /* Overrides the institution definition of colLayout
    having 100% height, which is buggy on our test
    server. */
@@ -270,6 +272,10 @@ form input, form select {
 
 form div {
   clear: left;
+}
+
+form div.datepicker div {
+  clear: none;
 }
 
 div.buttons {

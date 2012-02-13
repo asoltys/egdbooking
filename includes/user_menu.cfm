@@ -1,15 +1,5 @@
 <cfoutput>
 
-<cfsavecontent variable="head">
-  <style>
-    a##dismiss { color: ##369; cursor: pointer; text-decoration: underline; }
-  </style>
-
-  <script type="text/javascript" src="#RootDir#scripts/jquery-1.7.1.min.js"></script>
-  <script type="text/javascript" src="#RootDir#scripts/application.js"></script>
-</cfsavecontent>
-<cfhtmlhead text="#head#">
-
 <div id="menu1">
   <cfquery name="display_notice"  datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
     SELECT notice_acknowledged FROM users 
