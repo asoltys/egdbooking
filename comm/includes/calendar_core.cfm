@@ -87,7 +87,7 @@ summary="#language.calendar#">
 			<td>
 				<cfif not (Variables.DateCounter IS 0) AND NOT (Variables.DateCounter GT Variables.LastDayofMonth)>
 					<cfset taday = DateFormat(CreateDate(url['a-y'], url['m-m'], DaysofMonth[DateCounter]), "yyyy-MM-dd")>
-					<a href="detail.cfm?lang=#lang#&amp;date=#taday#" title="#DateFormat(taday, 'dddd')# #taday# #language.details#" rel="nofollow"><strong>#DaysofMonth[DateCounter]#</strong></a>
+          <strong>#DaysofMonth[DateCounter]#</strong>
 
 					<cfquery name="GetEventsonDay" dbtype="query">
 						SELECT 	BRID, VesselName, VNID,
@@ -203,6 +203,8 @@ summary="#language.calendar#">
 							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#DateFormat(taday, 'dddd')# #taday# #pend.name#" rel="nofollow"><span style="display: none">#taday#</span> #pend.name#</a><a href="##pending" class="legend pending"><sup><cfif sec3.name NEQ "">L5<cfelse>L3</cfif></sup></a></div>
 						</cfif>
 					
+        <br />
+        <a href="detail.cfm?lang=#lang#&amp;date=#taday#" rel="nofollow">#taday# Details</a>
 				</cfif>
 			</td>
 		</cfloop>
