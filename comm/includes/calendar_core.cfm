@@ -193,14 +193,14 @@ summary="#language.calendar#">
 							<cfif Evaluate(sec).maint eq true>
 								<div class="maintenance"><a href="detail.cfm?lang=#lang#&amp;date=#taday###booking-#BRID#" class="maintenance" title="#DateFormat(taday, 'dddd')# #taday# #language.maintenance#"><span style="display: none" rel="nofollow">#taday#</span> #language.maintenance#</a></div>
 							<cfelseif vessel_name neq "">
-              <div class="vessel #sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday###booking-#BRID#" class="confirmed" title="#DateFormat(taday, 'dddd')# #taday# #vessel_name#" rel="nofollow"><span style="display: none">#taday#</span> #vessel_name#</a><a class="legend" href="###sec#"><sup>L#bloop#</sup></a></div>
+              <div class="vessel #sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday###booking-#BRID#" class="confirmed" title="#DateFormat(taday, 'dddd')# #taday# #vessel_name#" rel="nofollow"><span style="display: none">#taday#</span> #vessel_name#</a><a class="legend" href="###sec#"><sup>#bloop#</sup></a></div>
 							</cfif>
 						</cfloop>
 						<cfif tent.num neq 0>
 							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="tentative" title="#DateFormat(taday, 'dddd')# #taday# #tent.name#" rel="nofollow"><span style="display: none">#taday#</span> #tent.name#</a><a href="##tentative" class="legend tentative"><sup>L4</sup></a></div>
 						</cfif>
 						<cfif pend.num neq 0>
-							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#DateFormat(taday, 'dddd')# #taday# #pend.name#" rel="nofollow"><span style="display: none">#taday#</span> #pend.name#</a><a href="##pending" class="legend pending"><sup><cfif sec3.name NEQ "">L5<cfelse>L3</cfif></sup></a></div>
+							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#DateFormat(taday, 'dddd')# #taday# #pend.name#" rel="nofollow"><span style="display: none">#taday#</span> #pend.name#</a><a href="##pending" class="legend pending"><sup><cfif sec3.name NEQ "">5<cfelse>3</cfif></sup></a></div>
 						</cfif>
 					
         <br />
