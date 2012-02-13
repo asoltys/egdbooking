@@ -7,9 +7,9 @@
       <div>
         <label for="month">#language.month#</label>
         <select name="m-m" id="month">
-          <CFLOOP index="i" from="1" to="12">
+          <cfloop index="i" from="1" to="12">
             <option value="#i#" <cfif i eq url['m-m']>selected="selected"</cfif>>#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
-          </CFLOOP>
+          </cfloop>
         </select>
       </div>
       <div>
@@ -25,7 +25,6 @@
     </fieldset>
   </form>
 </div>
-</cfoutput>
 
 <cfif find("jet", cgi.script_name) EQ 0>
   <cfinclude template="#RootDir#comm/includes/dock_key.cfm" />
@@ -33,14 +32,13 @@
   <cfinclude template="#RootDir#comm/includes/jetty_key.cfm" />
 </cfif>
 
-<h2><cfoutput>#LSDateFormat(CreateDate(url['a-y'], url['m-m'], 1), 'mmmm')# #url['a-y']#</cfoutput></h2>
+<h2>#LSDateFormat(CreateDate(url['a-y'], url['m-m'], 1), 'mmmm')# #url['a-y']#</h2>
 
-<cfoutput>
+
 <div class="selector">
   <!---<a href="#cgi.script_name#?lang=#lang#&amp;m-m=#prevmonth#&amp;a-y=#prevyear#" class="previousLink">#language.prev#</a>--->
   <!---<a href="#cgi.script_name#?lang=#lang#&amp;m-m=#nextmonth#&amp;a-y=#nextyear#" class="nextLink">#language.next#</a>--->
 </div>
-</cfoutput>
 
 <!--- Create an array for the days of the month --->
 <cfset DaysofMonth = ArrayNew(1)>
@@ -56,15 +54,13 @@
 <cfset LastDay = CreateDate(url['a-y'], url['m-m'], LastDayofMonth)>
 <cfset CurDayofWeek = LSDateFormat(FirstDay, "dddd")>
 
-<table class="basic calendar" id="calendar<cfoutput>#url['m-m']#</cfoutput>" 
-summary="<cfoutput>#language.calendar#</cfoutput>">
+<table class="basic calendar" id="calendar#url['m-m']#" 
+summary="#language.calendar#">
 	<!--- Output the days of the week at the top of the calendar --->
 	<tr>
 		<cfloop index="doh" from="1" to="#ArrayLen(DaysofWeek)#" step="1">
-		<cfoutput>
-			<CFSET dummydate = CreateDate(2005, 5, doh)>
+			<cfset dummydate = CreateDate(2005, 5, doh)>
 			<th scope="col">#LSDateFormat(dummydate, 'dddd')#</th>
-		</cfoutput>
 		</cfloop>
 	</tr>
 
@@ -91,7 +87,7 @@ summary="<cfoutput>#language.calendar#</cfoutput>">
 			<td>
 				<cfif not (Variables.DateCounter IS 0) AND NOT (Variables.DateCounter GT Variables.LastDayofMonth)>
 					<cfset taday = DateFormat(CreateDate(url['a-y'], url['m-m'], DaysofMonth[DateCounter]), "yyyy-MM-dd")>
-					<cfoutput><a href="detail.cfm?lang=#lang#&amp;date=#taday#" title="#DateFormat(taday, 'dddd')# #taday# #language.details#" rel="nofollow"><strong>#DaysofMonth[DateCounter]#</strong></a></cfoutput>
+					<a href="detail.cfm?lang=#lang#&amp;date=#taday#" title="#DateFormat(taday, 'dddd')# #taday# #language.details#" rel="nofollow"><strong>#DaysofMonth[DateCounter]#</strong></a>
 
 					<cfquery name="GetEventsonDay" dbtype="query">
 						SELECT 	BRID, VesselName, VNID,
@@ -108,26 +104,26 @@ summary="<cfoutput>#language.calendar#</cfoutput>">
 						Dance wit me!
 						Lois Chan, May 2005 --->
 
-					<CFSET sec1.num = 0>
-					<CFSET sec2.num = 0>
-					<CFSET sec3.num = 0>
-					<CFSET tent.num = 0>
-					<CFSET pend.num = 0>
+					<cfset sec1.num = 0>
+					<cfset sec2.num = 0>
+					<cfset sec3.num = 0>
+					<cfset tent.num = 0>
+					<cfset pend.num = 0>
 
-					<CFSET sec1.name = "">
-					<CFSET sec2.name = "">
-					<CFSET sec3.name = "">
-					<CFSET sec1.BRID = "">
-					<CFSET sec2.BRID = "">
-					<CFSET sec3.BRID = "">
-					<CFSET tent.name = "">
-					<CFSET pend.name = "">
+					<cfset sec1.name = "">
+					<cfset sec2.name = "">
+					<cfset sec3.name = "">
+					<cfset sec1.BRID = "">
+					<cfset sec2.BRID = "">
+					<cfset sec3.BRID = "">
+					<cfset tent.name = "">
+					<cfset pend.name = "">
 
-					<CFSET sec1.maint = false>
-					<CFSET sec2.maint = false>
-					<CFSET sec3.maint = false>
+					<cfset sec1.maint = false>
+					<cfset sec2.maint = false>
+					<cfset sec3.maint = false>
 
-					<cfoutput query="GetEventsonDay">
+					<cfloop query="GetEventsonDay">
 						<!---check if ship belongs to user's company--->
 						<cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
 							<cfquery name="userVessel#VNID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -142,7 +138,7 @@ summary="<cfoutput>#language.calendar#</cfoutput>">
 						<cfset Variables.countQName = "userVessel" & #VNID# & ".recordCount">
 						<cfset Variables.count = EVALUATE(countQName)>
 
-						<CFSCRIPT>
+						<cfscript>
 
 						if (Status eq 'm') {  // maintenance
 							for (frika = 1; frika LTE 3; frika = frika + 1) {
@@ -186,33 +182,32 @@ summary="<cfoutput>#language.calendar#</cfoutput>">
 						} else {  // unrecognised character;
 						}
 
-						</CFSCRIPT>
-					</cfoutput>
+						</cfscript>
+					</cfloop>
 
-					<cfoutput>
+						<cfloop from="1" to="3" index="bloop">
+							<cfset sec = "sec" & #bloop#>
+              <cfset vessel_name = Evaluate(sec).name />
+              <cfset BRID = Evaluate(sec).BRID />
 
-						<CFLOOP from="1" to="3" index="bloop">
-
-							<CFSET sec = "sec" & #bloop#>
-              <CFSET vessel_name = Evaluate(sec).name />
-              <CFSET BRID = Evaluate(sec).BRID />
-
-							<CFIF Evaluate(sec).maint eq true>
+							<cfif Evaluate(sec).maint eq true>
 								<div class="maintenance"><a href="detail.cfm?lang=#lang#&amp;date=#taday###booking-#BRID#" class="maintenance" title="#DateFormat(taday, 'dddd')# #taday# #language.maintenance#"><span style="display: none" rel="nofollow">#taday#</span> #language.maintenance#</a></div>
-							<CFELSEIF vessel_name neq "">
+							<cfelseif vessel_name neq "">
               <div class="vessel #sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday###booking-#BRID#" class="confirmed" title="#DateFormat(taday, 'dddd')# #taday# #vessel_name#" rel="nofollow"><span style="display: none">#taday#</span> #vessel_name#</a><a class="legend" href="###sec#"><sup>L#bloop#</sup></a></div>
-							</CFIF>
-						</CFLOOP>
+							</cfif>
+						</cfloop>
 						<cfif tent.num neq 0>
 							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="tentative" title="#DateFormat(taday, 'dddd')# #taday# #tent.name#" rel="nofollow"><span style="display: none">#taday#</span> #tent.name#</a><a href="##tentative" class="legend tentative"><sup>L4</sup></a></div>
 						</cfif>
 						<cfif pend.num neq 0>
 							<div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#DateFormat(taday, 'dddd')# #taday# #pend.name#" rel="nofollow"><span style="display: none">#taday#</span> #pend.name#</a><a href="##pending" class="legend pending"><sup><cfif sec3.name NEQ "">L5<cfelse>L3</cfif></sup></a></div>
 						</cfif>
-					</cfoutput>
+					
 				</cfif>
 			</td>
 		</cfloop>
 	</tr>
 	</cfloop>
 </table>
+
+</cfoutput>
