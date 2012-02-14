@@ -155,9 +155,8 @@
 	<cfset language.welcome = "Welcome">
 	<cfset language.none = "None">
 	<cfset language.allBookings = "All Bookings">
-	<cfset language.pending_cancelling = "pending cancelling">
-	<cfset language.cancelling = "cancelling">
-  <cfset language.confirming = "confirming">
+	<cfset language.pending_cancelling = "pending cancellation">
+  <cfset language.confirming = "pending confirmation">
   <cfset language.bookingForms = "Booking Forms">
 	<cfset language.viewTariff = "View Tariffs">
 	<cfset language.agent = "Agent">
@@ -179,7 +178,6 @@
 	<cfset language.none = "Aucun">
 	<cfset language.allBookings = "Toutes les r servations">
 	<cfset language.pending_cancelling = "en attendant l'annulation">	
-	<cfset language.cancelling = "annulation">
 	<cfset language.confirming = "confirmation ">
 	<cfset language.bookingForms = "Formulaires de r&eacute;servation">
 	<cfset language.viewTariff = "Consulter les tarifs">

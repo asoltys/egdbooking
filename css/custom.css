@@ -72,7 +72,7 @@ table tr {
 
 table.bookings { width: 100%; }
 table.details th, table.bookings th { text-align: left; }
-p.total em { padding-right: 20px; }
+p.total span { padding-right: 40px; }
 
 /* CALENDAR TABLE -------------------------------------- */
 
@@ -179,7 +179,7 @@ th.section {
    uninformative colouration. */
 div.center .confirmed {
 	border: none;
-	color: #990000;
+	color: #000;
 }
 div.center a.confirmed, div.center a.confirmed:visited, div.center a.confirmed:hover {
   color: #eee;
@@ -195,7 +195,7 @@ div.center .pending, div.center a.pending, div.center a.pending:visited, div.cen
 	color: #006622;
 }
 .cancelled, .cancelled:visited, .cancelled:hover {
-	color: #FF0000;
+	color: #D00;
 }
 
 /* BOOKING DETAILS ------------------------------------- */

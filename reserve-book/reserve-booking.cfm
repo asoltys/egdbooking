@@ -77,7 +77,10 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" />
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> 
+  AND Bookings.Deleted = '0' 
+  AND Vessels.Deleted = 0 
+  AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" />
 	ORDER BY startDate, enddate
 </cfquery>
 
@@ -88,7 +91,11 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" />
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> 
+  AND Jetties.NorthJetty = '1' 
+  AND Bookings.Deleted = '0' 
+  AND Vessels.Deleted = 0 
+  AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" />
 	ORDER BY startDate, enddate
 </cfquery>
 
@@ -98,7 +105,11 @@
 		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
-		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" />
+		Users ON Bookings.UID = Users.UID 
+    AND Jetties.SouthJetty = '1' 
+    AND Bookings.Deleted = '0' 
+    AND Vessels.Deleted = 0 
+    AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" />
 	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" />
 	ORDER BY startDate, enddate
 </cfquery>
@@ -112,7 +123,9 @@
 <cfquery name="unapprovedCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Name AS CompanyName
 		FROM	UserCompanies INNER JOIN Companies ON UserCompanies.CID = Companies.CID
-		WHERE	 UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" /> AND UserCompanies.Deleted = 0 AND (UserCompanies.Approved = 0 OR Companies.approved = 0)
+		WHERE	 UID = <cfqueryparam value="#session.UID#" cfsqltype="cf_sql_integer" /> 
+    AND UserCompanies.Deleted = 0 
+    AND (UserCompanies.Approved = 0 OR Companies.approved = 0)
 		ORDER  BY Companies.Name
 </cfquery>
 
@@ -124,7 +137,11 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND (Status ='PT' OR Status = 'PC' OR Status = 'PX')
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> 
+  AND Bookings.Deleted = '0' 
+  AND Vessels.Deleted = 0 
+  AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> 
+  AND (Status ='PT' OR Status = 'PC')
 </cfquery>
 <cfquery name="countTentative" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numTent
@@ -133,7 +150,11 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='T'
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> 
+  AND Bookings.Deleted = '0' 
+  AND Vessels.Deleted = 0 
+  AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> 
+  AND Status ='T'
 </cfquery>
 <cfquery name="countConfirmed" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numConf
@@ -142,7 +163,11 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='C'
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> 
+  AND Bookings.Deleted = '0' 
+  AND Vessels.Deleted = 0 
+  AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> 
+  AND Status ='C'
 </cfquery>
 <cfquery name="countCancelled" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numCanc
@@ -151,7 +176,11 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Docks ON Bookings.BRID = Docks.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='PX'
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> 
+  AND Bookings.Deleted = '0' 
+  AND Vessels.Deleted = 0 
+  AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> 
+  AND Status ='PX'
 </cfquery>
 <!---North Jetty Status--->
 <cfquery name="countPendingNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -161,7 +190,12 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND (Status ='PT' or Status ='PX' or Status='PC')
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> 
+  AND Jetties.NorthJetty = '1' 
+  AND Bookings.Deleted = '0' 
+  AND Vessels.Deleted = 0 
+  AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> 
+  AND (Status ='PT' or Status ='PX' or Status='PC')
 </cfquery>
 <cfquery name="countTentativeNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numTentNJ
@@ -170,7 +204,12 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='T'
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> 
+  AND Jetties.NorthJetty = '1' 
+  AND Bookings.Deleted = '0' 
+  AND Vessels.Deleted = 0 
+  AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> 
+  AND Status ='T'
 </cfquery>
 <cfquery name="countConfirmedNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numConfNJ
@@ -179,7 +218,12 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='C'
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> 
+  AND Jetties.NorthJetty = '1' 
+  AND Bookings.Deleted = '0' 
+  AND Vessels.Deleted = 0 
+  AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> 
+  AND Status ='C'
 </cfquery>
 <cfquery name="countCancelledNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numCancNJ
@@ -188,7 +232,12 @@
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
 		Users ON Bookings.UID = Users.UID
-	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> AND Jetties.NorthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='X'
+	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" /> 
+  AND Jetties.NorthJetty = '1' 
+  AND Bookings.Deleted = '0' 
+  AND Vessels.Deleted = 0 
+  AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> 
+  AND Status ='PX'
 </cfquery>
 <!---South Jetty Status--->
 <cfquery name="countPendingSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -197,7 +246,12 @@
 		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
-		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='PT'
+		Users ON Bookings.UID = Users.UID 
+    AND Jetties.SouthJetty = '1' 
+    AND Bookings.Deleted = '0' 
+    AND Vessels.Deleted = 0 
+    AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> 
+    AND Status ='PT'
 	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfquery name="countTentativeSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -206,7 +260,12 @@
 		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
-		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='T'
+		Users ON Bookings.UID = Users.UID 
+    AND Jetties.SouthJetty = '1' 
+    AND Bookings.Deleted = '0' 
+    AND Vessels.Deleted = 0 
+    AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> 
+    AND Status ='T'
 	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfquery name="countConfirmedSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -215,7 +274,12 @@
 		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
-		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='C'
+		Users ON Bookings.UID = Users.UID 
+    AND Jetties.SouthJetty = '1' 
+    AND Bookings.Deleted = '0' 
+    AND Vessels.Deleted = 0 
+    AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> 
+    AND Status ='C'
 	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfquery name="countCancelledSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -224,7 +288,12 @@
 		Vessels ON Bookings.VNID = Vessels.VNID INNER JOIN
 		Companies ON Vessels.CID = Companies.CID INNER JOIN
 		Jetties ON Bookings.BRID = Jetties.BRID INNER JOIN
-		Users ON Bookings.UID = Users.UID AND Jetties.SouthJetty = '1' AND Bookings.Deleted = '0' AND Vessels.Deleted = 0 AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> AND Status ='PX'
+		Users ON Bookings.UID = Users.UID 
+    AND Jetties.SouthJetty = '1' 
+    AND Bookings.Deleted = '0' 
+    AND Vessels.Deleted = 0 
+    AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> 
+    AND Status ='PX'
 	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -323,12 +392,11 @@
                     <td>#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')#</td>
                     <td>#lsdateformat(endDate, 'mmm d, yyyy')#</td>
                     <td>
-                      <cfif status EQ "PT"><em class="pending">#language.pending#</em>
-                      <cfelseif status EQ "C"><em class="confirmed">#language.confirmed#</em>
-                      <cfelseif status EQ "T"><em class="tentative">#language.tentative#</em>
-                      <cfelseif status EQ "PC"><em class="pending">#language.confirming#</em>
-                      <cfelseif status EQ "PX"><em class="pending">#language.pending_cancelling#</em>
-                      <cfelseif status EQ "X"><em class="cancelled">#language.cancelling#</em>
+                      <cfif status EQ "PT"><span class="pending">#language.pending#</span>
+                      <cfelseif status EQ "C"><span class="confirmed">#language.confirmed#</span>
+                      <cfelseif status EQ "T"><span class="tentative">#language.tentative#</span>
+                      <cfelseif status EQ "PC"><span class="pending">#language.confirming#</span>
+                      <cfelseif status EQ "PX"><span class="cancelled">#language.pending_cancelling#</span>
                       </cfif>
                     </td>
                   </tr>
@@ -338,10 +406,10 @@
 						</table>
 						<p class="total">
 							Total:&nbsp;&nbsp;
-              <em class="pending">#language.pending# - #countPending.numPend#</em>
-              <em class="tentative">#language.tentative# - #countTentative.numTent#</em>
-              <em class="confirmed">#language.confirmed# - #countConfirmed.numConf#</em>
-              <em class="cancelled">#language.cancelling# - #countCancelled.numCanc#</em>
+              <span class="pending">#language.pending# - #countPending.numPend#</span>
+              <span class="tentative">#language.tentative# - #countTentative.numTent#</span>
+              <span class="confirmed">#language.confirmed# - #countConfirmed.numConf#</span>
+              <span class="cancelled">#language.pending_cancelling# - #countCancelled.numCanc#</span>
 						</p>
 					<cfelse>
 						#language.None#.
@@ -372,12 +440,11 @@
                     <td>#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')#</td>
                     <td>#lsdateformat(endDate, 'mmm d, yyyy')#</td>
                     <td>
-                      <cfif status EQ "PT"><em class="pending">#language.pending#</em>
-                      <cfelseif status EQ "C"><em class="confirmed">#language.confirmed#</em>
-                      <cfelseif status EQ "T"><em class="tentative">#language.tentative#</em>
-                      <cfelseif status EQ "PC"><em class="pending">#language.confirming#</em>
-                      <cfelseif status EQ "PX"><em class="pending">#language.pending_cancelling#</em>
-                      <cfelseif status EQ "X"><em class="cancelled">#language.cancelling#</em>
+                      <cfif status EQ "PT"><span class="pending">#language.pending#</span>
+                      <cfelseif status EQ "C"><span class="confirmed">#language.confirmed#</span>
+                      <cfelseif status EQ "T"><span class="tentative">#language.tentative#</span>
+                      <cfelseif status EQ "PC"><span class="pending">#language.confirming#</span>
+                      <cfelseif status EQ "X"><span class="cancelled">#language.pending_cancelling#</span>
                       </cfif>
                     </td>
                   </tr>
@@ -387,10 +454,10 @@
 						</table>
             <p class="total">
               Total:&nbsp;&nbsp;
-              <em class="pending">#language.pending# - #countPendingNJ.numPendNJ#</em>
-              <em class="tentative">#language.tentative# - #countTentativeNJ.numTentNJ#</em>
-              <em class="confirmed">#language.confirmed# - #countConfirmedNJ.numConfNJ#</em>
-              <em class="cancelled">#language.cancelling# - #countCancelledNJ.numCancNJ#</em>
+              <span class="pending">#language.pending# - #countPendingNJ.numPendNJ#</span>
+              <span class="tentative">#language.tentative# - #countTentativeNJ.numTentNJ#</span>
+              <span class="confirmed">#language.confirmed# - #countConfirmedNJ.numConfNJ#</span>
+              <span class="cancelled">#language.pending_cancelling# - #countCancelledNJ.numCancNJ#</span>
             </p>
 					<cfelse>
 						<p>#language.None#.</p>
@@ -421,12 +488,11 @@
                     <td>#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')#</td>
                     <td>#lsdateformat(endDate, 'mmm d, yyyy')#</td>
                     <td>
-                      <cfif status EQ "PT"><em class="pending">#language.pending#</em>
-                      <cfelseif status EQ "C"><em class="confirmed">#language.confirmed#</em>
-                      <cfelseif status EQ "T"><em class="tentative">#language.tentative#</em>
-                      <cfelseif status EQ "PC"><em class="pending">#language.confirming#</em>
-                      <cfelseif status EQ "PX"><em class="pending">#language.pending_cancelling#</em>
-                      <cfelseif status EQ "X"><em class="cancelled">#language.cancelling#</em>
+                      <cfif status EQ "PT"><span class="pending">#language.pending#</span>
+                      <cfelseif status EQ "C"><span class="confirmed">#language.confirmed#</span>
+                      <cfelseif status EQ "T"><span class="tentative">#language.tentative#</span>
+                      <cfelseif status EQ "PC"><span class="pending">#language.confirming#</span>
+                      <cfelseif status EQ "PX"><span class="cancelled">#language.pending_cancelling#</span>
                       </cfif>
                     </td>
                   </tr>
@@ -436,10 +502,10 @@
 						</table>
             <p class="total">
               Total:&nbsp;&nbsp;
-              <em class="pending">#language.pending# - #countPendingSJ.numPendSJ#</em>
-              <em class="tentative">#language.tentative# - #countTentativeSJ.numTentSJ#</em>
-              <em class="confirmed">#language.confirmed# - #countConfirmedSJ.numConfSJ#</em>
-              <em class="cancelled">#language.cancelling# - #countCancelledSJ.numCancSJ#</em>
+              <span class="pending">#language.pending# - #countPendingSJ.numPendSJ#</span>
+              <span class="tentative">#language.tentative# - #countTentativeSJ.numTentSJ#</span>
+              <span class="confirmed">#language.confirmed# - #countConfirmedSJ.numConfSJ#</span>
+              <span class="cancelled">#language.pending_cancelling# - #countCancelledSJ.numCancSJ#</span>
             </p>
 					<cfelse>
 						<p>#language.None#.</p>
