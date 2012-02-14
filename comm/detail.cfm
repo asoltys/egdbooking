@@ -50,7 +50,7 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <CFPARAM name="url.referrer" default="#language.bookingHome#">
-<CFIF url.referrer eq "Details For">
+<CFIF url.referrer eq "detail">
 	<CFSET returnTo = "#RootDir#comm/detail.cfm">
 <CFELSE>
 	<CFSET returnTo = "#RootDir#reserve-book/reserve-booking.cfm">
@@ -190,7 +190,7 @@
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
 								#language.Deepsea#
 							<CFELSE>
-							<a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=Details For" title="#language.booking# ###BRID# #VesselName#">Booking ###BRID#: #VesselName#</a>
+							<a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=detail" title="#language.booking# ###BRID# #VesselName#">Booking ###BRID#: #VesselName#</a>
 							</CFIF>
 							<CFIF Status eq 'c'></strong></cfif>
 						</th>
@@ -269,7 +269,7 @@
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND NOT IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
 								#language.Deepsea#
 							<CFELSE>
-								 <a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=Details For" title="#language.booking# ###BRID# #VesselName#">Booking ###BRID#: #VesselName#</a>
+								 <a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=detail" title="#language.booking# ###BRID# #VesselName#">Booking ###BRID#: #VesselName#</a>
 							</CFIF>
 							<CFIF Status eq 'c'></strong></cfif>
 						</th>
