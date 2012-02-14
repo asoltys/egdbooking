@@ -145,18 +145,18 @@ function EditSubmit ( selectedform )
 						<fieldset>
 						<legend>#language.EditProfile#</legend>
 							<div>
-                <label for="firstname">#language.FirstName#:</label>
+                <label for="firstname"><span title="#language.required#" class="required">*</span>&nbsp;#language.FirstName#:</label>
                 <input name="firstname" id="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40"  />
 							</div>
 
 							<div>
-                <label for="lastname">#language.LastName#:</label>
+                <label for="lastname"><span title="#language.required#" class="required">*</span>&nbsp;#language.LastName#:</label>
                 <input name="lastname" id="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40"  />
 							</div>
 
 
 							<div>
-                <label for="email">#language.Email#:</label>
+                <label for="email"><span title="#language.required#" class="required">*</span>&nbsp;#language.Email#:</label>
                 <input name="email" id="email" type="text" value="#variables.email#" size="25" maxlength="40"  />
 							</div>
 							
@@ -192,12 +192,12 @@ function EditSubmit ( selectedform )
               <legend>#language.ChangePassword#</legend>
 
 							<div>
-                <label for="password">#language.Password# <span class="smallFont">(min. 8 #language.characters#)</span>:</label>
+                <label for="password"><span title="#language.required#" class="required">*</span>&nbsp;#language.Password# <span class="smallFont">(min. 8 #language.characters#)</span>:</label>
                 <input type="password" id="password" name="password1" />
 							</div>
 
 							<div>
-                <label for="password2">#language.RepeatPassword#:</label>
+                <label for="password2"><span title="#language.required#" class="required">*</span>&nbsp;#language.RepeatPassword#:</label>
                 <input type="password" id="password2" name="password2" />
 							</div>
 

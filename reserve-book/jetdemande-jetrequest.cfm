@@ -133,7 +133,7 @@
             <legend>#language.booking#</legend>
 
             <div>
-              <label for="CID">#language.Company#:</label>
+              <label for="CID"><span title="#language.required#" class="required">*</span>&nbsp;#language.Company#:</label>
               <CF_TwoSelectsRelated
                 query="companyVessels"
                 id1="CID"
@@ -144,7 +144,7 @@
                 VALUE2="VNID"
                 DEFAULT1="#Variables.CID#"
                 DEFAULT2="#Variables.VNID#"
-                htmlBETWEEN="</div><div><label for=""VNID"">#language.vessel#:</label>"
+                htmlBETWEEN="</div><div><label for=""VNID""><span title=""#language.required#"" class=""required"">*</span>&nbsp;#language.vessel#:</label>"
                 AUTOSELECTFIRST="Yes"
                 EMPTYTEXT1="(#language.chooseCompany#)"
                 EMPTYTEXT2="(#language.chooseVessel#)"
@@ -152,17 +152,17 @@
             </div>
 
             <div>
-              <label for="StartDate">#language.StartDate#<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>:</label>
+              <label for="StartDate"><span title="#language.required#" class="required">*</span>&nbsp;#language.StartDate#<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>:</label>
               <input id="StartDate" name="startDate" type="text" class="datepicker startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> 
             </div>
 
 						<div>
-              <label for="EndDate">#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+              <label for="EndDate"><span title="#language.required#" class="required">*</span>&nbsp;#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
               <input id="EndDate" name="endDate" type="text" class="datepicker endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> 
 						</div>
 
 						<div>
-              <label for="status">#language.requestedStatus#:</label>
+              <label for="status"><span title="#language.required#" class="required">*</span>&nbsp;#language.requestedStatus#:</label>
               <select id="status" name="status" >
                 <option value="tentative" <cfif Variables.Status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
                 <option value="confirmed" <cfif Variables.Status EQ "confirmed">selected="selected"</cfif>>#language.confirmed#</option>
@@ -170,7 +170,7 @@
 						</div>
 
             <div>
-              <label for="jetty">#language.RequestedJetty#:</label>
+              <label for="jetty"><span title="#language.required#" class="required">*</span>&nbsp;#language.RequestedJetty#:</label>
               <select name="jetty" id="jetty">
                 <option value="north"<cfif Variables.Jetty EQ "north"> selected="selected"</cfif>>#language.NorthLandingWharf#</option>
                 <option value="south"<cfif Variables.Jetty EQ "south"> selected="selected"</cfif>>#language.SouthJetty#</option>

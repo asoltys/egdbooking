@@ -80,14 +80,22 @@
 					<form action="ols-login_action.cfm?lang=#lang#" method="post" id="login_form">
             <fieldset>
               <legend>#language.login#</legend>
-              <label for="email">#language.Email#:</label>
-              <input type="text" name="email" id="email" size="40" maxlength="100" value="#email#" />
-              <label for="password">#language.Password#:</label>
-              <input type="password" name="Password" id="password" size="25" maxlength="40" />
+              
+              <div>
+                <label for="email"><span title="#language.required#" class="required">*</span>&nbsp;#language.Email#:</label>
+                <input type="text" name="email" id="email" size="40" maxlength="100" value="#email#" />
+              </div>
+
+              <div>
+                <label for="password"><span title="#language.required#" class="required">*</span>&nbsp;#language.Password#:</label>
+                <input type="password" name="Password" id="password" size="25" maxlength="40" />
+              </div>
+
               <div>
                 <label for="remember">#language.Remember#</label>
                 <input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked="checked"</CFIF> />
               </div>
+
               <input type="submit" name="submitForm" value="#language.Login#" class="textbutton" />
             </fieldset>
 					</form>
