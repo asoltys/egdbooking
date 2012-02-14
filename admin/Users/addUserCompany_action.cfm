@@ -86,7 +86,7 @@
 
 <cfif lang EQ "eng">
 	<cfset Session.Success.Title = "Add User to Company">
-	<cfset Session.Success.Message = "<b>#getDetails.FirstName# #getDetails.LastName#</b> now represents <b>#getDetails.CompanyName#</b>.">
+	<cfset Session.Success.Message = "<strong>#getDetails.FirstName# #getDetails.LastName#</strong> now represents <strong>#getDetails.CompanyName#</strong>.">
 	<cfset Session.Success.Back = "Back to Admin Functions Home">
 <cfelse>
 	<cfset Session.Success.Title = "">

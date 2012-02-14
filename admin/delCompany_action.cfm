@@ -70,7 +70,7 @@
 
 <cfset Session.Success.Breadcrumb = "Delete Company">
 <cfset Session.Success.Title = "Delete Company">
-<cfset Session.Success.Message = "<b>#getCompany.Name#</b> has been deleted.">
+<cfset Session.Success.Message = "<strong>#getCompany.Name#</strong> has been deleted.">
 <cfset Session.Success.Back = "Back to Admin Functions Home">
 <cfset Session.Success.Link = "#RootDir#admin/menu.cfm?lang=#lang#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">

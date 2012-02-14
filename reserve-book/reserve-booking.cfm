@@ -264,7 +264,7 @@
 				<cfif getCompanies.recordCount GT 1>
 					<div style="text-align:center;">
 							<p>#language.currentcompany#<br />
-							<b class="h1Size">#currentCompany.companyName#</b></p>
+							<b class="h1Size">#currentCompany.companyName#</strong></p>
 							<p>#language.otherCompanies#<br />
 						<cfloop query="getCompanies">
 							<cfif getCompanies.CID NEQ #variables.CID# AND approved eq 1><span style="white-space: nowrap; "><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#CID#">#CompanyName#</a></span>&nbsp;&nbsp;</cfif>

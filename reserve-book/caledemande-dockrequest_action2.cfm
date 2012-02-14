@@ -48,12 +48,12 @@
 <cfif lang EQ "eng">
 	<cfset Session.Success.Breadcrumb = "Submit Drydock Booking Request">
 	<cfset Session.Success.Title = "Create New Drydock Booking">
-	<cfset Session.Success.Message = "A new booking request for <b>#getDetails.vesselName#</b> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been successfully created and is pending approval.">
+	<cfset Session.Success.Message = "A new booking request for <strong>#getDetails.vesselName#</strong> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been successfully created and is pending approval.">
 	<cfset Session.Success.Back = "Specify Services and Facilities">
 <cfelse>
 	<cfset Session.Success.Breadcrumb = "Pr&eacute;senter une nouvelle demande de r&eacute;servation de la cale s&egrave;che">
 	<cfset Session.Success.Title = "&Eacute;tablir une nouvelle r&eacute;servation de cale s&egrave;che">
-	<cfset Session.Success.Message = "Une nouvelle r&eacute;servation du <b>#getDetails.vesselName#</b> au #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# a &eacute;t&eacute; cr&eacute;&eacute;e et est en attente d'approbation.">
+	<cfset Session.Success.Message = "Une nouvelle r&eacute;servation du <strong>#getDetails.vesselName#</strong> au #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# a &eacute;t&eacute; cr&eacute;&eacute;e et est en attente d'approbation.">
 	<cfset Session.Success.Back = "Pr&eacute;ciser les services et les installations">
 </cfif>
 <cfset Session.Success.Link = "#RootDir#reserve-book/tarif-tariff.cfm?lang=#lang#&amp;BRID=#getID.BRID#">

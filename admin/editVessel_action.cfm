@@ -33,7 +33,7 @@ commented out 09/23/05 as not all ships have a Lloyd's ID or IMO Number
 
 <cfset Session.Success.Breadcrumb = "Edit Vessel">
 <cfset Session.Success.Title = "Edit Vessel">
-<cfset Session.Success.Message = "<b>#form.Name#</b>'s information has been updated.">
+<cfset Session.Success.Message = "<strong>#form.Name#</strong>'s information has been updated.">
 <cfset Session.Success.Back = "Back to Edit Vessel">
 <cfset Session.Success.Link = "#RootDir#admin/editVessel.cfm?lang=#lang#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">

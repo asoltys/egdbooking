@@ -12,12 +12,12 @@
 <cfif lang EQ "eng">
 	<cfset Session.Success.Breadcrumb = "Delete Vessel">
 	<cfset Session.Success.Title = "Delete Vessel">
-	<cfset Session.Success.Message = "The vessel, <b>#getVessel.Name#</b>, has been deleted.">
+	<cfset Session.Success.Message = "The vessel, <strong>#getVessel.Name#</strong>, has been deleted.">
 	<cfset Session.Success.Back = "Back to Booking Home">
 <cfelse>
 	<cfset Session.Success.Breadcrumb = "Suppression de navire">
 	<cfset Session.Success.Title = "Suppression de navire">
-	<cfset Session.Success.Message = "Le navire, <b>#getVessel.Name#</b>, a &eacute;t&eacute; supprim&eacute;.">
+	<cfset Session.Success.Message = "Le navire, <strong>#getVessel.Name#</strong>, a &eacute;t&eacute; supprim&eacute;.">
 	<cfset Session.Success.Back = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
 </cfif>
 <cfset Session.Success.Link = "#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">

@@ -185,7 +185,7 @@ function EditSubmit ( selectedform )
                   <cfinput name="bookingTime" type="text" value="#TimeFormat(Variables.TheBookingTime, 'HH:mm')#" size="5" maxlength="8" required="yes" message="Please enter a valid booking time." validate="time" /> (HH:MM)
                 </td>
               </tr>
-							<tr><td colspan="2"><p><b>Note: Booking dates are inclusive</b>; i.e. a three day booking is denoted as from May 1 to May 3.</p></td></tr>
+							<tr><td colspan="2"><p><strong>Note: Booking dates are inclusive</strong>; i.e. a three day booking is denoted as from May 1 to May 3.</p></td></tr>
 							<tr><td colspan="2">Please set the status of the booking:</td></tr>
 							<tr>
 								<td id="pend" align="right">&nbsp;&nbsp;&nbsp;<label for="pending">Pending</label></td>

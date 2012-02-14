@@ -75,7 +75,7 @@ WHERE   Bookings.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_inte
 <cfif NOT validAgent>
 	<!--- no email notification needs to be sent; go straight to success page, but let the admin know --->
 	<!--- create structure for sending to mothership/success page. --->
-	<cfset Session.Success.Message = "Booking for <b>#getCompany.vesselName#</b> from #LSDateFormat(CreateODBCDate(getCompany.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getCompany.endDate), 'mmm d, yyyy')# has been #actionPast.eng#.  The agent that made this booking is no longer associated with #getCompany.CompanyName#. Please notify the company of the #actionPast.eng# booking.">
+	<cfset Session.Success.Message = "Booking for <strong>#getCompany.vesselName#</strong> from #LSDateFormat(CreateODBCDate(getCompany.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getCompany.endDate), 'mmm d, yyyy')# has been #actionPast.eng#.  The agent that made this booking is no longer associated with #getCompany.CompanyName#. Please notify the company of the #actionPast.eng# booking.">
 <cfelse>
 	<!--- booking agent is valid --->
 	<cfif DateCompare(PacificNow, getBooking.EndDate, 'd') EQ -1>
@@ -95,7 +95,7 @@ WHERE   Bookings.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_inte
 	</cfif>
 	
 	<!--- create structure for sending to mothership/success page. --->
-	<cfset Session.Success.Message = "Booking for <b>#getBooking.vesselName#</b> from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')# has been #actionPast.eng#.">
+	<cfset Session.Success.Message = "Booking for <strong>#getBooking.vesselName#</strong> from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')# has been #actionPast.eng#.">
 	<cfif DateCompare(PacificNow, getBooking.EndDate, 'd') EQ -1>
 		<cfset Session.Success.Message = Session.Success.Message & " Email notification of this cancellation has been sent to the agent.">
 	</cfif>

@@ -199,7 +199,7 @@ function EditSubmit ( selectedform )
 									</cfoutput>
 								</td>
 							</tr>
-							<tr><td colspan="2"><p><b>Note: Booking dates are inclusive</b>; i.e. a three day booking is denoted as from May 1 to May 3.</p></td></tr>
+							<tr><td colspan="2"><p><strong>Note: Booking dates are inclusive</strong>; i.e. a three day booking is denoted as from May 1 to May 3.</p></td></tr>
 							<tr><td colspan="2">Please set the status of the booking:</td></tr>
 							<tr>
 								<td id="pend" align="right"><label for="pending">Pending</label></td>

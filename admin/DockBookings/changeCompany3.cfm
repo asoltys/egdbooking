@@ -70,7 +70,7 @@ SELECT LastName + ', ' + FirstName as newFullName
 				
 				  <tr>
 					<td><br />
-				<b>Please finalize changes before submitting</b> <br />
+				<strong>Please finalize changes before submitting</strong> <br />
 				<br />
 				<input id="submit" type="submit" value="submit" />
 				  </tr>

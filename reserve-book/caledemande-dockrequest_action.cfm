@@ -130,7 +130,7 @@
 	<cfif lang EQ "eng">
 		<cfset Session.Success.Breadcrumb = "Submit Drydock Booking Request">
 		<cfset Session.Success.Title = "Create New Drydock Booking">
-		<cfset Session.Success.Message = "A new booking request for <b>#getDetails.vesselName#</b> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been successfully created and is pending approval.">
+		<cfset Session.Success.Message = "A new booking request for <strong>#getDetails.vesselName#</strong> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been successfully created and is pending approval.">
 		<cfset Session.Success.Back = "Specify Services and Facilities">
 	<cfelse>
 		<cfset Session.Success.Breadcrumb = "Pr&eacute;senter une nouvelle demande de r&eacute;servation de la cale s&egrave;che">

@@ -84,12 +84,12 @@
 <cfif lang EQ "eng">
 	<cfset Session.Success.Breadcrumb = "Submit Jetty Booking Request">
 	<cfset Session.Success.Title = "Create New Jetty Booking">
-	<cfset Session.Success.Message = "A new booking for <b>#getDetails.vesselName#</b> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been successfully created.">
+	<cfset Session.Success.Message = "A new booking for <strong>#getDetails.vesselName#</strong> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been successfully created.">
 	<cfset Session.Success.Back = "Back to Booking Home">
 <cfelse>
 	<cfset Session.Success.Breadcrumb = "Pr&eacute;sentation d'une demande de r&eacute;servation de jet&eacute;e">
 	<cfset Session.Success.Title = "&Eacute;tablir une nouvelle r&eacute;servation de jet&eacute;e">
-	<cfset Session.Success.Message = "Une nouvelle r&eacute;servation pour <b>#getDetails.vesselName#</b> du #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# a &eacute;t&eacute; faite avec succ&egrave;s.">
+	<cfset Session.Success.Message = "Une nouvelle r&eacute;servation pour <strong>#getDetails.vesselName#</strong> du #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# a &eacute;t&eacute; faite avec succ&egrave;s.">
 	<cfset Session.Success.Back = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
 </cfif>
 <cfset Session.Success.Link = "#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#getCompany.CID#">

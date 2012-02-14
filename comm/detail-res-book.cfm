@@ -191,11 +191,11 @@
 							<th>#language.Status#:</th>
 							<td>
 								<CFIF (isDefined("DStatus") AND DStatus eq 'C') OR (isDefined("JStatus") AND JStatus eq 'C')>
-									<b>#language.Confirmed#</b>
+									<strong>#language.Confirmed#</strong>
 								<CFELSEIF (isDefined("DStatus") AND DStatus eq 't') OR (isDefined("JStatus") AND JStatus eq 't')>
-									<i>#language.Tentative#</i>
+									<em>#language.Tentative#</em>
 								<CFELSE>
-									<i>#language.Pending#</i>
+									<em>#language.Pending#</em>
 								</CFIF>
 							</td>
 						</tr>

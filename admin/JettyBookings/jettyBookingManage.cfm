@@ -312,7 +312,7 @@ function EditSubmit ( selectedform )
 
 					<cfif jetty EQ 1>
 						<h2>North Landing Wharf</h2>
-						<p align="center"><b>Total:&nbsp;&nbsp;</b>
+						<p align="center"><strong>Total:&nbsp;&nbsp;</strong>
 							<cfoutput>
 							<i class="pending">Pending - #countPendingNJ.numPendNJ#</i>&nbsp;&nbsp;
 							<i class="tentative">Tentative - #countTentativeNJ.numTentNJ#</i>&nbsp;&nbsp;
@@ -322,7 +322,7 @@ function EditSubmit ( selectedform )
 					<cfelseif jetty EQ 2>
 						<hr />
 						<h2>South Jetty</h2>
-						<p align="center"><b>Total:&nbsp;&nbsp;</b>
+						<p align="center"><strong>Total:&nbsp;&nbsp;</strong>
 							<cfoutput>
 							<i class="pending">Pending - #countPendingSJ.numPendSJ#</i>&nbsp;&nbsp;
 							<i class="tentative">Tentative - #countTentativeSJ.numTentSJ#</i>&nbsp;&nbsp;

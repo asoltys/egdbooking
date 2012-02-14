@@ -93,12 +93,12 @@
 <cfif lang EQ "eng">
 	<cfset Session.Success.Breadcrumb = "Booking Cancellation Request">
 	<cfset Session.Success.Title = "Booking Cancellation Request">
-	<cfset Session.Success.Message = "<div align='left'>Your cancellation request for the booking for <b>#getBooking.vesselName#</b> from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')# is now pending.  EGD administration has been notified of your request.  You will receive a follow-up email responding to your request shortly.</div>">
+	<cfset Session.Success.Message = "<div align='left'>Your cancellation request for the booking for <strong>#getBooking.vesselName#</strong> from #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')# is now pending.  EGD administration has been notified of your request.  You will receive a follow-up email responding to your request shortly.</div>">
 	<cfset Session.Success.Back = "Back to #url.referrer#">
 <cfelse>
 	<cfset Session.Success.Breadcrumb = "Demande d'annulation de r&eacute;servation">
 	<cfset Session.Success.Title = "Demande d'annulation de r&eacute;servation">
-	<cfset Session.Success.Message = "<div align='left'>Votre demande d'annulation de la r&eacute;servation pour le <b>#getBooking.vesselName#</b> du #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')#  est en cours de traitement. L'administration de la CSE a &eacute;t&eacute; avis&eacute;e de votre demande. Vous recevrez sous peu un courriel de suivi en r&eacute;ponse &agrave; votre demande.</div>">
+	<cfset Session.Success.Message = "<div align='left'>Votre demande d'annulation de la r&eacute;servation pour le <strong>#getBooking.vesselName#</strong> du #LSDateFormat(CreateODBCDate(getBooking.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(getBooking.endDate), 'mmm d, yyyy')#  est en cours de traitement. L'administration de la CSE a &eacute;t&eacute; avis&eacute;e de votre demande. Vous recevrez sous peu un courriel de suivi en r&eacute;ponse &agrave; votre demande.</div>">
 	<cfset Session.Success.Back = "Retour &agrave; #url.referrer#">
 </cfif>
 <cfset Session.Success.Link = "#returnTo#?#urltoken#&CID=#url.CID##variables.dateValue#">

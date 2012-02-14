@@ -71,7 +71,7 @@
 
 <cfset Session.Success.Breadcrumb = "Change Password">
 <cfset Session.Success.Title = "Change Password">
-<cfset Session.Success.Message = "<b>#getUser.FirstName# #getUser.LastName#</b>'s password has been changed.">
+<cfset Session.Success.Message = "<strong>#getUser.FirstName# #getUser.LastName#</strong>'s password has been changed.">
 <cfset Session.Success.Back = "Back to Edit User Profile">
 <cfset Session.Success.Link = "#RootDir#admin/Users/editUser.cfm?lang=#lang#&UID=#form.UID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">

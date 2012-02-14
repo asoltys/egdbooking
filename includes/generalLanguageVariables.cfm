@@ -223,7 +223,7 @@
 	<cfset language.vessel = "Vessel">
 	<cfset language.bookingRequest = "Booking Request">
 	<cfset language.enterInfo = "Please enter the dates for your booking.">
-	<cfset language.dateInclusive = "<b>Note: Booking dates are inclusive</b>; i.e. a three day booking is denoted as from May 1 to May 3.">
+	<cfset language.dateInclusive = "<strong>Note: Booking dates are inclusive</strong>; i.e. a three day booking is denoted as from May 1 to May 3.">
 	<cfset language.chooseCompany = "choose a company">
 	<cfset language.chooseVessel = "choose a vessel">
 	<!--- Deprecated --->

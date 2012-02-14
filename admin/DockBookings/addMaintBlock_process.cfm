@@ -181,7 +181,7 @@ function EditSubmit ( selectedform )
 
 			<CFIF checkConflicts.RecordCount GT 0>
 
-				<p>The requested date range for the maintenance block <b class="red">conflicts</b> with the following bookings:</p>
+				<p>The requested date range for the maintenance block <b class="red">conflicts</strong> with the following bookings:</p>
 
 				<table class="basic smallFont">
 				<tr valign="top" align="left">
@@ -212,7 +212,7 @@ function EditSubmit ( selectedform )
 				</cfoutput>
 				</table>
 
-				<p>If you would like to go ahead and book the maintenance block, please <b class="red">confirm</b> the following information, or <b class="red">go back</b> to change the information.</p>
+				<p>If you would like to go ahead and book the maintenance block, please <b class="red">confirm</strong> the following information, or <b class="red">go back</strong> to change the information.</p>
 
 			<CFELSE>
 				<p>Please confirm the following maintenance block information.</p>

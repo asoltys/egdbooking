@@ -96,8 +96,8 @@ function EditSubmit ( selectedform )
 				<cfelse>
 					The following user(s) have requested booking access for the specified companies.  Whether 
 					they are approved or rejected, email notification will be sent to the user regarding the 
-					standing of their request.  <b><i>Those listings without an 'Approve' button must have 
-					the company approved first.</i></b>
+					standing of their request.  <strong><i>Those listings without an 'Approve' button must have 
+					the company approved first.</i></strong>
 					<br /><br />
 					<!--- Start of Users Listing --->
 					
