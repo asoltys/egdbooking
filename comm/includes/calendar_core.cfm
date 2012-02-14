@@ -21,7 +21,7 @@
           </CFLOOP>
         </select>
       </div>
-      <input type="submit" value="Go" />
+      <input type="submit" value="#language.submit#" />
     </fieldset>
   </form>
 </div>
