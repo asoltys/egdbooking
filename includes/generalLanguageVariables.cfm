@@ -304,14 +304,10 @@
 
 <cfif lang EQ "eng">
 	<cfset language.editVessel = "Edit Vessel">
-	<cfset language.companyName = "Company Name">
-	<cfset language.reset = "reset">
 	<cfset language.anonymousWarning = "Anonymous vessels are only anonymous to other companies' users.  The Esquimalt Graving Dock administrators have access to all vessel information regardless of anonymity.">
 	<cfset language.notEditVesselDimensions = "You may not edit the vessel dimensions as this vessel currently has confirmed bookings.  To make dimension changes, please contact EGD Administration.">
 <cfelse>
 	<cfset language.editVessel = "Modifier le navire">
-	<cfset language.companyName = "Raison sociale">
-	<cfset language.reset = "R&eacute;initialiser">
 	<cfset language.anonymousWarning = "Les navires anonymes ne sont anonymes qu'aux utilisateurs d'autres entreprises. Les administrateurs de la cale s&egrave;che d'Esquimalt ont acc&egrave;s &agrave; la totalit&eacute; de l'information concernant les navires, peu importe l'anonymat.">
 	<cfset language.notEditVesselDimensions = "Vous ne pouvez pas modifier les dimensions du navire, parce que ce dernier fait l'objet de r&eacute;servations confirm&eacute;es. Pour apporter des changements aux dimensions, pri&egrave;re de communiquer avec l'administration de la CSE.">
 </cfif>
