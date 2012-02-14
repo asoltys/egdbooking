@@ -48,7 +48,6 @@
 <!-- PROGRESSIVE ENHANCEMENT BEGINS | DEBUT DE L'AMELIORATION PROGRESSIVE -->
 
 <script src="#CLF_URL#/clf20/scripts/pe-ap.js" type="text/javascript"></script>
-<script src="#Rootdir#scripts/external.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 	/* <![CDATA[ */
@@ -69,9 +68,11 @@
 <link href="#RootDir#css/custom.css" media="screen, print" rel="stylesheet" type="text/css" />
 <link href="#RootDir#css/ui-lightness/jquery-ui-1.8.17.custom.css" media="screen" rel="stylesheet" type="text/css"/>
 
-<script src="#RootDir#scripts/prototype.js" type="text/javascript"></script>
-<script src="#RootDir#scripts/calendar.js" type="text/javascript"></script>
-<script src="#RootDir#scripts/common.js" type="text/javascript"></script>
+<cfif structKeyExists(Session, 'AdminLoggedIn') AND Session.AdminLoggedIn>
+  <script src="#RootDir#scripts/prototype.js" type="text/javascript"></script>
+  <script src="#RootDir#scripts/calendar.js" type="text/javascript"></script>
+  <script src="#RootDir#scripts/common.js" type="text/javascript"></script>
+</cfif>
 <script type="text/javascript" src="#RootDir#scripts/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="#RootDir#scripts/jquery-ui-1.8.17.custom.min.js"></script>
 <script type="text/javascript" src="#RootDir#scripts/jquery.ui.datepicker-fr.js"></script>

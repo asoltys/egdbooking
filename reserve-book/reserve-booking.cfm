@@ -328,7 +328,7 @@
 
 				<div class="content">
 					<p>#language.Welcome#, #Session.Firstname# #Session.LastName#!</p>
-				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
+          <cfinclude template="#RootDir#includes/user_menu.cfm">
 
 				<cfif getCompanies.recordCount GT 1>
 					<div style="text-align:center;">
@@ -350,17 +350,16 @@
 					</div>
 				</cfif>
 
-					<h2>#language.Vessel#(s)</h2>
-						<cfif getVessels.recordCount EQ 0>
-							<p>#language.None#</p>
-						<cfelse>
-              <ul>
-                <cfloop query="getVessels">
-                  <li><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VNID=#VNID#" title="#Name# #VNID#">#Name#</a></li>
-                </cfloop>
-              </ul>
-						</cfif>
-
+        <h2>#language.Vessel#(s)</h2>
+          <cfif getVessels.recordCount EQ 0>
+            <p>#language.None#</p>
+          <cfelse>
+            <ul>
+              <cfloop query="getVessels">
+                <li><a href="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#&amp;VNID=#VNID#" title="#Name# #VNID#">#Name#</a></li>
+              </cfloop>
+            </ul>
+          </cfif>
 
 					<h2>#language.bookings#</h2>
 
