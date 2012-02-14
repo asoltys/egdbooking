@@ -54,35 +54,10 @@
 <cfset Success = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
 
-<cfset Variables.StartDate = CreateODBCDate(Form.StartDate)>
-<cfset Variables.EndDate = CreateODBCDate(Form.EndDate)>
-<cfset Variables.VNID = Form.VNID>
-<cfset Variables.CID = Form.CID>
-
-<cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	VNID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
-	FROM 	Vessels, Companies
-	WHERE 	VNID = <cfqueryparam value="#Form.VNID#" cfsqltype="cf_sql_integer" />
-	AND		Companies.CID = Vessels.CID
-	AND 	Vessels.Deleted = 0
-	AND		Companies.Deleted = 0
-</cfquery>
-
-<cfif getVessel.RecordCount EQ 0>
-	<cfoutput>#ArrayAppend(Errors, "#language.noVesselError#")#</cfoutput>
-	<cfset Proceed_OK = "No">
-<cfelseif not isDate(Form.StartDate)>
-	<cfoutput>#ArrayAppend(Errors, "#language.invalidEndError#")#</cfoutput>
-	<cfset Proceed_OK = "No">
-<cfelseif not isNumeric(Form.VNID)>
+<cfif not isNumeric(Form.VNID)>
 	<cfoutput>#ArrayAppend(Errors, "#language.noVesselError#")#</cfoutput>
 	<cfset Proceed_OK = "No">
 <cfelse>
-  <cfset Variables.StartDate = CreateODBCDate(Form.StartDate)>
-  <cfset Variables.EndDate = CreateODBCDate(Form.EndDate)>
-  <cfset Variables.VNID = Form.VNID>
-  <cfset Variables.CID = Form.CID>
-
   <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
     SELECT 	VNID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
     FROM 	Vessels, Companies
@@ -95,61 +70,70 @@
   <cfif getVessel.RecordCount EQ 0>
     <cfoutput>#ArrayAppend(Errors, "#language.noVesselError#")#</cfoutput>
     <cfset Proceed_OK = "No">
-  </cfif>
+  <cfelseif not isDate(Form.StartDate)>
+    <cfoutput>#ArrayAppend(Errors, "#language.invalidStartError#")#</cfoutput>
+    <cfset Proceed_OK = "No">
+  <cfelseif not isDate(Form.EndDate)>
+    <cfoutput>#ArrayAppend(Errors, "#language.invalidEndError#")#</cfoutput>
+    <cfset Proceed_OK = "No">
+  <cfelse>
+    <cfset Variables.StartDate = CreateODBCDate(Form.StartDate)>
+    <cfset Variables.EndDate = CreateODBCDate(Form.EndDate)>
+    <cfset Variables.VNID = Form.VNID>
+    <cfset Variables.CID = Form.CID>
 
-  <!---Check to see that vessel hasn't already been booked during this time--->
-  <!--- 25 October 2005: This query now only looks at the jetties bookings --->
-  <cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-    SELECT 	Bookings.VNID, Bookings.BRID, Name, Bookings.StartDate, Bookings.EndDate
-    FROM 	Bookings
-          INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
-          INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
-    WHERE 	Bookings.VNID = <cfqueryparam value="#Form.VNID#" cfsqltype="cf_sql_integer" />
-    AND
-    <!---Explanation of hellishly long condition statement: The client wants to be able to overlap the start and end dates
-      of bookings, so if a booking ends on May 6, another one can start on May 6.  This created problems with single day
-      bookings, so if you are changing this query...watch out for them.  The first 3 lines check for any bookings longer than
-      a day that overlaps with the new booking if it is more than a day.  The next 4 lines check for single day bookings that
-      fall within a booking that is more than one day.--->
-        (
-          (	Bookings.StartDate <= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> < Bookings.EndDate AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <> <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND Bookings.StartDate <> Bookings.EndDate)
-        OR 	(	Bookings.StartDate < <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <> <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND Bookings.StartDate <> Bookings.EndDate)
-        OR	(	Bookings.StartDate >= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> >= Bookings.EndDate AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <> <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND Bookings.StartDate <> Bookings.EndDate)
-        OR  (	(Bookings.StartDate = Bookings.EndDate OR <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> = <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" />) AND Bookings.StartDate <> <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND Bookings.EndDate <> <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND
-              ((	Bookings.StartDate <= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> < Bookings.EndDate)
-            OR 	(	Bookings.StartDate < <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate)
-            OR	(	Bookings.StartDate >= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> >= Bookings.EndDate)))
-        )
-    AND		Bookings.Deleted = 0
-    <cfif IsDefined("Form.Jetty") AND form.Jetty EQ "north">
-      AND Jetties.NorthJetty = 1
-    <cfelse>
-      AND Jetties.SouthJetty = 1
+    <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+      SELECT 	VNID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
+      FROM 	Vessels, Companies
+      WHERE 	VNID = <cfqueryparam value="#Form.VNID#" cfsqltype="cf_sql_integer" />
+      AND		Companies.CID = Vessels.CID
+      AND 	Vessels.Deleted = 0
+      AND		Companies.Deleted = 0
+    </cfquery>
+
+    <cfif getVessel.RecordCount EQ 0>
+      <cfoutput>#ArrayAppend(Errors, "#language.noVesselError#")#</cfoutput>
+      <cfset Proceed_OK = "No">
     </cfif>
-  </cfquery>
 
-  <!--- 25 October 2005: The next two queries have been modified to only get results from the jetties bookings --->
-  <cfquery name="getNumStartDateBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-    SELECT	Bookings.BRID, Vessels.Name, Bookings.StartDate
-    FROM	Bookings
-          INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
-          INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
-    WHERE	StartDate = <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" />
-          AND Bookings.VNID = <cfqueryparam value="#Form.VNID#" cfsqltype="cf_sql_integer" />
-          AND Bookings.Deleted = 0
-        <cfif IsDefined("Form.Jetty") AND form.Jetty EQ "north">
-          AND Jetties.NorthJetty = 1
-        <cfelse>
-          AND Jetties.SouthJetty = 1
-        </cfif>
-  </cfquery>
+    <!---Check to see that vessel hasn't already been booked during this time--->
+    <!--- 25 October 2005: This query now only looks at the jetties bookings --->
+    <cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+      SELECT 	Bookings.VNID, Bookings.BRID, Name, Bookings.StartDate, Bookings.EndDate
+      FROM 	Bookings
+            INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+            INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
+      WHERE 	Bookings.VNID = <cfqueryparam value="#Form.VNID#" cfsqltype="cf_sql_integer" />
+      AND
+      <!---Explanation of hellishly long condition statement: The client wants to be able to overlap the start and end dates
+        of bookings, so if a booking ends on May 6, another one can start on May 6.  This created problems with single day
+        bookings, so if you are changing this query...watch out for them.  The first 3 lines check for any bookings longer than
+        a day that overlaps with the new booking if it is more than a day.  The next 4 lines check for single day bookings that
+        fall within a booking that is more than one day.--->
+          (
+            (	Bookings.StartDate <= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> < Bookings.EndDate AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <> <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND Bookings.StartDate <> Bookings.EndDate)
+          OR 	(	Bookings.StartDate < <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <> <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND Bookings.StartDate <> Bookings.EndDate)
+          OR	(	Bookings.StartDate >= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> >= Bookings.EndDate AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> <> <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND Bookings.StartDate <> Bookings.EndDate)
+          OR  (	(Bookings.StartDate = Bookings.EndDate OR <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> = <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" />) AND Bookings.StartDate <> <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND Bookings.EndDate <> <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND
+                ((	Bookings.StartDate <= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> < Bookings.EndDate)
+              OR 	(	Bookings.StartDate < <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> <= Bookings.EndDate)
+              OR	(	Bookings.StartDate >= <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" /> >= Bookings.EndDate)))
+          )
+      AND		Bookings.Deleted = 0
+      <cfif IsDefined("Form.Jetty") AND form.Jetty EQ "north">
+        AND Jetties.NorthJetty = 1
+      <cfelse>
+        AND Jetties.SouthJetty = 1
+      </cfif>
+    </cfquery>
 
-  <cfquery name="getNumEndDateBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-    SELECT	Bookings.BRID, Vessels.Name, Bookings.EndDate
-    FROM	Bookings
-          INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
-          INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
-    WHERE	EndDate = <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" />
+    <!--- 25 October 2005: The next two queries have been modified to only get results from the jetties bookings --->
+    <cfquery name="getNumStartDateBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+      SELECT	Bookings.BRID, Vessels.Name, Bookings.StartDate
+      FROM	Bookings
+            INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
+            INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+      WHERE	StartDate = <cfqueryparam value="#Variables.StartDate#" cfsqltype="cf_sql_date" />
             AND Bookings.VNID = <cfqueryparam value="#Form.VNID#" cfsqltype="cf_sql_integer" />
             AND Bookings.Deleted = 0
           <cfif IsDefined("Form.Jetty") AND form.Jetty EQ "north">
@@ -157,30 +141,46 @@
           <cfelse>
             AND Jetties.SouthJetty = 1
           </cfif>
-  </cfquery>
+    </cfquery>
 
-  <!--- Validate the form data --->
-  <cfif DateCompare(DateAdd('d', 1, PacificNow), Form.StartDate, 'd') EQ 1>
-    <cfoutput>#ArrayAppend(Errors, "#language.futureStartError#")#</cfoutput>
-    <cfset Proceed_OK = "No">
+    <cfquery name="getNumEndDateBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+      SELECT	Bookings.BRID, Vessels.Name, Bookings.EndDate
+      FROM	Bookings
+            INNER JOIN Jetties ON Bookings.BRID = Jetties.BRID
+            INNER JOIN Vessels ON Bookings.VNID = Vessels.VNID
+      WHERE	EndDate = <cfqueryparam value="#Variables.EndDate#" cfsqltype="cf_sql_date" />
+              AND Bookings.VNID = <cfqueryparam value="#Form.VNID#" cfsqltype="cf_sql_integer" />
+              AND Bookings.Deleted = 0
+            <cfif IsDefined("Form.Jetty") AND form.Jetty EQ "north">
+              AND Jetties.NorthJetty = 1
+            <cfelse>
+              AND Jetties.SouthJetty = 1
+            </cfif>
+    </cfquery>
 
-  <cfelseif isDefined("checkDblBooking.VNID") AND checkDblBooking.VNID NEQ "">
-    <cfoutput>#ArrayAppend(Errors, "#checkDblBooking.Name# #language.dblBookingError# #LSdateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# #language.to# #LSdateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
-    <cfset Proceed_OK = "No">
-  <cfelseif getNumStartDateBookings.recordCount GTE 1>
-    <cfoutput>#ArrayAppend(Errors, "#getNumStartDateBookings.Name# #language.tplBookingError# #LSdateFormat(getNumStartDateBookings.StartDate, 'mm/dd/yyy')#.")#</cfoutput>
-    <cfset Proceed_OK = "No">
-  <cfelseif getNumEndDateBookings.recordCount GTE 1>
-    <cfoutput>#ArrayAppend(Errors, "#getNumEndDateBookings.Name# #language.tplBookingError# #LSdateFormat(getNumEndDateBookings.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
-    <cfset Proceed_OK = "No">
-  </cfif>
+    <!--- Validate the form data --->
+    <cfif DateCompare(DateAdd('d', 1, PacificNow), Form.StartDate, 'd') EQ 1>
+      <cfoutput>#ArrayAppend(Errors, "#language.futureStartError#")#</cfoutput>
+      <cfset Proceed_OK = "No">
 
-  <cfif Form.StartDate GT Form.EndDate>
-    <cfoutput>#ArrayAppend(Errors, "#language.endBeforeStartError#")#</cfoutput>
-    <cfset Proceed_OK = "No">
-  <cfelseif DateDiff("d",Form.StartDate,Form.EndDate) LT 0>
-    <cfoutput>#ArrayAppend(Errors, "#language.bookingTooShortError#")#</cfoutput>
-    <cfset Proceed_OK = "No">
+    <cfelseif isDefined("checkDblBooking.VNID") AND checkDblBooking.VNID NEQ "">
+      <cfoutput>#ArrayAppend(Errors, "#checkDblBooking.Name# #language.dblBookingError# #LSdateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# #language.to# #LSdateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
+      <cfset Proceed_OK = "No">
+    <cfelseif getNumStartDateBookings.recordCount GTE 1>
+      <cfoutput>#ArrayAppend(Errors, "#getNumStartDateBookings.Name# #language.tplBookingError# #LSdateFormat(getNumStartDateBookings.StartDate, 'mm/dd/yyy')#.")#</cfoutput>
+      <cfset Proceed_OK = "No">
+    <cfelseif getNumEndDateBookings.recordCount GTE 1>
+      <cfoutput>#ArrayAppend(Errors, "#getNumEndDateBookings.Name# #language.tplBookingError# #LSdateFormat(getNumEndDateBookings.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
+      <cfset Proceed_OK = "No">
+    </cfif>
+
+    <cfif Form.StartDate GT Form.EndDate>
+      <cfoutput>#ArrayAppend(Errors, "#language.endBeforeStartError#")#</cfoutput>
+      <cfset Proceed_OK = "No">
+    <cfelseif DateDiff("d",Form.StartDate,Form.EndDate) LT 0>
+      <cfoutput>#ArrayAppend(Errors, "#language.bookingTooShortError#")#</cfoutput>
+      <cfset Proceed_OK = "No">
+    </cfif>
   </cfif>
 </cfif>
 

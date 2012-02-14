@@ -117,6 +117,14 @@
 					<cfset Variables.Status = #form.status#>
 				</cfif>
 
+        <cfif not isDate(Variables.startDate)>
+          <cfset Variables.startDate = "" />
+        </cfif>
+
+        <cfif not isDate(Variables.endDate)>
+          <cfset Variables.endDate = "" />
+        </cfif>
+
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 
