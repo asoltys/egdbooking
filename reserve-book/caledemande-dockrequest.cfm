@@ -116,7 +116,7 @@
             <legend>#language.booking#</legend>
 
             <div>
-              <label for="booking_CID">#language.Company#:</label>
+              <label for="booking_CID"><span title="#language.required#" class="required">*</span>&nbsp;#language.Company#:</label>
               <CF_TwoSelectsRelated
                 query="companyVessels"
                 id1="booking_CID"
@@ -127,7 +127,7 @@
                 VALUE2="VNID"
                 DEFAULT1="#Variables.CID#"
                 DEFAULT2="#Variables.VNID#"
-                htmlBETWEEN="</div><div><label for=""booking_VNID"">#language.vessel#:</label>"
+                htmlBETWEEN="</div><div><label for=""booking_VNID""><span title=""#language.required#"" class=""required"">*</span>&nbsp;#language.vessel#:</label>"
                 AUTOSELECTFIRST="Yes"
                 EMPTYTEXT1="(#language.chooseCompany#)"
                 EMPTYTEXT2="(#language.chooseVessel#)"
@@ -136,18 +136,18 @@
 
 						<div>
               <label for="startDateA">
-                #language.StartDate#:<br />
+                <span title="#language.required#" class="required">*</span>&nbsp;#language.StartDate#:<br />
                 <small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
               <input id="startDateA" name="startDate" class="datepicker startDate" type="text" size="15" maxlength="10"  /> 
 						</div>
 
 						<div>
-             <label for="endDateA">#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+             <label for="endDateA"><span title="#language.required#" class="required">*</span>&nbsp;#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
               <input id="endDateA" name="endDate" class="datepicker endDate" type="text" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#"  />
 						</div>
 
 						<div>
-              <label for="status">#language.requestedStatus#:</label>
+              <label for="status"><span title="#language.required#" class="required">*</span>&nbsp;#language.requestedStatus#:</label>
               <select id="status" name="status" >
                 <option value="tentative" <cfif isDefined("form.status") AND form.status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
                 <option value="confirmed" <cfif isDefined("form.status") AND form.status EQ "confirmed">selected="selected"</cfif>>#language.confirmed#</option>
@@ -168,7 +168,7 @@
             <legend>#language.booking#</legend>
 
             <div>
-              <label for="bookingByRange_CID">#language.Company#:</label>
+              <label for="bookingByRange_CID"><span title="#language.required#" class="required">*</span>&nbsp;#language.Company#:</label>
               <CF_TwoSelectsRelated
                 QUERY="companyVessels"
                 id1="bookingByRange_CID"
@@ -179,7 +179,7 @@
                 VALUE2="VNID"
                 DEFAULT1="#Variables.CID#"
                 DEFAULT2="#Variables.VNID#"
-                htmlBETWEEN="</div><div><label for=""bookingByRange_VNID"">#language.vessel#:</label>"
+                htmlBETWEEN="</div><div><label for=""bookingByRange_VNID""><span title=""#language.required#"" class=""required"">*</span>&nbsp;#language.vessel#:</label>"
                 AUTOSELECTFIRST="Yes"
                 EMPTYTEXT1="(#language.chooseCompany#)"
                 EMPTYTEXT2="(#language.chooseVessel#)"
@@ -188,22 +188,22 @@
             </div>
 
             <div>
-							<label for="StartDateB">#language.StartDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+							<label for="StartDateB"><span title="#language.required#" class="required">*</span>&nbsp;#language.StartDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
 							<input id="StartDateB" name="startDate" type="text" class="datepicker startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
             </div>
 
             <div>
-              <label for="EndDateB">#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+              <label for="EndDateB"><span title="#language.required#" class="required">*</span>&nbsp;#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
               <input id="EndDateB" name="endDate" type="text" class="datepicker endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
             </div>
 
             <div>
-              <label for="NumDays">#language.NumDays#:</label>
+              <label for="NumDays"><span title="#language.required#" class="required">*</span>&nbsp;#language.NumDays#:</label>
               <input id="NumDays" type="text" name="numDays" value="#Variables.numDays#"  />
             </div>
 
 						<div>
-              <label for="statusB">#language.requestedStatus#:</label>
+              <label for="statusB"><span title="#language.required#" class="required">*</span>&nbsp;#language.requestedStatus#:</label>
               <select id="statusB" name="status" >
                 <option value="tentative" <cfif isDefined("form.status") AND form.status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
                 <option value="confirmed" <cfif isDefined("form.status") AND form.status EQ "confirmed">selected="selected"</cfif>>#language.confirmed#</option>
