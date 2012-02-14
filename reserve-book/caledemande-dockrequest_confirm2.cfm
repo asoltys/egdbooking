@@ -1,6 +1,4 @@
-<cfif isDefined("form.numDays")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
-
 <cfinclude template="#RootDir#includes/errorMessages.cfm">
 <cfif lang EQ "eng">
 	<cfset language.newBooking = "Submit Drydock Booking Information">
@@ -106,7 +104,7 @@
 	<cfset Session.Return_Structure.Errors = Errors>
  	<cflocation url="#RootDir#reserve-book/caledemande-dockrequest.cfm?lang=#lang#" addtoken="no">
 </cfif>
-<!------------------------------------------------------------------------------------------------->
+
 <cfinclude template="#RootDir#reserve-book/includes/towerCheck.cfm">
 <cfset count = 0>
 <cfset found = false>
@@ -115,7 +113,7 @@
 <cfset Variables.EndDate = "">
 <cfset Variables.FoundStartDate = "">
 <cfset Variables.FoundEndDate = "">
-<cfset Variables.VNID = Form.bookingByRange_VNID>  <!--- Added 25/01/2006 DS to fix CF error in bookings --->
+<cfset Variables.VNID = Form.bookingByRange_VNID>  
 
 <cfloop condition="finish EQ false AND found EQ false">
 
@@ -189,8 +187,6 @@
 
  	<cflocation url="#RootDir#reserve-book/caledemande-dockrequest.cfm?lang=#lang#" addtoken="no">
 </cfif>
-
-<!--- Gets all Bookings that would be affected by the requested booking --->
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">

@@ -108,6 +108,10 @@
             <cfset Variables.endDate = form.endDate>
           </cfif>
 					<cfset Variables.status = form.status>
+          <cfif structKeyExists(session.form_structure, 'bookingByRange_CID')>
+            <cfset variables.CID = form.bookingByRange_CID />
+            <cfset variables.VNID = form.bookingByRange_VNID />
+          </cfif>
 				</cfif>
 
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
