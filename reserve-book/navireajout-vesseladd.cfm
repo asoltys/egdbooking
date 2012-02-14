@@ -1,3 +1,4 @@
+<cfoutput>
 <cfinclude template="#RootDir#includes/vesselInfoVariables.cfm">
 
 <cfif lang EQ "eng">
@@ -50,12 +51,10 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			</CFIF>
 			#language.AddVessel#
-			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -64,11 +63,10 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#language.AddVessel#</cfoutput>
+					#language.AddVessel#
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<cfoutput>
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
@@ -86,46 +84,56 @@
 				<form action="#RootDir#reserve-book/navireajout-vesseladd_confirm.cfm?lang=#lang#&amp;CID=#CID#" method="post" id="addVessel">
 					<fieldset>
 						<legend>#language.addVessel#</legend>
-						<cfif getCompanies.recordCount GT 1>
-							<label for="CID">#language.CompanyName#:</label>
-							<select name="CID" id="CID" query="getCompanies" display="Name" value="CID" selected="#variables.CID#" />
-						<cfelse>
-							<cfoutput>#getCompanies.Name#</cfoutput>
-							<cfoutput><input type="hidden" name="CID" value="#getCompanies.CID#" id="CID" /></cfoutput>
-						</cfif>
-						<br />
 
+						<div>
+              <cfif getCompanies.recordCount GT 1>
+                <label for="CID"><span title="#language.required#" class="required">*</span>#language.CompanyName#:</label>
+                <select name="CID" id="CID" query="getCompanies" display="Name" value="CID" selected="#variables.CID#" />
+              <cfelse>
+                <label for="CID">#language.CompanyName#:</label>
+                <input type="text" readonly="readonly" id="CID" name="CID" value="#getCompanies.Name#" />
+              </cfif>
+            </div>
 
-						<label for="name">#language.vesselName#:</label>
-						<input name="name" id="name" type="text" value="#variables.name#" size="35" maxlength="100" />
-						<br />
+            <div>
+              <label for="name"><span title="#language.required#" class="required">*</span>&nbsp;#language.vesselName#:</label>
+              <input name="name" id="name" type="text" value="#variables.name#" size="35" maxlength="100" />
+            </div>
 
-						<label for="LloydsID" id="lloyds_id">#language.LloydsID#:</label>
-						<input name="LloydsID" id="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" />
-						<br />
+						<div>
+              <label for="LloydsID" id="lloyds_id">#language.LloydsID#:</label>
+              <input name="LloydsID" id="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" />
+						</div>
 
-						<label for="length">#language.Length#:</label>
-						<input name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" />#language.Max#: #Variables.MaxLength#
-						<br />
+						<div>
+              <label for="length">#language.Length#:</label>
+              <input name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" />#language.Max#: #Variables.MaxLength#
+						</div>
 
-						<label for="width">#language.Width#:</label>
-						<input name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" />#language.Max#: #Variables.MaxWidth#
-						<br />
+						<div>
+              <label for="width">#language.Width#:</label>
+              <input name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" />#language.Max#: #Variables.MaxWidth#
+						</div>
 
-						<label for="blocksetuptime" id="block_setup_time">#language.BlockSetup# #language.days#:</label>
-						<input name="blocksetuptime" id="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" />
-						<br />
+						<div>
+              <label for="blocksetuptime" id="block_setup_time">#language.BlockSetup# #language.days#:</label>
+              <input name="blocksetuptime" id="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" />
+						</div>
 
-						<label for="blockteardowntime" id="block_teardown_time">#language.BlockTeardown# #language.days#:</label>
-						<input name="blockteardowntime" id="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" />
-						<br />
+						<div>
+              <label for="blockteardowntime" id="block_teardown_time">#language.BlockTeardown# #language.days#:</label>
+              <input name="blockteardowntime" id="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" />
+						</div>
 
-						<label for="tonnage">#language.Tonnage#:</label>
-						<input name="tonnage" id="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" />
-						<br />
+						<div>
+              <label for="tonnage"><span title="#language.required#" class="required">*</span>&nbsp;#language.Tonnage#:</label>
+              <input name="tonnage" id="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" />
+						</div>
 
-            <label for="Anonymous">#language.anonymous#<sup>&dagger;</sup>:</label>
-						<input type="checkbox" id="Anonymous" name="Anonymous" value="Yes" />
+            <div>
+              <label for="Anonymous">#language.anonymous#<sup>&dagger;</sup>:</label>
+              <input type="checkbox" id="Anonymous" name="Anonymous" value="Yes" />
+            </div>
 
             <div>
               <input type="submit" name="submitForm" value="#language.Submit#" />
@@ -133,10 +141,10 @@
 					</fieldset>
 				</form>
 
-        <p>&dagger;#language.anonymousWarning#</p>
-				</cfoutput>
+        <p>&dagger;&nbsp;#language.anonymousWarning#</p>
 
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+</cfoutput>
