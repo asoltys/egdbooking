@@ -74,12 +74,6 @@
 					</cfif>
             
           <div class="menu">
-            <h2>General</h2>
-            <ul>
-              <li><a href="#RootDir#admin/intromsg.cfm">Edit Intro Message</a></li>
-              <li><a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#">Logout</a></li>
-            </ul>
-
             <h2>Bookings</h2>
             <ul>
               <li><a href="#RootDir#admin/DockBookings/bookingManage.cfm?lang=#lang#">Drydock Booking Management</a></li>
