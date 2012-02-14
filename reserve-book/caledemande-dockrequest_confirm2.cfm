@@ -34,7 +34,43 @@
 	<title>#language.NewBooking# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<!--- Query to get Vessel Information --->
+<cfif IsDefined("Session.Return_Structure")>
+	<cfoutput>#StructDelete(Session, "Return_Structure")#</cfoutput>
+</cfif>
+
+<cfset Errors = ArrayNew(1)>
+<cfset Proceed_OK = "Yes">
+<cfif not isDate(form.startdate)>
+	<cfoutput>#ArrayAppend(Errors, language.invalidStartError)#</cfoutput>
+	<cfset Proceed_OK = "No">
+<cfelseif not isDate(form.enddate)>
+	<cfoutput>#ArrayAppend(Errors, language.invalidEndError)#</cfoutput>
+	<cfset Proceed_OK = "No">
+<cfelseif not isNumeric(form.numDays)>
+	<cfoutput>#ArrayAppend(Errors, language.needBookingDaysError)#</cfoutput>
+	<cfset Proceed_OK = "No">
+<cfelse>
+  <cfif DateCompare(Form.StartDate,Form.EndDate) EQ 1>
+    <cfoutput>#ArrayAppend(Errors, "#language.endBeforeStartError#")#</cfoutput>
+    <cfset Proceed_OK = "No">
+  </cfif>
+
+  <cfif DateCompare(PacificNow, Form.StartDate, 'd') NEQ -1>
+    <cfoutput>#ArrayAppend(Errors, "#language.futureStartError#")#</cfoutput>
+    <cfset Proceed_OK = "No">
+  </cfif>
+
+  <cfif DateDiff("d",Form.StartDate,Form.EndDate) LT Form.NumDays-1>
+    <cfoutput>#ArrayAppend(Errors, "#language.bookingTooShortErrorB#")#</cfoutput>
+      <cfoutput>#ArrayAppend(Errors, "#language.StartDate#: #LSDateFormat(CreateODBCDate(Form.StartDate), 'mmm d, yyyy')#")#</cfoutput>
+    <cfset Proceed_OK = "No">
+  </cfif>
+</cfif>
+
+<cfif not isNumeric(form.bookingByRange_VNID)>
+  <cfset form.bookingByRange_VNID = 0 />
+</cfif>
+
 <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT 	VNID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
 	FROM 	Vessels, Companies
@@ -43,36 +79,6 @@
 	AND 	Vessels.Deleted = 0
 	AND		Companies.Deleted = 0
 </cfquery>
-
-<!--- Error Checks -------------------------------------------------------------------------------->
-<cfif IsDefined("Session.Return_Structure")>
-	<cfoutput>#StructDelete(Session, "Return_Structure")#</cfoutput>
-</cfif>
-
-<cfset Errors = ArrayNew(1)>
-<cfset Proceed_OK = "Yes">
-<cfif not isDate(form.startdate) or not isDate(form.enddate)>
-	<cfoutput>#ArrayAppend(Errors, language.invalidStartError)#</cfoutput>
-	<cfoutput>#ArrayAppend(Errors, language.invalidEndError)#</cfoutput>
-	<cfset Proceed_OK = "No">
-</cfif>
-
-<cfset Proceed_OK = "Yes">
-<cfif DateCompare(Form.StartDate,Form.EndDate) EQ 1>
-	<cfoutput>#ArrayAppend(Errors, "#language.endBeforeStartError#")#</cfoutput>
-	<cfset Proceed_OK = "No">
-</cfif>
-
-<cfif DateCompare(PacificNow, Form.StartDate, 'd') NEQ -1>
-	<cfoutput>#ArrayAppend(Errors, "#language.futureStartError#")#</cfoutput>
-	<cfset Proceed_OK = "No">
-</cfif>
-
-<cfif DateDiff("d",Form.StartDate,Form.EndDate) LT Form.NumDays-1>
-	<cfoutput>#ArrayAppend(Errors, "#language.bookingTooShortErrorB#")#</cfoutput>
-		<cfoutput>#ArrayAppend(Errors, "#language.StartDate#: #LSDateFormat(CreateODBCDate(Form.StartDate), 'mmm d, yyyy')#")#</cfoutput>
-	<cfset Proceed_OK = "No">
-</cfif>
 
 <cfif getVessel.RecordCount EQ 0>
 	<cfoutput>#ArrayAppend(Errors, "#language.noVesselError#")#</cfoutput>
