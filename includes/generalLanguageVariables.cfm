@@ -216,6 +216,7 @@
 </cfif>
 
 <cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
+  <cfset language.required = "Required field" />
 	<cfset language.Agent = "Agent">
 	<cfset language.startDate = "Start Date">
 	<cfset language.endDate = "End Date">
@@ -230,6 +231,7 @@
 	<!---cfset language.startError = "Please enter a start date.">
 	<cfset language.endError = "Please enter an end date."--->
 <cfelse>
+  <cfset language.required = "Champ obligatoire" />
 	<cfset language.agent = "Agent">
 	<cfset language.startDate = "Date de d&eacute;but">
 	<cfset language.endDate = "Date de fin">

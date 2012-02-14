@@ -33,6 +33,10 @@ div.center .right {
   clear: both;
 }
 
+.required {
+  color: red;
+}
+
 img {
 	border: none;
 }
