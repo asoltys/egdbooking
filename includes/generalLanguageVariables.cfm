@@ -246,3 +246,72 @@
 	<cfset language.endError = ""--->
 </cfif>
 
+<cfif lang EQ "eng">
+	<cfset language.addVessel = "Add New Vessel">
+	<cfset language.companyName = "Company Name">
+	<cfset language.confirmInfo = "Please confirm the following information:">
+	<cfset language.boatTooBig = "Note: The ship measurements exceed the maximum dimensions of the dock">
+	<cfset language.yes = "Yes">
+	<cfset language.no = "No">
+	<cfset language.nameError = "Please enter the vessel name.">
+<cfelse>
+	<cfset language.addVessel = "Ajout d'un nouveau navire">
+	<cfset language.companyName = "Raison sociale">
+	<cfset language.confirmInfo = "Veuillez confirmer l'information suivante&nbsp;: ">
+	<cfset language.boatTooBig = "Note&nbsp;: Les dimensions du navire d&eacute;passent celles de la cale s&egrave;che">
+	<cfset language.yes = "Oui">
+	<cfset language.no = "Non">
+	<cfset language.nameError = "Veuillez entrer le nom du navire.">
+</cfif>
+
+<cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
+	<cfset language.vesselName = "Name">
+  <cfset language.lloydsID = "<abbr title='International Maritime Organization'>IMO</abbr> Number">
+	<cfset language.length = "Length (m)">
+	<cfset language.width = "Width (m)">
+	<cfset language.blockSetup = "Block Setup Time">
+	<cfset language.blockTeardown = "Block Teardown Time">
+	<cfset language.days = "(days)">
+	<cfset language.tonnage = "Tonnage">
+	<cfset language.anonymous = "Keep this vessel anonymous">
+	<cfset language.max = "Max">
+	<cfset language.nameError = "Please enter the vessel name.">
+    <cfset language.lloydsError = "Please enter the International Maritime Organization (I.M.O.) number."> 
+	<cfset language.lengthError = "Please enter the length in metres.">
+	<cfset language.widthError = "Please enter the width in metres.">
+	<cfset language.setupError = "Please enter the block setup time in days.">
+	<cfset language.teardownError = "Please enter the block teardown time in days.">
+	<cfset language.tonnageError = "Please enter the tonnage.">
+<cfelse>
+	<cfset language.vesselName = "Nom">
+	<cfset language.lloydsID = "Code d'identification de la Lloyds">
+	<cfset language.length = "Longueur (m)">
+	<cfset language.width = "Largeur (m)">
+	<cfset language.blockSetup = "Temps d'installation des tins">
+	<cfset language.blockTeardown = "Temps de retrait des tins">
+	<cfset language.days = "(jours)">
+	<cfset language.tonnage = "Tonnage">
+	<cfset language.anonymous = "Garder ce navire anonyme">
+	<cfset language.max = "Maximum">
+	<cfset language.nameError = "Veuillez entrer le nom du navire.">
+	<cfset language.lloydsError = "Veuillez entrer le code d'identification de la Lloyds.">
+	<cfset language.lengthError = "Veuillez entrer la longueur en m&egrave;tres.">
+	<cfset language.widthError = "Veuillez entrer la largeur en m&egrave;tres.">
+	<cfset language.setupError = "Veuillez entrer un nombre de jours pour pr&eacute;ciser le temps d'installation des tins.">
+	<cfset language.teardownError = "Veuillez entrer un nombre de jours pour pr&eacute;ciser le temps de retrait des tins.">
+	<cfset language.tonnageError = "Veuillez entrer le tonnage.">
+</cfif>
+
+<cfif lang EQ "eng">
+	<cfset language.editVessel = "Edit Vessel">
+	<cfset language.companyName = "Company Name">
+	<cfset language.reset = "reset">
+	<cfset language.anonymousWarning = "Anonymous vessels are only anonymous to other companies' users.  The Esquimalt Graving Dock administrators have access to all vessel information regardless of anonymity.">
+	<cfset language.notEditVesselDimensions = "You may not edit the vessel dimensions as this vessel currently has confirmed bookings.  To make dimension changes, please contact EGD Administration.">
+<cfelse>
+	<cfset language.editVessel = "Modifier le navire">
+	<cfset language.companyName = "Raison sociale">
+	<cfset language.reset = "R&eacute;initialiser">
+	<cfset language.anonymousWarning = "Les navires anonymes ne sont anonymes qu'aux utilisateurs d'autres entreprises. Les administrateurs de la cale s&egrave;che d'Esquimalt ont acc&egrave;s &agrave; la totalit&eacute; de l'information concernant les navires, peu importe l'anonymat.">
+	<cfset language.notEditVesselDimensions = "Vous ne pouvez pas modifier les dimensions du navire, parce que ce dernier fait l'objet de r&eacute;servations confirm&eacute;es. Pour apporter des changements aux dimensions, pri&egrave;re de communiquer avec l'administration de la CSE.">
+</cfif>

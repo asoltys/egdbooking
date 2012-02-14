@@ -1,4 +1,3 @@
-<cfinclude template="#RootDir#includes/vesselInfoVariables.cfm">
 <cfif lang EQ "eng">
 	<cfset language.vesselDetail = "Vessel Details">
 	<cfset language.keywords = language.masterKeywords & ", Vessel details">

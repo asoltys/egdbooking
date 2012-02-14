@@ -1,4 +1,3 @@
-<cfinclude template="#RootDir#includes/vesselInfoVariables.cfm">
 <cfif lang eq "eng" OR (IsDefined("Session.AdminLoggedIn") AND Session.AdminLoggedIn neq "")>
 	<cfset language.bookingDetail = "Booking Details">
 	<cfset language.description = "Retrieves information for a booking.">

@@ -1,69 +1,18 @@
 <cfif isDefined("form.name")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
-<cfinclude template="#RootDir#includes/vesselInfoVariables.cfm">
 <cfif lang EQ "eng">
-	<cfset language.addVessel = "Add New Vessel">
 	<cfset language.keywords = language.masterKeywords & ", Add New Vessel">
 	<cfset language.description = "Allows user to create a new vessel.">
 	<cfset language.subjects = language.masterSubjects & "">
-	<cfset language.companyName = "Company Name">
-	<cfset language.confirmInfo = "Please confirm the following information:">
-	<cfset language.boatTooBig = "Note: The ship measurements exceed the maximum dimensions of the dock">
-	<cfset language.yes = "Yes">
-	<cfset language.no = "No">
-	<cfset language.nameError = "Please enter the vessel name.">
 <cfelse>
-	<cfset language.addVessel = "Ajout d'un nouveau navire">
 	<cfset language.keywords = language.masterKeywords & ", Ajout d'un nouveau navire">
 	<cfset language.description = "Permet &agrave; l'utilisateur de cr&eacute;er un nouveau navire.">
 	<cfset language.subjects = language.masterSubjects & "">
-	<cfset language.companyName = "Raison sociale">
-	<cfset language.confirmInfo = "Veuillez confirmer l'information suivante&nbsp;: ">
-	<cfset language.boatTooBig = "Note&nbsp;: Les dimensions du navire d&eacute;passent celles de la cale s&egrave;che">
-	<cfset language.yes = "Oui">
-	<cfset language.no = "Non">
-	<cfset language.nameError = "Veuillez entrer le nom du navire.">
 </cfif>
 
-<cfset Variables.Errors = ArrayNew(1)>
-<cfset Proceed_OK = "Yes">
-
-<cfif trim(form.name) EQ "">
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.nameError#")#</cfoutput>
-	<cfset Proceed_OK = "No">
-</cfif>
-
-<cfif trim(form.width) NEQ "" and not isNumeric(trim(form.width))>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.widthError#")#</cfoutput>
-	<cfset Proceed_OK = "No">
-</cfif>
-
-<cfif trim(form.length) NEQ "" and not isNumeric(trim(form.length))>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.lengthError#")#</cfoutput>
-	<cfset Proceed_OK = "No">
-</cfif>
-
-<cfif trim(form.blockSetupTime) NEQ "" and not isNumeric(trim(form.blockSetupTime))>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.setupError#")#</cfoutput>
-	<cfset Proceed_OK = "No">
-</cfif>
-
-<cfif trim(form.BlockTearDownTime) NEQ "" and not isNumeric(trim(form.BlockTearDownTime))>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.teardownError#")#</cfoutput>
-	<cfset Proceed_OK = "No">
-</cfif>
-
-<cfif trim(form.tonnage) NEQ "" and not isNumeric(trim(form.tonnage))>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.tonnageError#")#</cfoutput>
-	<cfset Proceed_OK = "No">
-</cfif>
-
-<cfif Proceed_OK EQ "No">
-	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
-	<cfset Session.Return_Structure.Errors = Variables.Errors>
-	<cflocation url="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#&CID=#CID#" addtoken="no">
-</cfif>
+<cfset return_url = "#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#" />
+<cfinclude template="#RootDir#reserve-book/includes/vesselValidation.cfm" />
 
 <cfhtmlhead text="
 	<meta name=""dc.title"" content=""#language.AddVessel# - #language.esqGravingDock# - #language.PWGSC#"" />
@@ -134,51 +83,69 @@
 					<div id="actionErrors">#language.boatTooBig# (#Variables.MaxLength#m x #Variables.MaxWidth#m).</div>
 				</cfif>
 
-				<cfform id="addVessel" action="#RootDir#reserve-book/navireajout-vesseladd_action.cfm?lang=#lang#&amp;CID=#url.CID#" method="post">
+				<form id="addVessel" action="#RootDir#reserve-book/navireajout-vesseladd_action.cfm?lang=#lang#&amp;CID=#url.CID#" method="post">
 					<fieldset>
 					<legend>#language.addVessel#</legend>
-						<label for="CID">#language.CompanyName#:</label>
-						<input type="hidden" id="CID" name="CID" value="#Variables.CID#" />
-						<p>#variables.CompanyName#</p>
+						<div>
+              <label for="CID">#language.CompanyName#:</label>
+              <input type="hidden" id="CID" name="CID" value="#Variables.CID#" />
+              <p>#variables.CompanyName#</p>
+						</div>
 
-						<label for="Anonymous">#language.vesselName#:</label>
-						<input type="hidden" id="name" name="name" value="#Variables.Name#" />
-						<p>#variables.Name#</p>
+						<div>
+              <label for="Anonymous">#language.vesselName#:</label>
+              <input type="hidden" id="name" name="name" value="#Variables.Name#" />
+              <p>#variables.Name#</p>
+						</div>
 
-						<label for="length">#language.Length#:</label>
-						<input type="hidden" id="length" name="length" value="#Variables.Length#" />
-						<p>#variables.Length#</p>
+						<div>
+              <label for="length">#language.Length#:</label>
+              <input type="hidden" id="length" name="length" value="#Variables.Length#" />
+              <p>#variables.Length#</p>
+						</div>
 
-						<label for="width">#language.Width#:</label>
-						<input type="hidden" id="width" name="width" value="#Variables.Width#" />
-						<p>#variables.Width#</p>
+						<div>
+              <label for="width">#language.Width#:</label>
+              <input type="hidden" id="width" name="width" value="#Variables.Width#" />
+              <p>#variables.Width#</p>
+						</div>
 
-						<label for="blocksetuptime">#language.BlockSetup# #language.days#:</label>
-						<input type="hidden" id="blocksetuptime" name="blocksetuptime" value="#Variables.BlockSetuptime#" />
-						<p id="block_setuptime">#variables.BlockSetuptime#</p>
+						<div>
+              <label for="blocksetuptime">#language.BlockSetup# #language.days#:</label>
+              <input type="hidden" id="blocksetuptime" name="blocksetuptime" value="#Variables.BlockSetuptime#" />
+              <p id="block_setuptime">#variables.BlockSetuptime#</p>
+						</div>
 
-						<label for="blockteardowntime">#language.BlockTeardown# #language.days#:</label>
-						<input type="hidden" id="blockteardowntime" name="blockteardowntime" value="#Variables.Blockteardowntime#" />
-						<p id="block_teardown_time">#variables.Blockteardowntime#</p>
+						<div>
+              <label for="blockteardowntime">#language.BlockTeardown# #language.days#:</label>
+              <input type="hidden" id="blockteardowntime" name="blockteardowntime" value="#Variables.Blockteardowntime#" />
+              <p id="block_teardown_time">#variables.Blockteardowntime#</p>
+						</div>
 
-						<label for="LloydsID">#language.LloydsID#:</label>
-						<input type="hidden" id="LloydsID" name="LloydsID" value="#Variables.LloydsID#" />
-						<p id="lloyds_id">#variables.LloydsID#</p>
+						<div>
+              <label for="LloydsID">#language.LloydsID#:</label>
+              <input type="hidden" id="LloydsID" name="LloydsID" value="#Variables.LloydsID#" />
+              <p id="lloyds_id">#variables.LloydsID#</p>
+						</div>
 
-						<label for="tonnage">#language.Tonnage#:</label>
-						<input type="hidden" id="tonnage" name="tonnage" value="#Variables.Tonnage#" />
-						<p>#variables.Tonnage#</p>
+						<div>
+              <label for="tonnage">#language.Tonnage#:</label>
+              <input type="hidden" id="tonnage" name="tonnage" value="#Variables.Tonnage#" />
+              <p>#variables.Tonnage#</p>
+						</div>
 
-						<label for="Anonymous">#language.anonymous#:</label>
-						<input type="hidden" id="Anonymous" name="Anonymous" value="#Variables.Anonymous#" />
-						<p>#variables.Anonymous#</p>
+						<div>
+              <label for="Anonymous">#language.anonymous#:</label>
+              <input type="hidden" id="Anonymous" name="Anonymous" value="#Variables.Anonymous#" />
+              <p>#variables.Anonymous#</p>
+						</div>
 					</fieldset>
 
 					<div class="buttons">
 						<input type="submit" name="submitForm" value="#language.Submit#" class="textbutton" />
 					</div>
 
-				</cfform>
+				</form>
 				</cfoutput>
 
 			</div>

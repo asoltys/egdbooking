@@ -4,6 +4,9 @@
 	<cfset Form.Anonymous = 0  />
 </cfif>
 
+<cfset return_url = "#RootDir#reserve-book/naviremod-vesseledit.cfm?lang=#lang#&VNID=#VNID#" />
+<cfinclude template="#RootDir#reserve-book/includes/vesselValidation.cfm" />
+
 <cfif isDefined('form.VNID')>
 
 	<cfquery name="editVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">

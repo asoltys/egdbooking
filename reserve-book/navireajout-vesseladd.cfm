@@ -1,5 +1,4 @@
 <cfoutput>
-<cfinclude template="#RootDir#includes/vesselInfoVariables.cfm">
 
 <cfif lang EQ "eng">
 	<cfset language.addVessel = "Add New Vessel">
@@ -67,7 +66,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
+				<cfinclude template="#RootDir#includes/user_menu.cfm">
 
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfinclude template="#RootDir#includes/restore_params.cfm">
@@ -91,7 +90,8 @@
                 <select name="CID" id="CID" query="getCompanies" display="Name" value="CID" selected="#variables.CID#" />
               <cfelse>
                 <label for="CID">#language.CompanyName#:</label>
-                <input type="text" readonly="readonly" id="CID" name="CID" value="#getCompanies.Name#" />
+                <input type="text" disabled="disabled" readonly="readonly" value="#getCompanies.Name#" />
+                <input type="hidden" id="CID" name="CID" value="#getCompanies.CID#" />
               </cfif>
             </div>
 
@@ -106,22 +106,24 @@
 						</div>
 
 						<div>
-              <label for="length">#language.Length#:</label>
-              <input name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" />#language.Max#: #Variables.MaxLength#
+              <label for="length"><span title="#language.required#" class="required">*</span>&nbsp;#language.Length#:</label>
+              <input name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" />
+              #language.Max#: #Variables.MaxLength#
 						</div>
 
 						<div>
-              <label for="width">#language.Width#:</label>
-              <input name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" />#language.Max#: #Variables.MaxWidth#
+              <label for="width"><span title="#language.required#" class="required">*</span>&nbsp;#language.Width#:</label>
+              <input name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" />
+              #language.Max#: #Variables.MaxWidth#
 						</div>
 
 						<div>
-              <label for="blocksetuptime" id="block_setup_time">#language.BlockSetup# #language.days#:</label>
+              <label for="blocksetuptime" id="block_setup_time"><span title="#language.required#" class="required">*</span>&nbsp;#language.BlockSetup# #language.days#:</label>
               <input name="blocksetuptime" id="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" />
 						</div>
 
 						<div>
-              <label for="blockteardowntime" id="block_teardown_time">#language.BlockTeardown# #language.days#:</label>
+              <label for="blockteardowntime" id="block_teardown_time"><span title="#language.required#" class="required">*</span>&nbsp;#language.BlockTeardown# #language.days#:</label>
               <input name="blockteardowntime" id="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" />
 						</div>
 

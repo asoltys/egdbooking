@@ -1,6 +1,6 @@
+<cfoutput>
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
-<cfinclude template="#RootDir#includes/vesselInfoVariables.cfm">
 <cfif lang EQ "eng">
 	<cfset language.editVessel = "Edit Vessel">
 	<cfset language.keywords = language.masterKeywords & ", Edit Vessel">
@@ -19,7 +19,6 @@
 	<cfset language.reset = "R&eacute;initialiser">
 	<cfset language.anonymousWarning = "Les navires anonymes ne sont anonymes qu'aux utilisateurs d'autres entreprises. Les administrateurs de la cale s&egrave;che d'Esquimalt ont acc&egrave;s &agrave; la totalit&eacute; de l'information concernant les navires, peu importe l'anonymat.">
 	<cfset language.notEditVesselDimensions = "Vous ne pouvez pas modifier les dimensions du navire, parce que ce dernier fait l'objet de r&eacute;servations confirm&eacute;es. Pour apporter des changements aux dimensions, pri&egrave;re de communiquer avec l'administration de la CSE.">
-
 </cfif>
 
 <cfhtmlhead text="
@@ -33,12 +32,10 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			</CFIF>
 			#language.editVessel#
-			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -47,7 +44,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#language.editVessel#</cfoutput>
+					#language.editVessel#
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -83,32 +80,32 @@
 				</cfif>
 
 				<cfif isDefined("form.Name")>
-					<cfset variables.Name = #form.Name#>
-					<cfset variables.lloydsID = #form.lloydsID#>
-					<cfset variables.length = #form.length#>
-					<cfset variables.width = #form.width#>
-					<cfset variables.blocksetuptime = #form.blocksetuptime#>
-					<cfset variables.blockteardowntime = #form.blockteardowntime#>
-					<cfset variables.tonnage = #form.tonnage#>
+					<cfset variables.Name = form.Name>
+					<cfset variables.lloydsID = form.lloydsID>
+					<cfset variables.length = form.length>
+					<cfset variables.width = form.width>
+					<cfset variables.blocksetuptime = form.blocksetuptime>
+					<cfset variables.blockteardowntime = form.blockteardowntime>
+					<cfset variables.tonnage = form.tonnage>
 					<cfif isDefined("form.anonymous") AND form.anonymous EQ "yes">
 						<cfset variables.anonymous = 1>
 					<cfelse>
 						<cfset variables.anonymous = 0>
 					</cfif>
 				<cfelse>
-					<cfset variables.Name = #getVesselDetail.Name#>
-					<cfset variables.lloydsID = #getVesselDetail.lloydsID#>
-					<cfset variables.length = #getVesselDetail.length#>
-					<cfset variables.width = #getVesselDetail.width#>
-					<cfset variables.blocksetuptime = #getVesselDetail.blocksetuptime#>
-					<cfset variables.blockteardowntime = #getVesselDetail.blockteardowntime#>
-					<cfset variables.tonnage = #getVesselDetail.tonnage#>
-					<cfset variables.anonymous = #getVesselDetail.anonymous#>
+					<cfset variables.Name = getVesselDetail.Name>
+					<cfset variables.lloydsID = getVesselDetail.lloydsID>
+					<cfset variables.length = getVesselDetail.length>
+					<cfset variables.width = getVesselDetail.width>
+					<cfset variables.blocksetuptime = getVesselDetail.blocksetuptime>
+					<cfset variables.blockteardowntime = getVesselDetail.blockteardowntime>
+					<cfset variables.tonnage = getVesselDetail.tonnage>
+					<cfset variables.anonymous = getVesselDetail.anonymous>
 				</cfif>
 
-				<cfoutput>
+        <cfinclude template="#RootDir#includes/getStructure.cfm">
 
-				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
+				<cfinclude template="#RootDir#includes/user_menu.cfm">
 
 				<form id="editVessel" action="#RootDir#reserve-book/naviremod-vesseledit_action.cfm?lang=#lang#&amp;CID=#getVesselDetail.CID#&amp;VNID=#VNID#" method="post">
 					<cfif getVesselDockBookings.recordCount GT 0 OR getVesselJettyBookings.recordCount GT 0>
@@ -118,12 +115,12 @@
             <legend>#language.vessel#</legend>
 
             <div>
-              <label for="CID">#language.CompanyName#:</label>
+              <label for="CID"><span title="#language.required#" class="required">*</span>&nbsp;#language.CompanyName#:</label>
               <input type="text" disabled="disabled" readonly="readonly" id="CID" name="CID" value="#getVesselDetail.CompanyName#" />
             </div>
 
 						<div>
-              <label for="name">#language.vessel#:</label>
+              <label for="name"><span title="#language.required#" class="required">*</span>&nbsp;#language.vessel#:</label>
               <input id="name" name="name" type="text" value="#variables.Name#" size="37" maxlength="100" />
 						</div>
 
@@ -146,28 +143,30 @@
 							</div>
 						<cfelse>
 							<div>
-                <label for="length">#language.Length#:</label>
-                <input id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" />#language.Max#: #Variables.MaxLength# m
+                <label for="length"><span title="#language.required#" class="required">*</span>&nbsp;#language.Length#:</label>
+                <input id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" />
+                #language.Max#: #Variables.MaxLength# m
 							</div>
 
 							<div>
-                <label for="width">#language.Width#:</label>
-                <input id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" />#language.Max#: #Variables.MaxWidth# m
+                <label for="width"><span title="#language.required#" class="required">*</span>&nbsp;#language.Width#:</label>
+                <input id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" />
+                #language.Max#: #Variables.MaxWidth# m
 							</div>
 						</cfif>
 
 						<div>
-              <label for="blocksetuptime">#language.BlockSetup# #language.days#:</label>
+              <label for="blocksetuptime"><span title="#language.required#" class="required">*</span>&nbsp;#language.BlockSetup# #language.days#:</label>
               <input id="blocksetuptime" name="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" />
 						</div>
 
 						<div>
-              <label for="blockteardowntime">#language.BlockTeardown# #language.days#:</label>
+              <label for="blockteardowntime"><span title="#language.required#" class="required">*</span>&nbsp;#language.BlockTeardown# #language.days#:</label>
               <input id="blockteardowntime" name="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" />
 						</div>
 
 						<div>
-              <label for="tonnage">#language.Tonnage#:</label>
+              <label for="tonnage"><span title="#language.required#" class="required">*</span>&nbsp;#language.Tonnage#:</label>
               <input id="tonnage" name="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" />
 						</div>
 
@@ -177,15 +176,16 @@
             </div>
 
             <div>
-              <input type="hidden" name="VNID" value="<cfoutput>#url.VNID#</cfoutput>" />
+              <input type="hidden" name="VNID" value="#url.VNID#" />
               <input type="submit" value="#language.Submit#" name="submitForm" class="textbutton" />
             </div>
 					</fieldset>
 				</form>
 
-        <p>&dagger;#language.anonymousWarning#</p>
-				</cfoutput>
+        <p>&dagger;&nbsp;#language.anonymousWarning#</p>
+				
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+</cfoutput>
