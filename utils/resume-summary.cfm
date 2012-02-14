@@ -36,16 +36,32 @@
 	<title>#language.bookingsSummary# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<!-- Start JavaScript Block -->
-<!-- End JavaScript Block -->
+<cfset Variables.Errors = ArrayNew(1)>
+<cfset Proceed_OK = "Yes">
 
-<CFIF IsDefined('form.startDate')>
-	<CFSET Variables.calStartDate = form.startDate>
-</CFIF>
+<cfif IsDefined('form.startDate')>
+	<cfset Variables.CalStartDate = form.startDate>
+</cfif>
 
-<CFIF IsDefined('form.endDate')>
-	<CFSET Variables.calEndDate = form.endDate>
-</CFIF>
+<cfif IsDefined('form.endDate')>
+	<cfset Variables.CalEndDate = form.endDate>
+</cfif>
+
+<cfif not isDate(Variables.CalStartDate) and Variables.CalStartDate neq "">
+  <cfset ArrayAppend(Variables.Errors, language.invalidStartError) />
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfif not isDate(Variables.CalEndDate) and Variables.CalEndDate neq "">
+  <cfset ArrayAppend(Variables.Errors, language.invalidEndError) />
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfif Proceed_OK EQ "No">
+	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
+	<cfset Session.Return_Structure.Errors = Variables.Errors>
+	<cflocation addtoken="no" url="resume-summary_ch.cfm?lang=#lang#" />
+</cfif>
 
 <cfquery name="getDockBookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 SELECT	Bookings.VNID,
@@ -66,8 +82,8 @@ WHERE	(Status = 'c' OR Status = 't')
 	AND	Vessels.Deleted = '0'
 	<!--- Eliminates any Tentative bookings with a start date before today --->
 	AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= <cfqueryparam value="#PacificNow#" cfsqltype="cf_sql_date" />))
-	<CFIF IsDefined('Variables.CalStartDate') and Variables.CalStartDate neq ''>AND EndDate >= <cfqueryparam value="#Variables.CalStartDate#" cfsqltype="cf_sql_date" /></CFIF>
-	<CFIF IsDefined('Variables.CalEndDate') and Variables.CalEndDate neq ''>AND StartDate <= <cfqueryparam value="#Variables.CalEndDate#" cfsqltype="cf_sql_date" /></CFIF>
+	<cfif IsDefined('Variables.CalStartDate') and Variables.CalStartDate neq ''>AND EndDate >= <cfqueryparam value="#Variables.CalStartDate#" cfsqltype="cf_sql_date" /></cfif>
+	<cfif IsDefined('Variables.CalEndDate') and Variables.CalEndDate neq ''>AND StartDate <= <cfqueryparam value="#Variables.CalEndDate#" cfsqltype="cf_sql_date" /></cfif>
 	
 ORDER BY	StartDate, EndDate, VesselName
 </cfquery>
@@ -90,8 +106,8 @@ FROM	Bookings
 WHERE	Bookings.Deleted = '0'
 	AND	Vessels.Deleted = '0'
 	AND (Status ='c' OR Status = 't')
-	<CFIF IsDefined('Variables.CalStartDate') and Variables.CalStartDate neq ''>AND EndDate >= <cfqueryparam value="#Variables.CalStartDate#" cfsqltype="cf_sql_date" /></CFIF>
-	<CFIF IsDefined('Variables.CalEndDate') and Variables.CalEndDate neq ''>AND StartDate <= <cfqueryparam value="#Variables.CalEndDate#" cfsqltype="cf_sql_date" /></CFIF>
+	<cfif IsDefined('Variables.CalStartDate') and Variables.CalStartDate neq ''>AND EndDate >= <cfqueryparam value="#Variables.CalStartDate#" cfsqltype="cf_sql_date" /></cfif>
+	<cfif IsDefined('Variables.CalEndDate') and Variables.CalEndDate neq ''>AND StartDate <= <cfqueryparam value="#Variables.CalEndDate#" cfsqltype="cf_sql_date" /></cfif>
 	<!--- Eliminates any Tentative bookings with a start date before today --->
 	AND ((Jetties.status <> 'T') OR (Jetties.status = 'T' AND Bookings.startDate >= <cfqueryparam value="#PacificNow#" cfsqltype="cf_sql_date" />))
 
@@ -135,97 +151,94 @@ function popUp(pageID) {
 					</a></h1>
 
 				<h2>#language.Drydock#</h2>
-				<!-- Begin Dry Docks table -->
-				<table class="basic mediumFont">
-          <thead>
-            <tr>
-              <th id="section" style="width: 20%;">#language.SECTIONCaps#</th>
-              <th id="docking" style="width: 40%;">#language.DOCKINGCaps#</th>
-              <th id="booking" style="width: 30%;">#language.BOOKINGDATECaps#</th>
-            </tr>
-          </thead>
-					<CFIF getDockBookings.RecordCount neq 0>
-          <tbody>
-						<cfloop query="getDockBookings">
-						<tr <CFIF Status eq 'c'>class="confirmed"</CFIF>>
-							<td headers="section" style="text-align:center;"><CFIF Status eq 'c'>
-													<CFIF Section1 eq true>1</CFIF>
-													<CFIF Section2 eq true>
-														<CFIF Section1> &amp; </CFIF>
-													2</CFIF>
-													<CFIF Section3 eq true>
-														<CFIF Section1 OR Section2> &amp; </CFIF>
-													3</CFIF>
-												<CFELSE>#language.tentative#
-												</CFIF></td>
-							<td headers="docking">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
-							<td headers="booking">#LSDateFormat(BookingTime, 'mmm d, yyyy')#</td>
-						</tr>
-						</cfloop>
-          </tbody>
-        </table>
-				<CFELSE>
-				</table>
-				<!-- End Dry Docks table -->
-				#language.noBookings#
-				</CFIF>
-				
-				<h2>#language.northLandingWharf#</h2>
-				<!-- Begin North Jetty table -->
-				<table class="basic mediumFont">
-          <thead>
-            <tr>
-              <th id="section2" style="width: 20%;">#language.SECTIONCaps#</th>
-              <th id="docking2" style="width: 40%;">#language.DOCKINGCaps#</th>
-              <th id="booking2" style="width: 30%;">#language.BOOKINGDATECaps#</th>
-            </tr>
-          </thead>
-					<CFIF getNJBookings.RecordCount neq 0>
-          <tbody>
-						<cfloop query="getNJBookings">
-              <tr <CFIF Status eq 'c'>class="confirmed"</CFIF>>
-                <td headers="section2"><div style="text-align:center;"><CFIF Status eq 'c'>#language.booked#
-                              <CFELSEIF Status eq 't'>#language.tentative#
-                              </CFIF></div></td>
-                <td headers="docking2">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
-                <td headers="booking2">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></td>
+        <cfif getDockBookings.RecordCount neq 0>
+          <table class="basic mediumFont">
+            <thead>
+              <tr>
+                <th id="section" style="width: 20%;">#language.SECTIONCaps#</th>
+                <th id="docking" style="width: 40%;">#language.DOCKINGCaps#</th>
+                <th id="booking" style="width: 30%;">#language.BOOKINGDATECaps#</th>
+              </tr>
+            </thead>
+            <tbody>
+              <cfloop query="getDockBookings">
+              <tr <cfif Status eq 'c'>class="confirmed"</cfif>>
+                <td headers="section" style="text-align:center;"><cfif Status eq 'c'>
+                            <cfif Section1 eq true>1</cfif>
+                            <cfif Section2 eq true>
+                              <cfif Section1> &amp; </cfif>
+                            2</cfif>
+                            <cfif Section3 eq true>
+                              <cfif Section1 OR Section2> &amp; </cfif>
+                            3</cfif>
+                          <cfelse>#language.tentative#
+                          </cfif></td>
+                <td headers="docking">#LSDateFormat(StartDate, "mmm d")#<cfif Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</cfif> - #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
+                <td headers="booking">#LSDateFormat(BookingTime, 'mmm d, yyyy')#</td>
               </tr>
               </cfloop>
-          </tbody>
+            </tbody>
+          </table>
+				<cfelse>
+          <p>
+            #language.noBookings#
+          </p>
+				</cfif>
+				
+				<h2>#language.northLandingWharf#</h2>
+        <cfif getNJBookings.RecordCount neq 0>
+          <table class="basic mediumFont">
+            <thead>
+              <tr>
+                <th id="section2" style="width: 20%;">#language.SECTIONCaps#</th>
+                <th id="docking2" style="width: 40%;">#language.DOCKINGCaps#</th>
+                <th id="booking2" style="width: 30%;">#language.BOOKINGDATECaps#</th>
+              </tr>
+            </thead>
+            <tbody>
+              <cfloop query="getNJBookings">
+                <tr <cfif Status eq 'c'>class="confirmed"</cfif>>
+                  <td headers="section2"><div style="text-align:center;"><cfif Status eq 'c'>#language.booked#
+                                <cfelseif Status eq 't'>#language.tentative#
+                                </cfif></div></td>
+                  <td headers="docking2">#LSDateFormat(StartDate, "mmm d")#<cfif Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</cfif> - #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
+                  <td headers="booking2">#LSDateFormat(BookingTime, 'mmm d, yyyy')#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></td>
+                </tr>
+                </cfloop>
+            </tbody>
 					</table>
-				<CFELSE>
-				</table>
-				<!-- End North Jetty table -->
-				#language.noBookings#
-				</CFIF>
+				<cfelse>
+          <p>
+            #language.noBookings#
+          </p>
+				</cfif>
 				
 				<h2>#language.southJetty#</h2>
-				<!-- Begin South Jetty table -->
-				<table class="basic mediumFont">
-          <thead>
-            <tr>
-              <th id="section3" style="width: 20%;">#language.SECTIONCaps#</th>
-              <th id="docking3" style="width: 40%;">#language.DOCKINGCaps#</th>
-              <th id="booking3" style="width: 30%;">#language.BOOKINGDATECaps#</th>
-            </tr>
-          </thead>
-					<CFIF getSJBookings.RecordCount neq 0>
+        <cfif getSJBookings.RecordCount neq 0>
+          <table class="basic mediumFont">
+            <thead>
+              <tr>
+                <th id="section3" style="width: 20%;">#language.SECTIONCaps#</th>
+                <th id="docking3" style="width: 40%;">#language.DOCKINGCaps#</th>
+                <th id="booking3" style="width: 30%;">#language.BOOKINGDATECaps#</th>
+              </tr>
+            </thead>
 						<cfloop query="getSJBookings">
-						<tr <CFIF Status eq 'c'>class="confirmed"</CFIF>>
-							<td headers="section3"><div style="text-align:center;"><CFIF Status eq 'c'>#language.booked#
-														<CFELSEIF Status eq 't'>#language.tentative#
-														<CFELSE>#language.pending#
-														</CFIF></div></td>
-							<td headers="docking3">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
+						<tr <cfif Status eq 'c'>class="confirmed"</cfif>>
+							<td headers="section3"><div style="text-align:center;"><cfif Status eq 'c'>#language.booked#
+														<cfelseif Status eq 't'>#language.tentative#
+														<cfelse>#language.pending#
+														</cfif></div></td>
+							<td headers="docking3">#LSDateFormat(StartDate, "mmm d")#<cfif Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</cfif> - #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 							<td headers="booking3">#LSDateFormat(BookingTime, 'mmm d, yyyy')#</td>
 						</tr>
 						</cfloop>
 					</table>
-				<!-- End South Jetty table -->
-				<CFELSE>
-				</table>
-				#language.noBookings#
-				</CFIF>
+				<cfelse>
+          <p>
+            #language.noBookings#
+          </p>
+				</cfif>
 								
 			</div>
 

@@ -1,4 +1,5 @@
-<CFINCLUDE template="#RootDir#includes/generalLanguageVariables.cfm">
+<cfoutput>
+<cfinclude template="#RootDir#includes/generalLanguageVariables.cfm">
 
 <cfif lang EQ "eng">
 	<cfset language.bookingsSummary = "Public Bookings Summary Date Selection">
@@ -43,7 +44,6 @@
 
 </cfif>
 <cfsavecontent variable="js">
-	<cfoutput>
 	<meta name="dc.title" content="#language.BookingsSummary# - #language.esqGravingDock# - #language.PWGSC#" />
 	<meta name="keywords" content="#language.masterKeywords#" />
 	<meta name="description" content="#language.description#" />
@@ -55,7 +55,6 @@
 		/* ]]> */
 	</script>
 	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
-	</cfoutput>
 </cfsavecontent>
 <cfhtmlhead text="#js#">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
@@ -63,9 +62,7 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
 			#language.bookingsSummary#
-			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -74,45 +71,53 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#language.bookingsSummary#</cfoutput>
+					#language.bookingsSummary#
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
 				<cfparam name="Variables.startDate" default="#PacificNow#">
-				<cfparam name="Variables.endDate" default="">
+        <cfparam name="Variables.endDate" default="12/31/2031">
 
-				<cfinclude template="#RootDir#includes/getStructure.cfm">
-				<cfoutput>
-				#Language.ScreenMessage#
+				<cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+					<cfinclude template="#RootDir#includes/admin_menu.cfm">
+				<cfelse>
+					<cfinclude template="#RootDir#includes/user_menu.cfm">
+				</cfif>
+
+        <cfif isDefined("Session.Return_Structure")>
+          <cfinclude template="#RootDir#includes/getStructure.cfm">
+        </cfif>
+
+        <cfif Variables.startDate neq "" and not isDate(Variables.startDate)>
+          <cfset Variables.startDate = "" />
+        </cfif>
+
+        <cfif Variables.endDate neq "" and not isDate(Variables.endDate)>
+          <cfset Variables.endDate = "" />
+        </cfif>
+
+        #Language.ScreenMessage#
 
 				<form action="resume-summary.cfm?lang=#lang#" method="post" id="bookSum">
-					<table style="width:100%;">
-						<tr>
-							<th id="startCell"><label for="start">&nbsp; #language.fromDate#</label></th>
-							<td headers="startCell">
-								<input type="text" name="startDate" class="datepicker startDate" id="start" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
-							</td>
-						</tr>
-						<tr>
-						<th id="endCell"><label for="end">&nbsp; #language.toDate#</label></th>
-							<td headers="endCell">
-								<input type="text" name="endDate" class="datepicker endDate" id="end" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#
-							</td>
-						</tr>
-						<tr><td colspan="2">&nbsp;</td></tr>
-						<tr>
-							<td>&nbsp;</td>
-							<td>
-								<input type="submit" value="#language.submit#" class="textbutton" />
-								<input type="reset" value="#language.reset#" class="textbutton" />
-							</td>
-						</tr>
-					</table>
+					<fieldset>
+            <legend>#language.bookingsSummary#</legend>
+            <div>
+              <label for="start">&nbsp; #language.fromDate#<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+              <input id="start" type="text" name="startDate" class="datepicker startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
+            </div>
+            
+            <div>
+              <label for="end">&nbsp; #language.toDate#<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+              <input type="text" name="endDate" class="datepicker endDate" id="end" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
+            </div>
 
+            <div>
+              <input type="submit" value="#language.submit#" />
+            </div>
+					</fieldset>
 				</form>
-				</cfoutput>
-			</div>
-
+      </div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
-<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm" />
+</cfoutput>

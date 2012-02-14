@@ -1,3 +1,4 @@
+<cfoutput>
 <cfif lang EQ "eng">
 	<cfset language.bookingsSummary = "Bookings Summary">
 	<cfset language.ScreenMessage = '<p>Please use the pop-up calendar to enter the range of dates you would like to view.  To start from the first booking record, clear the "From Date" field.  To end after the last booking record, clear the "To Date" field.  To see all records, clear both fields.</p>'>
@@ -39,7 +40,6 @@
 
 </cfif>
 <cfsavecontent variable="js">
-	<cfoutput>
 	<meta name="dc.title" content="#language.BookingsSummary# - #language.esqGravingDock# - #language.PWGSC#" />
 	<meta name="keywords" content="#Language.masterKeywords#" />
 	<meta name="description" content="#language.description#" />
@@ -51,7 +51,6 @@
 		/* ]]> */
 	</script>
 	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
-	</cfoutput>
 </cfsavecontent>
 <cfhtmlhead text="#js#">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
@@ -59,12 +58,10 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			</CFIF>
 			#language.BookingsSummary#
-			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -73,43 +70,55 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#language.bookingsSummary#</cfoutput>
+					#language.bookingsSummary#
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-<cfparam name="Variables.startDate" default="#PacificNow#">
-<cfparam name="Variables.endDate" default="12/31/2031">
+        <cfparam name="Variables.startDate" default="#PacificNow#">
+        <cfparam name="Variables.endDate" default="12/31/2031">
 
-				<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-					<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				<CFELSE>
-					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-				</CFIF>
-				<cfoutput>
+				<cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+					<cfinclude template="#RootDir#includes/admin_menu.cfm">
+				<cfelse>
+					<cfinclude template="#RootDir#includes/user_menu.cfm">
+				</cfif>
 
-				#Language.ScreenMessage#
+        <cfif isDefined("Session.Return_Structure")>
+          <cfinclude template="#RootDir#includes/getStructure.cfm">
+        </cfif>
 
-				<cfform action="resume-summary.cfm?lang=#lang#" method="post" id="bookSum" preservedata="Yes">
+        <cfif Variables.startDate neq "" and not isDate(Variables.startDate)>
+          <cfset Variables.startDate = "" />
+        </cfif>
+
+        <cfif Variables.endDate neq "" and not isDate(Variables.endDate)>
+          <cfset Variables.endDate = "" />
+        </cfif>
+
+        #Language.ScreenMessage#
+
+				<form action="resume-summary.cfm?lang=#lang#" method="post" id="bookSum">
 					<fieldset><legend>#language.bookingsSummary#</legend>
             <div>
               <label for="start">&nbsp; #language.fromDate#<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
-              <cfinput id="start" type="text" name="startDate" class="datepicker startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" validate="date" message="#language.invalidfromDate#" />
+              <input id="start" type="text" name="startDate" class="datepicker startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
             </div>
             
             <div>
               <label for="end">&nbsp; #language.toDate#<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
-              <cfinput type="text" name="endDate" message="#language.invalidtoDate#" validate="date" class="datepicker endDate" id="end" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
+              <input type="text" name="endDate" class="datepicker endDate" id="end" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
             </div>
 
             <div>
               <input type="submit" value="#language.submit#" />
             </div>
 					</fieldset>
-				</cfform>
-				</cfoutput>
+				</form>
+				
 			</div>
 
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 
+</cfoutput>

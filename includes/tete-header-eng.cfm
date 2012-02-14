@@ -87,7 +87,6 @@
 <cfparam name="Variables.onLoad" default="">
 
 <body onload="#Variables.onLoad#">
-<input type="hidden" id="rootdir" value="#RootDir#" />
 
 <div class="page">
 	<div class="core">

@@ -1,3 +1,4 @@
+<cfinclude template="#RootDir#includes/errorMessages.cfm">
 <cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
 	<cfset language.PWGSC = "PWGSC">
 	<cfset language.pacificRegion = "Pacific Region">

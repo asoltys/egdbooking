@@ -84,7 +84,6 @@
 <!-- FIN DU CSS DU GABARIT POUR L'IMPRESSION | TEMPLATE PRINT CSS ENDS -->
 </head>
 <body>
-<input type="hidden" id="rootdir" value="#RootDir#" />
 
 <div class="page">
 	<div class="core">
