@@ -141,7 +141,7 @@
   AND Bookings.Deleted = '0' 
   AND Vessels.Deleted = 0 
   AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> 
-  AND (Status ='PT' OR Status = 'PC')
+  AND (Status = 'P' OR Status ='PT' OR Status = 'PC')
 </cfquery>
 <cfquery name="countTentative" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numTent
@@ -195,7 +195,7 @@
   AND Bookings.Deleted = '0' 
   AND Vessels.Deleted = 0 
   AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> 
-  AND (Status ='PT' or Status ='PX' or Status='PC')
+  AND (Status = 'P' OR Status ='PT' or Status ='PX' or Status='PC')
 </cfquery>
 <cfquery name="countTentativeNJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT count(*) as numTentNJ
@@ -251,7 +251,7 @@
     AND Bookings.Deleted = '0' 
     AND Vessels.Deleted = 0 
     AND endDate >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_date" /> 
-    AND Status ='PT'
+    AND (Status = 'P' OR Status ='PT' or Status ='PX' or Status='PC')
 	WHERE Companies.CID = <cfqueryparam value="#variables.CID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfquery name="countTentativeSJ" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -392,7 +392,7 @@
                     <td>#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')#</td>
                     <td>#lsdateformat(endDate, 'mmm d, yyyy')#</td>
                     <td>
-                      <cfif status EQ "PT"><span class="pending">#language.pending#</span>
+                      <cfif status EQ "P" or status EQ "PT"><span class="pending">#language.pending#</span>
                       <cfelseif status EQ "C"><span class="confirmed">#language.confirmed#</span>
                       <cfelseif status EQ "T"><span class="tentative">#language.tentative#</span>
                       <cfelseif status EQ "PC"><span class="pending">#language.confirming#</span>
@@ -440,7 +440,7 @@
                     <td>#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')#</td>
                     <td>#lsdateformat(endDate, 'mmm d, yyyy')#</td>
                     <td>
-                      <cfif status EQ "PT"><span class="pending">#language.pending#</span>
+                      <cfif status EQ "P" or status EQ "PT"><span class="pending">#language.pending#</span>
                       <cfelseif status EQ "C"><span class="confirmed">#language.confirmed#</span>
                       <cfelseif status EQ "T"><span class="tentative">#language.tentative#</span>
                       <cfelseif status EQ "PC"><span class="pending">#language.confirming#</span>
@@ -488,7 +488,7 @@
                     <td>#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')#</td>
                     <td>#lsdateformat(endDate, 'mmm d, yyyy')#</td>
                     <td>
-                      <cfif status EQ "PT"><span class="pending">#language.pending#</span>
+                      <cfif status EQ "P" or status EQ "PT"><span class="pending">#language.pending#</span>
                       <cfelseif status EQ "C"><span class="confirmed">#language.confirmed#</span>
                       <cfelseif status EQ "T"><span class="tentative">#language.tentative#</span>
                       <cfelseif status EQ "PC"><span class="pending">#language.confirming#</span>
