@@ -26,6 +26,9 @@
 	<cfset language.dateformexplanation = "Month, Day, Year">
 	<cfset language.welcomePage = "Welcome Page">
 	<cfset language.login = "Login">
+	<cfset language.sitemap = "Site Map">
+	<cfset language.contact = "Contact">
+  <cfset language.resources = "<acronym title=""Esquimalt Graving Dock"">#language.egd#</acronym> Resources" />
 	<cfset language.masterKeywords = "Esquimalt Graving Dock, EGD, Booking Request">
 	<cfset language.masterSubjects = "Wharfs; Water Transport; Ships; Ferries; Pleasure Craft; Vessels; Maintenance; Management">
   <cfset language.dateSelect = "Date Selection" />
@@ -61,6 +64,9 @@
 	<cfset language.dateformexplanation = "Mois, Jour, Ann&eacute;e">
 	<cfset language.welcomePage = "Page de bienvenue">
 	<cfset language.login = "Ouvrir la session">
+	<cfset language.sitemap = "Plan du site">
+  <cfset language.contact = "Contactez" />
+  <cfset language.resources = "Ressources <acronym title=""Cale s&egrave;che d'Esquimalt"">CSE</acronym>" />
 	<cfset language.masterKeywords = "Cale s&egrave;che d'Esquimalt, CSE, Demande de r&eacute;servation">
 	<cfset language.masterSubjects = "Quai; Transport maritime; Navire; Traversier; Bateau de plaisance; Embarcation; Entretien; Gestion">
   <cfset language.dateSelect = "Choix de la date" />

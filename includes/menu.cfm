@@ -53,15 +53,16 @@
         <li><a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang##datetoken#">#language.drydockCalendar#</a></li>
         <li><a href="#RootDir#comm/calend-jet.cfm?lang=#lang##datetoken#">#language.JettyCalendar#</a></li>
         <li><a href="#RootDir#reserve-book/avis-notices.cfm?lang=#lang#">#language.notices#</a></li>
+        <li><a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#">#language.LogoutButton#</a></li>
       <cfelse>
         <li><a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.Login#</a></li>
       </cfif>
     </ul>
   </li>
-  <li><h2><acronym title="Esquimalt Graving Dock">EGD</acronym> Resources</h2>
+  <li><h2>#language.resources#</h2>
     <ul>
-			<li><a href="#EGD_URL#/site-eng.html" title="Site Map">Site Map</a></li>
-			<li><a href="#EGD_URL#/cn-cu-eng.html" title="Contact EGD">Contact EGD</a></li>
+			<li><a href="#EGD_URL#/site-eng.html">#language.sitemap#</a></li>
+			<li><a href="#EGD_URL#/cn-cu-eng.html">#language.contact# <acronym title="#language.esqGravingDock#">#language.egd#</acronym></a></li>
 		</ul>
 	</li>
 </ul>

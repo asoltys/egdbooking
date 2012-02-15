@@ -1,20 +1,7 @@
 <cfoutput>
 
 <div id="menu1">
-  <cfquery name="display_notice"  datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-    SELECT notice_acknowledged FROM users 
-    WHERE UID = <cfqueryparam value="#session.uid#" cfsqltype="cf_sql_integer" />
-  </cfquery>
 
-  <cfif display_notice.notice_acknowledged EQ 0>
-    <cffile action="read" file="#FileDir#intro-#lang#.txt" variable="intromsg" />
-    <div class="option4">
-      <h2>Notice</h2>
-      #intromsg#
-      <a id="dismiss">#language.acknowledged#</a>
-    </div>
-    <div id="acknowledged" class="option4" style="display: none">#language.acknowledgement_received#</div>
-  </cfif>
 
 	<CFSET variables.urltoken = "lang=#lang#">
 	<CFIF IsDefined('variables.startDate')>
