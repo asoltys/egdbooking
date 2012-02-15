@@ -56,9 +56,9 @@
 				<p>#language.formExplanation#</p>
 
 				<ul>
-					<li><a href="#RootDir#reserve-book/tableau-schedule-1.cfm">#language.schedule#</a></li>
-					<li><a href="#RootDir#reserve-book/indem.cfm">#language.Indemnification#</a></li>
-					<li><a href="#RootDir#reserve-book/changement-change.cfm" title="#language.changeForm#" rel="external">#language.changeForm#</a></li>
+					<li><a href="#RootDir#reserve-book/tableau-schedule-1.cfm?lang=#lang#">#language.schedule#</a></li>
+					<li><a href="#RootDir#reserve-book/indem.cfm?lang=#lang#">#language.Indemnification#</a></li>
+					<li><a href="#RootDir#reserve-book/changement-change.cfm?lang=#lang#" title="#language.changeForm#" rel="external">#language.changeForm#</a></li>
 					<li><a href="#RootDir#reserve-book/tarifconsult-tariffview.cfm?lang=#lang#" title="Tariff of Dock Charges">#language.dockcharges#</a></li>
 				</ul>
 				</cfoutput>
