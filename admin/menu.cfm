@@ -85,7 +85,7 @@
           
             <h2>Users</h2>
             <ul>
-              <li><a href="#RootDir#admin/Users/addUser.cfm?lang=#lang#">Add</a></li>
+              <li><a href="#RootDir#admin/Users/adduser.cfm?lang=#lang#">Add</a></li>
               <li><a href="#RootDir#admin/Users/editUser.cfm?lang=#lang#">Edit</a></li>
               <li><a href="#RootDir#admin/Users/userApprove.cfm?lang=#lang#">Approve</a></li>
               <li><a href="#RootDir#admin/Users/delUser.cfm?lang=#lang#">Delete</a></li>

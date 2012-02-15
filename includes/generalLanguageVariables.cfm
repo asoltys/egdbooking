@@ -1,6 +1,7 @@
 <cfinclude template="#RootDir#includes/errorMessages.cfm">
 <cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
 	<cfset language.PWGSC = "PWGSC">
+	<cfset language.egd = "EGD">
 	<cfset language.pacificRegion = "Pacific Region">
 	<cfset language.esqGravingDock = "Esquimalt Graving Dock">
 	<cfset language.esqGravingDockCaps = "ESQUIMALT GRAVING DOCK">
@@ -35,6 +36,7 @@
   <cfset language.notices = "Notices" />
 <cfelse>
 	<cfset language.PWGSC = "TPSGC">
+	<cfset language.egd = "CSE">
 	<cfset language.pacificRegion = "R&eacute;gion du Pacifique">
 	<cfset language.esqGravingDock = "Cale s&egrave;che d'Esquimalt">
 	<cfset language.esqGravingDockCaps = "CALE S&Eacute;CHE D'ESQUIMALT">

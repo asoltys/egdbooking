@@ -29,7 +29,7 @@
 <!-- ====== /includes/MENU-MI-ENG.html ====== -->
 <cfoutput>
 <ul class="leftNav">
-  <li><h2><a href="#EGD_URL#/index-eng.html"><acronym title="Esquimalt Graving Dock">EGD</acronym></a></h2></li>
+  <li><h2><a href="#EGD_URL#/index-eng.html"><acronym title="#language.esqGravingDock#">#language.egd#</acronym></a></h2></li>
 	<li><h2><a href="#RootDir#reserve-book-#lang#.cfm">#language.booking#</a></h2>
     <ul>
       <cfif structKeyExists(session, 'loggedin')>
@@ -47,6 +47,12 @@
         <li><a href="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#">#language.EditProfileButton#</a></li>
         <li><a href="#RootDir#reserve-book/avis-notices.cfm?lang=#lang#">#language.notices#</a></li>
         <li><a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#">#language.LogoutButton#</a></li>
+      <cfelseif structKeyExists(session, 'AdminLoggedIn')>
+        <li><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" title="#language.BookingHome#">#language.BookingHome#</a></li>
+        <li><a href="#RootDir#comm/resume-summary_ch.cfm?lang=#lang#">#language.bookingsSummary#</a></li>
+        <li><a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang##datetoken#">#language.drydockCalendar#</a></li>
+        <li><a href="#RootDir#comm/calend-jet.cfm?lang=#lang##datetoken#">#language.JettyCalendar#</a></li>
+        <li><a href="#RootDir#reserve-book/avis-notices.cfm?lang=#lang#">#language.notices#</a></li>
       <cfelse>
         <li><a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.Login#</a></li>
       </cfif>
