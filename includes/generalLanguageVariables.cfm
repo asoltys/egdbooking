@@ -157,7 +157,6 @@
 	<cfset language.awaitingApproval = "Awaiting approval:">
 	<cfset language.addVessel = "Add Vessel">
 	<cfset language.bookingForms = "Booking Forms">
-	<cfset language.viewTariff = "View Tariffs">
 	<cfset language.agent = "Agent">
 	<cfset language.administrator = "Administrator">
 	<cfset language.welcome = "Welcome">
@@ -166,7 +165,6 @@
 	<cfset language.pending_cancelling = "pending cancellation">
   <cfset language.confirming = "pending confirmation">
   <cfset language.bookingForms = "Booking Forms">
-	<cfset language.viewTariff = "View Tariffs">
 	<cfset language.agent = "Agent">
 	<cfset language.administrator = "Administrator">
 	<cfset language.none = "None">
@@ -179,7 +177,6 @@
 	<cfset language.awaitingApproval = "En attente d'approbation&nbsp;:">
 	<cfset language.addVessel = "Ajout d'un navire">
 	<cfset language.bookingForms = "Formulaires de r&eacute;servation">
-	<cfset language.viewTariff = "Consulter les tarifs">
 	<cfset language.agent = "Agent">
 	<cfset language.administrator = "Administrateur">
 	<cfset language.welcome = "Bienvenue">
@@ -188,7 +185,6 @@
 	<cfset language.pending_cancelling = "en attendant l'annulation">	
 	<cfset language.confirming = "confirmation ">
 	<cfset language.bookingForms = "Formulaires de r&eacute;servation">
-	<cfset language.viewTariff = "Consulter les tarifs">
 	<cfset language.agent = "Agent">
 	<cfset language.administrator = "Administrateur">
 	<cfset language.none = "Aucun">

@@ -42,7 +42,6 @@
         <li><a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang##Variables.BookingRequestString#" title="#language.requestBooking#">#language.requestBooking#</a></li>
         <li><a href="#RootDir#reserve-book/navireajout-vesseladd.cfm?lang=#lang#">#Language.addVessel#</a></li>
         </cfif>
-        <li><a href="#RootDir#reserve-book/formulaires-forms.cfm?lang=#lang#">#language.BookingForms#</a></li>
         <li><a href="#RootDir#reserve-book/archives.cfm?lang=#lang#">#language.archivedBookings#</a></li>
         <li><a href="#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#">#language.EditProfileButton#</a></li>
         <li><a href="#RootDir#reserve-book/avis-notices.cfm?lang=#lang#">#language.notices#</a></li>

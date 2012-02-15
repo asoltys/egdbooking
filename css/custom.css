@@ -298,23 +298,6 @@ form input#blockteardowntime, form p#block_teardown_time {
 	margin-bottom: 2.2em;
 }
 
-table#tariffs th#checkHeader {
-	width: 1em;
-}
-table#tariffs th#itemHeader {
-	width: 3em;
-}
-table#tariffs th#serviceHeader {
-	width: 10em;
-}
-table#tariffs th#feeHeader {
-	width: 3em;
-}
-
-table#tariffs label {
-	width: auto;
-}
-
 div.menu ul {
   width: 400px;
 }

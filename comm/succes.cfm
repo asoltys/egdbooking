@@ -53,10 +53,6 @@
 					<cfoutput>
 						<p>#Variables.Success.Message#</p>
 
-						<cfif IsDefined('Session.Success.paperFormLink')>
-							<a href="#Session.Success.paperFormLink#" class="textbutton">#language.mandatoryForms#</a>&nbsp;
-						</cfif>
-
 						<a href="#Variables.Success.Link#" class="textbutton">#Variables.Success.Back#</a>
 					</cfoutput>
 				</div>

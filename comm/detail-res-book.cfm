@@ -7,7 +7,6 @@
 	<cfset language.dockingDates = "Docking Dates">
 	<cfset language.origin = "Origin">
 	<cfset language.bookingDate = "Date of Booking">
-	<cfset language.tariff = "View / Edit Tariff Form">
 	<cfset language.cancelBooking = "Cancel Booking">
 	<cfset language.requestCancelBooking = "Request Cancellation">
 	<cfset language.editBooking = "Edit Booking">
@@ -28,7 +27,6 @@
 	<cfset language.dockingDates = "Dates d'amarrage">
 	<cfset language.origin = "Origine">
 	<cfset language.bookingDate = "Date de la r&eacute;servation">
-	<cfset language.tariff = "Consulter / Modifier le formulaire de tarif">
 	<cfset language.cancelBooking = "Annuler la r&eacute;servation">
 	<cfset language.requestCancelBooking = "Demande d'annulation">
 	<cfset language.editBooking = "Modification de r&eacute;servation">
