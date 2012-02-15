@@ -1,9 +1,12 @@
-<cfset legend = [
+<cfscript>
+legend = [
   language.sec1, 
   language.sec2, 
   language.sec3, 
   language.tentbook, 
-  language.pendbook] />
+  language.pendbook
+];
+</cfscript>
 
 <cfoutput>
 	<table class="keytable">

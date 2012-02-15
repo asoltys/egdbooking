@@ -1,9 +1,11 @@
-<cfset legend = [
+<cfscript>
+legend = [
   language.NorthLandingWharf, 
   language.SouthJetty, 
   language.PendBook, 
   language.TentBook
-] />
+];
+</cfscript>
 
 <cfoutput>
 	<table class="keytable">
