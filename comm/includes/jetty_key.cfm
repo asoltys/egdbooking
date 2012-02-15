@@ -1,11 +1,8 @@
-<cfscript>
-legend = [
-  language.NorthLandingWharf, 
-  language.SouthJetty, 
-  language.PendBook, 
-  language.TentBook
-];
-</cfscript>
+<cfset legend = arrayNew(1) />
+<cfset arrayAppend(legend, language.NorthLandingWharf) />
+<cfset arrayAppend(legend, language.SouthJetty) />
+<cfset arrayAppend(legend, language.PendBook) />
+<cfset arrayAppend(legend, language.TentBook) />
 
 <cfoutput>
 	<table class="keytable">
