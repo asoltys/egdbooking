@@ -328,7 +328,7 @@
 
 				<div class="content">
 					<p>#language.Welcome#, #Session.Firstname# #Session.LastName#!</p>
-          <cfindlue template="#RootDir#includes/notice.cfm" />
+          <cfinclude template="#RootDir#includes/notice.cfm" />
           <cfinclude template="#RootDir#includes/user_menu.cfm">
 
 				<cfif getCompanies.recordCount GT 1>
