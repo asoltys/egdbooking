@@ -3,15 +3,13 @@
 	<cfset language.keywords = language.masterKeywords & ", Edit Booking">
 	<cfset language.description = "Refers user to contact the administration for editing a booking.">
 	<cfset language.subjects = language.masterSubjects & "">
-	<cfset language.changeForm = "Tentative Vessel and Change Booking Form">
-	<cfset language.explanation = "Bookings cannot be edited online.  If you wish to edit your booking request details, please inform the Esquimalt Graving Dock via phone, fax or email, and fax a hard copy of the Tentative Vessel and Booking Change Form.">
+  <cfset language.explanation = "Bookings cannot be edited online.  If you wish to edit your booking request details, please inform the Esquimalt Graving Dock via phone, fax or email, and fax a hard copy of the <em>Tentative Vessel and Booking Change Form</em>.  To receive a copy of the <em>Tentative Vessel and Booking Change Form</em>, contact the booking clerk:">
 <cfelse>
 	<cfset language.title = "Modification de r&eacute;servation">
 	<cfset language.keywords = language.masterKeywords & ", Modification de r&eacute;servation">
 	<cfset language.description = "Invite l'utilisateur &agrave; communiquer avec l'administration pour modifier une r&eacute;servation.">
 	<cfset language.subjects = language.masterSubjects & "">
-	<cfset language.changeForm = "Formulaire de r&eacute;servation provisoire pour les navires et les modifications">
-	<cfset language.explanation = "Les r&eacute;servations ne peuvent &ecirc;tre modifi&eacute;es en ligne. Si vous voulez modifier les renseignements de votre demande de r&eacute;servation, veuillez en aviser la Cale s&egrave;che d'Esquimalt par t&eacute;l&eacute;phone, fax ou courriel, puis faites parvenir par fax une copie papier du formulaire de modification d'une r&eacute;servation.">
+  <cfset language.explanation = "Les r&eacute;servations ne peuvent &ecirc;tre modifi&eacute;es en ligne. Si vous voulez modifier les renseignements de votre demande de r&eacute;servation, veuillez en aviser la Cale s&egrave;che d'Esquimalt par t&eacute;l&eacute;phone, fax ou courriel, puis faites parvenir par fax une copie papier du <em>formulaire de modification d'une r&eacute;servation</em>.  Pour recevoir une copie du <em>formulaire de modification d'une r&eacute;servation</em>, communiquer avec le greffier de r&eacute;servation&nbsp;:">
 </cfif>
 
 <cfhtmlhead text="
@@ -77,21 +75,14 @@
 				<!------------------------------------------------------------------------------------------------------------>
 				<cfoutput>
 				<p>#language.explanation#</p>
-				<ul>
-					<li><a href="#RootDir#reserve-book/changement-change.cfm" title="#language.changeForm#" rel="external">#language.changeForm#</a></li>
-				</ul>
 				<cfset emailSubject = "#getbooking.CompanyName# editing booking for #trim(getbooking.VesselName)# from #LSDateFormat(getbooking.StartDate, 'mmm d, yyyy')# to #LSDateFormat(getbooking.EndDate, 'mmm d, yyyy')#">
 				<p>
-					#language.phone#: 250-363-3879  #language.or#  250-363-8056<br />
-					#language.fax#: 250-363-8059<br />
-					<cfif ListLen(#variables.adminEmail#) EQ 1>#language.emailAddress#:  <a href="mailto:#Variables.AdminEmail#?subject=#emailSubject#">#Variables.AdminEmail#</a>
-					<cfelse>
-					<table cellpadding="0" cellspacing="0">
-						<tr><td>#language.emailAddress#:&nbsp;</td><td><a href="mailto:#ListGetAt(variables.adminEmail, 1)#?subject=#emailSubject#">#ListGetAt(variables.adminEmail, 1)#</a></td></tr>
-						<cfset variables.emailList = ListDeleteAt(#variables.adminEmail#, 1)>
-						<cfloop list="#Variables.emailList#" index="email"><tr><td>&nbsp;</td><td><a href="mailto:#email#?subject=#emailSubject#">#email#</a></td></tr></cfloop>
-					</table>
-					</cfif>
+        #language.phone#<cfif lang eq "fra">&nbsp;</cfif>: 250-363-3879  #language.or#  250-363-8056<br />
+					#language.fax#<cfif lang eq "fra">&nbsp;</cfif>: 250-363-8059<br />
+					#language.emailAddress#<cfif lang eq "fra">&nbsp;</cfif>: 
+         <a href="mailto:#Variables.AdminEmail#?subject=#emailSubject#">
+           #Variables.AdminEmail#
+         </a>
         </p>
 				</cfoutput>
 			</div>
