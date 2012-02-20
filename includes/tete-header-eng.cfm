@@ -66,7 +66,7 @@
 <link href="#CLF_URL#/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
 
 <link href="#RootDir#css/custom.css" media="screen, print" rel="stylesheet" type="text/css" />
-<link href="#RootDir#css/ui-lightness/jquery-ui-1.8.17.custom.css" media="screen" rel="stylesheet" type="text/css"/>
+<link href="#RootDir#css/jquery-ui.css" media="screen" rel="stylesheet" type="text/css"/>
 
 <cfif structKeyExists(Session, 'AdminLoggedIn') AND Session.AdminLoggedIn>
   <script src="#RootDir#scripts/prototype.js" type="text/javascript"></script>
