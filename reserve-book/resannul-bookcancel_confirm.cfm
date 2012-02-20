@@ -87,11 +87,14 @@
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 
 				<cfoutput>
-				<CFFORM action="#RootDir#reserve-book/resannul-bookcancel_action.cfm?lang=#lang#&amp;CID=#getBooking.CID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#&amp;jetty=#url.jetty#" id="cancelBooking">
-					<p>#language.areYouSure# <strong>#getBooking.VesselName#</strong> #language.from# #LSDateFormat(getBooking.StartDate, 'mmm d, yyyy')# #language.to# #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')#?</p>
-          <input type="hidden" name="BRID" value="#url.BRID#" />
-          <input type="submit" value="#language.Confirm#" class="textbutton" />
-				</CFFORM>
+				<form action="#RootDir#reserve-book/resannul-bookcancel_action.cfm?lang=#lang#&amp;CID=#getBooking.CID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#&amp;jetty=#url.jetty#" id="cancelBooking">
+          <fieldset>
+            <legend>#language.confirm#</legend>
+            <p>#language.areYouSure# <strong>#getBooking.VesselName#</strong> #language.from# #LSDateFormat(getBooking.StartDate, 'mmm d, yyyy')# #language.to# #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')#?</p>
+            <input type="hidden" name="BRID" value="#url.BRID#" />
+            <input type="submit" value="#language.Confirm#" class="textbutton" />
+          </fieldset>
+				</form>
 
 				</cfoutput>
 			</div>
