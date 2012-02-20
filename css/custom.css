@@ -34,7 +34,7 @@ div.center .right {
 }
 
 .required {
-  color: red;
+  color: #a00;
 }
 
 img {
@@ -239,7 +239,7 @@ h2.conflict {
 
 form {
 	border: 1px solid #336699;
-	background-color: #ccddee;
+	background-color: #fff;
 	padding: 1em;
   overflow: hidden;
 }
