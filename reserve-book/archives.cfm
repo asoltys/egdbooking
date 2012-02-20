@@ -189,8 +189,7 @@
 					<cfelse>
 						<p>#language.None#.</p>
 					</cfif>
-				<br />
-				<div class="buttons"><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton">#language.returnTo#</a></div>
+				<p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" class="textbutton">#language.returnTo#</a></p>
 
 				</cfoutput>
 			</div>

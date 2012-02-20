@@ -99,8 +99,8 @@
               <input type="submit" name="submitForm" value="#language.Login#" class="textbutton" />
             </fieldset>
 					</form>
-					<div><a href="utilisateurajout-useradd.cfm?lang=#lang#">#language.addUser#</a></div>
-					<div><a href="passeoubli-passforgot.cfm?lang=#lang#">#language.Forgot#</a></div>
+					<p><a href="utilisateurajout-useradd.cfm?lang=#lang#">#language.addUser#</a></p>
+					<p><a href="passeoubli-passforgot.cfm?lang=#lang#">#language.Forgot#</a></p>
 				</cfoutput>
 				</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->

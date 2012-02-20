@@ -22,14 +22,14 @@
 	</cfif>
 </cflock>
 
-<!--- Displaying error information --->
-
 <cfif IsDefined("Session.Return_Structure.Errors") AND ArrayLen(Session.Return_Structure.Errors) GT 0>
-<div id="actionErrors"><cfoutput>#language.formProblemError#</cfoutput><br />
+<div id="actionErrors"><cfoutput><p>#language.formProblemError#</p></cfoutput>
 				
+  <ul>
 <cfloop index="i" from="1" to="#ArrayLen(Session.Return_Structure.Errors)#" step="1">
-	<cfoutput>#Session.Return_Structure.Errors[i]#<br /></cfoutput>
+  <cfoutput><li>#Session.Return_Structure.Errors[i]#</li></cfoutput>
 </cfloop>
+  </ul>
 <cfset overwrite = '1'>
 </div>
 </cfif>
