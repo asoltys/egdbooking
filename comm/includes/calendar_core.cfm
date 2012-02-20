@@ -60,7 +60,7 @@ summary="#language.calendar#">
 	<tr>
 		<cfloop index="doh" from="1" to="#ArrayLen(DaysofWeek)#" step="1">
 			<cfset dummydate = CreateDate(2005, 5, doh)>
-			<th scope="col">#LSDateFormat(dummydate, 'dddd')#</th>
+			<th scope="row">#LSDateFormat(dummydate, 'dddd')#</th>
 		</cfloop>
 	</tr>
 
