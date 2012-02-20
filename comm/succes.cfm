@@ -53,7 +53,7 @@
 					<cfoutput>
 						<p>#Variables.Success.Message#</p>
 
-						<a href="#Variables.Success.Link#" class="textbutton">#Variables.Success.Back#</a>
+            <p><a href="#Variables.Success.Link#" class="textbutton">#Variables.Success.Back#</a></p>
 					</cfoutput>
 				</div>
 			</div>
