@@ -3,7 +3,10 @@ jQuery.noConflict();
   $(function() {
     $(".datepicker").datepicker({
 			showOn: "button",
-      dateFormat: 'mm/dd/yy'
+      dateFormat: 'mm/dd/yy',
+      onClose: function(dateText, inst) { 
+        $(this).focus();
+      }
 		});
 
     $('#dismiss').click(function() {
