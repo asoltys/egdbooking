@@ -26,19 +26,22 @@
   </form>
 </div>
 
-<cfif find("jet", cgi.script_name) EQ 0>
-  <cfinclude template="#RootDir#comm/includes/dock_key.cfm" />
-<cfelse>
-  <cfinclude template="#RootDir#comm/includes/jetty_key.cfm" />
-</cfif>
-
 <h2>#LSDateFormat(CreateDate(url['a-y'], url['m-m'], 1), 'mmmm')# #url['a-y']#</h2>
 
+<cfset legend = arrayNew(1) />
+<cfif find("jet", cgi.script_name) EQ 0>
+  <cfset arrayAppend(legend, language.sec1) />
+  <cfset arrayAppend(legend, language.sec2) />
+  <cfset arrayAppend(legend, language.sec3) />
+  <cfset arrayAppend(legend, language.tentbook) />
+  <cfset arrayAppend(legend, language.pendbook) />
+<cfelse>
+  <cfset arrayAppend(legend, language.NorthLandingWharf) />
+  <cfset arrayAppend(legend, language.SouthJetty) />
+  <cfset arrayAppend(legend, language.PendBook) />
+  <cfset arrayAppend(legend, language.TentBook) />
+</cfif>
 
-<div class="selector">
-  <!---<a href="#cgi.script_name#?lang=#lang#&amp;m-m=#prevmonth#&amp;a-y=#prevyear#" class="previousLink">#language.prev#</a>--->
-  <!---<a href="#cgi.script_name#?lang=#lang#&amp;m-m=#nextmonth#&amp;a-y=#nextyear#" class="nextLink">#language.next#</a>--->
-</div>
 
 <!--- Create an array for the days of the month --->
 <cfset DaysofMonth = ArrayNew(1)>
@@ -193,16 +196,16 @@ summary="#language.calendar#">
             <cfif Evaluate(sec).maint eq true>
               <div class="maintenance"><a href="detail.cfm?lang=#lang#&amp;date=#taday###booking-#BRID#" class="maintenance" title="#DateFormat(taday, 'dddd')# #taday# #language.maintenance#"><span style="display: none" rel="nofollow">#language.detailsFor# #language.maintenance# - #taday#</span> #language.maintenance#</a></div>
             <cfelseif vessel_name neq "">
-            <div class="vessel #sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday###booking-#BRID#" class="confirmed" title="#DateFormat(taday, 'dddd')# #taday# #vessel_name#" rel="nofollow"><span style="display: none">#language.detailsFor# #vessel_name# - #taday#</span> #vessel_name#</a><a class="legend" href="###sec#"><sup title="#legend[bloop]#">#bloop#</sup></a></div>
+            <div class="vessel #sec#"><a href="detail.cfm?lang=#lang#&amp;date=#taday###booking-#BRID#" class="confirmed" title="#DateFormat(taday, 'dddd')# #taday# #vessel_name#" rel="nofollow"><span style="display: none">#language.detailsFor# #vessel_name# - #taday#</span> #vessel_name#</a><a class="legend" href="###sec#"><sup title="#legend[bloop]#"><span style="display: none">#bloop# - #legend[bloop]#</span>#bloop#</sup></a></div>
             </cfif>
           </cfloop>
 
           <cfif tent.num neq 0>
-            <div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="tentative" title="#DateFormat(taday, 'dddd')# #taday# #tent.name#" rel="nofollow"><span style="display: none">#language.detailsFor# #tent.name# - #taday#</span> #tent.name#</a><a href="##tentative" class="legend tentative"><sup title="#legend[4]#">4</sup></a></div>
+            <div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="tentative" title="#DateFormat(taday, 'dddd')# #taday# #tent.name#" rel="nofollow"><span style="display: none">#language.detailsFor# #tent.name# - #taday#</span> #tent.name#</a><a href="##tentative" class="legend tentative"><sup title="#legend[4]#"><span style="display: none">4 - #legend[4]#</span>4</sup></a></div>
           </cfif>
 
           <cfif pend.num neq 0>
-            <div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#DateFormat(taday, 'dddd')# #taday# #pend.name#" rel="nofollow"><span style="display: none">#language.detailsFor# #pend.name# - #taday#</span> #pend.name#</a><a href="##pending" class="legend pending"><cfif sec3.name NEQ ""><sup title="#legend[5]#">5</sup><cfelse><sup title="#legend[3]#">3</sup></cfif></a></div>
+            <div><a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#DateFormat(taday, 'dddd')# #taday# #pend.name#" rel="nofollow"><span style="display: none">#language.detailsFor# #pend.name# - #taday#</span> #pend.name#</a><a href="##pending" class="legend pending"><cfif sec3.name NEQ ""><sup title="#legend[5]#"><span style="display: none">5 - #legend[5]#</span>5</sup><cfelse><sup title="#legend[3]#"><span style="display: none">3 - #legend[3]#</span>3</sup></cfif></a></div>
           </cfif>
 				</cfif>
 			</td>
@@ -210,5 +213,11 @@ summary="#language.calendar#">
 	</tr>
 	</cfloop>
 </table>
+
+<cfif find("jet", cgi.script_name) EQ 0>
+  <cfinclude template="#RootDir#comm/includes/dock_key.cfm" />
+<cfelse>
+  <cfinclude template="#RootDir#comm/includes/jetty_key.cfm" />
+</cfif>
 
 </cfoutput>

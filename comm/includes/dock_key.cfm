@@ -1,10 +1,3 @@
-<cfset legend = arrayNew(1) />
-<cfset arrayAppend(legend, language.sec1) />
-<cfset arrayAppend(legend, language.sec2) />
-<cfset arrayAppend(legend, language.sec3) />
-<cfset arrayAppend(legend, language.tentbook) />
-<cfset arrayAppend(legend, language.pendbook) />
-
 <cfoutput>
 	<table class="keytable">
 		<tr><th colspan="2">#language.Key#</th></tr>
