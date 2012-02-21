@@ -185,7 +185,7 @@
 
 <cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
   <cfset language.required = "Required field" />
-  <cfset language.requiredFields = "<p>Required fields are marked with an asterisk (<abbr class=""required"" title=""required"">*</abbr>).</p>" />
+  <cfset language.requiredFields = "<p>Required fields are marked with an asterisk (<abbr class=""required"" title=""#language.required#"">*</abbr>).</p>" />
 	<cfset language.Agent = "Agent">
 	<cfset language.startDate = "Start Date">
 	<cfset language.endDate = "End Date">
@@ -201,7 +201,7 @@
 	<cfset language.endError = "Please enter an end date."--->
 <cfelse>
   <cfset language.required = "Champ obligatoire" />
-  <cfset language.requiredFields = "<p>Les champs obligatoires sont signal&eacute;s par un ast&eacute;risque (<abbr class=""required"" title=""required"">*</abbr>).</p>" />
+  <cfset language.requiredFields = "<p>Les champs obligatoires sont signal&eacute;s par un ast&eacute;risque (<abbr class=""required"" title=""#language.required#"">*</abbr>).</p>" />
 	<cfset language.agent = "Agent">
 	<cfset language.startDate = "Date de d&eacute;but">
 	<cfset language.endDate = "Date de fin">
