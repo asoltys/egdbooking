@@ -38,6 +38,7 @@
   <cfset language.acknowledgement_received = "Acknowledgement received.  You can view the notice at any time by visiting the <a href='#RootDir#reserve-book/avis-notices.cfm'>Notices</a> page" />
   <cfset language.notices = "Notices" />
   <cfset language.calendarInstructions = "Use the control and arrow keys to navigate the calendar" />
+  <cfset language.detailsFor = "Details for:" />
 <cfelse>
 	<cfset language.PWGSC = "TPSGC">
 	<cfset language.egd = "CSE">
@@ -77,6 +78,7 @@
   <cfset language.acknowledgement_received = "Remerciements reçus. Vous pouvez consulter l'avis en tout temps en visitant <a href='#RootDir#reserve-book/avis-notices.cfm'>la page des avis.</a>" />
   <cfset language.notices = "Avis" />
   <cfset language.calendarInstructions = "Utilisez les touches de contr&ocirc;le et de la fl&egrave;che pour naviguer dans le calendrier" />
+  <cfset language.detailsFor = "D&egrave;tails pour&nbsp:" />
 </cfif>
 
 <cfif lang EQ 'eng'>
