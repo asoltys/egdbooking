@@ -83,10 +83,11 @@
 				<form action="#RootDir#reserve-book/navireajout-vesseladd_confirm.cfm?lang=#lang#&amp;CID=#CID#" method="post" id="addVessel">
 					<fieldset>
 						<legend>#language.addVessel#</legend>
+            <p>#language.requiredFields#</p>
 
 						<div>
               <cfif getCompanies.recordCount GT 1>
-                <label for="CID"><span title="#language.required#" class="required">*</span>#language.CompanyName#:</label>
+                <label for="CID"><abbr title="#language.required#" class="required">*</abbr>#language.CompanyName#:</label>
                 <select name="CID" id="CID" query="getCompanies" display="Name" value="CID" selected="#variables.CID#" />
               <cfelse>
                 <label for="CID">#language.CompanyName#:</label>
@@ -96,7 +97,7 @@
             </div>
 
             <div>
-              <label for="name"><span title="#language.required#" class="required">*</span>&nbsp;#language.vesselName#:</label>
+              <label for="name"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.vesselName#:</label>
               <input name="name" id="name" type="text" value="#variables.name#" size="35" maxlength="100" />
             </div>
 
@@ -106,29 +107,29 @@
 						</div>
 
 						<div>
-              <label for="length"><span title="#language.required#" class="required">*</span>&nbsp;#language.Length#:</label>
+              <label for="length"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Length#:</label>
               <input name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" />
               #language.Max#: #Variables.MaxLength#
 						</div>
 
 						<div>
-              <label for="width"><span title="#language.required#" class="required">*</span>&nbsp;#language.Width#:</label>
+              <label for="width"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Width#:</label>
               <input name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" />
               #language.Max#: #Variables.MaxWidth#
 						</div>
 
 						<div>
-              <label for="blocksetuptime" id="block_setup_time"><span title="#language.required#" class="required">*</span>&nbsp;#language.BlockSetup# #language.days#:</label>
+              <label for="blocksetuptime" id="block_setup_time"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.BlockSetup# #language.days#:</label>
               <input name="blocksetuptime" id="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" />
 						</div>
 
 						<div>
-              <label for="blockteardowntime" id="block_teardown_time"><span title="#language.required#" class="required">*</span>&nbsp;#language.BlockTeardown# #language.days#:</label>
+              <label for="blockteardowntime" id="block_teardown_time"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.BlockTeardown# #language.days#:</label>
               <input name="blockteardowntime" id="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" />
 						</div>
 
 						<div>
-              <label for="tonnage"><span title="#language.required#" class="required">*</span>&nbsp;#language.Tonnage#:</label>
+              <label for="tonnage"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Tonnage#:</label>
               <input name="tonnage" id="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" />
 						</div>
 

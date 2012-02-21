@@ -118,9 +118,10 @@
 				<form action="#RootDir#reserve-book/caledemande-dockrequest_confirm.cfm?lang=#lang#" method="post" id="booking">
 					<fieldset>
             <legend>#language.booking#</legend>
+            <p>#language.requiredFields#</p>
 
             <div>
-              <label for="booking_CID"><span title="#language.required#" class="required">*</span>&nbsp;#language.Company#:</label>
+              <label for="booking_CID"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Company#:</label>
               <CF_TwoSelectsRelated
                 query="companyVessels"
                 id1="booking_CID"
@@ -140,18 +141,18 @@
 
 						<div>
               <label for="startDateA">
-                <span title="#language.required#" class="required">*</span>&nbsp;#language.StartDate#:<br />
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.StartDate#:<br />
                 <small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
               <input id="startDateA" name="startDate" class="datepicker startDate" type="text" size="15" maxlength="10"  /> 
 						</div>
 
 						<div>
-             <label for="endDateA"><span title="#language.required#" class="required">*</span>&nbsp;#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+             <label for="endDateA"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
               <input id="endDateA" name="endDate" class="datepicker endDate" type="text" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#"  />
 						</div>
 
 						<div>
-              <label for="status"><span title="#language.required#" class="required">*</span>&nbsp;#language.requestedStatus#:</label>
+              <label for="status"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.requestedStatus#:</label>
               <select id="status" name="status" >
                 <option value="tentative" <cfif isDefined("form.status") AND form.status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
                 <option value="confirmed" <cfif isDefined("form.status") AND form.status EQ "confirmed">selected="selected"</cfif>>#language.confirmed#</option>
@@ -170,9 +171,10 @@
 				<form action="#RootDir#reserve-book/caledemande-dockrequest_confirm2.cfm?lang=#lang#" method="post" id="bookingByRange">
 					<fieldset>
             <legend>#language.booking#</legend>
+            <p>#language.requiredFields#</p>
 
             <div>
-              <label for="bookingByRange_CID"><span title="#language.required#" class="required">*</span>&nbsp;#language.Company#:</label>
+              <label for="bookingByRange_CID"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Company#:</label>
               <CF_TwoSelectsRelated
                 QUERY="companyVessels"
                 id1="bookingByRange_CID"
@@ -192,22 +194,22 @@
             </div>
 
             <div>
-							<label for="StartDateB"><span title="#language.required#" class="required">*</span>&nbsp;#language.StartDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+							<label for="StartDateB"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.StartDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
 							<input id="StartDateB" name="startDate" type="text" class="datepicker startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
             </div>
 
             <div>
-              <label for="EndDateB"><span title="#language.required#" class="required">*</span>&nbsp;#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+              <label for="EndDateB"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
               <input id="EndDateB" name="endDate" type="text" class="datepicker endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
             </div>
 
             <div>
-              <label for="NumDays"><span title="#language.required#" class="required">*</span>&nbsp;#language.NumDays#:</label>
+              <label for="NumDays"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.NumDays#:</label>
               <input id="NumDays" type="text" name="numDays" value="#Variables.numDays#"  />
             </div>
 
 						<div>
-              <label for="statusB"><span title="#language.required#" class="required">*</span>&nbsp;#language.requestedStatus#:</label>
+              <label for="statusB"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.requestedStatus#:</label>
               <select id="statusB" name="status" >
                 <option value="tentative" <cfif isDefined("form.status") AND form.status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
                 <option value="confirmed" <cfif isDefined("form.status") AND form.status EQ "confirmed">selected="selected"</cfif>>#language.confirmed#</option>

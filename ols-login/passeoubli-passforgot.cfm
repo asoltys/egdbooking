@@ -60,9 +60,10 @@
 					<form action="passeoubli-passforgot_action.cfm?lang=#lang#" id="forgotForm" method="post">
             <fieldset>
               <legend>#language.getPassword#</legend>
+              <p>#language.requiredFields#</p>
               
               <div>
-                <label for="email"><span title="#language.required#" class="required">*</span>&nbsp;#language.Email#:</label>
+                <label for="email"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Email#:</label>
                 <input type="text" name="email" id="email" size="30" />
               </div>
 

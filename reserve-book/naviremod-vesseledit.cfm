@@ -113,14 +113,15 @@
 					</cfif>
 					<fieldset>
             <legend>#language.vessel#</legend>
+            <p>#language.requiredFields#</p>
 
             <div>
-              <label for="CID"><span title="#language.required#" class="required">*</span>&nbsp;#language.CompanyName#:</label>
+              <label for="CID"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.CompanyName#:</label>
               <input type="text" disabled="disabled" readonly="readonly" id="CID" name="CID" value="#getVesselDetail.CompanyName#" />
             </div>
 
 						<div>
-              <label for="name"><span title="#language.required#" class="required">*</span>&nbsp;#language.vessel#:</label>
+              <label for="name"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.vessel#:</label>
               <input id="name" name="name" type="text" value="#variables.Name#" size="37" maxlength="100" />
 						</div>
 
@@ -143,30 +144,30 @@
 							</div>
 						<cfelse>
 							<div>
-                <label for="length"><span title="#language.required#" class="required">*</span>&nbsp;#language.Length#:</label>
+                <label for="length"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Length#:</label>
                 <input id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" />
                 #language.Max#: #Variables.MaxLength# m
 							</div>
 
 							<div>
-                <label for="width"><span title="#language.required#" class="required">*</span>&nbsp;#language.Width#:</label>
+                <label for="width"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Width#:</label>
                 <input id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" />
                 #language.Max#: #Variables.MaxWidth# m
 							</div>
 						</cfif>
 
 						<div>
-              <label for="blocksetuptime"><span title="#language.required#" class="required">*</span>&nbsp;#language.BlockSetup# #language.days#:</label>
+              <label for="blocksetuptime"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.BlockSetup# #language.days#:</label>
               <input id="blocksetuptime" name="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" />
 						</div>
 
 						<div>
-              <label for="blockteardowntime"><span title="#language.required#" class="required">*</span>&nbsp;#language.BlockTeardown# #language.days#:</label>
+              <label for="blockteardowntime"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.BlockTeardown# #language.days#:</label>
               <input id="blockteardowntime" name="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" />
 						</div>
 
 						<div>
-              <label for="tonnage"><span title="#language.required#" class="required">*</span>&nbsp;#language.Tonnage#:</label>
+              <label for="tonnage"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Tonnage#:</label>
               <input id="tonnage" name="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" />
 						</div>
 

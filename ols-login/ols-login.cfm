@@ -82,12 +82,12 @@
               <legend>#language.login#</legend>
               
               <div>
-                <label for="email"><span title="#language.required#" class="required">*</span>&nbsp;#language.Email#:</label>
+                <label for="email"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Email#:</label>
                 <input type="text" name="email" id="email" size="40" maxlength="100" value="#email#" />
               </div>
 
               <div>
-                <label for="password"><span title="#language.required#" class="required">*</span>&nbsp;#language.Password#:</label>
+                <label for="password"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Password#:</label>
                 <input type="password" name="Password" id="password" size="25" maxlength="40" />
               </div>
 
