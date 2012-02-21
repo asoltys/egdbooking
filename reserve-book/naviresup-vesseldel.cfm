@@ -111,18 +111,18 @@
         <table class="bookings">
           <thead>
             <tr>
-              <th id="start">#language.Startdate#</th>
-              <th id="end">#language.EndDate#</th>
-              <th id="status">#language.Status#</th>
+              <th id="drydock_start_date">#language.Startdate#</th>
+              <th id="drydock_end_date">#language.EndDate#</th>
+              <th id="drydock_status">#language.Status#</th>
             </tr>
           </thead>
 
             <tbody>
               <cfloop query="getVesselDockBookings">
                 <tr>
-                  <td headers="start">#LSdateformat(startDate, "mmm d, yyyy")#</td>
-                  <td headers="end">#LSdateformat(endDate, "mmm d, yyyy")#</td>
-                  <td headers="status">
+                  <td headers="drydock_start_date">#LSdateformat(startDate, "mmm d, yyyy")#</td>
+                  <td headers="drydock_end_date">#LSdateformat(endDate, "mmm d, yyyy")#</td>
+                  <td headers="drydock_status">
                     <cfif status EQ "PT"><em>#language.pending#</em>
                     <cfelseif status EQ "T"><em>#language.tentative#</em>
                     <cfelseif status EQ "C"><em>#language.confirmed#</em></cfif>
@@ -137,16 +137,16 @@
         <h2>#language.Jetty#</h2>
         <table class="bookings">
           <tr>
-            <th id="start">#language.StartDate#</th>
-            <th id="end">#language.EndDate#</th>
+            <th id="jetty_start_date">#language.StartDate#</th>
+            <th id="jetty_end_date">#language.EndDate#</th>
             <th id="jetty">#language.Jetty#</th>
-            <th id="status">#language.Status#</th>
+            <th id="jetty_status">#language.Status#</th>
           </tr>
 
           <cfloop query="getVesselJettyBookings">
             <tr>
-              <td headers="start">#LSdateformat(startDate, "mmm d, yyyy")#</td>
-              <td headers="end">#LSdateformat(endDate, "mmm d, yyyy")#</td>
+              <td headers="jetty_start_date">#LSdateformat(startDate, "mmm d, yyyy")#</td>
+              <td headers="jetty_end_date">#LSdateformat(endDate, "mmm d, yyyy")#</td>
               <td headers="jetty">
                 <cfif getVesselJettyBookings.NorthJetty EQ 1>
                   #language.NorthLandingWharf#
@@ -154,7 +154,7 @@
                   #language.SouthJetty#
                 </cfif>
               </td>
-              <td headers="status">
+              <td headers="jetty_status">
                 <cfif status EQ "PT"><em>#language.pending#</em>
                 <cfelseif status EQ "C"><em>#language.confirmed#</em></cfif>
               </td>
