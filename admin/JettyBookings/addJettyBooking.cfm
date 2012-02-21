@@ -5,12 +5,6 @@
 	<meta name="description" content="" />
 	<meta name="dc.subject" scheme="gccore" content="" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Add Jetty Booking</title>
-	<script type="text/javascript">
-		/* <![CDATA[ */
-		var bookingLength = 0;
-		/* ]]> */
-	</script>
-	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
 	</cfoutput>
 </cfsavecontent>
 <cfhtmlhead text="#js#">

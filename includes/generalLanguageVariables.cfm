@@ -77,7 +77,7 @@
   <cfset language.acknowledged = "J'ai lu et reconnu cet avis" />
   <cfset language.acknowledgement_received = "Remerciements reçus. Vous pouvez consulter l'avis en tout temps en visitant <a href='#RootDir#reserve-book/avis-notices.cfm'>la page des avis.</a>" />
   <cfset language.notices = "Avis" />
-  <cfset language.calendarInstructions = "Utilisez les touches de contr&ocirc;le et de la fl&egrave;che pour naviguer dans le calendrier" />
+  <cfset language.calendarInstructions = "Utilisez les touches de contr&##244;le et de la fl&##232;che pour naviguer dans le calendrier" />
   <cfset language.detailsFor = "D&egrave;tails pour&nbsp:" />
 </cfif>
 
@@ -317,3 +317,23 @@
 	<cfset language.anonymousWarning = "Les navires anonymes ne sont anonymes qu'aux utilisateurs d'autres entreprises. Les administrateurs de la cale s&egrave;che d'Esquimalt ont acc&egrave;s &agrave; la totalit&eacute; de l'information concernant les navires, peu importe l'anonymat.">
 	<cfset language.notEditVesselDimensions = "Vous ne pouvez pas modifier les dimensions du navire, parce que ce dernier fait l'objet de r&eacute;servations confirm&eacute;es. Pour apporter des changements aux dimensions, pri&egrave;re de communiquer avec l'administration de la CSE.">
 </cfif>
+
+<cffunction name="decodeHtmlEntity" returntype="String" output="false">
+    <cfargument name="Entity" type="String" hint="&##<number>; or &<name>;" />
+    <cfset var XmlDoc = XmlParse('<xml>#Arguments.Entity#</xml>') />
+    <cfreturn XmlDoc.XmlRoot.XmlText />
+</cffunction>
+
+<cfoutput>
+<cfsavecontent variable="head">
+<script type="text/javascript">
+	/* <![CDATA[ */
+  var t = { 
+    "calendarInstructions": "#decodeHtmlEntity(language.calendarInstructions)#" 
+  }
+	/* ]]> */
+</script>
+</cfsavecontent>
+<cfhtmlhead text="#head#" />
+</cfoutput>
+

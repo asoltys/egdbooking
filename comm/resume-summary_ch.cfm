@@ -1,7 +1,7 @@
 <cfoutput>
 <cfif lang EQ "eng">
 	<cfset language.bookingsSummary = "Bookings Summary">
-	<cfset language.ScreenMessage = '<p>Please use the pop-up calendar to enter the range of dates you would like to view.  To start from the first booking record, clear the "From Date" field.  To end after the last booking record, clear the "To Date" field.  To see all records, clear both fields.</p>'>
+  <cfset language.ScreenMessage = '<p>Please use the pop-up calendar to enter the range of dates you would like to view.  To start from the first booking record, clear the <em>From Date</em> field.  To end after the last booking record, clear the <em>To Date</em> field.  To see all records, clear both fields.</p>'>
 	<cfset language.description = "Allows user to view a summary of all bookings from present onward.">
 	<cfset language.vesselCaps = "VESSEL">
 	<cfset language.dockingCaps = "DOCKING DATES">
@@ -50,7 +50,6 @@
 		var bookingLength = 0;
 		/* ]]> */
 	</script>
-	<script type="text/javascript" src="#RootDir#scripts/tandemDateFixer.js"></script>
 </cfsavecontent>
 <cfhtmlhead text="#js#">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
