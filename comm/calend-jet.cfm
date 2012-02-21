@@ -9,7 +9,6 @@
 </cfif>
 <cfif lang EQ "eng">
 	<cfset language.ScreenMessage = "There are no events available for display">
-	<cfset language.jettyCalendar = "North Landing Wharf/South Jetty Calendar">
 	<cfset language.description = "Allows user to view all bookings in the jetties in a given month.">
 	<cfset language.keywords = "Calendar, one month view, 1 month view, drydock side">
 	<cfset language.go = "Go">
@@ -24,7 +23,6 @@
 	<cfset language.next = "next">
 <cfelse>
 	<cfset language.ScreenMessage = "Il n'existe aucune activit&eacute; &agrave; afficher.">
-	<cfset language.jettyCalendar = "Calendrier de la Quai de d&eacute;barquement nord et la jet&eacute;e sud">
 	<cfset language.description = "Permet &agrave; l'utilisateur de voir toutes les r&eacute;servations concernant les jet&eacute;es pour un mois donn&eacute;.">
 	<cfset language.keywords = "Calendrier,  visualisation d'un mois, visualisation de 3 mois, secteur de la jet&eacute;e">
 	<cfset language.go = "Afficher">
