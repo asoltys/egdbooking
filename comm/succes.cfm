@@ -18,8 +18,6 @@
 
 <cfparam name="Variables.Success.Title" default="">
 <cfparam name="Variables.Success.Message" default="">
-<cfparam name="Variables.Success.Back" default="">
-<cfparam name="Variables.Success.Link" default="">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
@@ -53,7 +51,7 @@
 					<cfoutput>
 						<p>#Variables.Success.Message#</p>
 
-            <p><a href="#Variables.Success.Link#" class="textbutton">#Variables.Success.Back#</a></p>
+            <p><a href="#RootDir#/reserve-book/reserve-booking.cfm" class="textbutton">#language.returnTo#</a></p>
 					</cfoutput>
 				</div>
 			</div>
