@@ -192,6 +192,7 @@ function EditSubmit ( selectedform )
 					<form action="#RootDir#reserve-book/passechange.cfm?lang=eng" method="post" id="changePassForm">
 						<fieldset>
               <legend>#language.ChangePassword#</legend>
+              <p>#language.requiredFields#</p>
 
 							<div>
                 <label for="password"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Password# <span class="smallFont">(min. 8 #language.characters#)</span>:</label>
