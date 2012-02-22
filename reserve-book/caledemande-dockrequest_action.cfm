@@ -127,17 +127,14 @@
 	</cfoutput>
 
 	<!--- create structure for sending to mothership/success page. --->
-	<cfif lang EQ "eng">
-		<cfset Session.Success.Breadcrumb = "Submit Drydock Booking Request">
-		<cfset Session.Success.Title = "Create New Drydock Booking">
-		<cfset Session.Success.Message = "A new booking request for <strong>#getDetails.vesselName#</strong> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been successfully created and is pending approval.">
-		<cfset Session.Success.Back = language.returnTo>
-	<cfelse>
-		<cfset Session.Success.Breadcrumb = "Pr&eacute;senter une nouvelle demande de r&eacute;servation de la cale s&egrave;che">
-		<cfset Session.Success.Title = "&Eacute;tablir une nouvelle r&eacute;servation de cale s&egrave;che">
-		<cfset Session.Success.Message = "Une nouvelle demande de r&eacute;servation pour le #getDetails.vesselName# du #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# a &eacute;t&eacute; cr&eacute;&eacute;e et est en attente d'approbation.">
-		<cfset Session.Success.Back = language.returnTo>
-	</cfif>
+		<cfset Session.Eng.Success.Breadcrumb = "Submit Drydock Booking Request">
+		<cfset Session.Eng.Success.Title = "Create New Drydock Booking">
+		<cfset Session.Eng.Success.Message = "A new booking request for <strong>#getDetails.vesselName#</strong> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been successfully created and is pending approval.">
+		<cfset Session.Eng.Success.Back = language.returnTo>
+		<cfset Session.Fra.Success.Breadcrumb = "Pr&eacute;senter une nouvelle demande de r&eacute;servation de la cale s&egrave;che">
+		<cfset Session.Fra.Success.Title = "&Eacute;tablir une nouvelle r&eacute;servation de cale s&egrave;che">
+		<cfset Session.Fra.Success.Message = "Une nouvelle demande de r&eacute;servation pour le #getDetails.vesselName# du #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# a &eacute;t&eacute; cr&eacute;&eacute;e et est en attente d'approbation.">
+		<cfset Session.Fra.Success.Back = language.returnTo>
 	<cfset Session.Success.Link = "#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 	<cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 

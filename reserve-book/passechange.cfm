@@ -43,17 +43,16 @@
 
 </cflock>
 
-<cfif lang EQ "eng">
-	<cfset Session.Success.Breadcrumb = "Edit Profile">
-	<cfset Session.Success.Title = "Edit Profile">
-	<cfset Session.Success.Message = "Your password for the Esquimalt Graving Dock Online Booking System has been changed to ""#form.password1#"".">
-	<cfset Session.Success.Back = "Back to Edit Profile">
-<cfelse>
-	<cfset Session.Success.Breadcrumb = "Modifier le profil">
-	<cfset Session.Success.Title = "Modifier le profil">
-	<cfset Session.Success.Message = "Votre mot de passe pour le syst&egrave;me de r&eacute;servation en ligne de la cale s&egrave;che d'Esquimalt est ""#form.password1#"".">
-	<cfset Session.Success.Back = "Retour &agrave; modifier le profil">
-</cfif>
-<cfset Session.Success.Link = "#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#">
+
+<cfset Session.Eng.Success.Breadcrumb = "Edit Profile">
+<cfset Session.Eng.Success.Title = "Edit Profile">
+<cfset Session.Eng.Success.Message = "Your password for the Esquimalt Graving Dock Online Booking System has been changed to ""#form.password1#"".">
+<cfset Session.Eng.Success.Back = "Back to Edit Profile">
+<cfset Session.Eng.Success.Link = "#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#">
+<cfset Session.Fra.Success.Breadcrumb = "Modifier le profil">
+<cfset Session.Fra.Success.Title = "Modifier le profil">
+<cfset Session.Fra.Success.Message = "Votre mot de passe pour le syst&egrave;me de r&eacute;servation en ligne de la cale s&egrave;che d'Esquimalt est ""#form.password1#"".">
+<cfset Session.Fra.Success.Back = "Retour &agrave; modifier le profil">
+<cfset Session.Fra.Success.Link = "#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
 

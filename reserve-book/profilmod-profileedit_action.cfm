@@ -46,16 +46,14 @@
 </cflock>
 
 <!--- create structure for sending to mothership/success page. --->
-<cfif lang EQ "eng">
-	<cfset Session.Success.Breadcrumb = "Edit Profile">
-	<cfset Session.Success.Title = "Edit Profile">
-	<cfset Session.Success.Message = "Your profile has been updated.">
-	<cfset Session.Success.Back = "Back to Edit Profile">
-<cfelse>
-	<cfset Session.Success.Breadcrumb = "Modifier le profil">
-	<cfset Session.Success.Title = "Modifier le profil">
-	<cfset Session.Success.Message = "Votre profil a &eacute;t&eacute; mis &agrave; jour.">
-	<cfset Session.Success.Back = "Retour &agrave; modifier le profil">
-</cfif>
-<cfset Session.Success.Link = "#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#">
+	<cfset Session.Eng.Success.Breadcrumb = "Edit Profile">
+	<cfset Session.Eng.Success.Title = "Edit Profile">
+	<cfset Session.Eng.Success.Message = "Your profile has been updated.">
+	<cfset Session.Eng.Success.Back = "Back to Edit Profile">
+  <cfset Session.Eng.Success.Link = "#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#">
+	<cfset Session.Fra.Success.Breadcrumb = "Modifier le profil">
+	<cfset Session.Fra.Success.Title = "Modifier le profil">
+	<cfset Session.Fra.Success.Message = "Votre profil a &eacute;t&eacute; mis &agrave; jour.">
+	<cfset Session.Fra.Success.Back = "Retour &agrave; modifier le profil">
+  <cfset Session.Fra.Success.Link = "#RootDir#reserve-book/profilmod-profileedit.cfm?lang=#lang#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">

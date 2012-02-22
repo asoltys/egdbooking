@@ -48,6 +48,11 @@
     <cfparam name="url.showPending" default="off">
 
     <cfinclude template="#RootDir#includes/generalLanguageVariables.cfm">
+
+    <cfif structKeyExists(Session, lang)>
+      <cfset Session.Success = structCopy(Session[lang].Success) />
+    </cfif>
+
     <cfinclude template="#arguments.targetPage#" />
   </cffunction>
 

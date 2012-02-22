@@ -28,16 +28,15 @@
   )
 </cfquery>
 
-<cfif lang EQ "eng">
-	<cfset Session.Success.Breadcrumb = "Add New Vessel">
-	<cfset Session.Success.Title = "Add New Vessel">
-	<cfset Session.Success.Message = "The vessel, <strong>#form.Name#</strong>, has been added.">
-	<cfset Session.Success.Back = "Back to Booking Home">
-<cfelse>
-	<cfset Session.Success.Breadcrumb = "Ajout d'un nouveau navire">
-	<cfset Session.Success.Title = "Ajout d'un nouveau navire">
-	<cfset Session.Success.Message = "Le navire, <strong>#form.Name#</strong>, a &eacute;t&eacute; ajout&eacute;.">
-	<cfset Session.Success.Back = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
-</cfif>
-<cfset Session.Success.Link = "#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#CID#">
+
+<cfset Session.Eng.Success.Breadcrumb = "Add New Vessel">
+<cfset Session.Eng.Success.Title = "Add New Vessel">
+<cfset Session.Eng.Success.Message = "The vessel, <strong>#form.Name#</strong>, has been added.">
+<cfset Session.Eng.Success.Back = "Back to Booking Home">
+<cfset Session.Eng.Success.Link = "#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#CID#">
+<cfset Session.Fra.Success.Breadcrumb = "Ajout d'un nouveau navire">
+<cfset Session.Fra.Success.Title = "Ajout d'un nouveau navire">
+<cfset Session.Fra.Success.Message = "Le navire, <strong>#form.Name#</strong>, a &eacute;t&eacute; ajout&eacute;.">
+<cfset Session.Fra.Success.Back = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
+<cfset Session.Fra.Success.Link = "#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#CID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">
