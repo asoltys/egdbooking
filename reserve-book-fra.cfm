@@ -144,7 +144,7 @@ function popUp(pageID) {
 					</a></h1>
 					
 			  <cfoutput>
-				<img src="#RootDir#images/EGD_aerial_small.jpg" alt="" width="405" height="342" title="Aerial view of the Esquimalt Graving Dock" />
+				<img src="#RootDir#images/EGD_aerial_small.jpg" alt="" width="405" height="342" />
 
         <p>Afin de r&eacute;server une place pour un navire &agrave; l'une des installations de la Cale s&egrave;che d'Esquimalt, veuillez lancer l'<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=fra">Application des r&eacute;servations</a>.
 			    Si vous &eacute;prouvez des probl&egrave;mes avec l'application des r&eacute;servations, pri&egrave;re d'utiliser la <a href="#EGD_URL#/cn-cu-fra.html">page Contactez-nous</a>.</p>

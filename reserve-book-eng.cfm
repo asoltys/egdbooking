@@ -155,7 +155,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 			  <cfoutput>
-				<img src="#RootDir#images/EGD_aerial_small.jpg" alt="" width="405" height="342" title="Aerial view of the Esquimalt Graving Dock" />
+				<img src="#RootDir#images/EGD_aerial_small.jpg" alt="" width="405" height="342" />
 
 				<p>To reserve space for a vessel at any of the facilities of the Esquimalt Graving
 				  Dock, please proceed to the <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=eng">Booking 
