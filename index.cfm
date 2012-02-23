@@ -5,7 +5,7 @@
 	<!-- VERSION 1.0 DU GABARIT TPSGC | PWGSC TEMPLATE VERSION 1.0 -->
 	<!-- DEBUT DE L'EN-TETE | HEADER BEGINS -->
 	<!-- DEBUT DU TITRE FRANCAIS / ANGLAIS | FRENCH / ENGLISH title BEGINS -->
-	<title>Cale s&egrave;che e'Esquimalt | Esquimalt Graving Dock</title>
+	<title>Bienvenue - Cale sèche d'Esquimalt - TPSGC | Welcome - Esquimalt Graving Dock - PWGSC</title>
 	<!-- FIN DU TITRE FRANCAIS / ANGLAIS | FRENCH / ENGLISH title ENDS   -->
 
 	<!-- DEBUT DES METADONNEES BILINGUES | BILINGUAL METADATA BEGINS -->
@@ -13,7 +13,8 @@
 	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1/"  />
 	<link rel="schema.dc" href="http://purl.org/dc/terms/ " />
 
-	<meta name="dc.title" content="Cale s&egrave;che e'Esquimalt | Esquimalt Graving Dock" />
+	<meta name="dc.title" content="Welcome - Esquimalt Graving Dock - PWGSC" />
+	<meta name="dc.title" content="Bienvenue - Cale sèche d'Esquimalt - TPSGC" />
 
 	<meta name="dc.subject" scheme="gccore" content="Ship; Wharf" />
 	<meta name="dc.subject" lang="fr" xml:lang="fr" scheme="gccore" content="Navire; Quai" />
