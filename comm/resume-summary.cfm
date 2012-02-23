@@ -165,7 +165,7 @@ WHERE	SouthJetty = 1
       <h2>#language.Drydock#</h2>
 
       <cfif getDockBookings.RecordCount neq 0>
-        <table class="basic mediumFont">
+        <table class="basic mediumFont" summary="#language.BookingsSummary#">
           <thead>
             <tr>
               <th id="vessel" class="vessel">#language.VESSELCaps#</th>
