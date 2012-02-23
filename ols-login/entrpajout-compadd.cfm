@@ -68,43 +68,52 @@
 						<cfinclude template="#RootDir#includes/getStructure.cfm">
 					</cfif>
 
-					<form name="addCompanyForm" action="entrpajout-compadd_action.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#" id="addCompanyForm" method="post" onsubmit="if(!checkFilledIn('addCompanyForm')) { return false;
-	}">
+					<form name="addCompanyForm" action="entrpajout-compadd_action.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#" id="addCompanyForm" method="post">
             <fieldset>	
-              <label for="name">#language.companyName#:</label>
-              <input name="name" id="name" type="text" size="40" maxlength="75" value="#Variables.name#" />
-              <br />
+              <div>
+                <label for="name">#language.companyName#:</label>
+                <input name="name" id="name" type="text" size="40" maxlength="75" value="#Variables.name#" />
+              </div>
             
-              <label for="address1">#language.Address# 1:</label>
-              <input name="address1" id="address1" type="text" size="40" maxlength="75" value="#Variables.address1#" />
-              <br />
+              <div>
+                <label for="address1">#language.Address# 1:</label>
+                <input name="address1" id="address1" type="text" size="40" maxlength="75" value="#Variables.address1#" />
+              </div>
             
-              <label for="address2">#language.Address# 2 #language.optional#:</label>
-              <input name="address2" id="address2" type="text" size="40" maxlength="75" value="#Variables.address2#" />
-              <br />
+              <div>
+                <label for="address2">#language.Address# 2 #language.optional#:</label>
+                <input name="address2" id="address2" type="text" size="40" maxlength="75" value="#Variables.address2#" />
+              </div>
             
-              <label for="city">#language.City#:</label>
-              <input name="city" id="city" type="text" size="25" maxlength="40" value="#Variables.city#" />
-              <br />
+              <div>
+                <label for="city">#language.City#:</label>
+                <input name="city" id="city" type="text" size="25" maxlength="40" value="#Variables.city#" />
+              </div>
             
-              <label for="province">#language.Province#:</label>
-              <input name="province" id="province" type="text" size="25" maxlength="40" value="#Variables.province#" />
-              <br />
+              <div>
+                <label for="province">#language.Province#:</label>
+                <input name="province" id="province" type="text" size="25" maxlength="40" value="#Variables.province#" />
+              </div>
             
-              <label for="country">#language.Country#:</label>
-              <input name="country" id="country" type="text" size="25" maxlength="40" value="#Variables.country#" />
-              <br />
+              <div>
+                <label for="country">#language.Country#:</label>
+                <input name="country" id="country" type="text" size="25" maxlength="40" value="#Variables.country#" />
+              </div>
             
-              <label for="zip">#language.zip#:</label>
-              <input name="zip" id="zip" type="text" size="12" maxlength="10" value="#Variables.zip#" />
-              <br />
+              <div>
+                <label for="zip">#language.zip#:</label>
+                <input name="zip" id="zip" type="text" size="12" maxlength="10" value="#Variables.zip#" />
+              </div>
+
+              <div>
+                <label for="phone">#language.Phone#:</label>
+                <input name="phone" id="phone" type="text" size="25" maxlength="32" value="#Variables.phone#" />
+              </div>
             
-              <label for="phone">#language.Phone#:</label>
-              <input name="phone" id="phone" type="text" size="25" maxlength="32" value="#Variables.phone#" />
-              <br />
-            
-              <label for="fax">#language.Fax# #language.optional#:</label>
-              <input id="fax" name="fax" type="text" size="10" maxlength="32" />
+              <div>
+                <label for="fax">#language.Fax# #language.optional#:</label>
+                <input id="fax" name="fax" type="text" size="10" maxlength="32" />
+              </div>
             
               <input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
             </fieldset>
