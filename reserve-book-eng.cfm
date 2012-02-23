@@ -34,11 +34,11 @@
 <meta name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
 
 
-<meta name="dc.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Booking Space at the Esquimalt Graving Dock" />
+<meta name="dc.title" content="Booking - Esquimalt Graving Dock - PWGSC" />
 <meta name="keywords" content="Booking Space at the Esquimalt Graving Dock" />
 <meta name="description" content="Introduction page for the booking application." />
 <meta name="dc.subject" scheme="gccore" content="<cfoutput>#language.masterSubjects#</cfoutput>" />
-<title>PWGSC - ESQUIMALT GRAVING DOCK - Booking Space at the Esquimalt Graving Dock</title>
+<title>Booking - Esquimalt Graving Dock - PWGSC</title>
 <!-- METADATA ENDS | FIN DES METADONNEES -->
 
 <!-- TEMPLATE SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS DU GABARIT -->
@@ -152,7 +152,7 @@
 		  <div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					Booking Space at the <acronym title="Esquimalt Graving Dock">EGD</acronym>
+					Booking
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 			  <cfoutput>

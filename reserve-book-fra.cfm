@@ -32,11 +32,11 @@
 <meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
 <meta name="dcterms.modified" scheme="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
 
-<meta name="dc.title" content="TPSGC - CALE S&Egrave;CHE D'ESQUIMALT - R&eacute;servation pour travaux le Cale S&egrave;che d'Esquimalt" />
+<meta name="dc.title" content="R&eacute;servation - Cale sèche d'Esquimalt - TPSGC" />
 <meta name="keywords" content="cale seche d'Esquimalt, reservation pour travaux, reparation de navires, bateaux, entretien de navires, cale seche, bassin de radoub, chantier naval" />
 <meta name="description" content="Reservation pour travaux le Cale seche d'Esquimalt" />
 <meta name="dc.subject" scheme="gccore" content="<cfoutput>#language.masterSubjects#</cfoutput>" />
-<title>TPSGC - CALE S&Egrave;CHE D'ESQUIMALT - R&eacute;servation pour travaux le Cale S&egrave;che d'Esquimalt</title>
+<title>R&eacute;servation - Cale sèche d'Esquimalt - TPSGC</title>
 
 <meta name="pwgsc.contact.email" content="egd-cse@pwgsc-tpsgc.gc.ca" />
 <!-- FIN DES METADONNEES | METADATA ENDS -->
@@ -139,7 +139,7 @@ function popUp(pageID) {
 		  <div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- DEBUT DU TITRE DU CONTENU | CONTENT TITLE BEGINS -->
-					R&eacute;servation pour travaux le <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym>
+					R&eacute;servation
 					<!-- FIN DU TITRE DU CONTENU | CONTENT TITLE ENDS -->
 					</a></h1>
 					
