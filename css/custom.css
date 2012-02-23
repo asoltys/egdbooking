@@ -41,6 +41,10 @@ img {
 	border: none;
 }
 
+legend {
+  display: none;
+}
+
 a#dismiss { color: #369; cursor: pointer; text-decoration: underline; }
 
 /* Overrides the institution definition of colLayout
