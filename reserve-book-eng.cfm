@@ -110,7 +110,8 @@
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
-			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-eng.html"><cfinclude template="#RootDir#includes/bread-pain-eng.cfm">
+			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-eng.html">
+      <cfinclude template="#RootDir#includes/bread-pain-eng.cfm">
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
