@@ -102,7 +102,7 @@
                   <tr>
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#">
-                        ###BRID#:
+                        <span class="navaid">#language.booking# ###BRID#:</span>
                         #Name# &mdash;
                         #lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - 
                         #lsdateformat(endDate, 'mmm d, yyyy')#
@@ -137,7 +137,7 @@
                   <tr>
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#">
-                        ###BRID#:
+                        <span class="navaid">#language.booking# ###BRID#:</span>
                         #Name# &mdash;
                         #lsdateformat(startDate, 'mmm d, yyyy')# - 
                         #lsdateformat(endDate, 'mmm d, yyyy')#
@@ -171,7 +171,7 @@
                   <tr>
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#">
-                        ###BRID#:
+                        <span class="navaid">#language.booking# ###BRID#:</span>
                         #Name# &mdash;
                         #lsdateformat(startDate, 'mmm d, yyyy')# - 
                         #lsdateformat(endDate, 'mmm d, yyyy')#

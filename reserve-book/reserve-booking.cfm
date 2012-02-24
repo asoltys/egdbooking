@@ -384,7 +384,7 @@
                   <tr>
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.booking# ###BRID#">
-                        #language.booking# ###BRID#:
+                        <span class="navaid">#language.booking# ###BRID#:</span>
                         <cfif #EndHighlight# GTE PacificNow>*</cfif>
                         #Name#
                       </a>
@@ -432,7 +432,7 @@
                   <tr>
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.booking# ###BRID#">
-                        #language.booking# ###BRID#:
+                        <span class="navaid">#language.booking# ###BRID#:</span>
                         <cfif #EndHighlight# GTE PacificNow>*</cfif>
                         #Name#
                       </a>
@@ -480,7 +480,7 @@
                   <tr>
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.booking# ###BRID#">
-                        #language.booking# ###BRID#:
+                        <span class="navaid">#language.booking# ###BRID#:</span>
                         <cfif #EndHighlight# GTE PacificNow>*</cfif>
                         #Name#
                       </a>
