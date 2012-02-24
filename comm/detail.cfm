@@ -151,7 +151,7 @@
 				<h2>#language.DrydockBookings#</h2>
 
 				<cfloop query="getDockMaintenanceDetail">
-				<table class="details">
+				<table class="details" summary="#language.detailTableSummary#">
 					<tr>
 						<th scope="row" colspan="2"><strong>#language.MaintenanceBlock#</strong></th>
 					</tr>

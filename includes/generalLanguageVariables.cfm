@@ -92,6 +92,7 @@
   <cfset language.DrydockTableSummary = "List of drydock bookings" />
   <cfset language.NLWTableSummary = "List of north landing wharf bookings" />
   <cfset language.SJTableSummary = "List of south jetty bookings" />
+  <cfset language.detailTableSummary = "Booking details" />
   <cfset language.logoutButton = "Logout">
 <cfelse>
   <cfset language.bookingHome = "Accueil - R&eacute;servation">
@@ -104,6 +105,7 @@
   <cfset language.DrydockTableSummary = "Liste des r&##233;servations en cale s&##232;che" />
   <cfset language.NLWTableSummary = "Liste des r&##233;servations en quai de d&eacute;barquement nord" />
   <cfset language.SJTableSummary = "Liste des r&##233;servations en jet&eacute;e sud" />
+  <cfset language.detailTableSummary = "Renseignements sur le r&##233;servation" />
   <cfset language.logoutButton = "Fermer la session">
 </cfif>
 <cfif lang EQ "eng">
