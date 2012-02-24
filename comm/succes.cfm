@@ -4,7 +4,6 @@
 	<cfset Variables.Success.Breadcrumb = Session.Success.Breadcrumb>
 	<cfset Variables.Success.Title = Session.Success.Title>
 	<cfset Variables.Success.Message = Session.Success.Message>
-	<cfset Variables.Success.Back = Session.Success.Back>
 	<cfset Variables.Success.Link = Session.Success.Link>
 	<!---<cfset StructDelete(Session, "Success")>--->
 </cfif>
