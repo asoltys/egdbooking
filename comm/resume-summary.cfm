@@ -165,7 +165,7 @@ WHERE	SouthJetty = 1
       <h2>#language.Drydock#</h2>
 
       <cfif getDockBookings.RecordCount neq 0>
-        <table class="basic mediumFont" summary="#language.BookingsSummary#">
+        <table class="basic mediumFont" summary="#language.DrydockTableSummary#">
           <thead>
             <tr>
               <th id="vessel" class="vessel">#language.VESSELCaps#</th>
@@ -222,7 +222,7 @@ WHERE	SouthJetty = 1
       <h2>#language.NorthLandingWharf#</h2>
 
         <cfif getNJBookings.RecordCount neq 0>
-        <table class="basic mediumFont">
+        <table class="basic mediumFont" summary="#language.NLWTableSummary#">
           <thead>
             <tr>
               <th id="vessel2" class="vessel">#language.VESSELCaps#</th>
@@ -272,7 +272,7 @@ WHERE	SouthJetty = 1
 
       <h2>#language.SouthJetty#</h2>
       <cfif getSJBookings.RecordCount neq 0>
-        <table class="basic mediumFont">
+        <table class="basic mediumFont" summary="#language.SJTableSummary#">
           <thead>
             <tr>
               <th id="vessel3" class="vessel">#language.VESSELCaps#</th>

@@ -1,4 +1,4 @@
-<cfinclude template="#RootDir#includes/errorMessages.cfm">
+<Tablecfinclude template="#RootDir#includes/errorMessages.cfm">
 <cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
 	<cfset language.PWGSC = "PWGSC">
 	<cfset language.egd = "EGD">
@@ -89,6 +89,9 @@
   <cfset language.editProfileButton = "Edit Profile">
   <cfset language.help = "Help">
   <cfset language.bookingsSummary = "Bookings Summary">
+  <cfset language.DrydockTableSummary = "List of drydock bookings" />
+  <cfset language.NLWTableSummary = "List of north landing wharf bookings" />
+  <cfset language.SJTableSummary = "List of south jetty bookings" />
   <cfset language.logoutButton = "Logout">
 <cfelse>
   <cfset language.bookingHome = "Accueil - R&eacute;servation">
@@ -98,9 +101,11 @@
   <cfset language.editProfileButton = "Modifier le profil">
   <cfset language.help = "Aide">
   <cfset language.bookingsSummary = "R&eacute;sum&eacute; des R&eacute;servations">
+  <cfset language.DrydockTableSummary = "Liste des r&##233;servations en cale s&##232;che" />
+  <cfset language.NLWTableSummary = "Liste des r&##233;servations en quai de d&eacute;barquement nord" />
+  <cfset language.SJTableSummary = "Liste des r&##233;servations en jet&eacute;e sud" />
   <cfset language.logoutButton = "Fermer la session">
 </cfif>
-
 <cfif lang EQ "eng">
 	<cfset language.phone = "Phone">
 	<cfset language.fax = "Fax">
