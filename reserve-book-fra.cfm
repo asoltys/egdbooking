@@ -126,7 +126,7 @@ function popUp(pageID) {
 		<h2>Quoi de neuf...</h2>
 		<ul>
 			<li><a title="CSE: Capital Projects" href="#EGD_URL#/env/projects-projets-fra.html">Futurs projets d&##39;investissement impact sur les op&##233;rations de la cale s&##232;che d&##39;Esquimalt.</a></li>
-			<li><a title="CSE Reglement" href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-fra.html">R&##232;glement modifiant le R&##232;glement de 1989 sur la cale s&##232;che d'Esquimalt.</a></li>
+			<li><a title="CSE Reglement" href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-fra.html">R&##232;glement modifiant le R&##232;glement de 1989 sur la cale s&##232;che d'Esquimalt</a>.</li>
 
 		</ul>
 	</li>
@@ -152,7 +152,7 @@ function popUp(pageID) {
 				<p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=fra">Application des r&eacute;servations</a> -
 				  R&eacute;server la cale s&egrave;che et les jet&eacute;es en ligne.</p>
 				<p><a href="#RootDir#utils/resume-summary_ch.cfm?lang=fra">R&eacute;sum&eacute; des r&eacute;servations</a> - Voir toutes les r&eacute;servations.</p>
-				<p><a href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-fra.html">R&egrave;glement <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym></a></p>
+				<p><a href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-fra.html">R&##232;glement modifiant le R&##232;glement de 1989 sur la cale s&##232;che d'Esquimalt</a></p>
 			  </cfoutput>			</div>
 		<!-- FIN DU CONTENU | CONTENT ENDS -->
 		</div>
