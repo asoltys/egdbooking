@@ -92,6 +92,7 @@
             <legend>#language.confirm#</legend>
             <p>#language.areYouSure# <strong>#getBooking.VesselName#</strong> #language.from# #LSDateFormat(getBooking.StartDate, 'mmm d, yyyy')# #language.to# #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')#?</p>
             <input type="hidden" name="BRID" value="#url.BRID#" />
+            <input type="hidden" name="jetty" value="#url.jetty#" />
             <input type="submit" value="#language.Confirm#" class="textbutton" />
           </fieldset>
 				</form>

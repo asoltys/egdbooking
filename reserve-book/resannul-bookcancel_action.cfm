@@ -1,9 +1,8 @@
-<!---cfquery name="cancelBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	UPDATE	Bookings
-	SET		Deleted = 1
-	WHERE	BRID = #Form.BRID#
-</cfquery--->
-<CFIF #url.jetty#>
+<cfif structKeyExists(form, 'jetty')>
+  <cfset url.jetty = form.jetty />
+</cfif>
+<cfparam name="url.jetty" default="false" />
+<CFIF url.jetty>
 	<cfquery name="cancelRequest" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		UPDATE	Jetties
 		SET		Status = 'PX'
