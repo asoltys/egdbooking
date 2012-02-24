@@ -1,5 +1,6 @@
 jQuery.noConflict();
 (function($) {
+  /*
   $(function() {
     $(".datepicker").datepicker({
 			showOn: "button",
@@ -10,6 +11,7 @@ jQuery.noConflict();
 		});
 
     $(".ui-datepicker-trigger").attr("title", t.calendarInstructions);
+    */
 
     $('#dismiss').click(function() {
       $(this).parent().replaceWith($('#acknowledged').show());
