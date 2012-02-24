@@ -1,5 +1,6 @@
 <cfif lang EQ "eng">
 	<cfset language.editProfile = "Edit Profile">
+	<cfset language.editNameAndEmail = "Change name or email address">
 	<cfset language.keywords = language.masterKeywords & ", Edit Profile">
 	<cfset language.description = "Allows user to edit his profile.">
 	<cfset language.subjects = language.masterSubjects & "">
@@ -21,11 +22,12 @@
 	<cfset language.password1Error = "Please enter your password.">
 	<cfset language.password2Error = "Please repeat your password for verification.">
 	<cfset language.selectCompany = "Please select a company.">
-	<cfset language.saveName = "Save Name Changes">
+	<cfset language.saveName = "Save Changes">
 	<cfset language.yourCompanies = "Your Companies">
 	<cfset language.yourCompany = "Your Company">
 <cfelse>
 	<cfset language.editProfile = "Modifier le profil">
+	<cfset language.editNameAndEmail = "Changement de nom ou courriel" />
 	<cfset language.keywords = language.masterKeywords & ", Modifier le profil">
 	<cfset language.description = "Permet &agrave; l'utilisateur de modifier son profil.">
 	<cfset language.subjects = language.masterSubjects & "">
@@ -47,7 +49,7 @@
 	<cfset language.password1Error = "Veuillez entrer votre mot de passe.">
 	<cfset language.password2Error = "Veuillez entrer de nouveau votre mot de passe aux fins de v&eacute;rification.">
 	<cfset language.selectCompany = "Veuillez s&eacute;lectionner une entreprise.">
-	<cfset language.saveName = "Sauvegarde des changements de nom">
+  <cfset language.saveName = "Sauvegarde des changements" />
 	<cfset language.yourCompanies = "Vos entreprises">
 	<cfset language.yourCompany = "Votre entreprise">
 </cfif>
@@ -140,10 +142,9 @@ function EditSubmit ( selectedform )
 				</cfif>
 
 				<cfoutput>
-					<h2>#language.EditProfile#:</h2>
 					<form action="#RootDir#reserve-book/profilmod-profileedit_action.cfm?lang=#lang#" id="editUserForm" method="post">
 						<fieldset>
-              <legend>#language.EditProfile#</legend>
+              <legend style="display: block; text-decoration: none; border: none;"><h2>#language.editNameAndEmail#</h2></legend>
               <p>#language.requiredFields#</p>
 
 							<div>
@@ -169,29 +170,10 @@ function EditSubmit ( selectedform )
 					</form>
 				</cfoutput>
 
-				<h2>
-					<cfoutput>
-					<cfif getUserCompanies.recordCount GT 1>
-						#language.yourCompanies#:
-					<cfelse>
-						#language.yourCompany#:
-					</cfif>
-					</cfoutput>
-				</h2>
-				<cfoutput query="getUserCompanies">
-          <p>#name#</p>
-          <cfif approved EQ 0>
-            <em class="smallFont">#language.awaitingApproval#</em>
-          <cfelse>
-            &nbsp;
-          </cfif>
-				</cfoutput>
-
 				<cfoutput>
-					<h2>#language.ChangePassword#:</h2>
 					<form action="#RootDir#reserve-book/passechange.cfm?lang=eng" method="post" id="changePassForm">
 						<fieldset>
-              <legend>#language.ChangePassword#</legend>
+              <legend style="display: block; text-decoration: none; border: none;"><h2>#language.ChangePassword#</h2></legend>
               <p>#language.requiredFields#</p>
 
 							<div>
