@@ -134,7 +134,7 @@
 						</div>
 
             <div>
-              <label for="Anonymous">#language.anonymous#<sup>&dagger;</sup>:</label>
+              <label for="Anonymous">#language.anonymous#<sup><a href="##fn" title="#language.footnote#" style="text-decoration: none">&dagger;</a></sup>:</label>
               <input type="checkbox" id="Anonymous" name="Anonymous" value="Yes" />
             </div>
 
@@ -144,7 +144,7 @@
 					</fieldset>
 				</form>
 
-        <p>&dagger;&nbsp;#language.anonymousWarning#</p>
+        <p id="fn">&dagger;&nbsp;#language.anonymousWarning#</p>
 
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
