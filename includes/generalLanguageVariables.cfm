@@ -192,7 +192,7 @@
 
 <cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
   <cfset language.required = "Required field" />
-  <cfset language.requiredFields = "<p>Required fields are marked with an asterisk (<abbr class=""required"" title=""#language.required#"">*</abbr>).</p>" />
+  <cfset language.requiredFields = "Required fields are marked with an asterisk (<abbr class=""required"" title=""#language.required#"">*</abbr>)." />
 	<cfset language.Agent = "Agent">
 	<cfset language.startDate = "Start Date">
 	<cfset language.endDate = "End Date">
