@@ -80,6 +80,7 @@
 					<form action="ols-login_action.cfm?lang=#lang#" method="post" id="login_form">
             <fieldset>
               <legend>#language.login#</legend>
+              <p>#language.requiredFields#</p>
               
               <div>
                 <label for="email"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Email#:</label>
