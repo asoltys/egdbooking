@@ -49,16 +49,7 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-
-				<cffile action="read" file="#FileDir#intro-eng.txt" variable="intromsg">
-				<cfif #Trim(intromsg)# EQ "">
-				<cfelse>
-					<cfinclude template="#RootDir#includes/helperFunctions.cfm" />
-					<div class="option4">
-					<h2>Notice</h2>
-					#FormatParagraph(intromsg)#
-					</div>
-				</cfif>
+        <cfinclude template="#RootDir#includes/notice.cfm" />
 			
 				<div style="padding-left:10px;">
 					<cfif GetNewUsers.NumFound EQ 0>
