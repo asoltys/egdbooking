@@ -1,13 +1,17 @@
-<cfhtmlhead text="
-<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions"" />
-<meta name=""keywords"" content="""" />
-<meta name=""description"" content="""" />
-<meta name=""dc.date.published"" content=""2005-07-25"" />
-<meta name=""dc.date.published"" content=""2005-07-25"" />
-<meta name=""dc.date.reviewed"" content=""2005-07-25"" />
-<meta name=""dc.date.modified"" content=""2005-07-25"" />
-<meta name=""dc.date.created"" content=""2005-07-25"" />
+<cfoutput>
+<cfsavecontent variable="head">
+<link href="#RootDir#css/admin.css" media="screen, print" rel="stylesheet" type="text/css" />
+<meta name="dc.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="dc.date.published" content="2005-07-25" />
+<meta name="dc.date.published" content="2005-07-25" />
+<meta name="dc.date.reviewed" content="2005-07-25" />
+<meta name="dc.date.modified" content="2005-07-25" />
+<meta name="dc.date.created" content="2005-07-25" />
 <title>PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions</title>">
+</cfsavecontent>
+<cfhtmlhead text="#head#" />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 
@@ -45,15 +49,14 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<cfoutput>
-				
+
 				<cffile action="read" file="#FileDir#intro-eng.txt" variable="intromsg">
 				<cfif #Trim(intromsg)# EQ "">
 				<cfelse>
 					<cfinclude template="#RootDir#includes/helperFunctions.cfm" />
 					<div class="option4">
 					<h2>Notice</h2>
-					<cfoutput>#FormatParagraph(intromsg)#</cfoutput>
+					#FormatParagraph(intromsg)#
 					</div>
 				</cfif>
 			
@@ -113,9 +116,9 @@
             </ul>
           </div>
 
-				</cfoutput>
 				</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 		
-<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm" />
+</cfoutput>
