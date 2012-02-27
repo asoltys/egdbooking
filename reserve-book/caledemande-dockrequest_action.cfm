@@ -68,7 +68,7 @@
 <cfif form.status EQ "tentative">
 	<cfset status = 'PT'>
 <cfelse>
-	<cfset status = 'PX'>
+	<cfset status = 'PC'>
 </cfif>
 
 <cfif Proceed_OK EQ "No">
