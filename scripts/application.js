@@ -1,7 +1,7 @@
 jQuery.noConflict();
 (function($) {
-  /*
   $(function() {
+  /*
     $(".datepicker").datepicker({
 			showOn: "button",
       dateFormat: 'mm/dd/yy',
