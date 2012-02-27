@@ -1,7 +1,6 @@
 jQuery.noConflict();
 (function($) {
   $(function() {
-  /*
     $(".datepicker").datepicker({
 			showOn: "button",
       dateFormat: 'mm/dd/yy',
@@ -11,7 +10,6 @@ jQuery.noConflict();
 		});
 
     $(".ui-datepicker-trigger").attr("title", t.calendarInstructions);
-    */
 
     $('#dismiss').click(function() {
       $(this).parent().replaceWith($('#acknowledged').show());
