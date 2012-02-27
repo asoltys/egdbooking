@@ -318,7 +318,7 @@ function EditSubmit ( selectedform )
 							<td headers="start" nowrap>#LSdateformat(startDate, "mmm d, yyyy")#</td>
 							<td headers="end" nowrap>#LSdateformat(endDate, "mmm d, yyyy")#</td>
 							<td headers="vessel"><a href="javascript:EditSubmit('booking#id#');" name="id#id#" id="id#id#"><cfif #EndHighlight# GTE PacificNow>* </cfif>#VesselName#</a></td>
-							<td headers="status"><cfif status EQ "C"><div class="confirmed">Confirmed</div><cfelseif status EQ "T"><div class="tentative">Tentative</div><cfelseif status EQ "PT"><div class="pending">Pending T</div><cfelseif status EQ "PC"><div class="pending">Pending C</div><cfelseif status EQ "PX"><a href="javascript:EditSubmit('delete#ID#');"><div class="pending">Pending X</div></a></cfif></td>
+							<td headers="status"><cfif status EQ "C"><div class="confirmed">Confirmed</div><cfelseif status EQ "T"><div class="tentative">Tentative</div><cfelseif status EQ "PT"><div class="pending">Pending T</div><cfelseif status EQ "PC"><div class="pending">Pending C</div><cfelseif status EQ "PX"><a href="javascript:EditSubmit('delete#ID#');"><div class="cancelled">Pending X</div></a></cfif></td>
 						</tr>
 
 						<cfif (isDefined('form.id') AND form.id EQ id) OR (isDefined('url.BRID') AND url.BRID EQ id) OR form.expandAll EQ "yes">
