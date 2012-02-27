@@ -275,7 +275,7 @@ function EditSubmit ( selectedform )
 							<br--->
 							<input type="submit" value="submit" class="textbutton" />
 							<cfoutput><a href="addJettyBooking.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#" class="textbutton">Back</a></cfoutput>
-							<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='jettybookingManage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#';" /></cfoutput>
+							<cfoutput><input type="button" value="Cancel" class="textbutton" onclick="self.location.href='jettyBookingManage.cfm?lang=#lang#&startdate=#DateFormat(url.startdate, 'mm/dd/yyyy')#&enddate=#DateFormat(url.enddate, 'mm/dd/yyyy')#&show=#url.show#';" /></cfoutput>
 						</td>
 					</tr>
 				</table>

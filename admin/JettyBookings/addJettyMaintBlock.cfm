@@ -149,7 +149,7 @@ function EditSubmit ( selectedform )
 				<tr>
 					<td colspan="2" align="center">
 						<input type="submit" value="submit" class="textbutton" />
-						<input type="button" value="Cancel" class="textbutton" onclick="self.location.href='jettybookingManage.cfm?#urltoken#';" />
+						<input type="button" value="Cancel" class="textbutton" onclick="self.location.href='jettyBookingManage.cfm?#urltoken#';" />
 					</td>
 				</tr>
 				</table>

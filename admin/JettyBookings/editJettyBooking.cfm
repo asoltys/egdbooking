@@ -25,7 +25,7 @@
 	<CFSET returnTo = "#RootDir#comm/detail-res-book.cfm">
 	<cfset variables.referrer = "Booking Details">
 <CFELSE>
-	<CFSET returnTo = "#RootDir#admin/JettyBookings/jettybookingManage.cfm">
+	<CFSET returnTo = "#RootDir#admin/JettyBookings/jettyBookingManage.cfm">
 	<cfset variables.referrer = "Edit Jetty Booking">
 </CFIF>
 

@@ -43,5 +43,5 @@
 <cfset Session.Success.Title = "Edit Maintenance Block">
 <cfset Session.Success.Message = "Maintenance block is now from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')#.">
 <cfset Session.Success.Back = "Back to Jetty Bookings Management">
-<cfset Session.Success.Link = "#RootDir#admin/JettyBookings/jettybookingManage.cfm?#urltoken####form.BRID#">
+<cfset Session.Success.Link = "#RootDir#admin/JettyBookings/jettyBookingManage.cfm?#urltoken####form.BRID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">

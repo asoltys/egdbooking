@@ -99,7 +99,7 @@
 					<tr>
 						<td colspan="2" align="center">
 							<input type="submit" value="#variables.actionCap# Maintenance" class="textbutton" />
-							<input type="button" value="Back" class="textbutton" onclick="self.location.href='jettybookingManage.cfm?#urltoken#';" />
+							<input type="button" value="Back" class="textbutton" onclick="self.location.href='jettyBookingManage.cfm?#urltoken#';" />
 						</td>
 					</tr>
 				</table>

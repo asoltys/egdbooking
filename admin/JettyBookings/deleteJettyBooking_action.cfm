@@ -51,7 +51,7 @@ WHERE   Bookings.BRID = <cfqueryparam value="#Form.BRID#" cfsqltype="cf_sql_inte
 <CFIF url.referrer eq "Booking Details">
 	<CFSET returnTo = "#RootDir#comm/detail.cfm">
 <CFELSE>
-	<CFSET returnTo = "#RootDir#admin/JettyBookings/jettybookingManage.cfm">
+	<CFSET returnTo = "#RootDir#admin/JettyBookings/jettyBookingManage.cfm">
 </CFIF>
 
 <cfif isDefined("url.date")>

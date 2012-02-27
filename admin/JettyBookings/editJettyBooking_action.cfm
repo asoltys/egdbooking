@@ -68,7 +68,7 @@
 <CFIF url.referrer eq "Booking Details">
 	<CFSET returnTo = "#RootDir#comm/detail-res-book.cfm">
 <CFELSE>
-	<CFSET returnTo = "#RootDir#admin/JettyBookings/jettybookingManage.cfm">
+	<CFSET returnTo = "#RootDir#admin/JettyBookings/jettyBookingManage.cfm">
 </CFIF>
 
 <cfif isDefined("url.date")>
