@@ -13,7 +13,7 @@ jQuery.noConflict();
 
     $('#dismiss').click(function() {
       $(this).parent().replaceWith($('#acknowledged').show());
-      $.post('/egdbooking/ws/acknowledge_notice.cfm');
+      $.post('../ws/acknowledge_notice.cfm');
     });
   });
 })(jQuery);
