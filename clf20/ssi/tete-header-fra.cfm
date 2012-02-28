@@ -27,7 +27,7 @@
 <!-- FIN DU TITRE DE LA BARRE DE MENU COMMUNE | COMMON MENU BAR TITLE ENDS -->
 	<ul class="commonbar">
 		<!-- DEBUT DU LIEN ANGLAIS | ENGLISH LINK BEGINS -->
-		<li class="fiptexta"><div><a href="/egdbooking/language.cfm" lang="en" xml:lang="en" title="English - English version of the Web page">English</a></div></li>
+    <li class="fiptexta"><div><a href="<cfoutput>#RootDir#</cfoutput>language.cfm" lang="en" xml:lang="en" title="English - English version of the Web page">English</a></div></li>
 		<!-- FIN DU LIEN ANGLAIS | ENGLISH LINK ENDS -->
 		<li class="fiptext"><div><a href="http://www.tpsgc-pwgsc.gc.ca/comm/index-fra.html" title="Accueil - Page principale du site Web officiel de Travaux publics et Services gouvernementaux Canada">Accueil</a></div></li>
 		<li class="fiptextc"><div><a href="http://www.tpsgc-pwgsc.gc.ca/comm/cn-cu-fra.html" title="Contactez-nous - Communiquez avec Travaux publics et Services gouvernementaux Canada">Contactez-nous</a></div></li>

@@ -88,7 +88,7 @@
 <div class="page">
 	<div class="core">
 		<!-- HEADER BEGINS | DEBUT DE L'EN-TETE -->
-		<cfinclude template="#CLF_Path#/clf20/ssi/tete-header-fra.html">
+		<cfinclude template="#CLF_Path#/clf20/ssi/tete-header-fra.cfm">
 		<!-- HEADER ENDS | FIN DE L'EN-TETE -->
 
 
