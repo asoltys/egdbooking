@@ -36,24 +36,24 @@
 <meta name="pwgsc.contact.email" content="egd-cse@pwgsc-tpsgc.gc.ca" />
 <!-- FIN DES METADONNEES | METADATA ENDS -->
 <!-- DEBUT DES CSS DU GABARIT TPSGC | PWGSC TEMPLATE CSS BEGIN -->
-<link href="#CLF_URL#/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
-<link href="#CLF_URL#/clf20/css/2col.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="#RootDir#clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="#RootDir#clf20/css/2col.css" media="screen, print" rel="stylesheet" type="text/css" />
 <style type="text/css" media="all">
 /* <![CDATA[ */
-	@import url(#CLF_URL#/clf20/css/base2.css);
+	@import url(#RootDir#clf20/css/base2.css);
 /* ]]> */
 </style>
 <!-- FIN DES SCRIPTS/CSS DU GABARIT | TEMPLATE SCRIPTS/CSS END -->
 
 <!-- PROGRESSIVE ENHANCEMENT BEGINS | DEBUT DE L'AMELIORATION PROGRESSIVE -->
 
-<script src="#CLF_URL#/clf20/scripts/pe-ap.js" type="text/javascript"></script>
+<script src="#RootDir#clf20/scripts/pe-ap.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 	/* <![CDATA[ */
 		var params = {
 			lng:"fra",
-			pngfix:"#CLF_URL#/clf20/images/inv.gif"
+			pngfix:"#RootDir#clf20/images/inv.gif"
 		};
 		PE.progress(params);
 	/* ]]> */
@@ -62,8 +62,8 @@
 
 <!-- CUSTOM SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS PERSONNALISES -->
 
-<link href="#CLF_URL#/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
-<link href="#CLF_URL#/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="#RootDir#clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="#RootDir#clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
 
 <link href="#RootDir#css/custom.css" media="screen, print" rel="stylesheet" type="text/css" />
 <link href="#RootDir#css/jquery-ui.css" media="screen" rel="stylesheet" type="text/css"/>
@@ -81,7 +81,7 @@
 
 
 <!-- DEBUT DU CSS DU GABARIT POUR L'IMPRESSION | TEMPLATE PRINT CSS BEGINS -->
-<link href="#CLF_URL#/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
+<link href="#RootDir#clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
 <!-- FIN DU CSS DU GABARIT POUR L'IMPRESSION | TEMPLATE PRINT CSS ENDS -->
 </head>
 <body>
