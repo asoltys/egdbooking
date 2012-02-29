@@ -49,7 +49,10 @@
     </cfif>
 
     <cfinclude template="#arguments.targetPage#" />
-    <cfset structClear(session['errors']) />
+
+    <cfif structKeyExists(session, 'errors')>
+      <cfset structClear(session['errors']) />
+    </cfif>
   </cffunction>
 
 </cfcomponent>
