@@ -36,7 +36,7 @@
   <cfset language.year = "Year" />
   <cfset language.month = "Month" />
   <cfset language.acknowledged = "I have read and acknowledged this notice" />
-  <cfset language.acknowledgement_received = "Acknowledgement received.  You can view the notice at any time by visiting the <a href='#RootDir#reserve-book/avis-notices.cfm'>Notices</a> page" />
+  <cfset language.acknowledgement_received = "Acknowledgement received.  You can view the notice at any time by visiting the <a href='#RootDir#comm/avis-notices.cfm'>Notices</a> page" />
   <cfset language.notices = "Notices" />
   <cfset language.calendarInstructions = "You can hold down CTRL and use the arrow keys to navigate the calendar with your keyboard" />
   <cfset language.detailsFor = "Details for:" />
@@ -77,7 +77,7 @@
   <cfset language.year = "Ann&eacute;e" />
   <cfset language.month = "Mois" />
   <cfset language.acknowledged = "J'ai lu et reconnu cet avis" />
-  <cfset language.acknowledgement_received = "Remerciements reçus. Vous pouvez consulter l'avis en tout temps en visitant <a href='#RootDir#reserve-book/avis-notices.cfm'>la page des avis.</a>" />
+  <cfset language.acknowledgement_received = "Remerciements reçus. Vous pouvez consulter l'avis en tout temps en visitant <a href='#RootDir#comm/avis-notices.cfm'>la page des avis.</a>" />
   <cfset language.notices = "Avis" />
   <cfset language.calendarInstructions = "Vous pouvez maintenir la touche CTRL enfonc&##233;e et utilisez les touches fl&##233;ch&##233;es pour naviguer dans le calendrier avec votre clavier" />
   <cfset language.detailsFor = "D&egrave;tails pour&nbsp:" />
