@@ -110,6 +110,6 @@
 				</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
-		
+  </div>		
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm" />
 </cfoutput>
