@@ -121,15 +121,13 @@
 			<tr>
 				<td id="Start"><label for="startDate">Start Date:<br /><small>#language.dateform#</small></label></td>
 				<td headers="Start">
-					<input type="text" id="startDate" name="startDate" class="startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
-					<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+					<input type="text" id="startDate" name="startDate" class="datepicker startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
 				</td>
 			</tr>
 			<tr>
 				<td id="End"><label for="endDate">End Date:<br /><small>#language.dateform#</small></label></td>
 				<td headers="End">
-					<input type="text" id="endDate" name="endDate" class="endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
-					<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+					<input type="text" id="endDate" name="endDate" class="datepicker endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
 				</td>
 			</tr>
 			<tr><td colspan="2">Please choose the sections of the dock that you wish to book for maintenance.</td></tr>

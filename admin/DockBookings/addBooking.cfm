@@ -158,24 +158,21 @@ function EditSubmit ( selectedform )
 								<td><label for="start">Start Date:</label></td>
 								<td headers="startDate">
 									<cfoutput>
-									<cfinput id="startDate" type="text" name="startDate" message="Please enter a start date." validate="date" required="yes" class="startDate" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
-									<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+									<cfinput id="startDate" type="text" name="startDate" message="Please enter a start date." validate="date" required="yes" class="datepicker startDate" value="#DateFormat(Variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
 								</td>
 							</tr>
 							<tr>
 								<td><label for="end">End Date:</label></td>
 								<td headers="endDate">
 									<cfoutput>
-									<cfinput id="endDate" type="text" name="endDate" message="Please enter an end date." validate="date" required="yes" class="endDate" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
-									<img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+									<cfinput id="endDate" type="text" name="endDate" message="Please enter an end date." validate="date" required="yes" class="datepicker endDate" value="#DateFormat(Variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> #language.dateform#</cfoutput>
 								</td>
 							</tr>
 							<tr>
 								<td>Booking Date:</td>
 								<td headers="bookingDT">
 									<cfoutput>
-										<cfinput id="bookingDate" name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" /> #language.dateform#
-                    <img src="#RootDir#images/calendar.gif" alt="Calendar" class="invisible calendar" width="25px" height="17px" />
+										<cfinput id="bookingDate" name="bookingDate" type="text" value="#DateFormat(Variables.TheBookingDate, 'mm/dd/yyyy')#" class="datepicker" size="15" maxlength="10" required="yes" message="Please enter a valid booking date." validate="date" /> #language.dateform#
 									</cfoutput>
 								</td>
 							</tr>
@@ -204,7 +201,6 @@ function EditSubmit ( selectedform )
 						<tr>
 							<td colspan="2" align="center">
 								<cfif getVessels.recordCount GE 1 AND getAgents.recordCount GE 1>
-									<!--a href="javascript:document.addBookingForm.submitForm.click();" class="textbutton">Submit</a-->
 									<input type="hidden" name="compID" value="#Variables.compID#" />
 									<input type="submit" name="submitForm" class="textbutton" value="submit" />
 								</cfif>
