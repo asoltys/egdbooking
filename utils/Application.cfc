@@ -15,6 +15,9 @@
     <cflocation url="https://#cgi.server_name##cgi.script_name#?#cgi.query_string#" />
     </cfif>
 
+    <cfinclude template="#RootDir#includes/generalLanguageVariables.cfm">
+    <cfinclude template="#RootDir#includes/helperFunctions.cfm" />
+
     <cfif NOT IsDefined("URL.lang")>
       <cflocation url="#CGI.PATH_INFO#?lang=eng" addtoken="no">
     </cfif>

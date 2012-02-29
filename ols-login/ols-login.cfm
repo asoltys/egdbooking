@@ -78,13 +78,16 @@
               <div>
                 <label for="email">
                   <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Email#:
-                  <cfif structKeyExists(session['errors'], 'email')><div class="error">#session['errors']['email']#</div></cfif>
+                  #error('email')#
                 </label>
                 <input type="text" name="email" id="email" size="40" maxlength="100" value="#email#" />
               </div>
 
               <div>
-                <label for="password"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Password#:</label>
+                <label for="password">
+                  <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Password#:
+                  #error('password')#
+                </label>
                 <input type="password" name="Password" id="password" size="25" maxlength="40" />
               </div>
 

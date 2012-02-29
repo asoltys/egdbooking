@@ -40,7 +40,6 @@
     </a></h1>
 
       <cffile action="read" file="#FileDir#intro-#lang#.txt" variable="intromsg">
-      <cfinclude template="#RootDir#includes/helperFunctions.cfm" />
       <div class="option4">
         #intromsg#
       </div>

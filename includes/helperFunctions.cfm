@@ -7,3 +7,10 @@
 				return temp;
 			}
 </cfscript>
+
+<cffunction name="error" output="true">
+  <cfargument name="field" type="string" />
+  <cfif structKeyExists(session['errors'], field)>
+    <div class="error">#session['errors'][field]#</div>
+  </cfif>
+</cffunction>

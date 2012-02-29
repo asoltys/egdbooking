@@ -43,6 +43,7 @@
     </cfscript>
 
     <cfinclude template="#RootDir#includes/generalLanguageVariables.cfm">
+    <cfinclude template="#RootDir#includes/helperFunctions.cfm" />
 
     <cfif not structKeyExists(session, 'errors')>
       <cfset session['errors'] = structNew() />

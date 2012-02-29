@@ -1,7 +1,5 @@
-<!---<cfinclude template="#RootDir#includes/restore_params.cfm">--->
 <cfinclude template="#RootDir#includes/build_form_struct.cfm">
 
-<CFINCLUDE template="#RootDir#includes/generalLanguageVariables.cfm">
 <cfif lang EQ "eng">
 	<CFSET langVar = "eng">
 	<cfset language.bookingsSummary = "Public Bookings Summary">

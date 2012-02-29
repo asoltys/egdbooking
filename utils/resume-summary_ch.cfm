@@ -1,5 +1,4 @@
 <cfoutput>
-<cfinclude template="#RootDir#includes/generalLanguageVariables.cfm">
 
 <cfif lang EQ "eng">
 	<cfset language.bookingsSummary = "Public Bookings Summary Date Selection">
