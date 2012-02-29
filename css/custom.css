@@ -34,7 +34,7 @@ div.center .right {
 }
 
 abbr.required, div.error {
-  color: #a00;
+  color: #a00; text-decoration: none;
 }
 
 img {
