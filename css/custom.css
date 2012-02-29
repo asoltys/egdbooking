@@ -33,7 +33,7 @@ div.center .right {
   clear: both;
 }
 
-span.required, div.error {
+abbr.required, div.error {
   color: #a00;
 }
 
