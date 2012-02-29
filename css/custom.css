@@ -33,7 +33,7 @@ div.center .right {
   clear: both;
 }
 
-.required {
+span.required, div.error {
   color: #a00;
 }
 
@@ -44,6 +44,7 @@ img {
 legend {
   display: none;
 }
+
 
 a#dismiss { color: #369; cursor: pointer; text-decoration: underline; }
 

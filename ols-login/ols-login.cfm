@@ -70,20 +70,16 @@
 					</a></h1>
 
 				<cfoutput>
-					<!--- If the last login failed, show error message --->
-					<cfif IsDefined("Session.Return_Structure")>
-						<cfinclude template="#RootDir#includes/getStructure.cfm">
-						<br />
-					</cfif>
-
-					<!-- Display the login form and pass contents to login_action.cfm -->
 					<form action="ols-login_action.cfm?lang=#lang#" method="post" id="login_form">
             <fieldset>
               <legend>#language.login#</legend>
               <p>#language.requiredFields#</p>
               
               <div>
-                <label for="email"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Email#:</label>
+                <label for="email">
+                  <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Email#:
+                  <cfif structKeyExists(session['errors'], 'email')><div class="error">#session['errors']['email']#</div></cfif>
+                </label>
                 <input type="text" name="email" id="email" size="40" maxlength="100" value="#email#" />
               </div>
 

@@ -49,17 +49,16 @@
 					AND		Deleted = 0)
 	</cfquery>
 
-	<!---If it was an invalid login or the user is invalid, send them back to the login page --->
 	<cfif IsValidLogin.Login_Match IS "0" OR match EQ "NO">
 		<cfset Variables.Errors = ArrayNew(1)>
 		
-		<!--- Check for errors --->
 		<cfquery name="checkEmail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	Count(*) AS NumFound
 			FROM	Users
 			WHERE	email = <cfqueryparam value="#Form.email#" cfsqltype="cf_sql_varchar" />
 			AND 	Deleted = '0'
 		</cfquery>
+
 		<cfquery name="notApproved" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 			SELECT	Count(*) AS NumFound
 			FROM	Users
@@ -71,33 +70,25 @@
 							AND 	Approved = 1
 							AND		Deleted = 0)
 		</cfquery>
-		<!---<cfquery name="wrongPassword" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			SELECT	Count(*) AS NumFound
-			FROM	Users
-			WHERE	email = <cfqueryparam value="#Form.email#" cfsqltype="cf_sql_varchar" />
-			<!---AND		Password != <cfqueryparam value="#hashed#" cfsqltype="cf_sql_varchar" />--->
-			AND 	Deleted = '0'
-		</cfquery>--->
-		
-		<cfparam name="Variables.passError" default="false">
-		
+
 		<cfif form.email EQ ''>
-			<cfoutput>#ArrayAppend(Variables.Errors, "#language.enterInfoError#")#</cfoutput>
-		<cfelseif NOT REFindNoCase("^([a-zA-Z_\.\-\']*[a-zA-Z0-9_\.\-\'])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$",#trim(Form.Email)#)>
+      <cfset session['errors']['email'] = language.enterInfoError />
+		<cfelseif NOT REFindNoCase("^([a-zA-Z_\.\-\']*[a-zA-Z0-9_\.\-\'])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$", trim(Form.Email))>
 			<cfoutput>#ArrayAppend(Variables.Errors, "#language.invalidEmailError#")#</cfoutput>
+      <cfset session['errors']['email'] = language.invalidEmailError />
 		<cfelseif checkEmail.NumFound EQ 0>
-			<cfoutput>#ArrayAppend(Variables.Errors, "#language.incorrectPasswordError#")#</cfoutput>
+      <cfset session['errors']['email'] = language.incorrectPasswordError />
+      <cfset session['errors']['password'] = language.incorrectPasswordError />
 		<cfelseif notApproved.NumFound GT 0 AND checkEmail.NumFound GT 0>
-			<cfoutput>#ArrayAppend(Variables.Errors, "#language.unapprovedEmailError#")#</cfoutput>
+      <cfset session['errors']['email'] = language.unapprovedEmailError />
 		<cfelseif match EQ "NO">
-			<cfoutput>#ArrayAppend(Variables.Errors, "#language.incorrectPasswordError#")#</cfoutput>
-			<cfset Variables.passError = "true">
+      <cfset session['errors']['email'] = language.incorrectPasswordError />
+      <cfset session['errors']['password'] = language.incorrectPasswordError />
 		</cfif>
 
 		
 		<cfinclude template="#RootDir#includes/build_return_struct.cfm">
-		<cfset Session.Return_Structure.Errors = Variables.Errors>
-		<cflocation url="ols-login.cfm?lang=#lang#&reussir-pass=#Variables.passError#" addtoken="no">
+		<cflocation url="ols-login.cfm?lang=#lang#" addtoken="no">
 		
 	<!---Otherwise send them to the home page of the application --->
 	<cfelse>
@@ -105,15 +96,13 @@
 			SELECT	*
 			FROM	Users 
 			WHERE	email = <cfqueryparam value="#Form.email#" cfsqltype="cf_sql_varchar" />
-			<!---AND		Password = <cfqueryparam value="#Form.password#" cfsqltype="cf_sql_varchar" />--->
-			AND     Deleted = 0 <!--- Joao Edit --->
+			AND     Deleted = 0
 		</cfquery>
 	</cfif>
 </cfif>
 
 <CFCOOKIE NAME="LoggedIn" value="Yes" PATH="/EGD" DOMAIN="cse-egd.tpsgc-pwgsc.gc.ca">
 
-<!---Remember user's email address--->
 <CFIF IsDefined('form.remember')>
 	<!---SET COOKIE--->
 	<cfoutput>
