@@ -1,12 +1,10 @@
 <cfoutput>
 
 <cfif lang EQ "eng">
-	<cfset language.notices = "Notices">
 	<cfset language.keywords = language.masterKeywords & ", Notices">
 	<cfset language.description = "Important Notices">
 	<cfset language.subjects = language.masterSubjects & "">
 <cfelse>
-	<cfset language.notices = "Avis">
 	<cfset language.keywords = language.masterKeywords & ", Avis">
 	<cfset language.description = "Avis Important">
 	<cfset language.subjects = language.masterSubjects & "">
