@@ -4,6 +4,7 @@ jQuery.noConflict();
     $(".datepicker").datepicker({
 			showOn: "button",
       dateFormat: 'mm/dd/yy',
+      changeYear: true,
       onClose: function(dateText, inst) { 
         $(this).focus();
       }
