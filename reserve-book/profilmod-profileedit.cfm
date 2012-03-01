@@ -148,18 +148,27 @@ function EditSubmit ( selectedform )
               <p>#language.requiredFields#</p>
 
 							<div>
-                <label for="firstname"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.FirstName#:</label>
+                <label for="firstname">
+                  <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                  #language.FirstName#:
+                </label>
                 <input name="firstname" id="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40"  />
 							</div>
 
 							<div>
-                <label for="lastname"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.LastName#:</label>
+                <label for="lastname">
+                  <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                  #language.LastName#:
+                </label>
                 <input name="lastname" id="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40"  />
 							</div>
 
 
 							<div>
-                <label for="email"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Email#:</label>
+                <label for="email">
+                  <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                  #language.Email#:
+                </label>
                 <input name="email" id="email" type="text" value="#variables.email#" size="25" maxlength="40"  />
 							</div>
 							
@@ -177,12 +186,19 @@ function EditSubmit ( selectedform )
               <p>#language.requiredFields#</p>
 
 							<div>
-                <label for="password"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Password# <span class="smallFont">(min. 8 #language.characters#)</span>:</label>
+                <label for="password">
+                  <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                  #language.Password# 
+                  <span class="smallFont">(min. 8 #language.characters#)</span>:
+                </label>
                 <input type="password" id="password" name="password1" />
 							</div>
 
 							<div>
-                <label for="password2"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.RepeatPassword#:</label>
+                <label for="password2">
+                  <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                  #language.RepeatPassword#:
+                </label>
                 <input type="password" id="password2" name="password2" />
 							</div>
 

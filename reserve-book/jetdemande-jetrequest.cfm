@@ -128,7 +128,10 @@
             <p>#language.requiredFields#</p>
 
             <div>
-              <label for="CID"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Company#:</label>
+              <label for="CID">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                #language.Company#:
+              </label>
               <CF_TwoSelectsRelated
                 query="companyVessels"
                 id1="CID"
@@ -147,17 +150,28 @@
             </div>
 
             <div>
-              <label for="StartDate"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.StartDate#<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>:</label>
+              <label for="StartDate">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                #language.StartDate#
+                <br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>:
+              </label>
               <input id="StartDate" name="startDate" type="text" class="datepicker startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> 
             </div>
 
 						<div>
-              <label for="EndDate"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+              <label for="EndDate">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                #language.EndDate#:
+                <br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>
+              </label>
               <input id="EndDate" name="endDate" type="text" class="datepicker endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> 
 						</div>
 
 						<div>
-              <label for="status"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.requestedStatus#:</label>
+              <label for="status">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                #language.requestedStatus#:
+              </label>
               <select id="status" name="status" >
                 <option value="tentative" <cfif Variables.Status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
                 <option value="confirmed" <cfif Variables.Status EQ "confirmed">selected="selected"</cfif>>#language.confirmed#</option>
@@ -165,7 +179,10 @@
 						</div>
 
             <div>
-              <label for="jetty"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.RequestedJetty#:</label>
+              <label for="jetty">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                #language.RequestedJetty#:
+              </label>
               <select name="jetty" id="jetty">
                 <option value="north"<cfif Variables.Jetty EQ "north"> selected="selected"</cfif>>#language.NorthLandingWharf#</option>
                 <option value="south"<cfif Variables.Jetty EQ "south"> selected="selected"</cfif>>#language.SouthJetty#</option>

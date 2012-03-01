@@ -121,7 +121,10 @@
             <p>#language.requiredFields#</p>
 
             <div>
-              <label for="booking_CID"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Company#:</label>
+              <label for="booking_CID">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                #language.Company#:
+              </label>
               <CF_TwoSelectsRelated
                 query="companyVessels"
                 id1="booking_CID"
@@ -152,7 +155,10 @@
 						</div>
 
 						<div>
-              <label for="status"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.requestedStatus#:</label>
+              <label for="status">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                #language.requestedStatus#:
+              </label>
               <select id="status" name="status" >
                 <option value="tentative" <cfif isDefined("form.status") AND form.status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
                 <option value="confirmed" <cfif isDefined("form.status") AND form.status EQ "confirmed">selected="selected"</cfif>>#language.confirmed#</option>
@@ -174,7 +180,10 @@
             <p>#language.requiredFields#</p>
 
             <div>
-              <label for="bookingByRange_CID"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Company#:</label>
+              <label for="bookingByRange_CID">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                #language.Company#:
+              </label>
               <CF_TwoSelectsRelated
                 QUERY="companyVessels"
                 id1="bookingByRange_CID"
@@ -194,12 +203,20 @@
             </div>
 
             <div>
-							<label for="StartDateB"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.StartDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+							<label for="StartDateB">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                #language.StartDate#:
+                <br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
 							<input id="StartDateB" name="startDate" type="text" class="datepicker startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
             </div>
 
             <div>
-              <label for="EndDateB"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+              <label for="EndDateB">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                #language.EndDate#:
+                <br />
+                <small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>
+              </label>
               <input id="EndDateB" name="endDate" type="text" class="datepicker endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
             </div>
 
@@ -226,3 +243,4 @@
 </cfoutput>
 
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
+

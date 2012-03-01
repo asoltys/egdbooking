@@ -116,12 +116,18 @@
             <p>#language.requiredFields#</p>
 
             <div>
-              <label for="CID"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.CompanyName#:</label>
+              <label for="CID">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                #language.CompanyName#:
+              </label>
               <input type="text" disabled="disabled" readonly="readonly" id="CID" name="CID" value="#getVesselDetail.CompanyName#" />
             </div>
 
 						<div>
-              <label for="name"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.vessel#:</label>
+              <label for="name">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                #language.vessel#:
+              </label>
               <input id="name" name="name" type="text" value="#variables.Name#" size="37" maxlength="100" />
 						</div>
 
@@ -144,7 +150,10 @@
 							</div>
 						<cfelse>
 							<div>
-                <label for="length"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Length#:</label>
+                <label for="length">
+                  <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                  #language.Length#:
+                </label>
                 <input id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" />
                 #language.Max#: #Variables.MaxLength# m
 							</div>
