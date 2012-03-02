@@ -5,10 +5,6 @@
 	<cfset this.clientmanagement = false />
 	<cfset setEncoding("url","iso-8859-1") />
 
-	<cffunction name="onApplicationStart">
-		<!---<cfset application.router = createObject('component', 'supermodel2.router') />--->
-	</cffunction>
-	
 	<cffunction name="onRequest" access="public" returntype="void">
 		<cfargument name="targetPage" type="String" required="true" />
 
@@ -55,5 +51,4 @@
       <cfset structClear(session['errors']) />
     </cfif>
   </cffunction>
-
 </cfcomponent>
