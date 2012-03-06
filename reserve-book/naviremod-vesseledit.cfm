@@ -79,6 +79,7 @@
 					<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 				</cfif>
 
+
 				<cfif isDefined("form.Name")>
 					<cfset variables.Name = form.Name>
 					<cfset variables.lloydsID = form.lloydsID>
@@ -103,10 +104,9 @@
 					<cfset variables.anonymous = getVesselDetail.anonymous>
 				</cfif>
 
-        <cfinclude template="#RootDir#includes/getStructure.cfm">
-
 				<cfinclude template="#RootDir#includes/user_menu.cfm">
 
+        <cfinclude template="#RootDir#includes/getStructure.cfm">
 				<form id="editVessel" action="#RootDir#reserve-book/naviremod-vesseledit_action.cfm?lang=#lang#&amp;CID=#getVesselDetail.CID#&amp;VNID=#VNID#" method="post">
 					<cfif getVesselDockBookings.recordCount GT 0 OR getVesselJettyBookings.recordCount GT 0>
 					<div id="actionErrors">#language.notEditVesselDimensions#</div>
@@ -127,6 +127,7 @@
               <label for="name">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.vessel#:
+                #error('name')#
               </label>
               <input id="name" name="name" type="text" value="#variables.Name#" size="37" maxlength="100" />
 						</div>
@@ -153,20 +154,29 @@
                 <label for="length">
                   <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                   #language.Length#:
+                  #error('length')#
                 </label>
                 <input id="length" name="length" type="text" value="#variables.length#" size="8" maxlength="8" />
                 #language.Max#: #Variables.MaxLength# m
 							</div>
 
 							<div>
-                <label for="width"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Width#:</label>
+                <label for="width">
+                  <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                  #language.Width#:
+                  #error('width')#
+                </label>
                 <input id="width" name="width" type="text" value="#variables.width#" size="8" maxlength="8" />
                 #language.Max#: #Variables.MaxWidth# m
 							</div>
 						</cfif>
 
 						<div>
-              <label for="blocksetuptime"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.BlockSetup# #language.days#:</label>
+              <label for="blocksetuptime">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                #language.BlockSetup# #language.days#:
+                #error('blocksetuptime')#
+              </label>
               <input id="blocksetuptime" name="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" />
 						</div>
 
@@ -199,3 +209,4 @@
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 </cfoutput>
+

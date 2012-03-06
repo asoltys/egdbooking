@@ -2,32 +2,32 @@
 <cfset Proceed_OK = "Yes">
 
 <cfif trim(form.name) EQ "">
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.nameError#")#</cfoutput>
+  <cfset session['errors']['name'] = language.nameError />
 	<cfset Proceed_OK = "No">
 </cfif>
 
 <cfif not isNumeric(trim(form.width))>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.widthError#")#</cfoutput>
+  <cfset session['errors']['width'] = language.widthError />
 	<cfset Proceed_OK = "No">
 </cfif>
 
 <cfif not isNumeric(trim(form.length))>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.lengthError#")#</cfoutput>
+  <cfset session['errors']['length'] = language.lengthError />
 	<cfset Proceed_OK = "No">
 </cfif>
 
 <cfif not isNumeric(trim(form.blockSetupTime))>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.setupError#")#</cfoutput>
+  <cfset session['errors']['blockSetupTime'] = language.setupError />
 	<cfset Proceed_OK = "No">
 </cfif>
 
 <cfif not isNumeric(trim(form.BlockTearDownTime))>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.teardownError#")#</cfoutput>
+  <cfset session['errors']['BlockTearDownTime'] = language.teardownError />
 	<cfset Proceed_OK = "No">
 </cfif>
 
 <cfif not isNumeric(trim(form.tonnage))>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.tonnageError#")#</cfoutput>
+  <cfset session['errors']['tonnage'] = language.tonnageError />
 	<cfset Proceed_OK = "No">
 </cfif>
 

@@ -103,6 +103,7 @@
               <label for="name">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.vesselName#:
+                #error("name")#
               </label>
               <input name="name" id="name" type="text" value="#variables.name#" size="35" maxlength="100" />
             </div>
@@ -116,6 +117,7 @@
               <label for="length">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.Length#:
+                #error("length")#
               </label>
               <input name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" />
               #language.Max#: #Variables.MaxLength#
@@ -125,6 +127,7 @@
               <label for="width">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.Width#:
+                #error("width")#
               </label>
               <input name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" />
               #language.Max#: #Variables.MaxWidth#
@@ -134,6 +137,7 @@
               <label for="blocksetuptime" id="block_setup_time">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.BlockSetup# #language.days#:
+                #error("blocksetuptime")#
               </label>
               <input name="blocksetuptime" id="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" />
 						</div>
@@ -142,6 +146,7 @@
               <label for="blockteardowntime" id="block_teardown_time">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.BlockTeardown# #language.days#:
+                #error("blockteardowntime")#
               </label>
               <input name="blockteardowntime" id="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" />
 						</div>
@@ -150,6 +155,7 @@
               <label for="tonnage">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.Tonnage#:
+                #error("tonnage")#
               </label>
               <input name="tonnage" id="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" />
 						</div>

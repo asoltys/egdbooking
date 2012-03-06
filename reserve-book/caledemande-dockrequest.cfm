@@ -221,12 +221,18 @@
             </div>
 
             <div>
-              <label for="NumDays"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.NumDays#:</label>
+              <label for="NumDays">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                #language.NumDays#:
+              </label>
               <input id="NumDays" type="text" name="numDays" value="#Variables.numDays#"  />
             </div>
 
 						<div>
-              <label for="statusB"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.requestedStatus#:</label>
+              <label for="statusB">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
+                #language.requestedStatus#:
+              </label>
               <select id="statusB" name="status" >
                 <option value="tentative" <cfif isDefined("form.status") AND form.status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
                 <option value="confirmed" <cfif isDefined("form.status") AND form.status EQ "confirmed">selected="selected"</cfif>>#language.confirmed#</option>
