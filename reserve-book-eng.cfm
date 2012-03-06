@@ -1,3 +1,4 @@
+<cfoutput>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
@@ -30,29 +31,29 @@
 
 <meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html" />
 <meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
-<meta name="dcterms.modified" scheme="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
+<meta name="dcterms.modified" scheme="W3CDTF" content="#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#" />
 <meta name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
 
 
-<meta name="dc.title" content="Booking - Esquimalt Graving Dock - PWGSC" />
+<meta name="dc.title" content="Booking Space at the EGD - Esquimalt Graving Dock - PWGSC" />
 <meta name="keywords" content="Booking Space at the Esquimalt Graving Dock" />
 <meta name="description" content="Introduction page for the booking application." />
-<meta name="dc.subject" scheme="gccore" content="<cfoutput>#language.masterSubjects#</cfoutput>" />
-<title>Booking - Esquimalt Graving Dock - PWGSC</title>
+<meta name="dc.subject" scheme="gccore" content="#language.masterSubjects#" />
+<title>Booking Space at the EGD - Esquimalt Graving Dock - PWGSC</title>
 <!-- METADATA ENDS | FIN DES METADONNEES -->
 
 <!-- TEMPLATE SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS DU GABARIT -->
-<link href="<cfoutput>#CLF_URL#</cfoutput>/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
-<link href="<cfoutput>#CLF_URL#</cfoutput>/clf20/css/3col.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="#CLF_URL#/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="#CLF_URL#/clf20/css/3col.css" media="screen, print" rel="stylesheet" type="text/css" />
 <style type="text/css" media="all">
 /* <![CDATA[ */
-	@import url(<cfoutput>#CLF_URL#</cfoutput>/clf20/css/base2.css);
+	@import url(#CLF_URL#/clf20/css/base2.css);
 /* ]]> */
 </style>
 <!-- TEMPLATE SCRIPTS/CSS END | FIN DES SCRIPTS/CSS DU GABARIT -->
 
 <!-- PROGRESSIVE ENHANCEMENT BEGINS | DEBUT DE L'AMELIORATION PROGRESSIVE -->
-<cfoutput>
+
 <script src="#CLF_URL#/clf20/scripts/pe-ap.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -64,11 +65,10 @@
 		PE.progress(params);
 	/* ]]> */
 </script>
-</cfoutput>
 <!-- PROGRESSIVE ENHANCEMENT ENDS | FIN DE L'AMELIORATION PROGRESSIVE -->
 
 <!-- CUSTOM SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS PERSONNALISES -->
-<cfoutput>
+
 <link href="#CLF_URL#/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
 <link href="#CLF_URL#/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
 
@@ -82,13 +82,12 @@
 
 <!-- TEMPLATE PRINT CSS BEGINS | DEBUT DU CSS DU GABARIT POUR L'IMPRESSION -->
 <link href="#CLF_URL#/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
-</cfoutput>
 <!-- TEMPLATE PRINT CSS ENDS | FIN DU CSS DU GABARIT POUR L'IMPRESSION -->
 </head>
 
 <cfparam name="Variables.onLoad" default="">
 
-<body onload="<cfoutput>#Variables.onLoad#</cfoutput>">
+<body onload="#Variables.onLoad#">
 
 <div class="page">
 	<div class="core">
@@ -97,15 +96,14 @@
 		<!-- HEADER ENDS | FIN DE L'EN-TETE -->
 
 
-<cfoutput>
+
 <script type="text/javascript">
 /* <![CDATA[ */
 	function popUp(pageID) {
-		window.open("#RootDir#" + pageID + ".cfm?lang=<cfoutput>#lang#</cfoutput>", "", "width=640, height=480, resizable=yes, menubar=yes, scrollbars=yes, toolbar=no");
+		window.open("#RootDir#" + pageID + ".cfm?lang=#lang#", "", "width=640, height=480, resizable=yes, menubar=yes, scrollbars=yes, toolbar=no");
 	}
 /* ]]> */
 </script>
-</cfoutput>
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
@@ -118,7 +116,6 @@
 					<!-- RIGHT SIDE MENU BEGINS | DEBUT DU MENU LATERAL DROIT -->
 			<div class="right">
         <!-- ====== /pac/cse-egd/SSI/RIGHT-MENU-DROITE-ENG.HTML ====== -->
-        <cfoutput>
           <ul class="rightNav">
             <li>
               <h2>Did you know?</h2>
@@ -142,7 +139,6 @@
               </ul>
             </li>
           </ul>
-        </cfoutput>
         <!-- ====== /pac/cse-egd/SSI/RIGHT-MENU-DROITE-ENG.HTML ====== -->
 			</div>
 			<!-- RIGHT SIDE MENU ENDS | FIN DU MENU LATERAL DROIT -->
@@ -151,10 +147,10 @@
 		  <div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					Booking
+					#language.bookingSpace#
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
-			  <cfoutput>
+
 				<img src="#RootDir#images/EGD_aerial_small.jpg" alt="" width="405" height="342" />
 
 				<p>To reserve space for a vessel at any of the facilities of the Esquimalt Graving
@@ -165,8 +161,9 @@
 				<p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=eng">Booking Application</a> - Book drydock and jetty space online.</p>
 				<p><a href="#RootDir#utils/resume-summary_ch.cfm?lang=eng">Booking Summary</a> - View all bookings.</p>
 				<p><a href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-eng.html">Regulations amending the Esquimalt Graving Dock regulations.</a></p>
-			  </cfoutput>			</div>
+			  			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
-<cfinclude template="#RootDir#includes/foot-pied-eng.cfm">
+<cfinclude template="#RootDir#includes/foot-pied-eng.cfm" />
+</cfoutput>
 

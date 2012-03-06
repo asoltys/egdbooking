@@ -30,7 +30,7 @@
 <cfoutput>
 <ul class="leftNav">
   <li><h2><a href="#EGD_URL#/index-#lang#.html"><acronym title="#language.esqGravingDock#">#language.egd#</acronym></a></h2></li>
-	<li><h2><a href="#RootDir#reserve-book-#lang#.cfm">#language.booking#</a></h2>
+	<li><h2><a href="#RootDir#reserve-book-#lang#.cfm">#language.bookingSpace#</a></h2>
     <ul>
       <cfif structKeyExists(session, 'loggedin')>
         <li><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" title="#language.BookingHome#">#language.BookingHome#</a></li>

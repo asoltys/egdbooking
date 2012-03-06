@@ -1,3 +1,4 @@
+<cfoutput>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
@@ -30,28 +31,28 @@
 
 <meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-fra.html" />
 <meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
-<meta name="dcterms.modified" scheme="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
+<meta name="dcterms.modified" scheme="W3CDTF" content="#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#" />
 
-<meta name="dc.title" content="R&eacute;servation - Cale sèche d'Esquimalt - TPSGC" />
+<meta name="dc.title" content="R&eacute;servation pour travaux le CSE - Cale sèche d'Esquimalt - TPSGC" />
 <meta name="keywords" content="cale seche d'Esquimalt, reservation pour travaux, reparation de navires, bateaux, entretien de navires, cale seche, bassin de radoub, chantier naval" />
 <meta name="description" content="Reservation pour travaux le Cale seche d'Esquimalt" />
-<meta name="dc.subject" scheme="gccore" content="<cfoutput>#language.masterSubjects#</cfoutput>" />
-<title>R&eacute;servation - Cale sèche d'Esquimalt - TPSGC</title>
+<meta name="dc.subject" scheme="gccore" content="#language.masterSubjects#" />
+<title>R&eacute;servation pour travaux le CSE - Cale sèche d'Esquimalt - TPSGC</title>
 
 <meta name="pwgsc.contact.email" content="egd-cse@pwgsc-tpsgc.gc.ca" />
 <!-- FIN DES METADONNEES | METADATA ENDS -->
 <!-- DEBUT DES CSS DU GABARIT TPSGC | PWGSC TEMPLATE CSS BEGIN -->
-<link href="<cfoutput>#CLF_URL#</cfoutput>/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
-<link href="<cfoutput>#CLF_URL#</cfoutput>/clf20/css/3col.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="#CLF_URL#/clf20/css/base.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="#CLF_URL#/clf20/css/3col.css" media="screen, print" rel="stylesheet" type="text/css" />
 <style type="text/css" media="all">
 /* <![CDATA[ */
-	@import url(<cfoutput>#CLF_URL#</cfoutput>/clf20/css/base2.css);
+	@import url(#CLF_URL#/clf20/css/base2.css);
 /* ]]> */
 </style>
 <!-- FIN DES SCRIPTS/CSS DU GABARIT | TEMPLATE SCRIPTS/CSS END -->
 
 <!-- PROGRESSIVE ENHANCEMENT BEGINS | DEBUT DE L'AMELIORATION PROGRESSIVE -->
-<cfoutput>
+
 <script src="#CLF_URL#/clf20/scripts/pe-ap.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -63,11 +64,10 @@
 		PE.progress(params);
 	/* ]]> */
 </script>
-</cfoutput>
 <!-- PROGRESSIVE ENHANCEMENT ENDS | FIN DE L'AMELIORATION PROGRESSIVE -->
 
 <!-- CUSTOM SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS PERSONNALISES -->
-<cfoutput>
+
 <link href="#CLF_URL#/clf20/css/base-institution.css" media="screen, print" rel="stylesheet" type="text/css" />
 <link href="#CLF_URL#/clf20/css/institution.css" media="screen, print" rel="stylesheet" type="text/css" />
 
@@ -81,7 +81,6 @@
 
 <!-- DEBUT DU CSS DU GABARIT POUR L'IMPRESSION | TEMPLATE PRINT CSS BEGINS -->
 <link href="#CLF_URL#/clf20/css/pf-if.css" rel="stylesheet" type="text/css" />
-</cfoutput>
 <!-- FIN DU CSS DU GABARIT POUR L'IMPRESSION | TEMPLATE PRINT CSS ENDS -->
 </head>
 <body>
@@ -92,15 +91,14 @@
 		<!-- HEADER ENDS | FIN DE L'EN-TETE -->
 
 
-<cfoutput>
+
 <script type="text/javascript">
 /* <![CDATA[ */
 function popUp(pageID) {
-	window.open("<cfoutput>#RootDir#</cfoutput>" + pageID + ".cfm?lang=<cfoutput>#lang#</cfoutput>", "", "width=640, height=480, resizable=yes, menubar=yes, scrollbars=yes, toolbar=no");
+	window.open("#RootDir#" + pageID + ".cfm?lang=#lang#", "", "width=640, height=480, resizable=yes, menubar=yes, scrollbars=yes, toolbar=no");
 	}
 /* ]]> */
 </script>
-</cfoutput>
 
 		<!-- DEBUT DE LA PISTE DE NAVIGATION | BREAD CRUMB BEGINS -->
 		<p class="breadcrumb">
@@ -113,7 +111,7 @@ function popUp(pageID) {
 			<div class="right">
 
 				<!-- ====== /pac/cse-egd/SSI/RIGHT-MENU-DROITE-FRA.HTML ====== -->
-<cfoutput>
+
 <ul class="rightNav">
 	<li>
 		<h2>Saviez-vous?</h2>
@@ -130,7 +128,6 @@ function popUp(pageID) {
 		</ul>
 	</li>
 </ul>
-</cfoutput>				
 <!-- ====== /pac/cse-egd/SSI/RIGHT-MENU-DROITE-FRA.HTML ====== -->
 			</div>
 
@@ -138,11 +135,11 @@ function popUp(pageID) {
 		  <div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- DEBUT DU TITRE DU CONTENU | CONTENT TITLE BEGINS -->
-					R&eacute;servation
+					#language.bookingSpace#
 					<!-- FIN DU TITRE DU CONTENU | CONTENT TITLE ENDS -->
 					</a></h1>
 					
-			  <cfoutput>
+
 				<img src="#RootDir#images/EGD_aerial_small.jpg" alt="" width="405" height="342" />
 
         <p>Afin de r&eacute;server une place pour un navire &agrave; l'une des installations de la Cale s&egrave;che d'Esquimalt, veuillez lancer l'<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=fra">Application des r&eacute;servations</a>.
@@ -152,8 +149,9 @@ function popUp(pageID) {
 				  R&eacute;server la cale s&egrave;che et les jet&eacute;es en ligne.</p>
 				<p><a href="#RootDir#utils/resume-summary_ch.cfm?lang=fra">R&eacute;sum&eacute; des r&eacute;servations</a> - Voir toutes les r&eacute;servations.</p>
 				<p><a href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-fra.html">R&##232;glement modifiant le R&##232;glement de 1989 sur la cale s&##232;che d'Esquimalt</a></p>
-			  </cfoutput>			</div>
+			  			</div>
 		<!-- FIN DU CONTENU | CONTENT ENDS -->
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-fra.cfm">
 
+</cfoutput>

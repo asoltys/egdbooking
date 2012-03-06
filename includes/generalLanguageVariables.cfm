@@ -21,6 +21,7 @@
 	<cfset language.confirmed = "confirmed">
 	<cfset language.bookings = "Bookings">
 	<cfset language.booking = "Booking">
+	<cfset language.bookingSpace = "Booking Space at the <acronym title=""#language.esqGravingDock#"">#language.egd#</acronym>">
 	<cfset language.calendar = "This calendar provides a day by day availability summary for the Esquimalt Graving Dock">
 	<cfset language.calendars = "calendars">
 	<cfset language.dateform = "(MM/DD/YYYY)">
@@ -62,6 +63,7 @@
 	<cfset language.confirmed = "confirm&eacute;">
 	<cfset language.bookings = "R&eacute;servations">
 	<cfset language.booking = "R&eacute;servation">
+	<cfset language.bookingSpace = "R&##233;servation pour travaux le <acronym title=""Cale s&##232;che d'Esquimalt"">CSE</acronym>">
 	<cfset language.calendar = "Ce calendrier offre un r&eacute;sum&eacute; au jour le jour de disponibilit&eacute; pour le Cale s&egrave;che d'Esquimalt">
 	<cfset language.calendars = "calendriers">
 	<cfset language.dateform = "(MM/JJ/AAAA)">
