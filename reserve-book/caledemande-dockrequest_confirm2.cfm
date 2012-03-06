@@ -39,28 +39,28 @@
 <cfset Errors = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
 <cfif not isDate(form.startdate)>
-	<cfoutput>#ArrayAppend(Errors, language.invalidStartError)#</cfoutput>
+  <cfset session['errors']['StartDateB'] = language.invalidStartError />
 	<cfset Proceed_OK = "No">
 <cfelseif not isDate(form.enddate)>
-	<cfoutput>#ArrayAppend(Errors, language.invalidEndError)#</cfoutput>
+  <cfset session['errors']['EndDateB'] = language.invalidEndError />
 	<cfset Proceed_OK = "No">
 <cfelseif not isNumeric(form.numDays)>
-	<cfoutput>#ArrayAppend(Errors, language.needBookingDaysError)#</cfoutput>
+  <cfset session['errors']['NumDays'] = language.needBookingDaysError />
 	<cfset Proceed_OK = "No">
 <cfelse>
   <cfif DateCompare(Form.StartDate,Form.EndDate) EQ 1>
-    <cfoutput>#ArrayAppend(Errors, "#language.endBeforeStartError#")#</cfoutput>
+      <cfset session['errors']['StartDateB'] = language.endBeforeStartError />
+      <cfset session['errors']['EndDateB'] = language.endBeforeStartError />
     <cfset Proceed_OK = "No">
   </cfif>
 
   <cfif DateCompare(PacificNow, Form.StartDate, 'd') NEQ -1>
-    <cfoutput>#ArrayAppend(Errors, "#language.futureStartError#")#</cfoutput>
+    <cfset session['errors']['StartDateB'] = language.futureStartError />
     <cfset Proceed_OK = "No">
   </cfif>
 
   <cfif DateDiff("d",Form.StartDate,Form.EndDate) LT Form.NumDays-1>
-    <cfoutput>#ArrayAppend(Errors, "#language.bookingTooShortErrorB#")#</cfoutput>
-      <cfoutput>#ArrayAppend(Errors, "#language.StartDate#: #LSDateFormat(CreateODBCDate(Form.StartDate), 'mmm d, yyyy')#")#</cfoutput>
+    <cfset session['errors']['NumDays'] = language.bookingTooShortErrorB />
     <cfset Proceed_OK = "No">
   </cfif>
 </cfif>
@@ -79,22 +79,27 @@
 </cfquery>
 
 <cfif getVessel.RecordCount EQ 0>
-	<cfoutput>#ArrayAppend(Errors, "#language.noVesselError#")#</cfoutput>
+  <cfset session['errors']['booking_VNIDB'] = language.noVesselError />
 	<cfset Proceed_OK = "No">
 </cfif>
 
 <cfif NOT IsDefined("Form.NumDays")>
-	<cfoutput>#ArrayAppend(Errors, "#language.needBookingDaysError#")#</cfoutput>
+  <cfset session['errors']['NumDays'] = language.needBookingDaysError />
 	<cfset Proceed_OK = "No">
 </cfif>
 
 <cfif IsDefined("Form.NumDays") AND Form.NumDays LTE 0>
-	<cfoutput>#ArrayAppend(Errors, "#language.bookingTooShortError#")#</cfoutput>
+  <cfset session['errors']['NumDays'] = language.bookingTooShortError />
 	<cfset Proceed_OK = "No">
 </cfif>
 
-<cfif getVessel.Width GT Variables.MaxWidth OR getVessel.Length GT Variables.MaxLength>
-	<cfoutput>#ArrayAppend(Errors, "#language.theVessel#, #getVessel.VesselName#, #language.tooLarge#.")#</cfoutput>
+<cfif getVessel.Width GT Variables.MaxWidth>
+  <cfset session['errors']['width'] = "#language.theVessel#, #getVessel.VesselName#, #language.tooLarge#." />
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfif getVessel.Length GT Variables.MaxLength>
+  <cfset session['errors']['length'] = "#language.theVessel#, #getVessel.VesselName#, #language.tooLarge#." />
 	<cfset Proceed_OK = "No">
 </cfif>
 

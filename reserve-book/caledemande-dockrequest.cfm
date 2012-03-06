@@ -122,8 +122,7 @@
 
             <div>
               <label for="booking_CID">
-                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
-                #language.Company#:
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Company#:
               </label>
               <CF_TwoSelectsRelated
                 query="companyVessels"
@@ -135,7 +134,7 @@
                 VALUE2="VNID"
                 DEFAULT1="#Variables.CID#"
                 DEFAULT2="#Variables.VNID#"
-                htmlBETWEEN="</div><div><label for=""booking_VNID""><span title=""#language.required#"" class=""required"">*</span>&nbsp;#language.vessel#:</label>"
+                htmlBETWEEN="</div><div><label for=""booking_VNID""><abbr title=""#language.required#"" class=""required"">*</abbr>&nbsp;#language.vessel#:#error('booking_VNIDA')#</label>"
                 AUTOSELECTFIRST="Yes"
                 EMPTYTEXT1="(#language.chooseCompany#)"
                 EMPTYTEXT2="(#language.chooseVessel#)"
@@ -145,19 +144,24 @@
 						<div>
               <label for="startDateA">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.StartDate#:<br />
-                <small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+                <small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>
+                #error('StartDateA')#
+              </label>
               <input id="startDateA" name="startDate" class="datepicker startDate" type="text" size="15" maxlength="10"  /> 
 						</div>
 
 						<div>
-             <label for="endDateA"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.EndDate#:<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+             <label for="endDateA">
+               <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.EndDate#:<br />
+               <small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>
+               #error('EndDateA')#
+             </label>
               <input id="endDateA" name="endDate" class="datepicker endDate" type="text" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#"  />
 						</div>
 
 						<div>
               <label for="status">
-                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
-                #language.requestedStatus#:
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.requestedStatus#:
               </label>
               <select id="status" name="status" >
                 <option value="tentative" <cfif isDefined("form.status") AND form.status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>
@@ -181,8 +185,7 @@
 
             <div>
               <label for="bookingByRange_CID">
-                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
-                #language.Company#:
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Company#:
               </label>
               <CF_TwoSelectsRelated
                 QUERY="companyVessels"
@@ -194,7 +197,7 @@
                 VALUE2="VNID"
                 DEFAULT1="#Variables.CID#"
                 DEFAULT2="#Variables.VNID#"
-                htmlBETWEEN="</div><div><label for=""bookingByRange_VNID""><span title=""#language.required#"" class=""required"">*</span>&nbsp;#language.vessel#:</label>"
+                htmlBETWEEN="</div><div><label for=""bookingByRange_VNID""><abbr title=""#language.required#"" class=""required"">*</abbr>&nbsp;#language.vessel#:#language.vessel#:#error('booking_VNIDB')#</label>"
                 AUTOSELECTFIRST="Yes"
                 EMPTYTEXT1="(#language.chooseCompany#)"
                 EMPTYTEXT2="(#language.chooseVessel#)"
@@ -204,34 +207,34 @@
 
             <div>
 							<label for="StartDateB">
-                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
-                #language.StartDate#:
-                <br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.StartDate#:
+                <br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>
+                #error('StartDateB')#
+              </label>
 							<input id="StartDateB" name="startDate" type="text" class="datepicker startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
             </div>
 
             <div>
               <label for="EndDateB">
-                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
-                #language.EndDate#:
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.EndDate#:
                 <br />
                 <small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>
+                #error('EndDateB')#
               </label>
               <input id="EndDateB" name="endDate" type="text" class="datepicker endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
             </div>
 
             <div>
               <label for="NumDays">
-                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
-                #language.NumDays#:
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.NumDays#:
+                #error('NumDays')#
               </label>
               <input id="NumDays" type="text" name="numDays" value="#Variables.numDays#"  />
             </div>
 
 						<div>
               <label for="statusB">
-                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
-                #language.requestedStatus#:
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.requestedStatus#:
               </label>
               <select id="statusB" name="status" >
                 <option value="tentative" <cfif isDefined("form.status") AND form.status EQ "tentative">selected="selected"</cfif>>#language.tentative#</option>

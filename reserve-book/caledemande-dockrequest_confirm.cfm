@@ -52,33 +52,23 @@
 
 				<!--- Validate the form data --->
         <cfif not isDate(Form.StartDate)>
-          <cfset ArrayAppend(Errors, language.invalidStartError) />
+          <cfset session['errors']['StartDateA'] = language.invalidStartError />
 					<cfset Proceed_OK = "No" />
         <cfelseif not isDate(Form.EndDate)>
-          <cfset ArrayAppend(Errors, language.invalidEndError) />
+          <cfset session['errors']['EndDateA'] = language.invalidEndError />
 					<cfset Proceed_OK = "No" />
 				<cfelseif DateCompare(Form.StartDate,Form.EndDate) EQ 1>
-          <cfset ArrayAppend(Errors, language.endBeforeStartError) />
+          <cfset session['errors']['StartDateA'] = language.endBeforeStartError />
+          <cfset session['errors']['EndDateA'] = language.endBeforeStartError />
 					<cfset Proceed_OK = "No" />
-        </cfif>
-
-        <cfif Proceed_OK EQ "No">
-          <cfset Session.Return_Structure.VNID = Form.booking_VNID>
-          <cfset Session.Return_Structure.CID = Form.booking_CID>
-          <cfset Session.Return_Structure.Status = Form.Status>
-          <cfset Session.Return_Structure.Errors = Errors>
-
-          <cflocation url="#RootDir#reserve-book/caledemande-dockrequest.cfm?lang=#lang#" addtoken="no">
-        </cfif>
-
-        <cfif not isNumeric(form.booking_VNID)>
-          <cfset form.booking_VNID = 0 />
         </cfif>
 
         <cfset Variables.VNID = Form.booking_VNID>
         <cfset Variables.CID = Form.booking_CID>
-        <cfset Variables.StartDate = CreateODBCDate(Form.StartDate)>
-        <cfset Variables.EndDate = CreateODBCDate(Form.EndDate)>
+
+        <cfif not isNumeric(form.booking_VNID)>
+          <cfset form.booking_VNID = 0 />
+        </cfif>
 
         <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
           SELECT 	VNID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
@@ -90,10 +80,21 @@
         </cfquery>
 
         <cfif getVessel.RecordCount EQ 0>
-          <cfset ArrayAppend(Errors, language.noVesselError) />
+          <cfset session['errors']['booking_VNIDA'] = language.noVesselError />
           <cfset Proceed_OK = "No">
         </cfif>
 
+        <cfif Proceed_OK EQ "No">
+          <cfset Session.Return_Structure.VNID = Form.booking_VNID>
+          <cfset Session.Return_Structure.CID = Form.booking_CID>
+          <cfset Session.Return_Structure.Status = Form.Status>
+          <cfset Session.Return_Structure.Errors = Errors>
+
+          <cflocation url="#RootDir#reserve-book/caledemande-dockrequest.cfm?lang=#lang#" addtoken="no">
+        </cfif>
+
+        <cfset Variables.StartDate = CreateODBCDate(Form.StartDate)>
+        <cfset Variables.EndDate = CreateODBCDate(Form.EndDate)>
         <!---Check to see that vessel hasn't already been booked during this time--->
         <!--- 25 October 2005: This query now only looks at the drydock bookings --->
         <cfquery name="checkDblBooking" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -143,27 +144,31 @@
         </cfquery>
 
         <cfif DateCompare(PacificNow, Form.StartDate, 'd') NEQ -1>
-          <cfset ArrayAppend(Errors, language.futureStartError) />
+          <cfset session['errors']['StartDateA'] = language.futureStartError />
           <cfset Proceed_OK = "No">
         <cfelseif (isDefined("checkDblBooking.VNID") AND checkDblBooking.VNID NEQ "")>
-          <cfset ArrayAppend(Errors, "#checkDblBooking.Name# #language.dblBookingError# #LSdateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# #language.to# #LSdateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.") />
+          <cfset session['errors']['StartDateA'] =  "#checkDblBooking.Name# #language.dblBookingError# #LSdateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# #language.to# #LSdateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#." />
           <cfset Proceed_OK = "No">
         <cfelseif getNumStartDateBookings.recordCount GTE 1>
-          <cfset ArrayAppend(Errors, "#getNumStartDateBookings.Name# #language.tplBookingError# #LSdateFormat(getNumStartDateBookings.StartDate, 'mm/dd/yyy')#.") />
+          <cfset session['errors']['StartDateA'] = "#getNumStartDateBookings.Name# #language.tplBookingError# #LSdateFormat(getNumStartDateBookings.StartDate, 'mm/dd/yyy')#." />
           <cfset Proceed_OK = "No">
         <cfelseif getNumEndDateBookings.recordCount GTE 1>
-          <cfset ArrayAppend(Errors, "#getNumEndDateBookings.Name# #language.tplBookingError# #LSdateFormat(getNumEndDateBookings.EndDate, 'mm/dd/yyy')#.") />
+          <cfset session['errors']['EndDateA'] = "#getNumEndDateBookings.Name# #language.tplBookingError# #LSdateFormat(getNumEndDateBookings.EndDate, 'mm/dd/yyy')#." />
           <cfset Proceed_OK = "No">
         </cfif>
 
         <cfif DateDiff("d",Form.StartDate,Form.EndDate) LT 0>
-          <cfset ArrayAppend(Errors, language.bookingTooShortError) />
-          <cfset ArrayAppend(Errors, "#language.StartDate#: #LSDateFormat(CreateODBCDate(Form.StartDate), 'mmm d, yyyy')#") />
+          <cfset session['errors']['StartDateA'] = language.bookingTooShortError />
           <cfset Proceed_OK = "No">
         </cfif>
 
-        <cfif getVessel.Width GT Variables.MaxWidth OR getVessel.Length GT Variables.MaxLength>
-          <cfset ArrayAppend(Errors, "#language.theVessel#, #getVessel.VesselName#, #language.tooLarge#.") />
+        <cfif getVessel.Width GT Variables.MaxWidth>
+          <cfset session['errors']['width'] = "#language.theVessel#, #getVessel.VesselName#, #language.tooLarge#." />
+          <cfset Proceed_OK = "No">
+        </cfif>
+
+        <cfif getVessel.Length GT Variables.MaxLength>
+          <cfset session['errors']['length'] = "#language.theVessel#, #getVessel.VesselName#, #language.tooLarge#." />
           <cfset Proceed_OK = "No">
         </cfif>
 

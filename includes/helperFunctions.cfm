@@ -8,9 +8,9 @@
 			}
 </cfscript>
 
-<cffunction name="error" output="true">
+<cffunction name="error">
   <cfargument name="field" type="string" />
   <cfif structKeyExists(session['errors'], field)>
-    <div class="error">#session['errors'][field]#</div>
+    <cfreturn "<div class=""error"">#session['errors'][field]#</div>" />
   </cfif>
 </cffunction>
