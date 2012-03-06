@@ -54,7 +54,7 @@
         <li><a href="#RootDir#comm/avis-notices.cfm?lang=#lang#">#language.notices#</a></li>
         <li><a href="#RootDir#ols-login/fls-logout.cfm?lang=#lang#">#language.LogoutButton#</a></li>
       <cfelse>
-        <li><a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.Login#</a></li>
+        <li><a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.bookingApplicationLogin#</a></li>
       </cfif>
     </ul>
   </li>
