@@ -55,7 +55,7 @@
 <cfset Proceed_OK = "Yes">
 
 <cfif not isNumeric(Form.VNID)>
-	<cfoutput>#ArrayAppend(Errors, "#language.noVesselError#")#</cfoutput>
+  <cfset session['errors']['VNID'] = language.noVesselError />
 	<cfset Proceed_OK = "No">
 <cfelse>
   <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -68,19 +68,19 @@
   </cfquery>
 
   <cfif getVessel.RecordCount EQ 0>
-    <cfoutput>#ArrayAppend(Errors, "#language.noVesselError#")#</cfoutput>
-    <cfset Proceed_OK = "No">
+    <cfset session['errors']['VNID'] = language.noVesselError />
+    <cfset Proceed_OK = "No" />
+  </cfif>
   <cfelseif not isDate(Form.StartDate)>
-    <cfoutput>#ArrayAppend(Errors, "#language.invalidStartError#")#</cfoutput>
-    <cfset Proceed_OK = "No">
+    <cfset session['errors']['StartDate'] = language.invalidStartError />
+    <cfset Proceed_OK = "No" />
   <cfelseif not isDate(Form.EndDate)>
-    <cfoutput>#ArrayAppend(Errors, "#language.invalidEndError#")#</cfoutput>
-    <cfset Proceed_OK = "No">
+    <cfset session['errors']['EndDate'] = language.invalidEndError />
+    <cfset Proceed_OK = "No" />
   <cfelse>
     <cfset Variables.StartDate = CreateODBCDate(Form.StartDate)>
     <cfset Variables.EndDate = CreateODBCDate(Form.EndDate)>
     <cfset Variables.VNID = Form.VNID>
-    <cfset Variables.CID = Form.CID>
 
     <cfquery name="getVessel" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
       SELECT 	VNID, Length, Width, Vessels.Name AS VesselName, Companies.Name AS CompanyName
@@ -160,25 +160,28 @@
 
     <!--- Validate the form data --->
     <cfif DateCompare(DateAdd('d', 1, PacificNow), Form.StartDate, 'd') EQ 1>
-      <cfoutput>#ArrayAppend(Errors, "#language.futureStartError#")#</cfoutput>
+      <cfset session['errors']['StartDate'] = language.futureStartError />
       <cfset Proceed_OK = "No">
 
     <cfelseif isDefined("checkDblBooking.VNID") AND checkDblBooking.VNID NEQ "">
-      <cfoutput>#ArrayAppend(Errors, "#checkDblBooking.Name# #language.dblBookingError# #LSdateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# #language.to# #LSdateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
+      <cfset session['errors']['StartDate'] = "#checkDblBooking.Name# #language.dblBookingError# #LSdateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# #language.to# #LSdateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#." />
+      <cfset session['errors']['EndDate'] = "#checkDblBooking.Name# #language.dblBookingError# #LSdateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# #language.to# #LSdateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#." />
       <cfset Proceed_OK = "No">
     <cfelseif getNumStartDateBookings.recordCount GTE 1>
-      <cfoutput>#ArrayAppend(Errors, "#getNumStartDateBookings.Name# #language.tplBookingError# #LSdateFormat(getNumStartDateBookings.StartDate, 'mm/dd/yyy')#.")#</cfoutput>
+      <cfset session['errors']['StartDate'] = "#getNumStartDateBookings.Name# #language.tplBookingError# #LSdateFormat(getNumStartDateBookings.StartDate, 'mm/dd/yyy')#." />
       <cfset Proceed_OK = "No">
     <cfelseif getNumEndDateBookings.recordCount GTE 1>
-      <cfoutput>#ArrayAppend(Errors, "#getNumEndDateBookings.Name# #language.tplBookingError# #LSdateFormat(getNumEndDateBookings.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
+      <cfset session['errors']['EndDate'] = "#getNumEndDateBookings.Name# #language.tplBookingError# #LSdateFormat(getNumEndDateBookings.EndDate, 'mm/dd/yyy')#." />
       <cfset Proceed_OK = "No">
     </cfif>
 
     <cfif Form.StartDate GT Form.EndDate>
-      <cfoutput>#ArrayAppend(Errors, "#language.endBeforeStartError#")#</cfoutput>
+      <cfset session['errors']['StartDate'] = language.endBeforeStartError />
+      <cfset session['errors']['EndDate'] = language.endBeforeStartError />
       <cfset Proceed_OK = "No">
     <cfelseif DateDiff("d",Form.StartDate,Form.EndDate) LT 0>
-      <cfoutput>#ArrayAppend(Errors, "#language.bookingTooShortError#")#</cfoutput>
+      <cfset session['errors']['StartDate'] = language.bookingTooShortError />
+      <cfset session['errors']['EndDate'] = language.bookingTooShortError />
       <cfset Proceed_OK = "No">
     </cfif>
   </cfif>
@@ -190,7 +193,6 @@
 	<cfset Session.Return_Structure.StartDate = Form.StartDate>
 	<cfset Session.Return_Structure.EndDate = Form.EndDate>
 	<cfset Session.Return_Structure.VNID = Form.VNID>
-	<cfset Session.Return_Structure.CID = Form.CID>
 	<cfset Session.Return_Structure.Errors = Errors>
  	<cflocation url="#RootDir#reserve-book/jetdemande-jetrequest.cfm?lang=#lang#">
 </cfif>

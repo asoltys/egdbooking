@@ -53,7 +53,6 @@
 </cflock>
 
 
-<cfparam name="Variables.CID" default="">
 <cfparam name="Variables.VNID" default="">
 <cfparam name="Variables.startDate" default="#DateAdd('d', 1, PacificNow)#">
 <cfparam name="Variables.endDate" default="#DateAdd('d', 1, PacificNow)#">
@@ -61,18 +60,6 @@
 <cfparam name="Variables.Status" default="tentative">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
-	<cfif IsDefined("URL.VNID")>
-		<cfset Variables.VNID = URL.VNID>
-		<cfquery name="GetCompany" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			SELECT	CID
-			FROM	Vessels
-			WHERE	Vessels.VNID = <cfqueryparam value="#Variables.VNID#" cfsqltype="cf_sql_integer" />
-		</cfquery>
-		<cfset Variables.CID = GetCompany.CID>
-	<cfelseif IsDefined("URL.CID")>
-		<cfset Variables.CID = URL.CID>
-		<cfset Variables.VNID = "">
-	</cfif>
 	<cfif IsDefined("URL.Date")>
 		<cfset Variables.StartDate = URL.Date>
 		<cfset Variables.EndDate = URL.Date>
@@ -103,7 +90,6 @@
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfinclude template="#RootDir#includes/restore_params.cfm">
 				<cfif isDefined("session.form_structure")>
-					<cfset Variables.CID = #form.CID#>
 					<cfset Variables.VNID = #form.VNID#>
 					<cfset Variables.startDate = #form.startDate#>
 					<cfset Variables.endDate = #form.endDate#>
@@ -122,31 +108,26 @@
 				<cfoutput>
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 
-				<form action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#&amp;CID=#variables.CID#" method="post" id="bookingreq">
+				<form action="#RootDir#reserve-book/jetdemande-jetrequest_confirm.cfm?lang=#lang#" method="post" id="bookingreq">
 					<fieldset>
             <legend>#language.booking#</legend>
             <p>#language.requiredFields#</p>
 
             <div>
-              <label for="CID">
-                <abbr title="#language.required#" class="required">*</abbr>&nbsp;
-                #language.Company#:
+              <label for="VNID">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.vessel#:
+                #error('VNID')#
               </label>
-              <CF_TwoSelectsRelated
-                query="companyVessels"
-                id1="CID"
-                id2="VNID"
-                DISPLAY1="CompanyName"
-                DISPLAY2="VesselName"
-                VALUE1="CID"
-                VALUE2="VNID"
-                DEFAULT1="#Variables.CID#"
-                DEFAULT2="#Variables.VNID#"
-                htmlBETWEEN="</div><div><label for=""VNID""><span title=""#language.required#"" class=""required"">*</span>&nbsp;#language.vessel#:</label>"
-                AUTOSELECTFIRST="Yes"
-                EMPTYTEXT1="(#language.chooseCompany#)"
-                EMPTYTEXT2="(#language.chooseVessel#)"
-                FORMNAME="bookingreq">
+              <select id="VNID" name="VNID">
+                <option value="">(#language.chooseVessel#)</option>
+                <cfloop query="companyVessels">
+                  <cfset selected = "" />
+                  <cfif companyVessels.VNID eq variables.VNID>
+                    <cfset selected = "selected=""selected""" />
+                  </cfif>
+                  <option value="#companyVessels.VNID#" #selected#>#companyVessels.VesselName#</option>
+                </cfloop>
+              </select>
             </div>
 
             <div>
@@ -154,6 +135,7 @@
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.StartDate#
                 <br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>:
+                #error('StartDate')#
               </label>
               <input id="StartDate" name="startDate" type="text" class="datepicker startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> 
             </div>
@@ -163,6 +145,7 @@
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.EndDate#:
                 <br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>
+                #error('EndDate')#
               </label>
               <input id="EndDate" name="endDate" type="text" class="datepicker endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> 
 						</div>
