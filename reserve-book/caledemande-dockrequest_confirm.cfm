@@ -64,7 +64,6 @@
         </cfif>
 
         <cfset Variables.VNID = Form.booking_VNID>
-        <cfset Variables.CID = Form.booking_CID>
 
         <cfif not isNumeric(form.booking_VNID)>
           <cfset form.booking_VNID = 0 />
@@ -86,7 +85,6 @@
 
         <cfif Proceed_OK EQ "No">
           <cfset Session.Return_Structure.VNID = Form.booking_VNID>
-          <cfset Session.Return_Structure.CID = Form.booking_CID>
           <cfset Session.Return_Structure.Status = Form.Status>
           <cfset Session.Return_Structure.Errors = Errors>
 
@@ -177,7 +175,6 @@
           <cfset Session.Return_Structure.StartDate = Form.StartDate>
           <cfset Session.Return_Structure.EndDate = Form.EndDate>
           <cfset Session.Return_Structure.VNID = Form.booking_VNID>
-          <cfset Session.Return_Structure.CID = Form.booking_CID>
           <cfset Session.Return_Structure.Status = Form.Status>
           <cfset Session.Return_Structure.Errors = Errors>
 

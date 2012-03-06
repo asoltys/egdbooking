@@ -121,24 +121,20 @@
             <p>#language.requiredFields#</p>
 
             <div>
-              <label for="booking_CID">
-                <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Company#:
+              <label for="booking_VNID">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.vessel#:
+                #error('booking_VNID')#
               </label>
-              <CF_TwoSelectsRelated
-                query="companyVessels"
-                id1="booking_CID"
-                id2="booking_VNID"
-                DISPLAY1="CompanyName"
-                DISPLAY2="VesselName"
-                VALUE1="CID"
-                VALUE2="VNID"
-                DEFAULT1="#Variables.CID#"
-                DEFAULT2="#Variables.VNID#"
-                htmlBETWEEN="</div><div><label for=""booking_VNID""><abbr title=""#language.required#"" class=""required"">*</abbr>&nbsp;#language.vessel#:#error('booking_VNIDA')#</label>"
-                AUTOSELECTFIRST="Yes"
-                EMPTYTEXT1="(#language.chooseCompany#)"
-                EMPTYTEXT2="(#language.chooseVessel#)"
-                FORMNAME="bookingreq">
+              <select id="booking_VNID" name="booking_VNID">
+                <option value="">(#language.chooseVessel#)</option>
+                <cfloop query="companyVessels">
+                  <cfset selected = "" />
+                  <cfif companyVessels.VNID eq variables.VNID>
+                    <cfset selected = "selected=""selected""" />
+                  </cfif>
+                  <option value="#companyVessels.VNID#" #selected#>#companyVessels.VesselName#</option>
+                </cfloop>
+              </select>
             </div>
 
 						<div>
@@ -184,25 +180,20 @@
             <p>#language.requiredFields#</p>
 
             <div>
-              <label for="bookingByRange_CID">
-                <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Company#:
+              <label for="bookingByRange_VNID">
+                <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.vessel#:
+                #error('bookingByRange_VNID')#
               </label>
-              <CF_TwoSelectsRelated
-                QUERY="companyVessels"
-                id1="bookingByRange_CID"
-                id2="bookingByRange_VNID"
-                DISPLAY1="CompanyName"
-                DISPLAY2="VesselName"
-                VALUE1="CID"
-                VALUE2="VNID"
-                DEFAULT1="#Variables.CID#"
-                DEFAULT2="#Variables.VNID#"
-                htmlBETWEEN="</div><div><label for=""bookingByRange_VNID""><abbr title=""#language.required#"" class=""required"">*</abbr>&nbsp;#language.vessel#:#language.vessel#:#error('booking_VNIDB')#</label>"
-                AUTOSELECTFIRST="Yes"
-                EMPTYTEXT1="(#language.chooseCompany#)"
-                EMPTYTEXT2="(#language.chooseVessel#)"
-                FORMNAME="bookingreqB">
-              <br />
+              <select id="bookingByRange_VNID" name="bookingByRange_VNID">
+                <option value="">(#language.chooseVessel#)</option>
+                <cfloop query="companyVessels">
+                  <cfset selected = "" />
+                  <cfif companyVessels.VNID eq variables.VNID>
+                    <cfset selected = "selected=""selected""" />
+                  </cfif>
+                  <option value="#companyVessels.VNID#" #selected#>#companyVessels.VesselName#</option>
+                </cfloop>
+              </select>
             </div>
 
             <div>

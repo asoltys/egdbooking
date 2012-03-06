@@ -222,10 +222,6 @@
 					<input type="hidden" id="VNID"  name="VNID" value="#Form.bookingByRange_VNID#" />
 					<p>#getVessel.VesselName#</p>
 
-					<label for="VNID">#language.Company#:</label>
-					<input type="hidden" id="CID"  name="CID" value="#Form.bookingByRange_CID#" />
-					<p>#getVessel.CompanyName#</p>
-
 					<label for="startDate">#language.StartDate#:</label>
 					<input type="hidden" id="startDate" name="startDate" value="#Variables.FoundStartDate#" />
 					<p>#LSDateFormat(CreateODBCDate(Variables.StartDate), 'mmm d, yyyy')#</p>
