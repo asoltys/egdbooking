@@ -71,13 +71,18 @@
     <cfset session['errors']['VNID'] = language.noVesselError />
     <cfset Proceed_OK = "No" />
   </cfif>
-  <cfelseif not isDate(Form.StartDate)>
+  
+  <cfif not isDate(Form.StartDate)>
     <cfset session['errors']['StartDate'] = language.invalidStartError />
     <cfset Proceed_OK = "No" />
-  <cfelseif not isDate(Form.EndDate)>
+  </cfif>
+
+  <cfif not isDate(Form.EndDate)>
     <cfset session['errors']['EndDate'] = language.invalidEndError />
     <cfset Proceed_OK = "No" />
-  <cfelse>
+  </cfif>
+
+  <cfif Proceed_OK>
     <cfset Variables.StartDate = CreateODBCDate(Form.StartDate)>
     <cfset Variables.EndDate = CreateODBCDate(Form.EndDate)>
     <cfset Variables.VNID = Form.VNID>
