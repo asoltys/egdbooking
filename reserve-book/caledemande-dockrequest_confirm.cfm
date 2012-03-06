@@ -201,10 +201,6 @@
             <p>#getVessel.VesselName#</p>
             <input type="hidden" id="VNID" name="VNID" value="#Variables.VNID#" />
 
-            <label for="CID">#language.Company#:</label>
-            <input type="hidden" id="CID" name="CID" value="#Variables.CID#" />
-            <p>#getVessel.CompanyName#</p>
-
             <label for="StartDate">#language.StartDate#:</label>
             <input type="hidden" id="StartDate" name="StartDate" value="#Variables.StartDate#" />
             <p>#LSDateFormat(Variables.StartDate, 'mmm d, yyyy')#</p>
