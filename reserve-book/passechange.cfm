@@ -10,10 +10,10 @@
 <cfset Proceed_OK = "Yes">
 
 <cfif Len(trim(Form.Password1)) LT 8>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.pass1ShortError#")#</cfoutput>
+  <cfset session['errors']['password'] = language.pass1ShortError />
 	<cfset Proceed_OK = "No">
 <cfelseif Form.Password1 NEQ Form.Password2>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.unmatchedPasswordsError#")#</cfoutput>
+  <cfset session['errors']['password2'] = language.unmatchedPasswordsError />
 	<cfset Proceed_OK = "No">
 </cfif>
 

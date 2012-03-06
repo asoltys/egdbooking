@@ -12,17 +12,17 @@
 <cfset Proceed_OK = "Yes">
 
 <cfif Form.FirstName EQ "">
-	<cfoutput>#ArrayAppend(Errors, "#language.noFirstName#")#</cfoutput>
+  <cfset session['errors']['firstname'] = language.noFirstName />
 	<cfset Proceed_OK = "No">
 </cfif>
 
 <cfif Form.LastName EQ "">
-	<cfoutput>#ArrayAppend(Errors, "#language.noLastName#")#</cfoutput>
+  <cfset session['errors']['lastname'] = language.noLastName />
 	<cfset Proceed_OK = "No">
 </cfif>
 
 <cfif Form.Email EQ "">
-	<cfoutput>#ArrayAppend(Errors, "#language.noEmail#")#</cfoutput>
+  <cfset session['errors']['email'] = language.noEmail />
 	<cfset Proceed_OK = "No">
 </cfif>
 

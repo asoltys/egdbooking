@@ -97,7 +97,7 @@
     </cfquery>
 
     <cfif getVessel.RecordCount EQ 0>
-      <cfoutput>#ArrayAppend(Errors, "#language.noVesselError#")#</cfoutput>
+      <cfset session['errors']['VNID'] = language.noVesselError />
       <cfset Proceed_OK = "No">
     </cfif>
 

@@ -151,6 +151,7 @@ function EditSubmit ( selectedform )
                 <label for="firstname">
                   <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                   #language.FirstName#:
+                  #error('firstname')#
                 </label>
                 <input name="firstname" id="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40"  />
 							</div>
@@ -159,6 +160,7 @@ function EditSubmit ( selectedform )
                 <label for="lastname">
                   <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                   #language.LastName#:
+                  #error('lastname')#
                 </label>
                 <input name="lastname" id="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40"  />
 							</div>
@@ -168,6 +170,7 @@ function EditSubmit ( selectedform )
                 <label for="email">
                   <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                   #language.Email#:
+                  #error('email')#
                 </label>
                 <input name="email" id="email" type="text" value="#variables.email#" size="25" maxlength="40"  />
 							</div>
@@ -190,6 +193,7 @@ function EditSubmit ( selectedform )
                   <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                   #language.Password# 
                   <span class="smallFont">(min. 8 #language.characters#)</span>:
+                  #error('password')#
                 </label>
                 <input type="password" id="password" name="password1" />
 							</div>
@@ -198,6 +202,7 @@ function EditSubmit ( selectedform )
                 <label for="password2">
                   <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                   #language.RepeatPassword#:
+                  #error('password2')#
                 </label>
                 <input type="password" id="password2" name="password2" />
 							</div>
