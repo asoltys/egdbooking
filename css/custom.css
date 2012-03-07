@@ -76,7 +76,8 @@ table tr {
 }
 
 table.bookings { width: 100%; }
-table.details th, table.bookings th { text-align: left; }
+table.details th, table.bookings th { text-align: left; padding-right: 10px; }
+table.details tr th[colspan="2"] { padding-top: 10px; }
 p.total span { padding-right: 10px; }
 
 /* CALENDAR TABLE -------------------------------------- */
