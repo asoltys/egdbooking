@@ -15,7 +15,7 @@
 	<cfset language.drydock2 = "Section 2">
 	<cfset language.drydock3 = "Section 3">
 	<cfset language.deepsea = "Deepsea Vessel">
-	<cfset language.yourbookings = "Shaded bookings below belong to your company.">
+	<cfset language.yourbookings = "The bookings linked to below belong to your company.">
 <cfelse>
 	<cfset language.bookingDetail = "D&eacute;tails&nbsp;- R&eacute;servation">
 	<cfset language.description = "R&eacute;cup&eacute;ration de renseignements sur toutes les r&eacute;servations d'une journ&eacute;e donn&eacute;e.">
@@ -34,7 +34,7 @@
 	<cfset language.drydock2 = "Section 2">
 	<cfset language.drydock3 = "Section 3">
 	<cfset language.deepsea = "Navire oc&eacute;anique">
-	<cfset language.yourbookings = "Les r&eacute;servations ombrag&eacute;es ci-dessous appartiennent &agrave; votre entreprise.">
+	<cfset language.yourbookings = "Les r&eacute;servations li&eacute;es ci-dessous appartiennent &agrave; votre entreprise.">
 </cfif>
 
 <cfoutput>
@@ -184,7 +184,7 @@
 				<cfset Variables.countQName = "userVessel" & #BRID# & ".recordCount">
 				<cfset Variables.count = EVALUATE(countQName)>
 
-				<table class="details">
+				<table class="details" summary="#language.detailTableSummary#">
 					<tr id="booking-#BRID#">
 						<th scope="row" colspan="2"><CFIF Status eq 'c'><strong></cfif><cfif #EndHighlight# GTE PacificNow>* </cfif>
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
@@ -207,9 +207,9 @@
 							<CFIF Status eq 'c'>
 								#language.Confirmed#
 							<CFELSEIF Status eq 't'>
-								<em>#language.Tentative#</em>
+                <span class="tentative">#language.Tentative#</span>
 							<CFELSE>
-								<em>#language.Pending#</em>
+                <span class="pending">#language.Pending#</span>
 							</CFIF>
 						</td>
 					</tr>
@@ -229,7 +229,7 @@
 
 				<h2>#language.JettyBookings#</h2>
 				<cfloop query="getJettyMaintenanceDetail">
-				<table class="details">
+				<table class="details" summary="#language.detailTableSummary#">
 					<tr>
 						<th scope="row" colspan="2"><strong>#language.MaintenanceBlock#</strong></th>
 					</tr>
@@ -260,7 +260,7 @@
 				<cfset Variables.count = "jUserVessel" & #BRID# & ".recordCount">
 				<cfset "#Variables.count#" = EVALUATE(count)>
 
-				<table class="details">
+				<table class="details" summary="#language.detailTableSummary#">
 					<tr id="booking-#BRID#">
 						<th scope="row" colspan="2">
 						<CFIF Status eq 'c'><strong></cfif>
@@ -285,9 +285,9 @@
 							<CFIF Status eq 'c'>
 								#language.Confirmed#
 							<CFELSEIF Status eq 't'>
-								<em>#language.Tentative#</em>
+                <span class="tentative">#language.Tentative#</span>
 							<CFELSE>
-								<em>#language.Pending#</em>
+                <span class="pending">#language.Pending#</span>
 							</CFIF>
 						</td>
 					</tr>
