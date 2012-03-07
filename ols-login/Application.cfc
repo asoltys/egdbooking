@@ -15,7 +15,11 @@
       <cflocation url="https://#cgi.server_name##cgi.script_name#?#cgi.query_string#" addtoken="no" />
     </cfif>
 
-    <cfset SetLocale("English (Canadian)")>
+    <cfif lcase(url.lang) EQ "eng">
+      <cfset SetLocale("English (Canadian)")>
+    <cfelseif lcase(url.lang) EQ "fra">
+      <cfset SetLocale("French (Canadian)")>
+    </cfif>
 
     <cfparam name="url.lang" default="eng">
     <cfif findnocase("-e",CGI.PATH_INFO) or findnocase("-eng",CGI.PATH_INFO)>

@@ -23,9 +23,9 @@
     </cfif>
 
     <cfif lcase(url.lang) EQ "eng">
-      <cfset Foobar = SetLocale("English (Canadian)")>
+      <cfset SetLocale("English (Canadian)")>
     <cfelseif lcase(url.lang) EQ "fra">
-      <cfset Foobar = SetLocale("French (Canadian)")>
+      <cfset SetLocale("French (Canadian)")>
     </cfif>
 
     <cfquery name="getEmail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">

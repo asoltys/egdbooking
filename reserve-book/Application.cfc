@@ -15,7 +15,11 @@
       <cflocation url="https://#cgi.server_name##cgi.script_name#?#cgi.query_string#" addtoken="no" />
     </cfif>
 
-    <cfset SetLocale("English (Canadian)")>
+    <cfif lcase(url.lang) EQ "eng">
+      <cfset SetLocale("English (Canadian)")>
+    <cfelseif lcase(url.lang) EQ "fra">
+      <cfset SetLocale("French (Canadian)")>
+    </cfif>
 
     <cfif not structKeyExists(url, 'lang')>
       <cfparam name="url.lang" default="eng">
@@ -25,8 +29,6 @@
         <cfset url.lang = "fra">
       </cfif>
     </cfif>
-
-    <cfset SetLocale("English (Canadian)")>
 
     <cfset Variables.MaxLength = 347.67>
     <cfset Variables.MaxWidth = 45.40>
