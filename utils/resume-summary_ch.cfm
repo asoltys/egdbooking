@@ -1,7 +1,7 @@
 <cfoutput>
 
 <cfif lang EQ "eng">
-	<cfset language.bookingsSummary = "Public Bookings Summary Date Selection">
+	<cfset language.bookingsSummaryDateSelection = "Public Bookings Summary Date Selection">
 	<cfset language.ScreenMessage = '<p>Please use the pop-up <span class="textbutton">calendar</span> to enter the range of dates you would like to view.  To start from the first booking record, clear the "From Date" field.  To end after the last booking record, clear the "To Date" field.  To see all records, clear both fields.</p>'>
 	<cfset language.description = "Allows user to view a summary of all bookings from present onward.">
 	<cfset language.subjects = language.masterSubjects & "">
@@ -21,7 +21,7 @@
 	<cfset language.calendar = "calendar">
 	<cfset language.clear = "clear">
 <cfelse>
-	<cfset language.bookingsSummary = "R&eacute;sum&eacute; des r&eacute;servations Publique S&eacute;lection de Date">
+	<cfset language.bookingsSummaryDateSelection = "R&eacute;sum&eacute; des r&eacute;servations Publique S&eacute;lection de Date">
 	<cfset language.ScreenMessage = "Veuillez utiliser le calendrier de type &laquo;&nbsp;fen&ecirc;tre flash&nbsp;&raquo; pour entrer la p&eacute;riode que vous souhaitez voir. Pour d&eacute;buter au premier dossier de r&eacute;servation, vider le champ &laquo;&nbsp;Date de d&eacute;but&nbsp;&raquo;. Pour terminer apr&egrave;s le dernier dossier de r&eacute;servation, vider le champ &laquo;&nbsp;Date de fin&nbsp;&raquo;. Pour voir tous les dossiers, vider les deux champs.">
 	<cfset language.description = "Permet &agrave; l'utilisateur de voir un r&eacute;sum&eacute; de toutes les r&eacute;servations, depuis le moment pr&eacute;sent.">
 	<cfset language.subjects = language.masterSubjects & "">
@@ -43,11 +43,11 @@
 
 </cfif>
 <cfsavecontent variable="js">
-	<meta name="dc.title" content="#language.BookingsSummary# - #language.esqGravingDock# - #language.PWGSC#" />
+	<meta name="dc.title" content="#language.bookingsSummaryDateSelection# - #language.esqGravingDock# - #language.PWGSC#" />
 	<meta name="keywords" content="#language.masterKeywords#" />
 	<meta name="description" content="#language.description#" />
 	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
-	<title>#language.BookingsSummary# - #language.esqGravingDock# - #language.PWGSC#</title>
+	<title>#language.bookingsSummaryDateSelection# - #language.esqGravingDock# - #language.PWGSC#</title>
 </cfsavecontent>
 <cfhtmlhead text="#js#">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
@@ -55,7 +55,7 @@
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			#language.bookingsSummary#
+			#language.bookingsSummaryDateSelection#
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 		<div class="colLayout">
@@ -64,7 +64,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					#language.bookingsSummary#
+					#language.bookingsSummaryDateSelection#
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -96,12 +96,12 @@
             <legend>#language.bookingsSummary#</legend>
             <div>
               <label for="start">&nbsp; #language.fromDate#<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
-              <input id="start" type="text" name="startDate" class="datepicker startDate" value="#LSDateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
+              <input id="start" type="text" name="startDate" class="datepicker startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
             </div>
             
             <div>
               <label for="end">&nbsp; #language.toDate#<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
-              <input type="text" name="endDate" class="datepicker endDate" id="end" value="#LSDateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
+              <input type="text" name="endDate" class="datepicker endDate" id="end" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
             </div>
 
             <div>

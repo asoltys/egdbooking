@@ -26,9 +26,11 @@
     </cfif>
 
     <cfif lcase(url.lang) EQ "eng">
-      <cfset Foobar = SetLocale("English (Canadian)")>
+      <cfset SetLocale("English (Canadian)")>
+      <cfset request.datemask = "mmm d, yyyy" />
     <cfelseif lcase(url.lang) EQ "fra">
-      <cfset Foobar = SetLocale("French (Canadian)")>
+      <cfset SetLocale("French (Canadian)")>
+      <cfset request.datemask = "d mmm, yyyy" />
     </cfif>
 
     <cfparam name="lang" default="eng">

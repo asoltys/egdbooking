@@ -37,6 +37,9 @@
 <cfset Variables.Errors = ArrayNew(1)>
 <cfset Proceed_OK = "Yes">
 
+<cfparam name="Variables.CalStartDate" default="" />
+<cfparam name="Variables.CalEndDate" default="" />
+
 <cfif IsDefined('form.startDate')>
 	<cfset Variables.CalStartDate = form.startDate>
 </cfif>
@@ -171,8 +174,8 @@ function popUp(pageID) {
                             3</cfif>
                           <cfelse>#language.tentative#
                           </cfif></td>
-                <td headers="docking">#LSDateFormat(StartDate, "mmm d")#<cfif Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</cfif> - #LSDateFormat(EndDate, request.datemask)#</td>
-                <td headers="booking">#LSDateFormat(BookingTime, request.datemask)#</td>
+                <td headers="docking">#myDateFormat(StartDate, request.datemask)# - #myDateFormat(EndDate, request.datemask)#</td>
+                <td headers="booking">#myDateFormat(BookingTime, request.datemask)#</td>
               </tr>
               </cfloop>
             </tbody>
@@ -199,8 +202,8 @@ function popUp(pageID) {
                   <td headers="section2"><div style="text-align:center;"><cfif Status eq 'c'>#language.booked#
                                 <cfelseif Status eq 't'>#language.tentative#
                                 </cfif></div></td>
-                  <td headers="docking2">#LSDateFormat(StartDate, "mmm d")#<cfif Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</cfif> - #LSDateFormat(EndDate, request.datemask)#</td>
-                  <td headers="booking2">#LSDateFormat(BookingTime, request.datemask)#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></td>
+                  <td headers="docking2">#myDateFormat(StartDate, "mmm d")#<cfif Year(StartDate) neq Year(EndDate)>#myDateFormat(StartDate, ", yyyy")#</cfif> - #myDateFormat(EndDate, request.datemask)#</td>
+                  <td headers="booking2">#myDateFormat(BookingTime, request.datemask)#<!---@#LSTimeFormat(BookingTime, 'HH:mm')#---></td>
                 </tr>
                 </cfloop>
             </tbody>
@@ -227,8 +230,8 @@ function popUp(pageID) {
 														<cfelseif Status eq 't'>#language.tentative#
 														<cfelse>#language.pending#
 														</cfif></div></td>
-							<td headers="docking3">#LSDateFormat(StartDate, "mmm d")#<cfif Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</cfif> - #LSDateFormat(EndDate, request.datemask)#</td>
-							<td headers="booking3">#LSDateFormat(BookingTime, request.datemask)#</td>
+							<td headers="docking3">#myDateFormat(StartDate, request.datemask)# - #myDateFormat(EndDate, request.datemask)#</td>
+							<td headers="booking3">#myDateFormat(BookingTime, request.datemask)#</td>
 						</tr>
 						</cfloop>
 					</table>
