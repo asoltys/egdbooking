@@ -95,6 +95,7 @@
   <cfset language.editProfileButton = "Edit Profile">
   <cfset language.help = "Help">
   <cfset language.bookingsSummary = "Bookings Summary">
+	<cfset language.bookingsSummaryDateSelection = "Public Bookings Summary Date Selection">
   <cfset language.DrydockTableSummary = "List of drydock bookings" />
   <cfset language.NLWTableSummary = "List of north landing wharf bookings" />
   <cfset language.SJTableSummary = "List of south jetty bookings" />
@@ -108,6 +109,7 @@
   <cfset language.editProfileButton = "Modifier le profil">
   <cfset language.help = "Aide">
   <cfset language.bookingsSummary = "R&eacute;sum&eacute; des R&eacute;servations">
+	<cfset language.bookingsSummaryDateSelection = "R&eacute;sum&eacute; des r&eacute;servations Publique S&eacute;lection de Date">
   <cfset language.DrydockTableSummary = "Liste des r&##233;servations en cale s&##232;che" />
   <cfset language.NLWTableSummary = "Liste des r&##233;servations en quai de d&eacute;barquement nord" />
   <cfset language.SJTableSummary = "Liste des r&##233;servations en jet&eacute;e sud" />

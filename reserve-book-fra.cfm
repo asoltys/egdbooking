@@ -145,9 +145,9 @@ function popUp(pageID) {
         <p>Afin de r&eacute;server une place pour un navire &agrave; l'une des installations de la Cale s&egrave;che d'Esquimalt, veuillez lancer l'<a href="#RootDir#reserve-book/reserve-booking.cfm?lang=fra">Application des r&eacute;servations</a>.
 			    Si vous &eacute;prouvez des probl&egrave;mes avec l'application des r&eacute;servations, pri&egrave;re d'utiliser la <a href="#EGD_URL#/cn-cu-fra.html">page Contactez-nous</a>.</p>
           <p>Les frais de r&eacute;servation de la cale s&egrave;che d&rsquo;Esquimalt sont de 4&nbsp;400,00$  canadiens, plus 528,00$ de taxe de vente harmonis&eacute;e (TVH), ce qui donne en  tout 4&nbsp;928,00$ payables en esp&egrave;ces, par ch&egrave;que certifi&eacute; d&rsquo;une banque  canadienne ou par mandat international. Le 1<sup>er</sup> avril 2008, des int&eacute;r&ecirc;ts seront appliqu&eacute;s sur un compte en suspens plus de 30 jours.  Les demandes de r&eacute;servation sont  provisoires jusqu&rsquo;&agrave; ce que les frais de r&eacute;servation soient pay&eacute;s. Les frais de r&eacute;servation ne sont pas remboursables.</p>
-				<p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=fra">Application des r&eacute;servations</a> -
+				<p><a href="#RootDir#ols-login/ols-login.cfm?lang=fra">#language.bookingApplicationLogin#</a> -
 				  R&eacute;server la cale s&egrave;che et les jet&eacute;es en ligne.</p>
-				<p><a href="#RootDir#utils/resume-summary_ch.cfm?lang=fra">#language.bookingsSummary#</a> - Voir toutes les r&eacute;servations.</p>
+				<p><a href="#RootDir#utils/resume-summary_ch.cfm?lang=fra">#language.bookingsSummaryDateSelection#</a> - Voir toutes les r&eacute;servations.</p>
 				<p><a href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-fra.html">R&##232;glement modifiant le R&##232;glement de 1989 sur la cale s&##232;che d'Esquimalt</a></p>
 			  			</div>
 		<!-- FIN DU CONTENU | CONTENT ENDS -->
