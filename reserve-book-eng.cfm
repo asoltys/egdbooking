@@ -122,7 +122,7 @@
 
               <ul>
                 <li><acronym title="Esquimalt Graving Dock">EGD</acronym> was one of the first large ship repair facilities in the world to implement
-                  <acronym title="International Organization for Standardization">ISO</acronym> 14001.  <a title="EGD: Leading the Way with ISO 14001" href="#EGD_URL#/env/programme-program-eng.html">More &gt; </a></li>
+                  <acronym title="International Organization for Standardization">ISO</acronym> 14001.  <a title="Environmental Program" href="#EGD_URL#/env/programme-program-eng.html">More &gt; </a></li>
               </ul>
             </li>
           </ul>

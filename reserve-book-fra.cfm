@@ -116,7 +116,7 @@ function popUp(pageID) {
 	<li>
 		<h2>Saviez-vous?</h2>
 		<ul>
-			<li>La <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym> est une des rares installations de r&##233;paration de grands b&##226;timents au monde &##224; avoir adopt&##233; la norme <acronym title="Organisation internationale de normailisation">ISO</acronym> 14001.  <a title="Un chef de file en voie vers la certification ISO 14001" href="#EGD_URL#/env/voie-way-fra.html">D&eacute;tails &gt; </a></li>
+			<li>La <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym> est une des rares installations de r&##233;paration de grands b&##226;timents au monde &##224; avoir adopt&##233; la norme <acronym title="Organisation internationale de normailisation">ISO</acronym> 14001.  <a title="Programme environnemental" href="#EGD_URL#/env/programme-program-fra.html">D&eacute;tails &gt; </a></li>
 
 		</ul>
 		<br />
