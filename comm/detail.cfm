@@ -225,27 +225,28 @@
 					</tr>
 				</table>
 				</cfloop>
-				<CFIF getDockDetail.RecordCount eq 0 AND getDockMaintenanceDetail.RecordCount eq 0>#language.noBookings#<br /><br /></CFIF>
+        <CFIF getDockDetail.RecordCount eq 0 AND getDockMaintenanceDetail.RecordCount eq 0><p>#language.noBookings#</p></CFIF>
+        <p><a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang#">#language.drydockCalendar#</a></p>
 
 				<h2>#language.JettyBookings#</h2>
 				<cfloop query="getJettyMaintenanceDetail">
-				<table class="details" summary="#language.detailTableSummary#">
-					<tr>
-						<th scope="row" colspan="2"><strong>#language.MaintenanceBlock#</strong></th>
-					</tr>
-					<tr>
-						<th scope="row" colspan="2">#language.closedForMaint#</th>
-					</tr>
-					<tr>
-						<th scope="row">#language.SectionsBooked#:</th>
-						<td><CFIF NorthJetty>#language.NorthLandingWharf#</CFIF><CFIF SouthJetty><CFIF NorthJetty> &amp; </CFIF>#language.SouthJetty#</CFIF></td>
-					</tr>
-					<tr>
-						<th scope="row">#language.Dates#:</th>
-					</tr>
-				</table>
-
+          <table class="details" summary="#language.detailTableSummary#">
+            <tr>
+              <th scope="row" colspan="2"><strong>#language.MaintenanceBlock#</strong></th>
+            </tr>
+            <tr>
+              <th scope="row" colspan="2">#language.closedForMaint#</th>
+            </tr>
+            <tr>
+              <th scope="row">#language.SectionsBooked#:</th>
+              <td><CFIF NorthJetty>#language.NorthLandingWharf#</CFIF><CFIF SouthJetty><CFIF NorthJetty> &amp; </CFIF>#language.SouthJetty#</CFIF></td>
+            </tr>
+            <tr>
+              <th scope="row">#language.Dates#:</th>
+            </tr>
+          </table>
 				</cfloop>
+
 				<cfloop query="getJettyDetail">
 				<cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
 					<cfquery name="jUserVessel#BRID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -306,6 +307,7 @@
 
 				</cfloop>
         <CFIF getJettyDetail.RecordCount eq 0 AND getJettyMaintenanceDetail.RecordCount eq 0><p>#language.noBookings#</p></CFIF>
+        <p><a href="#RootDir#comm/calend-jet.cfm?lang=#lang#">#language.JettyCalendar#</a></p>
 
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
