@@ -13,7 +13,7 @@
 <!-- HEADER BEGINS | DEBUT DE L'EN-TETE -->
 
 <!-- METADATA BEGINS | DEBUT DES METADONNEES -->
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
 <link rel="schema.dc" href="http://purl.org/dc/terms/" />
 
