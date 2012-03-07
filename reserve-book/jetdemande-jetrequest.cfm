@@ -7,7 +7,7 @@
 	<cfset language.reset = "reset">
 	<cfset language.requestedJetty = "Requested Jetty">
 	<cfset language.Company = "Company">
-	<cfset language.warning = "*Once this booking is confirmed, your company will be subject to a booking fee should the specified vessel not arrive for the requested time.">
+	<cfset language.warning = "Once this booking is confirmed, your company will be subject to a booking fee should the specified vessel not arrive for the requested time.">
 	<cfset language.chooseCompany = "choose a company">
 	<cfset language.requestedStatus = "Requested Status">
 <cfelse>
@@ -18,7 +18,7 @@
 	<cfset language.reset = "R&eacute;initialiser">
 	<cfset language.requestedJetty = "Jet&eacute;e demand&eacute;e">
 	<cfset language.Company = "Entreprise">
-	<cfset language.warning = "*Une fois la r&eacute;servation confirm&eacute;e, votre entreprise devra payer des frais de r&eacute;servation si le navire indiqu&eacute; n'arrive pas au moment pr&eacute;vu.">
+	<cfset language.warning = "Une fois la r&eacute;servation confirm&eacute;e, votre entreprise devra payer des frais de r&eacute;servation si le navire indiqu&eacute; n'arrive pas au moment pr&eacute;vu.">
 	<cfset language.chooseCompany = "s&eacute;lectionner une entreprise">
 	<cfset language.requestedStatus = "&Eacute;tat demand&eacute;">
 </cfif>
