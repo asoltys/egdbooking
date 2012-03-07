@@ -391,8 +391,8 @@
                         #Name#
                       </a>
                     </td>
-                    <td>#lsdateformat(CreateODBCDate(startDate), request.datemask)#</td>
-                    <td>#lsdateformat(endDate, request.datemask)#</td>
+                    <td>#myDateFormat(CreateODBCDate(startDate), request.datemask)#</td>
+                    <td>#myDateFormat(endDate, request.datemask)#</td>
                     <td>
                       <cfif status EQ "P" or status EQ "PT"><span class="pending">#language.pending#</span>
                       <cfelseif status EQ "C"><span class="confirmed">#language.confirmed#</span>
@@ -439,8 +439,8 @@
                         #Name#
                       </a>
                     </td>
-                    <td>#lsdateformat(CreateODBCDate(startDate), request.datemask)#</td>
-                    <td>#lsdateformat(endDate, request.datemask)#</td>
+                    <td>#myDateFormat(CreateODBCDate(startDate), request.datemask)#</td>
+                    <td>#myDateFormat(endDate, request.datemask)#</td>
                     <td>
                       <cfif status EQ "P" or status EQ "PT"><span class="pending">#language.pending#</span>
                       <cfelseif status EQ "C"><span class="confirmed">#language.confirmed#</span>
@@ -487,8 +487,8 @@
                         #Name#
                       </a>
                     </td>
-                    <td>#lsdateformat(CreateODBCDate(startDate), request.datemask)#</td>
-                    <td>#lsdateformat(endDate, request.datemask)#</td>
+                    <td>#myDateFormat(CreateODBCDate(startDate), request.datemask)#</td>
+                    <td>#myDateFormat(endDate, request.datemask)#</td>
                     <td>
                       <cfif status EQ "P" or status EQ "PT"><span class="pending">#language.pending#</span>
                       <cfelseif status EQ "C"><span class="confirmed">#language.confirmed#</span>

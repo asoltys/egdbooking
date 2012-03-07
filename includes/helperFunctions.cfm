@@ -14,3 +14,16 @@
     <cfreturn "<div class=""error"">#session['errors'][field]#</div>" />
   </cfif>
 </cffunction>
+
+<cffunction name="myDateFormat">
+  <cfargument name="date" />
+  <cfargument name="mask" />
+
+  <cfset var modifiedDate = lsDateFormat(date, mask) />
+
+  <cfif getLocale() eq "French (Canadian)" and left(modifiedDate, 2) eq "1 ">
+    <cfreturn "1<sup>er</sup> " & Right(modifiedDate, Len(modifiedDate) - 1) />
+  </cfif>
+
+  <cfreturn modifiedDate />
+</cffunction>

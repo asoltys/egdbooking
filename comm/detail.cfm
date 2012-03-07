@@ -40,11 +40,11 @@
 <cfoutput>
 
 <cfsavecontent variable="head">
-	<meta name="dc.title" content="#language.detailsFor# #LSDateFormat(URL.date, "mmmm dd, yyyy")# - #language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#" />
+	<meta name="dc.title" content="#language.detailsFor# #myDateFormat(URL.date, "mmmm dd, yyyy")# - #language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#" />
 	<meta name="keywords" content="#Language.masterKeywords#, #language.bookingDetail#" />
 	<meta name="description" content="#language.description#" />
 	<meta name="dc.subject" scheme="gccore" content="#Language.masterSubjects#" />
-	<title>#language.detailsFor# #LSDateFormat(URL.date, "mmmm dd, yyyy")# - #language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#</title>
+	<title>#language.detailsFor# #myDateFormat(URL.date, "mmmm dd, yyyy")# - #language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#</title>
 </cfsavecontent>
 <cfhtmlhead text="#head#">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
@@ -74,7 +74,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					#language.DetailsFor# #LSDateFormat(URL.date, "mmmm dd, yyyy")#
+					#language.DetailsFor# #myDateFormat(URL.date, "mmmm dd, yyyy")#
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -164,7 +164,7 @@
 					</tr>
 					<tr>
 						<th scope="row" id="Dates">#language.Dates#:</th>
-						<td>#LSDateFormat(StartDate, request.datemask)#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, request.datemask)#</td>
+						<td>#myDateFormat(StartDate, request.datemask)#<CFIF Year(StartDate) neq Year(EndDate)>#myDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #myDateFormat(EndDate, request.datemask)#</td>
 					</tr>
 				</table>
 				</cfloop>
@@ -221,7 +221,7 @@
 					</CFIF>
 					<tr>
 						<th scope="row">#language.DockingDates#:</th>
-						<td>#LSDateFormat(StartDate, request.datemask)#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, request.datemask)#</td>
+						<td>#myDateFormat(StartDate, request.datemask)#<CFIF Year(StartDate) neq Year(EndDate)>#myDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #myDateFormat(EndDate, request.datemask)#</td>
 					</tr>
 				</table>
 				</cfloop>
@@ -299,7 +299,7 @@
 					</CFIF>
 					<tr>
 						<th scope="row">#language.DockingDates#:</th>
-						<td>#LSDateFormat(StartDate, request.datemask)# #language.to# #LSDateFormat(EndDate, request.datemask)#</td>
+						<td>#myDateFormat(StartDate, request.datemask)# #language.to# #myDateFormat(EndDate, request.datemask)#</td>
 					</tr>
 				</table>
 
