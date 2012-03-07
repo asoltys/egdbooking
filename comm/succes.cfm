@@ -48,7 +48,7 @@
 					<cfoutput>
 						<p>#Variables.Success.Message#</p>
 
-            <p><a href="#RootDir#/reserve-book/reserve-booking.cfm" class="textbutton">#language.returnTo#</a></p>
+            <p><a href="#RootDir#reserve-book/reserve-booking.cfm" class="textbutton">#language.returnTo#</a></p>
 					</cfoutput>
 				</div>
 			</div>
