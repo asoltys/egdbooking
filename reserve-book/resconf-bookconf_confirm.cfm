@@ -86,7 +86,7 @@
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				<cfoutput>
-				<p>#language.areYouSure# <strong>#getBooking.VesselName#</strong> #language.from# #LSDateFormat(getBooking.StartDate, 'mmm d, yyyy')# #language.to# #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')#?</p>
+				<p>#language.areYouSure# <strong>#getBooking.VesselName#</strong> #language.from# #LSDateFormat(getBooking.StartDate, request.datemask)# #language.to# #LSDateFormat(getBooking.endDate, request.datemask)#?</p>
 				<div style="text-align:center;">
 					<CFFORM action="#RootDir#reserve-book/resconf-bookconf_action.cfm?lang=#lang#&amp;CID=#getBooking.CID#&amp;referrer=#URLEncodedFormat(url.referrer)##variables.dateValue#&amp;jetty=#URL.jetty#" id="ConfirmBooking">
           <fieldset>

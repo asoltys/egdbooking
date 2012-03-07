@@ -351,6 +351,8 @@
 					</div>
 				</cfif>
 
+        #GetLocaleDisplayName()#
+
         <h2>#language.Vessel#(s)</h2>
           <cfif getVessels.recordCount EQ 0>
             <p>#language.None#</p>
@@ -389,8 +391,8 @@
                         #Name#
                       </a>
                     </td>
-                    <td>#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')#</td>
-                    <td>#lsdateformat(endDate, 'mmm d, yyyy')#</td>
+                    <td>#lsdateformat(CreateODBCDate(startDate), request.datemask)#</td>
+                    <td>#lsdateformat(endDate, request.datemask)#</td>
                     <td>
                       <cfif status EQ "P" or status EQ "PT"><span class="pending">#language.pending#</span>
                       <cfelseif status EQ "C"><span class="confirmed">#language.confirmed#</span>
@@ -437,8 +439,8 @@
                         #Name#
                       </a>
                     </td>
-                    <td>#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')#</td>
-                    <td>#lsdateformat(endDate, 'mmm d, yyyy')#</td>
+                    <td>#lsdateformat(CreateODBCDate(startDate), request.datemask)#</td>
+                    <td>#lsdateformat(endDate, request.datemask)#</td>
                     <td>
                       <cfif status EQ "P" or status EQ "PT"><span class="pending">#language.pending#</span>
                       <cfelseif status EQ "C"><span class="confirmed">#language.confirmed#</span>
@@ -485,8 +487,8 @@
                         #Name#
                       </a>
                     </td>
-                    <td>#lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')#</td>
-                    <td>#lsdateformat(endDate, 'mmm d, yyyy')#</td>
+                    <td>#lsdateformat(CreateODBCDate(startDate), request.datemask)#</td>
+                    <td>#lsdateformat(endDate, request.datemask)#</td>
                     <td>
                       <cfif status EQ "P" or status EQ "PT"><span class="pending">#language.pending#</span>
                       <cfelseif status EQ "C"><span class="confirmed">#language.confirmed#</span>

@@ -77,19 +77,19 @@
 <cfset Variables.AdminEmail = DevEmail />
 </cfif>
 	<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Jetty Booking Requested" type="html">
-<p>#getUser.userName# of #getUser.companyName# has requested a <strong>#variables.status#</strong> #northorsouth# booking for #getDetails.VesselName# from #DateFormat(form.StartDate, 'mmm d, yyyy')# to #DateFormat(form.EndDate, 'mmm d, yyyy')#.</p>
+<p>#getUser.userName# of #getUser.companyName# has requested a <strong>#variables.status#</strong> #northorsouth# booking for #getDetails.VesselName# from #LSDateFormat(form.StartDate, request.datemask)# to #LSDateFormat(form.EndDate, request.datemask)#.</p>
 	</cfmail>
 </cfoutput>
 
 
 <cfset Session.Eng.Success.Breadcrumb = "Submit Jetty Booking Request">
 <cfset Session.Eng.Success.Title = "Create New Jetty Booking">
-<cfset Session.Eng.Success.Message = "A new booking for <strong>#getDetails.vesselName#</strong> from #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# to #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# has been successfully created.">
+<cfset Session.Eng.Success.Message = "A new booking for <strong>#getDetails.vesselName#</strong> from #LSDateFormat(CreateODBCDate(form.startDate), request.datemask)# to #LSDateFormat(CreateODBCDate(form.endDate), request.datemask)# has been successfully created.">
 <cfset Session.Eng.Success.Back = "Back to Booking Home">
 <cfset Session.Eng.Success.Link = "#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#getCompany.CID#">
 <cfset Session.Fra.Success.Breadcrumb = "Pr&eacute;sentation d'une demande de r&eacute;servation de jet&eacute;e">
 <cfset Session.Fra.Success.Title = "&Eacute;tablir une nouvelle r&eacute;servation de jet&eacute;e">
-<cfset Session.Fra.Success.Message = "Une nouvelle r&eacute;servation pour <strong>#getDetails.vesselName#</strong> du #LSDateFormat(CreateODBCDate(form.startDate), 'mmm d, yyyy')# au #LSDateFormat(CreateODBCDate(form.endDate), 'mmm d, yyyy')# a &eacute;t&eacute; faite avec succ&egrave;s.">
+<cfset Session.Fra.Success.Message = "Une nouvelle r&eacute;servation pour <strong>#getDetails.vesselName#</strong> du #LSDateFormat(CreateODBCDate(form.startDate), request.datemask)# au #LSDateFormat(CreateODBCDate(form.endDate), request.datemask)# a &eacute;t&eacute; faite avec succ&egrave;s.">
 <cfset Session.Fra.Success.Back = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
 <cfset Session.Fra.Success.Link = "#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#getCompany.CID#">
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">

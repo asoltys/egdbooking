@@ -250,12 +250,12 @@
 
 						<label for="startDate">#language.StartDate#:</label>
 						<input type="hidden" id="startDate" name="startDate" value="#CreateODBCDate(startDate)#" />
-						<p>#LSDateFormat(CreateODBCDate(startDate), 'mmm d, yyyy')#</p>
+						<p>#LSDateFormat(CreateODBCDate(startDate), request.datemask)#</p>
 
 
 						<label for="endDate">#language.EndDate#:</label>
 						<input type="hidden" id="endDate" name="endDate" value="#CreateODBCDate(endDate)#" />
-						<p>#LSDateFormat(CreateODBCDate(endDate), 'mmm d, yyyy')#</p>
+						<p>#LSDateFormat(CreateODBCDate(endDate), request.datemask)#</p>
 
 
 						<label for="Status">#language.requestedStatus#:</label>

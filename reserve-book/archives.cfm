@@ -104,8 +104,8 @@
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#">
                         <span class="navaid">#language.booking# ###BRID#:</span>
                         #Name# &mdash;
-                        #lsdateformat(CreateODBCDate(startDate), 'mmm d, yyyy')# - 
-                        #lsdateformat(endDate, 'mmm d, yyyy')#
+                        #lsdateformat(CreateODBCDate(startDate), request.datemask)# - 
+                        #lsdateformat(endDate, request.datemask)#
                       </a>
                     </td>
                     <td>
@@ -139,8 +139,8 @@
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#">
                         <span class="navaid">#language.booking# ###BRID#:</span>
                         #Name# &mdash;
-                        #lsdateformat(startDate, 'mmm d, yyyy')# - 
-                        #lsdateformat(endDate, 'mmm d, yyyy')#
+                        #lsdateformat(startDate, request.datemask)# - 
+                        #lsdateformat(endDate, request.datemask)#
                       </a>
                     </td>
                     <td>
@@ -173,8 +173,8 @@
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#">
                         <span class="navaid">#language.booking# ###BRID#:</span>
                         #Name# &mdash;
-                        #lsdateformat(startDate, 'mmm d, yyyy')# - 
-                        #lsdateformat(endDate, 'mmm d, yyyy')#
+                        #lsdateformat(startDate, request.datemask)# - 
+                        #lsdateformat(endDate, request.datemask)#
                       </a>
                     </td>
                     <td>

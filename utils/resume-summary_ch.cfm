@@ -96,12 +96,12 @@
             <legend>#language.bookingsSummary#</legend>
             <div>
               <label for="start">&nbsp; #language.fromDate#<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
-              <input id="start" type="text" name="startDate" class="datepicker startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
+              <input id="start" type="text" name="startDate" class="datepicker startDate" value="#LSDateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
             </div>
             
             <div>
               <label for="end">&nbsp; #language.toDate#<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
-              <input type="text" name="endDate" class="datepicker endDate" id="end" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
+              <input type="text" name="endDate" class="datepicker endDate" id="end" value="#LSDateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
             </div>
 
             <div>

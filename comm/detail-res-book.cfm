@@ -124,7 +124,7 @@
 	</CFIF>
 </cfoutput>
 
-<CFPARAM name="url.date" default="#DateFormat(getBookingDetail.startDate, 'mm/dd/yyyy')#">
+<CFPARAM name="url.date" default="#LSDateFormat(getBookingDetail.startDate, 'mm/dd/yyyy')#">
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
@@ -245,7 +245,7 @@
 
 						<tr>
 							<th>#language.DockingDates#:</th>
-							<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> to #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
+							<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> to #LSDateFormat(EndDate, request.datemask)#</td>
 						</tr>
 
 						<CFIF NOT Anonymous OR userVessel.recordCount GT 0 OR IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
@@ -259,9 +259,9 @@
 						<tr>
 							<th><cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>Time of Booking:<cfelse>#language.bookingDate#:</cfif></th>
 							<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-							<td>#LSDateFormat(BookingTime, 'mmm d, yyyy')# @ #LSTimeFormat(BookingTime, 'HH:mm')#</td>
+							<td>#LSDateFormat(BookingTime, request.datemask)# @ #LSTimeFormat(BookingTime, 'HH:mm')#</td>
 							<cfelse>
-							<td>#LSDateFormat(BookingTime, 'mmm d, yyyy')#</td>
+							<td>#LSDateFormat(BookingTime, request.datemask)#</td>
 							</cfif>
 						</tr>
 						</cfif>

@@ -216,7 +216,7 @@
 
 				<cfoutput>
 				<cfform action="#RootDir#reserve-book/caledemande-dockrequest_action2.cfm?lang=#lang#" method="post" id="bookingreq" preservedata="Yes">
-					<p>#language.bookingFound# #LSDateFormat(Variables.FoundStartDate, 'mmm d, yyyy')# - #LSDateFormat(Variables.FoundEndDate, 'mmm d, yyyy')#.</p>
+					<p>#language.bookingFound# #LSDateFormat(Variables.FoundStartDate, request.datemask)# - #LSDateFormat(Variables.FoundEndDate, request.datemask)#.</p>
 
 					<label for="VNID">#language.vessel#:</label>
 					<input type="hidden" id="VNID"  name="VNID" value="#Form.bookingByRange_VNID#" />
@@ -224,11 +224,11 @@
 
 					<label for="startDate">#language.StartDate#:</label>
 					<input type="hidden" id="startDate" name="startDate" value="#Variables.FoundStartDate#" />
-					<p>#LSDateFormat(CreateODBCDate(Variables.StartDate), 'mmm d, yyyy')#</p>
+					<p>#LSDateFormat(CreateODBCDate(Variables.StartDate), request.datemask)#</p>
 
 					<label for="EndDate">#language.EndDate#:</label>
 					<input type="hidden" id="EndDate" name="EndDate" value="#Variables.FoundEndDate#" />
-					<p>#LSDateFormat(Variables.EndDate, 'mmm d, yyyy')#</p>
+					<p>#LSDateFormat(Variables.EndDate, request.datemask)#</p>
 
 					<label for="Status">#language.requestedStatus#:</label>
 					<input type="hidden" id="Status" name="Status" value="<cfoutput>#Form.Status#</cfoutput>">

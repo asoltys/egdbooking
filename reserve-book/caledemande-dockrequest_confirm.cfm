@@ -203,11 +203,11 @@
 
             <label for="StartDate">#language.StartDate#:</label>
             <input type="hidden" id="StartDate" name="StartDate" value="#Variables.StartDate#" />
-            <p>#LSDateFormat(Variables.StartDate, 'mmm d, yyyy')#</p>
+            <p>#LSDateFormat(Variables.StartDate, request.datemask)#</p>
 
             <label for="EndDate">#language.EndDate#:</label>
             <input type="hidden" id="EndDate" name="EndDate" value="#Variables.EndDate#" />
-            <p>#LSDateFormat(Variables.EndDate, 'mmm d, yyyy')#</p>
+            <p>#LSDateFormat(Variables.EndDate, request.datemask)#</p>
 
             <label for="Status">#language.requestedStatus#:</label>
             <input type="hidden" id="Status" name="Status" value="#Form.Status#" />

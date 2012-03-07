@@ -16,7 +16,7 @@
         <label for="year">#language.year#</label>
         <select name="a-y" id="year">
           <CFLOOP index="i" from="-5" to="25">
-            <cfset year = #DateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
+            <cfset year = #LSDateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
             <option <cfif year eq url['a-y']>selected="selected"</cfif>>#year#</option>
           </CFLOOP>
         </select>
@@ -89,7 +89,7 @@ summary="#language.calendar#">
 			</cfif>
 			<td>
 				<cfif not (Variables.DateCounter IS 0) AND NOT (Variables.DateCounter GT Variables.LastDayofMonth)>
-					<cfset taday = DateFormat(CreateDate(url['a-y'], url['m-m'], DaysofMonth[DateCounter]), "yyyy-MM-dd")>
+					<cfset taday = LSDateFormat(CreateDate(url['a-y'], url['m-m'], DaysofMonth[DateCounter]), "yyyy-MM-dd")>
           <strong>#DaysofMonth[DateCounter]#</strong>
 
 					<cfquery name="GetEventsonDay" dbtype="query">

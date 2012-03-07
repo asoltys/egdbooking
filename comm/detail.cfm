@@ -164,7 +164,7 @@
 					</tr>
 					<tr>
 						<th scope="row" id="Dates">#language.Dates#:</th>
-						<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
+						<td>#LSDateFormat(StartDate, request.datemask)#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, request.datemask)#</td>
 					</tr>
 				</table>
 				</cfloop>
@@ -221,7 +221,7 @@
 					</CFIF>
 					<tr>
 						<th scope="row">#language.DockingDates#:</th>
-						<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
+						<td>#LSDateFormat(StartDate, request.datemask)#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, request.datemask)#</td>
 					</tr>
 				</table>
 				</cfloop>
@@ -242,7 +242,6 @@
 					</tr>
 					<tr>
 						<th scope="row">#language.Dates#:</th>
-						<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
 					</tr>
 				</table>
 
@@ -300,7 +299,7 @@
 					</CFIF>
 					<tr>
 						<th scope="row">#language.DockingDates#:</th>
-						<td>#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #LSDateFormat(EndDate, "mmm d, yyyy")#</td>
+						<td>#LSDateFormat(StartDate, request.datemask)# #language.to# #LSDateFormat(EndDate, request.datemask)#</td>
 					</tr>
 				</table>
 

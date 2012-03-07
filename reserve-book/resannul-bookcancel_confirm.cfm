@@ -90,7 +90,7 @@
 				<form action="#RootDir#reserve-book/resannul-bookcancel_action.cfm?lang=#lang#&amp;CID=#getBooking.CID#" id="cancelBooking" method="post">
           <fieldset>
             <legend>#language.confirm#</legend>
-            <p>#language.areYouSure# <strong>#getBooking.VesselName#</strong> #language.from# #LSDateFormat(getBooking.StartDate, 'mmm d, yyyy')# #language.to# #LSDateFormat(getBooking.endDate, 'mmm d, yyyy')#?</p>
+            <p>#language.areYouSure# <strong>#getBooking.VesselName#</strong> #language.from# #LSDateFormat(getBooking.StartDate, request.datemask)# #language.to# #LSDateFormat(getBooking.endDate, request.datemask)#?</p>
             <input type="hidden" name="BRID" value="#url.BRID#" />
             <input type="hidden" name="jetty" value="#url.jetty#" />
             <input type="submit" value="#language.Confirm#" class="textbutton" />

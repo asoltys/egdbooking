@@ -28,8 +28,10 @@
 
     <cfif lcase(url.lang) EQ "eng">
       <cfset SetLocale("English (Canadian)")>
+      <cfset request.datemask = "mmm d, yyyy" />
     <cfelseif lcase(url.lang) EQ "fra">
       <cfset SetLocale("French (Canadian)")>
+      <cfset request.datemask = "d mmm, yyyy" />
     </cfif>
 
     <cfset Variables.MaxLength = 347.67>
