@@ -28,8 +28,8 @@
       <cfset request.longdatemask = "mmmm d, yyyy" />
     <cfelseif lcase(url.lang) EQ "fra">
       <cfset SetLocale("French (Canadian)")>
-      <cfset request.datemask = "d mmm, yyyy" />
-      <cfset request.longdatemask = "d mmmm, yyyy" />
+      <cfset request.datemask = "d mmmm yyyy" />
+      <cfset request.longdatemask = "d mmmm yyyy" />
     </cfif>
 
     <cfquery name="getEmail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
