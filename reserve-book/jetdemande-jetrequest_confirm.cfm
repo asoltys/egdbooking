@@ -1,5 +1,5 @@
 <cfif not StructKeyExists(Form, 'StartDate')>
-  <cflocation url="#RootDir#reserve-book/jetdemande-jetrequest.cfm&amp;lang=#lang#" addtoken="no" />
+  <cflocation url="#RootDir#reserve-book/jetdemande-jetrequest.cfm?lang=#lang#" addtoken="no" />
 </cfif>
 
 <cfinclude template="#RootDir#includes/build_form_struct.cfm">
