@@ -209,7 +209,7 @@ summary="#language.calendar#">
               </a>
               <a class="legend" href="###sec#">
                 <sup title="#legend[bloop]#">
-                  <span class="navaid">#bloop# - #legend[bloop]#</span>#bloop#
+                  <span class="navaid">#bloop# - #legend[bloop]#</span>
                 </sup>
               </a>
             </div>
@@ -226,7 +226,7 @@ summary="#language.calendar#">
               </a>
               <a href="##tentative" class="legend tentative">
                 <sup title="#legend[4]#">
-                  <span class="navaid">#legend[4]#</span>4
+                  <span class="navaid">#legend[4]#</span>
                 </sup>
               </a>
             </div>
@@ -240,11 +240,11 @@ summary="#language.calendar#">
               <a href="##pending" class="legend pending">
                 <cfif sec3.name NEQ "">
                   <sup title="#legend[5]#">
-                    <span class="navaid">#legend[5]#</span>5
+                    <span class="navaid">#legend[5]#</span>
                   </sup>
                 <cfelse>
                   <sup title="#legend[3]#">
-                    <span class="navaid">#legend[3]#</span>3
+                    <span class="navaid">#legend[3]#</span>
                   </sup>
                 </cfif>
               </a>
