@@ -1,5 +1,5 @@
 <cfoutput>
-	<table class="keytable">
+	<table class="keytable" summary="#language.legendSummary#">
 		<tr><th colspan="2">#language.Key#</th></tr>
 		<tr id="sec1">
       <td class="sec1"><a name="sec1">#legend[1]#</a></td>

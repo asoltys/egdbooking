@@ -100,6 +100,7 @@
   <cfset language.NLWTableSummary = "List of north landing wharf bookings" />
   <cfset language.SJTableSummary = "List of south jetty bookings" />
   <cfset language.detailTableSummary = "Booking details" />
+  <cfset language.legendSummary = "Explains how different booking types are represented on the calendar" />
   <cfset language.logoutButton = "Logout">
 <cfelse>
   <cfset language.bookingHome = "Accueil - R&eacute;servation">
@@ -113,6 +114,7 @@
   <cfset language.DrydockTableSummary = "Liste des r&##233;servations en cale s&##232;che" />
   <cfset language.NLWTableSummary = "Liste des r&##233;servations en quai de d&eacute;barquement nord" />
   <cfset language.SJTableSummary = "Liste des r&##233;servations en jet&eacute;e sud" />
+  <cfset language.legendSummary = "Explique comment les types de r&##233;servation diff&##233;rents sont repr&##233;sent&##233;s sur le calendrier" />
   <cfset language.detailTableSummary = "Renseignements sur le r&##233;servation" />
   <cfset language.logoutButton = "Fermer la session">
 </cfif>
