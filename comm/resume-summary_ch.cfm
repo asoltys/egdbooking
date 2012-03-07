@@ -1,7 +1,7 @@
 <cfoutput>
 <cfif lang EQ "eng">
 	<cfset language.bookingsSummary = "Bookings Summary">
-  <cfset language.ScreenMessage = '<p>Please use the pop-up calendar to enter the range of dates you would like to view.  To start from the first booking record, clear the <em>From Date</em> field.  To end after the last booking record, clear the <em>To Date</em> field.  To see all records, clear both fields.</p>'>
+  <cfset language.ScreenMessage = '<p>To start from the first booking record, clear the <em>From Date</em> field.  To end after the last booking record, clear the <em>To Date</em> field.  To see all records, clear both fields.</p>'>
 	<cfset language.description = "Allows user to view a summary of all bookings from present onward.">
 	<cfset language.vesselCaps = "VESSEL">
 	<cfset language.dockingCaps = "DOCKING DATES">
@@ -20,7 +20,7 @@
 	<cfset language.clear = "clear">
 <cfelse>
 	<cfset language.bookingsSummary = "R&eacute;sum&eacute; des r&eacute;servations">
-	<cfset language.ScreenMessage = "<p>Veuillez utiliser le calendrier de type &laquo;&nbsp;fen&ecirc;tre flash&nbsp;&raquo; pour entrer la p&eacute;riode que vous souhaitez voir. Pour d&eacute;buter au premier dossier de r&eacute;servation, vider le champ &laquo;&nbsp;Date de d&eacute;but&nbsp;&raquo;. Pour terminer apr&egrave;s le dernier dossier de r&eacute;servation, vider le champ &laquo;&nbsp;Date de fin&nbsp;&raquo;. Pour voir tous les dossiers, vider les deux champs.</p>">
+	<cfset language.ScreenMessage = "<p>Pour d&eacute;buter au premier dossier de r&eacute;servation, vider le champ &laquo;&nbsp;Date de d&eacute;but&nbsp;&raquo;. Pour terminer apr&egrave;s le dernier dossier de r&eacute;servation, vider le champ &laquo;&nbsp;Date de fin&nbsp;&raquo;. Pour voir tous les dossiers, vider les deux champs.</p>">
 	<cfset language.description = "Permet &agrave; l'utilisateur de voir un r&eacute;sum&eacute; de toutes les r&eacute;servations, depuis le moment pr&eacute;sent.">
 	<cfset language.vesselCaps = "NAVIRE">
 	<cfset language.dockingCaps = "DATES D'AMARRAGE">
