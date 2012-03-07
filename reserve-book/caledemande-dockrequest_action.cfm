@@ -122,7 +122,7 @@
 <cfset Variables.AdminEmail = DevEmail />
 </cfif>
 		<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Drydock Booking Requested" type="html">
-	<p>#getUser.userName# of #getUser.companyName# has requested a <strong>#variables.status#</strong> drydock booking for #getDetails.VesselName# from #LSDateFormat(Form.StartDate, request.datemask)# to #LSDateFormat(Form.EndDate, request.datemask)#.</p>
+	<p>#getUser.userName# of #getUser.companyName# has requested a <strong>#variables.status#</strong> drydock booking for #getDetails.VesselName# from #DateFormat(Form.StartDate, request.datemask)# to #DateFormat(Form.EndDate, request.datemask)#.</p>
 		</cfmail>
 	</cfoutput>
 
