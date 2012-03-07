@@ -133,8 +133,8 @@
             <div>
               <label for="StartDate">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
-                #language.StartDate#
-                <br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>:
+                #language.StartDate#:
+                <br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>
                 #error('StartDate')#
               </label>
               <input id="StartDate" name="startDate" type="text" class="datepicker startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> 
