@@ -101,26 +101,32 @@ function EditSubmit ( selectedform )
               <legend>#language.CreateUser#</legend>
               <p>#language.requiredFields#</p>
 
-              <label for="firstname"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.FirstName#:</label>
-              <input name="firstname" type="text" value="#variables.firstName#" size="23" maxlength="40" id="firstname" />
-              <br />
+              <div>
+                <label for="firstname"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.FirstName#:</label>
+                <input name="firstname" type="text" value="#variables.firstName#" size="23" maxlength="40" id="firstname" />
+              </div>
 
-              <label for="lastname"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.LastName#:</label>
-              <input name="lastname" type="text" value="#variables.lastName#" size="23" maxlength="40" id="lastname" />
-              <br />
+              <div>
+                <label for="lastname"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.LastName#:</label>
+                <input name="lastname" type="text" value="#variables.lastName#" size="23" maxlength="40" id="lastname" />
+              </div>
 
-              <label for="password1"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Password#:</label>
-              <input type="password" name="password1" id="password1" size="23" />
-                <span class="smallFont">(*min. 8 #language.characters#)</span>
-              <br />
+              <div>
+                <label for="password1"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Password#:<br />
+                  <small>(min. 8 #language.characters#)</small>
+                </label>
+                <input type="password" name="password1" id="password1" size="23" />
+              </div>
 
-              <label for="password2"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.RepeatPassword#:</label>
-              <input type="password" name="password2" id="password2"  size="23" />
-              <br />
+              <div>
+                <label for="password2"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.RepeatPassword#:</label>
+                <input type="password" name="password2" id="password2"  size="23" />
+              </div>
 
-              <label for="email"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Email#:</label>
-              <input name="email" type="text" value="#variables.email#" size="40" maxlength="100" id="email" />
-              <br />
+              <div>
+                <label for="email"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Email#:</label>
+                <input name="email" type="text" value="#variables.email#" size="40" maxlength="100" id="email" />
+              </div>
 
               <input type="submit" value="#language.continue#" class="textbutton" />
             </fieldset>
