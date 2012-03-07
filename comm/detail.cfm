@@ -40,11 +40,11 @@
 <cfoutput>
 
 <cfsavecontent variable="head">
-	<meta name="dc.title" content="#language.detailsFor# #myDateFormat(URL.date, "mmmm dd, yyyy")# - #language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#" />
+	<meta name="dc.title" content="#language.detailsFor# #myDateFormat(URL.date, request.longdatemask)# - #language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#" />
 	<meta name="keywords" content="#Language.masterKeywords#, #language.bookingDetail#" />
 	<meta name="description" content="#language.description#" />
 	<meta name="dc.subject" scheme="gccore" content="#Language.masterSubjects#" />
-	<title>#language.detailsFor# #myDateFormat(URL.date, "mmmm dd, yyyy")# - #language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#</title>
+	<title>#language.detailsFor# #myDateFormat(URL.date, request.longdatemask)# - #language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#</title>
 </cfsavecontent>
 <cfhtmlhead text="#head#">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
@@ -74,7 +74,7 @@
 			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					#language.DetailsFor# #myDateFormat(URL.date, "mmmm dd, yyyy")#
+					#language.DetailsFor# #myDateFormat(URL.date, request.longdatemask)#
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
@@ -305,7 +305,7 @@
 
 
 				</cfloop>
-				<CFIF getJettyDetail.RecordCount eq 0 AND getJettyMaintenanceDetail.RecordCount eq 0>#language.noBookings#</CFIF>
+        <CFIF getJettyDetail.RecordCount eq 0 AND getJettyMaintenanceDetail.RecordCount eq 0><p>#language.noBookings#</p></CFIF>
 
 			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
