@@ -37,7 +37,7 @@
 <meta name="keywords" content="cale seche d'Esquimalt, reservation pour travaux, reparation de navires, bateaux, entretien de navires, cale seche, bassin de radoub, chantier naval" />
 <meta name="description" content="Reservation pour travaux le Cale seche d'Esquimalt" />
 <meta name="dc.subject" scheme="gccore" content="#language.masterSubjects#" />
-<title>R&eacute;servation pour travaux le CSE - Cale sèche d'Esquimalt - TPSGC</title>
+<title>R&eacute;servation pour travaux le CSE - Cale s&egrave;che d'Esquimalt - TPSGC</title>
 
 <meta name="pwgsc.contact.email" content="egd-cse@pwgsc-tpsgc.gc.ca" />
 <!-- FIN DES METADONNEES | METADATA ENDS -->
