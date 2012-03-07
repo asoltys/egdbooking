@@ -299,6 +299,46 @@
 	<cfset language.notEditVesselDimensions = "Vous ne pouvez pas modifier les dimensions du navire, parce que ce dernier fait l'objet de r&eacute;servations confirm&eacute;es. Pour apporter des changements aux dimensions, pri&egrave;re de communiquer avec l'administration de la CSE.">
 </cfif>
 
+<cfif lang EQ "eng">
+	<cfset language.ScreenMessage = "Il n'existe aucune activit&eacute; &agrave; afficher.">
+	<cfset language.go = "Go">
+	<cfset language.viewInfo = "Click on a date to view booking information.">
+	<cfset language.legend = "Legend">
+	<cfset language.bookingtype = "Booking Type">
+	<cfset language.sec = "Dock Section">
+	<cfset language.tentBook = "Tentative Booking">
+	<cfset language.pendBook = "Pending Booking">
+	<cfset language.confBook = "Confirmed Booking">
+	<cfset language.sec1 = "Confirmed in Section 1 of Drydock">
+	<cfset language.sec2 = "Confirmed in Section 2 of Drydock">
+	<cfset language.sec3 = "Confirmed in Section 3 of Drydock">
+	<cfset language.pendBook = "Pending Booking">
+	<cfset language.tentBook = "Tentative Booking">
+	<cfset language.confBook = "Confirmed Booking">
+	<cfset language.prev = "previous">
+	<cfset language.next = "next">
+<cfelse>
+	<cfset language.ScreenMessage = "There are no events available for display">
+	<cfset language.go = "Afficher">
+	<cfset language.viewInfo = "Cliquez sur une date pour voir les renseignements sur la r&eacute;servation.">
+	<cfset language.legend = "L&eacute;gende">
+	<cfset language.bookingtype = "Type de r&eacute;servation">
+	<cfset language.sec = "Section de la cale s&egrave;che">
+	<cfset language.tentBook = "R&eacute;servation provisoire">
+	<cfset language.pendBook = "R&eacute;servation en traitement">
+	<cfset language.confBook = "R&eacute;servation confirm&eacute;e">
+	<cfset language.sec1 = "Section 1 de la cale s&egrave;che confirm&eacute;e">
+	<cfset language.sec2 = "Section 2 de la cale s&egrave;che confirm&eacute;e">
+	<cfset language.sec3 = "Section 3 de la cale s&egrave;che confirm&eacute;e">
+	<cfset language.pendBook = "R&eacute;servation en traitement">
+	<cfset language.tentBook = "R&eacute;servation provisoire">
+	<cfset language.confBook = "R&eacute;servation confirm&eacute;e">
+	<cfset language.prev = "pr&eacute;c&eacute;dent">
+	<cfset language.next = "suivant">
+</cfif>
+
+
+
 <cffunction name="decodeHtmlEntity" returntype="String" output="false">
     <cfargument name="Entity" type="String" hint="&##<number>; or &<name>;" />
     <cfset var XmlDoc = XmlParse('<xml>#Arguments.Entity#</xml>') />

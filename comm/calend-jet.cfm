@@ -8,31 +8,12 @@
 	<cfset url['a-y'] = form['a-y'] />
 </cfif>
 <cfif lang EQ "eng">
-	<cfset language.ScreenMessage = "There are no events available for display">
 	<cfset language.description = "Allows user to view all bookings in the jetties in a given month.">
 	<cfset language.keywords = "Calendar, one month view, 1 month view, drydock side">
-	<cfset language.go = "Go">
-	<cfset language.viewInfo = "Click on a date to view booking information.">
-	<cfset language.bookingtype = "Booking Type">
-	<cfset language.sec = "Dock Section">
-	<cfset language.pendBook = "Pending Booking">
-	<cfset language.tentBook = "Tentative Booking">
-	<cfset language.confBook = "Confirmed Booking">
-	<cfset language.prev = "previous">
-	<cfset language.next = "next">
+
 <cfelse>
-	<cfset language.ScreenMessage = "Il n'existe aucune activit&eacute; &agrave; afficher.">
 	<cfset language.description = "Permet &agrave; l'utilisateur de voir toutes les r&eacute;servations concernant les jet&eacute;es pour un mois donn&eacute;.">
 	<cfset language.keywords = "Calendrier,  visualisation d'un mois, visualisation de 3 mois, secteur de la jet&eacute;e">
-	<cfset language.go = "Afficher">
-	<cfset language.viewInfo = "Cliquez sur une date pour voir les renseignements sur la r&eacute;servation.">
-	<cfset language.bookingtype = "Type de r&eacute;servation">
-	<cfset language.sec = "Section de la cale s&egrave;che">
-	<cfset language.pendBook = "R&eacute;servation en traitement">
-	<cfset language.tentBook = "R&eacute;servation provisoire">
-	<cfset language.confBook = "R&eacute;servation confirm&eacute;e">
-	<cfset language.prev = "pr&eacute;c&eacute;dent">
-	<cfset language.next = "suivant">
 </cfif>
 
 <cfhtmlhead text="

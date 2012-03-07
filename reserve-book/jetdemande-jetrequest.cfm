@@ -89,7 +89,7 @@
 
 				<cfinclude template="#RootDir#includes/getStructure.cfm">
 				<cfinclude template="#RootDir#includes/restore_params.cfm">
-				<cfif isDefined("session.form_structure")>
+				<cfif isDefined("session.form_structure") and structKeyExists(form, 'VNID')>
 					<cfset Variables.VNID = #form.VNID#>
 					<cfset Variables.startDate = #form.startDate#>
 					<cfset Variables.endDate = #form.endDate#>
