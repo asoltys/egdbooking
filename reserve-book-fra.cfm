@@ -33,7 +33,7 @@
 <meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
 <meta name="dcterms.modified" scheme="W3CDTF" content="#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#" />
 
-<meta name="dc.title" content="R&eacute;servation pour travaux le CSE - Cale sèche d'Esquimalt - TPSGC" />
+<meta name="dc.title" content="R&eacute;servation pour travaux le CSE - Cale s&egrave;che d'Esquimalt - TPSGC" />
 <meta name="keywords" content="cale seche d'Esquimalt, reservation pour travaux, reparation de navires, bateaux, entretien de navires, cale seche, bassin de radoub, chantier naval" />
 <meta name="description" content="Reservation pour travaux le Cale seche d'Esquimalt" />
 <meta name="dc.subject" scheme="gccore" content="#language.masterSubjects#" />
