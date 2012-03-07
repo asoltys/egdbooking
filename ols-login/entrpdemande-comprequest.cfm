@@ -76,27 +76,29 @@
 
 	<cfif getUser.RecordCount GT 0>
 		<cfoutput>#ArrayAppend(Variables.Errors, "#language.emailExistsError#")#</cfoutput>
+    <cfset session['errors']['email'] = language.emailExistsError />
 		<cfset Proceed_OK = "No">
 	</cfif>
 	<cfif Len(trim(Form.Password1)) LT 8>
-		<cfoutput>#ArrayAppend(Variables.Errors, "#language.pass1ShortError# ")#</cfoutput>
+    <cfset session['errors']['password1'] = language.pass1ShortError />
 		<cfset Proceed_OK = "No">
 	<cfelseif Form.Password1 NEQ Form.Password2>
-		<cfoutput>#ArrayAppend(Variables.Errors, "#language.unmatchedPasswordsError#")#</cfoutput>
+    <cfset session['errors']['password1'] = language.unmatchedPasswordsError />
+    <cfset session['errors']['password2'] = language.unmatchedPasswordsError />
 		<cfset Proceed_OK = "No">
 	</cfif>
 
 	<cfif trim(form.firstname) EQ "">
-		<cfoutput>#ArrayAppend(Variables.Errors, "#language.firstnameError#")#</cfoutput>
+    <cfset session['errors']['firstname'] = language.firstNameError />
 		<cfset Proceed_OK = "No">
 	</cfif>
 	<cfif trim(form.lastname) EQ "">
-		<cfoutput>#ArrayAppend(Variables.Errors, "#language.lastnameError#")#</cfoutput>
+    <cfset session['errors']['lastname'] = language.lastnameError />
 		<cfset Proceed_OK = "No">
 	</cfif>
 
 	<cfif NOT REFindNoCase("^([a-zA-Z_\.\-\']*[a-zA-Z0-9_\.\-\'])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$",#trim(Form.Email)#)>
-		<cfoutput>#ArrayAppend(Variables.Errors, "#language.invalidEmailError#")#</cfoutput>
+    <cfset session['errors']['email'] = language.invalidEmailError />
 		<cfset Proceed_OK = "No">
 	</cfif>
 

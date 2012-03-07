@@ -25,27 +25,11 @@
 <cfset Proceed_OK = "Yes">
 
 <cfif Len(companyList) EQ 0>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.noCompaniesError#")#</cfoutput>
+  <cfset session['errors']['email'] = language.noCompaniesError />
 	<cfset Proceed_OK = "No">
 </cfif>
 
-<!---<CFIF trim(form.firstname) eq ''>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.firstNameError#")#</cfoutput>
-	<cfset Proceed_OK = "No">
-</CFIF>
 
-<CFIF trim(form.lastname) eq ''>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.lastNameError#")#</cfoutput>
-	<cfset Proceed_OK = "No">
-</CFIF>
-
-<CFIF len(trim(form.password1)) LT 6>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.pass1ShortError#")#</cfoutput>
-	<cfset Proceed_OK = "No">
-<CFELSEIF trim(form.password1) neq trim(form.password2)>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.mismatchedPassError#")#</cfoutput>
-	<cfset Proceed_OK = "No">
-</CFIF>--->
 
 <cfif Proceed_OK EQ "No">
 	<cfinclude template="#RootDir#includes/build_return_struct.cfm">
@@ -53,52 +37,12 @@
 	<cflocation url="entrpdemande-comprequest.cfm?lang=#lang#&info=#url.info#" addtoken="no">
 </cfif>
 
-<!---<cfquery name="getDeletedUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-	SELECT 	Email
-	FROM 	Users
-	WHERE 	Email = '#trim(form.Email)#'
-	AND 	Deleted = 1
-</cfquery>--->
-
 <cfquery name="getUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT 	Email
 	FROM	Users
 	WHERE 	EMail = <cfqueryparam value="#trim(form.Email)#" cfsqltype="cf_sql_varchar" />
 	AND		Deleted = '0'
 </cfquery>
-
-<!---<cfif getDeletedUser.recordcount GT 0>
-	<cftransaction>
-		<cfquery name="reviveUser" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			UPDATE Users
-			SET
-				<!---LoginID = '#trim(form.loginID)#',--->
-				FirstName = '#trim(form.firstname)#',
-				LastName = '#trim(form.lastname)#',
-				Password = '#trim(form.password1)#',
-				Deleted = 0
-			WHERE Email = '#trim(form.Email)#'
-		</cfquery>
-		
-		<cfquery name="getID" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-			SELECT 	UID
-			FROM 	Users
-			WHERE 	EMail = '#trim(form.Email)#'
-		</cfquery>
-		
-		<cfloop list="companyList" index="CID">
-			<cfquery name="companyRequests" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-				INSERT INTO	UserCompanies(UID, CID)
-				VALUES		(#getID.UID#, #CID#)
-			</cfquery>
-		</cfloop>
-	</cftransaction>
-	
-<cfoutput>
-	<cfmail to="#Variables.AdminEmail#" from="#form.Email#" subject="Reactivating Account" type="html">
-#form.firstname# #form.lastname#, has requested to reactivate his/her account.
-	</cfmail>
-</cfoutput>--->
 	
 <cfif getUser.recordcount EQ 0>
 	<cfscript>
