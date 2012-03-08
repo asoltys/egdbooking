@@ -79,7 +79,7 @@
 </cfquery>
 
 <cfif getVessel.RecordCount EQ 0>
-  <cfset session['errors']['booking_VNIDB'] = language.noVesselError />
+  <cfset session['errors']['bookingByRange_VNIDB'] = language.noVesselError />
 	<cfset Proceed_OK = "No">
 </cfif>
 

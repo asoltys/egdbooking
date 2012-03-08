@@ -123,7 +123,7 @@
             <div>
               <label for="booking_VNID">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.vessel#:
-                #error('booking_VNID')#
+                #error('booking_VNIDA')#
               </label>
               <select id="booking_VNID" name="booking_VNID">
                 <option value="">(#language.chooseVessel#)</option>
@@ -182,7 +182,7 @@
             <div>
               <label for="bookingByRange_VNID">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.vessel#:
-                #error('bookingByRange_VNID')#
+                #error('bookingByRange_VNIDB')#
               </label>
               <select id="bookingByRange_VNID" name="bookingByRange_VNID">
                 <option value="">(#language.chooseVessel#)</option>
