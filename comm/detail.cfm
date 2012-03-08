@@ -186,7 +186,7 @@
 
 				<table class="details" summary="#language.detailTableSummary#">
 					<tr id="booking-#BRID#">
-						<th scope="row" colspan="2"><CFIF Status eq 'c'><strong></cfif><cfif #EndHighlight# GTE PacificNow>* </cfif>
+						<th scope="row" colspan="2"><CFIF Status eq 'c'><strong></cfif>
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
 								#language.Deepsea#
 							<CFELSE>
@@ -265,7 +265,6 @@
 					<tr id="booking-#BRID#">
 						<th scope="row" colspan="2">
 						<CFIF Status eq 'c'><strong></cfif>
-							<cfif #EndHighlight# GTE PacificNow>* </cfif>
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND NOT IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
 								#language.Deepsea#
 							<CFELSE>
