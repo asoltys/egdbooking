@@ -186,7 +186,7 @@
 
 				<table class="details" summary="#language.detailTableSummary#">
 					<tr id="booking-#BRID#">
-						<th scope="row" colspan="2">
+						<th scope="col" colspan="2">
 							<cfif Anonymous AND #evaluate(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
 								#language.Deepsea#
 							<cfelse>
@@ -235,10 +235,10 @@
 				<cfloop query="getJettyMaintenanceDetail">
           <table class="details" summary="#language.detailTableSummary#">
             <tr>
-              <th scope="row" colspan="2">#language.MaintenanceBlock#</th>
+              <th scope="col" colspan="2">#language.MaintenanceBlock#</th>
             </tr>
             <tr>
-              <th scope="row" colspan="2">#language.closedForMaint#</th>
+              <th scope="col" colspan="2">#language.closedForMaint#</th>
             </tr>
             <tr>
               <th scope="row">#language.SectionsBooked#:</th>
@@ -266,7 +266,7 @@
 
 				<table class="details" summary="#language.detailTableSummary#">
 					<tr id="booking-#BRID#">
-						<th scope="row" colspan="2">
+						<th scope="col" colspan="2">
 							<cfif Anonymous AND #evaluate(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
 								#language.Deepsea#
 							<cfelse>
