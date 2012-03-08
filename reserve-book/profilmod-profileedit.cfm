@@ -144,7 +144,7 @@ function EditSubmit ( selectedform )
 				<cfoutput>
 					<form action="#RootDir#reserve-book/profilmod-profileedit_action.cfm?lang=#lang#" id="editUserForm" method="post">
 						<fieldset>
-              <legend style="display: block; text-decoration: none; border: none;"><h2>#language.editNameAndEmail#</h2></legend>
+              <legend style="display: block; text-decoration: none; border: none;">#language.editNameAndEmail#</legend>
               <p>#language.requiredFields#</p>
 
 							<div>
@@ -185,7 +185,7 @@ function EditSubmit ( selectedform )
 				<cfoutput>
 					<form action="#RootDir#reserve-book/passechange.cfm?lang=eng" method="post" id="changePassForm">
 						<fieldset>
-              <legend style="display: block; text-decoration: none; border: none;"><h2>#language.ChangePassword#</h2></legend>
+              <legend style="display: block; text-decoration: none; border: none;">#language.ChangePassword#</legend>
               <p>#language.requiredFields#</p>
 
 							<div>

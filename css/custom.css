@@ -248,6 +248,7 @@ form {
 	background-color: #fff;
 	padding: 1em;
   overflow: hidden;
+  margin-bottom: 1em;
 }
 
 form.noBorder {
