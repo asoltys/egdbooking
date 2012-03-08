@@ -298,7 +298,7 @@
                     </cfif>
                   </a>
                 <cfelse>
-                  <a href="#RootDir#admin/DockBookings/deleteBooking_confirm.cfm?lang=#lang#& BRID=#url.BRID#&amp;CID=#getBookingDetail.CID#&referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">
+                  <a href="#RootDir#admin/DockBookings/deleteBooking_confirm.cfm?lang=#lang#&BRID=#url.BRID#&amp;CID=#getBookingDetail.CID#&referrer=Booking%20Details&amp;date=#url.date#" class="textbutton">
                     <cfif bookingIsInPast>
                       #language.DeleteBooking#
                     <cfelse>
