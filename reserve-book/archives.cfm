@@ -94,6 +94,8 @@
               <thead>
                 <tr>
                   <th scope="col">#language.booking#</th>
+									<th scope="col">#language.startdate#</th>
+									<th scope="col">#language.enddate#</th>
                   <th scope="col">#language.status#</th>
                 </tr>
               </thead>
@@ -103,11 +105,11 @@
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#">
                         <span class="navaid">#language.booking# ###BRID#:</span>
-                        #Name# &mdash;
-                        #myDateFormat(CreateODBCDate(startDate), request.datemask)# - 
-                        #myDateFormat(endDate, request.datemask)#
+                        #Name#
                       </a>
                     </td>
+                    <td>#myDateFormat(CreateODBCDate(startDate), request.datemask)#</td>
+                    <td>#myDateFormat(endDate, request.datemask)#</td>
                     <td>
                       <cfif status EQ "PT">#language.pending#
                       <cfelseif status EQ "C">#language.confirmed#
@@ -129,6 +131,8 @@
               <thead>
                 <tr>
                   <th scope="col">#language.booking#</th>
+									<th scope="col">#language.startdate#</th>
+									<th scope="col">#language.enddate#</th>
                   <th scope="col">#language.status#</th>
                 </tr>
               </thead>
@@ -138,11 +142,11 @@
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#">
                         <span class="navaid">#language.booking# ###BRID#:</span>
-                        #Name# &mdash;
-                        #myDateFormat(startDate, request.datemask)# - 
-                        #myDateFormat(endDate, request.datemask)#
+                        #Name#
                       </a>
                     </td>
+                    <td>#myDateFormat(CreateODBCDate(startDate), request.datemask)#</td>
+                    <td>#myDateFormat(endDate, request.datemask)#</td>
                     <td>
                       <cfif NOT status eq 'c'>#language.pending#
                       <cfelse>#language.confirmed#</cfif>
@@ -163,6 +167,8 @@
               <thead>
                 <tr>
                   <th scope="col">#language.booking#</th>
+									<th scope="col">#language.startdate#</th>
+									<th scope="col">#language.enddate#</th>
                   <th scope="col">#language.status#</th>
                 </tr>
               </thead>
@@ -172,11 +178,11 @@
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#">
                         <span class="navaid">#language.booking# ###BRID#:</span>
-                        #Name# &mdash;
-                        #myDateFormat(startDate, request.datemask)# - 
-                        #myDateFormat(endDate, request.datemask)#
+                        #Name#
                       </a>
                     </td>
+                    <td>#myDateFormat(CreateODBCDate(startDate), request.datemask)#</td>
+                    <td>#myDateFormat(endDate, request.datemask)#</td>
                     <td>
                       <cfif NOT status eq 'c'>#language.pending#
                       <cfelse>#language.confirmed#</cfif>
