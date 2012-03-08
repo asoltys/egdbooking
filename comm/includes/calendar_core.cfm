@@ -175,7 +175,7 @@ summary="#language.calendar#">
 							} else {
 								tent.name = tent.num & " #language.tentative#";
 							}
-						} else if (Status eq 'p') {  // pending
+						} else if (Status eq 'P' or Status eq 'PT' or Status eq 'PC') {  // pending
 							pend.num = pend.num + 1;
 							if (pend.num eq 1) {
 								pend.name = "#language.pending#";

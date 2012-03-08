@@ -327,7 +327,7 @@
 					</a></h1>
 
 				<div class="content">
-					<p>#language.Welcome#, #Session.Firstname# #Session.LastName#!</p>
+					<p>#language.Welcome# #Session.Firstname# #Session.LastName#!</p>
           <cfinclude template="#RootDir#includes/notice.cfm" />
           <cfinclude template="#RootDir#includes/user_menu.cfm">
 
@@ -351,9 +351,7 @@
 					</div>
 				</cfif>
 
-        #GetLocaleDisplayName()#
-
-        <h2>#language.Vessel#(s)</h2>
+        <h2>#language.Vessel#s</h2>
           <cfif getVessels.recordCount EQ 0>
             <p>#language.None#</p>
           <cfelse>
