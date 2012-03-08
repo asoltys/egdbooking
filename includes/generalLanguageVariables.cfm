@@ -218,7 +218,7 @@
 	<cfset language.endError = "Please enter an end date."--->
 <cfelse>
   <cfset language.required = "Champ obligatoire" />
-  <cfset language.requiredFields = "<p>Les champs obligatoires sont signal&eacute;s par un ast&eacute;risque (<abbr class=""required"" title=""#language.required#"">*</abbr>).</p>" />
+  <cfset language.requiredFields = "Les champs obligatoires sont signal&eacute;s par un ast&eacute;risque (<abbr class=""required"" title=""#language.required#"">*</abbr>)." />
 	<cfset language.agent = "Agent">
 	<cfset language.startDate = "Date de d&eacute;but">
 	<cfset language.endDate = "Date de fin">
