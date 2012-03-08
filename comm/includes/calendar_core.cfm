@@ -197,7 +197,7 @@ summary="#language.calendar#">
               <div class="maintenance">
                 <a href="detail.cfm?lang=#lang#&amp;date=#taday###booking-#BRID#" class="maintenance" title="#taday# #language.maintenance#">
                   <span class="navaid" rel="nofollow">
-                    #language.detailsFor# #language.maintenance# - #taday#
+                    #taday# - #language.detailsFor#
                   </span> 
                   #language.maintenance#
                 </a>
@@ -205,7 +205,7 @@ summary="#language.calendar#">
             <cfelseif vessel_name neq "">
             <div class="vessel #sec#">
               <a href="detail.cfm?lang=#lang#&amp;date=#taday###booking-#BRID#" class="confirmed" title="#taday# #vessel_name#" rel="nofollow">
-                <span class="navaid">#language.detailsFor# #vessel_name# - #taday#</span>#vessel_name#
+                <span class="navaid">#taday# - #language.detailsFor#</span> #vessel_name#
               </a>
               <a class="legend" href="###sec#">
                 <sup title="#legend[bloop]#">
@@ -220,7 +220,7 @@ summary="#language.calendar#">
             <div>
               <a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="tentative" title="#taday# #tent.name#" rel="nofollow">
                 <span class="navaid">
-                  #language.detailsFor# #tent.name# - #taday#
+                  #taday# - #language.detailsFor#
                 </span> 
                 #tent.name#
               </a>
@@ -235,7 +235,7 @@ summary="#language.calendar#">
           <cfif pend.num neq 0>
             <div>
               <a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#taday# #pend.name#" rel="nofollow">
-                <span class="navaid">#language.detailsFor# #pend.name# - #taday#</span> #pend.name#
+                <span class="navaid">#taday# - #language.detailsFor#</span> #pend.name#
               </a>
               <a href="##pending" class="legend pending">
                 <cfif sec3.name NEQ "">
