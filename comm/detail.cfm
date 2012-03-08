@@ -50,21 +50,21 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <CFPARAM name="url.referrer" default="#language.bookingHome#">
-<CFIF url.referrer eq "detail">
+<cfif url.referrer eq "detail">
 	<CFSET returnTo = "#RootDir#comm/detail.cfm">
-<CFELSE>
+<cfelse>
 	<CFSET returnTo = "#RootDir#reserve-book/reserve-booking.cfm">
-</CFIF>
-<CFIF NOT IsDefined('URL.Date') OR URL.Date eq ''>
+</cfif>
+<cfif not IsDefined('URL.Date') or URL.Date eq ''>
 	<cflocation addtoken="no" url="#RootDir#comm/calend-cale-dock.cfm?lang=#lang#">
-</CFIF>
+</cfif>
 
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
 		<p class="breadcrumb">
 			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+			<cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
-			</CFIF>
+			</cfif>
 			#language.DetailsFor# #myDateFormat(URL.date, request.longdatemask)#
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
@@ -78,11 +78,11 @@
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
 					</a></h1>
 
-				<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
+				<cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 					<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
-				<CFELSE>
+				<cfelse>
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
-				</CFIF>
+				</cfif>
 
 				<p>#language.yourbookings#</p>
 
@@ -101,7 +101,7 @@
 						AND	Bookings.EndDate >= <cfqueryparam value="#URL.Date#" cfsqltype="cf_sql_date" />
 						AND Bookings.Deleted = '0'
 						AND Vessels.Deleted = '0'
-					ORDER BY	Status, startdate, enddate, vessels.name
+					orDER BY	Status, startdate, enddate, vessels.name
 				</cfquery>
 
 				<cfquery name="getJettyDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -119,7 +119,7 @@
 						AND	Bookings.EndDate >= <cfqueryparam value="#URL.Date#" cfsqltype="cf_sql_date" />
 						AND Bookings.Deleted = '0'
 						AND Vessels.Deleted = '0'
-					ORDER BY	Status, startdate, enddate, vessels.name
+					orDER BY	Status, startdate, enddate, vessels.name
 				</cfquery>
 
 				<cfquery name="getDockMaintenanceDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -153,18 +153,18 @@
 				<cfloop query="getDockMaintenanceDetail">
 				<table class="details" summary="#language.detailTableSummary#">
 					<tr>
-						<th scope="row" colspan="2"><strong>#language.MaintenanceBlock#</strong></th>
+						<th scope="row" colspan="2">#language.MaintenanceBlock#</th>
 					</tr>
 					<tr>
 						<th scope="row" colspan="2">#language.closedForMaint#</th>
 					</tr>
 					<tr>
 						<th scope="row" id="SectionsBooked">#language.SectionsBooked#:</th>
-						<td><CFIF Section1>#language.Drydock1#</CFIF><CFIF Section2><CFIF Section1> &amp; </CFIF>#language.Drydock2#</CFIF><CFIF Section3><CFIF Section1 OR Section2> &amp; </CFIF>#language.Drydock3#</CFIF></td>
+						<td><cfif Section1>#language.Drydock1#</cfif><cfif Section2><cfif Section1> &amp; </cfif>#language.Drydock2#</cfif><cfif Section3><cfif Section1 or Section2> &amp; </cfif>#language.Drydock3#</cfif></td>
 					</tr>
 					<tr>
 						<th scope="row" id="Dates">#language.Dates#:</th>
-						<td>#myDateFormat(StartDate, request.datemask)#<CFIF Year(StartDate) neq Year(EndDate)>#myDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #myDateFormat(EndDate, request.datemask)#</td>
+						<td>#myDateFormat(StartDate, request.datemask)#<cfif Year(StartDate) neq Year(EndDate)>#myDateFormat(StartDate, ", yyyy")#</cfif> #language.to# #myDateFormat(EndDate, request.datemask)#</td>
 					</tr>
 				</table>
 				</cfloop>
@@ -182,19 +182,19 @@
 				</cflock>
 
 				<cfset Variables.countQName = "userVessel" & #BRID# & ".recordCount">
-				<cfset Variables.count = EVALUATE(countQName)>
+				<cfset Variables.count = evaluate(countQName)>
 
 				<table class="details" summary="#language.detailTableSummary#">
 					<tr id="booking-#BRID#">
 						<th scope="row" colspan="2">
-							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
+							<cfif Anonymous AND #evaluate(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
 								#language.Deepsea#
-							<CFELSE>
+							<cfelse>
               <a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=detail" title="#language.booking# ###BRID# #VesselName#"><span class="navaid">#language.booking# ###BRID#:</span> #VesselName#</a>
-							</CFIF>
+							</cfif>
 						</th>
 					</tr>
-					<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR IsDefined('session.AdminLoggedIn')>
+					<cfif not Anonymous or #evaluate(Variables.count)# gt 0 or IsDefined('session.AdminLoggedIn')>
 					<tr>
 						<th scope="row">#language.Agent#:</th>
 						<td>#LastName#, #FirstName#</td>
@@ -203,42 +203,46 @@
 					<tr>
 						<th scope="row">#language.Status#:</th>
 						<td>
-							<CFIF Status eq 'c'>
-								#language.Confirmed#
-							<CFELSEIF Status eq 't'>
+							<cfif Status eq 'c'>
+                <span class="confirmed">#language.Confirmed#</span>
+							<cfelseIF Status eq 't'>
                 <span class="tentative">#language.Tentative#</span>
-							<CFELSE>
+							<cfelse>
                 <span class="pending">#language.Pending#</span>
-							</CFIF>
+							</cfif>
 						</td>
 					</tr>
-					<CFIF Status eq 'c'>
+					<cfif Status eq 'c'>
 						<tr>
 							<th scope="row">#language.SectionsBooked#:</th>
-							<td><CFIF Section1>#language.Drydock1#</CFIF><CFIF Section2><CFIF Section1> &amp; </CFIF>#language.Drydock2#</CFIF><CFIF Section3><CFIF Section1 OR Section2> &amp; </CFIF>#language.Drydock3#</CFIF></td>
+              <td>
+                <cfif Section1><span class="sec1">#language.Drydock1#</span></cfif>
+                <cfif Section2><span class="sec2">#language.Drydock2#</span></cfif>
+                <cfif Section3><span class="sec3">#language.Drydock3#</span></cfif>
+              </td>
 						</tr>
-					</CFIF>
+					</cfif>
 					<tr>
 						<th scope="row">#language.DockingDates#:</th>
-						<td>#myDateFormat(StartDate, request.datemask)#<CFIF Year(StartDate) neq Year(EndDate)>#myDateFormat(StartDate, ", yyyy")#</CFIF> #language.to# #myDateFormat(EndDate, request.datemask)#</td>
+						<td>#myDateFormat(StartDate, request.datemask)#<cfif Year(StartDate) neq Year(EndDate)>#myDateFormat(StartDate, ", yyyy")#</cfif> #language.to# #myDateFormat(EndDate, request.datemask)#</td>
 					</tr>
 				</table>
 				</cfloop>
-        <CFIF getDockDetail.RecordCount eq 0 AND getDockMaintenanceDetail.RecordCount eq 0><p>#language.noBookings#</p></CFIF>
+        <cfif getDockDetail.RecordCount eq 0 AND getDockMaintenanceDetail.RecordCount eq 0><p>#language.noBookings#</p></cfif>
         <p><a href="#RootDir#comm/calend-cale-dock.cfm?lang=#lang#">#language.drydockCalendar#</a></p>
 
 				<h2>#language.JettyBookings#</h2>
 				<cfloop query="getJettyMaintenanceDetail">
           <table class="details" summary="#language.detailTableSummary#">
             <tr>
-              <th scope="row" colspan="2"><strong>#language.MaintenanceBlock#</strong></th>
+              <th scope="row" colspan="2">#language.MaintenanceBlock#</th>
             </tr>
             <tr>
               <th scope="row" colspan="2">#language.closedForMaint#</th>
             </tr>
             <tr>
               <th scope="row">#language.SectionsBooked#:</th>
-              <td><CFIF NorthJetty>#language.NorthLandingWharf#</CFIF><CFIF SouthJetty><CFIF NorthJetty> &amp; </CFIF>#language.SouthJetty#</CFIF></td>
+              <td><cfif NorthJetty>#language.NorthLandingWharf#</cfif><cfif SouthJetty><cfif NorthJetty> &amp; </cfif>#language.SouthJetty#</cfif></td>
             </tr>
             <tr>
               <th scope="row">#language.Dates#:</th>
@@ -258,19 +262,19 @@
 				</cflock>
 
 				<cfset Variables.count = "jUserVessel" & #BRID# & ".recordCount">
-				<cfset "#Variables.count#" = EVALUATE(count)>
+				<cfset "#Variables.count#" = evaluate(count)>
 
 				<table class="details" summary="#language.detailTableSummary#">
 					<tr id="booking-#BRID#">
 						<th scope="row" colspan="2">
-							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND NOT IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
+							<cfif Anonymous AND #evaluate(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
 								#language.Deepsea#
-							<CFELSE>
+							<cfelse>
               <a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=detail" title="#language.booking# ###BRID# #VesselName#"><span class="navaid">#language.booking# ###BRID#:</span> #VesselName#</a>
-							</CFIF>
+							</cfif>
 						</th>
 					</tr>
-					<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR IsDefined('session.AdminLoggedIn')>
+					<cfif not Anonymous or #evaluate(Variables.count)# gt 0 or IsDefined('session.AdminLoggedIn')>
 					<tr>
 						<th scope="row">#language.Agent#:</th>
 						<td>#LastName#, #FirstName#</td>
@@ -279,21 +283,24 @@
 					<tr>
 						<th scope="row">#language.Status#:</th>
 						<td>
-							<CFIF Status eq 'c'>
-								#language.Confirmed#
-							<CFELSEIF Status eq 't'>
+							<cfif Status eq 'c'>
+								<span class="confirmed">#language.Confirmed#</span>
+							<cfelseIF Status eq 't'>
                 <span class="tentative">#language.Tentative#</span>
-							<CFELSE>
+							<cfelse>
                 <span class="pending">#language.Pending#</span>
-							</CFIF>
+							</cfif>
 						</td>
 					</tr>
-					<CFIF Status eq 'c'>
+					<cfif Status eq 'c'>
 						<tr>
 							<th scope="row">#language.SectionsBooked#:</th>
-							<td><CFIF NorthJetty>#language.NorthLandingWharf#</CFIF><CFIF SouthJetty><CFIF NorthJetty>, </CFIF>#language.SouthJetty#</CFIF></td>
+							<td>
+                <cfif NorthJetty><span class="sec1">#language.NorthLandingWharf#</span></cfif>
+                <cfif SouthJetty><span class="sec2">#language.SouthJetty#</span></cfif>
+              </td>
 						</tr>
-					</CFIF>
+					</cfif>
 					<tr>
 						<th scope="row">#language.DockingDates#:</th>
 						<td>#myDateFormat(StartDate, request.datemask)# #language.to# #myDateFormat(EndDate, request.datemask)#</td>
@@ -302,7 +309,7 @@
 
 
 				</cfloop>
-        <CFIF getJettyDetail.RecordCount eq 0 AND getJettyMaintenanceDetail.RecordCount eq 0><p>#language.noBookings#</p></CFIF>
+        <cfif getJettyDetail.RecordCount eq 0 AND getJettyMaintenanceDetail.RecordCount eq 0><p>#language.noBookings#</p></cfif>
         <p><a href="#RootDir#comm/calend-jet.cfm?lang=#lang#">#language.JettyCalendar#</a></p>
 
 			</div>
