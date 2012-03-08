@@ -186,13 +186,12 @@
 
 				<table class="details" summary="#language.detailTableSummary#">
 					<tr id="booking-#BRID#">
-						<th scope="row" colspan="2"><CFIF Status eq 'c'><strong></cfif>
+						<th scope="row" colspan="2">
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
 								#language.Deepsea#
 							<CFELSE>
               <a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=detail" title="#language.booking# ###BRID# #VesselName#"><span class="navaid">#language.booking# ###BRID#:</span> #VesselName#</a>
 							</CFIF>
-							<CFIF Status eq 'c'></strong></cfif>
 						</th>
 					</tr>
 					<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR IsDefined('session.AdminLoggedIn')>
@@ -264,13 +263,11 @@
 				<table class="details" summary="#language.detailTableSummary#">
 					<tr id="booking-#BRID#">
 						<th scope="row" colspan="2">
-						<CFIF Status eq 'c'><strong></cfif>
 							<CFIF Anonymous AND #EVALUATE(Variables.count)# EQ 0 AND NOT IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
 								#language.Deepsea#
 							<CFELSE>
               <a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=detail" title="#language.booking# ###BRID# #VesselName#"><span class="navaid">#language.booking# ###BRID#:</span> #VesselName#</a>
 							</CFIF>
-							<CFIF Status eq 'c'></strong></cfif>
 						</th>
 					</tr>
 					<CFIF NOT Anonymous OR #EVALUATE(Variables.count)# GT 0 OR IsDefined('session.AdminLoggedIn')>
