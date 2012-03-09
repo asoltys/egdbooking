@@ -1,5 +1,14 @@
 <cfoutput>
 
+<cfquery name="userVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+  SELECT Vessels.VNID
+  FROM Users 
+    INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
+    INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
+  WHERE	Users.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" /> 
+    AND UserCompanies.Approved = 1 AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
+</cfquery>
+
 <div class="selector">
   <form id="dateSelect" action="#CGI.script_name#?lang=#lang#" method="post">
     <fieldset>
@@ -92,165 +101,57 @@ summary="#language.calendar#">
 					<cfset taday = LSDateFormat(CreateDate(url['a-y'], url['m-m'], DaysofMonth[DateCounter]), "yyyy-MM-dd")>
           <strong>#DaysofMonth[DateCounter]#</strong>
 
-					<cfquery name="GetEventsonDay" dbtype="query">
-						SELECT 	BRID, VesselName, VNID,
-								Anonymous,
-								Section1, Section2, Section3,
-								Status
+					<cfquery name="bookings" dbtype="query">
+						SELECT 	
+              BRID, 
+              VesselName, 
+              VNID,
+              Anonymous,
+              Section1, 
+              Section2, 
+              Section3,
+              Status
 						FROM	GetEvents
 						WHERE	<cfqueryparam value="#taday#" cfsqltype="cf_sql_date"> >= StartDate
 							AND <cfqueryparam value="#taday#" cfsqltype="cf_sql_date"> <= EndDate
 					</cfquery>
 
-					<!--- Doing the craaaazeh query math.  Need to combine records and count them all!
-						Using Left and my magicnumber to make it all pretty, too.
-						Dance wit me!
-						Lois Chan, May 2005 --->
-
-					<cfset sec1.num = 0>
-					<cfset sec2.num = 0>
-					<cfset sec3.num = 0>
-					<cfset tent.num = 0>
-					<cfset pend.num = 0>
-
-					<cfset sec1.name = "">
-					<cfset sec2.name = "">
-					<cfset sec3.name = "">
-					<cfset sec1.BRID = "">
-					<cfset sec2.BRID = "">
-					<cfset sec3.BRID = "">
-					<cfset tent.name = "">
-					<cfset pend.name = "">
-
-					<cfset sec1.maint = false>
-					<cfset sec2.maint = false>
-					<cfset sec3.maint = false>
-
-					<cfloop query="GetEventsonDay">
-						<!---check if ship belongs to user's company--->
-						<cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
-							<cfquery name="userVessel#VNID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-								SELECT	Vessels.VNID
-								FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
-										INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
-								WHERE	Users.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" /> AND VNID = <cfqueryparam value="#VNID#" cfsqltype="cf_sql_integer" />
-									AND UserCompanies.Approved = 1 AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
-							</cfquery>
-						</cflock>
-
-						<cfset Variables.countQName = "userVessel" & #VNID# & ".recordCount">
-						<cfset Variables.count = EVALUATE(countQName)>
-
-						<cfscript>
-
-						if (Status eq 'm') {  // maintenance
-							for (frika = 1; frika LTE 3; frika = frika + 1) {
-								if (Evaluate('Section' & frika)) {
-									Evaluate('sec' & frika).maint = true;
-									Evaluate('sec' & frika).name = "";
-								}
-							}
-
-						} else if (Status eq 'c') {  // confirmed
-							for (frika = 1; frika LTE 3; frika = frika + 1) {
-								buzzard = 'sec' & frika;
-								if (Evaluate('Section' & frika) AND (Evaluate(buzzard).maint eq false)) {
-									Evaluate(buzzard).num = Evaluate(buzzard).num + 1;
-									if (Evaluate(buzzard).num eq 1) {
-										Evaluate(buzzard).name = VesselName;
-										Evaluate(buzzard).BRID = BRID;
-									} else {
-										Evaluate(buzzard).name = Evaluate(buzzard).num & " #language.bookings#";
-									}
-								}
-							}
-						} else if (Status eq 't') {
-							tent.num = tent.num + 1;
-							if (tent.num eq 1) {
-								if (Anonymous AND (NOT IsDefined('session.adminLoggedIn')) AND Variables.count eq 0) {
-									tent.name = "#language.deepsea#";
-								} else {
-									tent.name = VesselName;
-								}
-							} else {
-								tent.name = tent.num & " #language.tentative#";
-							}
-						} else if (Status eq 'P' or Status eq 'PT' or Status eq 'PC') {  // pending
-							pend.num = pend.num + 1;
-							if (pend.num eq 1) {
-								pend.name = "#language.pending#";
-							} else {
-								pend.name = pend.num & " #language.pending#";
-							}
-						} else {  // unrecognised character;
-						}
-
-						</cfscript>
-					</cfloop>
-
-          <cfloop from="1" to="3" index="bloop">
-            <cfset sec = "sec" & #bloop#>
-            <cfset vessel_name = Evaluate(sec).name />
-            <cfset BRID = Evaluate(sec).BRID />
-
-            <cfif Evaluate(sec).maint eq true>
-              <div class="maintenance">
-                <a href="detail.cfm?lang=#lang#&amp;date=#taday###res-book#BRID#" class="maintenance" title="#taday# #language.maintenance#">
-                  <span class="navaid" rel="nofollow">
-                    #taday# - #language.detailsFor#
-                  </span> 
-                  #language.maintenance#
-                </a>
-              </div>
-            <cfelseif vessel_name neq "">
-            <div class="vessel #sec#">
-              <a href="detail.cfm?lang=#lang#&amp;date=#taday###res-book#BRID#" class="confirmed" title="#taday# #vessel_name#" rel="nofollow">
-                <span class="navaid">#taday# - #language.detailsFor#</span> #vessel_name#
-              </a>
-              <a class="legend" href="###sec#">
-                <sup title="#legend[bloop]#">
-                  <span class="navaid">#bloop# - #legend[bloop]#</span>#bloop#
-                </sup>
-              </a>
-            </div>
+					<cfloop query="bookings">
+            <cfif bookings.anonymous and not structKeyExists(session, 'isAdmin') and listContains(valueList(userVessels.VNID), bookings.VNID) eq 0>
+              <cfset vessel_name = language.deepsea />
+            <cfelse>
+              <cfset vessel_name = bookings.vesselname />
             </cfif>
-          </cfloop>
 
-          <cfif tent.num neq 0>
-            <div>
-              <a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="tentative" title="#taday# #tent.name#" rel="nofollow">
-                <span class="navaid">
-                  #taday# - #language.detailsFor#
-                </span> 
-                #tent.name#
+            <cfif listContains("P,PT,PT", bookings.status) gt 1>
+              <cfset legendIndex = 5 />
+              <cfset type = "pending" />
+            <cfelseif bookings.status eq "T">
+              <cfset legendIndex = 4 />
+              <cfset type = "tentative" />
+            <cfelseif bookings.section1>
+              <cfset legendIndex = 1 />
+              <cfset type = "sec1" />
+            <cfelseif bookings.section2>
+              <cfset legendIndex = 2 />
+              <cfset type = "sec2" />
+            <cfelseif bookings.section3>
+              <cfset legendIndex = 3 />
+              <cfset type = "sec3" />
+            </cfif>
+
+            <div class="#type#">
+              <a class="#type#" href="detail.cfm?lang=#lang#&amp;date=#taday###res-book-#BRID#" title="#taday# - #language.detailsFor# #language.booking# ###BRID# - #vessel_name#" rel="nofollow">
+                <span class="navaid">#taday# - #language.detailsFor# #language.booking# - ###BRID#</span> #vessel_name#
               </a>
-              <a href="##tentative" class="legend tentative">
-                <sup title="#legend[4]#">
-                  <span class="navaid">#legend[4]#</span>4
+              <a class="legend" href="##l#legendIndex#">
+                <sup title="#legend[legendIndex]#">
+                  <span class="navaid">#legendIndex# - #legend[legendIndex]#</span>#legendIndex#
                 </sup>
               </a>
             </div>
-          </cfif>
-
-          <cfif pend.num neq 0>
-            <div>
-              <a href="detail.cfm?lang=#lang#&amp;date=#taday#" class="pending" title="#taday# #pend.name#" rel="nofollow">
-                <span class="navaid">#taday# - #language.detailsFor#</span> #pend.name#
-              </a>
-              <a href="##pending" class="legend pending">
-                <cfif sec3.name NEQ "">
-                  <sup title="#legend[5]#">
-                    <span class="navaid">#legend[5]#</span>5
-                  </sup>
-                <cfelse>
-                  <sup title="#legend[3]#">
-                    <span class="navaid">#legend[3]#</span>3
-                  </sup>
-                </cfif>
-              </a>
-            </div>
-          </cfif>
-				</cfif>
+          </cfloop>
+        </cfif>
 			</td>
 		</cfloop>
 	</tr>

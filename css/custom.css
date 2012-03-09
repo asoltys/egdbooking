@@ -110,10 +110,6 @@ table.calendar sup {
   font-size: 80%;
 }
 
-table.calendar a.legend {
-  text-decoration: none;
-}
-
 div.vessel a.legend {
   color: #fff;
   text-decoration: none;
@@ -178,31 +174,6 @@ th.section {
 	width: 10%;
 }
 
-/* STATUSES -------------------------------------------- */
-/* These have been given the div.center specificity because
-   otherwise div.center has a definition for class A,
-   which renders the links in the calendar all the same
-   uninformative colouration. */
-div.center .confirmed {
-	border: none;
-	color: #000;
-}
-div.center a.confirmed, div.center a.confirmed:visited, div.center a.confirmed:hover {
-  color: #eee;
-  text-decoration: none;
-}
-
-div.center .tentative, div.center a.tentative, div.center a.tentative:visited, div.center a.tentative:hover {
-	border: none;
-	color: #0033CC;
-}
-div.center .pending, div.center a.pending, div.center a.pending:visited, div.center a.pending:hover {
-	border: none;
-	color: #006622;
-}
-.cancelled, .cancelled:visited, .cancelled:hover {
-	color: #D00;
-}
 
 /* BOOKING DETAILS ------------------------------------- */
 /* Booking details organised in form of table. These
@@ -223,13 +194,15 @@ table.bookingDetails td {
 }
 
 /* DOCK SECTIONS --------------------------------------- */
-.sec1 { background-color: #335544; color: #fff; }
-.sec2 { background-color: #336699; color: #fff; }
-.sec3 { background-color: #556677; color: #fff; }
-div.center .maintenance, div.center a.maintenance, div.center a.maintenance:visited, div.center maintenance:hover {
-	background-color: #eee;
-	color: #003399;
-}
+.sec1 { background-color: #335544; }
+.sec2 { background-color: #336699; }
+.sec3 { background-color: #556677; }
+.sec1, .sec1 a, .sec2, .sec2 a, .sec3, .sec3 a { color: #fff; padding: 2px; }
+
+.confirmed, .confirmed a { color: #000; }
+.tentative, .tentative a { color: #0033CC; }
+.pending, .pending a { color: #006622; }
+.cancelled, .cancelled a { color: #D00; }
 
 /* CONFLICTS ------------------------------------------- */
 

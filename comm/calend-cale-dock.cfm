@@ -35,10 +35,9 @@
 			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-		<div class="colLayout">
-		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
+		<div>
 			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
-			<div class="center">
+			<div>
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
 					<cfoutput>#language.drydockCalendar#</cfoutput>
@@ -67,20 +66,14 @@
 						AND EndDate >= <cfqueryparam value="#firstdayofbunch#" cfsqltype="cf_sql_date" />
 						AND	Bookings.Deleted = '0'
 						AND	Vessels.Deleted = '0'
-
-					UNION
-
-					SELECT Bookings.BRID, Status,
-						StartDate, EndDate,
-						Section1, Section2, Section3,
-						'o' AS dummy1, '0' AS dummy2,
-						'0' AS dummy3
-					FROM	Bookings
-						INNER JOIN	Docks ON Bookings.BRID = Docks.BRID
-					WHERE	StartDate <= <cfqueryparam value="#lastdayofbunch#" cfsqltype="cf_sql_date" />
-						AND EndDate >= <cfqueryparam value="#firstdayofbunch#" cfsqltype="cf_sql_date" />
-						AND	Bookings.Deleted = '0'
-						AND	Status = 'm'
+          ORDER BY 
+          CASE Status
+            WHEN 'P' THEN 3
+            WHEN 'PT' THEN 3
+            WHEN 'PC' THEN 3
+            WHEN 'T' THEN 2
+            ELSE 1
+          END
 				</cfquery>
 
 				<CFIF url['m-m'] eq 1>
