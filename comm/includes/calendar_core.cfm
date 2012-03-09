@@ -195,7 +195,7 @@ summary="#language.calendar#">
 
             <cfif Evaluate(sec).maint eq true>
               <div class="maintenance">
-                <a href="detail.cfm?lang=#lang#&amp;date=#taday###booking-#BRID#" class="maintenance" title="#taday# #language.maintenance#">
+                <a href="detail.cfm?lang=#lang#&amp;date=#taday###res-book#BRID#" class="maintenance" title="#taday# #language.maintenance#">
                   <span class="navaid" rel="nofollow">
                     #taday# - #language.detailsFor#
                   </span> 
@@ -204,7 +204,7 @@ summary="#language.calendar#">
               </div>
             <cfelseif vessel_name neq "">
             <div class="vessel #sec#">
-              <a href="detail.cfm?lang=#lang#&amp;date=#taday###booking-#BRID#" class="confirmed" title="#taday# #vessel_name#" rel="nofollow">
+              <a href="detail.cfm?lang=#lang#&amp;date=#taday###res-book#BRID#" class="confirmed" title="#taday# #vessel_name#" rel="nofollow">
                 <span class="navaid">#taday# - #language.detailsFor#</span> #vessel_name#
               </a>
               <a class="legend" href="###sec#">

@@ -185,7 +185,7 @@
 				<cfset Variables.count = evaluate(countQName)>
 
 				<table class="details" summary="#language.detailTableSummary#">
-					<tr id="booking-#BRID#">
+					<tr id="res-book-#BRID#">
 						<th scope="col" colspan="2">
 							<cfif Anonymous AND #evaluate(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
 								#language.Deepsea#
@@ -265,7 +265,7 @@
 				<cfset "#Variables.count#" = evaluate(count)>
 
 				<table class="details" summary="#language.detailTableSummary#">
-					<tr id="booking-#BRID#">
+					<tr id="res-book-#BRID#">
 						<th scope="col" colspan="2">
 							<cfif Anonymous AND #evaluate(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
 								#language.Deepsea#
