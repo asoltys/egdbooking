@@ -204,11 +204,11 @@
 						<th scope="row">#language.Status#:</th>
 						<td>
 							<cfif Status eq 'c'>
-                <span class="confirmed">#language.Confirmed#</span>
+                #language.Confirmed#
 							<cfelseIF Status eq 't'>
-                <span class="tentative">#language.Tentative#</span>
+                #language.Tentative#
 							<cfelse>
-                <span class="pending">#language.Pending#</span>
+                #language.Pending#
 							</cfif>
 						</td>
 					</tr>
@@ -216,9 +216,9 @@
 						<tr>
 							<th scope="row">#language.SectionsBooked#:</th>
               <td>
-                <cfif Section1><span class="sec1">#language.Drydock1#</span></cfif>
-                <cfif Section2><span class="sec2">#language.Drydock2#</span></cfif>
-                <cfif Section3><span class="sec3">#language.Drydock3#</span></cfif>
+                <cfif Section1>#language.Drydock1#</cfif>
+                <cfif Section2>#language.Drydock2#</cfif>
+                <cfif Section3>#language.Drydock3#</cfif>
               </td>
 						</tr>
 					</cfif>
@@ -284,11 +284,11 @@
 						<th scope="row">#language.Status#:</th>
 						<td>
 							<cfif Status eq 'c'>
-								<span class="confirmed">#language.Confirmed#</span>
+								#language.Confirmed#
 							<cfelseIF Status eq 't'>
-                <span class="tentative">#language.Tentative#</span>
+                #language.Tentative#
 							<cfelse>
-                <span class="pending">#language.Pending#</span>
+                #language.Pending#
 							</cfif>
 						</td>
 					</tr>
@@ -296,8 +296,8 @@
 						<tr>
 							<th scope="row">#language.SectionsBooked#:</th>
 							<td>
-                <cfif NorthJetty><span class="sec1">#language.NorthLandingWharf#</span></cfif>
-                <cfif SouthJetty><span class="sec2">#language.SouthJetty#</span></cfif>
+                <cfif NorthJetty>#language.NorthLandingWharf#</cfif>
+                <cfif SouthJetty>#language.SouthJetty#</cfif>
               </td>
 						</tr>
 					</cfif>
