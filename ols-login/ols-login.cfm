@@ -1,27 +1,9 @@
 <cfif lang EQ "eng">
 	<cfset language.title = "Booking Application Login">
-	<cfset language.login = "Login">
 	<cfset language.description ="Login page for the booking application.">
-	<cfset language.browser = "Please ensure that your browser meets the following requirements before proceeding:">
-	<cfset language.displayproblem = "The application may not function properly without these components.">
-	<cfset language.jserror = "You do not have JavaScript enabled.  Parts of this application will not function properly.">
-	<cfset language.forgot = "Forgot password">
-	<cfset language.addUser = "Register an account">
-	<cfset language.email = "Email">
-	<cfset language.password = "Password">
-	<cfset language.Remember = "Remember Me">
 <cfelse>
 	<cfset language.title = "Entrer dans l'application de r&eacute;servation">
-	<cfset language.login = "Ouvrir la session">
 	<cfset language.description ="Page d'ouverture de session pour la demande de r&eacute;servation.">
-	<cfset language.browser = "Veuillez v&eacute;rifier que votre navigateur Web r&eacute;pond aux exigences suivantes avant de continuer&nbsp;:">
-	<cfset language.displayproblem = "L'application ne fonctionnera peut-&ecirc;tre pas correctement sans ces composantes.">
-	<cfset language.jserror = "La fonction JavaScript n'est pas activ&eacute;e. Des parties de l'application ne fonctionnent pas correctement.">
-	<cfset language.forgot = "Oubli du mot de passe">
-	<cfset language.addUser = "Cr&eacute;er un compte">
-	<cfset language.email = "Courriel">
-	<cfset language.password = "Mot de passe">
-	<cfset language.Remember = "Rappelez-vous moi">
 </cfif>
 
 <cfif IsDefined("Session.Form_Structure")>

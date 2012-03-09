@@ -337,6 +337,21 @@
 	<cfset language.next = "suivant">
 </cfif>
 
+<cfif lang EQ "eng">
+	<cfset language.login = "Login">
+	<cfset language.forgot = "Forgot password">
+	<cfset language.addUser = "Register an account">
+	<cfset language.email = "Email">
+	<cfset language.password = "Password">
+	<cfset language.Remember = "Remember Me">
+<cfelse>
+	<cfset language.login = "Ouvrir la session">
+	<cfset language.forgot = "Oubli du mot de passe">
+	<cfset language.addUser = "Cr&eacute;er un compte">
+	<cfset language.email = "Courriel">
+	<cfset language.password = "Mot de passe">
+	<cfset language.Remember = "Rappelez-vous moi">
+</cfif>
 
 
 <cffunction name="decodeHtmlEntity" returntype="String" output="false">
