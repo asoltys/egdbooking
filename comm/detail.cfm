@@ -174,7 +174,7 @@
 					</tr>
 					<tr>
 						<th scope="row" id="Dates">#language.Dates#:</th>
-						<td>#myDateFormat(StartDate, request.datemask)#<cfif Year(StartDate) neq Year(EndDate)>#myDateFormat(StartDate, ", yyyy")#</cfif> #language.to# #myDateFormat(EndDate, request.datemask)#</td>
+						<td>#myDateFormat(StartDate, request.datemask)# #language.to# #myDateFormat(EndDate, request.datemask)#</td>
 					</tr>
 				</table>
 				</cfloop>
@@ -220,7 +220,7 @@
 					</cfif>
 					<tr>
 						<th scope="row">#language.DockingDates#:</th>
-						<td>#myDateFormat(StartDate, request.datemask)#<cfif Year(StartDate) neq Year(EndDate)>#myDateFormat(StartDate, ", yyyy")#</cfif> #language.to# #myDateFormat(EndDate, request.datemask)#</td>
+						<td>#myDateFormat(StartDate, request.datemask)# #language.to# #myDateFormat(EndDate, request.datemask)#</td>
 					</tr>
 				</table>
 				</cfloop>
