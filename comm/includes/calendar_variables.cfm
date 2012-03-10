@@ -14,10 +14,6 @@
 	<cfset language.details = "D&eacute;tails">
 </CFIF>
 
-<!--- Magic number used to determine maximum length of vessel name displayed in calendar.
-	This prevets long names from breaking the pretty calendar table.  Lois Chan, June 2005 --->
-<cfset magicnum = 8>
-
 <cfif NOT structKeyExists(url, 'm-m')>
 	<cfset url['m-m'] = myDateFormat(PacificNow, "M")>
 </cfif>
