@@ -1,6 +1,6 @@
 <cfoutput>
 
-<cfquery name="vessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#" cachedwithin="#CreateTimeSpan(2,0,0,0)#">
+<cfquery name="vessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
   SELECT DISTINCT Vessels.VNID
   FROM Vessels 
     INNER JOIN UserCompanies ON UserCompanies.CID = Vessels.CID
