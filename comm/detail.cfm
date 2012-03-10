@@ -37,6 +37,16 @@
 	<cfset language.yourbookings = "Les r&eacute;servations li&eacute;es ci-dessous appartiennent &agrave; votre entreprise.">
 </cfif>
 
+<cfquery name="userVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+  SELECT DISTINCT Vessels.VNID
+  FROM Vessels 
+    INNER JOIN UserCompanies ON UserCompanies.CID = Vessels.CID
+    INNER JOIN Users ON UserCompanies.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" /> 
+    WHERE UserCompanies.Approved = 1 
+    AND Users.Deleted = 0 
+    AND UserCompanies.Deleted = 0
+</cfquery>
+
 <cfoutput>
 
 <cfsavecontent variable="head">
@@ -169,32 +179,21 @@
 				</table>
 				</cfloop>
 
+        <cfdump var="#userVessels#">
+        <cfdump var="#getDockDetail#">
+
 				<cfloop query="getDockDetail">
-				<!---check if ship belongs to user's company--->
-				<cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
-					<cfquery name="userVessel#BRID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-						SELECT	Vessels.VNID
-						FROM	Users INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
-								INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
-						WHERE	Users.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" /> AND Vessels.VNID = <cfqueryparam value="#getDockDetail.VNID#" cfsqltype="cf_sql_integer" />
-							AND UserCompanies.Approved = 1 AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
-					</cfquery>
-				</cflock>
-
-				<cfset Variables.countQName = "userVessel" & #BRID# & ".recordCount">
-				<cfset Variables.count = evaluate(countQName)>
-
 				<table class="details" summary="#language.detailTableSummary#">
 					<tr id="res-book-#BRID#">
 						<th scope="col" colspan="2">
-							<cfif Anonymous AND #evaluate(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
+							<cfif Anonymous AND not viewable(userVessels, VNID) AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
 								#language.Deepsea#
 							<cfelse>
               <a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=detail" title="#language.booking# ###BRID# #VesselName#"><span class="navaid">#language.booking# ###BRID#:</span> #VesselName#</a>
 							</cfif>
 						</th>
 					</tr>
-					<cfif not Anonymous or #evaluate(Variables.count)# gt 0 or IsDefined('session.AdminLoggedIn')>
+					<cfif not Anonymous or viewable(userVessels, VNID) or IsDefined('session.AdminLoggedIn')>
 					<tr>
 						<th scope="row">#language.Agent#:</th>
 						<td>#LastName#, #FirstName#</td>
@@ -267,7 +266,7 @@
 				<table class="details" summary="#language.detailTableSummary#">
 					<tr id="res-book-#BRID#">
 						<th scope="col" colspan="2">
-							<cfif Anonymous AND #evaluate(Variables.count)# EQ 0 AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
+							<cfif Anonymous AND not viewable(userVessels, VNID) AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
 								#language.Deepsea#
 							<cfelse>
               <a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=detail" title="#language.booking# ###BRID# #VesselName#"><span class="navaid">#language.booking# ###BRID#:</span> #VesselName#</a>

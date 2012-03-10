@@ -197,12 +197,12 @@ table.bookingDetails td {
 .sec1 { background-color: #335544; }
 .sec2 { background-color: #336699; }
 .sec3 { background-color: #556677; }
-.sec1, .sec1 a, .sec2, .sec2 a, .sec3, .sec3 a { color: #fff; padding: 2px; }
+.sec1, div.center .sec1 a, .sec2, div.center .sec2 a, .sec3, div.center .sec3 a { color: #fff; padding: 2px; }
 
-.confirmed, .confirmed a { color: #000; }
-.tentative, .tentative a { color: #0033CC; }
-.pending, .pending a { color: #006622; }
-.cancelled, .cancelled a { color: #D00; }
+.confirmed, div.center .confirmed a { color: #000; }
+.tentative, div.center .tentative a { color: #0033CC; }
+.pending, div.center .pending a { color: #006622; }
+.cancelled, div.center .cancelled a { color: #D00; }
 
 /* CONFLICTS ------------------------------------------- */
 

@@ -1,12 +1,14 @@
 <cfoutput>
 
-<cfquery name="userVessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
-  SELECT Vessels.VNID
-  FROM Users 
-    INNER JOIN UserCompanies ON Users.UID = UserCompanies.UID
-    INNER JOIN Vessels ON UserCompanies.CID = Vessels.CID
-  WHERE	Users.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" /> 
-    AND UserCompanies.Approved = 1 AND Users.Deleted = 0 AND UserCompanies.Deleted = 0
+<cfquery name="vessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#" cachedwithin="#CreateTimeSpan(2,0,0,0)#">
+  SELECT DISTINCT Vessels.VNID
+  FROM Vessels 
+    INNER JOIN UserCompanies ON UserCompanies.CID = Vessels.CID
+    INNER JOIN Users ON UserCompanies.UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" /> 
+    WHERE UserCompanies.Approved = 1 
+    AND Users.Deleted = 0 
+    AND UserCompanies.Deleted = 0
+    AND Vessels.Deleted = 0
 </cfquery>
 
 <div class="selector">
@@ -117,13 +119,13 @@ summary="#language.calendar#">
 					</cfquery>
 
 					<cfloop query="bookings">
-            <cfif bookings.anonymous and not structKeyExists(session, 'isAdmin') and listContains(valueList(userVessels.VNID), bookings.VNID) eq 0>
+            <cfif bookings.anonymous and not structKeyExists(session, 'isAdmin') and not viewable(vessels, VNID)>
               <cfset vessel_name = language.deepsea />
             <cfelse>
               <cfset vessel_name = bookings.vesselname />
             </cfif>
 
-            <cfif listContains("P,PT,PT", bookings.status) gt 1>
+            <cfif listContains("P,PT,PT", bookings.status)>
               <cfset legendIndex = 5 />
               <cfset type = "pending" />
             <cfelseif bookings.status eq "T">

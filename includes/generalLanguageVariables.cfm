@@ -42,6 +42,10 @@
   <cfset language.notices = "Notices" />
   <cfset language.calendarInstructions = "You can hold down CTRL and use the arrow keys to navigate the calendar with your keyboard" />
   <cfset language.detailsFor = "Details for" />
+  <cfset language.selectCompany = "Select company" />
+  <cfset language.vesselSelection = "Vessel selection" />
+  <cfset language.companySelection = "Company selection" />
+  <cfset language.view = "View" />
 <cfelse>
 	<cfset language.PWGSC = "TPSGC">
 	<cfset language.egd = "CSE">
@@ -85,6 +89,10 @@
   <cfset language.notices = "Avis" />
   <cfset language.calendarInstructions = "Vous pouvez maintenir la touche CTRL enfonc&##233;e et utilisez les touches fl&##233;ch&##233;es pour naviguer dans le calendrier avec votre clavier" />
   <cfset language.detailsFor = "D&egrave;tails pour" />
+  <cfset language.selectCompany = "S&eacute;lectionner une entreprise" />
+  <cfset language.vesselSelection = "R&eacute;sum&eacute; de navire" />
+  <cfset language.companySelection = "R&eacute;sum&eacute; d'entreprise" />
+  <cfset language.view = "Voir" />
 </cfif>
 
 <cfif lang EQ 'eng'>

@@ -35,9 +35,10 @@
 			</cfoutput>
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-		<div>
+		<div class="collayout">
+      <cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
 			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
-			<div>
+			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
 					<cfoutput>#language.drydockCalendar#</cfoutput>
