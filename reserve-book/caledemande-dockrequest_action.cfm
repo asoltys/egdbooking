@@ -56,7 +56,7 @@
 	<cfoutput>#ArrayAppend(Errors, "#language.futureStartError#")#</cfoutput>
 	<cfset Proceed_OK = "No">
 <cfelseif NOT isDefined("checkDblBooking.VNID") OR checkDblBooking.VNID NEQ "">
-	<cfoutput>#ArrayAppend(Errors, "#checkDblBooking.Name# #language.dblBookingError# #LSdateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# #language.to# #LSdateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
+	<cfoutput>#ArrayAppend(Errors, "#checkDblBooking.Name# #language.dblBookingError# #myDateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# #language.to# #myDateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#.")#</cfoutput>
 	<cfset Proceed_OK = "No">
 </cfif>
 

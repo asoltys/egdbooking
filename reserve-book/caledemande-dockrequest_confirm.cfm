@@ -145,13 +145,13 @@
           <cfset session['errors']['StartDateA'] = language.futureStartError />
           <cfset Proceed_OK = "No">
         <cfelseif (isDefined("checkDblBooking.VNID") AND checkDblBooking.VNID NEQ "")>
-          <cfset session['errors']['StartDateA'] =  "#checkDblBooking.Name# #language.dblBookingError# #LSdateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# #language.to# #LSdateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#." />
+          <cfset session['errors']['StartDateA'] =  "#checkDblBooking.Name# #language.dblBookingError# #myDateFormat(checkDblBooking.StartDate, 'mm/dd/yyy')# #language.to# #myDateFormat(checkDblBooking.EndDate, 'mm/dd/yyy')#." />
           <cfset Proceed_OK = "No">
         <cfelseif getNumStartDateBookings.recordCount GTE 1>
-          <cfset session['errors']['StartDateA'] = "#getNumStartDateBookings.Name# #language.tplBookingError# #LSdateFormat(getNumStartDateBookings.StartDate, 'mm/dd/yyy')#." />
+          <cfset session['errors']['StartDateA'] = "#getNumStartDateBookings.Name# #language.tplBookingError# #myDateFormat(getNumStartDateBookings.StartDate, 'mm/dd/yyy')#." />
           <cfset Proceed_OK = "No">
         <cfelseif getNumEndDateBookings.recordCount GTE 1>
-          <cfset session['errors']['EndDateA'] = "#getNumEndDateBookings.Name# #language.tplBookingError# #LSdateFormat(getNumEndDateBookings.EndDate, 'mm/dd/yyy')#." />
+          <cfset session['errors']['EndDateA'] = "#getNumEndDateBookings.Name# #language.tplBookingError# #myDateFormat(getNumEndDateBookings.EndDate, 'mm/dd/yyy')#." />
           <cfset Proceed_OK = "No">
         </cfif>
 

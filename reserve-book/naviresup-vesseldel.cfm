@@ -120,8 +120,8 @@
             <tbody>
               <cfloop query="getVesselDockBookings">
                 <tr>
-                  <td headers="drydock_start_date">#LSdateformat(startDate, request.datemask)#</td>
-                  <td headers="drydock_end_date">#LSdateformat(endDate, request.datemask)#</td>
+                  <td headers="drydock_start_date">#myDateFormat(startDate, request.datemask)#</td>
+                  <td headers="drydock_end_date">#myDateFormat(endDate, request.datemask)#</td>
                   <td headers="drydock_status">
                     <cfif status EQ "PT"><em>#language.pending#</em>
                     <cfelseif status EQ "T"><em>#language.tentative#</em>
@@ -145,8 +145,8 @@
 
           <cfloop query="getVesselJettyBookings">
             <tr>
-              <td headers="jetty_start_date">#LSdateformat(startDate, request.datemask)#</td>
-              <td headers="jetty_end_date">#LSdateformat(endDate, request.datemask)#</td>
+              <td headers="jetty_start_date">#myDateFormat(startDate, request.datemask)#</td>
+              <td headers="jetty_end_date">#myDateFormat(endDate, request.datemask)#</td>
               <td headers="jetty">
                 <cfif getVesselJettyBookings.NorthJetty EQ 1>
                   #language.NorthLandingWharf#

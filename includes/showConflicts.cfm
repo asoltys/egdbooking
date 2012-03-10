@@ -60,7 +60,7 @@
 			<CFSET rowClass = "">
 		</CFIF>
 		<tr class="#rowClass#">
-			<td valign="top">#LSdateformat(startDate, request.datemask)# - #LSdateformat(endDate, request.datemask)#</td>
+			<td valign="top">#myDateFormat(startDate, request.datemask)# - #myDateFormat(endDate, request.datemask)#</td>
 			<td>#VesselName#</td>
 			<td>#CompanyName#</td>
 			<td align="center">
@@ -90,7 +90,7 @@
 			<cfset rowClass = "">
 		</cfif>
 		<tr class="rowClass">
-			<td valign="top">#LSdateformat(startDate, request.datemask)# - #LSdateformat(endDate, request.datemask)#</td>
+			<td valign="top">#myDateFormat(startDate, request.datemask)# - #myDateFormat(endDate, request.datemask)#</td>
 			<td align="center">
 				<cfif Section1 EQ 1>1 </cfif>
 				<cfif Section2 EQ 1>2 </cfif>
