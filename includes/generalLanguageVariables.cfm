@@ -67,8 +67,8 @@
 	<cfset language.jetty = "Jet&eacute;e">
 	<cfset language.northLandingWharf = "Quai de d&eacute;barquement nord">
 	<cfset language.southJetty = "Jet&eacute;e sud">
-	<cfset language.northLandingWharf = "Quai de d&eacute;barquement nord confirm&eacute;e">
-	<cfset language.southJetty = "Jet&eacute;e sud confirm&eacute;e">
+	<cfset language.confirmedInNorthLandingWharf = "Quai de d&eacute;barquement nord confirm&eacute;e">
+	<cfset language.confirmedInSouthJetty = "Jet&eacute;e sud confirm&eacute;e">
 	<cfset language.vessel = "Navire">
 	<cfset language.status = "&Eacute;tat">
 	<cfset language.tentative = "provisoire">
@@ -105,7 +105,6 @@
   <cfset language.vessels = "Navires" />
   <cfset language.select = "Select&eacute;" />
   <cfset language.bookingsFor = "R&eacute;servations pour" />
-  <cfset language.confirmedIn = "Confirmed in" />
 </cfif>
 
 <cfif lang EQ 'eng'>
