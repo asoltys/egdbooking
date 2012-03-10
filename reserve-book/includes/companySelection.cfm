@@ -12,6 +12,8 @@
 </cfquery>
 
 <cfparam name="session.CID" default="#companies.CID#" />
+<cfparam name="current_company" default="#companies.name#" />
+
 <cfif structKeyExists(url, 'CID') and listContains(valueList(companies.CID), url.CID)>
   <cfset session['CID'] = url.CID />
 </cfif>
@@ -27,6 +29,7 @@
             <cfset selected = "" />
             <cfif session['CID'] eq companies.CID>
               <cfset selected = "selected=""selected""" />
+              <cfset current_company = companies.name />
             </cfif>
             <option value="#companies.CID#" #selected#>#companies.name#</option>
           </cfloop>

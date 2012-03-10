@@ -49,6 +49,7 @@
   <cfset language.companies = "Companies" />
   <cfset language.vessels = "Vessels" />
   <cfset language.select = "Select" />
+  <cfset language.bookingsFor = "Bookings for" />
 <cfelse>
 	<cfset language.PWGSC = "TPSGC">
 	<cfset language.egd = "CSE">
@@ -99,6 +100,7 @@
   <cfset language.companies = "Entreprises" />
   <cfset language.vessels = "Navires" />
   <cfset language.select = "Select&eacute;" />
+  <cfset language.bookingsFor = "R&eacute;servations pour" />
 </cfif>
 
 <cfif lang EQ 'eng'>

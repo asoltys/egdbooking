@@ -8,6 +8,7 @@
 
 <cfoutput>
   <cfif vessels.recordCount EQ 0>
+    <h2>#language.vessels#</h2>
     <p>#language.None#</p>
   <cfelse>
     <form action="#RootDir#reserve-book/detail-navire-vessel.cfm" method="get">

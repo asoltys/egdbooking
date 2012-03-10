@@ -59,7 +59,7 @@
       <cfinclude template="#RootDir#reserve-book/includes/bookingsQueries.cfm" />
       <cfinclude template="#RootDir#reserve-book/includes/vesselSelection.cfm" />
 
-      <h2>#language.bookings#</h2>
+      <h2>#language.bookingsFor# #current_company#</h2>
 
       <h3>#language.Drydock#</h3>
       #bookingsTable(dock_bookings, dock_counts)#
