@@ -27,7 +27,6 @@
   <cfset language.bookingAvailable = "The requested time is available.  Please confirm the following information.">
   <cfset language.bookingConflicts = "The submitted booking request conflicts with other bookings.  The booking will be placed on a wait list if you choose to continue. Please confirm the following information.">
   <cfset language.bookingForms = "Booking Forms">
-  <cfset language.bookingForms = "Booking Forms">
   <cfset language.bookingHome = "Booking Home">
   <cfset language.bookingRequest = "Booking Request">
   <cfset language.bookingSpace = "Booking Space at the <acronym title=""Esquimalt Graving Dock"">EGD</acronym>">
