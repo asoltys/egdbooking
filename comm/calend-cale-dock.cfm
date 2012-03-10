@@ -69,11 +69,16 @@
 						AND	Vessels.Deleted = '0'
           ORDER BY 
           CASE Status
-            WHEN 'P' THEN 3
-            WHEN 'PT' THEN 3
-            WHEN 'PC' THEN 3
-            WHEN 'T' THEN 2
-            ELSE 1
+            WHEN 'P' THEN 5
+            WHEN 'PT' THEN 5
+            WHEN 'PC' THEN 5
+            WHEN 'T' THEN 4
+            ELSE 
+              CASE Section1 WHEN 1 THEN 1 ELSE
+                CASE Section2 WHEN 1 THEN 2 ELSE
+                  CASE Section3 WHEN 1 THEN 3 END
+                END
+              END
           END
 				</cfquery>
 
