@@ -10,7 +10,7 @@
   <cfif vessels.recordCount EQ 0>
     <p>#language.None#</p>
   <cfelse>
-    <form action="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#" method="get">
+    <form action="#RootDir#reserve-book/detail-navire-vessel.cfm" method="get">
       <fieldset>
         <legend>#language.vesselSelection#</legend>
         <label for="VNID">#language.vessels#</label>
@@ -19,6 +19,7 @@
             <option value="#vessels.VNID#">#vessels.name#</option>
           </cfloop>
         </select>
+        <input type="hidden" name="lang" value="#lang#" />
         <input type="submit" value="#language.view#" />
       </fieldset>
     </form>

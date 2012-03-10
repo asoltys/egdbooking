@@ -31,6 +31,7 @@
             <option value="#companies.CID#" #selected#>#companies.name#</option>
           </cfloop>
         </select>
+        <input type="hidden" name="lang" value="#lang#" />
         <input type="submit" value="#language.select#" />
       </fieldset>
     </form>

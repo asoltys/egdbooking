@@ -81,6 +81,6 @@
       <span class="cancelled">#language.pending_cancelling# - #counts.cancelled#</span>
     </p>
   <cfelse>
-    #language.None#.
+    <p>#language.None#</p>
   </cfif>
 </cffunction>
