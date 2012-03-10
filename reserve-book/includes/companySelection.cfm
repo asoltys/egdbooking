@@ -14,7 +14,7 @@
 <cfparam name="session.CID" default="#companies.CID#" />
 <cfparam name="current_company" default="#companies.name#" />
 
-<cfif structKeyExists(url, 'CID') and listContains(valueList(companies.CID), url.CID)>
+<cfif structKeyExists(url, 'CID') and listFind(valueList(companies.CID), url.CID)>
   <cfset session['CID'] = url.CID />
 </cfif>
 

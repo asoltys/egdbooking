@@ -109,6 +109,7 @@ summary="#language.calendar#">
 							AND <cfqueryparam value="#taday#" cfsqltype="cf_sql_date"> <= EndDate
 					</cfquery>
 
+
 					<cfloop query="bookings">
             <cfif bookings.anonymous and not structKeyExists(session, 'isAdmin') and not viewable(vessels, VNID)>
               <cfset vessel_name = language.deepsea />
@@ -116,7 +117,7 @@ summary="#language.calendar#">
               <cfset vessel_name = bookings.vesselname />
             </cfif>
 
-            <cfif listContains("P,PT,PT", bookings.status)>
+            <cfif listFind("P,PT,PC", bookings.status)>
               <cfset legendIndex = 5 />
               <cfset type = "pending" />
             <cfelseif bookings.status eq "T">

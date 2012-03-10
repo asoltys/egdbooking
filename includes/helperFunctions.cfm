@@ -31,7 +31,7 @@
 <cffunction name="viewable">
   <cfargument name="query" />
   <cfargument name="VNID" />
-  <cfreturn listContains(valueList(query.VNID), arguments.VNID) />
+  <cfreturn listFind(valueList(query.VNID), arguments.VNID) />
 </cffunction>
 
 
