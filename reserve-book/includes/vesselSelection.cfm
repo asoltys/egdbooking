@@ -1,4 +1,4 @@
-<cfquery name="vessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#" cachedwithin="#CreateTimeSpan(2,0,0,0)#">
+<cfquery name="vessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
   SELECT DISTINCT Vessels.VNID, Vessels.Name
   FROM Vessels 
   WHERE Vessels.CID = <cfqueryparam value="#session.CID#" cfsqltype="cf_sql_integer" /> 
