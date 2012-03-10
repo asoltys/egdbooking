@@ -6,7 +6,7 @@
   <cfif cgi.script_name eq "#RootDir#reserve-book-fra.cfm">
      #language.bookingSpace#
   <cfelse>
-    <a href="#RootDir#reserve-book-fra.cfm">R&eacute;servation</a>
+    <a href="#RootDir#reserve-book-fra.cfm">#language.bookingSpace#</a>
   </cfif>
 </cfoutput>
 <!-- ====== /CSE-EGD/includes/BREAD-PAIN-FRA.HTML ====== -->

@@ -7,7 +7,7 @@
   <cfif cgi.script_name eq "#RootDir#reserve-book-eng.cfm">
     #language.bookingSpace#
   <cfelse>
-    <a href="#RootDir#reserve-book-eng.cfm">Booking</a>
+    <a href="#RootDir#reserve-book-eng.cfm">#language.bookingSpace#</a>
   </cfif>
 </cfoutput>
 <!-- ====== /CSE-EGD/includes/BREAD-PAIN-ENG.HTML ====== --> 

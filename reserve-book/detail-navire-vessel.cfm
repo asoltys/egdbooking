@@ -79,6 +79,7 @@
 			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
 			</CFIF>
+      <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.bookingHome#</a> &gt;
 			#language.detailsFor# #getVesselDetail.Name#
 		</p>
 		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
