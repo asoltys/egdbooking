@@ -7,15 +7,14 @@
 </cfquery>
 
 <cfoutput>
-  <h2>#language.Vessel#s</h2>
-
   <cfif vessels.recordCount EQ 0>
     <p>#language.None#</p>
   <cfelse>
     <form action="#RootDir#reserve-book/detail-navire-vessel.cfm?lang=#lang#" method="get">
       <fieldset>
         <legend>#language.vesselSelection#</legend>
-        <select name="VNID">
+        <label for="VNID">#language.vessels#</label>
+        <select id="VNID" name="VNID">
           <cfloop query="vessels">
             <option value="#vessels.VNID#">#vessels.name#</option>
           </cfloop>

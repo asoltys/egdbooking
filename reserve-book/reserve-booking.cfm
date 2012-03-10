@@ -25,8 +25,6 @@
 
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-<cfset variables.today = CreateODBCDate(PacificNow)>
-
 <cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT ReadOnly
 	FROM Users
@@ -34,45 +32,48 @@
 </cfquery>
 <cfset Session.ReadOnly = readonlycheck.ReadOnly />
 
-		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
-		<p class="breadcrumb">
-			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm"> &gt; #language.bookingHome#
-		</p>
-		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-		<div class="colLayout">
-		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
-			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
-			<div class="center">
-				<h1><a name="cont" id="cont">
-					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					#language.bookingHome#
-					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-					</a></h1>
+<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+<p class="breadcrumb">
+  <cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html">
+  <cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm"> 
+  &gt; #language.bookingHome#
+</p>
+<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
 
-				<div class="content">
-					<p>#language.Welcome# #Session.Firstname# #Session.LastName#!</p>
-          <cfinclude template="#RootDir#includes/notice.cfm" />
-          <cfinclude template="#RootDir#includes/user_menu.cfm">
-          <cfinclude template="#RootDir#reserve-book/includes/companyApproval.cfm" />
-          <cfinclude template="#RootDir#reserve-book/includes/companySelection.cfm" />
-          <cfinclude template="#RootDir#reserve-book/includes/bookingsQueries.cfm" />
-          <cfinclude template="#RootDir#reserve-book/includes/vesselSelection.cfm" />
+<div class="colLayout">
+<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
+  <!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+  <div class="center">
+    <h1><a name="cont" id="cont">
+      <!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
+      #language.bookingHome#
+      <!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
+      </a></h1>
 
-					<h2>#language.bookings#</h2>
+    <div class="content">
+      <p>#language.Welcome# #Session.Firstname# #Session.LastName#!</p>
+      <cfinclude template="#RootDir#includes/notice.cfm" />
+      <cfinclude template="#RootDir#includes/user_menu.cfm">
+      <cfinclude template="#RootDir#reserve-book/includes/companyApproval.cfm" />
+      <cfinclude template="#RootDir#reserve-book/includes/companySelection.cfm" />
+      <cfinclude template="#RootDir#reserve-book/includes/bookingsQueries.cfm" />
+      <cfinclude template="#RootDir#reserve-book/includes/vesselSelection.cfm" />
 
-					<h3>#language.Drydock#</h3>
-          #bookingsTable(dock_bookings, dock_counts)#
+      <h2>#language.bookings#</h2>
 
-					<h3>#language.NorthLandingWharf#</h3>
-          #bookingsTable(nlw_bookings, nlw_counts)#
+      <h3>#language.Drydock#</h3>
+      #bookingsTable(dock_bookings, dock_counts)#
 
-					<h3>#language.SouthJetty#</h3>
-          #bookingsTable(sj_bookings, sj_counts)#
+      <h3>#language.NorthLandingWharf#</h3>
+      #bookingsTable(nlw_bookings, nlw_counts)#
 
-					</div>
-			</div>
-		<!-- CONTENT ENDS | FIN DU CONTENU -->
-		</div>
+      <h3>#language.SouthJetty#</h3>
+      #bookingsTable(sj_bookings, sj_counts)#
+
+      </div>
+  </div>
+<!-- CONTENT ENDS | FIN DU CONTENU -->
+</div>
 
 </cfoutput>
 

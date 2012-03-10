@@ -1,3 +1,5 @@
+<cfset variables.today = CreateODBCDate(PacificNow)>
+
 <cfquery name="dock_bookings" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 	SELECT Bookings.*, Vessels.Name, Docks.*, FirstName, LastName, Users.FirstName + ' ' + Users.LastName AS AgentName
 	FROM Bookings INNER JOIN
