@@ -127,3 +127,22 @@
     </a>
   </div>
 </cffunction>
+
+<cffunction name="decodeHtmlEntity" returntype="String" output="false">
+    <cfargument name="Entity" type="String" hint="&##<number>; or &<name>;" />
+    <cfset var XmlDoc = XmlParse('<xml>#Arguments.Entity#</xml>') />
+    <cfreturn XmlDoc.XmlRoot.XmlText />
+</cffunction>
+
+<cfoutput>
+<cfsavecontent variable="head">
+<script type="text/javascript">
+	/* <![CDATA[ */
+  var t = { 
+    "calendarInstructions": "#decodeHtmlEntity(language.calendarInstructions)#" 
+  }
+	/* ]]> */
+</script>
+</cfsavecontent>
+</cfoutput>
+<cfhtmlhead text="#head#" />
