@@ -186,7 +186,7 @@
 							<cfif Anonymous AND not viewable(vessels, VNID) AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
 								#language.Deepsea#
 							<cfelse>
-              <a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=detail" title="#language.booking# ###BRID# #VesselName#"><span class="navaid">#language.booking# ###BRID#:</span> #VesselName#</a>
+              <a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=detail" title="#language.booking# ###BRID#: #VesselName#">#language.booking# ###BRID#: #VesselName#</a>
 							</cfif>
 						</th>
 					</tr>
@@ -266,7 +266,7 @@
 							<cfif Anonymous AND not viewable(vessels, VNID) AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c'>
 								#language.Deepsea#
 							<cfelse>
-              <a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=detail" title="#language.booking# ###BRID# #VesselName#"><span class="navaid">#language.booking# ###BRID#:</span> #VesselName#</a>
+              <a href="detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;date=#url.date#&amp;referrer=detail" title="#language.booking# ###BRID#: #VesselName#">#language.booking# ###BRID#: #VesselName#</a>
 							</cfif>
 						</th>
 					</tr>

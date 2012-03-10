@@ -104,7 +104,7 @@
                   <tr>
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#">
-                        <span class="navaid">#language.booking# ###BRID#:</span>
+                        #language.booking# ###BRID#:
                         #Name#
                       </a>
                     </td>
@@ -141,7 +141,7 @@
                   <tr>
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#">
-                        <span class="navaid">#language.booking# ###BRID#:</span>
+                        #language.booking# ###BRID#:
                         #Name#
                       </a>
                     </td>
@@ -177,7 +177,7 @@
                   <tr>
                     <td>
                       <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#&amp;referrer=#variables.referrer#">
-                        <span class="navaid">#language.booking# ###BRID#:</span>
+                        #language.booking# ###BRID#:
                         #Name#
                       </a>
                     </td>

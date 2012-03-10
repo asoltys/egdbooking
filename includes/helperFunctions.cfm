@@ -57,7 +57,7 @@
           <tr>
             <td>
               <a href="#RootDir#comm/detail-res-book.cfm?lang=#lang#&amp;BRID=#BRID#" title="#language.booking# ###BRID#">
-                <span class="navaid">#language.booking# ###BRID#:</span>
+                #language.booking# ###BRID#:
                 <cfif #EndHighlight# GTE PacificNow>*</cfif>
                 #Name#
               </a>
@@ -96,14 +96,14 @@
 
   <cfset var name = language.deepsea />
   <cfset var url = "detail.cfm?lang=#lang#&amp;date=#taday###res-book-#BRID#" />
-  <cfset var details = "#taday# - #language.detailsFor# #language.booking# - ###BRID#" />
-  <cfset var title = "#details# - #name#" />
+  <cfset var details = "#taday# - #language.detailsFor# #language.booking# ###BRID#" />
+  <cfset var title = "#details#: #name#" />
   <cfset var class = "pending" />
   <cfset var legendIndex = 1 />
 
   <cfif viewable(vessels, VNID) or admin() or not anonymous>
     <cfset name = bookings.vesselname />
-    <cfset title = "#details# - #name#" />
+    <cfset title = "#details#: #name#" />
   </cfif>
 
   <cfif status eq "T">
