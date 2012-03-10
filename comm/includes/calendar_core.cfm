@@ -39,20 +39,11 @@
 
 <h2>#LSDateFormat(CreateDate(url['a-y'], url['m-m'], 1), 'mmmm')# #url['a-y']#</h2>
 
-<cfset legend = arrayNew(1) />
 <cfif find("jet", cgi.script_name) EQ 0>
-  <cfset arrayAppend(legend, language.sec1) />
-  <cfset arrayAppend(legend, language.sec2) />
-  <cfset arrayAppend(legend, language.sec3) />
-  <cfset arrayAppend(legend, language.tentbook) />
-  <cfset arrayAppend(legend, language.pendbook) />
+  <cfinclude template="#RootDir#comm/includes/dock_key.cfm" />
 <cfelse>
-  <cfset arrayAppend(legend, language.NorthLandingWharf) />
-  <cfset arrayAppend(legend, language.SouthJetty) />
-  <cfset arrayAppend(legend, language.PendBook) />
-  <cfset arrayAppend(legend, language.TentBook) />
+  <cfinclude template="#RootDir#comm/includes/jetty_key.cfm" />
 </cfif>
-
 
 <!--- Create an array for the days of the month --->
 <cfset DaysofMonth = ArrayNew(1)>
@@ -159,11 +150,5 @@ summary="#language.calendar#">
 	</tr>
 	</cfloop>
 </table>
-
-<cfif find("jet", cgi.script_name) EQ 0>
-  <cfinclude template="#RootDir#comm/includes/dock_key.cfm" />
-<cfelse>
-  <cfinclude template="#RootDir#comm/includes/jetty_key.cfm" />
-</cfif>
 
 </cfoutput>
