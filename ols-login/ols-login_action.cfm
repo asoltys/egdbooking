@@ -35,12 +35,10 @@
 		</cfscript>
 	</cfif>
 
-	<!---Lookup the login in the database --->
 	<cfquery name="IsValidLogin" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 		SELECT	Count(*) AS Login_Match
 		FROM	Users
 		WHERE	email = <cfqueryparam value="#Form.email#" cfsqltype="cf_sql_varchar" />
-		<!---AND		Password = <cfqueryparam value="#Form.Password#" cfsqltype="cf_sql_varchar" />--->
 		AND 	Deleted = '0'
 		AND	EXISTS (SELECT	*
 					FROM	UserCompanies
@@ -71,22 +69,23 @@
 							AND		Deleted = 0)
 		</cfquery>
 
-		<cfif form.email EQ ''>
-      <cfset session['errors']['email'] = language.enterInfoError />
-		<cfelseif NOT REFindNoCase("^([a-zA-Z_\.\-\']*[a-zA-Z0-9_\.\-\'])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$", trim(Form.Email))>
-			<cfoutput>#ArrayAppend(Variables.Errors, "#language.invalidEmailError#")#</cfoutput>
-      <cfset session['errors']['email'] = language.invalidEmailError />
-		<cfelseif checkEmail.NumFound EQ 0>
+		<cfif checkEmail.NumFound EQ 0>
       <cfset session['errors']['email'] = language.incorrectPasswordError />
       <cfset session['errors']['password'] = language.incorrectPasswordError />
-		<cfelseif notApproved.NumFound GT 0 AND checkEmail.NumFound GT 0>
-      <cfset session['errors']['email'] = language.unapprovedEmailError />
 		<cfelseif match EQ "NO">
       <cfset session['errors']['email'] = language.incorrectPasswordError />
       <cfset session['errors']['password'] = language.incorrectPasswordError />
 		</cfif>
 
-		
+    <cfif form.email EQ ''>
+      <cfset session['errors']['email'] = language.enterInfoError />
+		<cfelseif NOT REFindNoCase("^([a-zA-Z_\.\-\']*[a-zA-Z0-9_\.\-\'])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$", trim(Form.Email))>
+      <cfset session['errors']['email'] = language.invalidEmailError />
+		<cfelseif notApproved.NumFound GT 0 AND checkEmail.NumFound GT 0>
+      <cfset session['errors']['email'] = language.unapprovedEmailError />
+    </cfif>
+
+
 		<cfinclude template="#RootDir#includes/build_return_struct.cfm">
 		<cflocation url="ols-login.cfm?lang=#lang#" addtoken="no">
 		
