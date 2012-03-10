@@ -31,7 +31,7 @@
 
 <meta name="dc.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html" />
 <meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
-<meta name="dcterms.modified" scheme="W3CDTF" content="#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#" />
+<meta name="dcterms.modified" scheme="W3CDTF" content="#myDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#" />
 <meta name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
 
 

@@ -19,16 +19,16 @@
 <cfset magicnum = 8>
 
 <cfif NOT structKeyExists(url, 'm-m')>
-	<cfset url['m-m'] = LSDateFormat(PacificNow, "M")>
+	<cfset url['m-m'] = myDateFormat(PacificNow, "M")>
 </cfif>
 
 <cfif NOT structKeyExists(url, 'a-y')>
-	<cfset url['a-y'] = LSDateFormat(PacificNow, "YYYY")>
+	<cfset url['a-y'] = myDateFormat(PacificNow, "YYYY")>
 </cfif>
 
 <!--- Create an array for the days of the week --->
 <cfset DaysofWeek = ArrayNew(1)>
 <cfloop index="daysCounter" from="1" to="7" step="1">
-	<cfset DaysofWeek[daysCounter] = LSDateFormat(CreateDate(6,1,daysCounter),"dddd")>
+	<cfset DaysofWeek[daysCounter] = myDateFormat(CreateDate(6,1,daysCounter),"dddd")>
 </cfloop>
 

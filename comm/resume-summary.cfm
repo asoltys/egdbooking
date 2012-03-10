@@ -208,8 +208,8 @@ WHERE	SouthJetty = 1
                 <cfelse> #language.Pending#
                 </cfif>
               </cfif></td>
-            <td headers="docking">#LSDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</CFIF> - #LSDateFormat(EndDate, request.datemask)#</td>
-            <td headers="booking">#LSDateFormat(BookingTime, request.datemask)#@#LSTimeFormat(BookingTime, 'HH:mm')#</td>
+            <td headers="docking">#myDateFormat(StartDate, "mmm d")#<CFIF Year(StartDate) neq Year(EndDate)>#myDateFormat(StartDate, ", yyyy")#</CFIF> - #myDateFormat(EndDate, request.datemask)#</td>
+            <td headers="booking">#myDateFormat(BookingTime, request.datemask)#@#LSTimeFormat(BookingTime, 'HH:mm')#</td>
           </tr>
           </cfloop>
         </table>
@@ -258,8 +258,8 @@ WHERE	SouthJetty = 1
                             <cfelseif Status eq 't'>#language.Tentative#
                             <cfelse>#language.Pending#
                             </cfif></td>
-              <td headers="docking2">#LSDateFormat(StartDate, "mmm d")#<cfif Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</cfif> - #LSDateFormat(EndDate, request.datemask)#</td>
-              <td headers="booking2">#LSDateFormat(BookingTime, request.datemask)#@#LSTimeFormat(BookingTime, 'HH:mm')#</td>
+              <td headers="docking2">#myDateFormat(StartDate, "mmm d")#<cfif Year(StartDate) neq Year(EndDate)>#myDateFormat(StartDate, ", yyyy")#</cfif> - #myDateFormat(EndDate, request.datemask)#</td>
+              <td headers="booking2">#myDateFormat(BookingTime, request.datemask)#@#LSTimeFormat(BookingTime, 'HH:mm')#</td>
             </tr>
             </cfloop>
           </tbody>
@@ -308,8 +308,8 @@ WHERE	SouthJetty = 1
                             <cfelseif Status eq 't'>#language.tentative#
                             <cfelse>#language.Pending#
                             </cfif></td>
-              <td headers="docking3">#LSDateFormat(StartDate, "mmm d")#<cfif Year(StartDate) neq Year(EndDate)>#LSDateFormat(StartDate, ", yyyy")#</cfif> - #LSDateFormat(EndDate, request.datemask)#</td>
-              <td headers="booking3">#LSDateFormat(BookingTime, request.datemask)#@#LSTimeFormat(BookingTime, 'HH:mm')#</td>
+              <td headers="docking3">#myDateFormat(StartDate, "mmm d")#<cfif Year(StartDate) neq Year(EndDate)>#myDateFormat(StartDate, ", yyyy")#</cfif> - #myDateFormat(EndDate, request.datemask)#</td>
+              <td headers="booking3">#myDateFormat(BookingTime, request.datemask)#@#LSTimeFormat(BookingTime, 'HH:mm')#</td>
             </tr>
             </cfloop>
           </tbody>

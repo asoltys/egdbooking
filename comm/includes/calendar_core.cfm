@@ -20,7 +20,7 @@
         <label for="month">#language.month#</label>
         <select name="m-m" id="month">
           <cfloop index="i" from="1" to="12">
-            <option value="#i#" <cfif i eq url['m-m']>selected="selected"</cfif>>#LSDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
+            <option value="#i#" <cfif i eq url['m-m']>selected="selected"</cfif>>#myDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
           </cfloop>
         </select>
       </div>
@@ -28,7 +28,7 @@
         <label for="year">#language.year#</label>
         <select name="a-y" id="year">
           <CFLOOP index="i" from="-5" to="25">
-            <cfset year = #LSDateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
+            <cfset year = #myDateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
             <option <cfif year eq url['a-y']>selected="selected"</cfif>>#year#</option>
           </CFLOOP>
         </select>
@@ -38,7 +38,7 @@
   </form>
 </div>
 
-<h2>#LSDateFormat(CreateDate(url['a-y'], url['m-m'], 1), 'mmmm')# #url['a-y']#</h2>
+<h2>#myDateFormat(CreateDate(url['a-y'], url['m-m'], 1), 'mmmm')# #url['a-y']#</h2>
 
 <cfif find("jet", cgi.script_name) EQ 0>
   <cfinclude template="#RootDir#comm/includes/dock_key.cfm" />
@@ -58,7 +58,7 @@
 <!--- Find the day of the week for the first day of the month, used for finding events in the query --->
 <cfset FirstDay = CreateDate(url['a-y'], url['m-m'], 1)>
 <cfset LastDay = CreateDate(url['a-y'], url['m-m'], LastDayofMonth)>
-<cfset CurDayofWeek = LSDateFormat(FirstDay, "dddd")>
+<cfset CurDayofWeek = myDateFormat(FirstDay, "dddd")>
 
 <table class="basic calendar" id="calendar#url['m-m']#" 
 summary="#language.calendar#">
@@ -66,7 +66,7 @@ summary="#language.calendar#">
 	<tr>
 		<cfloop index="doh" from="1" to="#ArrayLen(DaysofWeek)#" step="1">
 			<cfset dummydate = CreateDate(2005, 5, doh)>
-			<th scope="row">#LSDateFormat(dummydate, 'dddd')#</th>
+			<th scope="row">#myDateFormat(dummydate, 'dddd')#</th>
 		</cfloop>
 	</tr>
 

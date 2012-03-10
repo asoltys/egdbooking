@@ -43,16 +43,16 @@
 <cfset Variables.AdminEmail = DevEmail />
 </cfif>
 	<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Booking Cancellation Request" type="html">
-<p>#getUser.UserName# has requested to cancel the booking for #getBooking.VesselName# from #LSDateFormat(getBooking.StartDate, request.datemask)# to #LSDateFormat(getBooking.EndDate, request.datemask)#.</p>
+<p>#getUser.UserName# has requested to cancel the booking for #getBooking.VesselName# from #myDateFormat(getBooking.StartDate, request.datemask)# to #myDateFormat(getBooking.EndDate, request.datemask)#.</p>
 	</cfmail>
 	
 	<cfif ServerType EQ "Development">
 <cfset getUser.email = DevEmail />
 </cfif>
 	<cfmail to="#getUser.email#" from="#Variables.AdminEmail#" subject="Booking Cancellation Request - Demande d'annulation de r&eacute;servation: #getBooking.VesselName#" type="html">
-<p>Your cancellation request for the booking for #getBooking.VesselName# from #LSDateFormat(getBooking.StartDate, request.datemask)# to #LSDateFormat(getBooking.EndDate, request.datemask)# is now pending.  EGD administration has been notified of your request.  You will receive a follow-up email responding to your request shortly.</p>
+<p>Your cancellation request for the booking for #getBooking.VesselName# from #myDateFormat(getBooking.StartDate, request.datemask)# to #myDateFormat(getBooking.EndDate, request.datemask)# is now pending.  EGD administration has been notified of your request.  You will receive a follow-up email responding to your request shortly.</p>
 <p>&nbsp;</p>
-<p>Votre demande d'annulation de la r&eacute;servation pour le #getBooking.VesselName# du #LSDateFormat(getBooking.StartDate, request.datemask)# au #LSDateFormat(getBooking.EndDate, request.datemask)# est en cours de traitement. L'administration de la CSE a &eacute;t&eacute; avis&eacute;e de votre demande. Vous recevrez sous peu un courriel de suivi en r&eacute;ponse &agrave; votre demande. D'ici l&agrave;, votre place est consid&eacute;r&eacute;e comme r&eacute;serv&eacute;e pour les dates indiqu&eacute;es.</p>
+<p>Votre demande d'annulation de la r&eacute;servation pour le #getBooking.VesselName# du #myDateFormat(getBooking.StartDate, request.datemask)# au #myDateFormat(getBooking.EndDate, request.datemask)# est en cours de traitement. L'administration de la CSE a &eacute;t&eacute; avis&eacute;e de votre demande. Vous recevrez sous peu un courriel de suivi en r&eacute;ponse &agrave; votre demande. D'ici l&agrave;, votre place est consid&eacute;r&eacute;e comme r&eacute;serv&eacute;e pour les dates indiqu&eacute;es.</p>
 	</cfmail>
 </cfoutput>
 
@@ -91,12 +91,12 @@
 <!--- create structure for sending to mothership/success page. --->
 <cfset Session.Eng.Success.Breadcrumb = "Booking Cancellation Request">
 <cfset Session.Eng.Success.Title = "Booking Cancellation Request">
-<cfset Session.Eng.Success.Message = "<div align='left'>Your cancellation request for the booking for <strong>#getBooking.vesselName#</strong> from #LSDateFormat(CreateODBCDate(getBooking.startDate), request.datemask)# to #LSDateFormat(CreateODBCDate(getBooking.endDate), request.datemask)# is now pending.  EGD administration has been notified of your request.  You will receive a follow-up email responding to your request shortly.</div>">
+<cfset Session.Eng.Success.Message = "<div align='left'>Your cancellation request for the booking for <strong>#getBooking.vesselName#</strong> from #myDateFormat(CreateODBCDate(getBooking.startDate), request.datemask)# to #myDateFormat(CreateODBCDate(getBooking.endDate), request.datemask)# is now pending.  EGD administration has been notified of your request.  You will receive a follow-up email responding to your request shortly.</div>">
 <cfset Session.Eng.Success.Link = "#returnTo#?#urltoken#&CID=#url.CID##variables.dateValue#">
 
 <cfset Session.Fra.Success.Breadcrumb = "Demande d'annulation de r&eacute;servation">
 <cfset Session.Fra.Success.Title = "Demande d'annulation de r&eacute;servation">
-<cfset Session.Fra.Success.Message = "<div align='left'>Votre demande d'annulation de la r&eacute;servation pour le <strong>#getBooking.vesselName#</strong> du #LSDateFormat(CreateODBCDate(getBooking.startDate), request.datemask)# au #LSDateFormat(CreateODBCDate(getBooking.endDate), request.datemask)#  est en cours de traitement. L'administration de la CSE a &eacute;t&eacute; avis&eacute;e de votre demande. Vous recevrez sous peu un courriel de suivi en r&eacute;ponse &agrave; votre demande.</div>">
+<cfset Session.Fra.Success.Message = "<div align='left'>Votre demande d'annulation de la r&eacute;servation pour le <strong>#getBooking.vesselName#</strong> du #myDateFormat(CreateODBCDate(getBooking.startDate), request.datemask)# au #myDateFormat(CreateODBCDate(getBooking.endDate), request.datemask)#  est en cours de traitement. L'administration de la CSE a &eacute;t&eacute; avis&eacute;e de votre demande. Vous recevrez sous peu un courriel de suivi en r&eacute;ponse &agrave; votre demande.</div>">
 <cfset Session.Fra.Success.Link = "#returnTo#?#urltoken#&CID=#url.CID##variables.dateValue#">
 
 <cflocation addtoken="no" url="#RootDir#comm/succes.cfm?lang=#lang#">

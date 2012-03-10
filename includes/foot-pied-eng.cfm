@@ -5,7 +5,7 @@
 				<!-- DATE MODIFIED BEGINS | DEBUT DE LA DATE DE MODIFICATION -->
 				Date Modified: <span class="date">
 					<!--- the query is set up in tete-header --->
-					<cfoutput query="GetFile">	#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>
+					<cfoutput query="GetFile">	#myDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>
 				</span>
 				<!-- DATE MODIFIED ENDS | FIN DE LA DATE DE MODIFICATION -->
 			</div>

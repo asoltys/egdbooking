@@ -75,7 +75,7 @@
 				<!------------------------------------------------------------------------------------------------------------>
 				<cfoutput>
 				<p>#language.explanation#</p>
-				<cfset emailSubject = "#getbooking.CompanyName# editing booking for #trim(getbooking.VesselName)# from #LSDateFormat(getbooking.StartDate, request.datemask)# to #LSDateFormat(getbooking.EndDate, request.datemask)#">
+				<cfset emailSubject = "#getbooking.CompanyName# editing booking for #trim(getbooking.VesselName)# from #myDateFormat(getbooking.StartDate, request.datemask)# to #myDateFormat(getbooking.EndDate, request.datemask)#">
 				<p>
         #language.phone#<cfif lang eq "fra">&nbsp;</cfif>: 250-363-3879  #language.or#  250-363-8056<br />
 					#language.fax#<cfif lang eq "fra">&nbsp;</cfif>: 250-363-8059<br />

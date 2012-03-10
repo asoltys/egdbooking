@@ -57,7 +57,7 @@
 
 <cfif DateDiff("d",Form.StartDate,Form.EndDate) LT 0>
 	<cfoutput>#ArrayAppend(Errors, "#language.bookingTooShortError#")#</cfoutput>
-		<cfoutput>#ArrayAppend(Errors, "#language.StartDate#: #LSDateFormat(Form.StartDate, request.datemask)#")#</cfoutput>
+		<cfoutput>#ArrayAppend(Errors, "#language.StartDate#: #myDateFormat(Form.StartDate, request.datemask)#")#</cfoutput>
 	<cfset Proceed_OK = "No">
 </cfif>
 
@@ -65,7 +65,7 @@ B
 <!--- Date Range must be at least have the same number of days as the Number of Days asked for --->
 <cfif DateDiff("d",Form.StartDate,Form.EndDate) LT Form.NumDays-1>
 	<cfoutput>#ArrayAppend(Errors, "#language.bookingTooShortError#")#</cfoutput>
-		<cfoutput>#ArrayAppend(Errors, "#language.StartDate#: #LSDateFormat(CreateODBCDate(Form.StartDate), request.datemask)#")#</cfoutput>
+		<cfoutput>#ArrayAppend(Errors, "#language.StartDate#: #myDateFormat(CreateODBCDate(Form.StartDate), request.datemask)#")#</cfoutput>
 	<cfset Proceed_OK = "No">
 </cfif>
 
