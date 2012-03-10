@@ -10,4 +10,8 @@
   <cfset url_string = replaceNoCase(cgi.http_referer, '-eng', '-fra') />
 </cfif>
 
+<cfif not structKeyExists(variables, 'url_string')>
+  <cfset url_string = "#cgi.http_referer#&lang=eng" />
+</cfif>
+
 <cflocation url="#url_string#" addtoken="no" />
