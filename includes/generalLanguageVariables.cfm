@@ -1,18 +1,12 @@
 <cfinclude template="#RootDir#includes/errorMessages.cfm" />
 <cfif lang eq "eng" OR (IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true)>
-  <cfset language.Agent = "Agent">
-  <cfset language.DrydockTableSummary = "List of drydock bookings" />
-  <cfset language.NLWTableSummary = "List of north landing wharf bookings" />
-  <cfset language.PWGSC = "PWGSC">
-  <cfset language.Remember = "Remember Me">
-  <cfset language.SJTableSummary = "List of south jetty bookings" />
-  <cfset language.ScreenMessage = "Il n'existe aucune activit&eacute; &agrave; afficher.">
   <cfset language.acknowledged = "I have read and acknowledged this notice" />
   <cfset language.acknowledgement_received = "Acknowledgement received.  You can view the notice at any time by visiting the <a href='#RootDir#comm/avis-notices.cfm'>Notices</a> page" />
   <cfset language.addUser = "Register an account">
   <cfset language.addVessel = "Add Vessel">
   <cfset language.admin = "Admin">
   <cfset language.administrator = "Administrator">
+  <cfset language.agent = "Agent">
   <cfset language.agent = "Agent">
   <cfset language.allBookings = "All Bookings">
   <cfset language.anonymous = "Keep this vessel anonymous">
@@ -64,6 +58,7 @@
   <cfset language.detailsFor = "Details for" />
   <cfset language.drydock = "Drydock">
   <cfset language.drydockCalendar = "Drydock Calendar">
+  <cfset language.drydockTableSummary = "List of drydock bookings showing the start and end date of the booking followed by the status of the booking" />
   <cfset language.editProfileButton = "Edit Profile">
   <cfset language.editVessel = "Edit Vessel">
   <cfset language.egd = "EGD">
@@ -98,6 +93,7 @@
   <cfset language.new = "New Booking">
   <cfset language.newBooking = "Submit Drydock Booking Information">
   <cfset language.next = "next">
+  <cfset language.nlwTableSummary = "List of north landing wharf bookings showing the start and end date of the booking followed by the status of the booking" />
   <cfset language.no = "No">
   <cfset language.none = "None">
   <cfset language.northLandingWharf = "North Landing Wharf">
@@ -113,12 +109,15 @@
   <cfset language.pending_cancelling = "pending cancellation">
   <cfset language.phone = "Phone">
   <cfset language.prev = "previous">
+  <cfset language.pwgsc = "PWGSC">
+  <cfset language.remember = "Remember Me">
   <cfset language.requestBooking = "Request Booking">
   <cfset language.requestedStatus = "Requested Status">
   <cfset language.required = "Required field" />
   <cfset language.requiredFields = "Required fields are marked with an asterisk (<abbr class=""required"" title=""#language.required#"">*</abbr>)." />
   <cfset language.resources = "<acronym title=""Esquimalt Graving Dock"">#language.egd#</acronym> Resources" />
   <cfset language.returnTo = "Back to Booking Home">
+  <cfset language.screenMessage = "Il n'existe aucune activit&eacute; &agrave; afficher.">
   <cfset language.sec = "Dock Section">
   <cfset language.sec1 = "Confirmed in Section 1 of Drydock">
   <cfset language.sec2 = "Confirmed in Section 2 of Drydock">
@@ -127,6 +126,7 @@
   <cfset language.selectCompany = "Select company" />
   <cfset language.setupError = "Please enter the block setup time in days.">
   <cfset language.sitemap = "Site Map">
+  <cfset language.sjTableSummary = "List of south jetty bookings showing the start and end date of the booking followed by the status of the booking" />
   <cfset language.southJetty = "South Jetty">
   <cfset language.startDate = "Start Date">
   <cfset language.status = "Status">
@@ -153,12 +153,6 @@
   <cfset language.year = "Year" />
   <cfset language.yes = "Yes">
 <cfelse>
-  <cfset language.DrydockTableSummary = "Liste des r&##233;servations en cale s&##232;che" />
-  <cfset language.NLWTableSummary = "Liste des r&##233;servations en quai de d&eacute;barquement nord" />
-  <cfset language.PWGSC = "TPSGC">
-  <cfset language.Remember = "Rappelez-vous moi">
-  <cfset language.SJTableSummary = "Liste des r&##233;servations en jet&eacute;e sud" />
-  <cfset language.ScreenMessage = "There are no events available for display">
   <cfset language.acknowledged = "J'ai lu et reconnu cet avis" />
   <cfset language.acknowledgement_received = "Remerciements reçus. Vous pouvez consulter l'avis en tout temps en visitant <a href='#RootDir#comm/avis-notices.cfm'>la page des avis.</a>" />
   <cfset language.addUser = "Cr&eacute;er un compte">
@@ -217,6 +211,7 @@
   <cfset language.detailsFor = "D&egrave;tails pour" />
   <cfset language.drydock = "Cale s&egrave;che">
   <cfset language.drydockCalendar = "Calendrier de la cale s&egrave;che">
+  <cfset language.drydockTableSummary = "Liste des r&##233;servations en cale s&##232;che indiquant la date de d&##233;but et de fin de la r&##233;servation suivi par le statut de la r&##233;servation" />
   <cfset language.editProfileButton = "Modifier le profil">
   <cfset language.editVessel = "Modifier le navire">
   <cfset language.egd = "CSE">
@@ -252,6 +247,7 @@
   <cfset language.new = "Nouvelle r&eacute;servation">
   <cfset language.newBooking = "Pr&eacute;sentation des renseignements pour la r&eacute;servation de la cale s&egrave;che">
   <cfset language.next = "suivant">
+  <cfset language.nlwTableSummary = "Liste des r&##233;servations en quai de d&eacute;barquement nord indiquant la date de d&##233;but et de fin de la r&##233;servation suivi par le statut de la r&##233;servation" />
   <cfset language.no = "Non">
   <cfset language.none = "Aucun">
   <cfset language.northLandingWharf = "Quai de d&eacute;barquement nord">
@@ -267,12 +263,15 @@
   <cfset language.pending_cancelling = "en attendant l'annulation"> 
   <cfset language.phone = "T&eacute;l&eacute;phone">
   <cfset language.prev = "pr&eacute;c&eacute;dent">
+  <cfset language.pwgsc = "TPSGC">
+  <cfset language.remember = "Rappelez-vous moi">
   <cfset language.requestBooking = "Pr&eacute;senter une r&eacute;servation">
   <cfset language.requestedStatus = "&Eacute;tat demand&eacute;">
   <cfset language.required = "Champ obligatoire" />
   <cfset language.requiredFields = "Les champs obligatoires sont signal&eacute;s par un ast&eacute;risque (<abbr class=""required"" title=""#language.required#"">*</abbr>)." />
   <cfset language.resources = "Ressources <acronym title=""Cale s&egrave;che d'Esquimalt"">CSE</acronym>" />
   <cfset language.returnTo = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
+  <cfset language.screenMessage = "There are no events available for display">
   <cfset language.sec = "Section de la cale s&egrave;che">
   <cfset language.sec1 = "Section 1 de la cale s&egrave;che confirm&eacute;e">
   <cfset language.sec2 = "Section 2 de la cale s&egrave;che confirm&eacute;e">
@@ -281,6 +280,7 @@
   <cfset language.selectCompany = "S&eacute;lectionner une entreprise" />
   <cfset language.setupError = "Veuillez entrer un nombre de jours pour pr&eacute;ciser le temps d'installation des tins.">
   <cfset language.sitemap = "Plan du site">
+  <cfset language.sjTableSummary = "Liste des r&##233;servations en jet&eacute;e sud indiquant la date de d&##233;but et de fin de la r&##233;servation suivi par le statut de la r&##233;servation" />
   <cfset language.southJetty = "Jet&eacute;e sud">
   <cfset language.startDate = "Date de d&eacute;but">
   <cfset language.status = "&Eacute;tat">
