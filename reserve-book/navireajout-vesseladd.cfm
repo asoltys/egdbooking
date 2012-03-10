@@ -161,7 +161,7 @@
 						</div>
 
             <div>
-              <label for="Anonymous">#language.anonymous#<sup><a href="##fn" title="#language.footnote#">&dagger;</a></sup>:</label>
+              <label for="Anonymous">#language.anonymous#<sup><a href="##fn" title="#language.footnote#"><span class="navaid">#language.footnote#</span>&dagger;</a></sup>:</label>
               <input type="checkbox" id="Anonymous" name="Anonymous" value="Yes" />
             </div>
 

@@ -191,7 +191,7 @@
 						</div>
 
             <div>
-              <label for="anonymous">#language.anonymous#<sup>&dagger;</sup>:</label>
+              <label for="Anonymous">#language.anonymous#<sup><a href="##fn" title="#language.footnote#"><span class="navaid">#language.footnote#</span>&dagger;</a></sup>:</label>
               <input id="anonymous" type="checkbox" name="Anonymous" <cfif variables.Anonymous EQ 1>checked="true" </cfif>value="Yes" />
             </div>
 

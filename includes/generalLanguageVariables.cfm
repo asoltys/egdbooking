@@ -5,7 +5,7 @@
 	<cfset language.pacificRegion = "Pacific Region">
 	<cfset language.esqGravingDock = "Esquimalt Graving Dock">
 	<cfset language.esqGravingDockCaps = "ESQUIMALT GRAVING DOCK">
-  <cfset language.footnote = "Footnote" />
+  <cfset language.footnote = "See footnote" />
 	<cfset language.submit = "Submit">
 	<cfset language.cancel = "Cancel">
 	<cfset language.admin = "Admin">
@@ -58,7 +58,7 @@
 	<cfset language.pacificRegion = "R&eacute;gion du Pacifique">
 	<cfset language.esqGravingDock = "Cale s&egrave;che d'Esquimalt">
 	<cfset language.esqGravingDockCaps = "CALE S&Eacute;CHE D'ESQUIMALT">
-  <cfset language.footnote = "Note" />
+  <cfset language.footnote = "Voir la note" />
 	<cfset language.submit = "Soumettre">
 	<cfset language.cancel = "Annuler">
 	<cfset language.admin = "Admin">
