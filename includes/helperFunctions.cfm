@@ -34,6 +34,9 @@
   <cfreturn listFind(valueList(query.VNID), arguments.VNID) />
 </cffunction>
 
+<cffunction name="admin">
+  <cfreturn structKeyExists(session, 'isAdmin') />
+</cffunction>
 
 <cffunction name="bookingsTable" output="true">
   <cfargument name="query">
@@ -83,4 +86,44 @@
   <cfelse>
     <p>#language.None#</p>
   </cfif>
+</cffunction>
+
+<cffunction name="booking" output="true">
+  <cfargument name="BRID" />
+  <cfargument name="status" />
+  <cfargument name="anonymous" />
+  <cfargument name="section" default="" />
+
+  <cfset var name = language.deepsea />
+  <cfset var url = "detail.cfm?lang=#lang#&amp;date=#taday###res-book-#BRID#" />
+  <cfset var details = "#taday# - #language.detailsFor# #language.booking# - ###BRID#" />
+  <cfset var title = "#details# - #name#" />
+  <cfset var class = "pending" />
+  <cfset var legendIndex = 1 />
+
+  <cfif viewable(vessels, VNID) or admin() or not anonymous>
+    <cfset name = bookings.vesselname />
+    <cfset title = "#details# - #name#" />
+  </cfif>
+
+  <cfif status eq "T">
+    <cfset legendIndex = 2 />
+    <cfset class = "tentative" />
+  </cfif>
+
+  <cfif section neq "">
+    <cfset legendIndex = section + 2 />
+    <cfset class = "sec" & section />
+  </cfif>
+
+  <div class="#class#">
+    <a class="#class#" href="#url#" title="#title#" rel="nofollow">
+      <span class="navaid">#details#</span> #name#
+    </a>
+    <a class="legend" href="##l#legendIndex#">
+      <sup title="#legend[legendIndex]#">
+        <span class="navaid">#legendIndex# - #legend[legendIndex]#</span>#legendIndex#
+      </sup>
+    </a>
+  </div>
 </cffunction>

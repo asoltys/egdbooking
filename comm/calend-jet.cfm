@@ -59,7 +59,14 @@
 						StartDate, EndDate,
 						NorthJetty AS Section1, SouthJetty AS Section2, '0' AS Section3,
 						Vessels.Name AS VesselName, Vessels.VNID,
-						Vessels.Anonymous
+						Vessels.Anonymous,
+            CASE Status
+              WHEN 'P' THEN 4
+              WHEN 'PT' THEN 4
+              WHEN 'PC' THEN 4
+              WHEN 'T' THEN 3
+              ELSE CASE NorthJetty WHEN 1 THEN 1 ELSE 2 END
+            END AS Ordering
 					FROM	Bookings
 						INNER JOIN	Jetties ON Bookings.BRID = Jetties.BRID
 						INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
@@ -67,20 +74,7 @@
 						AND EndDate >= <cfqueryparam value="#firstdayofbunch#" cfsqltype="cf_sql_date" />
 						AND	Bookings.Deleted = '0'
 						AND	Vessels.Deleted = '0'
-
-					UNION
-
-					SELECT	Bookings.BRID, Status,
-						StartDate, EndDate,
-						NorthJetty AS Section1, SouthJetty AS Section2, '0' AS Section3,
-						'o' AS dummy1, '0' AS dummy2,
-						'0' AS dummy3
-					FROM	Bookings
-						INNER JOIN	Jetties ON Bookings.BRID = Jetties.BRID
-					WHERE	StartDate <= <cfqueryparam value="#lastdayofbunch#" cfsqltype="cf_sql_date" />
-						AND EndDate >= <cfqueryparam value="#firstdayofbunch#" cfsqltype="cf_sql_date" />
-						AND	Bookings.Deleted = '0'
-						AND	Status = 'm'
+          ORDER BY Ordering
 				</cfquery>
 
 				<CFIF url['m-m'] eq 1>

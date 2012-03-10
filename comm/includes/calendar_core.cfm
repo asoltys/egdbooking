@@ -11,6 +11,7 @@
     AND Vessels.Deleted = 0
 </cfquery>
 
+
 <div class="selector">
   <form id="dateSelect" action="#CGI.script_name#?lang=#lang#" method="post">
     <fieldset>
@@ -91,7 +92,7 @@ summary="#language.calendar#">
 			</cfif>
 			<td>
 				<cfif not (Variables.DateCounter IS 0) AND NOT (Variables.DateCounter GT Variables.LastDayofMonth)>
-					<cfset taday = LSDateFormat(CreateDate(url['a-y'], url['m-m'], DaysofMonth[DateCounter]), "yyyy-MM-dd")>
+					<cfset taday = DateFormat(CreateDate(url['a-y'], url['m-m'], DaysofMonth[DateCounter]), "yyyy-MM-dd")>
           <strong>#DaysofMonth[DateCounter]#</strong>
 
 					<cfquery name="bookings" dbtype="query">
@@ -100,50 +101,23 @@ summary="#language.calendar#">
               VesselName, 
               VNID,
               Anonymous,
-              Section1, 
-              Section2, 
-              Section3,
-              Status
+              Status,
+              Section1,
+              Section2,
+              Section3
 						FROM	GetEvents
 						WHERE	<cfqueryparam value="#taday#" cfsqltype="cf_sql_date"> >= StartDate
 							AND <cfqueryparam value="#taday#" cfsqltype="cf_sql_date"> <= EndDate
 					</cfquery>
 
-
 					<cfloop query="bookings">
-            <cfif bookings.anonymous and not structKeyExists(session, 'isAdmin') and not viewable(vessels, VNID)>
-              <cfset vessel_name = language.deepsea />
+            <cfif status neq 'C'>
+              #booking(BRID, status, anonymous)#
             <cfelse>
-              <cfset vessel_name = bookings.vesselname />
+              <cfif section1>#booking(BRID, status, anonymous, 1)#</cfif>
+              <cfif section2>#booking(BRID, status, anonymous, 2)#</cfif>
+              <cfif section3>#booking(BRID, status, anonymous, 3)#</cfif>
             </cfif>
-
-            <cfif listFind("P,PT,PC", bookings.status)>
-              <cfset legendIndex = 5 />
-              <cfset type = "pending" />
-            <cfelseif bookings.status eq "T">
-              <cfset legendIndex = 4 />
-              <cfset type = "tentative" />
-            <cfelseif bookings.section1>
-              <cfset legendIndex = 1 />
-              <cfset type = "sec1" />
-            <cfelseif bookings.section2>
-              <cfset legendIndex = 2 />
-              <cfset type = "sec2" />
-            <cfelseif bookings.section3>
-              <cfset legendIndex = 3 />
-              <cfset type = "sec3" />
-            </cfif>
-
-            <div class="#type#">
-              <a class="#type#" href="detail.cfm?lang=#lang#&amp;date=#taday###res-book-#BRID#" title="#taday# - #language.detailsFor# #language.booking# ###BRID# - #vessel_name#" rel="nofollow">
-                <span class="navaid">#taday# - #language.detailsFor# #language.booking# - ###BRID#</span> #vessel_name#
-              </a>
-              <a class="legend" href="##l#legendIndex#">
-                <sup title="#legend[legendIndex]#">
-                  <span class="navaid">#legendIndex# - #legend[legendIndex]#</span>#legendIndex#
-                </sup>
-              </a>
-            </div>
           </cfloop>
         </cfif>
 			</td>
