@@ -43,7 +43,7 @@
 	<cfif ServerType EQ "Development">
 <cfset Variables.AdminEmail = DevEmail />
 </cfif>
-		<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Vessel Edited" type="html">
+		<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Vessel Edited" type="html" username="#mailuser#" password="#mailpassword#">
 	<p>#getUser.userName# of #getVessel.companyName# has edited the details for #getVessel.VesselName#.  Please check that the new vessel information is correct.</p>
 		</cfmail>
 	</cfoutput>

@@ -76,7 +76,7 @@
 <cfif ServerType EQ "Development">
 <cfset Variables.AdminEmail = DevEmail />
 </cfif>
-	<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Jetty Booking Requested" type="html">
+	<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Jetty Booking Requested" type="html" username="#mailuser#" password="#mailpassword#">
 <p>#getUser.userName# of #getUser.companyName# has requested a <strong>#variables.status#</strong> #northorsouth# booking for #getDetails.VesselName# from #DateFormat(form.StartDate, request.datemask)# to #DateFormat(form.EndDate, request.datemask)#.</p>
 	</cfmail>
 </cfoutput>

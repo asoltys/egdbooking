@@ -58,7 +58,7 @@
 <cfif ServerType EQ "Development">
 <cfset form.email = DevEmail />
 </cfif>
-<cfmail to="#form.email#" from="#variables.adminEmail#" subject="#language.subject#" type="html">
+<cfmail to="#form.email#" from="#variables.adminEmail#" subject="#language.subject#" type="html" username="#mailuser#" password="#mailpassword#">
 <p>#language.email# #randout#.</p>
 <p>#language.esqGravingDock#</p>
 </cfmail>
