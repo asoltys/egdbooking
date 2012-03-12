@@ -15,12 +15,6 @@
       <cflocation url="https://#cgi.server_name##cgi.script_name#?#cgi.query_string#" addtoken="no" />
     </cfif>
 
-    <cfif lcase(url.lang) EQ "eng">
-      <cfset SetLocale("English (Canadian)")>
-    <cfelseif lcase(url.lang) EQ "fra">
-      <cfset SetLocale("French (Canadian)")>
-    </cfif>
-
     <cfquery name="getEmail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
       SELECT	Email
       FROM	Configuration
@@ -31,6 +25,7 @@
     </cfif>
 
     <cfparam name="lang" default="eng">
+    <cfset SetLocale("English (Canadian)")>
 
     <cfset Variables.MaxLength = 347.67>
     <cfset Variables.MaxWidth = 45.40>
