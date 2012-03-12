@@ -120,7 +120,7 @@
 <cfif isDefined("url.info")><cfset Variables.email = ListGetAt(userInfo, 3)></cfif>
 
 <cfoutput>
-	<cfmail to="#Variables.AdminEmail#" from="#Variables.email#" subject="New Company Request" type="html" username="#mailuser#" password="#mailpassword#">
+	<cfmail to="#Variables.AdminEmail#" from="#Variables.email#" subject="New Company Request" type="html">
 <p>A new user, #variables.firstname# #variables.lastname#, has requested to create a company account for #trim(form.Name)#.</p>
 	</cfmail>
 </cfoutput>

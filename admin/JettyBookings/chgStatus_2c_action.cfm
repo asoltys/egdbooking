@@ -75,7 +75,7 @@
 <cfif ServerType EQ "Development">
 <cfset getDetails.Email = DevEmail />
 </cfif>
-<cfmail to="#getDetails.Email#" from="#AdministratorEmail#" subject="Booking Confirmed - R&eacute;servation confirm&eacute;e: #getDetails.VesselName#" type="html" username="#mailuser#" password="#mailpassword#">
+<cfmail to="#getDetails.Email#" from="#AdministratorEmail#" subject="Booking Confirmed - R&eacute;servation confirm&eacute;e: #getDetails.VesselName#" type="html">
 <p>Your requested jetty booking for #getDetails.VesselName# from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')# has been confirmed.</p>
 <p>Esquimalt Graving Dock</p>
 <br />

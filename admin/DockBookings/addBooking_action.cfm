@@ -102,7 +102,7 @@
 	<cfif ServerType EQ "Development">
 		<cfset getDetails.Email = DevEmail />
 		</cfif>
-	<cfmail to="#getDetails.Email#" from="#AdministratorEmail#" subject="New Booking - Nouvelle r&eacute;servation: #getDetails.Vesselname#" type="html" username="#mailuser#" password="#mailpassword#">
+	<cfmail to="#getDetails.Email#" from="#AdministratorEmail#" subject="New Booking - Nouvelle r&eacute;servation: #getDetails.Vesselname#" type="html">
 <p>#getDetails.Vesselname# has been booked in the dock from #DateFormat(getDetails.StartDate, 'mmm d, yyyy')# to #DateFormat(getDetails.EndDate, 'mmm d, yyyy')#.</p>
 <p>Esquimalt Graving Dock</p>
 <br />

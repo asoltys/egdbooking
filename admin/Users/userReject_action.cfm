@@ -46,7 +46,7 @@
 <cfif ServerType EQ "Development">
 <cfset getUser.Email = DevEmail />
 </cfif>
-	<cfmail to="#getUser.Email#" from="#AdministratorEmail#" subject="Company Request Rejected - Demande de l'entreprise rejet&eacute;e" type="html" username="#mailuser#" password="#mailpassword#">
+	<cfmail to="#getUser.Email#" from="#AdministratorEmail#" subject="Company Request Rejected - Demande de l'entreprise rejet&eacute;e" type="html">
 <p>#getUser.UserName#,</p>
 <p>Your request to be added to #getCompany.CompanyName#'s user list has been rejected.  Please contact the Esquimalt Graving Dock administration for details by replying to this email.</p>
 <p>Esquimalt Graving Dock</p>
