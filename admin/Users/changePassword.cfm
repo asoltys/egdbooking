@@ -55,7 +55,7 @@
 		<cfif ServerType EQ "Development">
 <cfset getUser.Email = DevEmail />
 </cfif>
-			<cfmail to="#getUser.Email#" from="#AdministratorEmail#" subject="Password Changed - Mot de passe chang&eacute;" type="html">
+			<cfmail to="#getUser.Email#" from="#AdministratorEmail#" subject="Password Changed - Mot de passe chang&eacute;" type="html" username="#mailuser#" password="#mailpassword#">
 				<p>#getUser.firstName# #getUser.lastName#,</p>
 				<p>Your password for the Esquimalt Graving Dock Online Booking System has been changed to <strong>#trim(form.password1)#</strong>.</p>
 				<p>Esquimalt Graving Dock</p>

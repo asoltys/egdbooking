@@ -105,7 +105,7 @@
 <cfif ServerType EQ "Development">
 <cfset Variables.AdminEmail = DevEmail />
 </cfif>
-	<cfmail to="#Variables.AdminEmail#" from="#form.Email#" subject="New User" type="html">
+	<cfmail to="#Variables.AdminEmail#" from="#form.Email#" subject="New User" type="html" username="#mailuser#" password="#mailpassword#">
 <p>A new user, #form.firstname# #form.lastname#, has requested to create an account.</p>
 	</cfmail>
 </cfoutput>

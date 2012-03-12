@@ -81,7 +81,7 @@
 	</cftransaction>
 	
 <cfoutput>
-	<cfmail to="#form.Email#" from="#Variables.AdminEmail#" subject="Account Reactivated for EGD" type="html">
+	<cfmail to="#form.Email#" from="#Variables.AdminEmail#" subject="Account Reactivated for EGD" type="html" username="#mailuser#" password="#mailpassword#">
 <p>#form.firstname# #form.lastname#,</p>
 <p>Your account for the Esquimalt Graving Dock Online Booking System has been reactivated.</p>
 <p>Username: #form.email#<br />Password: #form.password1#</p>
@@ -154,7 +154,7 @@
 <cfif ServerType EQ "Development">
 <cfset form.Email = DevEmail />
 </cfif>
-	<cfmail to="#form.Email#" from="#AdministratorEmail#" subject="Account Created for EGD - Compte cr&eacute;e pour la CSE" type="html">
+	<cfmail to="#form.Email#" from="#AdministratorEmail#" subject="Account Created for EGD - Compte cr&eacute;e pour la CSE" type="html" username="#mailuser#" password="#mailpassword#">
 <p>#form.firstname# #form.lastname#,</p>
 <p>An account has been created for you for the Esquimalt Graving Dock Online Booking System.</p>
 <p>Username: #form.email#<br />Password: #form.password1#</p>

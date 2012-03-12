@@ -42,14 +42,14 @@
 	<cfif ServerType EQ "Development">
 <cfset Variables.AdminEmail = DevEmail />
 </cfif>
-	<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Booking Cancellation Request" type="html">
+	< username="#mailuser#" password="#mailpassword#"cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Booking Cancellation Request" type="html">
 <p>#getUser.UserName# has requested to cancel the booking for #getBooking.VesselName# from #myDateFormat(getBooking.StartDate, request.datemask)# to #myDateFormat(getBooking.EndDate, request.datemask)#.</p>
 	</cfmail>
 	
 	<cfif ServerType EQ "Development">
 <cfset getUser.email = DevEmail />
 </cfif>
-	<cfmail to="#getUser.email#" from="#Variables.AdminEmail#" subject="Booking Cancellation Request - Demande d'annulation de r&eacute;servation: #getBooking.VesselName#" type="html">
+	< username="#mailuser#" password="#mailpassword#"cfmail to="#getUser.email#" from="#Variables.AdminEmail#" subject="Booking Cancellation Request - Demande d'annulation de r&eacute;servation: #getBooking.VesselName#" type="html">
 <p>Your cancellation request for the booking for #getBooking.VesselName# from #myDateFormat(getBooking.StartDate, request.datemask)# to #myDateFormat(getBooking.EndDate, request.datemask)# is now pending.  EGD administration has been notified of your request.  You will receive a follow-up email responding to your request shortly.</p>
 <p>&nbsp;</p>
 <p>Votre demande d'annulation de la r&eacute;servation pour le #getBooking.VesselName# du #myDateFormat(getBooking.StartDate, request.datemask)# au #myDateFormat(getBooking.EndDate, request.datemask)# est en cours de traitement. L'administration de la CSE a &eacute;t&eacute; avis&eacute;e de votre demande. Vous recevrez sous peu un courriel de suivi en r&eacute;ponse &agrave; votre demande. D'ici l&agrave;, votre place est consid&eacute;r&eacute;e comme r&eacute;serv&eacute;e pour les dates indiqu&eacute;es.</p>

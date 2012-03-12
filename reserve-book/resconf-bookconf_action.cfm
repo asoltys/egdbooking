@@ -51,7 +51,7 @@
 <cfif ServerType EQ "Development">
 <cfset Variables.AdminEmail = DevEmail />
 </cfif>
-	<cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Booking Tentative to Confirm Request" type="html">
+	< username="#mailuser#" password="#mailpassword#"cfmail to="#Variables.AdminEmail#" from="#getUser.email#" subject="Booking Tentative to Confirm Request" type="html">
 <p>#getUser.UserName# has requested to confirm the booking for #getBooking.VesselName# from #myDateFormat(getBooking.StartDate, request.datemask)# to #myDateFormat(getBooking.EndDate, request.datemask)#. This is for <CFIF #URL.jetty#>#northorsouth# Jetty<cfelse>the Drydock</CFIF>.</p>
 	</cfmail>
 	
@@ -59,7 +59,7 @@
 	<cfif ServerType EQ "Development">
 <cfset getUser.email = DevEmail />
 </cfif>
-		<cfmail to="#getUser.email#" from="egd-cse@pwgsc-tpsgc.gc.ca" subject="Booking Confirmation Request - Demande d'annulation de r&eacute;servation: #getBooking.VesselName#" type="html">
+		< username="#mailuser#" password="#mailpassword#"cfmail to="#getUser.email#" from="egd-cse@pwgsc-tpsgc.gc.ca" subject="Booking Confirmation Request - Demande d'annulation de r&eacute;servation: #getBooking.VesselName#" type="html">
 <p>Your confirmation request for the booking for #getBooking.VesselName# from #myDateFormat(getBooking.StartDate, request.datemask)# to #myDateFormat(getBooking.EndDate, request.datemask)# is now pending.  EGD administration has been notified of your request.  You will receive a follow-up email responding to your request shortly.  Until such time, your booking is considered to be going ahead as currently scheduled.</p>
 <p>&nbsp;</p>
 <p>Votre demande d'annulation de la r&eacute;servation pour le #getBooking.VesselName# du #myDateFormat(getBooking.StartDate, request.datemask)# au #myDateFormat(getBooking.EndDate, request.datemask)# est en cours de traitement. L'administration de la CSE a &eacute;t&eacute; avis&eacute;e de votre demande. Vous recevrez sous peu un courriel de suivi en r&eacute;ponse &agrave; votre demande. D'ici l&agrave;, votre place est consid&eacute;r&eacute;e comme r&eacute;serv&eacute;e pour les dates indiqu&eacute;es.</p>
