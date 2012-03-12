@@ -38,6 +38,7 @@
     </cfif>
 
     <cfinclude template="#RootDir#includes/generalLanguageVariables.cfm">
+    <cfinclude template="#RootDir#includes/helperFunctions.cfm">
 
     <cfinclude template="#arguments.targetPage#" />
   </cffunction>
