@@ -247,7 +247,7 @@
   <cfset language.new = "Nouvelle r&eacute;servation">
   <cfset language.newBooking = "Pr&eacute;sentation des renseignements pour la r&eacute;servation de la cale s&egrave;che">
   <cfset language.next = "suivant">
-  <cfset language.nlwTableSummary = "Liste des r&##233;servations en quai de d&eacute;barquement nord indiquant la date de d&##233;but et de fin de la r&##233;servation suivi par le statut de la r&##233;servation" />
+  <cfset language.nlwTableSummary = "Liste des réservations en quai de débarquement nord indiquant la date de début et de fin de la réservation suivi par le statut de la réservation" />
   <cfset language.no = "Non">
   <cfset language.none = "Aucun">
   <cfset language.northLandingWharf = "Quai de d&eacute;barquement nord">
@@ -280,7 +280,7 @@
   <cfset language.selectCompany = "S&eacute;lectionner une entreprise" />
   <cfset language.setupError = "Veuillez entrer un nombre de jours pour pr&eacute;ciser le temps d'installation des tins.">
   <cfset language.sitemap = "Plan du site">
-  <cfset language.sjTableSummary = "Liste des r&##233;servations en jet&eacute;e sud indiquant la date de d&##233;but et de fin de la r&##233;servation suivi par le statut de la r&##233;servation" />
+  <cfset language.sjTableSummary = "Liste des réservations en jet&eacute;e sud indiquant la date de début et de fin de la réservation suivi par le statut de la réservation" />
   <cfset language.southJetty = "Jet&eacute;e sud">
   <cfset language.startDate = "Date de d&eacute;but">
   <cfset language.status = "&Eacute;tat">
