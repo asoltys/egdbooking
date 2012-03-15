@@ -207,11 +207,11 @@
   <cfset language.dateformexplanation = "Mois, Jour, Ann&eacute;e">
   <cfset language.days = "(jours)">
   <cfset language.dblBookingError = "fait d&eacute;j&agrave; l'objet d'une r&eacute;servation du">
-  <cfset language.detailTableSummary = "Renseignements sur le r&##233;servation" />
+  <cfset language.detailTableSummary = "Renseignements sur le réservation" />
   <cfset language.detailsFor = "D&egrave;tails pour" />
   <cfset language.drydock = "Cale s&egrave;che">
   <cfset language.drydockCalendar = "Calendrier de la cale s&egrave;che">
-  <cfset language.drydockTableSummary = "Liste des r&##233;servations en cale s&##232;che indiquant la date de d&##233;but et de fin de la r&##233;servation suivi par le statut de la r&##233;servation" />
+  <cfset language.drydockTableSummary = "Liste des réservations en cale sèche indiquant la date de début et de fin de la réservation suivi par le statut de la réservation" />
   <cfset language.editProfileButton = "Modifier le profil">
   <cfset language.editVessel = "Modifier le navire">
   <cfset language.egd = "CSE">
