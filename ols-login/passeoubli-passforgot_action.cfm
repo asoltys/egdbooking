@@ -41,7 +41,7 @@
 <cfscript>
 	jbClass = ArrayNew(1);
 	jbClass[1] = "#FileDir#lib/jBCrypt-0.3";
-  javaloader = createObject('component','egdbooking.lib.javaloader.JavaLoader');
+  javaloader = createObject('component','lib.javaloader.JavaLoader');
 	javaloader.init(jbClass);
 
 	bcrypt = javaloader.create("BCrypt");
