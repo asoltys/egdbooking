@@ -35,22 +35,6 @@
 <cfcookie name="CFID" value="empty" expires="NOW">
 <cfcookie name="CFTOKEN" value="empty" expires="NOW">
 
-		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
-		<p class="breadcrumb">
-			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>#language.title#</cfoutput>
-		</p>
-		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-		<div class="colLayout">
-		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
-			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
-			<div class="center">
-				<h1><a name="cont" id="cont">
-					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#language.title#</cfoutput>
-					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-					</a></h1>
-
 				<cfoutput>
 					<form action="ols-login_action.cfm?lang=#lang#" method="post" id="login_form">
             <fieldset>
@@ -84,9 +68,5 @@
 					<p><a href="utilisateurajout-useradd.cfm?lang=#lang#">#language.addUser#</a></p>
 					<p><a href="passeoubli-passforgot.cfm?lang=#lang#">#language.Forgot#</a></p>
 				</cfoutput>
-				</div>
-			<!-- CONTENT ENDS | FIN DU CONTENU -->
-		</div>
-
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 
