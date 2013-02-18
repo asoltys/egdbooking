@@ -119,30 +119,15 @@ function EditSubmit ( selectedform )
 /* ]]> */
 </script>
 <!-- End JavaScript Block -->
-
-		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
-		<p class="breadcrumb">
-			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm"> &gt;
-			<a href="#RootDir#admin/menu.cfm?lang=#lang#">Admin</a> &gt;
-			Drydock Booking Management
-		</p>
-		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-		<div class="colLayout">
-		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
-			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
 			<div class="center">
-				<h1><a name="cont" id="cont">
-					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					Drydock Booking Management
-					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-					</a></h1>
+				<h1 id="wb-cont">Drydock Booking Management</h1>
 
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 
 				<p>Please enter a range of dates for which you would like to see the bookings:</p>
 				<form action="bookingManage.cfm?lang=#lang#" method="get">
 					<input type="hidden" name="lang" value="<cfoutput>#lang#</cfoutput>" />
-					<table style="width: 100%;" >
+					<table>
 						<tr>
 							<td id="Startdate">
 								<label for="start">Start Date:</label>
@@ -165,7 +150,7 @@ function EditSubmit ( selectedform )
 						</tr>
 						<tr>
 							<td>Show only:</td>
-							<td headers="Pending" align="right" style="width:15%;"><input type="checkbox" id="showPend" name="show" value="p"<cfif showPend eq true> checked="true"</cfif> /></td>
+							<td headers="Pending" align="right"><input type="checkbox" id="showPend" name="show" value="p"<cfif showPend eq true> checked="true"</cfif> /></td>
 							<td id="Pending" align="left"><label for="showPend" class="pending">Pending</label></td>
 						</tr>
 						<tr>
@@ -206,19 +191,21 @@ function EditSubmit ( selectedform )
 
 					<h2>Drydock <cfif #countPending.numPend# NEQ 0>(#countPending.numPend# #language.pending#)</cfif></h2>
 
-					<div style="float:left;"><a href="addBooking.cfm?#urltoken#" class="textbutton">Add New Drydock Booking</a></div>
-					<div style="text-align:right;">
+          <p>
+            <a href="addBooking.cfm?#urltoken#" class="textbutton">Add New Drydock Booking</a>
+          </p>
+          <p>
 						<cfif form.expandAll NEQ "yes">
 							<a href="javascript:EditSubmit('expandAll');">Expand All</a>
 						<cfelse>
 							<a href="javascript:EditSubmit('expandAll');">Collapse All</a>
 						</cfif>
-					</div>
+          </p>
 
 					<p align="center">Total:&nbsp;&nbsp;
-						<i class="pending">Pending - #countPending.numPend#</i>&nbsp;&nbsp;
-						<i class="tentative">Tentative - #countTentative.numTent#</i>&nbsp;&nbsp;
-						<i class="confirmed">Confirmed - #countConfirmed.numConf#</i>
+						<span class="pending">Pending - #countPending.numPend#</span>&nbsp;&nbsp;
+						<span class="tentative">Tentative - #countTentative.numTent#</span>&nbsp;&nbsp;
+						<span class="confirmed">Confirmed - #countConfirmed.numConf#</span>
 					</p>
 
 					</cfoutput>
@@ -274,12 +261,12 @@ function EditSubmit ( selectedform )
 							</form>
 						</cfoutput>
 					</cfif>
-					<table class="basic">
+					<table class="width-90">
 						<tr>
-							<th id="Start" style="width: 20%;">Start Date</th>
-							<th id="End" style="width: 20%;">End Date</th>
-							<th id="Vessel" style="width: 45%;">Vessel Name</th>
-							<th id="Status" style="width: 15%;">Status</th>
+							<th id="Start">Start Date</th>
+							<th id="End">End Date</th>
+							<th id="Vessel">Vessel Name</th>
+							<th id="Status">Status</th>
 						</tr>
           <cfif getBookings.RecordCount GT 0>
             <cfoutput query="getBookings">
@@ -336,11 +323,11 @@ function EditSubmit ( selectedform )
 
 							<tr><td colspan="5">
 								<div style="text-align:center;">
-									<div style="width:70%">
+									<div>
 										<div style="text-align:right;"><a href="javascript:EditSubmit('editBooking#ID#');">Edit Booking</a></div>
-										<table style="width:100%;" class="bookingDetails">
+										<table>
 											<tr>
-												<td id="Start" style="width:30%;">Start Date:</td>
+												<td id="Start">Start Date:</td>
 												<td headers="Start">#dateformat(getData.startDate, "mmm d, yyyy")#</td>
 											</tr>
 											<tr>
@@ -494,10 +481,10 @@ function EditSubmit ( selectedform )
 
 					<table class="basic">
 						<tr>
-							<th id="Start" style="width: 20%;">Start Date</th>
-							<th id="End" style="width: 20%;">End Date</th>
-							<th id="Section" style="width: 40%;">Section</th>
-							<th colspan="2" style="width: 20%;">&nbsp;</th>
+							<th id="Start">Start Date</th>
+							<th id="End">End Date</th>
+							<th id="Section">Section</th>
+							<th colspan="2">&nbsp;</th>
 						</tr>
 						<cfif getMaintenance.RecordCount GT 0>
 							<cfoutput query="getMaintenance">
@@ -536,7 +523,6 @@ function EditSubmit ( selectedform )
 					<cfoutput><a href="addMaintBlock.cfm?#urltoken#" class="textbutton">Add New Maintenance Block</a></cfoutput>
 
 				</cfif>
-			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

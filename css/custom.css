@@ -37,7 +37,7 @@ abbr.required, div.error {
   color: #a00; text-decoration: none;
 }
 
-legend {
+form legend {
   display: none;
 }
 
@@ -49,31 +49,6 @@ a#dismiss { color: #369; cursor: pointer; text-decoration: underline; }
 div.core div.colLayout {
 	height: auto;
 }
-
-/* Adds a margin to the top that is the same size as the
-   bottom margin. */
-table.basic {
-	margin-top: 1em;
-	font-weight: normal;
-	text-align: left;
-}
-
-/* Overrides the padding to be a little bit smaller and
-   thus less intrusive. */
-table.basic td, table.basic th {
-	padding: 1px 3px 1px 3px;
-}
-
-/* This is necessary because some tables are found inside
-   coloured containers. */
-table tr {
-	background-color: #fff;
-}
-
-table.bookings { width: 100%; }
-table.details th, table.bookings th { text-align: left; padding-right: 20px; font-weight: normal; }
-table.details tr th[colspan="2"] { padding-top: 10px; font-weight: bold; }
-p.total span { padding-right: 10px; }
 
 /* CALENDAR TABLE -------------------------------------- */
 
@@ -167,25 +142,6 @@ th.vessel, th.docking, th.booking {
 
 th.section {
 	width: 10%;
-}
-
-
-/* BOOKING DETAILS ------------------------------------- */
-/* Booking details organised in form of table. These
-   classes work in concert to create the table. The table  */
-table.bookingDetails {
-	border-left: 1px solid #369;
-	border-bottom: 1px solid #369;
-	margin-bottom: 1em;
-	border-collapse: collapse;
-	width: 30em;
-}
-
-table.bookingDetails td {
-	border-top: 1px solid #369;
-	border-right: 1px solid #369;
-	font-size: 100%;
-	padding-left: 5px;
 }
 
 /* DOCK SECTIONS --------------------------------------- */

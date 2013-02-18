@@ -35,38 +35,39 @@
 <cfcookie name="CFID" value="empty" expires="NOW">
 <cfcookie name="CFTOKEN" value="empty" expires="NOW">
 
-				<cfoutput>
-					<form action="ols-login_action.cfm?lang=#lang#" method="post" id="login_form">
-            <fieldset>
-              <legend>#language.login#</legend>
-              <p>#language.requiredFields#</p>
-              
-              <div>
-                <label for="email">
-                  <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Email#:
-                  #error('email')#
-                </label>
-                <input type="text" name="email" id="email" size="40" maxlength="100" value="#email#" />
-              </div>
+<cfoutput>
+  <h1 id="wb-cont">#language.login#</h1>
+  <form action="ols-login_action.cfm?lang=#lang#" method="post" id="login_form">
+    <fieldset>
+      <legend>#language.login#</legend>
+      <p>#language.requiredFields#</p>
+      
+      <div>
+        <label for="email">
+          <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Email#:
+          #error('email')#
+        </label>
+        <input type="text" name="email" id="email" size="40" maxlength="100" value="#email#" />
+      </div>
 
-              <div>
-                <label for="password">
-                  <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Password#:
-                  #error('password')#
-                </label>
-                <input type="password" name="Password" id="password" size="25" maxlength="40" />
-              </div>
+      <div>
+        <label for="password">
+          <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Password#:
+          #error('password')#
+        </label>
+        <input type="password" name="Password" id="password" size="25" maxlength="40" />
+      </div>
 
-              <div>
-                <label for="remember">#language.Remember#</label>
-                <input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked="checked"</CFIF> />
-              </div>
+      <div>
+        <label for="remember">#language.Remember#</label>
+        <input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked="checked"</CFIF> />
+      </div>
 
-              <input type="submit" name="submitForm" value="#language.Login#" class="textbutton" />
-            </fieldset>
-					</form>
-					<p><a href="utilisateurajout-useradd.cfm?lang=#lang#">#language.addUser#</a></p>
-					<p><a href="passeoubli-passforgot.cfm?lang=#lang#">#language.Forgot#</a></p>
-				</cfoutput>
+      <input type="submit" name="submitForm" value="#language.Login#" class="textbutton" />
+    </fieldset>
+  </form>
+  <p><a href="utilisateurajout-useradd.cfm?lang=#lang#">#language.addUser#</a></p>
+  <p><a href="passeoubli-passforgot.cfm?lang=#lang#">#language.Forgot#</a></p>
+</cfoutput>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 

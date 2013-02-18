@@ -26,6 +26,7 @@ wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Lice
 <cfinclude template="/boew-wet/wet3.0/html5/includes/tete-head.html" />
 <!-- CustomScriptsCSSStart -->
 <link href="#RootDir#css/custom.css" rel="stylesheet" type="text/css" />
+<link href="#RootDir#css/jquery-ui.css" media="screen" rel="stylesheet" type="text/css"/>
 <cfif structKeyExists(Session, 'AdminLoggedIn') AND Session.AdminLoggedIn>
   <script src="#RootDir#scripts/prototype.js" type="text/javascript"></script>
   <script src="#RootDir#scripts/calendar.js" type="text/javascript"></script>

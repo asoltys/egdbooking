@@ -1,8 +1,6 @@
 <cfoutput>
 
 <div id="menu1">
-
-
 	<CFSET variables.urltoken = "lang=#lang#">
 	<CFIF IsDefined('variables.startDate')>
 		<CFSET variables.urltoken = variables.urltoken & "&startDate=#DateFormat(variables.startDate, 'mm/dd/yyyy')#">

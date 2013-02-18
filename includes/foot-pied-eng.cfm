@@ -7,7 +7,7 @@
 </div></div>
 
 <div id="wb-sec"><div id="wb-sec-in">
-<cfinclude template="/site30/includes/app_nav_gauche-nav_left_app-eng.html" />
+<cfinclude template="#RootDir#includes/left-menu-gauche-eng.cfm" />
 </div></div>
 </div></div>
 
