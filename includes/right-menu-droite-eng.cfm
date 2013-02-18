@@ -4,8 +4,8 @@
               <h2>Did you know?</h2>
 
               <ul>
-                <li><acronym title="Esquimalt Graving Dock">EGD</acronym> was one of the first large ship repair facilities in the world to implement
-                  <acronym title="International Organization for Standardization">ISO</acronym> 14001.  <a title="Environmental Program" href="#EGD_URL#/env/programme-program-eng.html">More &gt; </a></li>
+                <li><abbr title="Esquimalt Graving Dock">EGD</abbr> was one of the first large ship repair facilities in the world to implement
+                  <abbr title="International Organization for Standardization">ISO</abbr> 14001.  <a title="Environmental Program" href="#EGD_URL#/env/programme-program-eng.html">More &gt; </a></li>
               </ul>
             </li>
           </ul>

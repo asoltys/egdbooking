@@ -23,7 +23,7 @@
   <cfset language.bookingForms = "Booking Forms">
   <cfset language.bookingHome = "Booking Home">
   <cfset language.bookingRequest = "Booking Request">
-  <cfset language.bookingSpace = "Booking Space at the <acronym title=""Esquimalt Graving Dock"">EGD</acronym>">
+  <cfset language.bookingSpace = "Booking Space at the <abbr title=""Esquimalt Graving Dock"">EGD</abbr>">
   <cfset language.bookings = "Bookings">
   <cfset language.bookingsFor = "Bookings for" />
   <cfset language.bookingsSummary = "Bookings Summary">
@@ -75,7 +75,7 @@
   <cfset language.help = "Help">
   <cfset language.jetty = "Jetty">
   <cfset language.jettyCalendar = "Jetties Calendar">
-  <cfset language.kb = "<acronym title=""Kilo Bytes"">KB</acronym>">
+  <cfset language.kb = "<abbr title=""Kilo Bytes"">KB</abbr>">
   <cfset language.legend = "Legend">
   <cfset language.legendSummary = "Explains how different booking types are represented on the calendar" />
   <cfset language.length = "Length (m)">
@@ -115,7 +115,7 @@
   <cfset language.requestedStatus = "Requested Status">
   <cfset language.required = "Required field" />
   <cfset language.requiredFields = "Required fields are marked with an asterisk (<abbr class=""required"" title=""#language.required#"">*</abbr>)." />
-  <cfset language.resources = "<acronym title=""Esquimalt Graving Dock"">#language.egd#</acronym> Resources" />
+  <cfset language.resources = "<abbr title=""Esquimalt Graving Dock"">#language.egd#</abbr> Resources" />
   <cfset language.returnTo = "Back to Booking Home">
   <cfset language.screenMessage = "Il n'existe aucune activit&eacute; &agrave; afficher.">
   <cfset language.sec = "Dock Section">
@@ -175,7 +175,7 @@
   <cfset language.bookingForms = "Formulaires de r&eacute;servation">
   <cfset language.bookingHome = "Accueil - R&eacute;servation">
   <cfset language.bookingRequest = "Demande de r&eacute;servation">
-  <cfset language.bookingSpace = "R&##233;servation pour travaux le <acronym title=""Cale s&##232;che d'Esquimalt"">CSE</acronym>">
+  <cfset language.bookingSpace = "R&##233;servation pour travaux le <abbr title=""Cale s&##232;che d'Esquimalt"">CSE</abbr>">
   <cfset language.bookings = "R&eacute;servations">
   <cfset language.bookingsFor = "R&eacute;servations pour" />
   <cfset language.bookingsSummary = "R&eacute;sum&eacute; des R&eacute;servations">
@@ -228,7 +228,7 @@
   <cfset language.help = "Aide">
   <cfset language.jetty = "Jet&eacute;e">
   <cfset language.jettyCalendar = "Calendrier des jet&eacute;es">
-  <cfset language.kb = "<acronym title=""kilooctets"">Ko</acronym>">
+  <cfset language.kb = "<abbr title=""kilooctets"">Ko</abbr>">
   <cfset language.legend = "L&eacute;gende">
   <cfset language.legendSummary = "Explique comment les types de r&##233;servation diff&##233;rents sont repr&##233;sent&##233;s sur le calendrier" />
   <cfset language.length = "Longueur (m)">
@@ -269,7 +269,7 @@
   <cfset language.requestedStatus = "&Eacute;tat demand&eacute;">
   <cfset language.required = "Champ obligatoire" />
   <cfset language.requiredFields = "Les champs obligatoires sont signal&eacute;s par un ast&eacute;risque (<abbr class=""required"" title=""#language.required#"">*</abbr>)." />
-  <cfset language.resources = "Ressources <acronym title=""Cale s&egrave;che d'Esquimalt"">CSE</acronym>" />
+  <cfset language.resources = "Ressources <abbr title=""Cale s&egrave;che d'Esquimalt"">CSE</abbr>" />
   <cfset language.returnTo = "Retour &agrave; Accueil&nbsp;- R&eacute;servation">
   <cfset language.screenMessage = "There are no events available for display">
   <cfset language.sec = "Section de la cale s&egrave;che">

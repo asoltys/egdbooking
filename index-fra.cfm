@@ -116,7 +116,7 @@ function popUp(pageID) {
 	<li>
 		<h2>Saviez-vous?</h2>
 		<ul>
-			<li>La <acronym title="Cale s&egrave;che d'Esquimalt">CSE</acronym> est une des rares installations de r&##233;paration de grands b&##226;timents au monde &##224; avoir adopt&##233; la norme <acronym title="Organisation internationale de normailisation">ISO</acronym> 14001.  <a title="Programme environnemental" href="#EGD_URL#/env/programme-program-fra.html">D&eacute;tails &gt; </a></li>
+			<li>La <abbr title="Cale s&egrave;che d'Esquimalt">CSE</abbr> est une des rares installations de r&##233;paration de grands b&##226;timents au monde &##224; avoir adopt&##233; la norme <abbr title="Organisation internationale de normailisation">ISO</abbr> 14001.  <a title="Programme environnemental" href="#EGD_URL#/env/programme-program-fra.html">D&eacute;tails &gt; </a></li>
 
 		</ul>
 		<br />
@@ -143,7 +143,7 @@ function popUp(pageID) {
 				<img src="#RootDir#images/EGD_aerial_small.jpg" alt="" width="405" height="342" />
 
         <p>Afin de r&eacute;server une place pour un navire &agrave; l'une des installations de la Cale s&egrave;che d'Esquimalt, veuillez lancer la page d'<a href="#RootDir#ols-login/ols-login.cfm?lang=fra">#language.bookingApplicationLogin#</a>.
-			    Si vous &eacute;prouvez des probl&egrave;mes avec l'application des r&eacute;servations, pri&egrave;re d'utiliser la page <a href="#EGD_URL#/cn-cu-#lang#.html">#language.contact# <acronym title="#language.esqGravingDock#">#language.egd#</acronym></a>.</p>
+			    Si vous &eacute;prouvez des probl&egrave;mes avec l'application des r&eacute;servations, pri&egrave;re d'utiliser la page <a href="#EGD_URL#/cn-cu-#lang#.html">#language.contact# <abbr title="#language.esqGravingDock#">#language.egd#</abbr></a>.</p>
           <p>Les frais de r&eacute;servation de la cale s&egrave;che d&rsquo;Esquimalt sont de 4&nbsp;400,00$  canadiens, plus 528,00$ de taxe de vente harmonis&eacute;e (TVH), ce qui donne en  tout 4&nbsp;928,00$ payables en esp&egrave;ces, par ch&egrave;que certifi&eacute; d&rsquo;une banque  canadienne ou par mandat international. Le 1<sup>er</sup> avril 2008, des int&eacute;r&ecirc;ts seront appliqu&eacute;s sur un compte en suspens plus de 30 jours.  Les demandes de r&eacute;servation sont  provisoires jusqu&rsquo;&agrave; ce que les frais de r&eacute;servation soient pay&eacute;s. Les frais de r&eacute;servation ne sont pas remboursables.</p>
 				<p><a href="#RootDir#ols-login/ols-login.cfm?lang=fra">#language.bookingApplicationLogin#</a> -
 				  R&eacute;server la cale s&egrave;che et les jet&eacute;es en ligne.</p>

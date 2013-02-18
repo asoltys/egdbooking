@@ -121,8 +121,8 @@
               <h2>Did you know?</h2>
 
               <ul>
-                <li><acronym title="Esquimalt Graving Dock">EGD</acronym> was one of the first large ship repair facilities in the world to implement
-                  <acronym title="International Organization for Standardization">ISO</acronym> 14001.  <a title="Environmental Program" href="#EGD_URL#/env/programme-program-eng.html">More &gt; </a></li>
+                <li><abbr title="Esquimalt Graving Dock">EGD</abbr> was one of the first large ship repair facilities in the world to implement
+                  <abbr title="International Organization for Standardization">ISO</abbr> 14001.  <a title="Environmental Program" href="#EGD_URL#/env/programme-program-eng.html">More &gt; </a></li>
               </ul>
             </li>
           </ul>
@@ -155,7 +155,7 @@
 
 				<p>To reserve space for a vessel at any of the facilities of the Esquimalt Graving
         Dock, please proceed to the <a href="#RootDir#ols-login/ols-login.cfm?lang=eng">#language.bookingApplicationLogin#</a> page.  If you experience any problems with the booking application, please
-			    use the <a href="#EGD_URL#/cn-cu-#lang#.html">#language.contact# <acronym title="#language.esqGravingDock#">#language.egd#</acronym></a> page.</p>
+			    use the <a href="#EGD_URL#/cn-cu-#lang#.html">#language.contact# <abbr title="#language.esqGravingDock#">#language.egd#</abbr></a> page.</p>
 				<p>The Esquimalt Graving Dock booking fee is $4,400.00 Canadian plus $528.00 Harmonized Sales Tax (HST) for a total of $4,928.00 payable in cash, certified cheque drawn on a Canadian bank or by an international money order.  Effective April 1, 2008, interest will be applied on any account outstanding over 30 days.  Reservation requests are tentative until the booking fee is paid. Booking fees are non-refundable.</p>
 				<p><a href="#RootDir#ols-login/ols-login.cfm?lang=eng">#language.bookingApplicationLogin#</a> - Book drydock and jetty space online.</p>
 				<p><a href="#RootDir#utils/resume-summary_ch.cfm?lang=eng">#language.bookingsSummaryDateSelection#</a> - View all bookings.</p>

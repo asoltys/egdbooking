@@ -33,7 +33,7 @@
 <nav role="navigation"><h2 id="wb-nav">Secondary menu</h2>
 <div class="wb-sec-def">
 <!-- SecNavStart -->
-<section><h3><a href="#EGD_URL#/index-#lang#.html"><acronym title="#language.esqGravingDock#">#language.egd#</acronym></a></h3>
+<section><h3><a href="#EGD_URL#/index-#lang#.html"><abbr title="#language.esqGravingDock#">#language.egd#</abbr></a></h3>
 <ul>
 <cfif structKeyExists(session, 'loggedin')>
 <li><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#" title="#language.BookingHome#">#language.BookingHome#</a></li>
