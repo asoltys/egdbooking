@@ -1,14 +1,10 @@
 <cfoutput>
 <cfsavecontent variable="head">
 <link href="#RootDir#css/admin.css" media="screen, print" rel="stylesheet" type="text/css" />
-<meta name="dc.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions" />
+<meta name="dcterms.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions" />
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<meta name="dc.date.published" content="2005-07-25" />
-<meta name="dc.date.published" content="2005-07-25" />
-<meta name="dc.date.reviewed" content="2005-07-25" />
-<meta name="dc.date.modified" content="2005-07-25" />
-<meta name="dc.date.created" content="2005-07-25" />
+
 <title>PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions</title>
 </cfsavecontent>
 <cfhtmlhead text="#head#" />
@@ -33,21 +29,7 @@
 	AND		Deleted = '0'
 </cfquery>
 
-		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
-		<p class="breadcrumb">
-			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-eng.cfm"> &gt; 
-			Administrative Functions
-		</p>
-		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-		<div class="colLayout">
-		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
-			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
-			<div class="center">
-				<h1><a name="cont" id="cont">
-					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					Administrative Functions
-					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-					</a></h1>
+				<h1 id="wb-cont">Administrative Functions</h1>
 
         <cfinclude template="#RootDir#includes/notice.cfm" />
 			
@@ -108,8 +90,5 @@
           </div>
 
 				</div>
-			<!-- CONTENT ENDS | FIN DU CONTENU -->
-		</div>
-  </div>		
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm" />
 </cfoutput>

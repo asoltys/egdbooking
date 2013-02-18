@@ -37,14 +37,9 @@ abbr.required, div.error {
   color: #a00; text-decoration: none;
 }
 
-img {
-	border: none;
-}
-
 legend {
   display: none;
 }
-
 
 a#dismiss { color: #369; cursor: pointer; text-decoration: underline; }
 
@@ -213,61 +208,8 @@ h2.conflict {
 	margin-bottom: 0px;
 }
 
-
-/* FORMS ----------------------------------------------- */
-
-form {
-	border: 1px solid #336699;
-	background-color: #fff;
-	padding: 1em;
-  overflow: hidden;
-  margin-bottom: 1em;
-}
-
-form.noBorder {
-	background-color: #fff;
-	border: 0 none;
-	padding: 0;
-}
-
-form fieldset {
-	border: 0;
-}
-
-form p {
-	margin-top: 0em;
-}
-
-form legend {
-	font-weight: bold;
-	padding-left: 0;
-	border-bottom: 1px solid #336699;
-}
-
-form label {
-	float: left;
-	width: 15em;
-	padding: 0.2em 0 0.6em 0;
-}
-
-form input, form select {
-	margin: 0 0 0.5em 0;
-}
-
-form div {
-  clear: left;
-}
-
-form div.datepicker div {
-  clear: none;
-}
-
 div.buttons {
 	padding: 1em 0;
-}
-
-form input[type="submit"] {
-  float: right;
 }
 
 form input#LloydsID, form p#lloyds_id {

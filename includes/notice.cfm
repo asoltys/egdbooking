@@ -7,8 +7,7 @@
 
 <cfif display_notice.notice_acknowledged EQ 0>
   <cffile action="read" file="#FileDir#intro-#lang#.txt" variable="intromsg" />
-  <div class="option4">
-    <h2>Notice</h2>
+  <div class="module-note">
     #intromsg#
     <a id="dismiss">#language.acknowledged#</a>
   </div>
