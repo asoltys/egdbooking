@@ -65,24 +65,7 @@ function EditSubmit ( selectedform )
 	}
 /* ]]> */
 </script>
-		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
-		<p class="breadcrumb">
-			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
-			<a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.login#</a> &gt;
-			#language.CreateUser#
-			</cfoutput>
-		</p>
-		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-		<div class="colLayout">
-		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
-			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
-			<div class="center">
-				<h1><a name="cont" id="cont">
-					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#language.CreateUser#</cfoutput>
-					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-					</a></h1>
+				<h1><cfoutput>#language.CreateUser#</cfoutput></h1>
 
 				<cfoutput>
 
@@ -146,8 +129,6 @@ function EditSubmit ( selectedform )
             </fieldset>
 					</form>
 				</cfoutput>
-			</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->
-		</div>
 
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

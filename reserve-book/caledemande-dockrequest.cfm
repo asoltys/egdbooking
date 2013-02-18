@@ -81,22 +81,7 @@
 	</cfif>
 </cflock>
 
-		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
-		<p class="breadcrumb">
-			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<a href="#RootDir#reserve-book/resdemande-bookrequest.cfm?lang=#lang#">#language.bookingRequest#</a> &gt;
-			#language.drydockRequest#
-		</p>
-		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-		<div class="colLayout">
-		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
-			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
-			<div class="center">
-				<h1><a name="cont" id="cont">
-					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					#language.drydockRequest#
-					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-					</a></h1>
+				<h1>#language.drydockRequest#</h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 
@@ -236,10 +221,8 @@
             <input type="submit" value="#language.Submit#" />
 					</fieldset>
 				</form>
-			</div>
 
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
-		</div>
 </cfoutput>
 
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

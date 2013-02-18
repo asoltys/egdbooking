@@ -46,20 +46,7 @@ function EditSubmit ( selectedform )
 </script>
 <!-- End JavaScript Block -->
 
-		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
-		<p class="breadcrumb">
-			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
-			<a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.login#</a> &gt;
-			<a href="#RootDir#ols-login/addUserCompanies.cfm?lang=#lang#&info=#url.info#&companies=#url.companies#">#language.createUser#</a> &gt;
-			#language.confirmRem#
-			</cfoutput>
-		</p>
-		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-		<div class="colLayout">
-		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
-			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
-			<div class="center">
+
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
 					<cfoutput>#language.confirmRem#</cfoutput>
@@ -76,13 +63,12 @@ function EditSubmit ( selectedform )
 				<cfform action="entrpsup-comprem_action.cfm?lang=#lang#&companies=#companies#&info=#url.info#" method="post" id="remCompanyConfirmForm">
 					<div>#language.areYouSure# <cfoutput><strong>#getCompany.Name#</strong></cfoutput>?</div>
 						<input type="submit" value="#language.Remove#" class="textbutton" />
-					</div></p>
+					</p>
 
 					<input type="hidden" name="CID" value="#form.CID#" />
 				</cfform>
 				</cfoutput>
 
-			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		</div>
 

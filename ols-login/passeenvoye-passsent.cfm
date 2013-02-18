@@ -22,24 +22,7 @@
 
 <cfset Variables.onLoad = "javascript:document.forgotForm.email.focus();">
 
-		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
-		<p class="breadcrumb">
-			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm"> &gt; 
-			<cfoutput>
-			<a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.login#</a> &gt; 
-			#language.title#
-			</cfoutput>
-		</p>
-		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-		<div class="colLayout">
-		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
-			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
-			<div class="center">
-				<h1><a name="cont" id="cont">
-					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#language.title#</cfoutput>
-					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-					</a></h1>
+				<h1><cfoutput>#language.title#</cfoutput></h1>
 				<cfoutput>
 					<cfif IsDefined("Session.Return_Structure")>
 						<cfinclude template="#RootDir#includes/getStructure.cfm">
@@ -50,7 +33,5 @@
 					
 					<div><a href="ols-login.cfm?lang=#lang#" class="textbutton">#language.returnlogin#</a></div>
 				</cfoutput>					
-			</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->
-		</div>
 		<cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

@@ -27,21 +27,7 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfoutput>
-		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
-		<p class="breadcrumb">
-			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-      #language.RequestBooking#
-		</p>
-		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-		<div class="colLayout">
-		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
-			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
-			<div class="center">
-				<h1><a name="cont" id="cont">
-					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					#language.RequestBooking#
-					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-					</a></h1>
+				<h1>#language.RequestBooking#</h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 
@@ -61,9 +47,7 @@
           <li><a href="#RootDir#reserve-book/caledemande-dockrequest.cfm?lang=#lang##Variables.BookingRequestString#">#language.drydockBooking#</a></li>
           <li><a href="#RootDir#reserve-book/jetdemande-jetrequest.cfm?lang=#lang##Variables.BookingRequestString#">#language.jettyBooking#</a></li>
         </ul>
-			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
-		</div>
 </cfoutput>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 

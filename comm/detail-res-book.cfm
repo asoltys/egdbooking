@@ -126,27 +126,7 @@
 
 <CFPARAM name="url.date" default="#myDateFormat(getBookingDetail.startDate, 'mm/dd/yyyy')#">
 
-		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
-		<p class="breadcrumb">
-			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
-			<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
-			</CFIF>
-      <a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">#language.bookingHome#</a> &gt;
-			#language.bookingDetail#
-			</cfoutput>
-		</p>
-		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-		<div class="colLayout">
-		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
-			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
-			<div class="center">
-				<h1><a name="cont" id="cont">
-					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					<cfoutput>#language.bookingDetail#</cfoutput>
-					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-					</a></h1>
+				<h1><cfoutput>#language.bookingDetail#</cfoutput></h1>
 
 				<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 					<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
@@ -328,8 +308,6 @@
           </p>
 					
 				</cfoutput>
-			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
-		</div>
 
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

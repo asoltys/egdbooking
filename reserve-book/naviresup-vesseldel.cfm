@@ -18,7 +18,7 @@
 
 </cfif>
 
-<cfoutput>
+
 
 <cfsavecontent variable="head">
 	<meta name="dcterms.title" content="#language.DeleteVessel# - #language.esqGravingDock# - #language.PWGSC#" />
@@ -68,17 +68,6 @@
 	<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 </cfif>
 
-<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
-<p class="breadcrumb">
-  <cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-  <CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-  <a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
-  </CFIF>
-  #language.DeleteVessel#
-</p>
-<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-<div class="colLayout">
-<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
   <!-- CONTENT BEGINS | DEBUT DU CONTENU -->
   <div class="center">
     <h1><a name="cont" id="cont">
@@ -165,9 +154,8 @@
         <p><a href="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#&amp;CID=#getVesselDetail.CID#" class="textbutton">#language.returnTo#</a></p>
     </cfif>
   </div>
-</cfoutput>
 
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
-		</div>
+		
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 

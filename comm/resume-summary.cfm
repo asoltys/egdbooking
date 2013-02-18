@@ -137,24 +137,7 @@ WHERE	SouthJetty = 1
 	ORDER BY CompanyName
 </cfquery>
 
-  <!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
-  <p class="breadcrumb">
-    <cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-    <cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-    <a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
-    </cfif>
-    #language.BookingsSummary#
-  </p>
-  <!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-  <div class="colLayout">
-  <cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
-    <!-- CONTENT BEGINS | DEBUT DU CONTENU -->
-    <div class="center">
-      <h1><a name="cont" id="cont">
-        <!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-        #language.BookingsSummary#
-        <!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-        </a></h1>
+      <h1>#language.BookingsSummary#</h1>
 
       <cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
         <cfinclude template="#RootDir#includes/admin_menu.cfm">
@@ -319,10 +302,8 @@ WHERE	SouthJetty = 1
           #language.noBookings#
         </p>
       </cfif>
-    </div>
 
   <!-- CONTENT ENDS | FIN DU CONTENU -->
-  </div>
 </cfoutput>
 
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

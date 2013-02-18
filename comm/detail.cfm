@@ -69,24 +69,7 @@
 	<cflocation addtoken="no" url="#RootDir#comm/calend-cale-dock.cfm?lang=#lang#">
 </cfif>
 
-		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
-		<p class="breadcrumb">
-			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
-				<a href="#RootDir#admin/menu.cfm?lang=#lang#">#language.Admin#</a> &gt;
-			</cfif>
-			#language.DetailsFor# #myDateFormat(URL.date, request.longdatemask)#
-		</p>
-		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-		<div class="colLayout">
-		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
-			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
-			<div class="center">
-				<h1><a name="cont" id="cont">
-					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-					#language.DetailsFor# #myDateFormat(URL.date, request.longdatemask)#
-					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-					</a></h1>
+				<h1>#language.DetailsFor# #myDateFormat(URL.date, request.longdatemask)#</h1>
 
 				<cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 					<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
@@ -308,8 +291,6 @@
         <cfif getJettyDetail.RecordCount eq 0 AND getJettyMaintenanceDetail.RecordCount eq 0><p>#language.noBookings#</p></cfif>
         <p><a href="#RootDir#comm/calend-jet.cfm?lang=#lang#">#language.JettyCalendar#</a></p>
 
-			</div>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
-		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
 </cfoutput>
