@@ -35,10 +35,10 @@
 <meta name="pwgsc.contact.email" content="questions@pwgsc.gc.ca" />
 
 
-<meta name="dc.title" content="Booking Space at the EGD - Esquimalt Graving Dock - PWGSC" />
+<meta name="dcterms.title" content="Booking Space at the EGD - Esquimalt Graving Dock - PWGSC" />
 <meta name="keywords" content="Booking Space at the Esquimalt Graving Dock" />
 <meta name="description" content="Introduction page for the booking application." />
-<meta name="dc.subject" scheme="gccore" content="#language.masterSubjects#" />
+<meta name="dcterms.subject" scheme="gccore" content="#language.masterSubjects#" />
 <title>Booking Space at the EGD - Esquimalt Graving Dock - PWGSC</title>
 <!-- METADATA ENDS | FIN DES METADONNEES -->
 

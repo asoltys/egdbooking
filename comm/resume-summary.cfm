@@ -27,10 +27,10 @@
 
 
 <cfsavecontent variable="head">
-	<meta name="dc.title" content="#language.BookingsSummary# - #language.esqGravingDock# - #language.PWGSC#" />
+	<meta name="dcterms.title" content="#language.BookingsSummary# - #language.esqGravingDock# - #language.PWGSC#" />
 	<meta name="keywords" content="#Language.masterKeywords#" />
 	<meta name="description" content="#language.description#" />
-	<meta name="dc.subject" scheme="gccore" content="#Language.masterSubjects#" />
+	<meta name="dcterms.subject" scheme="gccore" content="#Language.masterSubjects#" />
 	<title>#language.BookingsSummary# - #language.esqGravingDock# - #language.PWGSC#</title>
   <style>
    

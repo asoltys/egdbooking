@@ -50,10 +50,10 @@
 <cfoutput>
 
 <cfsavecontent variable="head">
-	<meta name="dc.title" content="#language.detailsFor# #myDateFormat(URL.date, request.longdatemask)# - #language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#" />
+	<meta name="dcterms.title" content="#language.detailsFor# #myDateFormat(URL.date, request.longdatemask)# - #language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#" />
 	<meta name="keywords" content="#Language.masterKeywords#, #language.bookingDetail#" />
 	<meta name="description" content="#language.description#" />
-	<meta name="dc.subject" scheme="gccore" content="#Language.masterSubjects#" />
+	<meta name="dcterms.subject" scheme="gccore" content="#Language.masterSubjects#" />
 	<title>#language.detailsFor# #myDateFormat(URL.date, request.longdatemask)# - #language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#</title>
 </cfsavecontent>
 <cfhtmlhead text="#head#">

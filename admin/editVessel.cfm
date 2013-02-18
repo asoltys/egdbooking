@@ -1,8 +1,8 @@
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Vessel"" />
+	<meta name=""dcterms.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Vessel"" />
 	<meta name=""keywords"" content=""Edit Vessel Profile"" />
 	<meta name=""description"" content=""Allows user to edit the details of a vessel."" />
-	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
+	<meta name=""dcterms.subject"" scheme=""gccore"" content="""" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Vessel</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 

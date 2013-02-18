@@ -1,9 +1,9 @@
 <cfinclude template="#RootDir#includes/companyInfoVariables.cfm">
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Create New Company"" />
+	<meta name=""dcterms.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Create New Company"" />
 	<meta name=""keywords"" content="""" />
 	<meta name=""description"" content="""" />
-	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
+	<meta name=""dcterms.subject"" scheme=""gccore"" content="""" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Create New Company</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 <cfinclude template="#RootDir#includes/checkFilledIn_js.cfm">

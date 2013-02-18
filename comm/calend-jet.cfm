@@ -17,10 +17,10 @@
 </cfif>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.jettyCalendar# - #language.esqGravingDock# - #language.PWGSC#"" />
+	<meta name=""dcterms.title"" content=""#language.jettyCalendar# - #language.esqGravingDock# - #language.PWGSC#"" />
 	<meta name=""keywords"" content=""#Language.masterKeywords#, #language.keywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
-	<meta name=""dc.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
+	<meta name=""dcterms.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
 	<title>#language.jettyCalendar# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 

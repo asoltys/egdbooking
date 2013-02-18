@@ -1,8 +1,8 @@
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add New Vessel"" />
+	<meta name=""dcterms.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add New Vessel"" />
 	<meta name=""keywords"" content=""Add Vessel"" />
 	<meta name=""description"" content=""Allows user to create a new vessel in the Esquimalt Graving Dock booking website."" />
-	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
+	<meta name=""dcterms.subject"" scheme=""gccore"" content="""" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Add New Vessel</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 <cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">

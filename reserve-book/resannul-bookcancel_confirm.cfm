@@ -56,10 +56,10 @@
 </cfquery>
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.CancelBooking# ###BRID# - #language.esqGravingDock# - #language.PWGSC#"" />
+	<meta name=""dcterms.title"" content=""#language.CancelBooking# ###BRID# - #language.esqGravingDock# - #language.PWGSC#"" />
 	<meta name=""keywords"" content=""#language.keywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
-	<meta name=""dc.subject"" scheme=""gccore"" content=""#language.subjects#"" />
+	<meta name=""dcterms.subject"" scheme=""gccore"" content=""#language.subjects#"" />
 	<title>#language.CancelBooking# ###BRID# - #language.esqGravingDock# - #language.PWGSC#</title>
 ">
 

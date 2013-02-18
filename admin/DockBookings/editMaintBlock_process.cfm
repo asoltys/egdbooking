@@ -3,10 +3,10 @@
 <cfinclude template="#RootDir#includes/restore_params.cfm">
 
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Maintenance Block"">
+	<meta name=""dcterms.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Maintenance Block"">
 	<meta name=""keywords"" content="""" />
 	<meta name=""description"" content="""" />
-	<meta name=""dc.subject"" scheme=""gccore"" content="""" />
+	<meta name=""dcterms.subject"" scheme=""gccore"" content="""" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Maintenance Block</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 

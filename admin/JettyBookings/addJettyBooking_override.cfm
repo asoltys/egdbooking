@@ -159,7 +159,7 @@
 
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 <cfhtmlhead text="
-<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add Jetty Booking"">
+<meta name=""dcterms.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add Jetty Booking"">
 <meta name=""keywords"" content="""" />
 <meta name=""description"" content="""" />
 <meta name=""dc.date.published"" content=""2005-07-25"" />

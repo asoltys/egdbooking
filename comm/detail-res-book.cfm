@@ -48,10 +48,10 @@
 	<cfset Session.ReadOnly = #ReadOnly#>
 </cfoutput>
 <cfhtmlhead text="
-	<meta name=""dc.title"" content=""#language.PWGSC# - #language.EsqGravingDock# - #language.bookingDetail#"" />
+	<meta name=""dcterms.title"" content=""#language.PWGSC# - #language.EsqGravingDock# - #language.bookingDetail#"" />
 	<meta name=""keywords"" content=""#Language.masterKeywords#, #language.bookingDetail#"" />
 	<meta name=""description"" content=""#language.description#"" />
-	<meta name=""dc.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
+	<meta name=""dcterms.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
 	<title>#language.PWGSC# - #language.EsqGravingDock# - #language.bookingDetail#</title>
 ">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">

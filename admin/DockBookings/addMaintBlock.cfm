@@ -1,9 +1,9 @@
 <cfsavecontent variable="js">
 	<cfoutput>
-	<meta name=""dc.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Add Maintenance Block">
+	<meta name=""dcterms.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Add Maintenance Block">
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
-	<meta name="dc.subject" scheme="gccore" content="" />
+	<meta name="dcterms.subject" scheme="gccore" content="" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Add Maintenance Block</title>
 	<script type="text/javascript">
 		/* <![CDATA[ */

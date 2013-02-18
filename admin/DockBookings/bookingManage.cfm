@@ -1,9 +1,9 @@
 <cfsavecontent variable="js">
 	<cfoutput>
-	<meta name="dc.title" content="pwgsc - esquimalt graving dock - Drydock Booking Management">
+	<meta name="dcterms.title" content="pwgsc - esquimalt graving dock - Drydock Booking Management">
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
-	<meta name="dc.subject" scheme="gccore" content="" />
+	<meta name="dcterms.subject" scheme="gccore" content="" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Drydock Booking Management</title>
 	<script type="text/javascript">
 		/* <![CDATA[ */

@@ -5,7 +5,7 @@
 
 <cfsavecontent variable="js">
 	
-<meta name=""dc.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Add Maintenance Block">
+<meta name=""dcterms.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Add Maintenance Block">
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta name="dc.date.published" content="2005-07-25" />

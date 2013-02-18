@@ -1,5 +1,5 @@
 <cfhtmlhead text="
-<meta name=""dc.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Create New Company"">
+<meta name=""dcterms.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Create New Company"">
 <meta name=""keywords"" content="""" />
 <meta name=""description"" content="""" />
 <meta name=""dc.date.published"" content=""2005-07-25"" />

@@ -15,10 +15,10 @@
 <cfoutput>
 
 <cfsavecontent variable="head">
-	<meta name="dc.title" content="#language.Booking# - #language.esqGravingDock# - #language.PWGSC#" />
+	<meta name="dcterms.title" content="#language.Booking# - #language.esqGravingDock# - #language.PWGSC#" />
 	<meta name="keywords" content="#language.keywords#" />
 	<meta name="description" content="#language.description#" />
-	<meta name="dc.subject" scheme="gccore" content="#language.subjects#" />
+	<meta name="dcterms.subject" scheme="gccore" content="#language.subjects#" />
 	<title>#language.Booking# - #language.esqGravingDock# - #language.PWGSC#</title>
 </cfsavecontent>
 <cfhtmlhead text="#head#" />
