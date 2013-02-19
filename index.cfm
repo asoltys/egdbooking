@@ -13,6 +13,7 @@ wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Lice
 <title>Bienvenue - Cale s&egrave;che d'Esquimalt - TPSGC / Welcome - Esquimalt Graving Dock - PWGSC</title>
 <!-- TitleEnd -->
 <!-- MetadataStart -->
+<meta charset="utf-8" />
 <meta name="description" content="The Esquimalt Graving Dock, or EGD, is proud to be federally owned, operated, and maintained. EGD is the largest solid-bottom commercial drydock on the West Coast of the Americas. We are located in an ice free harbour on Vancouver Island near gateways to Alaska and the Pacific Rim." />
 <meta name="description" lang="en" content="The Esquimalt Graving Dock, or EGD, is proud to be federally owned, operated, and maintained. EGD is the largest solid-bottom commercial drydock on the West Coast of the Americas. We are located in an ice free harbour on Vancouver Island near gateways to Alaska and the Pacific Rim." />
 <meta name="dcterms.description" content="La Cale s&egrave;che d'Esquimalt (CSE) est la plus importante forme de radoub commerciale de la c&ocirc;te Ouest des Ameriques. Nous sommes situes dans un port ouvert a l'ann&egrave;e longue, sur l'&icirc;le de Vancouver, a proximite des voies d'acces a l'Alaska et aux pays riverains du Pacifique." />

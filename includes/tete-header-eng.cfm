@@ -15,6 +15,7 @@
 wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt -->
 <!-- WET 3.0, PWGSC 1.0 file: 2col-nav-eng.html -->
 <!-- MetadataStart -->
+<meta charset="utf-8" />
 <meta name="dcterms.creator" content="Government of Canada, Public Works and Government Services Canada" />
 <meta name="dcterms.modified" title="W3CDTF" content="#myDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#" />
 <meta name="dcterms.language" title="ISO639-2" content="eng" />
@@ -44,7 +45,7 @@ wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Lice
 
 <div id="wb-head"><div id="wb-head-in"><header>
 <!-- HeaderStart -->
-<cfinclude template="/boew-wet/wet3.0/html5/includes/app_banner_gc-gc_banner_app-eng.html" />
+<cfinclude template="#RootDir#includes/app_banner_gc-gc_banner_app-eng.cfm" />
 <cfinclude template="/site/wet3.0/html5/includes/app_banner_site-site_banner_app-eng.html" />
 <nav role="navigation">
 
