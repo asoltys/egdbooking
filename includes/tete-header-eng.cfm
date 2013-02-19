@@ -16,10 +16,6 @@ wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Lice
 <!-- WET 3.0, PWGSC 1.0 file: 2col-nav-eng.html -->
 <!-- MetadataStart -->
 <meta name="dcterms.creator" content="Government of Canada, Public Works and Government Services Canada" />
-<meta name="dcterms.publisher" content="Government of Canada, Public Works and Government Services Canada" />
-
-<meta name="dcterms.rights" content="http://www.tpsgc-pwgsc.gc.ca/comm/ai-in-eng.html" />
-<meta name="dcterms.issued" title="W3CDTF" content="2007-09-20" />
 <meta name="dcterms.modified" title="W3CDTF" content="#myDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#" />
 <meta name="dcterms.language" title="ISO639-2" content="eng" />
 <!-- MetadataEnd -->
