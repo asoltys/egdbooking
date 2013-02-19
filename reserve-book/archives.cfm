@@ -26,7 +26,7 @@
 	<meta name=""dcterms.title"" content=""#language.archivedBookings# - #language.esqGravingDock# - #language.PWGSC#"" />
 	<meta name=""keywords"" content=""#language.keywords#"" />
 	<meta name=""description"" content=""#language.description#"" />
-	<meta name=""dcterms.subject"" scheme=""gccore"" content=""#language.subjects#"" />
+	<meta name=""dcterms.subject"" content=""#language.subjects#"" />
 	<title>#language.archivedBookings# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 

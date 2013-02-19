@@ -23,7 +23,7 @@
 <meta name=""dcterms.title"" content=""#language.forgot# - #language.esqGravingDock# - #language.PWGSC#"" />
 <meta name=""keywords"" content=""#language.keywords#"" />
 <meta name=""description"" content=""#language.description#"" />
-<meta name=""dcterms.subject"" scheme=""gccore"" content=""#language.masterSubjects#"" />
+<meta name=""dcterms.subject"" content=""#language.masterSubjects#"" />
 <meta name=""dc.date.published"" content=""2005-07-25"" />
 <meta name=""dc.date.reviewed"" content=""2005-07-25"" />
 <meta name=""dc.date.modified"" content=""2005-07-25"" />

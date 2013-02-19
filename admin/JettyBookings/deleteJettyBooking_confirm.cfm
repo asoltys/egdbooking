@@ -42,7 +42,7 @@
 	<meta name=""dcterms.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Confirm <cfoutput>#variables.actionCap#</cfoutput> Booking"">
 	<meta name=""keywords"" content="""" />
 	<meta name=""description"" content="""" />
-	<meta name=""dcterms.subject"" scheme=""gccore"" content="""" />
+	<meta name=""dcterms.subject"" content="""" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Confirm #variables.actionCap# Booking</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 

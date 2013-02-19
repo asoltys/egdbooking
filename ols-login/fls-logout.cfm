@@ -14,7 +14,7 @@
 	<meta name=""dcterms.title"" content=""#language.title# - #language.esqGravingDock# - #language.PWGSC#"" />
 	<meta name=""keywords"" content=""#language.masterKeywords# #language.title#"" />
 	<meta name=""description"" content=""#language.title#"" />
-	<meta name=""dcterms.subject"" scheme=""gccore"" content=""#language.masterSubjects#"" />
+	<meta name=""dcterms.subject"" content=""#language.masterSubjects#"" />
 	<title>#language.title# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 <h1 id="wb-cont"><cfoutput>#language.title#</cfoutput></h1>

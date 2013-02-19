@@ -27,7 +27,7 @@
 	<meta name=""dcterms.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Add Vessel"" />
 	<meta name=""keywords"" content=""Add Vessel"" />
 	<meta name=""description"" content=""Allows user to create a new vessel in the Esquimalt Graving Dock booking website."" />
-	<meta name=""dcterms.subject"" scheme=""gccore"" content="""" />
+	<meta name=""dcterms.subject"" content="""" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Add Vessel</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->

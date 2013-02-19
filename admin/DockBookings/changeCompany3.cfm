@@ -2,7 +2,7 @@
 	<meta name=""dcterms.title"" content=""PWGSC - ESQUIMALT GRAVING DOCK - Edit Booking"">
 	<meta name=""keywords"" content="""" />
 	<meta name=""description"" content="""" />
-	<meta name=""dcterms.subject"" scheme=""gccore"" content="""" />
+	<meta name=""dcterms.subject"" content="""" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Booking</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 

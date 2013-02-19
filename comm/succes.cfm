@@ -9,7 +9,7 @@
 	<meta name=""dcterms.title"" content=""#language.PWGSC# - #language.EsqGravingDock# - #Variables.Success.Breadcrumb#"" />
 	<meta name=""keywords"" content=""#Language.masterKeywords#"" />
 	<meta name=""description"" content="""" />
-	<meta name=""dcterms.subject"" scheme=""gccore"" content=""#Language.masterSubjects#"" />
+	<meta name=""dcterms.subject"" content=""#Language.masterSubjects#"" />
 	<title>#Variables.Success.Breadcrumb# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
