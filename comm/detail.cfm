@@ -15,7 +15,6 @@
 	<cfset language.drydock2 = "Section 2">
 	<cfset language.drydock3 = "Section 3">
 	<cfset language.deepsea = "Deepsea Vessel">
-	<cfset language.yourbookings = "The bookings linked to below belong to your company.">
 <cfelse>
 	<cfset language.bookingDetail = "D&eacute;tails&nbsp;- R&eacute;servation">
 	<cfset language.description = "R&eacute;cup&eacute;ration de renseignements sur toutes les r&eacute;servations d'une journ&eacute;e donn&eacute;e.">
@@ -34,7 +33,6 @@
 	<cfset language.drydock2 = "Section 2">
 	<cfset language.drydock3 = "Section 3">
 	<cfset language.deepsea = "Navire oc&eacute;anique">
-	<cfset language.yourbookings = "Les r&eacute;servations li&eacute;es ci-dessous appartiennent &agrave; votre entreprise.">
 </cfif>
 
 <cfquery name="vessels" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -76,8 +74,6 @@
 				<cfelse>
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				</cfif>
-
-				<p>#language.yourbookings#</p>
 
 				<cfquery name="getDockDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
 					SELECT	Bookings.BRID, Bookings.EndHighlight,

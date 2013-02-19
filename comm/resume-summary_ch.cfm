@@ -77,8 +77,6 @@
           <cfset Variables.endDate = "" />
         </cfif>
 
-        #Language.ScreenMessage#
-
 				<form action="resume-summary.cfm?lang=#lang#" method="post" id="bookSum">
 					<fieldset><legend>#language.bookingsSummary#</legend>
             <div>

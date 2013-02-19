@@ -83,8 +83,8 @@ FROM	Bookings
 	INNER JOIN	Docks ON Bookings.BRID = Docks.BRID
 	INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
 	INNER JOIN	Companies ON Vessels.CID = Companies.CID
-WHERE	<!--- (Status = 'c' OR Status = 't')
-	AND --->	Bookings.Deleted = '0'
+WHERE	
+	Bookings.Deleted = '0'
 	AND	Vessels.Deleted = '0'
 	<cfif IsDefined('CalStartDate') and CalStartDate neq ''>AND EndDate >= <cfqueryparam value="#CalStartDate#" cfsqltype="cf_sql_date" /></CFIF>
 	<cfif IsDefined('CalEndDate') and CalEndDate neq ''>AND StartDate <= <cfqueryparam value="#CalEndDate#" cfsqltype="cf_sql_date" /></CFIF>
@@ -158,7 +158,6 @@ WHERE	SouthJetty = 1
             </tr>
           </thead>
           <cfloop query="getDockBookings">
-            <!---check if ship belongs to user's company--->
             <cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
               <cfquery name="userVessel#VNID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
                 SELECT	Vessels.VNID
@@ -216,7 +215,6 @@ WHERE	SouthJetty = 1
           </thead>
           <tbody>
             <cfloop query="getNJBookings">
-              <!---check if ship belongs to user's company--->
               <cflock timeout="20" throwontimeout="no" type="READONLY" scope="SESSION">
                 <cfquery name="userVessel#VNID#" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
                   SELECT	Vessels.VNID
@@ -302,8 +300,6 @@ WHERE	SouthJetty = 1
           #language.noBookings#
         </p>
       </cfif>
-
-  <!-- CONTENT ENDS | FIN DU CONTENU -->
 </cfoutput>
 
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
