@@ -60,9 +60,7 @@
 <cfset LastDay = CreateDate(url['a-y'], url['m-m'], LastDayofMonth)>
 <cfset CurDayofWeek = myDateFormat(FirstDay, "dddd")>
 
-<table class="basic calendar" id="calendar#url['m-m']#" 
-summary="#language.calendar#">
-	<!--- Output the days of the week at the top of the calendar --->
+<table class="basic calendar" id="calendar#url['m-m']#">
 	<tr>
 		<cfloop index="doh" from="1" to="#ArrayLen(DaysofWeek)#" step="1">
 			<cfset dummydate = CreateDate(2005, 5, doh)>

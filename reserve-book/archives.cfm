@@ -74,7 +74,7 @@
 					<cfset counter = 0>
 					<h2>#language.Drydock#</h2>
 					<cfif "getDockBookings.recordCount" GE 1>
-            <table class="basic" summary="#language.DrydockTableSummary#">
+            <table class="basic">
               <thead>
                 <tr>
                   <th scope="col">#language.booking#</th>
@@ -111,7 +111,7 @@
 					<cfset counter = 0>
 					<h2>#language.NorthLandingWharf#</h2>
 					<cfif getNorthJettyBookings.recordCount GE 1>
-						<table class="basic" summary="#language.NLWTableSummary#">
+						<table class="basic">
               <thead>
                 <tr>
                   <th scope="col">#language.booking#</th>
@@ -147,7 +147,7 @@
 				<cfset counter = 0>
 					<h2>#language.SouthJetty#</h2>
 					<cfif getSouthJettyBookings.recordCount GE 1>
-						<table class="basic" summary="#language.SJTableSummary#">
+						<table class="basic">
               <thead>
                 <tr>
                   <th scope="col">#language.booking#</th>

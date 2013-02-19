@@ -140,7 +140,7 @@
 				<h2>#language.DrydockBookings#</h2>
 
 				<cfloop query="getDockMaintenanceDetail">
-				<table class="details" summary="#language.detailTableSummary#">
+				<table class="details">
 					<tr>
 						<th scope="row" colspan="2">#language.MaintenanceBlock#</th>
 					</tr>
@@ -159,7 +159,7 @@
 				</cfloop>
 
 				<cfloop query="getDockDetail">
-				<table class="details" summary="#language.detailTableSummary#">
+				<table class="details">
 					<tr id="res-book-#BRID#">
 						<th scope="col" colspan="2">
 							<cfif Anonymous AND not viewable(vessels, VNID) AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c' >
@@ -208,7 +208,7 @@
 
 				<h2>#language.JettyBookings#</h2>
 				<cfloop query="getJettyMaintenanceDetail">
-          <table class="details" summary="#language.detailTableSummary#">
+          <table class="details">
             <tr>
               <th scope="col" colspan="2">#language.MaintenanceBlock#</th>
             </tr>
@@ -239,7 +239,7 @@
 				<cfset Variables.count = "jUserVessel" & #BRID# & ".recordCount">
 				<cfset "#Variables.count#" = evaluate(count)>
 
-				<table class="details" summary="#language.detailTableSummary#">
+				<table class="details">
 					<tr id="res-book-#BRID#">
 						<th scope="col" colspan="2">
 							<cfif Anonymous AND not viewable(vessels, VNID) AND not IsDefined('session.AdminLoggedIn') AND Status neq 'c'>

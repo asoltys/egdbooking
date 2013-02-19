@@ -6,7 +6,7 @@
 <cfset arrayAppend(legend, language.confirmedInSouthJetty) />
 
 <cfoutput>
-	<table class="keytable" summary="#language.legendSummary#">
+	<table class="keytable">
     <thead>
       <tr>
         <th colspan="2">#language.legend#</th>

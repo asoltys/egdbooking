@@ -97,7 +97,7 @@
         <cfif getVesselDockBookings.recordCount GT 0>
 
         <h2>#language.Drydock#</h2>
-        <table class="bookings" summary="#language.DrydockTableSummary#">
+        <table class="bookings">
           <thead>
             <tr>
               <th id="drydock_start_date">#language.Startdate#</th>
@@ -124,7 +124,7 @@
 
         <cfif getVesselJettyBookings.recordCount GT 0>
         <h2>#language.Jetty#</h2>
-        <table class="bookings" summary="#language.SJTableSummary#">
+        <table class="bookings">
           <tr>
             <th id="jetty_start_date">#language.StartDate#</th>
             <th id="jetty_end_date">#language.EndDate#</th>
