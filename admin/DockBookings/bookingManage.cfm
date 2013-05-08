@@ -222,8 +222,6 @@ function EditSubmit ( selectedform )
 								AND Bookings.endDate <= <cfqueryparam value="#dateformat(variables.endDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date" />))
 							AND Bookings.Deleted = 0
 							AND Vessels.Deleted = 0
-							<!--- Eliminates any Tentative bookings with a start date before today --->
-							AND ((Docks.status <> 'T') OR (Docks.status = 'T' AND Bookings.startDate >= <cfqueryparam value="#LSDateFormat(PacificNow, 'yyyy-MM-dd')#" cfsqltype="cf_sql_date" />))
 
 						<cfif variables.showPend EQ true AND variables.showTent EQ false AND variables.showConf EQ false>
 							AND (Docks.Status = 'PC' OR Docks.Status = 'PX' OR Docks.Status = 'PT')
