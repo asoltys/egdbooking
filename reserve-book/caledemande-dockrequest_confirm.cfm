@@ -20,6 +20,7 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dcterms.subject"" content=""#language.subjects#"" />
 	<title>#language.NewBooking# - #language.esqGravingDock# - #language.PWGSC#</title>">
+<cfset request.title = language.NewBooking />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 				<h1>#language.newBooking#</h1>
@@ -183,24 +184,24 @@
             <legend>#language.booking#</legend>
 
             <label for="VNID">#language.vessel#:</label>
-            <p>#getVessel.VesselName#</p>
+            <p class="color-accent">#getVessel.VesselName#</p>
             <input type="hidden" id="VNID" name="VNID" value="#Variables.VNID#" />
 
             <label for="StartDate">#language.StartDate#:</label>
             <input type="hidden" id="StartDate" name="StartDate" value="#Variables.StartDate#" />
-            <p>#myDateFormat(Variables.StartDate, request.datemask)#</p>
+            <p class="color-accent">#myDateFormat(Variables.StartDate, request.datemask)#</p>
 
             <label for="EndDate">#language.EndDate#:</label>
             <input type="hidden" id="EndDate" name="EndDate" value="#Variables.EndDate#" />
-            <p>#myDateFormat(Variables.EndDate, request.datemask)#</p>
+            <p class="color-accent">#myDateFormat(Variables.EndDate, request.datemask)#</p>
 
             <label for="Status">#language.requestedStatus#:</label>
             <input type="hidden" id="Status" name="Status" value="#Form.Status#" />
-            <p><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></p>
+            <p class="color-accent"><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></p>
           </fieldset>
 
           <div class="buttons">
-            <input type="submit" value="#language.Submit#" class="textbutton" />
+            <input type="submit" value="#language.Submit#" class="button button-accent" />
           </div>
         </cfform>
 		<!-- CONTENT ENDS | FIN DU CONTENU -->

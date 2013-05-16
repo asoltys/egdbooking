@@ -24,6 +24,7 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dcterms.subject"" content=""#language.subjects#"" />
 	<title>#language.RequestBooking# - #language.esqGravingDock# - #language.PWGSC#</title>">
+<cfset request.title = language.requestBooking />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfoutput>

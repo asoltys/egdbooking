@@ -22,6 +22,7 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dcterms.subject"" content=""#Language.masterSubjects#"" />
 	<title>#language.jettyCalendar# - #language.esqGravingDock# - #language.PWGSC#</title>">
+<cfset request.title = language.jettyCalendar>
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 				<h1><cfoutput>#language.jettyCalendar#</cfoutput></h1>
@@ -40,14 +41,7 @@
 						StartDate, EndDate,
 						NorthJetty AS Section1, SouthJetty AS Section2, '0' AS Section3,
 						Vessels.Name AS VesselName, Vessels.VNID,
-						Vessels.Anonymous,
-            CASE Status
-              WHEN 'P' THEN 4
-              WHEN 'PT' THEN 4
-              WHEN 'PC' THEN 4
-              WHEN 'T' THEN 3
-              ELSE CASE NorthJetty WHEN 1 THEN 1 ELSE 2 END
-            END AS Ordering
+						Vessels.Anonymous
 					FROM	Bookings
 						INNER JOIN	Jetties ON Bookings.BRID = Jetties.BRID
 						INNER JOIN	Vessels ON Bookings.VNID = Vessels.VNID
@@ -55,7 +49,17 @@
 						AND EndDate >= <cfqueryparam value="#firstdayofbunch#" cfsqltype="cf_sql_date" />
 						AND	Bookings.Deleted = '0'
 						AND	Vessels.Deleted = '0'
-          ORDER BY Ordering
+			        ORDER BY 
+			        CASE Status
+			        	WHEN 'P' THEN 4
+			            WHEN 'PT' THEN 4
+			            WHEN 'PC' THEN 4
+			            WHEN 'T' THEN 3
+			            ELSE
+			              CASE NorthJetty WHEN 1 THEN 1 ELSE
+			                CASE SouthJetty WHEN 1 THEN 2 END
+			              END
+			          END
 				</cfquery>
 
 				<CFIF url['m-m'] eq 1>

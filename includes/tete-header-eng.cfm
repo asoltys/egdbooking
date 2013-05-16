@@ -54,7 +54,8 @@ wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Lice
 <div id="gcwu-bc"><h2>Breadcrumb trail</h2><div id="gcwu-bc-in">
 <ol>
 <cfinclude template="/site/wet3.0/html5/includes/app_pain-bread_app-eng.html" />
-<cfinclude template="/site30/includes/app_pain_section-bread_section_app-eng.html" />
+<cfinclude template="#RootDir#includes/bread-pain-eng.cfm" />
+
 </ol>
 </div></div>
 </nav>

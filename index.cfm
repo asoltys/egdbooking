@@ -66,7 +66,7 @@ wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Lice
 <div id="gcwu-lang"><nav role="navigation"><h2>Liens de sélection de langue / <span lang="en">Language selection links</span></h2>
 <div class="span-6 grid-12 margin-bottom-none">
 <ul id="gcwu-ef-lang">
-<li><div class="span-2 row-start margin-bottom-none"><a href="index-fra.cfm">Français</a></div></li>
+<li><div class="span-2 row-start margin-bottom-none"><a href="index-fra.cfm">Fran&ccedil;ais</a></div></li>
 <li lang="en"><div class="span-2 row-end margin-bottom-none"><a href="index-eng.cfm">English</a></div></li>
 </ul>
 </div>

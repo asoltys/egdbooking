@@ -148,7 +148,7 @@ th.section {
 .sec1 { background-color: #335544; }
 .sec2 { background-color: #336699; }
 .sec3 { background-color: #556677; }
-.sec1, div.center .sec1 a, .sec2, div.center .sec2 a, .sec3, div.center .sec3 a { color: #fff; padding: 2px; }
+.sec1, div#wb-main-in .sec1 a, .sec2, div#wb-main-in .sec2 a, .sec3, div#wb-main-in .sec3 a { color: #fff; padding: 2px; }
 
 .confirmed, div.center .confirmed a { color: #000; }
 .tentative, div.center .tentative a { color: #0033CC; }
@@ -194,4 +194,10 @@ tr.containsbutton td {
 div#print_summary td, div#print_summary th {
   border: 1px solid #ccc;
   padding: 3px;
+}
+
+/* COMPAT FIXES----------------------------------------- */
+
+.keyfloat {
+	float: right;
 }

@@ -18,6 +18,7 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dcterms.subject"" content=""#language.subjects#"" />
 	<title>#language.title# - #language.esqGravingDock# - #language.PWGSC#</title>">
+	<cfset request.title = language.title />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <CFPARAM name="url.referrer" default="#language.bookingHome#">

@@ -22,6 +22,7 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dcterms.subject"" content=""#language.subjects#"" />
 	<title>#language.AddVessel# - #language.esqGravingDock# - #language.PWGSC#</title>">
+<cfset request.title = language.addVessel />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
@@ -45,6 +46,12 @@
 <cfparam name="variables.blockteardowntime" default="">
 <cfparam name="variables.lloydsid" default="">
 <cfparam name="variables.tonnage" default="">
+<cfparam name="err_name" default="">
+<cfparam name="err_lgt" default="">
+<cfparam name="err_wdt" default="">
+<cfparam name="err_bst" default="">
+<cfparam name="err_btt" default="">
+<cfparam name="err_ton" default="">
 
 
 				<h1>#language.AddVessel#</h1>
@@ -62,6 +69,25 @@
 					<cfset variables.lloydsid = form.lloydsId>
 					<cfset variables.tonnage = form.tonnage>
 				</cfif>
+
+        <cfif not #error("name")# EQ "">
+              <cfset err_name = "form-attention" />
+        </cfif>
+        <cfif not #error("length")# EQ "">
+              <cfset err_lgt = "form-attention" />
+        </cfif>
+        <cfif not #error("width")# EQ "">
+              <cfset err_wdt = "form-attention" />
+        </cfif>
+        <cfif not #error("blocksetuptime")# EQ "">
+              <cfset err_bst = "form-attention" />
+        </cfif>
+        <cfif not #error("blockteardowntime")# EQ "">
+              <cfset err_btt = "form-attention" />
+        </cfif>
+        <cfif not #error("tonnage")# EQ "">
+              <cfset err_ton = "form-attention" />
+        </cfif>
 
 				<form action="#RootDir#reserve-book/navireajout-vesseladd_confirm.cfm?lang=#lang#&amp;CID=#CID#" method="post" id="addVessel">
 					<fieldset>
@@ -86,11 +112,13 @@
               <label for="name">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.vesselName#:
-                #error("name")#
               </label>
-              <input name="name" id="name" type="text" value="#variables.name#" size="35" maxlength="100" />
             </div>
-
+            <div class="#err_name#">
+              <input name="name" id="name" type="text" value="#variables.name#" size="35" maxlength="100" />
+              <span class="form-text-inline">#error("name")#</span>
+            </div>
+            
 						<div>
               <label for="LloydsID" id="lloyds_id">#language.LloydsID#:</label>
               <input name="LloydsID" id="LloydsID" type="text" value="#variables.lloydsid#" size="20" maxlength="20" />
@@ -100,56 +128,66 @@
               <label for="length">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.Length#:
-                #error("length")#
               </label>
-              <input name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8" />
-              #language.Max#: #Variables.MaxLength#
+            </div>
+            <div class="#err_lgt#">
+              <input name="length" id="length" type="text" value="#variables.length#" size="8" maxlength="8"/>
+              <span class="color-medium">(#language.Max#: #Variables.MaxLength#)</span>
+              <span class="form-text-inline">#error("length")#</span>
 						</div>
-
+            
 						<div>
               <label for="width">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.Width#:
-                #error("width")#
               </label>
+            </div>
+            <div class="#err_wdt#">
               <input name="width" id="width" type="text" value="#variables.width#" size="8" maxlength="8" />
-              #language.Max#: #Variables.MaxWidth#
+              <span class="color-medium">(#language.Max#: #Variables.MaxWidth#)</span>
+              <span class="form-text-inline">#error("width")#</span>
 						</div>
-
+            
 						<div>
               <label for="blocksetuptime" id="block_setup_time">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.BlockSetup# #language.days#:
-                #error("blocksetuptime")#
               </label>
+            </div>
+            <div class="#err_bst#">
               <input name="blocksetuptime" id="blocksetuptime" type="text" value="#variables.blocksetuptime#" size="2" maxlength="2" />
+              <span class="form-text-inline">#error("blocksetuptime")#</span>
 						</div>
-
+            
 						<div>
               <label for="blockteardowntime" id="block_teardown_time">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.BlockTeardown# #language.days#:
-                #error("blockteardowntime")#
               </label>
+            </div>
+            <div class="#err_btt#">
               <input name="blockteardowntime" id="blockteardowntime" type="text" value="#variables.blockteardowntime#" size="2" maxlength="2" />
+              <span class="form-text-inline">#error("blockteardowntime")#</span>
 						</div>
-
+            
 						<div>
               <label for="tonnage">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.Tonnage#:
-                #error("tonnage")#
               </label>
+            </div>
+            <div class="#err_ton#">
               <input name="tonnage" id="tonnage" type="text" value="#variables.tonnage#" size="8" maxlength="8" />
+              <span class="form-text-inline">#error("tonnage")#</span>
 						</div>
-
+            
             <div>
               <label for="Anonymous">#language.anonymous#<sup><a href="##fn" title="#language.footnote#"><span class="navaid">#language.footnote#</span>&dagger;</a></sup>:</label>
               <input type="checkbox" id="Anonymous" name="Anonymous" value="Yes" />
             </div>
 
             <div>
-              <input type="submit" name="submitForm" value="#language.Submit#" />
+              <input type="submit" class="button button-accent" name="submitForm" value="#language.Submit#" />
             </div>
 					</fieldset>
 				</form>

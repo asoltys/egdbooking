@@ -20,6 +20,7 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dcterms.subject"" content=""#language.subjects#"" />
 	<title>#language.AddVessel# - #language.esqGravingDock# - #language.PWGSC#</title>">
+<cfset request.title = language.addVessel />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 
@@ -70,60 +71,60 @@
 						<div>
               <label for="CID">#language.CompanyName#:</label>
               <input type="hidden" id="CID" name="CID" value="#Variables.CID#" />
-              <p>#variables.CompanyName#</p>
+              <p class="color-accent">#variables.CompanyName#</p>
 						</div>
 
 						<div>
               <label for="Anonymous">#language.vesselName#:</label>
               <input type="hidden" id="name" name="name" value="#Variables.Name#" />
-              <p>#variables.Name#</p>
+              <p class="color-accent">#variables.Name#</p>
 						</div>
 
 						<div>
               <label for="length">#language.Length#:</label>
               <input type="hidden" id="length" name="length" value="#Variables.Length#" />
-              <p>#variables.Length#</p>
+              <p class="color-accent">#variables.Length#</p>
 						</div>
 
 						<div>
               <label for="width">#language.Width#:</label>
               <input type="hidden" id="width" name="width" value="#Variables.Width#" />
-              <p>#variables.Width#</p>
+              <p class="color-accent">#variables.Width#</p>
 						</div>
 
 						<div>
               <label for="blocksetuptime">#language.BlockSetup# #language.days#:</label>
               <input type="hidden" id="blocksetuptime" name="blocksetuptime" value="#Variables.BlockSetuptime#" />
-              <p id="block_setuptime">#variables.BlockSetuptime#</p>
+              <p class="color-accent" id="block_setuptime">#variables.BlockSetuptime#</p>
 						</div>
 
 						<div>
               <label for="blockteardowntime">#language.BlockTeardown# #language.days#:</label>
               <input type="hidden" id="blockteardowntime" name="blockteardowntime" value="#Variables.Blockteardowntime#" />
-              <p id="block_teardown_time">#variables.Blockteardowntime#</p>
+              <p class="color-accent" id="block_teardown_time">#variables.Blockteardowntime#</p>
 						</div>
 
 						<div>
               <label for="LloydsID">#language.LloydsID#:</label>
               <input type="hidden" id="LloydsID" name="LloydsID" value="#Variables.LloydsID#" />
-              <p id="lloyds_id">#variables.LloydsID#</p>
+              <p class="color-accent" id="lloyds_id">#variables.LloydsID#</p>
 						</div>
 
 						<div>
               <label for="tonnage">#language.Tonnage#:</label>
               <input type="hidden" id="tonnage" name="tonnage" value="#Variables.Tonnage#" />
-              <p>#variables.Tonnage#</p>
+              <p class="color-accent">#variables.Tonnage#</p>
 						</div>
 
 						<div>
               <label for="Anonymous">#language.anonymous#:</label>
               <input type="hidden" id="Anonymous" name="Anonymous" value="#Variables.Anonymous#" />
-              <p>#variables.Anonymous#</p>
+              <p class="color-accent">#variables.Anonymous#</p>
 						</div>
 					</fieldset>
 
 					<div class="buttons">
-						<input type="submit" name="submitForm" value="#language.Submit#" class="textbutton" />
+						<input type="submit" name="submitForm" value="#language.Submit#" class="button button-accent" />
 					</div>
 
 				</form>

@@ -22,7 +22,7 @@
 	<cfset language.continue = "Continuer">
 
 </cfif>
-
+<cfset request.title = language.cancelBooking />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <CFPARAM name="url.referrer" default="#language.bookingHome#">

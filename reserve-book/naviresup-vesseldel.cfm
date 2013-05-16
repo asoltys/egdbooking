@@ -1,3 +1,4 @@
+<cfoutput>
 <cfif lang EQ "eng">
 	<cfset language.deleteVessel = "Delete Vessel">
 	<cfset language.keywords = language.masterKeywords & ", Delete Vessel">
@@ -28,7 +29,7 @@
 	<title>#language.DeleteVessel# - #language.esqGravingDock# - #language.PWGSC#</title>
 </cfsavecontent>
 <cfhtmlhead text="#head#" />
-
+<cfset request.title = language.DeleteVessel />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <script type="text/javascript">
@@ -86,7 +87,7 @@
 						<legend>#language.deleteVessel#</legend>
             <div style="text-align:center;">
               <input type="hidden" name="VNID" value="#VNID#" />
-              <input type="submit" value="#language.Delete#" class="textbutton" />
+              <input type="submit" value="#language.Delete#" class="button button-accent" />
             </div>
             </fieldset>
           </form>
@@ -158,4 +159,4 @@
 		<!-- CONTENT ENDS | FIN DU CONTENU -->
 		
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
-
+</cfoutput>

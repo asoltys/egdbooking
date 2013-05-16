@@ -65,6 +65,7 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dcterms.subject"" content=""#language.subjects#"" />
 	<title>#language.EditProfile# - #language.esqGravingDock# - #language.PWGSC#</title>">
+<cfset request.title = language.EditProfile />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
@@ -100,6 +101,11 @@
 <cfparam name="variables.FirstName" default="#getUser.FirstName#">
 <cfparam name="variables.LastName" default="#getUser.LastName#">
 <cfparam name="variables.email" default="#getUser.Email#">
+<cfparam name="err_fname" default="">
+<cfparam name="err_lname" default="">
+<cfparam name="err_email" default="">
+<cfparam name="err_pass1" default="">
+<cfparam name="err_pass2" default="">
 
 <!-- Start JavaScript Block -->
 <script type="text/javascript">
@@ -113,6 +119,22 @@ function EditSubmit ( selectedform )
 <!-- End JavaScript Block -->
 
 				<h1><cfoutput>#language.EditProfile#</cfoutput></h1>
+
+		<cfif not error("firstname") EQ "">
+            <cfset err_fname = "form-attention" />
+        </cfif>
+        <cfif not error("lastname") EQ "">
+            <cfset err_lname = "form-attention" />
+        </cfif>
+        <cfif not error("email") EQ "">
+            <cfset err_email = "form-attention" />
+        </cfif>
+        <cfif not error("password") EQ "">
+            <cfset err_pass1 = "form-attention" />
+        </cfif>
+        <cfif not error("password2") EQ "">
+            <cfset err_pass2 = "form-attention" />
+        </cfif>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 
@@ -128,36 +150,36 @@ function EditSubmit ( selectedform )
               <legend style="display: block; text-decoration: none; border: none;">#language.editNameAndEmail#</legend>
               <p>#language.requiredFields#</p>
 
-							<div>
+							<div class="#err_fname#">
                 <label for="firstname">
                   <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                   #language.FirstName#:
-                  #error('firstname')#
                 </label>
                 <input name="firstname" id="firstname" type="text" value="#variables.firstName#" size="25" maxlength="40"  />
+                <span class="form-text-inline">#error('firstname')#</span>
 							</div>
 
-							<div>
+							<div class="#err_lname#">
                 <label for="lastname">
                   <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                   #language.LastName#:
-                  #error('lastname')#
                 </label>
                 <input name="lastname" id="lastname" type="text" value="#variables.lastName#" size="25" maxlength="40"  />
+                <span class="form-text-inline">#error('lastname')#</span>
 							</div>
 
 
-							<div>
+							<div class="#err_email#">
                 <label for="email">
                   <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                   #language.Email#:
-                  #error('email')#
                 </label>
                 <input name="email" id="email" type="text" value="#variables.email#" size="25" maxlength="40"  />
+                <span class="form-text-inline">#error('email')#</span>
 							</div>
 							
               <div>
-                <input type="submit" name="submitForm" value="#language.saveName#" />
+                <input type="submit" class="button button-accent" name="submitForm" value="#language.saveName#" />
               </div>
 						</fieldset>
 					</form>
@@ -169,27 +191,27 @@ function EditSubmit ( selectedform )
               <legend style="display: block; text-decoration: none; border: none;">#language.ChangePassword#</legend>
               <p>#language.requiredFields#</p>
 
-							<div>
+							<div class="#err_pass1#">
                 <label for="password">
                   <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                   #language.Password# 
                   <span class="smallFont">(min. 8 #language.characters#)</span>:
-                  #error('password')#
                 </label>
                 <input type="password" id="password" name="password1" />
+                <span class="form-text-inline">#error('password')#</span>
 							</div>
 
-							<div>
+							<div class="#err_pass2#">
                 <label for="password2">
                   <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                   #language.RepeatPassword#:
-                  #error('password2')#
                 </label>
                 <input type="password" id="password2" name="password2" />
+                <span class="form-text-inline">#error('password2')#</span>
 							</div>
 
               <div>
-                <input type="submit" name="submitForm" value="#language.ChangePassword#" />
+                <input type="submit" class="button button-accent" name="submitForm" value="#language.ChangePassword#" />
               </div>
 						</fieldset>
 					</form>

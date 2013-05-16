@@ -6,8 +6,18 @@
 	<cfset Proceed_OK = "No">
 </cfif>
 
+<cfif trim(form.width) gt 45.40>
+  <cfset session['errors']['width'] = language.widthErrorMax />
+	<cfset Proceed_OK = "No">
+</cfif>
+
 <cfif not isNumeric(trim(form.width))>
   <cfset session['errors']['width'] = language.widthError />
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfif trim(form.length) gt 347.67>
+  <cfset session['errors']['length'] = language.lengthErrorMax />
 	<cfset Proceed_OK = "No">
 </cfif>
 
@@ -17,7 +27,7 @@
 </cfif>
 
 <cfif not isNumeric(trim(form.blockSetupTime))>
-  <cfset session['errors']['blockSetupTime'] = language.setupError />
+  <cfset session['errors']['blockSetupTime'] = language.setupError /> 
 	<cfset Proceed_OK = "No">
 </cfif>
 

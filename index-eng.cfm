@@ -9,8 +9,9 @@
 <meta name="keywords" content="Booking Space at the Esquimalt Graving Dock" />
 </cfsavecontent>
 <cfhtmlhead text="#head#">
-<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
+<cfset request.title = language.bookingSpace>
 
+<cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 <h1>#language.bookingSpace#</h1>
 
 <div class="span-4">

@@ -39,6 +39,15 @@
 <cfloop query="readonlycheck">
 	<cfset Session.ReadOnly = ReadOnly />
 </cfloop>
+
+<cfquery name="getVesselDetail" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
+	SELECT Vessels.*, Companies.Name AS CompanyName, Companies.CID
+	FROM  Vessels INNER JOIN Companies ON Vessels.CID = Companies.CID
+	WHERE VNID = <cfqueryparam value="#url.VNID#" cfsqltype="cf_sql_integer" />
+	AND Vessels.deleted = 0
+</cfquery>
+
+<cfset request.title = language.detailsFor & " " & getVesselDetail.Name />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfif isDefined("form.VNID")><cfinclude template="#RootDir#includes/build_form_struct.cfm"></cfif>

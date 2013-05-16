@@ -11,40 +11,51 @@
     AND Vessels.Deleted = 0
 </cfquery>
 
-
-<div class="selector">
-  <form id="dateSelect" action="#CGI.script_name#?lang=#lang#" method="post">
+<div class="selector span-3">
+  <!-- Form -->
+  <form id="dateSelect" class="form-horizontal" action="#CGI.script_name#?lang=#lang#" method="post">
     <fieldset>
       <legend>#language.dateSelect#</legend>
-      <div>
+      <div class="span-1 row-start margin-top-medium">
         <label for="month">#language.month#</label>
+      </div>
+      <div class="span-2 row-end margin-top-medium">
         <select name="m-m" id="month">
           <cfloop index="i" from="1" to="12">
             <option value="#i#" <cfif i eq url['m-m']>selected="selected"</cfif>>#myDateFormat(CreateDate(2005, i, 1), 'mmmm')#</option>
           </cfloop>
         </select>
       </div>
-      <div>
+      <div class="clear"></div>
+      <div class="span-1 row-start">
         <label for="year">#language.year#</label>
-        <select name="a-y" id="year">
-          <CFLOOP index="i" from="-5" to="25">
+      </div>
+      <div class="span-2 row-end margin-top-medium">
+        <select class="cust_select" name="a-y" id="year">
+          <cfloop index="i" from="-5" to="25">
             <cfset year = #myDateFormat(DateAdd('yyyy', i, PacificNow), 'yyyy')# />
             <option <cfif year eq url['a-y']>selected="selected"</cfif>>#year#</option>
-          </CFLOOP>
+          </cfloop>
         </select>
       </div>
-      <input type="submit" value="#language.submit#" />
+      <div class="clear"></div>
+      <div class="span-1 row-start"></div>
+      <div class="span-1 row-end">
+        <input type="submit" value="#language.submit#" class="button button-accent"/>
+      </div>
     </fieldset>
   </form>
 </div>
 
-<h2>#myDateFormat(CreateDate(url['a-y'], url['m-m'], 1), 'mmmm')# #url['a-y']#</h2>
+<!--Legend thing-a-ma-what.-->
+  <cfif find("jet", cgi.script_name) EQ 0>
+    <cfinclude template="#RootDir#comm/includes/dock_key.cfm" />
+  <cfelse>
+    <cfinclude template="#RootDir#comm/includes/jetty_key.cfm" />
+  </cfif>
 
-<cfif find("jet", cgi.script_name) EQ 0>
-  <cfinclude template="#RootDir#comm/includes/dock_key.cfm" />
-<cfelse>
-  <cfinclude template="#RootDir#comm/includes/jetty_key.cfm" />
-</cfif>
+<div class="clear"></div>
+<h2>#myDateFormat(CreateDate(url['a-y'], url['m-m'], 1), 'mmmm')# #url['a-y']#</h2>
 
 <!--- Create an array for the days of the month --->
 <cfset DaysofMonth = ArrayNew(1)>

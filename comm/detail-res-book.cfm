@@ -54,6 +54,7 @@
 	<meta name=""dcterms.subject"" content=""#Language.masterSubjects#"" />
 	<title>#language.PWGSC# - #language.EsqGravingDock# - #language.bookingDetail#</title>
 ">
+<cfset request.title = language.bookingDetail />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 

@@ -42,6 +42,7 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dcterms.subject"" content=""#language.subjects#"" />
 	<title>#language.NewBooking# - #language.esqGravingDock# - #language.PWGSC#</title>">
+<cfset request.title = language.submitJettyBooking />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 
@@ -223,32 +224,32 @@
 
 						<label for="CID">#language.Company#:</label>
 						<input type="hidden" id="CID" name="CID" value="#getInfo.CID#" />
-						<p>#getInfo.CompanyName#</p>
+						<p class="color-accent">#getInfo.CompanyName#</p>
 
 
 						<label for="VNID">#language.vessel#:</label>
 						<input type="hidden" id="VNID" name="VNID" value="#getInfo.VNID#" />
-						<p>#getInfo.VesselName#</p>
+						<p class="color-accent">#getInfo.VesselName#</p>
 
 
 						<label for="startDate">#language.StartDate#:</label>
 						<input type="hidden" id="startDate" name="startDate" value="#CreateODBCDate(startDate)#" />
-						<p>#myDateFormat(CreateODBCDate(startDate), request.datemask)#</p>
+						<p class="color-accent">#myDateFormat(CreateODBCDate(startDate), request.datemask)#</p>
 
 
 						<label for="endDate">#language.EndDate#:</label>
 						<input type="hidden" id="endDate" name="endDate" value="#CreateODBCDate(endDate)#" />
-						<p>#myDateFormat(CreateODBCDate(endDate), request.datemask)#</p>
+						<p class="color-accent">#myDateFormat(CreateODBCDate(endDate), request.datemask)#</p>
 
 
 						<label for="Status">#language.requestedStatus#:</label>
 						<input type="hidden" id="Status" name="Status" value="#Form.Status#" />
-						<p><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></p>
+						<p class="color-accent"><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></p>
 
 
 						<label for="jetty">#language.RequestedJetty#:</label>
 						<input id="jettySelect" id="jetty" type="hidden" name="jetty" value="#Form.Jetty#" />
-						<p>
+						<p class="color-accent">
 							<cfif Form.Jetty EQ "north">
 								#language.northJetty#
 							<cfelse>
@@ -258,7 +259,7 @@
 					</fieldset>
 
 					<div class="buttons">
-						<input type="submit" value="#language.confirm#" class="textbutton" />
+						<input type="submit" value="#language.confirm#" class="button button-accent" />
 					</div>
 
 				</cfform>

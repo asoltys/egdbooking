@@ -22,10 +22,9 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dcterms.subject"" content=""#Language.masterSubjects#"" />
 	<title>#language.drydockCalendar# - #language.esqGravingDock# - #language.PWGSC#</title>">
+	<cfset request.title = language.drydockCalendar />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
-			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
 					<cfoutput>#language.drydockCalendar#</cfoutput>
@@ -87,7 +86,5 @@
 
 				<CFINCLUDE template="includes/calendar_core.cfm">
 
-			</div>
-			<!-- CONTENT ENDS | FIN DU CONTENU -->
 		
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">

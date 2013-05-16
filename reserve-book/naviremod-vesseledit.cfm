@@ -27,6 +27,7 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dcterms.subject"" content=""#language.subjects#"" />
 	<title>#language.editVessel# - #language.esqGravingDock# - #language.PWGSC#</title>">
+<cfset request.title = language.editVessel />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 				<h1>#language.editVessel#</h1>
@@ -180,7 +181,7 @@
 
             <div>
               <input type="hidden" name="VNID" value="#url.VNID#" />
-              <input type="submit" value="#language.Submit#" name="submitForm" class="textbutton" />
+              <input type="submit" value="#language.Submit#" name="submitForm" class="button button-accent" />
             </div>
 					</fieldset>
 				</form>

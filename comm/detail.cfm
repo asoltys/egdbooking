@@ -55,6 +55,8 @@
 	<title>#language.detailsFor# #myDateFormat(URL.date, request.longdatemask)# - #language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#</title>
 </cfsavecontent>
 <cfhtmlhead text="#head#">
+
+<cfset request.title = language.DetailsFor & " " & myDateFormat(URL.date, request.longdatemask) />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <CFPARAM name="url.referrer" default="#language.bookingHome#">

@@ -21,7 +21,7 @@
           </cfloop>
         </select>
         <input type="hidden" name="lang" value="#lang#" />
-        <input type="submit" value="#language.view#" />
+        <input type="submit" class="button button-accent" value="#language.view#" />
       </fieldset>
     </form>
   </cfif>

@@ -16,15 +16,12 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dcterms.subject"" content=""#language.subjects#"" />
 	<title>#language.notices# - #language.bookingForms# - #language.esqGravingDock# - #language.PWGSC#</title>">
+<cfset request.title = language.notices />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
-
+<cfoutput>
   <!-- CONTENT BEGINS | DEBUT DU CONTENU -->
   <div class="center">
-    <h1><a name="cont" id="cont">
-    <!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
-    #language.notices#
-    <!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-    </a></h1>
+    <h1>#language.notices#</h1>
 
       <cffile action="read" file="#FileDir#intro-#lang#.txt" variable="intromsg">
       <div class="option4">
@@ -32,6 +29,7 @@
       </div>
   </div>
 <!-- CONTENT ENDS | FIN DU CONTENU -->
+</cfoutput>
 
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm" />
 

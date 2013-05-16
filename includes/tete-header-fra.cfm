@@ -5,20 +5,22 @@
 <!--[if gt IE 8]><!-->
 <html lang="fr" class="no-js">
 <!--<![endif]-->
+
+<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,slash)>
+<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,slash), slash)>
+<cfdirectory action="LIST" directory="#PageDir#" name="GetFile" filter="#PageFileName#">
+<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,slash)>
 <head>
 <meta charset="utf-8" />
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt -->
+<!-- WET 3.0, PWGSC 1.0 file: 2col-nav-fra.html -->
 <!-- MetadataStart -->
 <meta name="dcterms.creator" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada" />
 <meta name="dcterms.modified" title="W3CDTF" content="#myDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#" />
 <meta name="dcterms.language" title="ISO639-2" content="fra" />
 <!-- MetadataEnd -->
-<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,slash)>
-<cfset PageDir = listDeleteAt(cgi.CF_TEMPLATE_PATH, listLen(cgi.CF_TEMPLATE_PATH,slash), slash)>
-<cfdirectory action="LIST" directory="#PageDir#" name="GetFile" filter="#PageFileName#">
-<cfset PageFileName = listlast(cgi.CF_TEMPLATE_PATH,slash)>
-<!--#include virtual="/boew-wet/wet3.0/html5/includes/tete-head.html" -->
+<cfinclude template="/boew-wet/wet3.0/html5/includes/tete-head.html" />
 <!-- CustomScriptsCSSStart -->
 <link href="#RootDir#css/custom.css" rel="stylesheet" type="text/css" />
 <link href="#RootDir#css/jquery-ui.css" media="screen" rel="stylesheet" type="text/css"/>
@@ -36,21 +38,23 @@ wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Lice
 <body><div id="wb-body-sec">
 <div id="wb-skip">
 <ul id="wb-tphp">
-<li id="wb-skip1"><a href="#wb-cont">Passer au contenu principal</a></li>
-<li id="wb-skip2"><a href="#wb-nav">Passer au menu secondaire</a></li>
+<li id="wb-skip1"><a href="##wb-cont">Passer au contenu principal</a></li>
+<li id="wb-skip2"><a href="##wb-nav">Passer au menu secondaire</a></li>
 </ul>
 </div>
 
 <div id="wb-head"><div id="wb-head-in"><header>
 <!-- HeaderStart -->
-<!--#include virtual="/boew-wet/wet3.0/html5/includes/app_banner_gc-gc_banner_app-fra.html" -->
-<!--#include virtual="/site/wet3.0/html5/includes/app_banner_site-site_banner_app-fra.html" -->
+<cfinclude template="#RootDir#includes/app_banner_gc-gc_banner_app-fra.cfm" />
+<cfinclude template="/site/wet3.0/html5/includes/app_banner_site-site_banner_app-fra.html" />
 <nav role="navigation">
-<!--#include virtual="/site/wet3.0/html5/includes/app_nav_site-site_nav_app-fra.html" -->
+
+<cfinclude template="/site/wet3.0/html5/includes/app_nav_site-site_nav_app-fra.html" />
+
 <div id="gcwu-bc"><h2>Fil d'Ariane</h2><div id="gcwu-bc-in">
 <ol>
-<!--#include virtual="/site/wet3.0/html5/includes/app_pain-bread_app-fra.html" -->
-<!--#include virtual="/site30/includes/app_pain_section-bread_section_app-fra.html" -->
+<cfinclude template="/site/wet3.0/html5/includes/app_pain-bread_app-fra.html" />
+<cfinclude template="#RootDir#includes/bread-pain-fra.cfm" />
 </ol>
 </div></div>
 </nav>
@@ -59,4 +63,4 @@ wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Lice
 
 <div id="wb-core"><div id="wb-core-in" class="equalize">
 <div id="wb-main" role="main"><div id="wb-main-in">
-<!-- MainContentStart -->
+<!-- MainContentStart --></cfoutput>

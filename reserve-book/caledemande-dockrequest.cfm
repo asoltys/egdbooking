@@ -25,10 +25,10 @@
 	<cfset language.dateRange = "P&eacute;riode&nbsp;">
 	<cfset language.requestedStatus = "&Eacute;tat demand&eacute;">
 </cfif>
-
+h1
 <cfoutput>
 
-<cfsavecontent variable="js">
+<cfsavecontent variable="js">sus
 	<meta name="dcterms.title" content="#language.drydockRequest# - #language.esqGravingDock# - #language.PWGSC#" />
 	<meta name="keywords" content="#language.keywords#" />
 	<meta name="description" content="#language.description#" />
@@ -36,7 +36,7 @@
 	<title>#language.drydockRequest# - #language.esqGravingDock# - #language.PWGSC#</title>
 </cfsavecontent>
 <cfhtmlhead text="#js#">
-
+<cfset request.title = language.drydockRequest />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
@@ -61,6 +61,13 @@
 <cfparam name="Variables.endDate" default="#DateAdd('d', 3, PacificNow)#">
 <cfparam name="Variables.numDays" default="">
 <cfparam name="Variables.status" default="">
+<cfparam name="err_ddstart" default="">
+<cfparam name="err_ddend" default="">
+<cfparam name="err_ddstart2" default="">
+<cfparam name="err_ddend2" default="">
+<cfparam name="err_numdays" default="">
+<cfparam name="err_ddvess" default="">
+<cfparam name="err_ddvess2" default="">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfif IsDefined("URL.VNID")>
@@ -99,16 +106,38 @@
           </cfif>
 				</cfif>
 
+        <cfif not #error("startDateA")# EQ "">
+              <cfset err_ddstart = "form-attention" />
+        </cfif>
+        <cfif not #error("endDateA")# EQ "">
+              <cfset err_ddend = "form-attention" />
+        </cfif>
+        <cfif not #error("StartDateB")# EQ "">
+              <cfset err_ddstart2 = "form-attention" />
+        </cfif>
+        <cfif not #error("EndDateB")# EQ "">
+              <cfset err_ddend2 = "form-attention" />
+        </cfif>
+        <cfif not #error("numDays")# EQ "">
+              <cfset err_numdays = "form-attention" />
+        </cfif>
+        <cfif not #error("booking_VNIDA")# EQ "">
+              <cfset err_ddvess = "form-attention" />
+        </cfif>
+        <cfif not #error("bookingByRange_VNIDB")# EQ "">
+              <cfset err_ddvess2 = "form-attention" />
+        </cfif>
+
+
 				<p>#language.enterInfo#  #language.dateInclusive#</p>
 				<form action="#RootDir#reserve-book/caledemande-dockrequest_confirm.cfm?lang=#lang#" method="post" id="booking">
 					<fieldset>
             <legend>#language.booking#</legend>
             <p>#language.requiredFields#</p>
 
-            <div>
+            <div class="#err_ddvess#">
               <label for="booking_VNID">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.vessel#:
-                #error('booking_VNIDA')#
               </label>
               <select id="booking_VNID" name="booking_VNID">
                 <option value="">(#language.chooseVessel#)</option>
@@ -120,24 +149,25 @@
                   <option value="#companyVessels.VNID#" #selected#>#companyVessels.VesselName#</option>
                 </cfloop>
               </select>
+              <span class="form-text-inline">#error('booking_VNIDA')#</span>
             </div>
 
-						<div>
+						<div class="#err_ddstart#">
               <label for="startDateA">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.StartDate#:<br />
                 <small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>
-                #error('StartDateA')#
               </label>
-              <input id="startDateA" name="startDate" class="datepicker startDate" type="text" size="15" maxlength="10"  /> 
+              <input id="startDateA" name="startDate" class="datepicker startDate" type="text" size="15" maxlength="10"  />
+              <span class="form-text-inline">#error('StartDateA')#</span>
 						</div>
 
-						<div>
+						<div class="#err_ddend#">
              <label for="endDateA">
                <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.EndDate#:<br />
                <small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>
-               #error('EndDateA')#
              </label>
               <input id="endDateA" name="endDate" class="datepicker endDate" type="text" size="15" maxlength="10" value="#DateFormat(endDate, 'mm/dd/yyyy')#"  />
+              <span class="form-text-inline">#error('EndDateA')#</span>
 						</div>
 
 						<div>
@@ -151,7 +181,7 @@
 						</div>
 
             <div>
-              <input type="submit" value="#language.Submit#" class="textbutton" />
+              <input type="submit" value="#language.Submit#" class="button button-accent" />
             </div>
 					</fieldset>
         </form>
@@ -164,10 +194,10 @@
             <legend>#language.booking#</legend>
             <p>#language.requiredFields#</p>
 
-            <div>
+            <div class="#err_ddvess2#">
               <label for="bookingByRange_VNID">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.vessel#:
-                #error('bookingByRange_VNIDB')#
+                
               </label>
               <select id="bookingByRange_VNID" name="bookingByRange_VNID">
                 <option value="">(#language.chooseVessel#)</option>
@@ -179,33 +209,35 @@
                   <option value="#companyVessels.VNID#" #selected#>#companyVessels.VesselName#</option>
                 </cfloop>
               </select>
+              <span class="form-text-inline">#error('bookingByRange_VNIDB')#</span>
             </div>
 
-            <div>
+            <div class="#err_ddstart2#">
 							<label for="StartDateB">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.StartDate#:
                 <br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>
-                #error('StartDateB')#
               </label>
 							<input id="StartDateB" name="startDate" type="text" class="datepicker startDate" value="#DateFormat(startDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
+              <span class="form-text-inline">#error('StartDateB')#</span>
             </div>
 
-            <div>
+            <div class="#err_ddend2#">
               <label for="EndDateB">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.EndDate#:
                 <br />
                 <small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>
-                #error('EndDateB')#
               </label>
               <input id="EndDateB" name="endDate" type="text" class="datepicker endDate" value="#DateFormat(endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" />
+              <span class="form-text-inline">#error('EndDateB')#</span>
             </div>
 
-            <div>
+            <div class="#err_numdays#">
               <label for="NumDays">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.NumDays#:
-                #error('NumDays')#
+                
               </label>
               <input id="NumDays" type="text" name="numDays" value="#Variables.numDays#"  />
+              <span class="form-text-inline">#error('NumDays')#</span>
             </div>
 
 						<div>
@@ -218,7 +250,7 @@
               </select>
 						</div>
 
-            <input type="submit" value="#language.Submit#" />
+            <input type="submit" class="button button-accent" value="#language.Submit#" />
 					</fieldset>
 				</form>
 

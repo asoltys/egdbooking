@@ -11,6 +11,7 @@
 	<meta name=""description"" content="""" />
 	<meta name=""dcterms.subject"" content=""#Language.masterSubjects#"" />
 	<title>#Variables.Success.Breadcrumb# - #language.esqGravingDock# - #language.PWGSC#</title>">
+	<cfset request.title = variables.success.title />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfparam name="Variables.Success.Title" default="">

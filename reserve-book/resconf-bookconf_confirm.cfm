@@ -31,6 +31,7 @@
 	<title>#language.ConfirmBooking# - #language.esqGravingDock# - #language.PWGSC#</title>
 	<link rel=""stylesheet"" type=""text/css"" href=""#RootDir#css/booking.css"" />
 ">
+<cfset request.title = confirmBooking />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <CFPARAM name="url.referrer" default="#language.bookingHome#">

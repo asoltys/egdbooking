@@ -7,7 +7,7 @@
 <cfset arrayAppend(legend, language.sec3) />
 
 <cfoutput>
-	<table class="keytable">
+	<table class="keytable keyfloat">
 		<tr><th colspan="2">#language.legend#</th></tr>
 		<tr id="l1">
       <td class="pending">1</td>

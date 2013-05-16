@@ -30,6 +30,7 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dcterms.subject"" content=""#language.subjects#"" />
 	<title>#language.NewBooking# - #language.esqGravingDock# - #language.PWGSC#</title>">
+<cfset request.title = language.NewBooking />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfif IsDefined("Session.Return_Structure")>
@@ -203,22 +204,22 @@
 
 					<label for="VNID">#language.vessel#:</label>
 					<input type="hidden" id="VNID"  name="VNID" value="#Form.bookingByRange_VNID#" />
-					<p>#getVessel.VesselName#</p>
+					<p class="color-accent">#getVessel.VesselName#</p>
 
 					<label for="startDate">#language.StartDate#:</label>
 					<input type="hidden" id="startDate" name="startDate" value="#Variables.FoundStartDate#" />
-					<p>#myDateFormat(CreateODBCDate(Variables.StartDate), request.datemask)#</p>
+					<p class="color-accent">#myDateFormat(CreateODBCDate(Variables.StartDate), request.datemask)#</p>
 
 					<label for="EndDate">#language.EndDate#:</label>
 					<input type="hidden" id="EndDate" name="EndDate" value="#Variables.FoundEndDate#" />
-					<p>#myDateFormat(Variables.EndDate, request.datemask)#</p>
+					<p class="color-accent">#myDateFormat(Variables.EndDate, request.datemask)#</p>
 
 					<label for="Status">#language.requestedStatus#:</label>
 					<input type="hidden" id="Status" name="Status" value="<cfoutput>#Form.Status#</cfoutput>">
-					<p><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></p>
+					<p class="color-accent"><cfif form.status eq "tentative">#language.tentative#<cfelse>#language.confirmed#</cfif></p>
 
 					<div class="buttons">
-						<input type="submit" value="#language.requestBooking#" class="textbutton" />
+						<input type="submit" value="#language.requestBooking#" class="button button-accent"/>
 					</div>
 
 				</cfform>

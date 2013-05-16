@@ -80,6 +80,7 @@
   <cfset language.legendSummary = "Explains how different booking types are represented on the calendar" />
   <cfset language.length = "Length (m)">
   <cfset language.lengthError = "Please enter the length in metres.">
+  <cfset language.lengthErrorMax = "Exceeds the maximum length.">
   <cfset language.lloydsError = "Please enter the International Maritime Organization (I.M.O.) number."> 
   <cfset language.lloydsID = "<abbr title='International Maritime Organization'>IMO</abbr> Number">
   <cfset language.login = "Login">
@@ -150,6 +151,7 @@
   <cfset language.welcomePage = "Welcome Page">
   <cfset language.width = "Width (m)">
   <cfset language.widthError = "Please enter the width in metres.">
+  <cfset language.widthErrorMax = "Exceeds the maximum width.">
   <cfset language.year = "Year" />
   <cfset language.yes = "Yes">
 <cfelse>
@@ -233,6 +235,7 @@
   <cfset language.legendSummary = "Explique comment les types de r&##233;servation diff&##233;rents sont repr&##233;sent&##233;s sur le calendrier" />
   <cfset language.length = "Longueur (m)">
   <cfset language.lengthError = "Veuillez entrer la longueur en m&egrave;tres.">
+  <cfset language.lengthErrorMax = "D&eacute;passe la longueur maximale.">
   <cfset language.lloydsError = "Veuillez entrer le code d'identification de la Lloyds.">
   <cfset language.lloydsID = "Code d'identification de la Lloyds">
   <cfset language.login = "Ouvrir la session">
@@ -304,6 +307,7 @@
   <cfset language.welcomePage = "Page de bienvenue">
   <cfset language.width = "Largeur (m)">
   <cfset language.widthError = "Veuillez entrer la largeur en m&egrave;tres.">
+  <cfset language.widthErrorMax = "D&eacute;passe la largeur maximale." />
   <cfset language.year = "Ann&eacute;e" />
   <cfset language.yes = "Oui">
 </cfif>

@@ -22,7 +22,7 @@
 	<title>#language.Booking# - #language.esqGravingDock# - #language.PWGSC#</title>
 </cfsavecontent>
 <cfhtmlhead text="#head#" />
-
+<cfset request.title = #language.bookingHome# />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="readonlycheck" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">

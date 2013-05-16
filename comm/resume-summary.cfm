@@ -37,6 +37,7 @@
   </style>
 </cfsavecontent>
 <cfhtmlhead text="#head#" />
+<cfset request.title = language.bookingsSummary />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfset Variables.Errors = ArrayNew(1)>

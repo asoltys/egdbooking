@@ -52,6 +52,7 @@
 	</script>
 </cfsavecontent>
 <cfhtmlhead text="#js#">
+<cfset request.title = language.bookingsSummary />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 				<h1>#language.bookingsSummary#</h1>
@@ -88,9 +89,8 @@
               <label for="end">&nbsp; #language.toDate#<br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small></label>
               <input type="text" name="endDate" class="datepicker endDate" id="end" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10" /> 
             </div>
-
             <div>
-              <input type="submit" value="#language.submit#" />
+              <input type="submit" class="button button-accent" value="#language.submit#" />
             </div>
 					</fieldset>
 				</form>

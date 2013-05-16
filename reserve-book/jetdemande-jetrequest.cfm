@@ -33,7 +33,7 @@
 	</cfoutput>
 </cfsavecontent>
 <cfhtmlhead text="#js#">
-
+<cfset request.title = language.submitJettyBooking />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
@@ -58,6 +58,9 @@
 <cfparam name="Variables.endDate" default="#DateAdd('d', 1, PacificNow)#">
 <cfparam name="Variables.Jetty" default="north">
 <cfparam name="Variables.Status" default="tentative">
+<cfparam name="err_jstart" default="">
+<cfparam name="err_jend" default="">
+<cfparam name="err_jvess" default="">
 
 <cflock scope="session" throwontimeout="no" type="readonly" timeout="60">
 	<cfif IsDefined("URL.Date")>
@@ -80,6 +83,16 @@
 					<cfset Variables.Status = #form.status#>
 				</cfif>
 
+		<cfif not #error("StartDate")# EQ "">
+            <cfset err_jstart = "form-attention" />
+        </cfif>
+        <cfif not #error("EndDate")# EQ "">
+              <cfset err_jend = "form-attention" />
+        </cfif>
+        <cfif not #error("VNID")# EQ "">
+              <cfset err_jvess = "form-attention" />
+        </cfif>
+
         <cfif not isDate(Variables.startDate)>
           <cfset Variables.startDate = "" />
         </cfif>
@@ -96,10 +109,9 @@
             <legend>#language.booking#</legend>
             <p>#language.requiredFields#</p>
 
-            <div>
+            <div class="#err_jvess#">
               <label for="VNID">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.vessel#:
-                #error('VNID')#
               </label>
               <select id="VNID" name="VNID">
                 <option value="">(#language.chooseVessel#)</option>
@@ -111,26 +123,27 @@
                   <option value="#companyVessels.VNID#" #selected#>#companyVessels.VesselName#</option>
                 </cfloop>
               </select>
+              <span class="form-text-inline">#error('VNID')#</span>
             </div>
 
-            <div>
+            <div class="#err_jstart#">
               <label for="StartDate">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.StartDate#:
                 <br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>
-                #error('StartDate')#
               </label>
               <input id="StartDate" name="startDate" type="text" class="datepicker startDate" value="#DateFormat(variables.startDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> 
+              <span class="form-text-inline">#error('StartDate')#</span>
             </div>
 
-						<div>
+						<div class="#err_jend#">
               <label for="EndDate">
                 <abbr title="#language.required#" class="required">*</abbr>&nbsp;
                 #language.EndDate#:
                 <br /><small><abbr title="#language.dateformexplanation#">#language.dateform#</abbr></small>
-                #error('EndDate')#
               </label>
               <input id="EndDate" name="endDate" type="text" class="datepicker endDate" value="#DateFormat(variables.endDate, 'mm/dd/yyyy')#" size="15" maxlength="10"  /> 
+              <span class="form-text-inline">#error('EndDate')#</span>
 						</div>
 
 						<div>
@@ -156,7 +169,7 @@
             </div>
 
             <div>
-              <input type="submit" value="#language.Submit#" />
+              <input type="submit" class="button button-accent" value="#language.Submit#" />
             </div>
 					</fieldset>
 				</form>
