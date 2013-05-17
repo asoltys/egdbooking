@@ -19,6 +19,7 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dcterms.subject"" content=""#language.masterSubjects#"" />
 	<title>#language.CreateUser# - #language.esqGravingDock# - #language.PWGSC#</title>">
+	<cfset request.title = language.createComp />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
@@ -104,7 +105,7 @@
                 <input id="fax" name="fax" type="text" size="10" maxlength="32" />
               </div>
             
-              <input type="submit" name="submitForm" class="textbutton" value="#language.Submit#" />
+              <input type="submit" name="submitForm" class="button button-accent" value="#language.Submit#" />
             </fieldset>
 					</form>
 				</cfoutput>

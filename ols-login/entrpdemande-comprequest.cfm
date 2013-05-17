@@ -127,6 +127,7 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dcterms.subject"" content=""#language.masterSubjects#"" />
 	<title>#language.CreateUser# - #language.esqGravingDock# - #language.PWGSC#</title>">
+	<cfset request.title = language.CreateUser />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfquery name="getCompanies" datasource="#DSN#" username="#dbuser#" password="#dbpassword#">
@@ -253,7 +254,7 @@ function EditSubmit ( selectedform )
 										</cfif>
 									</cfloop>
 								</cfselect>
-								<input type="submit" name="submitCompany" value="#language.add#" class="textbutton" />
+								<input type="submit" name="submitCompany" value="#language.add#" class="button" />
 								<br />
 								<font size="-2">#language.notListed# <a href="entrpajout-compadd.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#">#language.toCreate#</a></font>				</td>
 						</tr>
@@ -267,7 +268,7 @@ function EditSubmit ( selectedform )
 						<input type="hidden" name="password1" value="#Variables.password1#" />
 						<input type="hidden" name="companies" value="#companies#" />
 						<br />
-						<div style="text-align:right;"><input type="submit" value="#language.SubmitUserRequest#" class="textbutton" />
+						<div style="text-align:right;"><input type="submit" value="#language.SubmitUserRequest#" class="button button-accent" />
 						<cfif lang EQ 'fra'></div><br />
 						<div style="text-align:right;"></cfif>
 						<a href="utilisateurajout-useradd.cfm?lang=#lang#&info=#Variables.info#&companies=#companies#" class="textbutton">#language.editProfile#</a>

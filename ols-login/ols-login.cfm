@@ -16,6 +16,7 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dcterms.subject"" content=""#language.masterSubjects#"" />
 	<title>#language.title# - #language.esqGravingDock# - #language.PWGSC#</title>">
+  <cfset request.title = language.login />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfif IsDefined("Session.Return_Structure") AND isDefined("url.pass") AND url.pass EQ "true">
@@ -35,6 +36,17 @@
 <cfcookie name="CFID" value="empty" expires="NOW">
 <cfcookie name="CFTOKEN" value="empty" expires="NOW">
 
+
+<cfparam name="err_loginemail" default="">
+<cfparam name="err_loginpass" default="">
+
+<cfif not error("email") EQ "">
+  <cfset err_loginemail = "form-attention" />
+</cfif>
+<cfif not error("password") EQ "">
+  <cfset err_loginpass = "form-attention" />
+</cfif>
+
 <cfoutput>
   <h1 id="wb-cont">#language.login#</h1>
   <form action="ols-login_action.cfm?lang=#lang#" method="post" id="login_form">
@@ -42,20 +54,20 @@
       <legend>#language.login#</legend>
       <p>#language.requiredFields#</p>
       
-      <div>
+      <div class="#err_loginemail#">
         <label for="email">
           <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Email#:
-          #error('email')#
         </label>
         <input type="text" name="email" id="email" size="40" maxlength="100" value="#email#" />
+        <span class="form-text-inline">#error('email')#</span>
       </div>
 
-      <div>
+      <div class="#err_loginpass#">
         <label for="password">
           <abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Password#:
-          #error('password')#
         </label>
         <input type="password" name="Password" id="password" size="25" maxlength="40" />
+        <span class="form-text-inline">#error('password')#</span>
       </div>
 
       <div>
@@ -63,7 +75,7 @@
         <input name="remember" type="checkbox" id="remember" value="remember" <CFIF IsDefined("Cookie.login")>checked="checked"</CFIF> />
       </div>
 
-      <input type="submit" name="submitForm" value="#language.Login#" class="textbutton" />
+      <input type="submit" name="submitForm" value="#language.Login#" class="button button-accent" />
     </fieldset>
   </form>
   <p><a href="utilisateurajout-useradd.cfm?lang=#lang#">#language.addUser#</a></p>
