@@ -25,10 +25,9 @@
 	<cfset language.dateRange = "P&eacute;riode&nbsp;">
 	<cfset language.requestedStatus = "&Eacute;tat demand&eacute;">
 </cfif>
-h1
 <cfoutput>
 
-<cfsavecontent variable="js">sus
+<cfsavecontent variable="js">
 	<meta name="dcterms.title" content="#language.drydockRequest# - #language.esqGravingDock# - #language.PWGSC#" />
 	<meta name="keywords" content="#language.keywords#" />
 	<meta name="description" content="#language.description#" />

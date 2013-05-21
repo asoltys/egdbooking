@@ -1,3 +1,4 @@
+<cfinclude template="#RootDir#includes/companyInfoVariables.cfm">
 <cfinclude template="#RootDir#includes/build_form_struct.cfm">
 
 <cfif lang EQ "eng">
@@ -29,16 +30,51 @@
 <cfset Proceed_OK = "Yes">
 
 <cfif getCompany.recordcount GE 1>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.nameExists#")#</cfoutput>
+	<cfset session['errors']['name'] = language.companyError />
 	<cfset Proceed_OK = "No">
 </cfif>
 <cfif trim(form.name) EQ "">
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.enterName#")#</cfoutput>
+	<cfset session['errors']['name'] = language.enterName />
 	<cfset Proceed_OK = "No">
 </cfif>
 
 <cfif Len(form.phone) LT 10>
-	<cfoutput>#ArrayAppend(Variables.Errors, "#language.phoneShortError#")#</cfoutput>
+	<cfset session['errors']['phone'] = language.phoneShortError />
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfif trim(form.phone) EQ "">
+	<cfset session['errors']['phone'] = language.phoneError />
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfif trim(form.address1) EQ "">
+	<cfset session['errors']['address1'] = language.addressError />
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfif trim(form.city) EQ "">
+	<cfset session['errors']['city'] = language.cityError />
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfif trim(form.province) EQ "">
+	<cfset session['errors']['province'] = language.provinceError />
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfif trim(form.country) EQ "">
+	<cfset session['errors']['country'] = language.countryError />
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfif trim(form.zip) EQ "">
+	<cfset session['errors']['zip'] = language.zipError />
+	<cfset Proceed_OK = "No">
+</cfif>
+
+<cfif Len(form.zip) LT 5>
+	<cfset session['errors']['zip'] = language.zipShortError />
 	<cfset Proceed_OK = "No">
 </cfif>
 <!---cfif Len(form.zip) LT 5>

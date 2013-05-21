@@ -29,11 +29,17 @@
 <meta name=""dc.date.modified"" content=""2005-07-25"" />
 <meta name=""dc.date.created"" content=""2005-07-25"" />
 <title>#language.forgot# - #language.esqGravingDock# - #language.PWGSC#</title>">
+<cfset request.title = language.forgot />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
+<cfparam name="err_email" default="">
 
 <cfset Variables.onLoad = "javascript:document.forgotForm.email.focus();">
 
 				<h1><cfoutput>#language.forgot#</cfoutput></h1>
+
+				<cfif not error("email") EQ "">
+  						<cfset err_email = "form-attention" />
+				</cfif>
 
 				<cfoutput>
 					<cfif IsDefined("Session.Return_Structure")>
@@ -45,12 +51,13 @@
               <legend>#language.getPassword#</legend>
               <p>#language.requiredFields#</p>
               
-              <div>
+              <div class="#err_email#">
                 <label for="email"><abbr title="#language.required#" class="required">*</abbr>&nbsp;#language.Email#:</label>
                 <input type="text" name="email" id="email" size="30" />
+                <span class="form-text-inline">#error('email')#</span>
               </div>
 
-              <input type="submit" value="#language.Submit#" class="textbutton" />
+              <input type="submit" value="#language.Submit#" class="button button-accent" />
             </fieldset>
 					</form>
 

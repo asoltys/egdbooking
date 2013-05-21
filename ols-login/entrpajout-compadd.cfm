@@ -40,6 +40,13 @@
 					<cfparam name="Variables.zip" default="">
 					<cfparam name="Variables.phone" default="">
 					<cfparam name="Variables.fax" default="">
+					<cfparam name="err_compname" default="">
+					<cfparam name="err_phone" default="">
+					<cfparam name="err_address1" default="">
+					<cfparam name="err_city" default="">
+					<cfparam name="err_province" default="">
+					<cfparam name="err_country" default="">
+					<cfparam name="err_zip" default="">
 
 					<cfinclude template="#RootDir#includes/restore_params.cfm">
 					<cfif isDefined("session.form_structure") AND isDefined("form.name")>
@@ -54,20 +61,46 @@
 						<cfset variables.fax="#form.fax#">
 					</cfif>
 
-					<cfif isDefined("Session.Return_Structure")>
-						<cfinclude template="#RootDir#includes/getStructure.cfm">
+					<cfif not error("name") EQ "">
+  						<cfset err_compname = "form-attention" />
+					</cfif>
+					<cfif not error("phone") EQ "">
+  						<cfset err_phone = "form-attention" />
+					</cfif>
+					<cfif not error("address1") EQ "">
+  						<cfset err_address1 = "form-attention" />
+					</cfif>
+					<cfif not error("city") EQ "">
+  						<cfset err_city = "form-attention" />
+					</cfif>
+					<cfif not error("province") EQ "">
+  						<cfset err_province = "form-attention" />
+					</cfif>
+					<cfif not error("country") EQ "">
+  						<cfset err_country = "form-attention" />
+					</cfif>
+					<cfif not error("zip") EQ "">
+  						<cfset err_zip = "form-attention" />
+					</cfif>
+
+					<cfif IsDefined("Session.Return_Structure")>
+					<!--- Populate the Variables Structure with the Return Structure.
+							Also display any errors returned --->
+					<cfinclude template="#RootDir#includes/getStructure.cfm">
 					</cfif>
 
 					<form name="addCompanyForm" action="entrpajout-compadd_action.cfm?lang=#lang#&amp;info=#url.info#&amp;companies=#url.companies#" id="addCompanyForm" method="post">
             <fieldset>	
-              <div>
-                <label for="name">#language.companyName#:</label>
+              <div class="#err_compname#">
+                <label for="name"><abbr title="#language.required#" class="required">*</abbr>#language.companyName#:</label>
                 <input name="name" id="name" type="text" size="40" maxlength="75" value="#Variables.name#" />
+                <span class="form-text-inline">#error('name')#</span>
               </div>
             
-              <div>
-                <label for="address1">#language.Address# 1:</label>
+              <div class="#err_address1#">
+                <label for="address1"><abbr title="#language.required#" class="required">*</abbr>#language.Address# 1:</label>
                 <input name="address1" id="address1" type="text" size="40" maxlength="75" value="#Variables.address1#" />
+                <span class="form-text-inline">#error('address1')#</span>
               </div>
             
               <div>
@@ -75,29 +108,34 @@
                 <input name="address2" id="address2" type="text" size="40" maxlength="75" value="#Variables.address2#" />
               </div>
             
-              <div>
-                <label for="city">#language.City#:</label>
+              <div class="#err_city#">
+                <label for="city"><abbr title="#language.required#" class="required">*</abbr>#language.City#:</label>
                 <input name="city" id="city" type="text" size="25" maxlength="40" value="#Variables.city#" />
+                <span class="form-text-inline">#error('city')#</span>
               </div>
             
-              <div>
-                <label for="province">#language.Province#:</label>
+              <div class="#err_province#">
+                <label for="province"><abbr title="#language.required#" class="required">*</abbr>#language.Province#:</label>
                 <input name="province" id="province" type="text" size="25" maxlength="40" value="#Variables.province#" />
+                <span class="form-text-inline">#error('province')#</span>
               </div>
             
-              <div>
-                <label for="country">#language.Country#:</label>
+              <div class="#err_country#">
+                <label for="country"><abbr title="#language.required#" class="required">*</abbr>#language.Country#:</label>
                 <input name="country" id="country" type="text" size="25" maxlength="40" value="#Variables.country#" />
+                <span class="form-text-inline">#error('country')#</span>
               </div>
             
-              <div>
-                <label for="zip">#language.zip#:</label>
+              <div class="#err_zip#">
+                <label for="zip"><abbr title="#language.required#" class="required">*</abbr>#language.zip#:</label>
                 <input name="zip" id="zip" type="text" size="12" maxlength="10" value="#Variables.zip#" />
+                <span class="form-text-inline">#error('zip')#</span>
               </div>
 
-              <div>
-                <label for="phone">#language.Phone#:</label>
+              <div class="#err_phone#">
+                <label for="phone"><abbr title="#language.required#" class="required">*</abbr>#language.Phone#:</label>
                 <input name="phone" id="phone" type="text" size="25" maxlength="32" value="#Variables.phone#" />
+                <span class="form-text-inline">#error('phone')#</span>
               </div>
             
               <div>

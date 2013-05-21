@@ -1,7 +1,7 @@
 <div class="clear"></div>
 <!-- EndEditableContent -->
 <dl id="gcwu-date-mod" role="contentinfo">
-<dt>Date modified:</dt><dd><span><time><cfoutput query="GetFile">#myDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput></time></span></dd>
+<dt>Date modified:</dt><dd><span><time><cfoutput query="GetFile">#DateFormat(GetFile.DateLastModified, "yyyy-mm-dd")#</cfoutput></time></span></dd>
 </dl>
 <!-- MainContentEnd -->
 </div></div>

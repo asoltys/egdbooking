@@ -1,7 +1,7 @@
 <h2>New Electrical Lockout, Policy, Procedures &amp; Records</h2>
 
 <p>
-The Esquimalt Graving Dock (EGD) has a new electrical Lockout Policy, Procedures & Records document dated July 18, 2012. As a tenant and/or contractor working at the <abbr title="Esquimalt Graving Dock">EGD</abbr>, it is important that you obtain a copy of this. Please contact the Electrical Services Department by telephone at: 250-363-3991 or by email to:  <a href="Joe.Lezetc@pwgsc-tpsgc.gc.ca">Joe.Lezetc@pwgsc-tpsgc.gc.ca</a>
+The Esquimalt Graving Dock (EGD) has a new electrical Lockout Policy, Procedures & Records document dated July 18, 2012. As a tenant and/or contractor working at the <abbr title="Esquimalt Graving Dock">EGD</abbr>, it is important that you obtain a copy of this. Please contact the Electrical Services Department by telephone at: 250-363-3991 or by email to:  <a href="mailto:Joe.Lezetc@pwgsc-tpsgc.gc.ca">Joe.Lezetc@pwgsc-tpsgc.gc.ca</a>
 </p>
 
 <h2>Operational Notifications For 2012-2014</h2>

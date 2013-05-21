@@ -10,12 +10,13 @@
 	<cfset language.subjects = language.masterSubjects & "">
 </cfif>
 
-<cfhtmlhead text="
-	<meta name=""dcterms.title"" content=""#language.notices# - #language.bookingForms# - #language.esqGravingDock# - #language.PWGSC#"" />
-	<meta name=""keywords"" content=""#language.keywords#"" />
-	<meta name=""description"" content=""#language.description#"" />
-	<meta name=""dcterms.subject"" content=""#language.subjects#"" />
-	<title>#language.notices# - #language.bookingForms# - #language.esqGravingDock# - #language.PWGSC#</title>">
+<cfsavecontent variable="head">
+	<meta name="dcterms.title" content="#language.notices# - #language.bookingForms# - #language.esqGravingDock# - #language.PWGSC#" />
+	<meta name="keywords" content="#language.keywords#" />
+	<meta name="description" content="#language.description#" />
+	<meta name="dcterms.subject" content="#language.subjects#" />
+	<title>#language.notices# - #language.bookingForms# - #language.esqGravingDock# - #language.PWGSC#</title>"
+</cfsavecontent>
 <cfset request.title = language.notices />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 <cfoutput>

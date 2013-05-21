@@ -139,17 +139,6 @@
 	<title>#language.title# - #language.esqGravingDock# - #language.PWGSC#</title>">
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
-		<p class="breadcrumb">
-			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-			<cfoutput>
-			<a href="#RootDir#ols-login/ols-login.cfm?lang=#lang#">#language.login#</a> &gt; 
-			#language.title#
-			</cfoutput>
-		</p>
-		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-		<div class="colLayout">
-		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
 			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
 			<div class="center">
 				<h1><a name="cont" id="cont">
@@ -168,5 +157,4 @@
 				</cfoutput>
 			</div>
 			<!-- CONTENT ENDS | FIN DU CONTENU -->
-		</div>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
