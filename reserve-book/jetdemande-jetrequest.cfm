@@ -28,7 +28,7 @@
 	<meta name="dcterms.title" content="#language.submitJettyBooking# - #language.esqGravingDock# - #language.PWGSC#" />
 	<meta name="keywords" content="#language.keywords#" />
 	<meta name="description" content="#language.description#" />
-	<meta name="dcterms.subject" scheme="gccore" content="#language.subjects#" />
+	<meta name="dcterms.subject" title="gccore" content="#language.subjects#" />
 	<title>#language.submitJettyBooking# - #language.esqGravingDock# - #language.PWGSC#</title>
 	</cfoutput>
 </cfsavecontent>

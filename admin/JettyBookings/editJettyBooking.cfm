@@ -3,7 +3,7 @@
 	<meta name=""dcterms.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Edit Jetty Booking">
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
-	<meta name="dcterms.subject" scheme="gccore" content="" />
+	<meta name="dcterms.subject" title="gccore" content="" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Edit Jetty Booking</title>
 	<script type="text/javascript">
 		/* <![CDATA[ */

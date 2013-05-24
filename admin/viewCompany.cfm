@@ -20,7 +20,7 @@
 <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
 <link rel="schema.dc" href="http://purl.org/dc/terms/" />
 <meta name="dcterms.title" content="PWGSC - ESQUIMALT GRAVING DOCK - View Company Details">
-<meta name="dcterms.subject" scheme="gccore" content="ship, wharf">
+<meta name="dcterms.subject" title="gccore" content="ship, wharf">
 <meta name="dc.language" scheme="ISO639-2/T" content="eng" />
 <meta name="dc.creator" content="Government of Canada, Public Works and Government Services Canada" />
 <meta name="dc.publisher" content="Government of Canada, Public Works and Government Services Canada" />

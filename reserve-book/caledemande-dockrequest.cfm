@@ -31,7 +31,7 @@
 	<meta name="dcterms.title" content="#language.drydockRequest# - #language.esqGravingDock# - #language.PWGSC#" />
 	<meta name="keywords" content="#language.keywords#" />
 	<meta name="description" content="#language.description#" />
-	<meta name="dcterms.subject" scheme="gccore" content="#language.subjects#" />
+	<meta name="dcterms.subject" title="gccore" content="#language.subjects#" />
 	<title>#language.drydockRequest# - #language.esqGravingDock# - #language.PWGSC#</title>
 </cfsavecontent>
 <cfhtmlhead text="#js#">
