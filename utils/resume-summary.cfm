@@ -32,6 +32,7 @@
 	<meta name=""description"" content=""#language.description#"" />
 	<meta name=""dcterms.subject"" content=""#language.masterSubjects#"" />
 	<title>#language.bookingsSummary# - #language.esqGravingDock# - #language.PWGSC#</title>">
+<cfset request.title = language.bookingsSummary />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfset Variables.Errors = ArrayNew(1)>
@@ -135,16 +136,6 @@ function popUp(pageID) {
 /* ]]> */
 </script>
 <cfoutput>
-		<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
-		<p class="breadcrumb">
-			<cfinclude template="#CLF_Path#/clf20/ssi/bread-pain-#lang#.html"><cfinclude template="#RootDir#includes/bread-pain-#lang#.cfm">&gt;
-      #language.bookingsSummary#
-		</p>
-		<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION -->
-		<div class="colLayout">
-		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
-			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
-			<div class="center">
 				<h1><a name="cont" id="cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
 					#language.bookingsSummary#
@@ -240,10 +231,5 @@ function popUp(pageID) {
             #language.noBookings#
           </p>
 				</cfif>
-								
-			</div>
-
-		<!-- CONTENT ENDS | FIN DU CONTENU -->
-		</div>
 </cfoutput>
 <cfinclude template="#RootDir#includes/foot-pied-#lang#.cfm">
