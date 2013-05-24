@@ -3,6 +3,7 @@
 	<meta name="dcterms.title" content="pwgsc - esquimalt graving dock - Drydock Booking Management">
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
+	<meta name="dcterms.description" content="" />
 	<meta name="dcterms.subject" title="gccore" content="" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Drydock Booking Management</title>
 	<script type="text/javascript">

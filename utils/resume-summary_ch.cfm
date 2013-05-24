@@ -46,6 +46,7 @@
 	<meta name="dcterms.title" content="#language.bookingsSummaryDateSelection# - #language.esqGravingDock# - #language.PWGSC#" />
 	<meta name="keywords" content="#language.masterKeywords#" />
 	<meta name="description" content="#language.description#" />
+	<meta name="dcterms.description" content="#language.description#" />
 	<meta name="dcterms.subject" title="gccore" content="#language.subjects#" />
 	<title>#language.bookingsSummaryDateSelection# - #language.esqGravingDock# - #language.PWGSC#</title>
 </cfsavecontent>

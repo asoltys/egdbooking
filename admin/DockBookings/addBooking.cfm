@@ -3,6 +3,7 @@
 	<meta name="dcterms.title" content="pwgsc - esquimalt graving dock - Add Booking">
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
+	<meta name="dcterms.description" content="" />
 	<meta name="dcterms.subject" title="gccore" content="" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Add Booking</title>
 	<script type="text/javascript">

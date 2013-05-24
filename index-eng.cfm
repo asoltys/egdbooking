@@ -4,7 +4,6 @@
 <meta name="description" content="Introduction page for the booking application" />
 <meta name="dcterms.description" content="Introduction page for the booking application" />
 <meta name="dcterms.title" content="Booking Space at the EGD - Esquimalt Graving Dock - PWGSC" />
-<meta name="dcterms.issued" title="W3CDTF" content="2007-09-20" />
 <meta name="dcterms.subject" title="gccore" content="#language.masterSubjects#" />
 <meta name="keywords" content="Booking Space at the Esquimalt Graving Dock" />
 </cfsavecontent>

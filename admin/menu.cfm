@@ -4,6 +4,7 @@
 <meta name="dcterms.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions" />
 <meta name="keywords" content="" />
 <meta name="description" content="" />
+<meta name="dcterms.description" content="" />
 
 <title>PWGSC - ESQUIMALT GRAVING DOCK - Administrative Functions</title>
 </cfsavecontent>

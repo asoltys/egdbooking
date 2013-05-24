@@ -8,6 +8,7 @@
 <meta name=""dcterms.title" content="PWGSC - ESQUIMALT GRAVING DOCK - Add Maintenance Block">
 <meta name="keywords" content="" />
 <meta name="description" content="" />
+<meta name="dcterms.description" content="" />
 <meta name="dc.date.published" content="2005-07-25" />
 <meta name="dc.date.published" content="2005-07-25" />
 <meta name="dc.date.reviewed" content="2005-07-25" />

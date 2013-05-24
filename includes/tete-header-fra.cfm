@@ -19,6 +19,7 @@ wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Lice
 <meta name="dcterms.creator" content="Gouvernement du Canada, Travaux publics et Services gouvernementaux Canada" />
 <meta name="dcterms.modified" title="W3CDTF" content="#DateFormat(GetFile.DateLastModified, "yyyy-mm-dd")#" />
 <meta name="dcterms.language" title="ISO639-2" content="fra" />
+<meta name="dcterms.issued" title="W3CDTF" content="2007-09-20" />
 <!-- MetadataEnd -->
 <cfinclude template="/boew-wet/wet3.0/html5/includes/tete-head.html" />
 <!-- CustomScriptsCSSStart -->

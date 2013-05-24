@@ -4,7 +4,6 @@
 <meta name="description" content="Reservation pour travaux le Cale seche d'Esquimalt" />
 <meta name="dcterms.description" content="Reservation pour travaux le Cale seche d'Esquimalt" />
 <meta name="dcterms.title" content="R&eacute;servation pour travaux le CSE - Cale s&egrave;che d'Esquimalt - TPSGC" />
-<meta name="dcterms.issued" title="W3CDTF" content="2007-09-20" />
 <meta name="dcterms.subject" title="gccore" content="#language.masterSubjects#" />
 <meta name="keywords" content="cale seche d'Esquimalt, reservation pour travaux, reparation de navires, bateaux, entretien de navires, cale seche, bassin de radoub, chantier naval" />
 </cfsavecontent>

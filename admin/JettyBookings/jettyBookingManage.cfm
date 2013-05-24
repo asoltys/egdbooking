@@ -9,6 +9,7 @@
 	<meta name="dcterms.title" content="pwgsc - esquimalt graving dock - Jetty Booking Management">
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
+	<meta name="dcterms.description" content="" />
 	<meta name="dcterms.subject" title="gccore" content="" />
 	<title>PWGSC - ESQUIMALT GRAVING DOCK - Jetty Booking Management</title>
 	<script type="text/javascript">

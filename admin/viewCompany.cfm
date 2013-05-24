@@ -28,6 +28,7 @@
 <meta name="dcterms.issued" scheme="W3CDTF" content="2007-09-20" />
 <meta name="dcterms.modified" scheme="W3CDTF" content="<cfoutput query="GetFile">#LSDateFormat(parseDateTime(GetFile.DateLastModified,"mm-dd-yyyy"), "yyyy-mm-dd")#</cfoutput>" />
 <meta name="description" content="Allows user to view information on a company.">
+<meta name="dcterms.description" content="Allows user to view information on a company.">
 <meta name="keywords" content="" />
 <meta name="pwgsc.contact.email" content="questions@tpsgc-pwgsc.gc.ca" />
 <!-- METADATA ENDS | FIN DES METADONNEES -->

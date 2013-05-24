@@ -51,6 +51,7 @@
 	<meta name="dcterms.title" content="#language.detailsFor# #myDateFormat(URL.date, request.longdatemask)# - #language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#" />
 	<meta name="keywords" content="#Language.masterKeywords#, #language.bookingDetail#" />
 	<meta name="description" content="#language.description#" />
+	<meta name="dcterms.description" content="#language.description#" />
 	<meta name="dcterms.subject" title="gccore" content="#Language.masterSubjects#" />
 	<title>#language.detailsFor# #myDateFormat(URL.date, request.longdatemask)# - #language.PWGSC# - #language.esqGravingDock# -  #language.bookingDetail#</title>
 </cfsavecontent>
