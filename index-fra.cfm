@@ -11,7 +11,7 @@
 <cfset request.title = language.bookingSpace>
 
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
-<h1>#language.bookingSpace#</h1>
+<h1 id="wb-cont">#language.bookingSpace#</h1>
 
 <div class="span-4">
 <img src="#RootDir#images/EGD_aerial_small.jpg" alt="" width="405" height="342" />

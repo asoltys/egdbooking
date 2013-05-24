@@ -72,11 +72,11 @@
 
   <!-- CONTENT BEGINS | DEBUT DU CONTENU -->
   <div class="center">
-    <h1><a name="cont" id="cont">
+    <h1 id="wb-cont">
       <!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
       #language.DeleteVessel#
       <!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-      </a></h1>
+      </h1>
 
     <CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 

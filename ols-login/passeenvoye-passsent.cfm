@@ -22,7 +22,7 @@
 
 <cfset Variables.onLoad = "javascript:document.forgotForm.email.focus();">
 
-				<h1><cfoutput>#language.title#</cfoutput></h1>
+				<h1 id="wb-cont"><cfoutput>#language.title#</cfoutput></h1>
 				<cfoutput>
 					<cfif IsDefined("Session.Return_Structure")>
 						<cfinclude template="#RootDir#includes/getStructure.cfm">

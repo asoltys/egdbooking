@@ -30,7 +30,7 @@
 <cfset request.title = language.editVessel />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-				<h1>#language.editVessel#</h1>
+				<h1 id="wb-cont">#language.editVessel#</h1>
 
 				<CFIF NOT IsDefined('url.VNID') AND Not IsNumeric('url.VNID')>
 					<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">

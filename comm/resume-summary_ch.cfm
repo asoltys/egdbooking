@@ -56,7 +56,7 @@
 <cfset request.title = language.bookingsSummary />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-				<h1>#language.bookingsSummary#</h1>
+				<h1 id="wb-cont">#language.bookingsSummary#</h1>
 
         <cfparam name="Variables.startDate" default="#PacificNow#">
         <cfparam name="Variables.endDate" default="12/31/2031">

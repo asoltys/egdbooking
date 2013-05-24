@@ -35,7 +35,7 @@
 
 <cfset Variables.onLoad = "javascript:document.forgotForm.email.focus();">
 
-				<h1><cfoutput>#language.forgot#</cfoutput></h1>
+				<h1 id="wb-cont"><cfoutput>#language.forgot#</cfoutput></h1>
 
 				<cfif not error("email") EQ "">
   						<cfset err_email = "form-attention" />

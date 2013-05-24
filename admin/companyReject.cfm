@@ -41,11 +41,11 @@
 		<cfinclude template="#RootDir#includes/left-menu-gauche-#lang#.cfm">
 			<!-- CONTENT BEGINS | DEBUT DU CONTENU -->
 			<div class="center">
-				<h1><a name="cont" id="cont">
+				<h1 id="wb-cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
 					Reject Company
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-					</a></h1>
+					</h1>
 					
 				<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 				

@@ -197,7 +197,7 @@ function EditSubmit ( selectedform )
 </div>
 
 <div class="main">
-<h1>Add Jetty Booking</h1>
+<h1 id="wb-cont">Add Jetty Booking</h1>
 <CFINCLUDE template="#RootDir#includes/admin_menu.cfm">
 <!--- ---------------------------------------------------------------------------------------------------------------- --->
 

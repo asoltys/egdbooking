@@ -63,7 +63,7 @@
 	<title>#language.CancelBooking# ###BRID# - #language.esqGravingDock# - #language.PWGSC#</title>
 ">
 
-				<h1><cfoutput>#language.CancelBooking#</cfoutput></h1>
+				<h1 id="wb-cont"><cfoutput>#language.CancelBooking#</cfoutput></h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 

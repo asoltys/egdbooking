@@ -90,7 +90,7 @@ function EditSubmit ( selectedform )
 	}
 /* ]]> */
 </script>
-				<h1><cfoutput>#language.CreateUser#</cfoutput></h1>
+				<h1 id="wb-cont"><cfoutput>#language.CreateUser#</cfoutput></h1>
 
 				<cfoutput>
 

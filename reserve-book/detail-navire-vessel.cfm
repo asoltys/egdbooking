@@ -82,7 +82,7 @@
 <cfif getVesselDetail.recordCount EQ 0>
 	<cflocation addtoken="no" url="#RootDir#reserve-book/reserve-booking.cfm?lang=#lang#">
 </cfif>
-				<h1>#language.detailsFor# #getVesselDetail.Name#</h1>
+				<h1 id="wb-cont">#language.detailsFor# #getVesselDetail.Name#</h1>
 
 					<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 

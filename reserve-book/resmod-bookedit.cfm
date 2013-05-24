@@ -51,7 +51,7 @@
 			AND Vessels.Deleted = '0'
 </cfquery>
 
-				<h1><cfoutput>#language.title#</cfoutput></h1>
+				<h1 id="wb-cont"><cfoutput>#language.title#</cfoutput></h1>
 
 				<cfinclude template="#RootDir#includes/user_menu.cfm">
 				<!------------------------------------------------------------------------------------------------------------>

@@ -70,7 +70,7 @@
 	<cflocation addtoken="no" url="#RootDir#comm/calend-cale-dock.cfm?lang=#lang#">
 </cfif>
 
-				<h1>#language.DetailsFor# #myDateFormat(URL.date, request.longdatemask)#</h1>
+				<h1 id="wb-cont">#language.DetailsFor# #myDateFormat(URL.date, request.longdatemask)#</h1>
 
 				<cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 					<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">

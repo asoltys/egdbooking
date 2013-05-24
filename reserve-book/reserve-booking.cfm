@@ -32,7 +32,7 @@
 	WHERE UID = <cfqueryparam value="#Session.UID#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfset Session.ReadOnly = readonlycheck.ReadOnly />
-<h1>#language.bookingHome#</h1>
+<h1 id="wb-cont">#language.bookingHome#</h1>
 
 <p>#language.Welcome# #Session.Firstname# #Session.LastName#!</p>
 <cfinclude template="#RootDir#includes/notice.cfm" />

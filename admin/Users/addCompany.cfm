@@ -34,7 +34,7 @@
 </div>
 
 <div class="main">
-<h1>Create New Company</h1>
+<h1 id="wb-cont">Create New Company</h1>
 
 <cfparam name="Variables.name" default="">
 <cfparam name="Variables.abbrev" default="">

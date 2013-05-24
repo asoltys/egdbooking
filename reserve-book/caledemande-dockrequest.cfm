@@ -88,7 +88,7 @@
 	</cfif>
 </cflock>
 
-				<h1>#language.drydockRequest#</h1>
+				<h1 id="wb-cont">#language.drydockRequest#</h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 

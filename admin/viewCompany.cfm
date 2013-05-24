@@ -112,11 +112,11 @@ var params = {
 		<!-- FIP HEADER ENDS | FIN DE L'EN-TETE PCIM -->
 
 		<div class="center" style="margin-left:-10px;">
-				<h1><a name="cont" id="cont">
+				<h1 id="wb-cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
 					<cfoutput>#getCompany.Name# <CFIF IsDefined('getCompany.Approved') AND getCompany.Approved neq '' AND getCompany.Approved>(#getCompany.Abbreviation#)</CFIF></cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-					</a></h1>
+					</h1>
 <table style="width:80%;" border="0" cellpadding="0" cellspacing="0">
 	<tr>
 		<cfoutput><td id="addy1" style="width:30%;" valign="top">#language.address#:</td>

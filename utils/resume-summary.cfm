@@ -136,11 +136,11 @@ function popUp(pageID) {
 /* ]]> */
 </script>
 <cfoutput>
-				<h1><a name="cont" id="cont">
+				<h1 id="wb-cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
 					#language.bookingsSummary#
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-					</a></h1>
+					</h1>
 
 				<h2>#language.Drydock#</h2>
         <cfif getDockBookings.RecordCount neq 0>

@@ -17,7 +17,7 @@
 <cfparam name="Variables.Success.Title" default="">
 <cfparam name="Variables.Success.Message" default="">
 
-				<h1><cfoutput>#Variables.Success.Title#</cfoutput></h1>
+				<h1 id="wb-cont"><cfoutput>#Variables.Success.Title#</cfoutput></h1>
 
 				<div class="content">
 

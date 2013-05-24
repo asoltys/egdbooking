@@ -23,7 +23,7 @@
 <cfset request.title = language.NewBooking />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-				<h1>#language.newBooking#</h1>
+				<h1 id="wb-cont">#language.newBooking#</h1>
 
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">

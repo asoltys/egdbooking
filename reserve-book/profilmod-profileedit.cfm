@@ -118,7 +118,7 @@ function EditSubmit ( selectedform )
 </script>
 <!-- End JavaScript Block -->
 
-				<h1><cfoutput>#language.EditProfile#</cfoutput></h1>
+				<h1 id="wb-cont"><cfoutput>#language.EditProfile#</cfoutput></h1>
 
 		<cfif not error("firstname") EQ "">
             <cfset err_fname = "form-attention" />

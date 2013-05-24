@@ -139,7 +139,7 @@ WHERE	SouthJetty = 1
 	ORDER BY CompanyName
 </cfquery>
 
-      <h1>#language.BookingsSummary#</h1>
+      <h1 id="wb-cont">#language.BookingsSummary#</h1>
 
       <cfif IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
         <cfinclude template="#RootDir#includes/admin_menu.cfm">

@@ -70,7 +70,7 @@
 	</cfif>
 </cflock>
 
-				<h1><cfoutput>#language.submitJettyBooking#</cfoutput></h1>
+				<h1 id="wb-cont"><cfoutput>#language.submitJettyBooking#</cfoutput></h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 

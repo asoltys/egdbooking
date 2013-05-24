@@ -47,11 +47,11 @@ function EditSubmit ( selectedform )
 <!-- End JavaScript Block -->
 
 
-				<h1><a name="cont" id="cont">
+				<h1 id="wb-cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
 					<cfoutput>#language.confirmRem#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-					</a></h1>
+					</h1>
 
 			<cfoutput>
 				<cfif IsDefined("Session.Return_Structure")>

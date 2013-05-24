@@ -25,7 +25,7 @@
 <cfset request.title = language.jettyCalendar>
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-				<h1><cfoutput>#language.jettyCalendar#</cfoutput></h1>
+				<h1 id="wb-cont"><cfoutput>#language.jettyCalendar#</cfoutput></h1>
 
 				<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 					<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">

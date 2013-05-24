@@ -127,7 +127,7 @@
 
 <CFPARAM name="url.date" default="#myDateFormat(getBookingDetail.startDate, 'mm/dd/yyyy')#">
 
-				<h1><cfoutput>#language.bookingDetail#</cfoutput></h1>
+				<h1 id="wb-cont"><cfoutput>#language.bookingDetail#</cfoutput></h1>
 
 				<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 					<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">

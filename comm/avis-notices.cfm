@@ -23,7 +23,7 @@
 <cfoutput>
   <!-- CONTENT BEGINS | DEBUT DU CONTENU -->
   <div class="center">
-    <h1>#language.notices#</h1>
+    <h1 id="wb-cont">#language.notices#</h1>
 
       <cffile action="read" file="#FileDir#intro-#lang#.txt" variable="intromsg">
       <div class="option4">

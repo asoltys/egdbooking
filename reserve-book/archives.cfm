@@ -65,7 +65,7 @@
 </cfquery>
 
 
-				<h1><cfoutput>#language.archivedBookings#</cfoutput></h1>
+				<h1 id="wb-cont"><cfoutput>#language.archivedBookings#</cfoutput></h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 

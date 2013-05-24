@@ -25,11 +25,11 @@
 	<cfset request.title = language.drydockCalendar />
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
-				<h1><a name="cont" id="cont">
+				<h1 id="wb-cont">
 					<!-- CONTENT TITLE BEGINS | DEBUT DU TITRE DU CONTENU -->
 					<cfoutput>#language.drydockCalendar#</cfoutput>
 					<!-- CONTENT TITLE ENDS | FIN DU TITRE DU CONTENU -->
-					</a></h1>
+					</h1>
 
 				<CFIF IsDefined('Session.AdminLoggedIn') AND Session.AdminLoggedIn eq true>
 					<CFINCLUDE template="#RootDir#includes/admin_menu.cfm">

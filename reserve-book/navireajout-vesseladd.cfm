@@ -54,7 +54,7 @@
 <cfparam name="err_ton" default="">
 
 
-				<h1>#language.AddVessel#</h1>
+				<h1 id="wb-cont">#language.AddVessel#</h1>
 
 				<cfinclude template="#RootDir#includes/user_menu.cfm">
 

@@ -28,7 +28,7 @@
 <cfinclude template="#RootDir#includes/tete-header-#lang#.cfm">
 
 <cfoutput>
-				<h1>#language.RequestBooking#</h1>
+				<h1 id="wb-cont">#language.RequestBooking#</h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 

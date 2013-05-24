@@ -64,7 +64,7 @@
 			AND Vessels.Deleted = '0'
 </cfquery>
 
-				<h1><cfoutput>#language.ConfirmBooking#</cfoutput></h1>
+				<h1 id="wb-cont"><cfoutput>#language.ConfirmBooking#</cfoutput></h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 				<cfoutput>

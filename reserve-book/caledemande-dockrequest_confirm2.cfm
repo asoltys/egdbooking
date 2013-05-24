@@ -194,7 +194,7 @@
  	<cflocation url="#RootDir#reserve-book/caledemande-dockrequest.cfm?lang=#lang#" addtoken="no">
 </cfif>
 
-				<h1><cfoutput>#language.NewBooking#</cfoutput></h1>
+				<h1 id="wb-cont"><cfoutput>#language.NewBooking#</cfoutput></h1>
 
 				<CFINCLUDE template="#RootDir#includes/user_menu.cfm">
 
