@@ -9,11 +9,18 @@
   </div>
 
   <div class="span-2 module-related">
-    <h3>What's New</h3>
-      <ul>
-        <li><a title="EGD: Capital Projects" href="#EGD_URL#/env/projects-projets-eng.html">Upcoming capital projects impacting operations for the Esquimalt Graving Dock</a></li>
-                  <li><a title="EGD Regulations" href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-eng.html">Regulations amending the Esquimalt Graving Dock regulations.</a></li>
-      </ul>
+    <h2>What's New</h2>
+    <ul>
+      <li>
+        <a href="http://www.tpsgc-pwgsc.gc.ca/pac/cse-egd/env/projects-projets-eng.html">Esquimalt Graving Dock Waterlot - Sediment Remediation Project</a>
+      </li>
+      <li>
+        <a href="http://www.tpsgc-pwgsc.gc.ca/pac/cse-egd/avis-notices-eng.html">New Electrical Lockout, Policy, Procedures &amp; Records</a>
+      </li>
+      <li>
+        <a href="http://gazette.gc.ca/rp-pr/p2/2009/2009-12-23/html/sor-dors324-eng.html">Regulations amending the Esquimalt Graving Dock regulations.</a>
+      </li>
+    </ul>
   </div>
 </div>
 </cfoutput>
