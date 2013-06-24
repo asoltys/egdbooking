@@ -1,4 +1,4 @@
-<!---<cfcomponent>
+<cfcomponent>
 	<cfset this.name = "EGD Booking" />
 	<cfset this.sessionmanagement = true />
 	<cfset this.sessiontimeout = CreateTimeSpan(2,0,0,0) />
@@ -53,8 +53,9 @@
       <cfset structClear(session['errors']) />
     </cfif>
   </cffunction>
-</cfcomponent> --->
+</cfcomponent>
 
+<!---
 <cfcomponent>
 <cfset this.name = "EGD Booking" />
 <cfset this.sessionmanagement = true />
@@ -91,3 +92,4 @@ Session.EMail = Trim(GetUser.EMail);
 
   </cffunction>
 </cfcomponent>
+!--->
